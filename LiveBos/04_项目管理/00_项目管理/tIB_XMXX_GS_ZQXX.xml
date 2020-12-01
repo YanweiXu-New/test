@@ -1020,7 +1020,7 @@ ZXPJ!=9  </invisible-expression>
         </column>
         <column>
             <name>FXJE</name>
-            <describe>发行规模(万元)</describe>
+            <describe>本期计划发行规模(万元)</describe>
             <type>1</type>
             <biz-type>200</biz-type>
             <length>16</length>
@@ -1044,10 +1044,32 @@ ZXPJ!=9  </invisible-expression>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <comment/>
+            <comment>名称由发行规模改为本期计划发行规模</comment>
             <validation/>
             <scope-permissions/>
             <properties/>
+        </column>
+        <column>
+            <name>WSJHYEBXBL</name>
+            <describe>我司计划余额包销比例（%）</describe>
+            <type>1</type>
+            <biz-type>200</biz-type>
+            <length>5</length>
+            <scale>2</scale>
+            <control>1</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
         </column>
         <column>
             <name>DQYE</name>
@@ -1079,6 +1101,26 @@ ZXPJ!=9  </invisible-expression>
             <validation/>
             <scope-permissions/>
             <properties/>
+        </column>
+        <column>
+            <name>BZ</name>
+            <describe>备注</describe>
+            <type>0</type>
+            <biz-type>100</biz-type>
+            <length>300</length>
+            <scale>0</scale>
+            <control>1</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
         </column>
         <column>
             <name>FWSCXGM</name>
@@ -6317,7 +6359,7 @@ ZXPJ!=9  </invisible-expression>
                 </column>
                 <column>
                     <name>FXJE</name>
-                    <describe>发行规模(万元)</describe>
+                    <describe>本期计划发行规模(万元)</describe>
                     <type>8</type>
                     <biz-type>200</biz-type>
                     <length>16</length>
@@ -6341,12 +6383,54 @@ ZXPJ!=9  </invisible-expression>
                     <fire-event>0</fire-event>
                     <check-type>0</check-type>
                     <real-type>1</real-type>
-                    <comment/>
+                    <comment>该字段名称由发行规模改为本期计划发行规模</comment>
                     <validation/>
                     <scope-permissions/>
                     <properties>
                         <ctrl-width>293</ctrl-width>
                     </properties>
+                </column>
+                <column>
+                    <name>WSJHYEBXBL</name>
+                    <describe>我司计划余额包销比例（%）</describe>
+                    <type>8</type>
+                    <biz-type>200</biz-type>
+                    <length>5</length>
+                    <scale>2</scale>
+                    <control>1</control>
+                    <primary-property>0</primary-property>
+                    <nullable>true</nullable>
+                    <unique>false</unique>
+                    <enabled>true</enabled>
+                    <visible>true</visible>
+                    <option/>
+                    <ref-object/>
+                    <attribute>0</attribute>
+                    <order-direction>0</order-direction>
+                    <category/>
+                    <fire-event>0</fire-event>
+                    <check-type>0</check-type>
+                    <real-type>1</real-type>
+                </column>
+                <column>
+                    <name>BZ</name>
+                    <describe>备注</describe>
+                    <type>8</type>
+                    <biz-type>100</biz-type>
+                    <length>300</length>
+                    <scale>0</scale>
+                    <control>1</control>
+                    <primary-property>0</primary-property>
+                    <nullable>true</nullable>
+                    <unique>false</unique>
+                    <enabled>true</enabled>
+                    <visible>true</visible>
+                    <attribute>0</attribute>
+                    <order-direction>0</order-direction>
+                    <category/>
+                    <fire-event>0</fire-event>
+                    <check-type>0</check-type>
+                    <real-type>0</real-type>
                 </column>
                 <column>
                     <name>FWSCXGM</name>

@@ -137,6 +137,37 @@
             <properties/>
         </column>
         <column>
+            <name>ZQMC</name>
+            <describe>债券全称</describe>
+            <type>8</type>
+            <biz-type>100</biz-type>
+            <length>200</length>
+            <scale>0</scale>
+            <control>1</control>
+            <primary-property>0</primary-property>
+            <nullable>false</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>2</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>监管信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+            <properties/>
+        </column>
+        <column>
             <name>XMLX</name>
             <describe>项目类型</describe>
             <type>8</type>
@@ -190,6 +221,49 @@
             <real-type>0</real-type>
             <validation/>
             <properties/>
+        </column>
+        <column>
+            <name>XMQY</name>
+            <describe>项目区域</describe>
+            <type>8</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>2</control>
+            <primary-property>0</primary-property>
+            <nullable>false</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option>$D{XMQY}</option>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category>监管信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>7</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>QYMC</name>
+            <describe>区域名称</describe>
+            <type>8</type>
+            <biz-type>100</biz-type>
+            <length>500</length>
+            <scale>0</scale>
+            <control>1</control>
+            <primary-property>0</primary-property>
+            <nullable>false</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category>监管信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
         </column>
         <column>
             <name>FXRQ</name>
@@ -561,49 +635,6 @@ JYCS.indexOf('99')&lt;0  </invisible-expression>
             <properties/>
         </column>
         <column>
-            <name>XMQY</name>
-            <describe>项目区域</describe>
-            <type>8</type>
-            <biz-type>400</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>2</control>
-            <primary-property>0</primary-property>
-            <nullable>false</nullable>
-            <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
-            <option>$D{XMQY}</option>
-            <ref-object/>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <category>监管信息</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>7</real-type>
-            <properties/>
-        </column>
-        <column>
-            <name>QYMC</name>
-            <describe>区域名称</describe>
-            <type>8</type>
-            <biz-type>100</biz-type>
-            <length>500</length>
-            <scale>0</scale>
-            <control>1</control>
-            <primary-property>0</primary-property>
-            <nullable>false</nullable>
-            <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <category>监管信息</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-        </column>
-        <column>
             <name>ID</name>
             <describe>ID</describe>
             <type>8</type>
@@ -629,37 +660,6 @@ JYCS.indexOf('99')&lt;0  </invisible-expression>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>1</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-            <properties/>
-        </column>
-        <column>
-            <name>ZQMC</name>
-            <describe>债券全称</describe>
-            <type>8</type>
-            <biz-type>100</biz-type>
-            <length>200</length>
-            <scale>0</scale>
-            <control>1</control>
-            <primary-property>0</primary-property>
-            <nullable>false</nullable>
-            <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
-            <option/>
-            <meta-column/>
-            <ref-object/>
-            <default/>
-            <attribute>2</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category/>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
@@ -1365,6 +1365,48 @@ ZXZXPJ!=9  </invisible-expression>
             <validation/>
             <scope-permissions/>
             <properties/>
+        </column>
+        <column>
+            <name>WSJHYEBXBL</name>
+            <describe>我司计划余额包销比例（%）</describe>
+            <type>8</type>
+            <biz-type>200</biz-type>
+            <length>5</length>
+            <scale>2</scale>
+            <control>1</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>1</real-type>
+        </column>
+        <column>
+            <name>BZ</name>
+            <describe>备注</describe>
+            <type>8</type>
+            <biz-type>100</biz-type>
+            <length>300</length>
+            <scale>0</scale>
+            <control>1</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
         </column>
         <column>
             <name>FXPL</name>

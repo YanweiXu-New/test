@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="gb2312"?>
+<!DOCTYPE workflow PUBLIC "-//Apexsoft LiveBos//DTD Workflow 2.8//EN" "http://www.livebos.com/workflow/workflow_2_8_abs.dtd"><workflow>
+  <meta name="workflow.category">固收类-待办</meta>
+  <meta name="Designer">Studio</meta>
+  <meta name="created">2017-07-28 14:34:57</meta>
+  <meta name="workflow.terminate.disabled">true</meta>
+  <meta name="modify">2017-10-29 03:23:39</meta>
+  <meta name="Describe">系统提醒</meta>
+  <meta name="WorkflowName">wfIB_GS_XTTX</meta>
+  <meta name="workflow.attribute">0</meta>
+  <meta name="WorkflowType">2</meta>
+  <meta name="version"></meta>
+  <object  name="lcIB_GS_XTTX" editAttribute="0" >
+  </object>
+  <initial-actions>
+    <action id="0" name="开始">
+      <meta name="NodeType">0</meta>
+      <results>
+        <unconditional-result id="2" old-status="完成" status="待处理" step="5">
+        </unconditional-result>
+      </results>
+    </action>
+  </initial-actions>
+  <steps>
+    <step id="1" name="结束">
+      <meta name="finish">true</meta>
+      <meta name="NodeType">1</meta>
+      <pre-functions>
+        <function id="0" name="abs.ExecSQL" type="class">
+          <arg name="SQL">[&quot;CALL ecif.pro_IB_WFFinish_GS(?,?,'lcIB_GS_XTTX',{0},{1})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+          <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+          <arg name="datasource">ECIF</arg>
+        </function>
+      </pre-functions>
+    </step>
+    <step id="5" name="负责人确认">
+      <meta name="NodeType">2</meta>
+      <object  name="lcIB_GS_XTTX" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBT" disabled="true" hidden="false" summary="false">
+          </column>
+        </columns>
+      </object>
+      <notify >
+      </notify>
+      <actions>
+        <action id="6" name="确认">
+          <meta name="IconCls">default</meta>
+          <meta name="NodeType">5</meta>
+          <results>
+            <result id="64" old-status="完成" status="待处理" step="62">
+              <conditions>
+                <condition id="0" name="abs.FormExpOfStepCondition" type="class">
+                  <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+//目前不需要负责人确认
+ABS_NULLSUB(O_WORKFLOW.TDFZR,0)&gt;0&amp;&amp;1==2</arg>
+                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
+                  <arg name="Table">lcIB_GS_XTTX</arg>
+                </condition>
+              </conditions>
+            </result>
+            <unconditional-result id="61" old-status="完成" status="待处理" step="1">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+    <step id="62" name="团队负责人审核" owner="$DG{7.lcIB_GS_XTTX.TDFZR}">
+      <meta name="NodeType">16</meta>
+      <meta name="approve.mode">true</meta>
+      <object  name="lcIB_GS_XTTX" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="CFLCID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="TDFZR" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQR" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQBM" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="GWZW" disabled="true" hidden="false" summary="false">
+          </column>
+        </columns>
+      </object>
+      <notify >
+      </notify>
+      <actions>
+        <action id="63" name="审核通过">
+          <meta name="NodeType">17</meta>
+          <meta name="approve.action">true</meta>
+          <results>
+            <unconditional-result id="65" old-status="完成" status="待处理" step="1">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+  </steps>
+</workflow>

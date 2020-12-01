@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_NHLCB_DZBGCZ_ZKBSHYJ2_UI" object="lcIB_NHLCB_DZBGCZ" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>质控部审核意见2界面事件</describe>
+  <variables />
+  <sequence id="0" name="顺序">
+    <invoke component="FormUI" id="0" name="界面处理_刷新字段可选项" operation="resetOption">
+      <describe>界面处理_刷新字段可选项</describe>
+      <arg flag="field" name="ZKBSHYJ2" type="">true</arg>
+    </invoke>
+    <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+      <describe>界面处理_更新值</describe>
+      <arg flag="field" name="ZKBECSHYJ" type="expression">null</arg>
+    </invoke>
+    <invoke component="expression" id="0" name="执行脚本">
+      <describe>执行脚本</describe>
+      <arg name="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+var bean = ABS_LOADBEAN('com.apex.bss.mod.ibb.systemdocking.apexsoft.livebosbean.SyncAmsReportFiles');&#xD;
+var result = bean.perform($Login.User.UserID, O_MASTER.ZKBSHYJ2);&#xD;
+true;</arg>
+    </invoke>
+    <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+      <describe>界面处理_更新值</describe>
+      <arg flag="field" name="ZKBECSHYJ" type="expression">O_MASTER.ZKBSHYJ2.FJ</arg>
+    </invoke>
+  </sequence>
+</process>
+

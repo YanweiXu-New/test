@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_XYSP_XMMC_UI" object="lcIB_XYSP" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目名称界面事件</describe>
+  <variables />
+  <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+    <describe>界面处理_更新值</describe>
+    <arg flag="field" name="XMLX" type="expression">O_MASTER.XMMC.XMLX</arg>
+    <arg flag="field" name="XMFZR" type="expression">O_MASTER.XMMC.XMFZR</arg>
+    <arg flag="field" name="BJDBR" type="expression">O_MASTER.XMMC.QZBJDBR</arg>
+    <arg flag="field" name="XMZCY" type="expression">O_MASTER.XMMC.QTCY</arg>
+    <arg flag="field" name="QYRQ" type="expression">O_MASTER.XMMC.QYRQ</arg>
+    <arg flag="field" name="PWRQ" type="expression">O_MASTER.XMMC.PWRQ</arg>
+    <arg flag="field" name="XYZJE" type="expression">O_MASTER.XMMC.XYJE</arg>
+    <arg flag="field" name="XMJBQK" type="expression">O_MASTER.XMMC.XMJBQK</arg>
+    <arg flag="field" name="XMJBQK_T" type="expression">O_MASTER.XMMC.XMJBQK</arg>
+    <arg flag="field" name="ZKBZS" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_IF(ABS_NULLSUB(O_MASTER.XMMC.ECZKBSHRYZS,0)!=0,O_MASTER.XMMC.ECZKBSHRYZS,O_MASTER.XMMC.ZKBSHRYZS)</arg>
+  </invoke>
+</process>
+

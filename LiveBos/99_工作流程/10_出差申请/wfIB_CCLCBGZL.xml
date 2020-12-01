@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="gb2312"?>
+<!DOCTYPE workflow PUBLIC "-//Apexsoft LiveBos//DTD Workflow 2.8//EN" "http://www.livebos.com/workflow/workflow_2_8_abs.dtd"><workflow>
+  <meta name="workflow.category">权益类_08_其他</meta>
+  <meta name="Designer">Studio</meta>
+  <meta name="created">2017-05-19 14:27:58</meta>
+  <meta name="modify">2020-08-27 16:57:04</meta>
+  <meta name="workflow.allow.intervene">false</meta>
+  <meta name="Describe">出差流程</meta>
+  <meta name="WorkflowName">wfIB_CCLCBGZL</meta>
+  <meta name="WorkflowType">2</meta>
+  <meta name="version"></meta>
+  <object  name="lcIB_CCLCB" editAttribute="0" >
+  </object>
+  <initial-actions>
+    <action id="0" name="开始">
+      <meta name="NodeType">0</meta>
+      <results>
+        <unconditional-result id="2" old-status="完成" status="待处理" step="3">
+        </unconditional-result>
+      </results>
+    </action>
+  </initial-actions>
+  <steps>
+    <step id="1" name="结束">
+      <meta name="finish">true</meta>
+      <meta name="NodeType">1</meta>
+      <pre-functions>
+        <function id="0" name="abs.ExecSQL" type="class">
+          <arg name="SQL">[&quot;DECLARE\r\n    V_NMESSAGEID INTEGER;\r\nBEGIN\r\n    --插入消息表\r\n    SELECT JGCRM.S_LBWFNOTIFYMSG.NEXTVAL INTO V_NMESSAGEID FROM DUAL;\r\n    INSERT INTO JGCRM.LBWFNOTIFYMSG\r\n        (ID, INSTANCEID, STEPID, EXTACTID, MESSAGE, CREATETIME, RID, SUGGESTION)\r\n        SELECT V_NMESSAGEID,\r\n               ID,\r\n               1 STEPID,\r\n               -1 EXTACTID,\r\n               (SELECT '出差审批知会：' ||NAME||'_'||TO_CHAR(INIT_DATE,'YYYY-MM-DD')||'_'|| SUBJECT FROM JGCRM.TUSER WHERE ID = INITIATOR) AS MESSAGE,\r\n               SYSDATE,\r\n               NULL RID,\r\n               NULL SUGGESTION\r\n          FROM JGCRM.OS_WFENTRY\r\n         WHERE ID = {0};\r\n    --插入消息通知表\r\n    INSERT INTO JGCRM.LBWFNOTIFY\r\n        (ID, OWNER, MESSAGEID, READED, READTIME, RID, SUGGESTION)\r\n        SELECT JGCRM.S_LBWFNOTIFY.NEXTVAL, K.*\r\n          FROM (SELECT USERID, V_NMESSAGEID, 0, NULL READTIME, NULL RID, NULL SUGGESTION\r\n                  FROM JGCRM.LBMEMBER WHERE (ORGID = JGCRM.Func_IB_GetBmtop({1}) OR ORGID = {1}) AND ROLEID = 6) K;\r\nEND;&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.InstID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.SQBM&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+          <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+        </function>
+      </pre-functions>
+    </step>
+    <step id="3" name="出差审批申请" owner="$D{RTS}">
+      <meta name="NodeType">2</meta>
+      <object  name="lcIB_CCLCB" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="OLDBH" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="GWBT" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="SFXMCC" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="XGXM" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="SFQTXM" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="QTXMMC" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="XMJD" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="KSSJ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="JSSJ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="SFXX" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="CCTS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="CCDD" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="CCLY" disabled="false" hidden="false" summary="false">
+          </column>
+        </columns>
+      </object>
+      <notify >
+      </notify>
+      <actions>
+        <action id="4" name="提交">
+          <meta name="NodeType">5</meta>
+          <pre-functions>
+            <function id="0" name="lb.Assert" type="class">
+              <arg name="assert.1">&lt;%@ livebos language='javascript' %&gt;
+(((ABS_NULLSUB(O_WORKFLOW.XGXM,0)!=0&amp;&amp;ABS_NULLSUB(O_WORKFLOW.SFQTXM,0)==0)||ABS_NULLSUB(O_WORKFLOW.SFQTXM,0)==1)&amp;&amp;O_WORKFLOW.SFXMCC==0)||O_WORKFLOW.SFXMCC==1</arg>
+              <arg name="class.name">com.apex.livebos.workflow.function.AssertFunction</arg>
+              <arg name="message.1">'请选择相关项目!'</arg>
+            </function>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="SQL">[&quot;update ecif.lcIB_CCLCB set lcbh=ecif.func_ib_getlcbh where id={0}&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <result id="19" old-status="完成" status="待处理" step="16" display-name="事业部后台部门/领导提交">
+              <conditions type="OR">
+                <condition id="0" name="abs.FormExpOfStepCondition" type="class">
+                  <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBMEMBER WHERE USERID=? AND ORGID=JGCRM.Func_IB_GetBmtop(?)  AND ORGID != 13929 AND ROLEID=3&quot;,[O_WORKFLOW.SQR,O_WORKFLOW.SQBM])&gt;0
+</arg>
+                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
+                  <arg name="Table">lcIB_CCLCB</arg>
+                </condition>
+                <condition id="0" name="abs.FormExpOfStepCondition" type="class">
+                  <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+O_WORKFLOW.SQBM == (ABS_SQLVALUE(&quot;SELECT id  FROM JGCRM.LBORGANIZATION where name = '协同创新部' START WITH id  =10015 CONNECT BY PRIOR ID = FID&quot;))</arg>
+                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
+                  <arg name="Table">lcIB_CCLCB</arg>
+                </condition>
+                <condition id="0" name="abs.FormExpOfStepCondition" type="class">
+                  <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+O_WORKFLOW.SQBM == (ABS_SQLVALUE(&quot;SELECT id  FROM JGCRM.LBORGANIZATION where name = '合规团队' START WITH id  =10015 CONNECT BY PRIOR ID = FID&quot;))</arg>
+                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
+                  <arg name="Table">lcIB_CCLCB</arg>
+                </condition>
+                <condition id="0" name="abs.FormExpOfStepCondition" type="class">
+                  <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+O_WORKFLOW.SQBM == (ABS_SQLVALUE(&quot;SELECT id  FROM JGCRM.LBORGANIZATION where name = '综合运营部' START WITH id  =10015 CONNECT BY PRIOR ID = FID&quot;))</arg>
+                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
+                  <arg name="Table">lcIB_CCLCB</arg>
+                </condition>
+                <condition id="0" name="abs.FormExpOfStepCondition" type="class">
+                  <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+O_WORKFLOW.SQBM == (ABS_SQLVALUE(&quot;SELECT id  FROM JGCRM.LBORGANIZATION where name = '业务督导部' START WITH id  =10015 CONNECT BY PRIOR ID = FID&quot;))</arg>
+                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
+                  <arg name="Table">lcIB_CCLCB</arg>
+                </condition>
+                <condition id="0" name="abs.FormExpOfStepCondition" type="class">
+                  <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBMEMBER WHERE USERID=? AND ORGID=? AND ORGID IN (SELECT ID FROM JGCRM.LBORGANIZATION WHERE FID = 10015) AND ROLEID=3&quot;,[O_WORKFLOW.SQR,O_WORKFLOW.SQBM])&gt;0
+</arg>
+                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
+                  <arg name="Table">lcIB_CCLCB</arg>
+                </condition>
+              </conditions>
+            </result>
+            <unconditional-result id="5" old-status="完成" status="待处理" step="6">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+    <step id="6" name="部门总经理审批">
+      <meta name="step.reject.mode">prev</meta>
+      <meta name="NodeType">16</meta>
+      <meta name="step.allow.reject">true</meta>
+      <meta name="approve.mode">true</meta>
+      <object  name="lcIB_CCLCB" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="OLDBH" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="GWBT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SFXMCC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XGXM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SFQTXM" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="QTXMMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMJD" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="KSSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="JSSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SFXX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="CCTS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="CCDD" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="CCLY" disabled="true" hidden="false" summary="false">
+          </column>
+        </columns>
+      </object>
+      <dynOwners>
+        <dynOwner  type="0" describe="动态用户" >
+          <expression><![CDATA[
+["tUser.ID IN (\r\n      CASE WHEN {0} IN (SELECT ID FROM JGCRM.LBORGANIZATION START WITH ID = 13831 CONNECT BY PRIOR ID = FID)\r\n        THEN (select userid from lbmember where orgid=13831 and roleid=3 and rownum = 1)\r\n        WHEN {0} IN (SELECT ID FROM JGCRM.LBORGANIZATION START WITH ID = 10016 CONNECT BY PRIOR ID = FID)\r\n        THEN (select userid from lbmember where orgid=10016 and roleid=3 and rownum = 1)\r\n           ELSE (select userid from lbmember where orgid= {0} and roleid=3 and rownum = 1)\r\n            END\r\n  )",[{"expression":"$Login.User.OrgID","scale":0,"length":0,"type":1}]]]]></expression>
+          </dynOwner>
+              </dynOwners>
+      <notify >
+        <message><![CDATA[
+]]></message>
+              </notify>
+      <actions>
+        <action id="14" name="审批通过">
+          <meta name="NodeType">17</meta>
+          <meta name="approve.action">true</meta>
+          <results>
+            <unconditional-result id="20" old-status="完成" status="待处理" step="1">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+    <step id="16" name="投资银行事业部总经理审批">
+      <meta name="step.reject.mode">prev</meta>
+      <meta name="NodeType">16</meta>
+      <meta name="step.allow.reject">true</meta>
+      <meta name="approve.mode">true</meta>
+      <object  name="lcIB_CCLCB" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="OLDBH" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="GWBT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SFXMCC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XGXM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SFQTXM" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="QTXMMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMJD" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="KSSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="JSSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SFXX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="CCTS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="CCDD" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="CCLY" disabled="true" hidden="false" summary="false">
+          </column>
+        </columns>
+      </object>
+      <dynOwners>
+        <dynOwner  type="1" describe="动态用户" >
+          <expression><![CDATA[
+{"name":"DYNOWNER_TXGLZBZJL","parameters":{}}]]></expression>
+          </dynOwner>
+              </dynOwners>
+      <notify >
+      </notify>
+      <actions>
+        <action id="17" name="审批通过">
+          <meta name="NodeType">17</meta>
+          <meta name="approve.action">true</meta>
+          <results>
+            <unconditional-result id="18" old-status="完成" status="待处理" step="1">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+  </steps>
+</workflow>

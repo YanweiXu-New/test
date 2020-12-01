@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="lcIB_GS_NHLC_SHXXHZ" name="lcIB_GS_NHLC_SHXXHZ" object="lcIB_GS_NHLC" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>内核流程-审核信息汇总流程</describe>
+  <variables>
+    <variable describe="V_OBJ" messageType="" name="V_OBJ" type="resultSet" />
+    <variable describe="V_NH" instanceType="lcIB_GS_NHLC" messageType="" name="V_NH" type="object" />
+    <variable describe="V_SHXX" instanceType="lcIB_GS_NHLC_ZKBSHYJHZ" messageType="" name="V_SHXX" type="object" />
+    <variable describe="V_1" instanceType="lcIB_GS_NHLC" messageType="" name="V_1" type="object" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <if id="0">
+      <describe>判断</describe>
+      <conditions>
+        <condition name="判断审核系统是否开启" type="expression">
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.system'") == 1</arg>
+        </condition>
+      </conditions>
+      <sequence id="0" name="顺序">
+        <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
+          <describe>数据库组件_SQL查询</describe>
+          <arg name="TranType">sql</arg>
+          <arg name="datasource">ECIF</arg>
+          <arg name="SQL">["select ID from ecif.lcIB_GS_NHLC where id = {0}",[{"expression":"O_MASTER.ID","scale":"","length":"","type":"1"}]]</arg>
+          <arg name="@retResultSet" type="output">V_OBJ</arg>
+          <arg name="@retValue" type="output">V_OBJ</arg>
+        </invoke>
+        <while id="0">
+          <describe>循环</describe>
+          <conditions>
+            <condition name="" type="expression">
+              <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+V_OBJ.next()!=0</arg>
+            </condition>
+          </conditions>
+          <sequence id="0" name="顺序">
+            <invoke component="FormSetOperate" id="0" name="批量对象组件_查找" operation="find">
+              <describe>批量查找对象[内核流程]</describe>
+              <arg name="@objectName">lcIB_GS_NHLC</arg>
+              <arg name="@object" type="variable">O_MASTER</arg>
+              <arg name="@ID" type="expression">V_OBJ.getString("ID")</arg>
+              <arg name="@retObject" type="output">V_NH</arg>
+            </invoke>
+            <if id="0">
+              <describe>判断</describe>
+              <conditions>
+                <condition name="" type="expression">
+                  <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+V_NH.ZKBSFYYJ == 1</arg>
+                </condition>
+              </conditions>
+              <sequence id="0" name="顺序">
+                <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+                  <describe>删除多余意见</describe>
+                  <arg name="TranType">sql</arg>
+                  <arg name="datasource">ECIF</arg>
+                  <arg name="SQL">["begin\r\n delete from ecif.lcIB_GS_NHLC_ZKBSHYJHZ where lcIB_GS_NHLC_ID = {0} and lc = {1};\r\n commit;\r\nend;",[{"expression":"V_NH.ID","scale":"","length":"","type":"1"},{"expression":"V_NH.LC","scale":"","length":"","type":"1"}]]</arg>
+                </invoke>
+                <invoke component="FormOperate" id="0" name="对象组件_新增" operation="insert">
+                  <describe>新增对象[质控部审核意见汇总]</describe>
+                  <arg name="@objectName">lcIB_GS_NHLC_ZKBSHYJHZ</arg>
+                  <arg flag="field" name="LC" type="expression">V_NH.LC</arg>
+                  <arg flag="field" name="ZKBSHYJ" type="expression">V_NH.SHYJ</arg>
+                  <arg flag="field" name="ZKBDGYJ" type="expression">V_NH.DGYJ</arg>
+                  <arg flag="field" name="ZKBQTYJ" type="expression">V_NH.QTYJ</arg>
+                  <arg name="@retObject" type="output">V_SHXX</arg>
+                </invoke>
+                <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+                  <describe>数据库组件_执行SQL语句</describe>
+                  <arg name="TranType">sql</arg>
+                  <arg name="datasource">ECIF</arg>
+                  <arg name="SQL">["begin\r\n update ecif.lcIB_GS_NHLC_ZKBSHYJHZ set lcIB_GS_NHLC_ID = {0} where id = {1};\r\n commit;\r\nend;",[{"expression":"O_MASTER.ID","scale":"","length":"","type":"1"},{"expression":"V_SHXX.ID","scale":"","length":"","type":"1"}]]</arg>
+                </invoke>
+              </sequence>
+            </if>
+          </sequence>
+        </while>
+        <invoke component="FormSetOperate" id="0" name="批量对象组件_查找" operation="find">
+          <describe>批量查找对象[内核流程]</describe>
+          <arg name="@objectName">lcIB_GS_NHLC</arg>
+          <arg name="@object" type="variable">O_MASTER</arg>
+          <arg name="@condition">["1=2",[]]</arg>
+          <arg name="@retObject" type="output">V_1</arg>
+        </invoke>
+        <invoke component="FormOperate" id="0" name="对象组件_修改" operation="update">
+          <describe>修改对象[内核流程]</describe>
+          <arg name="@objectName">lcIB_GS_NHLC</arg>
+          <arg name="@object" type="variable">O_MASTER</arg>
+          <arg flag="field" name="SHYJ" type="expression">V_1.SHYJ</arg>
+          <arg flag="field" name="DGYJ" type="expression">V_1.DGYJ</arg>
+          <arg flag="field" name="QTYJ" type="expression">V_1.QTYJ</arg>
+          <arg flag="field" name="ZKZYSHYJ" type="expression">null</arg>
+          <arg flag="field" name="ZKBDGYJ" type="expression">null</arg>
+          <arg flag="field" name="QTSHYJ1" type="expression">null</arg>
+        </invoke>
+        <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+          <describe>更新表单</describe>
+          <arg name="TranType">sql</arg>
+          <arg name="datasource">ECIF</arg>
+          <arg name="SQL">["begin\r\n  update ecif.lcIB_GS_NHLC \r\n  set ZKZYSHYJ = null,SHYJ = null,\r\n      ZKBDGYJ = null, DGYJ = null,\r\n      QTSHYJ1 = null, QTYJ = null\r\n  where id = {0} and 1= 2;\r\n  commit;\r\nend;",[{"expression":" O_MASTER.ID","scale":"","length":"","type":"1"}]]</arg>
+        </invoke>
+      </sequence>
+    </if>
+  </sequence>
+</process>
+

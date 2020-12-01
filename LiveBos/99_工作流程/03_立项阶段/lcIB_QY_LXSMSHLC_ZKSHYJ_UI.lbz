@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_QY_LXSMSHLC_ZKSHYJ_UI" object="lcIB_QY_LXSMSHLC" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>质控审核意见界面事件</describe>
+  <variables />
+  <sequence id="0" name="顺序">
+    <if id="0">
+      <describe>判断</describe>
+      <conditions>
+        <condition name="" type="expression">
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+O_MASTER.ZKSHYJ==2</arg>
+        </condition>
+      </conditions>
+      <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+        <describe>数据库组件_执行SQL语句</describe>
+        <arg name="TranType">procedure</arg>
+        <arg name="SQL">["CALL ECIF.PRO_IB_XMRZZK(?,?,{0},{1},1)",[{"expression":"O_MASTER.XMMC.ID","scale":"","length":"","type":"1"},{"expression":"O_MASTER.InstID","scale":"","length":"","type":"1"}]]</arg>
+      </invoke>
+    </if>
+  </sequence>
+</process>
+

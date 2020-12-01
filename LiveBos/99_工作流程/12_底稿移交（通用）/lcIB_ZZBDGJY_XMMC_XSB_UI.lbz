@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_ZZBDGJY_XMMC_XSB_UI" object="lcIB_ZZBDGJY" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目名称（新三板）界面事件</describe>
+  <variables />
+  <sequence id="0" name="顺序">
+    <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+      <describe>界面处理_更新值</describe>
+      <arg flag="field" name="XMLX" type="expression">''</arg>
+      <arg flag="field" name="XMFZR" type="expression">''</arg>
+    </invoke>
+    <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+      <describe>界面处理_更新值</describe>
+      <arg flag="field" name="XMLX" type="expression">O_MASTER.XMMC_XSB.XMMC.XMLX</arg>
+      <arg flag="field" name="XMFZR" type="expression">O_MASTER.XMMC_XSB.XMFZR</arg>
+      <arg flag="field" name="XMMC" type="expression">O_MASTER.XMMC_XSB.XMMC</arg>
+    </invoke>
+  </sequence>
+</process>
+

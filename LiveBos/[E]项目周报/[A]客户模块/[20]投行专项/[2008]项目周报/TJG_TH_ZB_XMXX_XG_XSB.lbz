@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="TJG_TH_ZB_XMXX_XG_XSB" name="TJG_TH_ZB_XMXX_XG_XSB" object="TJG_TH_ZB_XMXX" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目信息-修改新三板项目流程</describe>
+  <variables>
+    <variable describe="V_RET" messageType="" name="V_RET" type="int" />
+    <variable describe="V_MSG" messageType="" name="V_MSG" type="string" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <invoke component="FormOperate" id="0" name="对象组件_修改" operation="update">
+      <describe>修改对象[项目信息]</describe>
+      <arg name="@objectName">TJG_TH_ZB_XMXX</arg>
+      <arg name="@object" type="variable">O_MASTER</arg>
+      <arg flag="field" name="XMLX" type="expression">O_PARAMETER.XMLX</arg>
+      <arg flag="field" name="XMJD" type="expression">O_PARAMETER.XMJD</arg>
+      <arg flag="field" name="XMMC" type="expression">O_PARAMETER.XMMC</arg>
+      <arg flag="field" name="HY" type="expression">O_PARAMETER.HY</arg>
+      <arg flag="field" name="DQ" type="expression">O_PARAMETER.DQ</arg>
+      <arg flag="field" name="YJSR" type="expression">O_PARAMETER.YJSR</arg>
+      <arg flag="field" name="GB" type="expression">O_PARAMETER.GB</arg>
+      <arg flag="field" name="XMZSR" type="expression">O_PARAMETER.XMZSR</arg>
+      <arg flag="field" name="ZFJE" type="expression">O_PARAMETER.ZFJE</arg>
+      <arg flag="field" name="XMJZQK" type="expression">O_PARAMETER.XMJZQK</arg>
+      <arg flag="field" name="QYRQ" type="expression">O_PARAMETER.QYRQ</arg>
+      <arg flag="field" name="TGNHRQ" type="expression">O_PARAMETER.TGNHRQ</arg>
+      <arg flag="field" name="SBRQ" type="expression">O_PARAMETER.SBRQ</arg>
+      <arg flag="field" name="GPRQ" type="expression">O_PARAMETER.GPRQ</arg>
+      <arg flag="field" name="LTRQ" type="expression">O_PARAMETER.LTRQ</arg>
+      <arg flag="field" name="LXR" type="expression">O_PARAMETER.LXR</arg>
+    </invoke>
+    <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+      <describe>业务处理</describe>
+      <arg name="TranType">procedure</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="SQL">["CALL PRO_TH_XMXX_F(:ret,:msg,{0},1,{1})",[{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"O_MASTER.ID","scale":"","length":"","type":"1"}]]</arg>
+      <arg name="ret" type="output">V_RET</arg>
+      <arg name="msg" type="output">V_MSG</arg>
+    </invoke>
+    <response exit="false" id="0">
+      <describe>输出</describe>
+      <retvalue type="variable">V_RET</retvalue>
+      <message type="variable">V_MSG</message>
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
+  </sequence>
+</process>
+

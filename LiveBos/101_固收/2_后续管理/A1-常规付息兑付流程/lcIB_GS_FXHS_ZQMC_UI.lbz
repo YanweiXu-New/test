@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_GS_FXHS_ZQMC_UI" object="lcIB_GS_FXHS" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>所属债券界面事件</describe>
+  <variables />
+  <sequence id="0" name="顺序">
+    <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+      <describe>界面处理_更新值</describe>
+      <arg flag="field" name="XMMC" type="expression">O_MASTER.ZQMC.XMMC_GS</arg>
+      <arg flag="field" name="XMLX" type="expression">O_MASTER.ZQMC.XMMC.XMLX</arg>
+      <arg flag="field" name="SFHX" type="expression">O_MASTER.ZQMC.SFHX</arg>
+      <arg flag="field" name="FXRMC" type="expression">O_MASTER.ZQMC.FXRMC</arg>
+      <arg flag="field" name="QYXZ" type="expression">O_MASTER.ZQMC.QYXZ</arg>
+      <arg flag="field" name="FXFS" type="expression">O_MASTER.ZQMC.FXFS</arg>
+      <arg flag="field" name="ZXCS" type="expression">O_MASTER.ZQMC.ZXCS</arg>
+      <arg flag="field" name="SFSSGS" type="expression">O_MASTER.ZQMC.SFSSGS</arg>
+      <arg flag="field" name="JYCS" type="expression">O_MASTER.ZQMC.JYCS</arg>
+      <arg flag="field" name="FXRSSZJJ" type="expression">O_MASTER.ZQMC.FXRSSZJJ</arg>
+      <arg flag="field" name="FXED" type="expression">O_MASTER.ZQMC.FXJE</arg>
+      <arg flag="field" name="LJJE" type="expression">O_MASTER.ZQMC.LJJE</arg>
+      <arg flag="field" name="SYJE" type="expression">O_MASTER.ZQMC.SYJE</arg>
+      <arg flag="field" name="XMLX_EJ" type="expression">O_MASTER.ZQMC.XMMC.XMLX_EJ</arg>
+      <arg flag="field" name="QTJYSC" type="expression">O_MASTER.ZQMC.QTJYSC</arg>
+      <arg flag="field" name="ZKSBZS" type="expression">O_MASTER.ZQMC.ZKRY_ZS</arg>
+      <arg flag="field" name="ZKSBFS" type="expression">O_MASTER.ZQMC.ZKRY_FS</arg>
+      <arg flag="field" name="XMMC_FXQ" type="expression">O_MASTER.ZQMC.XMMC_FXQ</arg>
+      <arg flag="field" name="PMLL" type="expression">O_MASTER.ZQMC.PMLL</arg>
+      <arg flag="field" name="SFHJGXG" type="expression">O_MASTER.ZQMC.SFHJGXG</arg>
+      <arg flag="field" name="XGTKSM" type="expression">O_MASTER.ZQMC.XGTKSM</arg>
+    </invoke>
+    <invoke component="FormUI" id="0" name="界面处理_刷新字段可选项" operation="resetOption">
+      <describe>界面处理_刷新字段可选项</describe>
+      <arg flag="field" name="DYYWPC" type="">true</arg>
+    </invoke>
+  </sequence>
+</process>
+

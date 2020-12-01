@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_GS_LXSMSHLC_CWBGJSRQ_UI" object="lcIB_GS_LXSMSHLC" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>财务报告期结束日期界面事件</describe>
+  <variables>
+    <variable describe="V_CWSJ" messageType="" name="V_CWSJ" type="resultSet" />
+  </variables>
+  <if id="0">
+    <describe>判断开始结束日期均为非空</describe>
+    <conditions>
+      <condition name="" type="expression">
+        <arg name="expression">ABS_NULLSUB(O_MASTER.CWBGKSRQ,0)&gt;0&amp;&amp;ABS_NULLSUB(O_MASTER.CWBGJSRQ,0)&gt;0</arg>
+      </condition>
+    </conditions>
+    <sequence id="0" name="顺序">
+      <if id="0">
+        <describe>判断财务周期是否正常</describe>
+        <conditions>
+          <condition name="" type="expression">
+            <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_NULLSUB(O_MASTER.CWBGKSRQ,0)&gt;=ABS_NULLSUB(O_MASTER.CWBGJSRQ,0)</arg>
+          </condition>
+        </conditions>
+        <response exit="true" id="0">
+          <describe>输出</describe>
+          <retvalue type="">-91</retvalue>
+          <message>'财务报告开始日期需小于结束日期'</message>
+          <uiforward redirect="false">
+            <url />
+          </uiforward>
+        </response>
+      </if>
+      <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
+        <describe>数据库组件_SQL查询</describe>
+        <arg name="TranType">sql</arg>
+        <arg name="SQL">["WITH T AS (SELECT MAX(ID) AS ID FROM ECIF.TIB_NFXX WHERE ID &lt;= SUBSTR({1}, 1, 6)\r\n  UNION ALL SELECT ID FROM ECIF.TIB_NFXX WHERE SUBSTR(ID, 5, 2) = 12 \r\n            AND ID &gt;= TO_NUMBER(SUBSTR({0}, 1, 4) || 12) AND ID &lt; TO_NUMBER(SUBSTR({1}, 1, 4) || 12))\r\nSELECT DISTINCT ID FROM T ORDER BY T.ID DESC",[{"expression":"O_MASTER.CWBGKSRQ","scale":"","length":"","type":"13"},{"expression":"O_MASTER.CWBGJSRQ","scale":"","length":"","type":"13"}]]</arg>
+        <arg name="@retResultSet" type="output">V_CWSJ</arg>
+        <arg name="datasource">ECIF</arg>
+      </invoke>
+      <invoke component="FormUIHypotOperate" id="0" name="表格操作_添加结果集数据" operation="insertByResult">
+        <describe>表格添加结果集数据[立项书面审核流程]</describe>
+        <arg name="@objectName">lcIB_GS_LXSMSHLC</arg>
+        <arg name="@object" type="variable">O_MASTER</arg>
+        <arg name="@columnName">CWSJ</arg>
+        <arg name="@resultSet" type="variable">V_CWSJ</arg>
+        <arg name="@clearRowsets">true</arg>
+        <arg flag="field" name="NFXX">ID</arg>
+      </invoke>
+    </sequence>
+  </if>
+</process>
+

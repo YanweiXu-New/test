@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="vIBKYDM_M" name="vIBKYDM_M" object="vIBKYDM" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>可用代码-新增流程</describe>
+  <variables>
+    <variable describe="V_1" messageType="output" name="V_1" type="int" />
+    <variable describe="V_2" messageType="output" name="V_2" type="string" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+      <describe>数据库组件_执行SQL语句</describe>
+      <arg name="TranType">procedure</arg>
+      <arg name="V_1" type="output">V_1</arg>
+      <arg name="V_2" type="output">V_2</arg>
+      <arg name="SQL">["CALL ECIF.PRO_CHECK_XMMC(:V_1,:V_2,{0})",[{"expression":"O_PARAMETER.DMMC","scale":"","length":"","type":"0"}]]</arg>
+      <arg name="datasource">ECIF</arg>
+    </invoke>
+    <invoke component="FormOperate" id="0" name="对象组件_新增" operation="insert">
+      <describe>新增对象[代码分配]</describe>
+      <arg name="@objectName">tIB_DMFP</arg>
+      <arg flag="field" name="ZT" type="expression">1</arg>
+      <arg flag="field" name="DMMC" type="expression">O_PARAMETER.DMMC</arg>
+      <arg flag="field" name="DMLX" type="expression">O_PARAMETER.DMLX</arg>
+      <arg flag="field" name="XGR" type="expression">O_PARAMETER.XGR</arg>
+      <arg flag="field" name="XGSJ" type="expression">O_PARAMETER.XGSJ</arg>
+      <arg flag="field" name="ZS" type="expression">0</arg>
+      <arg name="@retObject" type="output">O_MASTER</arg>
+    </invoke>
+    <response exit="false" id="0">
+      <describe>输出</describe>
+      <retvalue type="variable">V_1</retvalue>
+      <message type="variable">V_2</message>
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
+  </sequence>
+</process>
+

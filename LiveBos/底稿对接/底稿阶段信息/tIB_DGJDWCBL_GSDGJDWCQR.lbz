@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="2" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_DGJDWCBL_GSDGJDWCQR" name="tIB_DGJDWCBL_GSDGJDWCQR" object="tIB_DGJDWCBL" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>底稿阶段完成比例-固收底稿阶段完成确认流程</describe>
+  <variables>
+    <variable describe="V_CODE" messageType="" name="V_CODE" type="int" />
+    <variable describe="V_NOTE" messageType="" name="V_NOTE" type="string" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+      <describe>数据库组件_执行SQL语句</describe>
+      <arg name="TranType">procedure</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="SQL">["call ECIF.PRO_IB_DGJDWCQR(:code,:note,{0},{1},{2},{3},{4},{5},{6},'','',{7},{8},{9},{10},{11},{12},{13})",[{"expression":"O_PARAMETER.I_XMID","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.I_XMFL","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.I_JDID","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.I_WCBL","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.I_WCRQ","scale":"","length":"","type":"13"},{"expression":"O_PARAMETER.I_CX","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.I_FKRQ","scale":"","length":"","type":"13"},{"expression":"O_PARAMETER.I_MBJDID","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.I_ZQJC","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.I_ZQQX","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.I_ND","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.I_XMMC","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.I_TXNR","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.I_FLAG","scale":"","length":"","type":"1"}]]</arg>
+      <arg name="code" type="output">V_CODE</arg>
+      <arg name="note" type="output">V_NOTE</arg>
+    </invoke>
+    <response exit="false" id="0">
+      <describe>输出</describe>
+      <retvalue type="expression">V_CODE</retvalue>
+      <message type="expression">V_NOTE</message>
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
+  </sequence>
+</process>
+

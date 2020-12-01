@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="2" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_JGXXDJ_YGXX" name="tIB_JGXXDJ_YGXX" object="tIB_JGXXDJ" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>监管信息对接-员工信息对接流程</describe>
+  <variables>
+    <variable describe="V_code" messageType="" name="V_code" type="int" />
+    <variable describe="V_note" messageType="" name="V_note" type="string" />
+  </variables>
+  <sequence id="0">
+    <invoke component="SQL" id="0" operation="execute">
+      <describe>数据库组件-执行SQL语句</describe>
+      <meta name="FUNCTION">true</meta>
+      <arg name="TranType">procedure</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="SQL">["call ECIF.PRO_IB_JGDJ_YGXX(:code,:note,{0},{1},{2},{3},{4},{5},{6},{7},{8},{9})",[{"expression":"O_PARAMETER.I_USERID","length":"","scale":"","type":"0"},{"expression":"O_PARAMETER.I_NAME","length":"","scale":"","type":"0"},{"expression":"O_PARAMETER.I_ZJLX","length":"","scale":"","type":"0"},{"expression":"O_PARAMETER.I_ZJMC","length":"","scale":"","type":"0"},{"expression":"O_PARAMETER.I_ZJHM","length":"","scale":"","type":"0"},{"expression":"O_PARAMETER.I_SJ","length":"","scale":"","type":"0"},{"expression":"O_PARAMETER.I_ZW","length":"","scale":"","type":"0"},{"expression":"O_PARAMETER.I_BM","length":"","scale":"","type":"0"},{"expression":"O_PARAMETER.I_SFBS","length":"","scale":"","type":"1"},{"expression":"O_PARAMETER.I_BSSJ","length":"","scale":"","type":"0"}]]</arg>
+      <arg name="code" type="output">V_code</arg>
+      <arg name="note" type="output">V_note</arg>
+    </invoke>
+    <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+      <describe>数据库组件_执行SQL语句</describe>
+      <arg name="TranType">procedure</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="SQL">["call ecif.PRO_IB_JGDJ_RZJL(?,?,{0},1,{1},{2},{3})",[{"expression":"$Login.User","length":"","scale":"","type":"1"},{"expression":"O_PARAMETER.I_USERID","length":"","scale":"","type":"0"},{"expression":"V_code","length":"","scale":"","type":"1"},{"expression":"V_note","length":"","scale":"","type":"0"}]]</arg>
+    </invoke>
+    <response exit="false" id="0" name="response">
+      <describe>输出</describe>
+      <retvalue type="variable">V_code</retvalue>
+      <message type="variable">V_note</message>
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
+  </sequence>
+</process>
+

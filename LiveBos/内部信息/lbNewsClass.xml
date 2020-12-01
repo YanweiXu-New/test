@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="GB2312"?>
+<object name="lbNewsClass" type="0" object-id="b7212bf:123eec4c647:-8000" version="V1.1" modify-date="2009.12.14 17:44:03" create-date="2009.09.25 09:15:56" creator="开发者" modifier="开发者1" flag="1" package="内部信息">
+  <describe>新闻类别</describe>
+  <comment />
+  <datasource-name />
+  <parent />
+  <parent-method />
+  <attribute>268435712</attribute>
+  <templet>NewsClass</templet>
+  <columns>
+    <column>
+      <name>ID</name>
+      <describe>ID</describe>
+      <comment />
+      <biz-type>200</biz-type>
+      <type>1</type>
+      <length>16</length>
+      <scale>0</scale>
+      <control>0</control>
+      <primary-property>2</primary-property>
+      <nullable>true</nullable>
+      <enabled>true</enabled>
+      <visible>true</visible>
+      <option />
+      <meta-column />
+      <ref-object />
+      <default />
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <invisible-expression />
+      <disable-expression />
+      <category />
+      <fire-event>0</fire-event>
+      <check-type>0</check-type>
+      <validation />
+      <constraint />
+      <scope-permissions />
+      <properties />
+    </column>
+    <column>
+      <name>ClassName</name>
+      <describe>分类名称</describe>
+      <comment />
+      <biz-type>100</biz-type>
+      <type>0</type>
+      <length>200</length>
+      <scale>0</scale>
+      <control>1</control>
+      <primary-property>0</primary-property>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <enabled>true</enabled>
+      <visible>true</visible>
+      <option />
+      <meta-column />
+      <ref-object />
+      <default />
+      <real-type>0</real-type>
+      <attribute>2</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <invisible-expression />
+      <disable-expression />
+      <category />
+      <fire-event>0</fire-event>
+      <check-type>0</check-type>
+      <validation />
+      <constraint />
+      <scope-permissions />
+      <properties />
+    </column>
+    <column>
+      <name>ClassOrder</name>
+      <describe>分类排序</describe>
+      <comment />
+      <biz-type>200</biz-type>
+      <type>1</type>
+      <length>12</length>
+      <scale>0</scale>
+      <control>0</control>
+      <primary-property>6</primary-property>
+      <nullable>false</nullable>
+      <unique>false</unique>
+      <enabled>true</enabled>
+      <visible>true</visible>
+      <option />
+      <meta-column />
+      <ref-object />
+      <default />
+      <real-type>0</real-type>
+      <attribute>1</attribute>
+      <order-direction>0</order-direction>
+      <expression>ABS_SERIALNO("lbNewsClass")</expression>
+      <invisible-expression />
+      <disable-expression />
+      <category />
+      <fire-event>0</fire-event>
+      <check-type>0</check-type>
+      <validation />
+      <constraint />
+      <scope-permissions />
+      <properties />
+    </column>
+    <column>
+      <name>IsShowHome</name>
+      <describe>是否在首页显示</describe>
+      <comment />
+      <biz-type>402</biz-type>
+      <type>20</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>4</control>
+      <primary-property>0</primary-property>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <enabled>true</enabled>
+      <visible>true</visible>
+      <option />
+      <meta-column />
+      <ref-object />
+      <default>true</default>
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <invisible-expression />
+      <disable-expression />
+      <category />
+      <fire-event>0</fire-event>
+      <check-type>0</check-type>
+      <validation />
+      <constraint />
+      <scope-permissions />
+      <properties />
+    </column>
+    <column>
+      <name>IsAnonymous</name>
+      <describe>是否允许匿名发布</describe>
+      <comment />
+      <biz-type>402</biz-type>
+      <type>20</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>4</control>
+      <primary-property>0</primary-property>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <enabled>true</enabled>
+      <visible>true</visible>
+      <option />
+      <meta-column />
+      <ref-object />
+      <default>false</default>
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <invisible-expression />
+      <disable-expression />
+      <category />
+      <fire-event>0</fire-event>
+      <check-type>0</check-type>
+      <validation />
+      <constraint />
+      <scope-permissions />
+      <properties />
+    </column>
+    <column>
+      <name>IsComment</name>
+      <describe>是否允许评论</describe>
+      <comment />
+      <biz-type>402</biz-type>
+      <type>20</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>4</control>
+      <primary-property>0</primary-property>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <enabled>true</enabled>
+      <visible>true</visible>
+      <option />
+      <meta-column />
+      <ref-object />
+      <default>true</default>
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <invisible-expression />
+      <disable-expression />
+      <category />
+      <fire-event>0</fire-event>
+      <check-type>0</check-type>
+      <validation />
+      <constraint />
+      <scope-permissions />
+      <properties />
+    </column>
+    <column>
+      <name>IsAnonymousComment</name>
+      <describe>是否允许匿名评论</describe>
+      <comment />
+      <biz-type>402</biz-type>
+      <type>20</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>4</control>
+      <primary-property>0</primary-property>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <enabled>true</enabled>
+      <visible>true</visible>
+      <option />
+      <meta-column />
+      <ref-object />
+      <default>false</default>
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <invisible-expression />
+      <disable-expression />
+      <category />
+      <fire-event>0</fire-event>
+      <check-type>0</check-type>
+      <validation />
+      <constraint />
+      <scope-permissions />
+      <properties />
+    </column>
+  </columns>
+  <display-options>
+    <commands>
+      <command type="2">
+        <describe>查看</describe>
+        <define>
+          <item>lbNewsClass</item>
+          <item>View</item>
+        </define>
+        <produce-mark />
+        <is-default>0</is-default>
+        <attribute>0</attribute>
+        <icon-cls />
+        <tip />
+      </command>
+      <command type="2">
+        <describe>新增</describe>
+        <define>
+          <item>lbNewsClass</item>
+          <item>Add</item>
+        </define>
+        <produce-mark />
+        <is-default>0</is-default>
+        <attribute>0</attribute>
+        <icon-cls />
+        <tip />
+      </command>
+      <command type="2">
+        <describe>修改</describe>
+        <define>
+          <item>lbNewsClass</item>
+          <item>Update</item>
+        </define>
+        <produce-mark />
+        <is-default>0</is-default>
+        <attribute>0</attribute>
+        <icon-cls />
+        <tip />
+      </command>
+      <command type="2">
+        <describe>删除</describe>
+        <define>
+          <item>lbNewsClass</item>
+          <item>Delete</item>
+        </define>
+        <produce-mark />
+        <is-default>0</is-default>
+        <attribute>0</attribute>
+        <icon-cls />
+        <tip />
+      </command>
+    </commands>
+    <relations />
+  </display-options>
+  <subdivisions />
+  <methods />
+  <properties>
+    <property>
+      <name>112</name>
+      <value>false</value>
+    </property>
+    <property>
+      <name>113</name>
+      <value>false</value>
+    </property>
+  </properties>
+  <orders />
+  <ui-logics>
+    <events />
+  </ui-logics>
+  <panels />
+  <extend-buttons />
+  <parameter-extend-buttons />
+</object>
+

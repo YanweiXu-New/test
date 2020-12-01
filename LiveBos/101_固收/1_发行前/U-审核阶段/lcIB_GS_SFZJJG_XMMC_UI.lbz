@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_GS_SFZJJG_XMMC_UI" object="lcIB_GS_SFZJJG" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目名称界面事件</describe>
+  <variables />
+  <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+    <describe>界面处理_更新值</describe>
+    <arg flag="field" name="ZKSBZS" type="expression">O_MASTER.XMMC.ZKSBZS</arg>
+    <arg flag="field" name="ZKSBFS" type="expression">O_MASTER.XMMC.ZKSBFS</arg>
+    <arg flag="field" name="SSKH" type="expression">O_MASTER.XMMC.XMMC.SSKH</arg>
+    <arg flag="field" name="XMLX" type="expression">O_MASTER.XMMC.XMMC.XMLX</arg>
+    <arg flag="field" name="LXSJ" type="expression">O_MASTER.XMMC.XMMC.LXRQ</arg>
+    <arg flag="field" name="NHBZS" type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+ABS_SQLVALUE("select t1.NHZY_ZS from ECIF.lcIB_GS_NHLC t1 inner join jgcrm.os_wfentry t2 on t2.id=t1.instid  where t2.state=4 and t1.XMMC=? and rownum = 1 order by t1.instid desc",[O_MASTER.XMMC])</arg>
+  </invoke>
+</process>
+

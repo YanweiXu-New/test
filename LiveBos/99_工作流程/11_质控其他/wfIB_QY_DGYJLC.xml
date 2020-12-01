@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="gb2312"?>
+<!DOCTYPE workflow PUBLIC "-//Apexsoft LiveBos//DTD Workflow 2.8//EN" "http://www.livebos.com/workflow/workflow_2_8_abs.dtd"><workflow>
+  <meta name="workflow.category"></meta>
+  <meta name="Designer">Studio</meta>
+  <meta name="created">2018-01-30 15:13:19</meta>
+  <meta name="modify">2020-09-08 15:01:36</meta>
+  <meta name="Describe">底稿移交流程</meta>
+  <meta name="WorkflowName">wfIB_QY_DGYJLC</meta>
+  <meta name="WorkflowType">2</meta>
+  <meta name="version"></meta>
+  <object  name="lcIB_QY_DGYJLC" editAttribute="0" >
+  </object>
+  <initial-actions>
+    <action id="90" name="开始">
+      <meta name="NodeType">0</meta>
+      <results>
+        <unconditional-result id="107" old-status="完成" status="待处理" step="93">
+        </unconditional-result>
+      </results>
+    </action>
+  </initial-actions>
+  <steps>
+    <step id="91" name="结束">
+      <meta name="finish">true</meta>
+      <meta name="NodeType">1</meta>
+    </step>
+    <step id="93" name="底稿移交申请">
+      <meta name="NodeType">2</meta>
+      <object  name="lcIB_QY_DGYJLC" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMMC" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="XMLX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMJD" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="QZBJDBR" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="XMZCY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="NHZKBSHY_ZS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="NHZKBSHY_FS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="DGCS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="YYYJRQ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="DGXS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="DGBH" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="BMZKYJ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="ZKYJ" disabled="false" hidden="true" summary="false">
+          </column>
+        </columns>
+      </object>
+      <notify >
+      </notify>
+      <actions>
+        <action id="94" name="提交审批">
+          <meta name="NodeType">5</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="SQL">[&quot;update ecif.lcIB_CCLCB set lcbh=ecif.func_ib_getlcbh where id={0}&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <unconditional-result id="108" old-status="完成" status="待处理" step="95">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+    <step id="95" name="保荐代表人审批" owner="$AM{2},$DG{7.lcIB_QY_DGYJLC.QZBJDBR}">
+      <meta name="NodeType">16</meta>
+      <meta name="approve.invisible.steps">93</meta>
+      <meta name="approve.mode">true</meta>
+      <object  name="lcIB_QY_DGYJLC" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="GWBT" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="XMMC" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="XMLX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMJD" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="QZBJDBR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMZCY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="NHZKBSHY_ZS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="NHZKBSHY_FS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="DGCS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="YYYJRQ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="DGXS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="DGBH" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="BMZKYJ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="ZKYJ" disabled="false" hidden="true" summary="false">
+          </column>
+        </columns>
+      </object>
+      <notify >
+      </notify>
+      <actions>
+        <action id="96" name="提交">
+          <meta name="NodeType">17</meta>
+          <meta name="approve.action">true</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcIB_QY_DGYJLC',-1,{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="datasource">ECIF</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <unconditional-result id="109" old-status="完成" status="待处理" step="97">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+    <step id="97" name="部门质控专员审批">
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
+      <meta name="step.allow.reject">true</meta>
+      <meta name="approve.mode">true</meta>
+      <object  name="lcIB_QY_DGYJLC" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMLX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMJD" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="QZBJDBR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMZCY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="NHZKBSHY_ZS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="NHZKBSHY_FS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="DGCS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="YYYJRQ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="DGXS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="DGBH" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="BMZKYJ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="ZKYJ" disabled="false" hidden="true" summary="false">
+          </column>
+        </columns>
+      </object>
+      <dynOwners>
+        <dynOwner  type="1" describe="动态用户" >
+          <expression><![CDATA[
+{"name":"DW_BMZKZY","parameters":{"pBM":"O_WORKFLOW.XMMC.SSBM"}}]]></expression>
+          </dynOwner>
+              </dynOwners>
+      <notify >
+      </notify>
+      <actions>
+        <action id="98" name="审批通过">
+          <meta name="NodeType">17</meta>
+          <meta name="approve.action">true</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcIB_QY_DGYJLC',-1,{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="datasource">ECIF</arg>
+            </function>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="SQL">[&quot;call ecif.pro_IB_SetWFZkzy(?,?,{0},'lcIB_QY_DGYJLC',{1},{2},1)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <unconditional-result id="110" old-status="完成" status="待处理" step="99">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+    <step id="99" name="部门总经理审批">
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
+      <meta name="step.allow.reject">true</meta>
+      <meta name="approve.mode">true</meta>
+      <object  name="lcIB_QY_DGYJLC" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMLX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMJD" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="QZBJDBR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMZCY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="NHZKBSHY_ZS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="NHZKBSHY_FS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="DGCS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="YYYJRQ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="DGXS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="DGBH" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="BMZKYJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZKYJ" disabled="false" hidden="true" summary="false">
+          </column>
+        </columns>
+      </object>
+      <dynOwners>
+        <dynOwner  type="1" describe="动态用户" >
+          <expression><![CDATA[
+{"name":"DW_BMZJL","parameters":{"pBM":"O_WORKFLOW.XMMC.SSBM"}}]]></expression>
+          </dynOwner>
+              </dynOwners>
+      <notify >
+      </notify>
+      <actions>
+        <action id="100" name="审批通过">
+          <meta name="NodeType">17</meta>
+          <meta name="approve.action">true</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcIB_QY_DGYJLC',-1,{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="datasource">ECIF</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <unconditional-result id="111" old-status="完成" status="待处理" step="101">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+    <step id="101" name="质控部审核员审批" owner="$AM{4},$DG{7.lcIB_QY_DGYJLC.NHZKBSHY_ZS},$DG{7.lcIB_QY_DGYJLC.NHZKBSHY_FS}">
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
+      <meta name="step.allow.reject">true</meta>
+      <meta name="approve.mode">true</meta>
+      <object  name="lcIB_QY_DGYJLC" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMLX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMJD" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="QZBJDBR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMZCY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="NHZKBSHY_ZS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="NHZKBSHY_FS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="DGCS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="YYYJRQ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="DGXS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="DGBH" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="BMZKYJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZKYJ" disabled="false" hidden="false" summary="false">
+          </column>
+        </columns>
+      </object>
+      <notify >
+      </notify>
+      <actions>
+        <action id="102" name="审批通过">
+          <meta name="NodeType">17</meta>
+          <meta name="approve.action">true</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcIB_QY_DGYJLC',-1,{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="datasource">ECIF</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <unconditional-result id="112" old-status="完成" status="待处理" step="103">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+    <step id="103" name="质控一部总经理审批">
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
+      <meta name="step.allow.reject">true</meta>
+      <meta name="approve.mode">true</meta>
+      <object  name="lcIB_QY_DGYJLC" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMLX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMJD" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="QZBJDBR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMZCY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="NHZKBSHY_ZS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="NHZKBSHY_FS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="DGCS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="YYYJRQ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="DGXS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="DGBH" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="BMZKYJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZKYJ" disabled="true" hidden="false" summary="false">
+          </column>
+        </columns>
+      </object>
+      <dynOwners>
+        <dynOwner  type="1" describe="动态用户" >
+          <expression><![CDATA[
+{"name":"DYNOWNER_QYZKYBZJL","parameters":{}}]]></expression>
+          </dynOwner>
+              </dynOwners>
+      <notify >
+      </notify>
+      <actions>
+        <action id="104" name="审批通过">
+          <meta name="NodeType">17</meta>
+          <meta name="approve.action">true</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcIB_QY_DGYJLC',-1,{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="datasource">ECIF</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <unconditional-result id="113" old-status="完成" status="待处理" step="105">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+    <step id="105" name="质控主审审批" owner="$DG{7.lcIB_QY_DGYJLC.NHZKBSHY_ZS}">
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
+      <meta name="step.allow.reject">true</meta>
+      <meta name="approve.mode">true</meta>
+      <object  name="lcIB_QY_DGYJLC" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMLX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMJD" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="QZBJDBR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMZCY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="NHZKBSHY_ZS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="NHZKBSHY_FS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="DGCS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="YYYJRQ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="DGXS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="DGBH" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="BMZKYJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZKYJ" disabled="true" hidden="false" summary="false">
+          </column>
+        </columns>
+      </object>
+      <notify >
+      </notify>
+      <actions>
+        <action id="106" name="提交查阅">
+          <meta name="NodeType">17</meta>
+          <meta name="approve.action">true</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcIB_QY_DGYJLC',-1,{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="datasource">ECIF</arg>
+            </function>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="SQL">[&quot;call ecif.PRO_IB_SENDWFNOTIFY(?,?,{0},{1},1)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.InstID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.NHZKBSHY_FS&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="datasource">ECIF</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <unconditional-result id="114" old-status="完成" status="待处理" step="91">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+  </steps>
+</workflow>

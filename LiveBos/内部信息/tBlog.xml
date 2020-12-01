@@ -1,0 +1,738 @@
+<?xml version="1.0" encoding="GB2312"?>
+<object name="tBlog" type="0" object-id="0ccdb65ed19035d392cef9c1d26db41a" version="V1.1" modify-date="2010.01.15 16:17:14" create-date="2007.11.20 09:00:00" creator="livebos" modifier="开发者1" flag="1" package="内部信息">
+  <describe>新闻动态信息</describe>
+  <comment />
+  <datasource-name />
+  <parent />
+  <parent-method />
+  <attribute>16778281</attribute>
+  <templet>News</templet>
+  <columns>
+    <column>
+      <name>ID</name>
+      <describe>ID</describe>
+      <comment />
+      <biz-type>200</biz-type>
+      <type>1</type>
+      <length>12</length>
+      <scale>0</scale>
+      <control>0</control>
+      <primary-property>2</primary-property>
+      <nullable>false</nullable>
+      <enabled>true</enabled>
+      <visible>true</visible>
+      <option />
+      <meta-column />
+      <ref-object />
+      <default />
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <invisible-expression />
+      <disable-expression />
+      <category />
+      <fire-event>0</fire-event>
+      <check-type>0</check-type>
+      <validation />
+      <constraint />
+      <scope-permissions />
+      <properties />
+    </column>
+    <column>
+      <name>Title</name>
+      <describe>标题</describe>
+      <comment />
+      <biz-type>100</biz-type>
+      <type>0</type>
+      <length>120</length>
+      <scale>0</scale>
+      <control>1</control>
+      <primary-property>1</primary-property>
+      <nullable>false</nullable>
+      <unique>true</unique>
+      <enabled>true</enabled>
+      <visible>true</visible>
+      <option />
+      <meta-column />
+      <ref-object />
+      <default />
+      <real-type>0</real-type>
+      <attribute>2</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <invisible-expression />
+      <disable-expression />
+      <category />
+      <fire-event>0</fire-event>
+      <check-type>0</check-type>
+      <validation />
+      <constraint />
+      <scope-permissions />
+      <properties />
+    </column>
+    <column>
+      <name>Category</name>
+      <describe>新闻类别</describe>
+      <comment />
+      <biz-type>500</biz-type>
+      <type>6</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>2</control>
+      <primary-property>0</primary-property>
+      <nullable>false</nullable>
+      <unique>true</unique>
+      <enabled>true</enabled>
+      <visible>true</visible>
+      <option />
+      <meta-column />
+      <ref-object>lbNewsClass</ref-object>
+      <default>1</default>
+      <real-type>0</real-type>
+      <attribute>32</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <invisible-expression />
+      <disable-expression />
+      <category />
+      <fire-event>0</fire-event>
+      <check-type>0</check-type>
+      <validation />
+      <constraint />
+      <scope-permissions>
+        <scope-permission>
+          <operator>ALL</operator>
+          <scope>S4</scope>
+        </scope-permission>
+      </scope-permissions>
+      <properties />
+    </column>
+    <column>
+      <name>Stick</name>
+      <describe>置顶</describe>
+      <comment />
+      <biz-type>402</biz-type>
+      <type>20</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>0</control>
+      <primary-property>0</primary-property>
+      <nullable>false</nullable>
+      <unique>false</unique>
+      <enabled>true</enabled>
+      <visible>true</visible>
+      <option />
+      <meta-column />
+      <ref-object />
+      <default>0</default>
+      <real-type>0</real-type>
+      <attribute>4</attribute>
+      <order-direction>2</order-direction>
+      <expression />
+      <invisible-expression />
+      <disable-expression />
+      <category />
+      <fire-event>0</fire-event>
+      <check-type>0</check-type>
+      <validation />
+      <constraint />
+      <scope-permissions />
+      <properties />
+    </column>
+    <column>
+      <name>Rec</name>
+      <describe>推荐</describe>
+      <comment />
+      <biz-type>402</biz-type>
+      <type>20</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>0</control>
+      <primary-property>0</primary-property>
+      <nullable>false</nullable>
+      <unique>false</unique>
+      <enabled>true</enabled>
+      <visible>true</visible>
+      <option />
+      <meta-column />
+      <ref-object />
+      <default>0</default>
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <invisible-expression />
+      <disable-expression />
+      <category />
+      <fire-event>0</fire-event>
+      <check-type>0</check-type>
+      <validation />
+      <constraint />
+      <scope-permissions />
+      <properties />
+    </column>
+    <column>
+      <name>Pick</name>
+      <describe>精华</describe>
+      <comment />
+      <biz-type>402</biz-type>
+      <type>20</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>0</control>
+      <primary-property>0</primary-property>
+      <nullable>false</nullable>
+      <unique>false</unique>
+      <enabled>true</enabled>
+      <visible>true</visible>
+      <option />
+      <meta-column />
+      <ref-object />
+      <default>0</default>
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <invisible-expression />
+      <disable-expression />
+      <category />
+      <fire-event>0</fire-event>
+      <check-type>0</check-type>
+      <validation />
+      <constraint />
+      <scope-permissions />
+      <properties />
+    </column>
+    <column>
+      <name>Type</name>
+      <describe>格式</describe>
+      <comment />
+      <biz-type>400</biz-type>
+      <type>7</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>5</control>
+      <primary-property>4</primary-property>
+      <nullable>false</nullable>
+      <unique>false</unique>
+      <enabled>true</enabled>
+      <visible>true</visible>
+      <option>0|普通文本;1|HTML格式</option>
+      <meta-column />
+      <ref-object />
+      <default>0</default>
+      <real-type>7</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <invisible-expression />
+      <disable-expression />
+      <category />
+      <fire-event>0</fire-event>
+      <check-type>0</check-type>
+      <validation />
+      <constraint />
+      <scope-permissions />
+      <properties />
+    </column>
+    <column>
+      <name>Content</name>
+      <describe>内容</describe>
+      <comment />
+      <biz-type>100</biz-type>
+      <type>0</type>
+      <length>8192</length>
+      <scale>0</scale>
+      <control>19</control>
+      <primary-property>0</primary-property>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <enabled>true</enabled>
+      <visible>true</visible>
+      <option />
+      <meta-column />
+      <ref-object />
+      <default />
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <invisible-expression />
+      <disable-expression />
+      <category />
+      <fire-event>0</fire-event>
+      <check-type>0</check-type>
+      <validation />
+      <constraint />
+      <scope-permissions />
+      <properties />
+    </column>
+    <column>
+      <name>Attachment</name>
+      <describe>附件</describe>
+      <comment />
+      <biz-type>800</biz-type>
+      <type>5</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>9</control>
+      <primary-property>0</primary-property>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <enabled>true</enabled>
+      <visible>true</visible>
+      <option />
+      <meta-column />
+      <ref-object />
+      <default />
+      <real-type>5</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <invisible-expression />
+      <disable-expression />
+      <category />
+      <fire-event>0</fire-event>
+      <check-type>0</check-type>
+      <validation />
+      <constraint />
+      <scope-permissions />
+      <properties />
+    </column>
+    <column>
+      <name>Visits</name>
+      <describe>访问</describe>
+      <comment />
+      <biz-type>200</biz-type>
+      <type>1</type>
+      <length>4</length>
+      <scale>0</scale>
+      <control>0</control>
+      <primary-property>0</primary-property>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <enabled>true</enabled>
+      <visible>true</visible>
+      <option />
+      <meta-column />
+      <ref-object />
+      <default>0</default>
+      <real-type>1</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <invisible-expression />
+      <disable-expression />
+      <category />
+      <fire-event>0</fire-event>
+      <check-type>0</check-type>
+      <validation />
+      <constraint />
+      <scope-permissions />
+      <properties />
+    </column>
+    <column>
+      <name>Comments</name>
+      <describe>评论</describe>
+      <comment />
+      <biz-type>200</biz-type>
+      <type>1</type>
+      <length>4</length>
+      <scale>0</scale>
+      <control>0</control>
+      <primary-property>0</primary-property>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <enabled>true</enabled>
+      <visible>true</visible>
+      <option />
+      <meta-column />
+      <ref-object />
+      <default>0</default>
+      <real-type>1</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <invisible-expression />
+      <disable-expression />
+      <category />
+      <fire-event>0</fire-event>
+      <check-type>0</check-type>
+      <validation />
+      <constraint />
+      <scope-permissions />
+      <properties />
+    </column>
+    <column>
+      <name>LastCommentTime</name>
+      <describe>回复时间</describe>
+      <comment />
+      <biz-type>300</biz-type>
+      <type>3</type>
+      <length>20</length>
+      <scale>0</scale>
+      <control>0</control>
+      <primary-property>6</primary-property>
+      <nullable>false</nullable>
+      <unique>false</unique>
+      <enabled>true</enabled>
+      <visible>true</visible>
+      <option />
+      <meta-column />
+      <ref-object />
+      <default />
+      <real-type>3</real-type>
+      <attribute>8</attribute>
+      <order-direction>2</order-direction>
+      <expression />
+      <invisible-expression />
+      <disable-expression />
+      <category />
+      <fire-event>0</fire-event>
+      <check-type>0</check-type>
+      <validation />
+      <constraint />
+      <scope-permissions />
+      <properties />
+    </column>
+    <column>
+      <name>UID</name>
+      <describe>发布人</describe>
+      <comment />
+      <biz-type>500</biz-type>
+      <type>6</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>0</control>
+      <primary-property>0</primary-property>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <enabled>false</enabled>
+      <visible>true</visible>
+      <option />
+      <meta-column />
+      <ref-object>tUser</ref-object>
+      <default />
+      <real-type>6</real-type>
+      <attribute>256</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <invisible-expression />
+      <disable-expression />
+      <category />
+      <fire-event>0</fire-event>
+      <check-type>0</check-type>
+      <validation />
+      <constraint />
+      <scope-permissions />
+      <properties />
+    </column>
+    <column>
+      <name>Picture1</name>
+      <describe>相关图片1</describe>
+      <comment />
+      <biz-type>800</biz-type>
+      <type>5</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>9</control>
+      <primary-property>0</primary-property>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <enabled>true</enabled>
+      <visible>true</visible>
+      <option />
+      <meta-column />
+      <ref-object />
+      <default />
+      <real-type>5</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <invisible-expression />
+      <disable-expression />
+      <category />
+      <fire-event>0</fire-event>
+      <check-type>0</check-type>
+      <validation />
+      <constraint />
+      <scope-permissions />
+      <properties />
+    </column>
+    <column>
+      <name>Picture2</name>
+      <describe>相关图片2</describe>
+      <comment />
+      <biz-type>800</biz-type>
+      <type>5</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>9</control>
+      <primary-property>0</primary-property>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <enabled>true</enabled>
+      <visible>true</visible>
+      <option />
+      <meta-column />
+      <ref-object />
+      <default />
+      <real-type>5</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <invisible-expression />
+      <disable-expression />
+      <category />
+      <fire-event>0</fire-event>
+      <check-type>0</check-type>
+      <validation />
+      <constraint />
+      <scope-permissions />
+      <properties />
+    </column>
+    <column>
+      <name>PubTime</name>
+      <describe>发布时间</describe>
+      <comment />
+      <biz-type>300</biz-type>
+      <type>3</type>
+      <length>19</length>
+      <scale>0</scale>
+      <control>0</control>
+      <primary-property>0</primary-property>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <enabled>true</enabled>
+      <visible>true</visible>
+      <option />
+      <meta-column />
+      <ref-object />
+      <default />
+      <real-type>3</real-type>
+      <attribute>272</attribute>
+      <order-direction>2</order-direction>
+      <expression />
+      <invisible-expression />
+      <disable-expression />
+      <category />
+      <fire-event>0</fire-event>
+      <check-type>0</check-type>
+      <validation />
+      <constraint />
+      <scope-permissions />
+      <properties />
+    </column>
+    <column>
+      <name>Scope</name>
+      <describe>发布范围</describe>
+      <comment />
+      <biz-type>400</biz-type>
+      <type>7</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>0</control>
+      <primary-property>4</primary-property>
+      <nullable>false</nullable>
+      <unique>false</unique>
+      <enabled>true</enabled>
+      <visible>true</visible>
+      <option>$D{FBFW}</option>
+      <meta-column />
+      <ref-object />
+      <default>1</default>
+      <real-type>7</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <invisible-expression />
+      <disable-expression />
+      <category />
+      <fire-event>0</fire-event>
+      <check-type>0</check-type>
+      <validation />
+      <constraint />
+      <scope-permissions>
+        <scope-permission>
+          <operator>ALL</operator>
+          <scope>S5</scope>
+        </scope-permission>
+      </scope-permissions>
+      <properties />
+    </column>
+    <column>
+      <name>More</name>
+      <describe>更多附件</describe>
+      <comment />
+      <biz-type>700</biz-type>
+      <type>10</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>12</control>
+      <primary-property>0</primary-property>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <enabled>true</enabled>
+      <visible>true</visible>
+      <option />
+      <meta-column />
+      <ref-object>lbNewsAttachment</ref-object>
+      <default />
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <invisible-expression />
+      <disable-expression />
+      <category />
+      <fire-event>0</fire-event>
+      <check-type>0</check-type>
+      <validation />
+      <constraint />
+      <scope-permissions />
+      <properties />
+    </column>
+  </columns>
+  <display-options>
+    <commands>
+      <command type="2">
+        <describe>新增</describe>
+        <define>
+          <item>tBlog</item>
+          <item>Add</item>
+        </define>
+        <produce-mark />
+        <is-default>0</is-default>
+        <attribute>0</attribute>
+        <icon-cls />
+        <tip />
+      </command>
+      <command type="2">
+        <describe>删除</describe>
+        <define>
+          <item>tBlog</item>
+          <item>Delete</item>
+        </define>
+        <produce-mark />
+        <is-default>0</is-default>
+        <attribute>0</attribute>
+        <icon-cls />
+        <tip />
+      </command>
+      <command type="2">
+        <describe>修改</describe>
+        <define>
+          <item>tBlog</item>
+          <item>Update</item>
+        </define>
+        <produce-mark />
+        <is-default>0</is-default>
+        <attribute>0</attribute>
+        <icon-cls />
+        <tip />
+      </command>
+      <command type="2">
+        <describe>查看</describe>
+        <define>
+          <item>tBlog</item>
+          <item>View</item>
+        </define>
+        <produce-mark />
+        <is-default>0</is-default>
+        <attribute>0</attribute>
+        <icon-cls />
+        <tip />
+      </command>
+      <command type="2">
+        <describe>导入</describe>
+        <define>
+          <item>tBlog</item>
+          <item>LoadExcel</item>
+        </define>
+        <produce-mark />
+        <is-default>0</is-default>
+        <attribute>0</attribute>
+        <icon-cls />
+        <tip />
+      </command>
+      <command type="2">
+        <describe>统计</describe>
+        <define>
+          <item>tBlog</item>
+          <item>Compute</item>
+        </define>
+        <produce-mark />
+        <is-default>0</is-default>
+        <attribute>0</attribute>
+        <icon-cls />
+        <tip />
+      </command>
+      <command type="2">
+        <describe>导出</describe>
+        <define>
+          <item>tBlog</item>
+          <item>ToExcel</item>
+        </define>
+        <produce-mark />
+        <is-default>0</is-default>
+        <attribute>0</attribute>
+        <icon-cls />
+        <tip />
+      </command>
+      <command type="2">
+        <describe>打印</describe>
+        <define>
+          <item>tBlog</item>
+          <item>Print</item>
+        </define>
+        <produce-mark />
+        <is-default>0</is-default>
+        <attribute>0</attribute>
+        <icon-cls />
+        <tip />
+      </command>
+    </commands>
+    <relations>
+      <relation type="1">
+        <describe>我要评论</describe>
+        <define>
+          <item>tBlogComment</item>
+          <item>BlogID</item>
+        </define>
+        <produce-mark />
+        <restriction />
+      </relation>
+    </relations>
+  </display-options>
+  <subdivisions />
+  <methods />
+  <properties>
+    <property>
+      <name>112</name>
+      <value>false</value>
+    </property>
+    <property>
+      <name>113</name>
+      <value>false</value>
+    </property>
+    <property>
+      <name>69</name>
+      <value>auto</value>
+    </property>
+    <property>
+      <name>73</name>
+      <value>Title</value>
+      <value>UID</value>
+      <value>PubTime</value>
+    </property>
+  </properties>
+  <orders />
+  <ui-logics>
+    <events />
+  </ui-logics>
+  <panels />
+  <extend-buttons />
+  <parameter-extend-buttons />
+</object>
+

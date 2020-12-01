@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_QY_LXSMSHLC_XMMC_UI" object="lcIB_QY_LXSMSHLC" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目名称界面事件</describe>
+  <variables />
+  <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+    <describe>界面处理_更新值</describe>
+    <arg flag="field" name="XMLX" type="expression">O_MASTER.XMMC.XMLX</arg>
+    <arg flag="field" name="XMZCY" type="expression">O_MASTER.XMMC.QTCY</arg>
+    <arg flag="field" name="XMFZR" type="expression">O_MASTER.XMMC.XMFZR</arg>
+    <arg flag="field" name="GSMC" type="expression">O_MASTER.XMMC.SSKH</arg>
+    <arg flag="field" name="HY" type="expression">O_MASTER.XMMC.SSKH.SSHY</arg>
+    <arg flag="field" name="QZR" type="expression">O_MASTER.XMMC.QZBJDBR</arg>
+    <arg flag="field" name="DGXTXMCLJLXJDSCBL" type="expression">ABS_SQLVALUE('SELECT   ECIF.FUNC_IB_GET_DGJDWCBL (?,1,?) FROM DUAL',[O_MASTER.XMMC,1001])</arg>
+    <arg flag="field" name="BLSCDDRQ" type="expression">ABS_SQLVALUE('SELECT  ECIF.FUNC_IB_GET_DGJDSCWCRQ(?,?,?) FROM DUAL',[O_MASTER.XMMC,1,1001])</arg>
+  </invoke>
+</process>
+

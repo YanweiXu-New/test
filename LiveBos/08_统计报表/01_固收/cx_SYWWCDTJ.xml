@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="GB2312" standalone="no"?>
+<dataset create-date="2018.09.11 13:44:58" creator="张庆" flag="0" modifier="null" modify-date="null" name="cx_SYWWCDTJ" object-id="5508ac75-51d4-4c69-94c0-af6d4528d71e" package="08_统计报表.01_固收" type="17" version="1.0">
+    <describe>所有未完成的统计</describe>
+    <comment/>
+    <parent/>
+    <attribute>296</attribute>
+    <parameters/>
+    <columns/>
+    <query>
+        <sql>{"statement":"call ECIF.pcx_gs_sywwcdtj(?,{0})","args":[{"expression":"$Login.User","scale":0,"length":0,"type":1}],"type":0}</sql>
+        <sql-type>1</sql-type>
+        <datasource-name>ECIF</datasource-name>
+        <result-option>
+            <scale>0</scale>
+            <result-type>1</result-type>
+        </result-option>
+    </query>
+    <display-options>
+        <commands/>
+        <relations/>
+    </display-options>
+    <properties>
+        <property>
+            <name>5</name>
+            <value>20</value>
+        </property>
+        <property>
+            <name>63</name>
+            <value>true</value>
+        </property>
+    </properties>
+    <orders/>
+    <extend-buttons/>
+</dataset>

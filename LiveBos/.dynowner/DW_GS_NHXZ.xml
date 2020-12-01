@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="GB2312" standalone="no"?>
+<dynOwner flag="0" name="DW_GS_NHXZ" type="106">
+    <describe>固收_内核小组</describe>
+    <sql>{"statement":"tUser.ID IN (SELECT DISTINCT(COLUMN_VALUE) AS ID FROM TABLE(JGCRM.SPLIT((SELECT XZZZ||';'||XZCY FROM ECIF.tIB_WYHXX WHERE YWLX = 2 AND HYLB = 2),';'))) and tUser.Status = 1","args":[],"type":0}</sql>
+    <parameters/>
+</dynOwner>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="8" exitOnStandardFault="false" isHorizontalLayout="false" method="tXMTZ_CFLC" name="tXMTZ_CFLC" object="tXMTZ" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目台账-触发流程流程</describe>
+  <variables />
+  <sequence id="0">
+    <invoke component="SQL" id="0" operation="execute">
+      <describe>调用流程待办</describe>
+      <meta name="FUNCTION">true</meta>
+      <arg name="TranType">procedure</arg>
+      <arg name="SQL">["call ECIF.PRO_IB_LCDB_LXDBCXSC(?,?,{0},{1})",[{"expression":"O_MASTER.LCYCFRQ","scale":"","length":"","type":"13"},{"expression":"O_MASTER.LCLX","scale":"","length":"","type":"1"}]]</arg>
+      <arg name="@autoExit" type="expression">true</arg>
+      <arg name="datasource">ECIF</arg>
+    </invoke>
+    <invoke component="SQL" id="0" operation="execute">
+      <describe>更改项目台账状态</describe>
+      <meta name="FUNCTION">true</meta>
+      <meta name="restriction" />
+      <arg name="TranType">sql</arg>
+      <arg name="SQL">["UPDATE ECIF.TXMTZ  T SET T.LCSJCFRQ={0} , LCFQZT=0 WHERE ID={1}",[{"expression":"$DateTime.Today","scale":"","length":"","type":"13"},{"expression":"O_MASTER.ID","scale":"","length":"","type":"1"}]]</arg>
+    </invoke>
+    <invoke component="SQL" id="0" operation="execute">
+      <describe>关闭消息警示</describe>
+      <meta name="FUNCTION">true</meta>
+      <arg name="TranType">sql</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="SQL">["update TIB_DTTX set txzt=0 where bzlx=32 and pn1={0}",[{"expression":"O_MASTER.ID","scale":"","length":"","type":"1"}]]</arg>
+    </invoke>
+  </sequence>
+</process>
+

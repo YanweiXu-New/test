@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_XYZZSPLC_GS_XMMC_UI" object="lcIB_XYZZSPLC_GS" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目名称界面事件</describe>
+  <variables />
+  <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+    <describe>界面处理_更新值</describe>
+    <arg flag="field" name="XMSCJD" type="expression">O_MASTER.XMMC.XMMC.XMJD</arg>
+    <arg flag="field" name="GSMC" type="expression">O_MASTER.XMMC.XMMC.SSKH.KHQC</arg>
+    <arg flag="field" name="XMLX" type="expression">O_MASTER.XMMC.XMMC.XMLX</arg>
+    <arg flag="field" name="XMFZR" type="expression">O_MASTER.XMMC.XMMC.XMFZR</arg>
+    <arg flag="field" name="SFTGLX" type="expression">&lt;%@ livebos language='javascript' %&gt;
+var lxjg = ABS_SQLVALUE("select  NVL(SUM(T.JG),0)   from ecif.TIB_XMXX_GC T where  T.LCBD = 'lcIB_GS_LXLC'  AND T.XMMC_EJ  = ?",[O_MASTER.XMMC]);
+if (lxjg &gt; 0){
+lxjg = 1;
+}
+else{
+lxjg = 0;
+}
+lxjg;</arg>
+    <arg flag="field" name="SFTGNH" type="expression">&lt;%@ livebos language='javascript' %&gt;
+var nhjg = ABS_SQLVALUE("select  NVL(SUM(T.JG),0)   from ecif.TIB_XMXX_GC T where  T.LCBD = 'lcIB_GS_NHLC'  AND T.XMMC_EJ  = ?",[O_MASTER.XMMC]);
+if (nhjg &gt; 0){
+nhjg = 1;
+}
+else{
+nhjg = 0;
+}
+nhjg;</arg>
+    <arg flag="field" name="ZKBZS" type="expression">O_MASTER.XMMC.ZKSBZS</arg>
+    <arg flag="field" name="ZKBFS" type="expression">O_MASTER.XMMC.ZKSBFS</arg>
+    <arg flag="field" name="BJDBR" type="expression">O_MASTER.XMMC.XMMC.QZBJDBR</arg>
+    <arg flag="field" name="NHBZS" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE("select t1.NHZY_ZS from ECIF.lcIB_GS_NHLC t1 inner join jgcrm.os_wfentry t2 on t2.id=t1.instid  where t2.state=4 and t1.XMMC=? and rownum = 1 order by t1.instid desc",[O_MASTER.XMMC])</arg>
+  </invoke>
+</process>
+

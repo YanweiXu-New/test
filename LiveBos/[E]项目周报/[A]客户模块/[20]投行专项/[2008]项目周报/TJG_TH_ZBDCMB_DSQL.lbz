@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="4" exitOnStandardFault="false" isHorizontalLayout="false" method="TJG_TH_ZBDCMB_DSQL" name="TJG_TH_ZBDCMB_DSQL" object="TJG_TH_ZBDCMB" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>周报导出模板-定时清理流程</describe>
+  <variables />
+  <invoke component="expression" id="0" name="执行脚本">
+    <describe>执行脚本</describe>
+    <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+var bean = ABS_LOADBEAN("com.apex.bss.mod.ecif.ExcelUtil.DeleteCacheExcel");
+var returnVal=bean.deleteCache("\home\apexcrm\data\app\crm\TJG_TH_ZBDCMB","");</arg>
+  </invoke>
+</process>
+

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="VO_XMXXTZ_GS_XZ" name="VO_XMXXTZ_GS_XZ" object="VO_XMXXTZ_GS" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目信息台账(终止底稿验收)-新增流程</describe>
+  <variables />
+  <sequence id="0" name="顺序">
+    <invoke component="FormOperate" id="0" name="对象组件_新增" operation="insert">
+      <describe>新增对象[项目信息台账]</describe>
+      <arg name="@objectName">tIB_XMXXTZ</arg>
+      <arg flag="field" name="XMFL" type="expression">3</arg>
+      <arg flag="field" name="XMID" type="expression">O_PARAMETER.XMID2</arg>
+      <arg flag="field" name="GDSJRQ" type="expression">O_PARAMETER.GDSJRQ2</arg>
+      <arg flag="field" name="GDR" type="expression">O_PARAMETER.GDR</arg>
+      <arg flag="field" name="ZZDGCS" type="expression">O_PARAMETER.ZZDGCS</arg>
+      <arg flag="field" name="GPSL" type="expression">O_PARAMETER.GPSL</arg>
+      <arg flag="field" name="DGCFDD" type="expression">O_PARAMETER.DGCFDD</arg>
+      <arg flag="field" name="ZZDGBH" type="expression">O_PARAMETER.ZZDGBH</arg>
+      <arg flag="field" name="BZ" type="expression">O_PARAMETER.BZ</arg>
+      <arg flag="field" name="SFYSTG" type="expression">O_PARAMETER.SFYSTG</arg>
+    </invoke>
+    <invoke component="SQL" id="0" name="终止日期" operation="execute">
+      <describe>同步项目信息</describe>
+      <arg name="TranType">procedure</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="SQL">["CALL ECIF.PRO_IB_XMTZ_XXTB(:CODE,:NOTE,{0})",[{"expression":"$Login.User","length":"","scale":"","type":"1"}]]</arg>
+      <arg name="CODE" type="output">V_CODE</arg>
+      <arg name="NOTE" type="output">V_NOTE</arg>
+      <arg name="@autoExit" type="expression">false</arg>
+    </invoke>
+  </sequence>
+</process>
+

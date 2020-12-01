@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="GB2312" standalone="no"?>
+<dynOwner flag="0" name="DW_BMSHG" type="106">
+    <describe>部门审核岗</describe>
+    <sql>{"statement":"tUser.ID in (select userid from lbmember where orgid = :pBM and roleid=20) and tUser.Status = 1","args":[],"type":0}</sql>
+    <parameters>
+        <parameter>
+            <name>pBM</name>
+            <describe>部门</describe>
+            <comment/>
+            <type>1</type>
+            <length>16</length>
+            <scale>0</scale>
+        </parameter>
+    </parameters>
+</dynOwner>

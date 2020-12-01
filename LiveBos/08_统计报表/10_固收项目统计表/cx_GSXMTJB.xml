@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="GB2312" standalone="no"?>
+<dataset create-date="2020.11.25 09:33:12" creator="xuyanwei.apexsoft" flag="0" name="cx_GSXMTJB" object-id="e6269d69-4eba-4cae-9dae-bf65ea1d34fe" package="08_统计报表.10_固收项目统计表" type="17" version="1.0">
+    <describe>固收项目统计表</describe>
+    <attribute>264</attribute>
+    <parameters/>
+    <columns/>
+    <query>
+        <sql>{"statement":"CALL ECIF.PCX_IB_GSXMTJ(?,{0})","args":[{"expression":"$Login.User","scale":0,"length":0,"type":1}],"type":0}</sql>
+        <sql-type>1</sql-type>
+        <datasource-name>ECIF</datasource-name>
+        <result-option>
+            <result-type>1</result-type>
+        </result-option>
+    </query>
+    <display-options>
+        <commands/>
+        <relations/>
+    </display-options>
+    <properties>
+        <property>
+            <name>63</name>
+            <value>true</value>
+        </property>
+    </properties>
+    <orders/>
+    <extend-buttons/>
+</dataset>

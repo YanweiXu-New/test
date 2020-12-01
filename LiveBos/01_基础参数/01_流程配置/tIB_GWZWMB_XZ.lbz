@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_GWZWMB_XZ" name="tIB_GWZWMB_XZ" object="tIB_GWZWMB" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>公文正文模板-新增流程</describe>
+  <variables />
+  <sequence id="0" name="顺序">
+    <invoke component="FormOperate" id="0" name="对象组件_新增" operation="insert">
+      <describe>新增对象[公文正文模板]</describe>
+      <arg name="@objectName">tIB_GWZWMB</arg>
+      <arg flag="field" name="LCBD" type="expression">O_PARAMETER.LCBD</arg>
+      <arg flag="field" name="LCBDM" type="expression">O_PARAMETER.LCBDM</arg>
+      <arg flag="field" name="XSBT" type="expression">O_PARAMETER.XSBT</arg>
+      <arg flag="field" name="MBLX" type="expression">O_PARAMETER.MBLX</arg>
+      <arg flag="field" name="MBFW" type="expression">O_PARAMETER.MBFW2</arg>
+      <arg flag="field" name="MBFJ" type="expression">O_PARAMETER.MBFJ2</arg>
+      <arg flag="field" name="XSSX" type="expression">O_PARAMETER.XSSX2</arg>
+      <arg flag="field" name="ZT" type="expression">O_PARAMETER.ZT2</arg>
+      <arg flag="field" name="BZ" type="expression">O_PARAMETER.BZ2</arg>
+    </invoke>
+    <response exit="false" id="0">
+      <describe>输出</describe>
+      <retvalue>1</retvalue>
+      <message />
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
+  </sequence>
+</process>
+

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_NBBNBSPB_NBLX_UI" object="lcIB_NBBNBSPB" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>年报类型界面事件</describe>
+  <variables>
+    <variable describe="V_FJLX" messageType="" name="V_FJLX" type="resultSet" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
+      <describe>数据库组件_SQL查询</describe>
+      <arg name="TranType">sql</arg>
+      <arg name="SQL">["SELECT ID,tjsx,XM360ZS,SFYY FROM tIB_WDLXPZ WHERE lcbd='lcIB_NBBNBSPB' AND XYLX={0} ORDER by tjsx",[{"expression":"O_MASTER.NBLX","scale":"","length":"","type":"1"}]]</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="@retResultSet" type="output">V_FJLX</arg>
+    </invoke>
+    <invoke component="FormUIHypotOperate" id="0" name="表格操作_添加结果集数据" operation="insertByResult">
+      <describe>表格添加结果集数据[年报(半年报)审批表]</describe>
+      <arg name="@objectName">lcIB_NBBNBSPB</arg>
+      <arg name="@object" type="variable">O_MASTER</arg>
+      <arg name="@columnName">FJ</arg>
+      <arg name="@resultSet" type="variable">V_FJLX</arg>
+      <arg name="@clearRowsets">true</arg>
+      <arg flag="field" name="SX">TJSX</arg>
+      <arg flag="field" name="FJCZ">ID</arg>
+      <arg flag="field" name="FJLX">id</arg>
+      <arg flag="field" name="SF360XS">XM360ZS</arg>
+      <arg flag="field" name="SFYY">SFYY</arg>
+    </invoke>
+  </sequence>
+</process>
+

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="lcIB_ZDZCCZSBQZLCB_CK" name="lcIB_ZDZCCZSBQZLCB_CK" object="lcIB_ZDZCCZSBQZLCB" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>重大资产重组申报签章流程表-查看流程</describe>
+  <variables />
+  <response exit="true" id="0">
+    <describe>输出</describe>
+    <retvalue>1</retvalue>
+    <message />
+    <uiforward redirect="true">
+      <url type="expression">&lt;%@ livebos language='javascript' %&gt;
+'/UIProcessor?Creator=workflow&amp;Table=wfIB_ZDZCCZSBQZSPLC&amp;WorkID='+O_MASTER.InstID+'&amp;HideCancelBtn=true'</url>
+    </uiforward>
+  </response>
+</process>
+

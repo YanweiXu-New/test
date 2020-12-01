@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_EJBMWGWH_LJSX" name="tIB_EJBMWGWH_LJSX" object="tIB_EJBMWGWH" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>二级部门文管维护-立即生效流程</describe>
+  <variables />
+  <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+    <describe>数据库组件_执行SQL语句</describe>
+    <arg name="TranType">sql</arg>
+    <arg name="SQL">["declare\r\nbegin\r\nMERGE INTO JGCRM.LBMEMBER T1\r\nUSING(SELECT * FROM ecif.tIB_EJBMWGWH WHERE WG IS NOT NULL) T2\r\nON (T1.ORGID = T2.BM AND T1.ROLEID = 6)\r\nWHEN MATCHED THEN\r\n  UPDATE\r\n     SET T1.USERID = T2.WG\r\nWHEN NOT MATCHED THEN\r\n  INSERT(ID, USERID, ROLEID, ORGID, MODIDATE, AUDITFLAG)\r\n  VALUES\r\n        (JGCRM.FUNC_NEXTID('lbMember'),\r\n         T2.WG,\r\n         6,\r\n         T2.BM,\r\n         SYSDATE,\r\n         1\r\n        );\r\nCOMMIT;\r\nend;",[]]</arg>
+    <arg name="datasource">ECIF</arg>
+  </invoke>
+</process>
+

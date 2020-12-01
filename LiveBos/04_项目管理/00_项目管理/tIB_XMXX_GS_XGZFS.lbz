@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_XMXX_GS_XGZFS" name="tIB_XMXX_GS_XGZFS" object="tIB_XMXX_GS" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目信息_固收-修改质控主副审流程</describe>
+  <variables />
+  <sequence id="0" name="顺序">
+    <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+      <describe>数据库组件_执行SQL语句</describe>
+      <arg name="TranType">sql</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="SQL">["BEGIN\r\nUPDATE ECIF.TIB_XMXX SET ZKBSHRYZS = {0},ZKBSHSRFS = {1},NHZKSHY_ZS = {2},NHZKSHY_FS = {3} WHERE ID = {4};\r\nCOMMIT;\r\nEND;",[{"expression":"O_PARAMETER.ZKBSHRYZS","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.ZKBSHSRFS","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.NHZKSHY_ZS","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.NHZKSHY_FS","scale":"","length":"","type":"0"},{"expression":"O_MASTER.XMMC","scale":"","length":"","type":"1"}]]</arg>
+    </invoke>
+  </sequence>
+</process>
+

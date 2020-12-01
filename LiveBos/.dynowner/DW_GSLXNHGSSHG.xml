@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="GB2312" standalone="no"?>
+<dynOwner flag="0" name="DW_GSLXNHGSSHG" type="106">
+    <describe>固收_立项内核_固收审核岗</describe>
+    <sql>{"statement":"tUser.ID IN (\r\nSELECT DISTINCT(COLUMN_VALUE) AS ID \r\nFROM TABLE(JGCRM.SPLIT((SELECT GSSHG||';' FROM ECIF.tIB_XMXX_GS WHERE ID = :PXMID),';'))\r\n) and tUser.Status = 1","args":[],"type":0}</sql>
+    <parameters>
+        <parameter>
+            <name>PXMID</name>
+            <describe>固收子表id</describe>
+            <comment/>
+            <type>1</type>
+            <length>10</length>
+            <scale>0</scale>
+        </parameter>
+    </parameters>
+</dynOwner>

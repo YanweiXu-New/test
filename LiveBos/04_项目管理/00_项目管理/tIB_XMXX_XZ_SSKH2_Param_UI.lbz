@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_XMXX_XZ" name="tIB_XMXX_XZ_SSKH2_Param_UI" object="tIB_XMXX" type="2" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>所属客户界面事件</describe>
+  <variables>
+    <variable describe="V_INIT" messageType="" name="V_INIT" type="resultSet" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
+      <describe>数据库组件_SQL查询</describe>
+      <arg name="TranType">sql</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="SQL">["SELECT NFXX,ZZC,JZC,YYSR,MSYZJLR,LRZE FROM tIB_KHXX_CWXX WHERE TIB_KHXX_ID ={0}",[{"expression":"O_PARAMETER.SSKH2","scale":"","length":"","type":"1"}]]</arg>
+      <arg name="@retResultSet" type="output">V_INIT</arg>
+    </invoke>
+    <invoke component="FormUIHypotOperate" id="0" name="表格操作_添加结果集数据" operation="insertByResult">
+      <describe>表格添加结果集数据[项目信息表]</describe>
+      <arg name="@objectName">tIB_XMXX</arg>
+      <arg name="@columnName">CWXX</arg>
+      <arg flag="field" name="NFXX">NFXX</arg>
+      <arg flag="field" name="ZZC">ZZC</arg>
+      <arg flag="field" name="JZC">JZC</arg>
+      <arg flag="field" name="YYSR">YYSR</arg>
+      <arg flag="field" name="LRZE">LRZE</arg>
+      <arg flag="field" name="MSYZJLR">MSYZJLR</arg>
+      <arg name="@resultSet" type="variable">V_INIT</arg>
+    </invoke>
+  </sequence>
+</process>
+

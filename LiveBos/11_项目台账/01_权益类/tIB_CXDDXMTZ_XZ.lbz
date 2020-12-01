@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="8" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_CXDDXMTZ_XZ" name="tIB_CXDDXMTZ_XZ" object="tIB_CXDDXMTZ" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>持续督导项目台账-新增流程</describe>
+  <variables>
+    <variable describe="V_OBJ" instanceType="tIB_CXDDXMTZ" messageType="" name="V_OBJ" type="object" />
+    <variable describe="V_CODE" messageType="" name="V_CODE" type="int" />
+    <variable describe="V_NOTE" messageType="" name="V_NOTE" type="string" />
+  </variables>
+  <sequence id="0">
+    <invoke component="FormOperate" id="0" operation="insert">
+      <describe>新增对象[持续督导项目台账]</describe>
+      <meta name="FUNCTION">true</meta>
+      <arg name="@objectName">tIB_CXDDXMTZ</arg>
+      <arg flag="field" name="SSBM" type="expression">O_PARAMETER.SSBM2</arg>
+      <arg flag="field" name="GSMC" type="expression">O_PARAMETER.GSMC2</arg>
+      <arg flag="field" name="GPDM" type="expression">O_PARAMETER.GPDM2</arg>
+      <arg flag="field" name="XMMC" type="expression">O_PARAMETER.XMMC2</arg>
+      <arg flag="field" name="XMLX" type="expression">O_PARAMETER.XMLX2</arg>
+      <arg flag="field" name="CXDDQSRQ" type="expression">O_PARAMETER.CXDDQSRQ2</arg>
+      <arg flag="field" name="CXDDQ" type="expression">O_PARAMETER.CXDDQ2</arg>
+      <arg flag="field" name="CXDDJSRQ" type="expression">O_MASTER.CXDDJSRQ</arg>
+      <arg flag="field" name="CXDDBDZBR" type="expression">O_PARAMETER.CXDDBDZBR2</arg>
+      <arg flag="field" name="CXDDZY" type="expression">O_PARAMETER.CXDDZY2</arg>
+      <arg flag="field" name="BZ" type="expression">O_PARAMETER.BZ2</arg>
+      <arg name="@retObject" type="output">V_OBJ</arg>
+    </invoke>
+    <invoke component="SQL" id="0" operation="execute">
+      <describe>数据回写项目信息表</describe>
+      <meta name="FUNCTION">true</meta>
+      <arg name="TranType">procedure</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="SQL">["call ecif.PRO_IB_XMTZSJHX(:code,:note,{0},{1},1,{2})",[{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"$Login.IP","scale":"","length":"","type":"0"},{"expression":"V_OBJ.ID","scale":"","length":"","type":"1"}]]</arg>
+      <arg name="code" type="output">V_CODE</arg>
+      <arg name="note" type="output">V_NOTE</arg>
+    </invoke>
+  </sequence>
+</process>
+

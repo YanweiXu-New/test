@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_GS_ZQYDDCWJ_ZQMC_UI" object="lcIB_GS_ZQYDDCWJ" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>债券名称界面事件</describe>
+  <variables />
+  <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+    <describe>界面处理_更新值</describe>
+    <arg flag="field" name="ZQSSBM" type="expression">ABS_SQLVALUE("SELECT REPLACE(TO_CHAR(WM_CONCAT(DISTINCT(ZQSSBM))),',',';') FROM ECIF.TIB_XMXX_GS_ZQXX WHERE INSTR(';'||?||';',';'||ID||';')&gt;0",[O_MASTER.ZQMC])</arg>
+  </invoke>
+</process>
+

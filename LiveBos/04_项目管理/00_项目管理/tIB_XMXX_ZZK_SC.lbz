@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_XMXX_ZZK_SC" name="tIB_XMXX_ZZK_SC" object="tIB_XMXX_ZZK" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目信息_终止库-删除流程</describe>
+  <variables>
+    <variable describe="V_obj" instanceType="tIB_XMXX_ZZK" messageType="" name="V_obj" type="object" />
+    <variable describe="V_1" messageType="" name="V_1" type="string" />
+  </variables>
+  <sequence id="0">
+    <invoke component="ConfirmDialog" id="0">
+      <describe>消息确认框</describe>
+      <meta name="FUNCTION">true</meta>
+      <arg flag="" name="message" type="expression">'确认删除该记录？'</arg>
+      <arg flag="" name="title" type="expression">'提示'</arg>
+      <arg name="icon">CONFIRM</arg>
+      <arg name="options">YES;NO</arg>
+      <arg name="@retValue" type="output">V_1</arg>
+    </invoke>
+    <if id="0">
+      <describe>判断</describe>
+      <conditions>
+        <condition name="" type="expression">
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+V_1=='YES'</arg>
+        </condition>
+      </conditions>
+      <sequence id="0" name="顺序">
+        <invoke component="FormOperate" id="0" operation="insert">
+          <describe>对象组件-新增</describe>
+          <meta name="FUNCTION">true</meta>
+          <arg name="@objectName">tIB_XMZZKSCDX</arg>
+          <arg flag="field" name="ZZKID" type="expression">O_MASTER.ID</arg>
+          <arg flag="field" name="XMFL" type="expression">O_MASTER.XMFL</arg>
+          <arg flag="field" name="XMMC" type="expression">O_MASTER.XMMC</arg>
+          <arg flag="field" name="XSBXMMC" type="expression">O_MASTER.XSBXMMC</arg>
+          <arg flag="field" name="GSXMMC" type="expression">O_MASTER.GSXMMC</arg>
+          <arg flag="field" name="GSMC" type="expression">O_MASTER.GSMC</arg>
+          <arg flag="field" name="XMLX" type="expression">O_MASTER.XMLX</arg>
+          <arg flag="field" name="XMFZR" type="expression">O_MASTER.XMFZR</arg>
+          <arg flag="field" name="QZBJDBR" type="expression">O_MASTER.QZBJDBR</arg>
+          <arg flag="field" name="CZQSRQ" type="expression">O_MASTER.CZQSRQ</arg>
+          <arg flag="field" name="ZZLX" type="expression">O_MASTER.ZZLX</arg>
+          <arg flag="field" name="LXRQ" type="expression">O_MASTER.LXRQ</arg>
+          <arg flag="field" name="LXJG" type="expression">O_MASTER.LXJG</arg>
+          <arg flag="field" name="NHRQ" type="expression">O_MASTER.NHRQ</arg>
+          <arg flag="field" name="NHJG" type="expression">O_MASTER.NHJG</arg>
+          <arg flag="field" name="SFBJGJG" type="expression">O_MASTER.SFBJGJG</arg>
+          <arg flag="field" name="BJGJGRQ" type="expression">O_MASTER.BJGJGRQ</arg>
+          <arg flag="field" name="JGJGSHJG" type="expression">O_MASTER.JGJGSHJG</arg>
+          <arg flag="field" name="RZZKYYLX" type="expression">O_MASTER.RZZKYYLX</arg>
+          <arg flag="field" name="XMZZYY" type="expression">O_MASTER.XMZZYY</arg>
+          <arg flag="field" name="XMZYWT" type="expression">O_MASTER.XMZYWT</arg>
+          <arg flag="field" name="DQZT" type="expression">O_MASTER.DQZT</arg>
+          <arg flag="field" name="XMSSBM" type="expression">O_MASTER.XMSSBM</arg>
+          <arg flag="field" name="RKRQ" type="expression">O_MASTER.RKRQ</arg>
+          <arg flag="field" name="XMZZRQ" type="expression">O_MASTER.XMZZRQ</arg>
+          <arg flag="field" name="SCSJ" type="expression">$DateTime.Now</arg>
+          <arg flag="field" name="CZR" type="expression">$Login.User</arg>
+        </invoke>
+        <invoke component="FormOperate" id="0" operation="delete">
+          <describe>删除对象[项目信息_终止库]</describe>
+          <meta name="FUNCTION">true</meta>
+          <arg name="@objectName">tIB_XMXX_ZZK</arg>
+          <arg name="@object" type="variable">O_MASTER</arg>
+        </invoke>
+      </sequence>
+      <else>
+        <describe>Else</describe>
+        <response exit="false" id="0">
+          <describe>输出</describe>
+          <retvalue>-1</retvalue>
+          <message>'删除操作已取消！'</message>
+          <uiforward redirect="false">
+            <url />
+          </uiforward>
+        </response>
+      </else>
+    </if>
+  </sequence>
+</process>
+

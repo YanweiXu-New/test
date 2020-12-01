@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="TJG_WHMB_LB_XG" name="TJG_WHMB_LB_XG_DX_Param_UI" object="TJG_WHMB_LB" type="2" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>业务对象界面事件</describe>
+  <variables />
+  <sequence id="0">
+    <describe />
+    <invoke component="FormUI" id="0" name="更新值" operation="setValue">
+      <describe>更新值</describe>
+      <arg flag="field" name="SX" type="expression">null</arg>
+    </invoke>
+    <invoke component="FormUI" id="0" name="刷新字段可选项" operation="resetOption">
+      <describe>刷新字段可选项</describe>
+      <arg flag="field" name="SX">true</arg>
+    </invoke>
+  </sequence>
+</process>
+

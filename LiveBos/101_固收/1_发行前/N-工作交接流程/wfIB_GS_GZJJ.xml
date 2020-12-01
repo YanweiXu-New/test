@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="gb2312"?>
+<!DOCTYPE workflow PUBLIC "-//Apexsoft LiveBos//DTD Workflow 2.8//EN" "http://www.livebos.com/workflow/workflow_2_8_abs.dtd"><workflow>
+  <meta name="workflow.category">固收类-发行前</meta>
+  <meta name="Designer">Studio</meta>
+  <meta name="created">2017-07-28 14:34:57</meta>
+  <meta name="modify">2017-10-18 23:55:37</meta>
+  <meta name="Describe">工作交接流程</meta>
+  <meta name="WorkflowName">wfIB_GS_GZJJ</meta>
+  <meta name="WorkflowType">2</meta>
+  <meta name="version"></meta>
+  <object  name="lcIB_GS_GZJJ" editAttribute="0" >
+  </object>
+  <initial-actions>
+    <action id="0" name="开始">
+      <meta name="NodeType">0</meta>
+      <results>
+        <unconditional-result id="2" old-status="完成" status="待处理" step="5">
+        </unconditional-result>
+      </results>
+    </action>
+  </initial-actions>
+  <steps>
+    <step id="1" name="结束">
+      <meta name="finish">true</meta>
+      <meta name="NodeType">1</meta>
+      <pre-functions>
+        <function id="0" name="abs.ExecSQL" type="class">
+          <arg name="SQL">[&quot;CALL ecif.pro_IB_WFFinish_GS(?,?,'lcIB_GS_GZJJ',{0},{1})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+          <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+          <arg name="datasource">ECIF</arg>
+        </function>
+      </pre-functions>
+    </step>
+    <step id="5" name="文管提交审批">
+      <meta name="NodeType">2</meta>
+      <object  name="lcIB_GS_GZJJ" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBT" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="GWZW" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="BJJYG" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="XZDYG" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="JJLX" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="BZ" disabled="false" hidden="false" summary="false">
+          </column>
+        </columns>
+      </object>
+      <notify >
+      </notify>
+      <actions>
+        <action id="6" name="提交">
+          <meta name="IconCls">default</meta>
+          <meta name="NodeType">5</meta>
+          <meta name="allow.recover">true</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="SQL">[&quot;update ecif.lcIB_GS_GZJJ set lcbh=ecif.func_ib_getlcbh where id={0}&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="datasource">ECIF</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <unconditional-result id="61" old-status="完成" status="待处理" step="13">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+    <step id="13" name="部门总经理审批">
+      <meta name="step.reject.mode">any</meta>
+      <meta name="step.allow.approve.sign">true</meta>
+      <meta name="step.approve.sign.action.name">会签</meta>
+      <meta name="NodeType">16</meta>
+      <meta name="approve.sign.modes">endorsesign</meta>
+      <meta name="step.allow.reassign">true</meta>
+      <meta name="step.allow.reject">true</meta>
+      <meta name="approve.mode">true</meta>
+      <object  name="lcIB_GS_GZJJ" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="GWZW" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="BJJYG" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XZDYG" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="JJLX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="BZ" disabled="true" hidden="false" summary="false">
+          </column>
+        </columns>
+      </object>
+      <dynOwners>
+        <dynOwner  type="1" describe="部门总经理" >
+          <expression><![CDATA[
+{"name":"DW_BMZJL","parameters":{"pBM":"O_WORKFLOW.SQBM"}}]]></expression>
+          </dynOwner>
+              </dynOwners>
+      <notify >
+      </notify>
+      <actions>
+        <action id="14" name="确定">
+          <meta name="NodeType">17</meta>
+          <meta name="approve.action">true</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="SQL">[&quot;CALL ECIF.PRO_IB_GZJJ(?,?,{0},{1},{2})&quot;,[{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.IP&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="datasource">ECIF</arg>
+            </function>
+            <function id="0" name="abs.Expression" type="null">
+              <arg name="expression">ABS_flushObjCache('WORKFLOW.TASK')</arg>
+              <arg name="class.name"> com.apex.livebos.workflow.ExecExpressionFunction</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <unconditional-result id="62" old-status="完成" status="待处理" step="1">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+  </steps>
+</workflow>

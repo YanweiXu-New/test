@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="2" exitOnStandardFault="false" isHorizontalLayout="false" method="TPIF_WDMB_XZ" name="TPIF_WDMB_XZ" object="TPIF_WDMB" type="0" version="" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>产品文档模版-新增对象流程</describe>
+  <variables>
+    <variable describe="V_JG" name="V_JG" type="int" />
+    <variable describe="V_RET" name="V_RET" type="int" />
+    <variable describe="V_MSG" name="V_MSG" type="string" />
+    <variable describe="V_OBJ" instanceType="TPIF_WDMB" name="V_OBJ" type="object" />
+  </variables>
+  <sequence id="0">
+    <describe />
+    <invoke component="FormOperate" id="0" name="新增" operation="insert">
+      <describe>对象[产品文档模版]:新增</describe>
+      <arg name="@retObject" type="output">V_OBJ</arg>
+      <arg flag="field" name="XSPT" type="expression">O_PARAMETER.XSPT</arg>
+      <arg flag="field" name="CJSJ" type="expression">O_PARAMETER.CJSJ</arg>
+      <arg flag="field" name="CJR" type="expression">O_PARAMETER.CJR</arg>
+      <arg flag="field" name="BZ" type="expression">O_PARAMETER.BZ</arg>
+      <arg flag="field" name="XSQD" type="expression">O_PARAMETER.XSQD</arg>
+      <arg flag="field" name="SYCPFL" type="expression">O_PARAMETER.SYCPFL</arg>
+      <arg flag="field" name="SFQY" type="expression">O_PARAMETER.SFQY</arg>
+      <arg flag="field" name="MBMC" type="expression">O_PARAMETER.MBMC</arg>
+      <arg name="@objectName">TPIF_WDMB</arg>
+    </invoke>
+    <invoke component="SQL" id="0" name="执行SQL语句" operation="execute">
+      <describe>记录操作日志_新增</describe>
+      <arg name="TranType">procedure</arg>
+      <arg name="datasource">PIF</arg>
+      <arg name="ret" type="output">V_RET</arg>
+      <arg name="msg" type="output">V_MSG</arg>
+      <arg name="SQL">["CALL PRO_PIF_WDMB_CZRZDJ(:ret,:msg,{0},{1},0,{2})",[{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"$Login.IP","scale":"","length":"","type":"0"},{"expression":"V_OBJ.ID","scale":"","length":"","type":"1"}]]</arg>
+    </invoke>
+    <response exit="false" id="0">
+      <describe>输出</describe>
+      <retvalue type="variable">V_RET</retvalue>
+      <message type="variable">V_MSG</message>
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
+  </sequence>
+</process>
+

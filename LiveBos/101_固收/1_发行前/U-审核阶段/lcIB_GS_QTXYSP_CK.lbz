@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="8" exitOnStandardFault="false" isHorizontalLayout="false" method="lcIB_GS_QTXYSP_CK" name="lcIB_GS_QTXYSP_CK" object="lcIB_GS_QTXYSP" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>其他协议审批流程-查看流程</describe>
+  <variables />
+  <response exit="true" id="0" name="response">
+    <describe>输出</describe>
+    <retvalue>1</retvalue>
+    <message />
+    <uiforward redirect="true">
+      <url type="expression">&lt;%@ livebos language='javascript' %&gt;
+'/UIProcessor?Creator=workflow&amp;Table=wfIB_GS_QTXYSP&amp;WorkID='+O_MASTER.InstID+'&amp;HideCancelBtn=true'</url>
+    </uiforward>
+  </response>
+</process>
+

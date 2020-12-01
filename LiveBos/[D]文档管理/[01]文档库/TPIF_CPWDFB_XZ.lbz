@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="2" exitOnStandardFault="false" isHorizontalLayout="false" method="TPIF_CPWDFB_XZ" name="TPIF_CPWDFB_XZ" object="TPIF_CPWDFB" type="0" version="" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>产品文档范本-新增对象流程</describe>
+  <variables>
+    <variable describe="V_RET" name="V_RET" type="int" />
+    <variable describe="V_MSG" name="V_MSG" type="string" />
+    <variable describe="V_Obj" instanceType="TPIF_CPWDFB" name="V_Obj" type="object" />
+  </variables>
+  <sequence id="0">
+    <describe />
+    <invoke component="FormOperate" id="0" name="新增" operation="insert">
+      <describe>对象[产品文档范本]:新增</describe>
+      <arg name="@retObject" type="output">V_Obj</arg>
+      <arg flag="field" name="BBH" type="expression">&lt;%@ livebos language='javascript' %&gt;
+var current_time=ABS_SQLVALUE("SELECT TO_CHAR(SYSDATE,'YYYYMMDDHH24MISS') FROM DUAL");
+var	file_name=ABS_SQLVALUE("SELECT SUBSTR('"+O_PARAMETER.WDFB+"',1,INSTR('"+O_PARAMETER.WDFB+"','.',-1,1)-1) FROM DUAL");
+var	bbh=file_name+'_V100_'+current_time;
+bbh;</arg>
+      <arg name="@objectName">TPIF_CPWDFB</arg>
+      <arg flag="field" name="WDFL" type="expression">O_PARAMETER.WDFL</arg>
+      <arg flag="field" name="WDFBMC" type="expression">O_PARAMETER.WDFBMC</arg>
+      <arg flag="field" name="SHCPLX" type="expression">O_PARAMETER.SHCPLX</arg>
+      <arg flag="field" name="WDFB" type="expression">O_PARAMETER.WDFB</arg>
+      <arg flag="field" name="SFYX" type="expression">O_PARAMETER.SFYX</arg>
+    </invoke>
+    <invoke component="FormOperate" id="0" name="修改" operation="update">
+      <describe>对象[产品文档范本]:修改</describe>
+      <arg name="@objectName">TPIF_CPWDFB</arg>
+      <arg name="@object" type="variable">V_Obj</arg>
+      <arg flag="field" name="BM" type="expression">V_Obj.ID</arg>
+    </invoke>
+    <invoke component="SQL" id="0" name="执行SQL语句" operation="execute">
+      <describe>记录操作日志</describe>
+      <arg name="datasource">PIF</arg>
+      <arg name="TranType">procedure</arg>
+      <arg name="SQL">["CALL PRO_PIF_CPWDFB_CZRZDJ(:ret,:msg,{0},{1},0,{2})",[{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"$Login.IP","scale":"","length":"","type":"0"},{"expression":"V_Obj.ID","scale":"","length":"","type":"1"}]]</arg>
+      <arg name="ret" type="output">V_RET</arg>
+      <arg name="msg" type="output">V_MSG</arg>
+    </invoke>
+    <response exit="false" id="0">
+      <describe>输出</describe>
+      <retvalue type="variable">V_RET</retvalue>
+      <message type="variable">V_MSG</message>
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
+  </sequence>
+</process>
+

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="8" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_XMXX_XSB_XG" name="tIB_XMXX_XSB_XG" object="tIB_XMXX_XSB" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目信息_新三板-修改持续督导质控专员流程</describe>
+  <variables>
+    <variable describe="V_RET" messageType="output" name="V_RET" type="int" />
+    <variable describe="V_NOTE" messageType="output" name="V_NOTE" type="string" />
+  </variables>
+  <sequence id="0">
+    <invoke component="FormOperate" id="0" operation="update">
+      <describe>修改对象[项目信息_新三板]</describe>
+      <meta name="FUNCTION">true</meta>
+      <arg name="@objectName">tIB_XMXX_XSB</arg>
+      <arg name="@object" type="variable">O_MASTER</arg>
+      <arg flag="field" name="SFFXXM" type="expression">O_PARAMETER.SFFXXM</arg>
+      <arg flag="field" name="FXSJMS" type="expression">O_PARAMETER.FXSJMS</arg>
+    </invoke>
+    <invoke component="SQL" id="0" operation="execute">
+      <describe>数据库组件-执行SQL语句</describe>
+      <meta name="FUNCTION">true</meta>
+      <arg name="TranType">procedure</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="outparam1" type="output">V_RET</arg>
+      <arg name="outparam2" type="output">V_NOTE</arg>
+      <arg name="SQL">["call PRO_ZLKZZYXG_RZJL(:outparam1,:outparam2,{0},{1},{2})",[{"expression":"O_MASTER.ID","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.I_ZLKZBZY","scale":"","length":"","type":"1"},{"expression":"$Login.User","scale":"","length":"","type":"1"}]]</arg>
+    </invoke>
+  </sequence>
+</process>
+

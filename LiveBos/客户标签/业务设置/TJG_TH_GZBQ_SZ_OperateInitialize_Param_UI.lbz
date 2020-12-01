@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="TJG_TH_GZBQ_SZ" name="TJG_TH_GZBQ_SZ_OperateInitialize_Param_UI" object="TJG_TH_GZBQ" type="2" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>界面初始化界面事件</describe>
+  <variables />
+  <invoke component="FormUI" id="0" name="界面处理_使用字符串填充可选项" operation="putOptionsByString">
+    <describe>界面处理_使用字符串填充可选项</describe>
+    <arg flag="field" name="@columnName">GZZ</arg>
+    <arg name="@optionString" type="expression">ABS_SQLVALUE("SELECT ECIF.FUNC_JG_THBQ(1,?) FROM DUAL",[O_MASTER.KHBQ])</arg>
+    <arg name="@clearOptions">true</arg>
+  </invoke>
+</process>
+

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="GB2312" standalone="no"?>
+<dynOwner flag="0" name="DW_GS_ZKSBZFS" type="106">
+    <describe>固收_质控三部主副审</describe>
+    <sql>{"statement":"instr(';'||(select ZKSBZS||';'||ZKSBFS from ecif.tIB_XMXX_GS where id = :pXMID)||';',';'||tUser.ID||';')&gt;0","args":[],"type":0}</sql>
+    <parameters>
+        <parameter>
+            <name>pXMID</name>
+            <describe>固收项目ID</describe>
+            <comment/>
+            <type>1</type>
+            <length>16</length>
+            <scale>0</scale>
+        </parameter>
+    </parameters>
+</dynOwner>

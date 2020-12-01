@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_NHSP_FJ_DELETE_UI" object="lcIB_NHSP" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>删除*界面事件</describe>
+  <meta name="extend-button">lcIB_NHSP_FJ_DELETE</meta>
+  <variables />
+  <invoke component="FormUIHypotOperate" id="0" name="表格操作_批量删除" operation="batchDelete">
+    <describe>批量删除表格对象[内核审批表]</describe>
+    <arg name="@objectName">lcIB_NHSP</arg>
+    <arg name="@object" type="variable">O_MASTER</arg>
+    <arg name="@columnName">FJ</arg>
+    <arg name="@condition">&lt;%@ livebos language='javascript' %&gt;
+(O_MASTER.FJ.ID==O_HYPOT.ID) &amp;&amp; (O_MASTER.FJ.FJLX==null)</arg>
+  </invoke>
+</process>
+

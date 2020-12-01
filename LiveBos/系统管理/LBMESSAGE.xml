@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="GB2312" standalone="no"?>
+<object create-date="null" creator="null" flag="0" modifier="11" modify-date="2013.07.30 10:24:30" name="LBMESSAGE" object-id="-5ddc55fb:13fc7b23f22:-7fff" package="系统管理" type="0" version="1.2">
+    <describe>留言</describe>
+    <comment/>
+    <datasource-name/>
+    <parent/>
+    <attribute>256</attribute>
+    <templet>默认</templet>
+    <columns>
+        <column>
+            <name>ID</name>
+            <describe>ID</describe>
+            <type>1</type>
+            <biz-type>200</biz-type>
+            <length>16</length>
+            <scale>0</scale>
+            <control>0</control>
+            <primary-property>2</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>4</attribute>
+            <order-direction>2</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>F_OWNER</name>
+            <describe>所有者</describe>
+            <type>6</type>
+            <biz-type>500</biz-type>
+            <length>12</length>
+            <scale>0</scale>
+            <control>10</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object>tUser</ref-object>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>F_SENDER</name>
+            <describe>发送者</describe>
+            <type>6</type>
+            <biz-type>500</biz-type>
+            <length>12</length>
+            <scale>0</scale>
+            <control>10</control>
+            <primary-property>4</primary-property>
+            <nullable>false</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object>tUser</ref-object>
+            <default>$Login.User</default>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>F_RECEIVER</name>
+            <describe>接收者</describe>
+            <type>16</type>
+            <biz-type>600</biz-type>
+            <length>1024</length>
+            <scale>0</scale>
+            <control>45</control>
+            <primary-property>4</primary-property>
+            <nullable>false</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object>tUser</ref-object>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>F_MESSAGE</name>
+            <describe>内容</describe>
+            <type>0</type>
+            <biz-type>100</biz-type>
+            <length>1024</length>
+            <scale>0</scale>
+            <control>7</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation>
+                <validator name="maxbytelength">
+                    <expression>1024 </expression>
+                    <message>{0}字符串最大长度不能超过{2}</message>
+                    <attribute>0</attribute>
+                </validator>
+            </validation>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>F_FOLDER</name>
+            <describe>文件夹</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>2</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option>0|收件箱;1|发件箱</option>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>F_DATE</name>
+            <describe>发送时间</describe>
+            <type>3</type>
+            <biz-type>300</biz-type>
+            <length>20</length>
+            <scale>0</scale>
+            <control>37</control>
+            <primary-property>5</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default>$DateTime.Now</default>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>SESSION_ID</name>
+            <describe>会话</describe>
+            <type>6</type>
+            <biz-type>500</biz-type>
+            <length>9</length>
+            <scale>0</scale>
+            <control>10</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>false</visible>
+            <option/>
+            <meta-column/>
+            <ref-object>LBMESSAGE</ref-object>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+    </columns>
+    <display-options>
+        <commands>
+            <command type="5">
+                <describe>发送留言</describe>
+                <define>
+                    <item>LBMESSAGE_SEND</item>
+                </define>
+                <is-default>2</is-default>
+                <attribute>0</attribute>
+                <icon-cls/>
+                <tip/>
+            </command>
+            <command type="5">
+                <describe>回复</describe>
+                <define>
+                    <item>LBMESSAGE_RELAY</item>
+                </define>
+                <is-default>2</is-default>
+                <attribute>0</attribute>
+                <icon-cls/>
+                <tip/>
+            </command>
+        </commands>
+        <relations/>
+    </display-options>
+    <subdivisions/>
+    <methods>
+        <method create-date="2013.07.10 16:38:03" creator="11" modifier="11" modify-date="2013.07.10 16:38:03" name="LBMESSAGE_SEND" object-id="-5ddc55fb:13fc7b23f22:-7ffe" type="12" version="V1.1">
+            <describe>发送留言</describe>
+            <comment/>
+            <attribute>268435464</attribute>
+            <parameters>
+                <column>
+                    <name>F_RECEIVER</name>
+                    <describe>接收者</describe>
+                    <type>8</type>
+                    <biz-type>600</biz-type>
+                    <length>1024</length>
+                    <scale>0</scale>
+                    <control>45</control>
+                    <primary-property>4</primary-property>
+                    <nullable>false</nullable>
+                    <unique>false</unique>
+                    <enabled>true</enabled>
+                    <visible>true</visible>
+                    <option/>
+                    <meta-column/>
+                    <ref-object>tUser</ref-object>
+                    <default/>
+                    <attribute>0</attribute>
+                    <order-direction>0</order-direction>
+                    <expression/>
+                    <invisible-expression/>
+                    <disable-expression/>
+                    <category/>
+                    <fire-event>0</fire-event>
+                    <check-type>0</check-type>
+                    <real-type>16</real-type>
+                    <comment/>
+                    <validation/>
+                    <scope-permissions/>
+                </column>
+                <column>
+                    <name>F_MESSAGE</name>
+                    <describe>内容</describe>
+                    <type>8</type>
+                    <biz-type>100</biz-type>
+                    <length>1024</length>
+                    <scale>0</scale>
+                    <control>7</control>
+                    <primary-property>0</primary-property>
+                    <nullable>false</nullable>
+                    <unique>false</unique>
+                    <enabled>true</enabled>
+                    <visible>true</visible>
+                    <option/>
+                    <meta-column/>
+                    <ref-object/>
+                    <default/>
+                    <attribute>0</attribute>
+                    <order-direction>0</order-direction>
+                    <expression/>
+                    <invisible-expression/>
+                    <disable-expression/>
+                    <category/>
+                    <fire-event>0</fire-event>
+                    <check-type>0</check-type>
+                    <real-type>0</real-type>
+                    <comment/>
+                    <validation>
+                        <validator name="maxbytelength">
+                            <expression>1024 </expression>
+                            <message>{0}字符串最大长度不能超过{2}</message>
+                            <attribute>0</attribute>
+                        </validator>
+                    </validation>
+                    <scope-permissions/>
+                </column>
+            </parameters>
+            <properties>
+                <property>
+                    <name>165</name>
+                    <value>false</value>
+                </property>
+                <property>
+                    <name>167</name>
+                    <value>false</value>
+                </property>
+                <property>
+                    <name>172</name>
+                    <value>false</value>
+                </property>
+            </properties>
+            <restrictions/>
+            <validator/>
+            <pre-functions/>
+            <functions>
+                <function name="LBMESSAGE_SEND_F1" type="8">
+                    <describe>执行表达式</describe>
+                    <ref-object name=""/>
+                    <expression>&lt;%@ livebos language='javascript' %&gt; 
+var e; 
+try{
+LB_Message(''+O_PARAMETER.F_RECEIVER,O_PARAMETER.F_MESSAGE,$Login.User);
+true;
+}catch(e){
+ ABS_SETRETNOTE(e.message);
+ false;
+} </expression>
+                </function>
+            </functions>
+            <post-functions/>
+        </method>
+        <method create-date="2013.07.08 15:53:10" creator="11" modifier="11" modify-date="2013.07.08 15:53:10" name="LBMESSAGE_RELAY" object-id="-12859212:13fbd451bb4:-8000" type="12" version="V1.1">
+            <describe>回复</describe>
+            <comment/>
+            <attribute>268435472</attribute>
+            <parameters>
+                <column>
+                    <name>F_RECEIVER</name>
+                    <describe>接收者</describe>
+                    <type>16</type>
+                    <biz-type>600</biz-type>
+                    <length>0</length>
+                    <scale>0</scale>
+                    <control>45</control>
+                    <primary-property>10</primary-property>
+                    <nullable>true</nullable>
+                    <unique>false</unique>
+                    <enabled>true</enabled>
+                    <visible>true</visible>
+                    <option/>
+                    <meta-column/>
+                    <ref-object>tUser</ref-object>
+                    <default/>
+                    <attribute>65536</attribute>
+                    <order-direction>0</order-direction>
+                    <expression>F_RECEIVER||O_MASTER.F_SENDER </expression>
+                    <invisible-expression/>
+                    <disable-expression>&lt;%@ livebos language='javascript' %&gt;
+F_RECEIVER!=null||F_RECEIVER!=''||(' '+F_RECEIVER)!=' ' </disable-expression>
+                    <category/>
+                    <fire-event>0</fire-event>
+                    <check-type>0</check-type>
+                    <real-type>0</real-type>
+                    <comment/>
+                    <validation/>
+                    <scope-permissions/>
+                </column>
+                <column>
+                    <name>F_MESSAGE</name>
+                    <describe>内容</describe>
+                    <type>0</type>
+                    <biz-type>100</biz-type>
+                    <length>1024</length>
+                    <scale>0</scale>
+                    <control>7</control>
+                    <primary-property>0</primary-property>
+                    <nullable>false</nullable>
+                    <unique>false</unique>
+                    <enabled>true</enabled>
+                    <visible>true</visible>
+                    <option/>
+                    <meta-column/>
+                    <ref-object/>
+                    <default/>
+                    <attribute>0</attribute>
+                    <order-direction>0</order-direction>
+                    <expression/>
+                    <invisible-expression/>
+                    <disable-expression/>
+                    <category/>
+                    <fire-event>0</fire-event>
+                    <check-type>0</check-type>
+                    <real-type>0</real-type>
+                    <comment/>
+                    <validation/>
+                    <scope-permissions/>
+                </column>
+                <column>
+                    <name>F_DATE</name>
+                    <describe>发送时间</describe>
+                    <type>3</type>
+                    <biz-type>300</biz-type>
+                    <length>20</length>
+                    <scale>0</scale>
+                    <control>0</control>
+                    <primary-property>5</primary-property>
+                    <nullable>true</nullable>
+                    <unique>false</unique>
+                    <enabled>false</enabled>
+                    <visible>true</visible>
+                    <option/>
+                    <meta-column/>
+                    <ref-object/>
+                    <default>$DateTime.Now</default>
+                    <attribute>0</attribute>
+                    <order-direction>0</order-direction>
+                    <expression/>
+                    <invisible-expression/>
+                    <disable-expression/>
+                    <category/>
+                    <fire-event>0</fire-event>
+                    <check-type>0</check-type>
+                    <real-type>3</real-type>
+                    <comment/>
+                    <validation/>
+                    <scope-permissions/>
+                </column>
+                <column>
+                    <name>F_SENDER</name>
+                    <describe>发送者</describe>
+                    <type>6</type>
+                    <biz-type>500</biz-type>
+                    <length>9</length>
+                    <scale>0</scale>
+                    <control>0</control>
+                    <primary-property>4</primary-property>
+                    <nullable>false</nullable>
+                    <unique>false</unique>
+                    <enabled>false</enabled>
+                    <visible>true</visible>
+                    <option/>
+                    <meta-column/>
+                    <ref-object>tUser</ref-object>
+                    <default>$Login.User</default>
+                    <attribute>0</attribute>
+                    <order-direction>0</order-direction>
+                    <expression/>
+                    <invisible-expression/>
+                    <disable-expression/>
+                    <category/>
+                    <fire-event>0</fire-event>
+                    <check-type>0</check-type>
+                    <real-type>6</real-type>
+                    <comment/>
+                    <validation/>
+                    <scope-permissions/>
+                </column>
+                <column>
+                    <name>SESSION_ID</name>
+                    <describe>会话</describe>
+                    <type>6</type>
+                    <biz-type>500</biz-type>
+                    <length>0</length>
+                    <scale>0</scale>
+                    <control>10</control>
+                    <primary-property>0</primary-property>
+                    <nullable>true</nullable>
+                    <unique>false</unique>
+                    <enabled>false</enabled>
+                    <visible>false</visible>
+                    <option/>
+                    <meta-column/>
+                    <ref-object>LBMESSAGE</ref-object>
+                    <default/>
+                    <attribute>65536</attribute>
+                    <order-direction>0</order-direction>
+                    <expression/>
+                    <invisible-expression/>
+                    <disable-expression/>
+                    <category/>
+                    <fire-event>0</fire-event>
+                    <check-type>0</check-type>
+                    <real-type>6</real-type>
+                    <comment/>
+                    <validation/>
+                    <scope-permissions/>
+                </column>
+            </parameters>
+            <properties>
+                <property>
+                    <name>165</name>
+                    <value>false</value>
+                </property>
+                <property>
+                    <name>167</name>
+                    <value>false</value>
+                </property>
+                <property>
+                    <name>172</name>
+                    <value>false</value>
+                </property>
+            </properties>
+            <restrictions/>
+            <validator/>
+            <pre-functions/>
+            <functions>
+                <function name="LBMESSAGE_RE_F1" type="0">
+                    <describe>新增记录</describe>
+                    <ref-object name="LBMESSAGE">
+                        <column name="F_OWNER">
+                            <expression>$Login.User </expression>
+                        </column>
+                        <column name="F_SENDER">
+                            <expression>O_PARAMETER.F_SENDER </expression>
+                        </column>
+                        <column name="F_RECEIVER">
+                            <expression>O_PARAMETER.F_RECEIVER||F_SENDER </expression>
+                        </column>
+                        <column name="F_MESSAGE">
+                            <expression>O_PARAMETER.F_MESSAGE </expression>
+                        </column>
+                        <column name="F_FOLDER">
+                            <expression>1 </expression>
+                        </column>
+                        <column name="F_DATE">
+                            <expression>O_PARAMETER.F_DATE </expression>
+                        </column>
+                        <column name="SESSION_ID">
+                            <expression>O_PARAMETER.SESSION_ID||SESSION_ID </expression>
+                        </column>
+                    </ref-object>
+                    <expression/>
+                </function>
+                <function name="LBMESSAGE_RE_F2" type="0">
+                    <describe>新增记录2</describe>
+                    <restriction name="LBMESSAGE_RE_F2" type="0">
+                        <expression>&lt;%@ livebos language='javascript' %&gt;
+O_PARAMETER.F_RECEIVER!=O_PARAMETER.F_SENDER </expression>
+                    </restriction>
+                    <ref-object name="LBMESSAGE">
+                        <column name="F_OWNER">
+                            <expression>O_PARAMETER.F_RECEIVER||F_SENDER </expression>
+                        </column>
+                        <column name="F_SENDER">
+                            <expression>$Login.User </expression>
+                        </column>
+                        <column name="F_RECEIVER">
+                            <expression>O_PARAMETER.F_RECEIVER||F_SENDER </expression>
+                        </column>
+                        <column name="F_MESSAGE">
+                            <expression>O_PARAMETER.F_MESSAGE </expression>
+                        </column>
+                        <column name="F_FOLDER">
+                            <expression>0 </expression>
+                        </column>
+                        <column name="F_DATE">
+                            <expression>O_PARAMETER.F_DATE </expression>
+                        </column>
+                        <column name="SESSION_ID">
+                            <expression>SESSION_ID||O_PARAMETER.SESSION_ID </expression>
+                        </column>
+                    </ref-object>
+                    <expression/>
+                </function>
+                <function name="LBMESSAGE_RELAY_F1" type="7">
+                    <describe>调用系统服务</describe>
+                    <ref-object name="DeskNotify">
+                        <column name="Receiver">
+                            <expression>O_PARAMETER.F_RECEIVER </expression>
+                        </column>
+                        <column name="Sender">
+                            <expression>O_PARAMETER.F_SENDER </expression>
+                        </column>
+                        <column name="Subject">
+                            <expression>' ' </expression>
+                        </column>
+                        <column name="Message">
+                            <expression>O_PARAMETER.F_MESSAGE </expression>
+                        </column>
+                    </ref-object>
+                    <expression/>
+                </function>
+            </functions>
+            <post-functions/>
+        </method>
+    </methods>
+    <properties>
+        <property>
+            <name>112</name>
+            <value>false</value>
+        </property>
+        <property>
+            <name>113</name>
+            <value>false</value>
+        </property>
+    </properties>
+    <orders/>
+    <ui-logics>
+        <events/>
+    </ui-logics>
+    <panels/>
+    <extend-buttons/>
+</object>

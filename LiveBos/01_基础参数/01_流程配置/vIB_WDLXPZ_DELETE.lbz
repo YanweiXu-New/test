@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="8" exitOnStandardFault="false" isHorizontalLayout="false" method="vIB_WDLXPZ_DELETE" name="vIB_WDLXPZ_DELETE" object="vIB_WDLXPZ" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>流程文档模板-删除2流程</describe>
+  <variables>
+    <variable describe="V_1" messageType="" name="V_1" type="string" />
+  </variables>
+  <restriction id="0">
+    <invoke component="ExpValidator" id="0">
+      <describe>启动限制</describe>
+      <arg name="assertType">false</arg>
+      <arg name="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+var count = ABS_SQLVALUE("select ecif.FUNC_WDLXPZBXG(?,?) from dual",[$Login.User,O_MASTER.LCBD]);&#xD;
+if (count &gt; 0){&#xD;
+   false;&#xD;
+}else{&#xD;
+   true;&#xD;
+}</arg>
+      <arg name="message" type="expression">'抱歉，您没有权限！'</arg>
+    </invoke>
+  </restriction>
+  <sequence id="0">
+    <invoke component="ConfirmDialog" id="0">
+      <describe>消息确认框</describe>
+      <meta name="FUNCTION">true</meta>
+      <arg flag="" name="message" type="expression">'确认要删除吗？'</arg>
+      <arg flag="" name="title" type="expression">'警告'</arg>
+      <arg name="icon">WARN</arg>
+      <arg name="options">YES;NO</arg>
+      <arg name="@retValue" type="output">V_1</arg>
+    </invoke>
+    <invoke component="Assert" id="0">
+      <describe>断言</describe>
+      <meta name="FUNCTION">true</meta>
+      <arg name="assert.1" type="expression">&lt;%@ livebos language='javascript' %&gt;
+V_1 == "YES"</arg>
+      <arg name="message.1" type="expression">'取消删除'</arg>
+    </invoke>
+    <invoke component="FormOperate" id="0" operation="delete">
+      <describe>删除对象[流程文档模板]</describe>
+      <meta name="FUNCTION">true</meta>
+      <arg name="@objectName">vIB_WDLXPZ</arg>
+      <arg name="@object" type="variable">O_MASTER</arg>
+    </invoke>
+  </sequence>
+</process>
+

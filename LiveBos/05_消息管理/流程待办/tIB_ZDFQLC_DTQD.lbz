@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_ZDFQLC_DTQD" name="tIB_ZDFQLC_DTQD" object="tIB_ZDFQLC" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>自动发起流程-单条启动流程</describe>
+  <variables>
+    <variable describe="V_RET" messageType="" name="V_RET" type="int" />
+    <variable describe="V_MSG" messageType="" name="V_MSG" type="string" />
+    <variable describe="V_CSZ" messageType="" name="V_CSZ" type="string" />
+    <variable describe="V_BDM" messageType="" name="V_BDM" type="string" />
+    <variable describe="V_BDID" messageType="" name="V_BDID" type="int" />
+    <variable describe="V_BZID" messageType="" name="V_BZID" type="int" />
+    <variable describe="V_FQR" messageType="" name="V_FQR" type="int" />
+    <variable describe="V_DBLCJLID" messageType="" name="V_DBLCJLID" type="int" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <assign id="0">
+      <describe>赋值</describe>
+      <copy>
+        <from type="expression">O_MASTER.parameter.CSZ</from>
+        <to variable="V_CSZ" />
+      </copy>
+    </assign>
+    <invoke component="expression" id="0" name="执行脚本">
+      <describe>执行脚本</describe>
+      <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+var arr=V_CSZ.split("|");
+V_DBLCJLID=arr[0];
+V_BDM=arr[1];
+V_BDID=arr[2];
+V_BZID=arr[3];
+V_FQR=arr[4];</arg>
+    </invoke>
+    <invoke component="Workflow" id="0" name="工作流组件_执行动作" operation="doAction">
+      <describe>工作流组件_执行动作</describe>
+      <arg name="@objectName" type="variable">V_BDM</arg>
+      <arg name="@ID" type="variable">V_BDID</arg>
+      <arg name="actionID" type="variable">V_BZID</arg>
+      <arg name="user" type="variable">V_FQR</arg>
+      <arg name="@retValue" type="output">V_RET</arg>
+    </invoke>
+    <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+      <describe>变更数据状态</describe>
+      <arg name="TranType">procedure</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="ret" type="output">V_RET</arg>
+      <arg name="msg" type="output">V_MSG</arg>
+      <arg name="SQL">["CALL PRO_IB_BGDBZT(:ret,:msg,{0},{1})",[{"expression":"V_DBLCJLID","scale":"","length":"","type":"1"},{"expression":"V_RET","scale":"","length":"","type":"1"}]]</arg>
+    </invoke>
+  </sequence>
+</process>
+

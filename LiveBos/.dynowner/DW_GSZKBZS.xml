@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="GB2312" standalone="no"?>
+<dynOwner flag="0" name="DW_GSZKBZS" type="106">
+    <describe>固收_质控部主审_配置表</describe>
+    <sql>{"statement":"tUser.ID IN (SELECT OWNER FROM TABLE(ecif.FUNC_GET_LCSHR(:LCBDDM,:SQBM,1)))","args":[],"type":0}</sql>
+    <parameters>
+        <parameter>
+            <name>LCBDDM</name>
+            <describe>流程表单代码</describe>
+            <comment/>
+            <type>0</type>
+            <length>100</length>
+            <scale>0</scale>
+        </parameter>
+        <parameter>
+            <name>SQBM</name>
+            <describe>流程申请部门</describe>
+            <comment/>
+            <type>1</type>
+            <length>16</length>
+            <scale>0</scale>
+        </parameter>
+    </parameters>
+</dynOwner>

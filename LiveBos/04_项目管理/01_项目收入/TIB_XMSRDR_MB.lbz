@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="TIB_XMSRDR_MB" name="TIB_XMSRDR_MB" object="TIB_XMSRDR" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目收入导入-模板下载流程</describe>
+  <variables>
+    <variable describe="V_ID" messageType="" name="V_ID" type="int" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <assign id="0">
+      <describe>赋值</describe>
+      <copy>
+        <from type="expression">&lt;%@ livebos language='javascript' %&gt;
+ ABS_SQLVALUE("SELECT 'TSJDRMB.MB.'||ID FROM JGCRM.TSJDRMB WHERE MBBM = 'BMSRDR' ");</from>
+        <to variable="V_ID" />
+      </copy>
+    </assign>
+    <response exit="false" id="0">
+      <describe>输出</describe>
+      <retvalue>1</retvalue>
+      <message />
+      <uiforward redirect="false">
+        <url type="expression">&lt;%@ livebos language='javascript' %&gt;
+"/plug-in/home/downloadPage.jsp?key="+V_ID</url>
+      </uiforward>
+    </response>
+  </sequence>
+</process>
+

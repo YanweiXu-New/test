@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="TPIF_CPWDK_TBBJWDXX" name="TPIF_CPWDK_TBBJWDXX" object="TPIF_CPWDK" type="0" version="" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>产品文档库-同步表间文档信息对象流程</describe>
+  <variables>
+    <variable describe="V_CODE" name="V_CODE" type="int" />
+    <variable describe="V_NOTE" name="V_NOTE" type="string" />
+    <variable describe="V_FJ" instanceType="TPIF_CPZX_OAXZLC_FJ" name="V_FJ" type="object" />
+  </variables>
+  <sequence id="0">
+    <describe />
+    <invoke component="FormOperate" id="0" name="新增" operation="insert">
+      <describe>对象[附件]:新增</describe>
+      <arg name="@objectName">TPIF_CPZX_OAXZLC_FJ</arg>
+      <arg flag="field" name="FJ" type="expression">O_PARAMETER.WDKID.FJ</arg>
+      <arg flag="field" name="SFYX" type="expression">1</arg>
+      <arg flag="field" name="WDLY" type="expression">1</arg>
+      <arg flag="field" name="FJDX" type="expression">O_PARAMETER.WDKID.WJDX</arg>
+      <arg name="@retObject" type="output">V_FJ</arg>
+    </invoke>
+    <invoke component="SQL" id="0" name="执行SQL语句" operation="execute">
+      <describe>更新通用OA流程ID</describe>
+      <arg name="o_note" type="output">V_NOTE</arg>
+      <arg name="o_code" type="output">V_CODE</arg>
+      <arg name="TranType">procedure</arg>
+      <arg name="SQL">["CALL PRO_OAXZLC_FJ(:o_code, :o_note, {0}, {1})",[{"expression":"O_PARAMETER.LCBID","scale":"","length":"","type":"1"},{"expression":"V_FJ.ID","scale":"","length":"","type":"1"}]]</arg>
+      <arg name="datasource">PIF</arg>
+    </invoke>
+  </sequence>
+</process>
+

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="TJG_TH_ZB_XMXX_GZ" name="TJG_TH_ZB_XMXX_GZ" object="TJG_TH_ZB_XMXX" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目信息-维护项目进展流程</describe>
+  <variables>
+    <variable describe="V_RET" messageType="" name="V_RET" type="int" />
+    <variable describe="V_MSG" messageType="" name="V_MSG" type="string" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <invoke component="FormOperate" id="0" name="对象组件_修改" operation="update">
+      <describe>修改对象[项目信息]</describe>
+      <arg name="@objectName">TJG_TH_ZB_XMXX</arg>
+      <arg name="@object" type="variable">O_MASTER</arg>
+      <arg flag="field" name="SFFQ" type="expression">O_PARAMETER.SFFQ</arg>
+      <arg flag="field" name="FXQK" type="expression">O_PARAMETER.FXQK</arg>
+    </invoke>
+    <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+      <describe>业务处理</describe>
+      <arg name="TranType">procedure</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="SQL">["CALL PRO_TH_XMXX_JD(:ret,:msg,{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19},{20},{21},{22},{23},{24},{25},{26},{27})",[{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"O_MASTER.ID","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.XMJD","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.XMJZQK","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.YJFXSL","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.YJCZE","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.QNSHLR","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.BJDBR","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.XBR","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.NSSBKJPM","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.FXSL","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.CZE","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.XMZSR","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.ZFJE","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.QYRQ","scale":"","length":"","type":"13"},{"expression":"O_PARAMETER.LXRQ","scale":"","length":"","type":"13"},{"expression":"O_PARAMETER.BGRQ","scale":"","length":"","type":"13"},{"expression":"O_PARAMETER.SLRQ","scale":"","length":"","type":"13"},{"expression":"O_PARAMETER.GHRQ","scale":"","length":"","type":"13"},{"expression":"O_PARAMETER.CHRQ","scale":"","length":"","type":"13"},{"expression":"O_PARAMETER.BFRQ","scale":"","length":"","type":"13"},{"expression":"O_PARAMETER.ZZRQ","scale":"","length":"","type":"13"},{"expression":"O_PARAMETER.FXRQ","scale":"","length":"","type":"13"},{"expression":"&lt;%@ livebos language='javascript' %&gt;\r\nABS_IF(O_PARAMETER.XMJD.XSSX==10,O_PARAMETER.P_SSRQ,O_PARAMETER.SSRQ)","scale":"","length":"","type":"13"},{"expression":"O_PARAMETER.TGNHRQ","scale":"","length":"","type":"13"},{"expression":"O_PARAMETER.SBRQ","scale":"","length":"","type":"13"},{"expression":"O_PARAMETER.LTRQ","scale":"","length":"","type":"13"},{"expression":"O_PARAMETER.LTRQ","scale":"","length":"","type":"13"}]]</arg>
+      <arg name="ret" type="output">V_RET</arg>
+      <arg name="msg" type="output">V_MSG</arg>
+    </invoke>
+    <response exit="false" id="0">
+      <describe>输出</describe>
+      <retvalue type="variable">V_RET</retvalue>
+      <message type="variable">V_MSG</message>
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
+  </sequence>
+</process>
+

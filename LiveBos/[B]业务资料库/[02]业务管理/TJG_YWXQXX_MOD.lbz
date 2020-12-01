@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="8" exitOnStandardFault="false" isHorizontalLayout="false" method="TJG_YWXQXX_MOD" name="TJG_YWXQXX_MOD" object="TJG_YWXQXX" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>业务需求分类-修改流程</describe>
+  <variables />
+  <sequence id="0">
+    <invoke component="ExpValidator" id="0">
+      <describe>例外处理-表达式验证</describe>
+      <meta name="validation">1</meta>
+      <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE("SELECT COUNT(0) FROM TJG_YWXQXX WHERE NAME=? AND ID!=?",[O_PARAMETER.Name,O_MASTER.ID])</arg>
+      <arg name="message">"此业务名称已经存在！"</arg>
+      <arg name="assertType">false</arg>
+    </invoke>
+    <invoke component="FormOperate" id="0" name="修改" operation="update">
+      <describe>修改记录</describe>
+      <meta name="FUNCTION">true</meta>
+      <arg name="@objectName">TJG_YWXQXX</arg>
+      <arg name="@object" type="variable">O_MASTER</arg>
+      <arg flag="field" name="Name" type="expression">O_PARAMETER.Name</arg>
+      <arg flag="field" name="YWTS" type="expression">O_PARAMETER.YWTS</arg>
+      <arg flag="field" name="YWJJ" type="expression">O_PARAMETER.YWJJ</arg>
+      <arg flag="field" name="YWX" type="expression">O_PARAMETER.YWX</arg>
+      <arg flag="field" name="SXFZ" type="expression">O_PARAMETER.SXFZ</arg>
+      <arg flag="field" name="TP" type="expression">O_PARAMETER.TP</arg>
+      <arg flag="field" name="BZ" type="expression">O_PARAMETER.BZ</arg>
+      <arg flag="field" name="XSSX" type="expression">O_PARAMETER.XSSX</arg>
+    </invoke>
+  </sequence>
+</process>
+

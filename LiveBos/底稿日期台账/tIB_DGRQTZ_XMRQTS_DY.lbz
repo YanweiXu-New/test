@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="8" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_DGRQTZ_XMRQTS_DY" name="tIB_DGRQTZ_XMRQTS_DY" object="tIB_DGRQTZ" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>底稿日期台账-项目日期推送_调用流程</describe>
+  <variables />
+  <sequence id="0">
+    <invoke component="expression" id="0">
+      <describe>调用封装接口</describe>
+      <meta name="FUNCTION">true</meta>
+      <arg name="@autoExit" type="expression">true</arg>
+      <arg name="expression">var xmid =O_PARAMETER.XMID;&#xD;
+var result=null;&#xD;
+var bean = ABS_LOADBEAN("com.apex.bss.mod.ibb.systemdocking.papers.LinkstecBean");&#xD;
+result = bean.execute(O_PARAMETER.BM, $Login.User.UserID, O_PARAMETER.XMFL2,xmid);&#xD;
+var note=result.get('note');&#xD;
+var code=result.get('code');&#xD;
+if  (code &gt;0)&#xD;
+{&#xD;
+ true;&#xD;
+}else&#xD;
+{&#xD;
+ABS_SETRETNOTE('底稿系统'+note);&#xD;
+false;&#xD;
+}</arg>
+    </invoke>
+  </sequence>
+</process>
+

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="TJG_TH_ZB_XMXX_XZ" name="TJG_TH_ZB_XMXX_XZ" object="TJG_TH_ZB_XMXX" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目信息-新增项目流程</describe>
+  <variables>
+    <variable describe="V_RET" messageType="" name="V_RET" type="int" />
+    <variable describe="V_MSG" messageType="" name="V_MSG" type="string" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+      <describe>业务处理</describe>
+      <arg name="TranType">procedure</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="ret" type="output">V_RET</arg>
+      <arg name="msg" type="output">V_MSG</arg>
+      <arg name="SQL">["CALL ECIF.PRO_TH_XMXX(:ret,:msg,{0},0,null,{1},{2},{12},{3},{4},{5},{6},{7},{8},{9},{10},{11})",[{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.CZBM2","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.XMLX2","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.XMMC2","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.HY2","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.DQ2","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.YJSR2","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.CLRQ2","scale":"","length":"","type":"13"},{"expression":"O_PARAMETER.XMJZQK2","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.SFBM2","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.SFJR2","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.LXR2","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.KHMC2","scale":"","length":"","type":"1"}]]</arg>
+    </invoke>
+    <response exit="false" id="0">
+      <describe>输出</describe>
+      <retvalue type="variable">V_RET</retvalue>
+      <message type="variable">V_MSG</message>
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
+  </sequence>
+</process>
+

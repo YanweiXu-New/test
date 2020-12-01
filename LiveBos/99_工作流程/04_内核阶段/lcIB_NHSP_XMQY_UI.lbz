@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_NHSP_XMQY_UI" object="lcIB_NHSP" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目区域界面事件</describe>
+  <variables />
+  <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+    <describe>界面处理_更新值</describe>
+    <arg flag="field" name="QYMC" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE("select NOTE FROM jgcrm.txtdm WHERE IBM = ? and flmc like '项目区域' ",[O_MASTER.XMQY])</arg>
+  </invoke>
+</process>
+

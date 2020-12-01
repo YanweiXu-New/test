@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_XMZZRKSPB_XMMC_UI" object="lcIB_XMZZRKSPB" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目名称界面事件</describe>
+  <variables />
+  <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+    <describe>界面处理_更新值</describe>
+    <arg flag="field" name="GSMC" type="expression">O_MASTER.XMMC.SSKH.KHQC</arg>
+    <arg flag="field" name="XMLX" type="expression">O_MASTER.XMMC.XMLX</arg>
+    <arg flag="field" name="XMSCJD" type="expression">O_MASTER.XMMC.XMJD</arg>
+    <arg flag="field" name="XMFZR" type="expression">O_MASTER.XMMC.XMFZR</arg>
+    <arg flag="field" name="BJDBR" type="expression">O_MASTER.XMMC.QZBJDBR</arg>
+    <arg flag="field" name="SFTGLX" type="expression">&lt;%@ livebos language='javascript' %&gt;
+var lxjg;
+if (O_MASTER.XMMC.LXJG == 0) {
+lxjg = 1;
+}
+else {
+lxjg = 0;
+}
+lxjg;</arg>
+    <arg flag="field" name="SFTGNH" type="expression">&lt;%@ livebos language='javascript' %&gt;
+var nhjg;
+if (O_MASTER.XMMC.NHJG == 0) {
+nhjg = 1;
+}
+else {
+nhjg = 0;
+}
+nhjg;</arg>
+    <arg flag="field" name="ZKBZS" type="expression">O_MASTER.XMMC.ZKBSHRYZS</arg>
+    <arg flag="field" name="ZKBFS" type="expression">O_MASTER.XMMC.ZKBSHSRFS</arg>
+    <arg flag="field" name="XMZCY" type="expression">O_MASTER.XMMC.QTCY</arg>
+  </invoke>
+</process>
+

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="4" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_DTTX_ZZPJYJ" name="tIB_DTTX_ZZPJYJ" object="tIB_DTTX" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>系统动态提醒-转账凭证预警流程</describe>
+  <variables>
+    <variable describe="V_JKLB" messageType="" name="V_JKLB" type="resultSet" />
+    <variable describe="V_LCCL" messageType="" name="V_LCCL" type="resultSet" />
+    <variable describe="V_Ret" messageType="" name="V_Ret" type="int" />
+    <variable describe="V_Msg" messageType="" name="V_Msg" type="string" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
+      <describe>获取预警流程</describe>
+      <arg name="TranType">sql</arg>
+      <arg name="@retResultSet" type="output">V_JKLB</arg>
+      <arg name="SQL">["SELECT T.ID AS LCBDID,'lcIB_GS_ZZPZSCLC' AS LCBD,100 AS DZID,'延期系统自动干预' AS DZZY\r\n  FROM (SELECT A.*\r\n          FROM LCIB_GS_ZZPZSCLC A, JGCRM.OS_WFENTRY B, JGCRM.OS_CURRENTSTEP C\r\n         WHERE A.INSTID = B.ID\r\n           AND B.ID = C.ENTRY_ID\r\n           AND C.STEP_ID = 5\r\n           AND B.STATE &lt;&gt; 3\r\n           AND A.XTFQBZ = 1\r\n           AND NVL(A.YQBZ,0)=0\r\n           AND A.FXR IS NOT NULL\r\n           AND A.SJ IS NOT NULL) T\r\n WHERE JGCRM.FUNC_GETNEXTJYR(T.FXR, -1 * T.SJ+40) &lt;= TO_NUMBER(TO_CHAR(SYSDATE, 'YYYYMMDD'))",[]]</arg>
+      <arg name="datasource">ECIF</arg>
+    </invoke>
+    <forEach collection="V_JKLB" id="0" toVariable="V_LCCL">
+      <describe>迭代</describe>
+      <sequence id="0" name="顺序">
+        <invoke component="Workflow" id="0" name="工作流组件_执行动作" operation="doAction">
+          <describe>工作流组件_执行动作</describe>
+          <arg name="@objectName" type="expression">V_LCCL.LCBD</arg>
+          <arg name="@ID" type="expression">V_LCCL.LCBDID</arg>
+          <arg name="actionID" type="expression">V_LCCL.DZID</arg>
+          <arg name="user" type="expression">0</arg>
+          <arg name="summary" type="expression">V_LCCL.DZZY</arg>
+          <arg name="@retValue" type="output">V_Ret</arg>
+        </invoke>
+        <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+          <describe>变更风险触发预警</describe>
+          <arg name="TranType">procedure</arg>
+          <arg name="datasource">ECIF</arg>
+          <arg name="SQL">["call PRO_IB_LCTSCL_GS(:ret,:msg,{0},6,{1})",[{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"V_LCCL.LCBDID","scale":"","length":"","type":"1"}]]</arg>
+          <arg name="ret" type="output">V_Ret</arg>
+          <arg name="msg" type="output">V_Msg</arg>
+        </invoke>
+        <response exit="false" id="0">
+          <describe>输出</describe>
+          <retvalue type="variable">V_Ret</retvalue>
+          <message type="variable">V_Msg</message>
+          <uiforward redirect="false">
+            <url />
+          </uiforward>
+        </response>
+      </sequence>
+    </forEach>
+    <invoke component="expression" id="0" name="执行脚本">
+      <describe>刷新流程缓存</describe>
+      <arg name="expression">ABS_flushObjCache('WORKFLOW.TASK')</arg>
+    </invoke>
+  </sequence>
+</process>
+

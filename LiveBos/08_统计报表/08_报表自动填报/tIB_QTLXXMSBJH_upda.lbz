@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_QTLXXMSBJH_upda" name="tIB_QTLXXMSBJH_upda" object="tIB_QTLXXMSBJH" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>其他类型项目申报计划-修改流程</describe>
+  <variables />
+  <invoke component="FormOperate" id="0" name="对象组件_修改" operation="update">
+    <describe>修改对象[其他类型项目申报计划]</describe>
+    <arg name="@objectName">tIB_QTLXXMSBJH</arg>
+    <arg name="@object" type="variable">O_MASTER</arg>
+    <arg flag="field" name="NBHSJ" type="expression">O_PARAMETER.NBHSJ</arg>
+    <arg flag="field" name="XMJZQK" type="expression">O_PARAMETER.XMJZQK</arg>
+    <arg flag="field" name="XGSJ" type="expression">O_PARAMETER.XGSJ2</arg>
+    <arg flag="field" name="XGR" type="expression">$Login.User</arg>
+    <arg flag="field" name="SJ" type="expression">$DateTime.Now</arg>
+  </invoke>
+</process>
+

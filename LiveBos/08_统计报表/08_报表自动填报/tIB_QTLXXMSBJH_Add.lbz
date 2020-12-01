@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_QTLXXMSBJH_Add" name="tIB_QTLXXMSBJH_Add" object="tIB_QTLXXMSBJH" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>其他类型项目申报计划-新增流程</describe>
+  <variables />
+  <invoke component="FormOperate" id="0" name="对象组件_新增" operation="insert">
+    <describe>新增对象[其他类型项目申报计划]</describe>
+    <arg name="@objectName">tIB_QTLXXMSBJH</arg>
+    <arg flag="field" name="CZBM" type="expression">O_PARAMETER.CZBM2</arg>
+    <arg flag="field" name="XMLX" type="expression">O_PARAMETER.XMLX2</arg>
+    <arg flag="field" name="XMMC" type="expression">O_PARAMETER.XMMC2</arg>
+    <arg flag="field" name="NBHSJ" type="expression">O_PARAMETER.NBHSJ2</arg>
+    <arg flag="field" name="XMJZQK" type="expression">O_PARAMETER.XMJZQK2</arg>
+    <arg flag="field" name="XGSJ" type="expression">O_PARAMETER.XGSJ2</arg>
+    <arg flag="field" name="XGR" type="expression">$Login.User</arg>
+    <arg flag="field" name="ZT" type="expression">0</arg>
+    <arg flag="field" name="SJ" type="expression">$DateTime.Now</arg>
+    <arg flag="field" name="HY" type="expression">O_PARAMETER.HY2</arg>
+    <arg flag="field" name="PROVINCE" type="expression">O_PARAMETER.PROVINCE2</arg>
+  </invoke>
+</process>
+

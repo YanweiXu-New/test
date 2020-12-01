@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="VO_XMXXTZ_XSB_XG" name="VO_XMXXTZ_XSB_XG" object="VO_XMXXTZ_XSB" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目信息台账(新三板)-修改流程</describe>
+  <variables>
+    <variable describe="V_CODE" messageType="" name="V_CODE" type="int" />
+    <variable describe="V_NOTE" messageType="" name="V_NOTE" type="string" />
+  </variables>
+  <sequence id="0">
+    <invoke component="FormSetOperate" id="0" operation="update">
+      <describe>批量修改对象[项目信息表]</describe>
+      <meta name="FUNCTION">true</meta>
+      <arg name="@objectName">tIB_XMXX_XSB</arg>
+      <arg name="@ID" type="expression">O_PARAMETER.XMID</arg>
+      <arg flag="field" name="XMMC_RY" type="expression">O_PARAMETER.XMMC</arg>
+      <arg flag="field" name="XMLX" type="expression">O_PARAMETER.XMLX</arg>
+      <arg flag="field" name="XMSSBM" type="expression">O_PARAMETER.SSBM</arg>
+      <arg flag="field" name="XMWCRQ" type="expression">O_PARAMETER.WCRQ</arg>
+      <arg flag="field" name="XMFZR" type="expression">O_PARAMETER.XMFZR</arg>
+    </invoke>
+    <invoke component="FormSetOperate" id="0" operation="update">
+      <describe>批量修改对象[项目信息台账]</describe>
+      <meta name="FUNCTION">true</meta>
+      <arg name="@objectName">tIB_XMXXTZ</arg>
+      <arg name="@ID" type="expression">O_PARAMETER.ID</arg>
+      <arg flag="field" name="XMMC" type="expression">O_PARAMETER.XMMC</arg>
+      <arg flag="field" name="XMLX" type="expression">O_PARAMETER.XMLX</arg>
+      <arg flag="field" name="XMJD" type="expression">O_PARAMETER.XMJD</arg>
+      <arg flag="field" name="SSBM" type="expression">O_PARAMETER.SSBM</arg>
+      <arg flag="field" name="XMFZR" type="expression">O_PARAMETER.XMFZR</arg>
+      <arg flag="field" name="GDSJRQ" type="expression">O_PARAMETER.GDSJRQ</arg>
+      <arg flag="field" name="ZZDGCS" type="expression">O_PARAMETER.ZZDGCS</arg>
+      <arg flag="field" name="GDR" type="expression">O_PARAMETER.GDR</arg>
+      <arg flag="field" name="DGCFDD" type="expression">O_PARAMETER.DGCFDD</arg>
+      <arg flag="field" name="ZZDGBH" type="expression">O_PARAMETER.ZZDGBH</arg>
+    </invoke>
+    <invoke component="SQL" id="0" name="终止日期" operation="execute">
+      <describe>同步项目信息</describe>
+      <arg name="TranType">procedure</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="SQL">["CALL ECIF.PRO_IB_XMTZ_XXTB(:CODE,:NOTE,{0})",[{"expression":"$Login.User","length":"","scale":"","type":"1"}]]</arg>
+      <arg name="CODE" type="output">V_CODE</arg>
+      <arg name="NOTE" type="output">V_NOTE</arg>
+      <arg name="@autoExit" type="expression">false</arg>
+    </invoke>
+    <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+      <describe>数据库组件_执行SQL语句</describe>
+      <arg name="TranType">procedure</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="SQL">["CALL ECIF.PRO_IB_XMXX_XMRQXGMX(:CODE,:NOTE,{0},{1},1,1,{2})",[{"expression":"$Login.User","length":"","scale":"","type":"1"},{"expression":"$Login.IP","length":"","scale":"","type":"0"},{"expression":"O_PARAMETER.XMID","length":"","scale":"","type":"1"}]]</arg>
+      <arg name="CODE" type="output">V_CODE</arg>
+      <arg name="NOTE" type="output">V_NOTE</arg>
+    </invoke>
+    <invoke component="CallBizProcess" id="0" name="对象流程组件">
+      <describe>对象流程-【底稿日期台账-项目日期推送_调用流程】</describe>
+      <arg name="processName">tIB_DGRQTZ_XMRQTS_DY</arg>
+      <arg flag="parameter" name="XMID" type="expression">O_PARAMETER.XMID</arg>
+      <arg flag="parameter" name="XMFL2" type="expression">2</arg>
+      <arg flag="parameter" name="BM" type="expression">1008</arg>
+    </invoke>
+    <response exit="false" id="0" name="response">
+      <describe>输出</describe>
+      <retvalue type="variable">V_CODE</retvalue>
+      <message type="variable">V_NOTE</message>
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
+  </sequence>
+</process>
+

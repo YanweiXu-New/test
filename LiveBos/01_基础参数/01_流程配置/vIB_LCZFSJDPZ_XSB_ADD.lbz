@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="8" exitOnStandardFault="false" isHorizontalLayout="false" method="vIB_LCZFSJDPZ_XSB_ADD" name="vIB_LCZFSJDPZ_XSB_ADD" object="vIB_LCZFSJDPZ_XSB" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>流程主副审节点配置_新三板-新增流程</describe>
+  <variables />
+  <invoke component="FormOperate" id="0" operation="insert">
+    <describe>新增对象[流程主副审节点配置_新三板]</describe>
+    <meta name="FUNCTION">true</meta>
+    <arg name="@objectName">vIB_LCZFSJDPZ_XSB</arg>
+    <arg flag="field" name="YWLX" type="expression">O_PARAMETER.YWLX2</arg>
+    <arg flag="field" name="LCBM" type="expression">O_PARAMETER.LCBM2</arg>
+    <arg flag="field" name="LCMC" type="expression">O_PARAMETER.LCMC2</arg>
+    <arg flag="field" name="ZSRY" type="expression">O_PARAMETER.ZSRY2</arg>
+    <arg flag="field" name="FSRY" type="expression">O_PARAMETER.FSRY2</arg>
+    <arg flag="field" name="FZBM" type="expression">O_PARAMETER.FZBM2</arg>
+    <arg flag="field" name="ZT" type="expression">O_PARAMETER.ZT2</arg>
+  </invoke>
+</process>
+

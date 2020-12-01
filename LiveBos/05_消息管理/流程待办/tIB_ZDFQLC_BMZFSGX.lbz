@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="4" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_ZDFQLC_BMZFSGX" name="tIB_ZDFQLC_BMZFSGX" object="tIB_ZDFQLC" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>自动发起流程-部门主副审配置表数据更新流程</describe>
+  <variables>
+    <variable describe="V_CODE" messageType="" name="V_CODE" type="int" />
+    <variable describe="V_NOTE" messageType="" name="V_NOTE" type="string" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+      <describe>数据库组件_执行SQL语句</describe>
+      <arg name="TranType">procedure</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="SQL">["call ecif.PRO_IB_GSZFSSJCSH(:ret,:msg)",[]]</arg>
+      <arg name="ret" type="output">V_CODE</arg>
+      <arg name="msg" type="output">V_NOTE</arg>
+    </invoke>
+    <response exit="false" id="0">
+      <describe>输出</describe>
+      <retvalue type="expression">V_CODE</retvalue>
+      <message type="expression">V_NOTE</message>
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
+  </sequence>
+</process>
+

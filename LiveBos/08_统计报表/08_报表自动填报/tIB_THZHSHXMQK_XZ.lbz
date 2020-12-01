@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_THZHSHXMQK_XZ" name="tIB_THZHSHXMQK_XZ" object="tIB_THZHSHXMQK" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>投行在会审核项目情况-新增流程</describe>
+  <variables />
+  <invoke component="FormOperate" id="0" name="对象组件_新增" operation="insert">
+    <describe>新增对象[投行在会审核项目情况]</describe>
+    <arg name="@objectName">tIB_THZHSHXMQK</arg>
+    <arg flag="field" name="CZBM" type="expression">O_PARAMETER.CZBM2</arg>
+    <arg flag="field" name="XMLX" type="expression">O_PARAMETER.XMLX2</arg>
+    <arg flag="field" name="XMMC" type="expression">O_PARAMETER.XMMC2</arg>
+    <arg flag="field" name="HY" type="expression">O_PARAMETER.HY2</arg>
+    <arg flag="field" name="PROVINCE" type="expression">O_PARAMETER.PROVINCE2</arg>
+    <arg flag="field" name="YJFXSL" type="expression">O_PARAMETER.YJFXSL2</arg>
+    <arg flag="field" name="YJCZE" type="expression">O_PARAMETER.YJCZE2</arg>
+    <arg flag="field" name="XMYJZSR" type="expression">O_PARAMETER.XMYJZSR2</arg>
+    <arg flag="field" name="XMJZQK" type="expression">O_PARAMETER.XMJZQK2</arg>
+    <arg flag="field" name="BHRQ" type="expression">O_PARAMETER.BHRQ2</arg>
+    <arg flag="field" name="SLRQ" type="expression">O_PARAMETER.SLRQ2</arg>
+    <arg flag="field" name="LXR" type="expression">O_PARAMETER.LXR2</arg>
+    <arg flag="field" name="BJDBRHZBR" type="expression">O_PARAMETER.BJDBRHZBR2</arg>
+    <arg flag="field" name="XBR" type="expression">O_PARAMETER.XBR2</arg>
+    <arg flag="field" name="XGSJ" type="expression">O_PARAMETER.XGSJ2</arg>
+    <arg flag="field" name="XGR" type="expression">O_PARAMETER.XGR2</arg>
+    <arg flag="field" name="ZT" type="expression">O_PARAMETER.ZT2</arg>
+    <arg flag="field" name="SJ" type="expression">$DateTime.Now</arg>
+  </invoke>
+</process>
+

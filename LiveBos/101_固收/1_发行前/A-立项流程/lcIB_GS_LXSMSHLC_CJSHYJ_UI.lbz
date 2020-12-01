@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_GS_LXSMSHLC_CJSHYJ_UI" object="lcIB_GS_LXSMSHLC" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>出具审核意见界面事件</describe>
+  <variables />
+  <if id="0">
+    <describe>判断</describe>
+    <conditions>
+      <condition name="" type="expression">
+        <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+O_MASTER.CJSHYJ==1||O_MASTER.CJSHYJ2==1</arg>
+      </condition>
+    </conditions>
+    <invoke component="FormUI" id="0" name="界面处理_更改输入状态" operation="changeState">
+      <describe>界面处理_更改输入状态</describe>
+      <arg flag="field" name="SHYJ" type="">8</arg>
+      <arg flag="field" name="SHYJ2" type="">8</arg>
+    </invoke>
+  </if>
+</process>
+

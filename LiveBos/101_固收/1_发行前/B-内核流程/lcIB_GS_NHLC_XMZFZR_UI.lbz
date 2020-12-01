@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_GS_NHLC_XMZFZR_UI" object="lcIB_GS_NHLC" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目组负责人界面事件</describe>
+  <variables>
+    <variable describe="V_OBJ" messageType="" name="V_OBJ" type="resultSet" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <invoke component="FormUI" id="0" name="界面处理_刷新字段可选项" operation="resetOption">
+      <describe>界面处理_刷新字段可选项</describe>
+      <arg flag="field" name="XMZFZR" type="">true</arg>
+    </invoke>
+    <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
+      <describe>数据库组件_SQL查询</describe>
+      <arg name="TranType">sql</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="SQL">[" select t1.id as XM,t2.ZJLX as ZJLX,t2.ZJMC as ZJMC,t2.ZJHM as ZJHM ,t2.SJH as SJH,t1.orgid as BM,t2.ZWXX as ZWXX,14 as RYJS\r\n from jgcrm.tuser t1 left join ecif.tIB_YGXX t2 on t1.userid = t2.oaid\r\n where instr(';'||{0}||';',';'||t1.id||';') &gt; 0\r\n union \r\n  select t1.id as XM,t2.ZJLX as ZJLX,t2.ZJMC as ZJMC,t2.ZJHM as ZJHM ,t2.SJH as SJH,t1.orgid as BM,t2.ZWXX as ZWXX,11 as RYJS\r\n from jgcrm.tuser t1 left join ecif.tIB_YGXX t2 on t1.userid = t2.oaid\r\n where instr(';'||{1}||';',';'||t1.id||';') &gt; 0",[{"expression":"O_MASTER.XMZCY","scale":"","length":"","type":"0"},{"expression":"O_MASTER.XMZFZR","scale":"","length":"","type":"1"}]]</arg>
+      <arg name="@retResultSet" type="output">V_OBJ</arg>
+    </invoke>
+    <invoke component="FormUIHypotOperate" id="0" name="表格操作_添加结果集数据" operation="insertByResult">
+      <describe>表格添加结果集数据[内核流程]</describe>
+      <arg name="@objectName">lcIB_GS_NHLC</arg>
+      <arg name="@object" type="variable">O_MASTER</arg>
+      <arg name="@columnName">XMZRYXX</arg>
+      <arg name="@clearRowsets">true</arg>
+      <arg name="@resultSet" type="variable">V_OBJ</arg>
+      <arg flag="field" name="RYJS">RYJS</arg>
+      <arg flag="field" name="XM">XM</arg>
+      <arg flag="field" name="ZJLX">ZJLX</arg>
+      <arg flag="field" name="ZJMC">ZJMC</arg>
+      <arg flag="field" name="ZJHM">ZJHM</arg>
+      <arg flag="field" name="SJH">SJH</arg>
+      <arg flag="field" name="BM">BM</arg>
+      <arg flag="field" name="ZW">ZWXX</arg>
+    </invoke>
+  </sequence>
+</process>
+

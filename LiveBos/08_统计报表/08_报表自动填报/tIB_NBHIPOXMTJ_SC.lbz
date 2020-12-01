@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_NBHIPOXMTJ_SC" name="tIB_NBHIPOXMTJ_SC" object="tIB_NBHIPOXMTJ" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>拟报会IPO项目统计-删除流程</describe>
+  <variables />
+  <invoke component="FormOperate" id="0" name="对象组件_修改" operation="update">
+    <describe>修改对象[拟报会IPO项目统计]</describe>
+    <arg name="@objectName">tIB_NBHIPOXMTJ</arg>
+    <arg name="@object" type="variable">O_MASTER</arg>
+    <arg flag="field" name="ZT" type="expression">1</arg>
+  </invoke>
+</process>
+

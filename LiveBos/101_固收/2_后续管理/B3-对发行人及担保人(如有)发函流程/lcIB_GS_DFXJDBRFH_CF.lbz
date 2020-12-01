@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="lcIB_GS_DFXJDBRFH_CF" name="lcIB_GS_DFXJDBRFH_CF" object="lcIB_GS_DFXJDBRFH" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>对发行人及担保人(如有)发函流程-触发发函流程流程</describe>
+  <variables>
+    <variable describe="V_Ret" messageType="" name="V_Ret" type="int" />
+    <variable describe="V_Msg" messageType="" name="V_Msg" type="string" />
+    <variable describe="V_INSTID" messageType="" name="V_INSTID" type="int" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <if id="0">
+      <describe>判断是否执行</describe>
+      <conditions>
+        <condition name="" type="expression">
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+O_PARAMETER.SFZX==1</arg>
+        </condition>
+      </conditions>
+      <sequence id="0" name="顺序">
+        <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+          <describe>生成表单及相关处理</describe>
+          <arg name="TranType">procedure</arg>
+          <arg name="datasource">ECIF</arg>
+          <arg name="ret" type="output">V_Ret</arg>
+          <arg name="msg" type="output">V_Msg</arg>
+          <arg name="SQL">["CALL PRO_IB_FXSCFHLC(:ret,:msg,{0},{1},{2},{3},{4},{5})",[{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"$Login.IP","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.ZQID","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.CFLX","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.FXR","scale":"","length":"","type":"13"},{"expression":"O_PARAMETER.LCINSTID","scale":"","length":"","type":"1"}]]</arg>
+        </invoke>
+        <if id="0">
+          <describe>判断表单是否生成</describe>
+          <conditions>
+            <condition name="" type="expression">
+              <arg name="expression">V_Ret&gt;0</arg>
+            </condition>
+          </conditions>
+          <sequence id="0" name="顺序">
+            <invoke component="Workflow" id="0" name="工作流组件_执行动作" operation="doAction">
+              <describe>启动流程</describe>
+              <arg name="@objectName">lcIB_GS_DFXJDBRFH</arg>
+              <arg name="@ID" type="variable">V_Ret</arg>
+              <arg name="user" type="variable">V_Msg</arg>
+              <arg name="actionID">0</arg>
+              <arg name="@retValue" type="output">V_INSTID</arg>
+            </invoke>
+            <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+              <describe>数据库组件_执行SQL语句</describe>
+              <arg name="TranType">sql</arg>
+              <arg name="datasource">ECIF</arg>
+              <arg name="SQL">["UPDATE ECIF.TIB_DFQLC SET INSTID = {1},ZXSJ = SYSDATE WHERE LCID = {0} AND BM = (SELECT BM FROM ECIF.TIB_LCBDLX WHERE ID = 30)",[{"expression":"V_Ret","scale":"","length":"","type":"1"},{"expression":"V_INSTID","scale":"","length":"","type":"1"}]]</arg>
+            </invoke>
+          </sequence>
+        </if>
+      </sequence>
+    </if>
+  </sequence>
+</process>
+

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_ZKZYWH_XG" name="tIB_ZKZYWH_XG" object="tIB_ZKZYWH" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>部门质控专员维护-质控专员修改流程</describe>
+  <variables>
+    <variable describe="V_CODE" messageType="" name="V_CODE" type="int" />
+    <variable describe="V_NOTE" messageType="" name="V_NOTE" type="string" />
+    <variable describe="V_OBJ" instanceType="tIB_ZKZYWH" messageType="" name="V_OBJ" type="object" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <invoke component="FormOperate" id="0" name="对象组件_修改" operation="update">
+      <describe>修改对象[部门质控专员维护]</describe>
+      <arg name="@objectName">tIB_ZKZYWH</arg>
+      <arg name="@object" type="variable">O_MASTER</arg>
+      <arg flag="field" name="YWBM" type="expression">O_PARAMETER.YWBM</arg>
+      <arg flag="field" name="ZKZY" type="expression">O_PARAMETER.ZKZY</arg>
+      <arg flag="field" name="BZSM" type="expression">O_PARAMETER.BZSM</arg>
+      <arg flag="field" name="XGSJ" type="expression">$DateTime.Timestamp.Update</arg>
+      <arg name="@retObject" type="output">V_OBJ</arg>
+    </invoke>
+    <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+      <describe>数据库组件_执行SQL语句</describe>
+      <arg name="TranType">procedure</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="SQL">["CALL ECIF.PRO_IB_BMZKZYWH(:RET,:MSG,2,{0},{1},{2},{3},{4})",[{"expression":"O_MASTER.ID","scale":"","length":"","type":"1"},{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"$Login.IP","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.YZKZY","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.YWBM","scale":"","length":"","type":"1"}]]</arg>
+      <arg name="RET" type="output">V_CODE</arg>
+      <arg name="MSG" type="output">V_NOTE</arg>
+    </invoke>
+    <response exit="false" id="0">
+      <describe>输出</describe>
+      <retvalue type="variable">V_CODE</retvalue>
+      <message type="variable">V_NOTE</message>
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
+  </sequence>
+</process>
+

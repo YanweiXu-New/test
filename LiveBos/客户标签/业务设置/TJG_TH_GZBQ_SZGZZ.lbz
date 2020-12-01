@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="TJG_TH_GZBQ_SZGZZ" name="TJG_TH_GZBQ_SZGZZ" object="TJG_TH_GZBQ" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>关注客户标签-设置关注值流程</describe>
+  <variables>
+    <variable describe="V_RET" messageType="" name="V_RET" type="int" />
+    <variable describe="V_MSG" messageType="" name="V_MSG" type="string" />
+  </variables>
+  <restriction id="0">
+    <sequence id="0" name="顺序">
+      <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+        <describe>初始化校验</describe>
+        <arg name="TranType">procedure</arg>
+        <arg name="datasource">ECIF</arg>
+        <arg name="SQL">["CALL PRO_TH_SZGZX(:ret,:msg,{0},{1})",[{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"'[check]'","scale":"","length":"","type":"0"}]]</arg>
+        <arg name="ret" type="output">V_RET</arg>
+        <arg name="msg" type="output">V_MSG</arg>
+      </invoke>
+      <response exit="false" id="0">
+        <describe>输出</describe>
+        <retvalue type="variable">V_RET</retvalue>
+        <message type="variable">V_MSG</message>
+        <uiforward redirect="false">
+          <url />
+        </uiforward>
+      </response>
+    </sequence>
+  </restriction>
+  <sequence id="0" name="顺序">
+    <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+      <describe>业务处理</describe>
+      <arg name="TranType">procedure</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="ret" type="output">V_RET</arg>
+      <arg name="msg" type="output">V_MSG</arg>
+      <arg name="SQL">["CALL PRO_TH_SZGZX(:ret,:msg,{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12})",[{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"$Login.IP","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.QYXZ","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.HY","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.ZCGM","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.YL","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.BGXZ","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.SZ","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.PZ","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.RZJYWJH","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.KHLX","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.TZPH","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.ZJXZ","scale":"","length":"","type":"0"}]]</arg>
+    </invoke>
+    <response exit="false" id="0">
+      <describe>输出</describe>
+      <retvalue type="variable">V_RET</retvalue>
+      <message type="variable">V_MSG</message>
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
+  </sequence>
+</process>
+

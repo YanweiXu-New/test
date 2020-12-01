@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_TY_ZZBDGYJ_SFSH_UI" object="lcIB_TY_ZZBDGYJ" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>是否出具审核意见界面事件</describe>
+  <variables />
+  <if id="0">
+    <describe>判断</describe>
+    <conditions>
+      <condition name="" type="expression">
+        <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+O_MASTER.SFSH==1&amp;&amp;O_MASTER.XMBK!=3</arg>
+      </condition>
+    </conditions>
+    <sequence id="0" name="顺序">
+      <invoke component="ConfirmDialog" id="0" name="消息确认框">
+        <describe>消息确认框</describe>
+        <arg flag="" name="message" type="expression">'点击审批通过流程将流转至项目组回复，流程如需往后流转请选择否'</arg>
+        <arg flag="" name="title" type="expression">'提示'</arg>
+        <arg name="options">OK</arg>
+        <arg name="icon">INFO</arg>
+      </invoke>
+    </sequence>
+  </if>
+</process>
+

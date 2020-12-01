@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="6" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_DTTX_JGXXTX" name="tIB_DTTX_JGXXTX" object="tIB_DTTX" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>系统动态提醒-消息提醒流程</describe>
+  <variables>
+    <variable describe="V_NOTE" messageType="" name="V_NOTE" type="string" />
+    <variable describe="V_CODE" messageType="" name="V_CODE" type="int" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+      <describe>数据库组件_执行SQL语句</describe>
+      <arg name="TranType">procedure</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="SQL">["CALL ECIF.PRO_IB_JGXX_XZTX(:CODE,:NOTE,{0},{1},{2},{3},1)",[{"expression":"O_PARAMETER.I_TXNR","length":"","scale":"","type":"0"},{"expression":"O_PARAMETER.I_TXRY","length":"","scale":"","type":"0"},{"expression":"O_PARAMETER.I_DGID","length":"","scale":"","type":"1"},{"expression":"O_PARAMETER.I_TXJZRQ","length":"","scale":"","type":"0"}]]</arg>
+      <arg name="CODE" type="output">V_CODE</arg>
+      <arg name="NOTE" type="output">V_NOTE</arg>
+    </invoke>
+    <response exit="false" id="0">
+      <describe>输出</describe>
+      <retvalue type="variable">V_CODE</retvalue>
+      <message type="variable">V_NOTE</message>
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
+  </sequence>
+</process>
+

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="TIB_XMSRDR_FJSCLS" name="TIB_XMSRDR_FJSCLS" object="TIB_XMSRDR" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目收入导入-权益-附件上传历史流程</describe>
+  <variables />
+  <response exit="false" id="0">
+    <describe>输出</describe>
+    <retvalue>1</retvalue>
+    <message />
+    <uiforward redirect="false">
+      <url type="expression">LB_ObjURI("vIB_DRWJ_LS",{"I_YWLX":1},0,[],["NoTitle"])</url>
+    </uiforward>
+  </response>
+</process>
+

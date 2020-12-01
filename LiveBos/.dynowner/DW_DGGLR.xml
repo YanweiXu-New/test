@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="GB2312" standalone="no"?>
+<dynOwner flag="0" name="DW_DGGLR" type="106">
+    <describe>底稿管理人</describe>
+    <sql>{"statement":"(tUser.ID in (select USERID from lbmember where roleid in (SELECT ID FROM JGCRM.LBROLE WHERE ROLECODE = 'JG_GLPT_DGGLR' ) AND ORGID IN (13836,13832)) AND 1=:PXMFL) OR(tUser.ID in (select USERID from lbmember where roleid in (SELECT ID FROM JGCRM.LBROLE WHERE ROLECODE = 'JG_GLPT_DGGLR') AND ORGID =13833 ) AND 2=:PXMFL) OR (tUser.ID in(select USERID from lbmember where roleid in (SELECT ID FROM JGCRM.LBROLE WHERE ROLECODE = 'JG_GLPT_DGGLR') AND ORGID = 13834) AND 3=:PXMFL)","args":[],"type":0}</sql>
+    <parameters>
+        <parameter>
+            <name>PXMFL</name>
+            <describe>项目分类</describe>
+            <comment/>
+            <type>1</type>
+            <length>10</length>
+            <scale>0</scale>
+        </parameter>
+    </parameters>
+</dynOwner>

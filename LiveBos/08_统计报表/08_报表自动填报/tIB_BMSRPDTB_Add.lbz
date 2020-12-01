@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_BMSRPDTB_Add" name="tIB_BMSRPDTB_Add" object="tIB_BMSRPDTB" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>部门收入盘点填报-新增流程</describe>
+  <variables />
+  <sequence id="0" name="顺序">
+    <invoke component="FormOperate" id="0" name="对象组件_新增" operation="insert">
+      <describe>新增对象[部门收入盘点填报]</describe>
+      <arg name="@objectName">tIB_BMSRPDTB</arg>
+      <arg flag="field" name="CZBM" type="expression">O_PARAMETER.CZBM2</arg>
+      <arg flag="field" name="XMLX" type="expression">O_PARAMETER.XMLX2</arg>
+      <arg flag="field" name="XMMC" type="expression">O_PARAMETER.XMMC2</arg>
+      <arg flag="field" name="HY" type="expression">O_PARAMETER.HY2</arg>
+      <arg flag="field" name="SXSRQK" type="expression">O_PARAMETER.SXSRQK2</arg>
+      <arg flag="field" name="GZJZR" type="expression">O_PARAMETER.GZJZR2</arg>
+      <arg flag="field" name="LXSJ" type="expression">O_PARAMETER.LXSJ2</arg>
+      <arg flag="field" name="NHSJ" type="expression">O_PARAMETER.NHSJ2</arg>
+      <arg flag="field" name="XYSFJE" type="expression">O_PARAMETER.XYSFJE2</arg>
+      <arg flag="field" name="IPOQYSR" type="expression">O_PARAMETER.IPOQYSR2</arg>
+      <arg flag="field" name="IPOJLR" type="expression">O_PARAMETER.IPOJLR2</arg>
+      <arg flag="field" name="QT" type="expression">O_PARAMETER.QT2</arg>
+      <arg flag="field" name="XGSJ" type="expression">O_PARAMETER.XGSJ2</arg>
+      <arg flag="field" name="XGR" type="expression">$Login.User</arg>
+      <arg flag="field" name="ZT" type="expression">0</arg>
+      <arg flag="field" name="PROVINCE" type="expression">O_PARAMETER.PROVINCE2</arg>
+      <arg flag="field" name="SJ" type="expression">$DateTime.Now</arg>
+    </invoke>
+  </sequence>
+</process>
+

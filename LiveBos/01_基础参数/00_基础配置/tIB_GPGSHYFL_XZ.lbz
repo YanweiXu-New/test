@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_GPGSHYFL_XZ" name="tIB_GPGSHYFL_XZ" object="tIB_GPGSHYFL" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>挂牌公司行业分类-新增流程</describe>
+  <variables>
+    <variable describe="V_RET" messageType="" name="V_RET" type="int" />
+    <variable describe="V_MSG" messageType="" name="V_MSG" type="string" />
+    <variable describe="V_OBJ" instanceType="tIB_GPGSHYFL" messageType="" name="V_OBJ" type="object" />
+  </variables>
+  <restriction id="0">
+    <sequence id="0" name="顺序">
+      <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+        <describe>数据处理</describe>
+        <arg name="TranType">procedure</arg>
+        <arg name="ret" type="output">V_RET</arg>
+        <arg name="msg" type="output">V_MSG</arg>
+        <arg name="SQL">["CALL PRO_IB_GPGSHYFL(:ret,:msg,{0},{1},0,{2})",[{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"'[check]'","scale":"","length":"","type":"0"},{"expression":"O_MASTER.ID","scale":"","length":"","type":"1"}]]</arg>
+        <arg name="datasource">ECIF</arg>
+      </invoke>
+      <response exit="false" id="0">
+        <describe>输出</describe>
+        <retvalue type="variable">V_RET</retvalue>
+        <message type="variable">V_MSG</message>
+        <uiforward redirect="false">
+          <url />
+        </uiforward>
+      </response>
+    </sequence>
+  </restriction>
+  <sequence id="0" name="顺序">
+    <invoke component="FormOperate" id="0" name="对象组件_新增" operation="insert">
+      <describe>新增对象[挂牌公司行业分类]</describe>
+      <arg name="@objectName">tIB_GPGSHYFL</arg>
+      <arg flag="field" name="FID" type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+if(O_PARAMETER.Type==1)&#xD;
+null;&#xD;
+else&#xD;
+O_MASTER.ID;</arg>
+      <arg flag="field" name="Type" type="expression">O_PARAMETER.Type</arg>
+      <arg flag="field" name="BM" type="expression">O_PARAMETER.BM</arg>
+      <arg flag="field" name="Name" type="expression">O_PARAMETER.Name</arg>
+      <arg flag="field" name="ZT" type="expression">1</arg>
+      <arg flag="field" name="BZ" type="expression">O_PARAMETER.BZ</arg>
+      <arg name="@retObject" type="output">V_OBJ</arg>
+    </invoke>
+    <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+      <describe>数据处理</describe>
+      <arg name="TranType">procedure</arg>
+      <arg name="ret" type="output">V_RET</arg>
+      <arg name="msg" type="output">V_MSG</arg>
+      <arg name="SQL">["CALL PRO_IB_GPGSHYFL(:ret,:msg,{0},{1},0,{2})",[{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"$Login.IP","scale":"","length":"","type":"0"},{"expression":"V_OBJ.ID","scale":"","length":"","type":"1"}]]</arg>
+      <arg name="datasource">ECIF</arg>
+    </invoke>
+    <response exit="true" id="0">
+      <describe>输出</describe>
+      <retvalue type="variable">V_RET</retvalue>
+      <message type="variable">V_MSG</message>
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
+  </sequence>
+</process>
+

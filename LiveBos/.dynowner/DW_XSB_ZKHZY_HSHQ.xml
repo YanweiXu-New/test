@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="GB2312" standalone="no"?>
+<dynOwner flag="0" name="DW_XSB_ZKHZY_HSHQ" type="106">
+    <describe>新三板_质控专员_函数获取</describe>
+    <sql>{"statement":"tUser.ID IN (SELECT OWNER FROM TABLE(ECIF.FUNC_GET_LCSHR_XSB(:PLCBM,:PBM,1,:PLCID)))","args":[],"type":0}</sql>
+    <parameters>
+        <parameter>
+            <name>PLCBM</name>
+            <describe>流程编码</describe>
+            <comment/>
+            <type>0</type>
+            <length>80</length>
+            <scale>0</scale>
+        </parameter>
+        <parameter>
+            <name>PBM</name>
+            <describe>申请部门</describe>
+            <comment/>
+            <type>1</type>
+            <length>16</length>
+            <scale>0</scale>
+        </parameter>
+        <parameter>
+            <name>PLCID</name>
+            <describe>流程ID</describe>
+            <comment/>
+            <type>1</type>
+            <length>16</length>
+            <scale>0</scale>
+        </parameter>
+    </parameters>
+</dynOwner>

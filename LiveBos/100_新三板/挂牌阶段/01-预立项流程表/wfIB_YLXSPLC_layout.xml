@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="gb2312"?>
+<layouts>
+  <pools>
+    <pool id="48" type="pool" height="458" width="700" x="5" y="5" closed="false">
+      <describe>审批流程</describe>
+      <lane id="0" type="lane" height="200" width="668" x="35" y="6" closed="false">
+        <describe>业务部门</describe>
+        <stepId>35</stepId>
+        <stepId>23</stepId>
+        <stepId>25</stepId>
+      </lane>
+      <lane id="49" type="lane" height="252" width="668" x="35" y="208" closed="false">
+        <describe>中小融审批</describe>
+        <stepId>29</stepId>
+        <stepId>36</stepId>
+        <stepId>27</stepId>
+      </lane>
+    </pool>
+  </pools>
+  <cell id="35" type="InitialActionCell" height="32" width="32" x="111" y="23" />
+  <cell id="23" type="StepCell" height="56" width="126" x="65" y="86" />
+  <cell id="24" type="ActionCell" height="40" width="60" x="189" y="94" />
+  <transition id="41" />
+  <cell id="25" type="StepCell" height="58" width="126" x="367" y="86" />
+  <cell id="26" type="ActionCell" height="40" width="60" x="402" y="143" />
+  <transition id="40" />
+  <cell id="27" type="StepCell" height="57" width="126" x="368" y="17" />
+  <cell id="28" type="ActionCell" height="40" width="60" x="401" y="73" />
+  <transition id="39" />
+  <cell id="29" type="StepCell" height="59" width="126" x="370" y="135" />
+  <cell id="30" type="ActionCell" height="40" width="60" x="401" y="203" />
+  <transition id="43">
+    <bendpoint index="0">
+      <dimension type="first" w="-22" h="38" />
+      <dimension type="second" w="285" h="31" />
+    </bendpoint>
+    <bendpoint index="1">
+      <dimension type="first" w="-94" h="38" />
+      <dimension type="second" w="213" h="31" />
+    </bendpoint>
+  </transition>
+  <cell id="46" type="ActionCell" height="40" width="60" x="311" y="153" />
+  <transition id="47">
+    <label x="-60" y="4" />
+  </transition>
+  <cell id="36" type="StepCell" height="32" width="32" x="106" y="196" />
+</layouts>
+

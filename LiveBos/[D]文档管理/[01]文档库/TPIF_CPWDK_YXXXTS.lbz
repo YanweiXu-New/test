@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="TPIF_CPWDK_YXXXTS" name="TPIF_CPWDK_YXXXTS" object="TPIF_CPWDK" type="0" version="" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>产品文档库-影像系统推送对象流程</describe>
+  <variables>
+    <variable describe="V_Code" name="V_Code" type="int" />
+    <variable describe="V_Note" name="V_Note" type="string" />
+  </variables>
+  <invoke component="expression" id="0" name="执行脚本">
+    <describe>执行脚本</describe>
+    <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+var result = "";
+var bean=ABS_LOADBEAN("com.apex.bss.mod.livebosbean.YxInterfaceBean"); 
+var returnVal=bean.callYxxtWebservice(O_MASTER.GLID,O_MASTER.ID); 
+ if (returnVal!=1){ 
+    var ret = LB_sqlProcedure("call PIF.PRO_PIF_CPWDTSYXXT(?,?,?,?,?,?,?)",[V_Code,V_Note,O_MASTER.GLID,'','',returnVal,$Login.User]); 
+    result = "附件："+ O_MASTER.WDMC + "推送失败"; 
+  }  
+ABS_SETATTRIBUTE("request.message",result);</arg>
+  </invoke>
+</process>
+

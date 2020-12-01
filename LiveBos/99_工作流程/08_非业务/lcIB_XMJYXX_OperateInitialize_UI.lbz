@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_XMJYXX_OperateInitialize_UI" object="lcIB_XMJYXX" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>界面初始化界面事件</describe>
+  <variables>
+    <variable describe="V_BDXX" messageType="" name="V_BDXX" type="resultSet" />
+    <variable describe="V_BGDX" messageType="" name="V_BGDX" type="resultSet" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <if id="0">
+      <describe>判断</describe>
+      <conditions>
+        <condition name="" type="expression">
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+O_MASTER.XMMC!=null</arg>
+        </condition>
+      </conditions>
+      <sequence id="0" name="顺序">
+        <if id="0">
+          <describe>判断</describe>
+          <conditions>
+            <condition name="项目名称不为空" type="expression">
+              <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+O_MASTER.XMMC.XMLX==5||O_MASTER.XMMC.XMLX==12</arg>
+            </condition>
+          </conditions>
+          <sequence id="0" name="顺序">
+            <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
+              <describe>数据库组件_SQL查询</describe>
+              <arg name="TranType">sql</arg>
+              <arg name="SQL">["SELECT TJSX,wdlxm,{0} xmmc FROM tIB_WDLXPZ WHERE lcbd='lcIB_XMJYXX' ORDER by TJSX",[{"expression":"O_MASTER.XMMC","scale":"","length":"","type":"1"}]]</arg>
+              <arg name="@retResultSet" type="output">V_BDXX</arg>
+              <arg name="datasource">ECIF</arg>
+            </invoke>
+            <invoke component="FormUIHypotOperate" id="0" name="表格操作_添加结果集数据" operation="insertByResult">
+              <describe>表格添加结果集数据[项目简要信息流程]</describe>
+              <arg name="@objectName">lcIB_XMJYXX</arg>
+              <arg name="@object" type="variable">O_MASTER</arg>
+              <arg name="@columnName">ZDZCSJ</arg>
+              <arg name="@resultSet" type="variable">V_BDXX</arg>
+              <arg name="@clearRowsets">true</arg>
+              <arg flag="field" name="BSF">WDLXM</arg>
+              <arg flag="field" name="XMMC">xmmc</arg>
+            </invoke>
+            <if id="0">
+              <describe>判断</describe>
+              <conditions>
+                <condition name="" type="expression">
+                  <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+O_MASTER.CZ!=null</arg>
+                </condition>
+              </conditions>
+              <sequence id="0" name="顺序">
+                <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+                  <describe>界面处理_更新值</describe>
+                  <arg flag="field" name="XMSCJD" type="expression">O_MASTER.CZ.XMSCJD</arg>
+                  <arg flag="field" name="XMLX" type="expression">O_MASTER.CZ.XMLX</arg>
+                  <arg flag="field" name="XMFZR" type="expression">O_MASTER.CZ.XMFZR</arg>
+                  <arg flag="field" name="SSBM" type="expression">O_MASTER.CZ.SSBM</arg>
+                  <arg flag="field" name="BJRDB" type="expression">O_MASTER.CZ.BJRDB</arg>
+                  <arg flag="field" name="FLZJ" type="expression">O_MASTER.CZ.FLZJ</arg>
+                  <arg flag="field" name="SJJG" type="expression">O_MASTER.CZ.SJJG</arg>
+                  <arg flag="field" name="PGJG" type="expression">O_MASTER.CZ.PGJG</arg>
+                  <arg flag="field" name="LXRQ" type="expression">O_MASTER.CZ.LXRQ</arg>
+                  <arg flag="field" name="NHRQ" type="expression">O_MASTER.CZ.NHRQ</arg>
+                  <arg flag="field" name="NHHYJY" type="expression">O_MASTER.CZ.NHHYJY</arg>
+                  <arg flag="field" name="NHZS" type="expression">O_MASTER.CZ.NHZS</arg>
+                  <arg flag="field" name="NHFS" type="expression">O_MASTER.CZ.NHFS</arg>
+                  <arg flag="field" name="SCSBRQ" type="expression">O_MASTER.CZ.SCSBRQ</arg>
+                  <arg flag="field" name="ZJHSLRQ" type="expression">O_MASTER.CZ.ZJHSLRQ</arg>
+                  <arg flag="field" name="SDFKYJRQ" type="expression">O_MASTER.CZ.SDFKYJRQ</arg>
+                  <arg flag="field" name="BSFKYJHFRQ" type="expression">O_MASTER.CZ.BSFKYJHFRQ</arg>
+                  <arg flag="field" name="CHHRQ" type="expression">O_MASTER.CZ.CHHRQ</arg>
+                  <arg flag="field" name="FSHRQ" type="expression">O_MASTER.CZ.FSHRQ</arg>
+                  <arg flag="field" name="LQPWRQ" type="expression">O_MASTER.CZ.LQPWRQ</arg>
+                  <arg flag="field" name="XXTS_1" type="expression">O_MASTER.CZ.GSMC</arg>
+                  <arg flag="field" name="GSMC" type="expression">O_MASTER.CZ.GSMC</arg>
+                  <arg flag="field" name="IPORQ" type="expression">O_MASTER.CZ.IPORQ</arg>
+                  <arg flag="field" name="SSBK" type="expression">O_MASTER.CZ.SSBK</arg>
+                  <arg flag="field" name="HYFL" type="expression">O_MASTER.CZ.HYFL</arg>
+                  <arg flag="field" name="KGGD" type="expression">O_MASTER.CZ.KGGD</arg>
+                  <arg flag="field" name="SJKZR" type="expression">O_MASTER.SJKZR</arg>
+                  <arg flag="field" name="QYXZ" type="expression">O_MASTER.CZ.QYXZ</arg>
+                  <arg flag="field" name="KZQBG" type="expression">O_MASTER.CZ.KZQBG</arg>
+                  <arg flag="field" name="ZYCP" type="expression">O_MASTER.CZ.ZYCP</arg>
+                  <arg flag="field" name="GSZS" type="expression">O_MASTER.CZ.GSZS</arg>
+                  <arg flag="field" name="CZQK" type="expression">O_MASTER.CZ.CZQK</arg>
+                  <arg flag="field" name="SYL" type="expression">O_MASTER.CZ.SYL</arg>
+                  <arg flag="field" name="FZL" type="expression">O_MASTER.CZ.FZL</arg>
+                  <arg flag="field" name="JYLX" type="expression">O_MASTER.CZ.JYLX</arg>
+                  <arg flag="field" name="JDYD" type="expression">O_MASTER.CZ.JDYD</arg>
+                  <arg flag="field" name="JYJG" type="expression">O_MASTER.CZ.JYJG</arg>
+                  <arg flag="field" name="JYPGJG" type="expression">O_MASTER.CZ.JYPGJG</arg>
+                  <arg flag="field" name="PGZZL" type="expression">O_MASTER.CZ.PGZZL</arg>
+                  <arg flag="field" name="JYDF" type="expression">O_MASTER.CZ.JYDF</arg>
+                  <arg flag="field" name="GLJY" type="expression">O_MASTER.CZ.GLJY</arg>
+                  <arg flag="field" name="SFJK" type="expression">O_MASTER.CZ.SFJK</arg>
+                  <arg flag="field" name="SFPM" type="expression">O_MASTER.CZ.SFPM</arg>
+                  <arg flag="field" name="JYZFFS" type="expression">O_MASTER.CZ.JYZFFS</arg>
+                  <arg flag="field" name="YJCN" type="expression">O_MASTER.CZ.YJCN</arg>
+                  <arg flag="field" name="PMZJZE" type="expression">O_MASTER.CZ.PMZJZE</arg>
+                  <arg flag="field" name="DGDCYQK" type="expression">O_MASTER.CZ.DGDCYQK</arg>
+                  <arg flag="field" name="GLFCYQK" type="expression">O_MASTER.CZ.GLFCYQK</arg>
+                  <arg flag="field" name="ZYSFBH" type="expression">O_MASTER.CZ.ZYSFBH</arg>
+                </invoke>
+                <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
+                  <describe>数据库组件_SQL查询</describe>
+                  <arg name="TranType">sql</arg>
+                  <arg name="SQL">["select SD, ZZC, JZC, YYSR, JLR, ZGB, KFJLR from ecif.tIB_CZJYXX_CWSJ_CZ where TIB_CZJYXX_ID = {0}",[{"expression":"O_MASTER.CZ","scale":"","length":"","type":"1"}]]</arg>
+                  <arg name="datasource">ECIF</arg>
+                  <arg name="@retResultSet" type="output">V_BGDX</arg>
+                </invoke>
+                <invoke component="FormUIHypotOperate" id="0" name="表格操作_添加结果集数据" operation="insertByResult">
+                  <describe>表格添加结果集数据[项目简要信息流程]</describe>
+                  <arg name="@objectName">lcIB_XMJYXX</arg>
+                  <arg name="@object" type="variable">O_MASTER</arg>
+                  <arg name="@columnName">CWSJ_CZ</arg>
+                  <arg name="@resultSet" type="variable">V_BGDX</arg>
+                  <arg flag="field" name="SD">SD</arg>
+                  <arg flag="field" name="ZZC">ZZC</arg>
+                  <arg flag="field" name="JZC">JZC</arg>
+                  <arg flag="field" name="YYSR">YYSR</arg>
+                  <arg flag="field" name="JLR">JLR</arg>
+                  <arg flag="field" name="ZGB">ZGB</arg>
+                  <arg flag="field" name="KFJLR">KFJLR</arg>
+                  <arg name="@clearRowsets">true</arg>
+                </invoke>
+                <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
+                  <describe>数据库组件_SQL查询</describe>
+                  <arg name="TranType">sql</arg>
+                  <arg name="datasource">ECIF</arg>
+                  <arg name="SQL">[" SELECT ID, BSF, ZCZE, JZC, YYSR, JLR, ZGB,XMMC FROM ECIF.tIB_CZJYXX_ZDZCSJ WHERE  TIB_CZJYXX_ID = {0}",[{"expression":"O_MASTER.CZ","scale":"","length":"","type":"1"}]]</arg>
+                  <arg name="@retResultSet" type="output">V_BDXX</arg>
+                </invoke>
+                <invoke component="FormUIHypotOperate" id="0" name="表格操作_添加结果集数据" operation="insertByResult">
+                  <describe>表格添加结果集数据[项目简要信息流程]</describe>
+                  <arg name="@objectName">lcIB_XMJYXX</arg>
+                  <arg name="@object" type="variable">O_MASTER</arg>
+                  <arg name="@columnName">ZDZCSJ</arg>
+                  <arg name="@clearRowsets">true</arg>
+                  <arg name="@resultSet" type="variable">V_BDXX</arg>
+                  <arg flag="field" name="BSF">BSF</arg>
+                  <arg flag="field" name="ZCZE">ZCZE</arg>
+                  <arg flag="field" name="JZC">JZC</arg>
+                  <arg flag="field" name="YYSR">YYSR</arg>
+                  <arg flag="field" name="JLR">JLR</arg>
+                  <arg flag="field" name="ZGB">ZGB</arg>
+                  <arg flag="field" name="XMMC">XMMC</arg>
+                </invoke>
+                <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
+                  <describe>数据库组件_SQL查询</describe>
+                  <arg name="TranType">sql</arg>
+                  <arg name="datasource">ECIF</arg>
+                  <arg name="SQL">["SELECT ID, BDZC, SD, ZZC, JZC, YYSR, JLR, ZGB, KFJLR from ecif.tIB_CZJYXX_BDGSCWZB where TIB_CZJYXX_ID  = {0}",[{"expression":"O_MASTER.CZ","scale":"","length":"","type":"1"}]]</arg>
+                  <arg name="@retResultSet" type="output">V_BGDX</arg>
+                </invoke>
+                <invoke component="FormUIHypotOperate" id="0" name="表格操作_添加结果集数据" operation="insertByResult">
+                  <describe>表格添加结果集数据[项目简要信息流程]</describe>
+                  <arg name="@objectName">lcIB_XMJYXX</arg>
+                  <arg name="@object" type="variable">O_MASTER</arg>
+                  <arg name="@columnName">BDGSCWZB</arg>
+                  <arg flag="field" name="BDZC">BDZC</arg>
+                  <arg flag="field" name="SD">SD</arg>
+                  <arg flag="field" name="ZZC">ZZC</arg>
+                  <arg flag="field" name="JZC">JZC</arg>
+                  <arg flag="field" name="YYSR">YYSR</arg>
+                  <arg flag="field" name="JLR">JLR</arg>
+                  <arg flag="field" name="ZGB">ZGB</arg>
+                  <arg flag="field" name="KFJLR">KFJLR</arg>
+                  <arg name="@resultSet" type="variable">V_BGDX</arg>
+                  <arg name="@clearRowsets">true</arg>
+                </invoke>
+                <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
+                  <describe>数据库组件_SQL查询</describe>
+                  <arg name="TranType">sql</arg>
+                  <arg name="datasource">ECIF</arg>
+                  <arg name="SQL">["SELECT ID, BDZC, HY, SFGQZC, GQBL, ZYYW, GSZS, LSJYGZ from tIB_CZJYXX_BCGSJBXX where TIB_CZJYXX_ID ={0}",[{"expression":"O_MASTER.CZ","scale":"","length":"","type":"1"}]]</arg>
+                  <arg name="@retResultSet" type="output">V_BDXX</arg>
+                </invoke>
+                <invoke component="FormUIHypotOperate" id="0" name="表格操作_添加结果集数据" operation="insertByResult">
+                  <describe>表格添加结果集数据[项目简要信息流程]</describe>
+                  <arg name="@objectName">lcIB_XMJYXX</arg>
+                  <arg name="@object" type="variable">O_MASTER</arg>
+                  <arg name="@columnName">BCGSJBXX</arg>
+                  <arg flag="field" name="BDZC">BDZC</arg>
+                  <arg flag="field" name="HY">HY</arg>
+                  <arg flag="field" name="SFGQZC">SFGQZC</arg>
+                  <arg flag="field" name="GQBL">GQBL</arg>
+                  <arg flag="field" name="ZYYW">ZYYW</arg>
+                  <arg flag="field" name="GSZS">GSZS</arg>
+                  <arg flag="field" name="LSJYGZ">LSJYGZ</arg>
+                  <arg name="@resultSet" type="variable">V_BDXX</arg>
+                  <arg name="@clearRowsets">true</arg>
+                </invoke>
+              </sequence>
+            </if>
+          </sequence>
+          <elseif>
+            <describe>ElseIf</describe>
+            <conditions>
+              <condition name="" type="expression">
+                <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+O_MASTER.XMMC.XMLX == 1</arg>
+              </condition>
+            </conditions>
+            <sequence id="0" name="顺序">
+              <invoke component="FormUIHypotOperate" id="0" name="表格操作_批量删除" operation="batchDelete">
+                <describe>批量删除表格对象[项目简要信息流程]</describe>
+                <arg name="@objectName">lcIB_XMJYXX</arg>
+                <arg name="@object" type="variable">O_MASTER</arg>
+                <arg name="@columnName">ZDZCSJ</arg>
+                <arg name="@condition">&lt;%@ livebos language='javascript' %&gt;
+O_MASTER.ZDZCSJ.BSF!=null</arg>
+              </invoke>
+              <if id="0">
+                <describe>判断</describe>
+                <conditions>
+                  <condition name="" type="expression">
+                    <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+O_MASTER.IPO!=null</arg>
+                  </condition>
+                </conditions>
+                <sequence id="0" name="顺序">
+                  <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+                    <describe>界面处理_更新值</describe>
+                    <arg flag="field" name="XMSF" type="expression">O_MASTER.IPO.XMSF</arg>
+                    <arg flag="field" name="SSBM" type="expression">O_MASTER.IPO.XMSCJD</arg>
+                    <arg flag="field" name="BJRDB" type="expression">O_MASTER.IPO.BJRDB</arg>
+                    <arg flag="field" name="XMXBR" type="expression">O_MASTER.IPO.XMXBR</arg>
+                    <arg flag="field" name="XMSCJD" type="expression">O_MASTER.IPO.XMSCJD</arg>
+                    <arg flag="field" name="XMLX" type="expression">O_MASTER.IPO.XMLX</arg>
+                    <arg flag="field" name="XMFZR" type="expression">O_MASTER.IPO.XMFZR</arg>
+                    <arg flag="field" name="FXRLS" type="expression">O_MASTER.IPO.FXRLS</arg>
+                    <arg flag="field" name="KJSSWS" type="expression">O_MASTER.IPO.KJSSWS</arg>
+                    <arg flag="field" name="LXRQ" type="expression">O_MASTER.IPO.LXRQ</arg>
+                    <arg flag="field" name="NHRQ" type="expression">O_MASTER.IPO.NHRQ</arg>
+                    <arg flag="field" name="NHHYJY" type="expression">O_MASTER.IPO.NHHYJY</arg>
+                    <arg flag="field" name="NHZS" type="expression">O_MASTER.IPO.NHZS</arg>
+                    <arg flag="field" name="NHFS" type="expression">O_MASTER.IPO.NHFS</arg>
+                    <arg flag="field" name="SCSBRQ" type="expression">O_MASTER.IPO.SCSBRQ</arg>
+                    <arg flag="field" name="ZJHSLRQ" type="expression">O_MASTER.IPO.ZJHSLRQ</arg>
+                    <arg flag="field" name="SDFKYJRQ" type="expression">O_MASTER.IPO.SDFKYJRQ</arg>
+                    <arg flag="field" name="BSFKYJHFRQ" type="expression">O_MASTER.IPO.BSFKYJHFRQ</arg>
+                    <arg flag="field" name="CHHRQ" type="expression">O_MASTER.IPO.CHHRQ</arg>
+                    <arg flag="field" name="FSHRQ" type="expression">O_MASTER.IPO.FSHRQ</arg>
+                    <arg flag="field" name="LQPWRQ" type="expression">O_MASTER.IPO.LQPWRQ</arg>
+                    <arg flag="field" name="GSMC" type="expression">O_MASTER.GSMC</arg>
+                    <arg flag="field" name="NSSBK" type="expression">O_MASTER.IPO.NSSBK</arg>
+                    <arg flag="field" name="SSSF" type="expression">O_MASTER.IPO.SSSF</arg>
+                    <arg flag="field" name="HYFL" type="expression">O_MASTER.IPO.HYFL</arg>
+                    <arg flag="field" name="KGGD" type="expression">O_MASTER.IPO.KGGD</arg>
+                    <arg flag="field" name="SJKZR" type="expression">O_MASTER.IPO.SJKZR</arg>
+                    <arg flag="field" name="ZYCP" type="expression">O_MASTER.IPO.ZYCP</arg>
+                    <arg flag="field" name="NMJZJJE" type="expression">O_MASTER.IPO.NMJZJJE</arg>
+                    <arg flag="field" name="NFXGFSL" type="expression">O_MASTER.IPO.NFXGFSL</arg>
+                  </invoke>
+                  <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
+                    <describe>数据库组件_SQL查询</describe>
+                    <arg name="TranType">sql</arg>
+                    <arg name="SQL">["select SD, ZZC, JZC, YYSR, JLR, KFJLR from ECIF.tIB_IPOXMJYXX_SBQCWSJ A where tIB_IPOJYXX_id = {0}",[{"expression":"O_MASTER.IPO","scale":"","length":"","type":"1"}]]</arg>
+                    <arg name="datasource">ECIF</arg>
+                    <arg name="@retResultSet" type="output">V_BGDX</arg>
+                  </invoke>
+                  <invoke component="FormUIHypotOperate" id="0" name="表格操作_添加结果集数据" operation="insertByResult">
+                    <describe>表格添加结果集数据[项目简要信息流程]</describe>
+                    <arg name="@objectName">lcIB_XMJYXX</arg>
+                    <arg name="@object" type="variable">O_MASTER</arg>
+                    <arg name="@columnName">SBQCWSJ</arg>
+                    <arg name="@resultSet" type="variable">V_BGDX</arg>
+                    <arg flag="field" name="SD">SD</arg>
+                    <arg flag="field" name="ZZC">ZZC</arg>
+                    <arg flag="field" name="JZC">JZC</arg>
+                    <arg flag="field" name="YYSR">YYSR</arg>
+                    <arg flag="field" name="JLR">JLR</arg>
+                    <arg flag="field" name="KFJLR">KFJLR</arg>
+                    <arg name="@clearRowsets">true</arg>
+                  </invoke>
+                </sequence>
+              </if>
+            </sequence>
+          </elseif>
+          <elseif>
+            <describe>ElseIf</describe>
+            <conditions>
+              <condition name="" type="expression">
+                <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+O_MASTER.XMMC.XMLX ==2 ||O_MASTER.XMMC.XMLX==3||O_MASTER.XMMC.XMLX==4||O_MASTER.XMMC.XMLX==8||O_MASTER.XMMC.XMLX==9||O_MASTER.XMMC.XMLX==11</arg>
+              </condition>
+            </conditions>
+            <sequence id="0" name="顺序">
+              <invoke component="FormUIHypotOperate" id="0" name="表格操作_批量删除" operation="batchDelete">
+                <describe>批量删除表格对象[项目简要信息流程]</describe>
+                <arg name="@objectName">lcIB_XMJYXX</arg>
+                <arg name="@object" type="variable">O_MASTER</arg>
+                <arg name="@columnName">ZDZCSJ</arg>
+                <arg name="@condition">&lt;%@ livebos language='javascript' %&gt;
+O_MASTER.ZDZCSJ.BSF !=null</arg>
+              </invoke>
+              <if id="0">
+                <describe>判断</describe>
+                <conditions>
+                  <condition name="" type="expression">
+                    <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+O_MASTER.ZRZ!=null</arg>
+                  </condition>
+                </conditions>
+                <sequence id="0" name="顺序">
+                  <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+                    <describe>界面处理_更新值</describe>
+                    <arg flag="field" name="XMSCJD" type="expression">O_MASTER.ZRZ.XMSCJD</arg>
+                    <arg flag="field" name="XMLX" type="expression">O_MASTER.ZRZ.XMLX</arg>
+                    <arg flag="field" name="XMFZR" type="expression">O_MASTER.ZRZ.XMFZR</arg>
+                    <arg flag="field" name="BJRDB" type="expression">O_MASTER.ZRZ.BJRDB</arg>
+                    <arg flag="field" name="SSBM" type="expression">O_MASTER.ZRZ.SSBM</arg>
+                    <arg flag="field" name="FLZJ" type="expression">O_MASTER.ZRZ.FLZJ</arg>
+                    <arg flag="field" name="SJJG" type="expression">O_MASTER.ZRZ.SJJG</arg>
+                    <arg flag="field" name="PGJG" type="expression">O_MASTER.ZRZ.PGJG</arg>
+                    <arg flag="field" name="LXRQ" type="expression">O_MASTER.ZRZ.LXRQ</arg>
+                    <arg flag="field" name="NHRQ" type="expression">O_MASTER.ZRZ.NHRQ</arg>
+                    <arg flag="field" name="NHHYJY" type="expression">O_MASTER.ZRZ.NHHYJY</arg>
+                    <arg flag="field" name="NHZS" type="expression">O_MASTER.ZRZ.NHZS</arg>
+                    <arg flag="field" name="NHFS" type="expression">O_MASTER.ZRZ.NHFS</arg>
+                    <arg flag="field" name="SCSBRQ" type="expression">O_MASTER.ZRZ.SCSBRQ</arg>
+                    <arg flag="field" name="ZJHSLRQ" type="expression">O_MASTER.ZRZ.ZJHSLRQ</arg>
+                    <arg flag="field" name="SDFKYJRQ" type="expression">O_MASTER.ZRZ.SDFKYJRQ</arg>
+                    <arg flag="field" name="BSFKYJHFRQ" type="expression">O_MASTER.ZRZ.BSFKYJHFRQ</arg>
+                    <arg flag="field" name="CHHRQ" type="expression">O_MASTER.ZRZ.CHHRQ</arg>
+                    <arg flag="field" name="FSHRQ" type="expression">O_MASTER.ZRZ.FSHRQ</arg>
+                    <arg flag="field" name="LQPWRQ" type="expression">O_MASTER.ZRZ.LQPWRQ</arg>
+                    <arg flag="field" name="GSMC" type="expression">O_MASTER.ZRZ.GSMC</arg>
+                    <arg flag="field" name="IPORQ" type="expression">O_MASTER.ZRZ.IPORQ</arg>
+                    <arg flag="field" name="SSBK" type="expression">O_MASTER.ZRZ.SSBK</arg>
+                    <arg flag="field" name="HYFL" type="expression">O_MASTER.ZRZ.HYFL</arg>
+                    <arg flag="field" name="KGGD" type="expression">O_MASTER.ZRZ.QYXZ</arg>
+                    <arg flag="field" name="SJKZR" type="expression">O_MASTER.ZRZ.SJKZR</arg>
+                    <arg flag="field" name="QZJLX" type="expression">O_MASTER.ZRZ.QZJLX</arg>
+                    <arg flag="field" name="NMJZJJE" type="expression">O_MASTER.IPO.NMJZJJE</arg>
+                    <arg flag="field" name="QZJSJ" type="expression">O_MASTER.ZRZ.QZJSJ</arg>
+                    <arg flag="field" name="QYXZ" type="expression">O_MASTER.ZRZ.QYXZ</arg>
+                    <arg flag="field" name="ZYCP" type="expression">O_MASTER.ZRZ.ZYCP</arg>
+                    <arg flag="field" name="GSZS" type="expression">O_MASTER.ZRZ.GSZS</arg>
+                    <arg flag="field" name="SYL" type="expression">O_MASTER.ZRZ.SYL</arg>
+                    <arg flag="field" name="FZL" type="expression">O_MASTER.ZRZ.FZL</arg>
+                    <arg flag="field" name="FXJG" type="expression">O_MASTER.ZRZ.FXJG</arg>
+                    <arg flag="field" name="XFGFS" type="expression">O_MASTER.ZRZ.XFGFS</arg>
+                    <arg flag="field" name="MJZE_QT" type="expression">O_MASTER.ZRZ.MJZE_QT</arg>
+                    <arg flag="field" name="ZJYT_ZRZ_QT" type="expression">O_MASTER.ZRZ.ZJYT_ZRZ_QT</arg>
+                    <arg flag="field" name="FXJ" type="expression">O_MASTER.ZRZ.FXJ</arg>
+                    <arg flag="field" name="GFS" type="expression">O_MASTER.ZRZ.GFS</arg>
+                    <arg flag="field" name="DXMJZIZE" type="expression">O_MASTER.ZRZ.DXMJZIZE</arg>
+                    <arg flag="field" name="ZJYT" type="expression">O_MASTER.ZRZ.ZJYT</arg>
+                    <arg flag="field" name="DXFXFS" type="expression">O_MASTER.ZRZ.DXFXFS</arg>
+                    <arg flag="field" name="KZQ" type="expression">O_MASTER.ZRZ.KZQ</arg>
+                    <arg flag="field" name="SL" type="expression">O_MASTER.ZRZ.SL</arg>
+                    <arg flag="field" name="DX" type="expression">O_MASTER.ZRZ.SL</arg>
+                    <arg flag="field" name="SDQ" type="expression">O_MASTER.ZRZ.SDQ</arg>
+                    <arg flag="field" name="FXJ_PG" type="expression">O_MASTER.ZRZ.FXJ_PG</arg>
+                    <arg flag="field" name="DXQ" type="expression">O_MASTER.ZRZ.DXQ</arg>
+                    <arg flag="field" name="SL_PG" type="expression">O_MASTER.ZRZ.SL_PG</arg>
+                    <arg flag="field" name="PSBL" type="expression">O_MASTER.ZRZ.PSBL</arg>
+                    <arg flag="field" name="GDSL" type="expression">O_MASTER.ZRZ.GDSL</arg>
+                    <arg flag="field" name="RPBL" type="expression">O_MASTER.ZRZ.RPBL</arg>
+                    <arg flag="field" name="ZJZE" type="expression">O_MASTER.ZRZ.ZJZE</arg>
+                    <arg flag="field" name="ZJYT_PG" type="expression">O_MASTER.ZRZ.ZJYT_PG</arg>
+                    <arg flag="field" name="FZL_LZZ" type="expression">O_MASTER.ZRZ.FZL_LZZ</arg>
+                    <arg flag="field" name="BL" type="expression">O_MASTER.ZRZ.BL</arg>
+                    <arg flag="field" name="FXFS" type="expression">O_MASTER.ZRZ.FXFS</arg>
+                    <arg flag="field" name="PJ" type="expression">O_MASTER.ZRZ.PJ</arg>
+                    <arg flag="field" name="DB" type="expression">O_MASTER.ZRZ.DB</arg>
+                    <arg flag="field" name="DBFS" type="expression">O_MASTER.ZRZ.DBFS</arg>
+                    <arg flag="field" name="DBR" type="expression">O_MASTER.ZRZ.DBR</arg>
+                    <arg flag="field" name="MJZE" type="expression">O_MASTER.ZRZ.MJZE</arg>
+                    <arg flag="field" name="ZJYT_KZZ" type="expression">O_MASTER.ZRZ.ZJYT_KZZ</arg>
+                    <arg flag="field" name="FXJ_YXG" type="expression">O_MASTER.ZRZ.FXJ_YXG</arg>
+                    <arg flag="field" name="FXRQ" type="expression">O_MASTER.ZRZ.FXRQ</arg>
+                    <arg flag="field" name="FXSL" type="expression">O_MASTER.ZRZ.FXSL</arg>
+                    <arg flag="field" name="MJJE" type="expression">O_MASTER.ZRZ.MJJE</arg>
+                    <arg flag="field" name="FG" type="expression">O_MASTER.ZRZ.FG</arg>
+                    <arg flag="field" name="ZJYT_YXG" type="expression">O_MASTER.ZRZ.ZJYT_YXG</arg>
+                    <arg flag="field" name="FXZT" type="expression">O_MASTER.ZRZ.FXZT</arg>
+                    <arg flag="field" name="FXFS_YXG" type="expression">O_MASTER.ZRZ.FXFS_YXG</arg>
+                    <arg flag="field" name="YXTK" type="expression">O_MASTER.ZRZ.YXTK</arg>
+                    <arg flag="field" name="KFZH" type="expression">O_MASTER.ZRZ.KFZH</arg>
+                    <arg flag="field" name="GXL" type="expression">O_MASTER.ZRZ.GXL</arg>
+                    <arg flag="field" name="KFLJ" type="expression">O_MASTER.ZRZ.KFLJ</arg>
+                    <arg flag="field" name="HSTK" type="expression">O_MASTER.ZRZ.HSTK</arg>
+                    <arg flag="field" name="SHTK" type="expression">O_MASTER.ZRZ.SHTK</arg>
+                    <arg flag="field" name="DX_YXG" type="expression">O_MASTER.ZRZ.DX_YXG</arg>
+                    <arg flag="field" name="DXRS" type="expression">O_MASTER.ZRZ.DXRS</arg>
+                    <arg flag="field" name="LJRS" type="expression">O_MASTER.ZRZ.LJRS</arg>
+                  </invoke>
+                  <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
+                    <describe>数据库组件_SQL查询</describe>
+                    <arg name="TranType">sql</arg>
+                    <arg name="datasource">ECIF</arg>
+                    <arg name="SQL">["SELECT ID, SD, ZZC, JZC, YYSR, JLR, ZGB, KFJLR FROM ECIF.tIB_ZRZJYXX_CWSJ_ZRZ WHERE TIB_ZRZJYXX_ID ={0}",[{"expression":"O_MASTER.ZRZ","scale":"","length":"","type":"1"}]]</arg>
+                    <arg name="@retResultSet" type="output">V_BGDX</arg>
+                  </invoke>
+                  <invoke component="FormUIHypotOperate" id="0" name="表格操作_添加结果集数据" operation="insertByResult">
+                    <describe>表格添加结果集数据[项目简要信息流程]</describe>
+                    <arg name="@objectName">lcIB_XMJYXX</arg>
+                    <arg name="@object" type="variable">O_MASTER</arg>
+                    <arg name="@columnName">CWSJ_ZRZ</arg>
+                    <arg flag="field" name="SD">SD</arg>
+                    <arg flag="field" name="ZZC">ZZC</arg>
+                    <arg flag="field" name="JZC">JZC</arg>
+                    <arg flag="field" name="YYSR">YYSR</arg>
+                    <arg flag="field" name="JLR">JLR</arg>
+                    <arg flag="field" name="ZGB">ZGB</arg>
+                    <arg flag="field" name="KFJLR">KFJLR</arg>
+                    <arg name="@resultSet" type="variable">V_BGDX</arg>
+                    <arg name="@clearRowsets">true</arg>
+                  </invoke>
+                </sequence>
+              </if>
+            </sequence>
+          </elseif>
+          <else>
+            <describe>Else</describe>
+            <sequence id="0" name="顺序">
+              <invoke component="FormUIHypotOperate" id="0" name="表格操作_批量删除" operation="batchDelete">
+                <describe>批量删除表格对象[项目简要信息流程]</describe>
+                <arg name="@objectName">lcIB_XMJYXX</arg>
+                <arg name="@object" type="variable">O_MASTER</arg>
+                <arg name="@columnName">ZDZCSJ</arg>
+                <arg name="@condition">&lt;%@ livebos language='javascript' %&gt;
+O_MASTER.ZDZCSJ.BSF!=null</arg>
+              </invoke>
+            </sequence>
+          </else>
+        </if>
+        <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+          <describe>界面处理_更新值</describe>
+          <arg flag="field" name="XMLX" type="expression">O_MASTER.XMMC.XMLX</arg>
+          <arg flag="field" name="XMFZR" type="expression">O_MASTER.XMMC.XMFZR</arg>
+          <arg flag="field" name="XMSCJD" type="expression">O_MASTER.XMMC.XMJD</arg>
+          <arg flag="field" name="F" type="expression">O_MASTER.XMMC.SSBM</arg>
+          <arg flag="field" name="BJRDB" type="expression">O_MASTER.XMMC.QZBJDBR</arg>
+          <arg flag="field" name="XMXBR" type="expression">O_MASTER.XMMC.XBR</arg>
+          <arg flag="field" name="FXRLS" type="expression">O_MASTER.XMMC.QZLS</arg>
+          <arg flag="field" name="F2" type="expression">O_MASTER.XMMC.KJSSWS</arg>
+          <arg flag="field" name="LXRQ" type="expression">O_MASTER.XMMC.LXRQ</arg>
+          <arg flag="field" name="NHRQ" type="expression">O_MASTER.XMMC.NHRQ</arg>
+          <arg flag="field" name="NHHYJY" type="expression">O_MASTER.NHLC.BJYJ</arg>
+          <arg flag="field" name="NHZS" type="expression">O_MASTER.XMMC.NHZKSHY_ZS</arg>
+          <arg flag="field" name="NHFS" type="expression">O_MASTER.XMMC.NHZKSHY_FS</arg>
+          <arg flag="field" name="SCSBRQ" type="expression">O_MASTER.XMMC.SBRQ</arg>
+          <arg flag="field" name="ZJHSLRQ" type="expression">O_MASTER.XMMC.SLRQ</arg>
+          <arg flag="field" name="LQPWRQ" type="expression">O_MASTER.XMMC.PWRQ</arg>
+          <arg flag="field" name="GSMC" type="expression">O_MASTER.XMMC.SSKH</arg>
+          <arg flag="field" name="IPORQ" type="expression">O_MASTER.XMMC.SSRQ</arg>
+          <arg flag="field" name="NSSBK_copy" type="expression">O_MASTER.XMMC.BK</arg>
+          <arg flag="field" name="NSSBK" type="expression">O_MASTER.XMMC.BK</arg>
+          <arg flag="field" name="SSSF" type="expression">O_MASTER.GSMC.PROVINCE</arg>
+          <arg flag="field" name="HYFL" type="expression">O_MASTER.GSMC.SSHY</arg>
+          <arg flag="field" name="SJKZR" type="expression">O_MASTER.GSMC.SJKZR</arg>
+          <arg flag="field" name="QYXZ" type="expression">O_MASTER.GSMC.QYXZ</arg>
+          <arg flag="field" name="GSZS" type="expression">O_MASTER.GSMC.BGDZ</arg>
+          <arg flag="field" name="SSBM" type="expression">O_MASTER.XMMC.SSBM</arg>
+          <arg flag="field" name="IPO" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE("select ID from ecif.tib_ipojyxx where xmmc =?",[O_MASTER.XMMC])</arg>
+          <arg flag="field" name="ZRZ" type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+ABS_SQLVALUE("select ID from ecif.tib_zrzjyxx where xmmc =?",[O_MASTER.XMMC])</arg>
+          <arg flag="field" name="CZ" type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+ABS_SQLVALUE("select ID from ecif.tib_czjyxx where xmmc =?",[O_MASTER.XMMC])</arg>
+          <arg flag="field" name="NHLC" type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+ABS_SQLVALUE("select ID from ecif.lcib_nhsp where lcIB_NHSP.XMMC  = ?  and rownum = 1 order by lcIB_NHSP.SQSJ",[O_MASTER.XMMC])</arg>
+        </invoke>
+      </sequence>
+    </if>
+  </sequence>
+</process>
+

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_XMXX_GS_ZQXX_XZ" name="tIB_XMXX_GS_ZQXX_XZ_ZQDM_QT_Param_UI" object="tIB_XMXX_GS_ZQXX" type="2" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>债券代码(其他)界面事件</describe>
+  <variables>
+    <variable describe="V_ZQXX" messageType="" name="V_ZQXX" type="resultSet" />
+    <variable describe="V_Obj" instanceType="tIB_WD_ZQXX" messageType="" name="V_Obj" type="objectSet" />
+    <variable describe="V_F1" messageType="" name="V_F1" type="string" />
+    <variable describe="V_F2" messageType="" name="V_F2" type="string" />
+    <variable describe="V_F3" messageType="" name="V_F3" type="string" />
+    <variable describe="V_F4" messageType="" name="V_F4" type="string" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
+      <describe>获取万得债券信息</describe>
+      <arg name="TranType">sql</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="@retResultSet" type="output">V_ZQXX</arg>
+      <arg name="SQL">["SELECT * FROM ecif.tIB_WD_ZQXX WHERE (TRIM(ZQDM) = UPPER(TRIM({0})) OR TRIM(WDDM) = UPPER(TRIM({0}))) AND JYCS = 99 AND ROWNUM = 1",[{"expression":"O_PARAMETER.ZQDM_QT","scale":"","length":"","type":"0"}]]</arg>
+    </invoke>
+    <forEach collection="V_ZQXX" id="0" toVariable="V_Obj">
+      <describe>迭代</describe>
+      <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+        <describe>界面处理_更新值</describe>
+        <arg flag="field" name="ZQMC" type="expression">V_Obj.ZQMC</arg>
+        <arg flag="field" name="ZQJC_QT" type="expression">V_Obj.ZQJC</arg>
+        <arg flag="field" name="SSSJ_QT" type="expression">V_Obj.SSSJ</arg>
+        <arg flag="field" name="ZPRQ" type="expression">V_Obj.ZPRQ</arg>
+        <arg flag="field" name="FXJE" type="expression">V_Obj.FXJE</arg>
+        <arg flag="field" name="DQYE" type="expression">V_Obj.FXJE</arg>
+        <arg flag="field" name="ZXZXPJ" type="expression">V_Obj.ZXZXPJ</arg>
+        <arg flag="field" name="PJJG" type="expression">V_Obj.PJJG</arg>
+        <arg flag="field" name="LLSM" type="expression">V_Obj.LLSM</arg>
+        <arg flag="field" name="ZQQXR" type="expression">V_Obj.ZQQXR</arg>
+        <arg flag="field" name="ZQDQR" type="expression">V_Obj.ZQDQR</arg>
+        <arg flag="field" name="ZQQX" type="expression">V_Obj.ZQQX</arg>
+        <arg flag="field" name="FXRMC" type="expression">V_Obj.FXRMC</arg>
+        <arg flag="field" name="ZXQK" type="expression">V_Obj.ZXQK</arg>
+        <arg flag="field" name="SFSSGS" type="expression">V_Obj.SFSSGS</arg>
+        <arg flag="field" name="WDEJFL" type="expression">V_Obj.WDEJFL</arg>
+        <arg flag="field" name="PMLL_FX" type="expression">V_Obj.PMLL_FX</arg>
+        <arg flag="field" name="PMLL" type="expression">V_Obj.PMLL_FX</arg>
+        <arg flag="field" name="FXPL" type="expression">V_Obj.FXPL</arg>
+      </invoke>
+    </forEach>
+    <if id="0">
+      <describe>判断债券起息日已维护</describe>
+      <conditions>
+        <condition name="" type="expression">
+          <arg name="expression">O_PARAMETER.ZQQXR&gt;0</arg>
+        </condition>
+      </conditions>
+      <sequence id="0" name="顺序">
+        <assign id="0">
+          <describe>赋值</describe>
+          <copy>
+            <from type="expression">ABS_SQLVALUE("SELECT TO_CHAR(ADD_MONTHS(TO_DATE(?,'YYYYMMDD'),0),'MMDD') FROM DUAL",[O_PARAMETER.ZQQXR])</from>
+            <to variable="V_F1" />
+          </copy>
+          <copy>
+            <from type="expression">ABS_SQLVALUE("SELECT TO_CHAR(ADD_MONTHS(TO_DATE(?,'YYYYMMDD'),3),'MMDD') FROM DUAL",[O_PARAMETER.ZQQXR])</from>
+            <to variable="V_F2" />
+          </copy>
+          <copy>
+            <from type="expression">ABS_SQLVALUE("SELECT TO_CHAR(ADD_MONTHS(TO_DATE(?,'YYYYMMDD'),6),'MMDD') FROM DUAL",[O_PARAMETER.ZQQXR])</from>
+            <to variable="V_F3" />
+          </copy>
+          <copy>
+            <from type="expression">ABS_SQLVALUE("SELECT TO_CHAR(ADD_MONTHS(TO_DATE(?,'YYYYMMDD'),9),'MMDD') FROM DUAL",[O_PARAMETER.ZQQXR])</from>
+            <to variable="V_F4" />
+          </copy>
+        </assign>
+        <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+          <describe>界面处理_更新值</describe>
+          <arg flag="field" name="FXR1" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_IF(O_PARAMETER.FXPL==1,V_F2,ABS_IF(O_PARAMETER.FXPL==2,V_F3,V_F1))</arg>
+          <arg flag="field" name="FXR2" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_IF(O_PARAMETER.FXPL==1,V_F3,ABS_IF(O_PARAMETER.FXPL==2,V_F1,null))</arg>
+          <arg flag="field" name="FXR3" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_IF(O_PARAMETER.FXPL==1,V_F4,null)</arg>
+          <arg flag="field" name="FXR4" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_IF(O_PARAMETER.FXPL==1,V_F1,null)</arg>
+        </invoke>
+      </sequence>
+    </if>
+  </sequence>
+</process>
+

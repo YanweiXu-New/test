@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="TJG_TH_ZB_XMXX_XZ_XSB" name="TJG_TH_ZB_XMXX_XZ_XSB" object="TJG_TH_ZB_XMXX" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目信息-新增新三板项目流程</describe>
+  <variables>
+    <variable describe="V_RET" messageType="" name="V_RET" type="int" />
+    <variable describe="V_MSG" messageType="" name="V_MSG" type="string" />
+    <variable describe="V_OBJ" instanceType="TJG_TH_ZB_XMXX" messageType="" name="V_OBJ" type="object" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <invoke component="FormOperate" id="0" name="对象组件_新增" operation="insert">
+      <describe>新增对象[项目信息]</describe>
+      <arg name="@objectName">TJG_TH_ZB_XMXX</arg>
+      <arg flag="field" name="CZBM" type="expression">O_PARAMETER.CZBM</arg>
+      <arg flag="field" name="XMLX" type="expression">O_PARAMETER.XMLX</arg>
+      <arg flag="field" name="XMJD" type="expression">O_PARAMETER.XMJD</arg>
+      <arg flag="field" name="XMMC" type="expression">O_PARAMETER.XMMC</arg>
+      <arg flag="field" name="HY" type="expression">O_PARAMETER.HY</arg>
+      <arg flag="field" name="DQ" type="expression">O_PARAMETER.DQ</arg>
+      <arg flag="field" name="YJSR" type="expression">O_PARAMETER.YJSR</arg>
+      <arg flag="field" name="GB" type="expression">O_PARAMETER.GB</arg>
+      <arg flag="field" name="XMZSR" type="expression">O_PARAMETER.XMZSR</arg>
+      <arg flag="field" name="ZFJE" type="expression">O_PARAMETER.ZFJE</arg>
+      <arg flag="field" name="QYRQ" type="expression">O_PARAMETER.QYRQ</arg>
+      <arg flag="field" name="TGNHRQ" type="expression">O_PARAMETER.TGNHRQ</arg>
+      <arg flag="field" name="SBRQ" type="expression">O_PARAMETER.SBRQ</arg>
+      <arg flag="field" name="LTRQ" type="expression">O_PARAMETER.LTRQ2</arg>
+      <arg flag="field" name="GPRQ" type="expression">O_PARAMETER.GPRQ</arg>
+      <arg flag="field" name="LXR" type="expression">O_PARAMETER.LXR</arg>
+      <arg flag="field" name="DJR" type="expression">$Login.User</arg>
+      <arg flag="field" name="DJBM" type="expression">$Login.User.OrgID</arg>
+      <arg flag="field" name="DJSJ" type="expression">$DateTime.Now</arg>
+      <arg flag="field" name="DJIP" type="expression">$Login.IP</arg>
+      <arg flag="field" name="ZHXGR" type="expression">$Login.User</arg>
+      <arg flag="field" name="ZHXGBM" type="expression">$Login.User.OrgID</arg>
+      <arg flag="field" name="ZHXGSJ" type="expression">$DateTime.Now</arg>
+      <arg flag="field" name="ZHXGIP" type="expression">$Login.IP</arg>
+      <arg name="@retObject" type="output">V_OBJ</arg>
+      <arg flag="field" name="XMJZQK" type="expression">O_PARAMETER.XMJZQK</arg>
+      <arg flag="field" name="KHMC" type="expression">O_PARAMETER.KHMC2</arg>
+      <arg flag="field" name="LXRQ" type="expression">null</arg>
+      <arg flag="field" name="CLRQ" type="expression">null</arg>
+      <arg flag="field" name="BGRQ" type="expression">null</arg>
+      <arg flag="field" name="SLRQ" type="expression">null</arg>
+      <arg flag="field" name="GHRQ" type="expression">null</arg>
+      <arg flag="field" name="FXRQ" type="expression">null</arg>
+      <arg flag="field" name="SSRQ" type="expression">null</arg>
+    </invoke>
+    <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+      <describe>业务处理</describe>
+      <arg name="TranType">procedure</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="SQL">["CALL PRO_TH_XMXX_F(:ret,:msg,{0},0,{1})",[{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"V_OBJ.ID","scale":"","length":"","type":"1"}]]</arg>
+      <arg name="ret" type="output">V_RET</arg>
+      <arg name="msg" type="output">V_MSG</arg>
+    </invoke>
+    <response exit="false" id="0">
+      <describe>输出</describe>
+      <retvalue type="variable">V_RET</retvalue>
+      <message type="variable">V_MSG</message>
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
+  </sequence>
+</process>
+

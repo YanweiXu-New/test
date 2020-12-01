@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="8" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_LCFQCSPZ_FQCSXG" name="tIB_LCFQCSPZ_FQCSXG" object="tIB_LCFQCSPZ" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>流程发起次数配置-流程发起次数配置修改流程</describe>
+  <variables />
+  <invoke component="FormOperate" id="0" operation="update">
+    <describe>修改对象[流程发起次数配置]</describe>
+    <meta name="FUNCTION">true</meta>
+    <arg name="@objectName">tIB_LCFQCSPZ</arg>
+    <arg name="@object" type="variable">O_MASTER</arg>
+    <arg flag="field" name="XMLX" type="expression">O_PARAMETER.XMLX</arg>
+    <arg flag="field" name="CS" type="expression">O_PARAMETER.CS</arg>
+    <arg flag="field" name="XGR" type="expression">$Login.User</arg>
+    <arg flag="field" name="XGSJ" type="expression">$DateTime.Now</arg>
+  </invoke>
+</process>
+

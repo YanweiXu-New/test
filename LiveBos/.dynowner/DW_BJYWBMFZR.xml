@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="GB2312" standalone="no"?>
+<dynOwner flag="0" name="DW_BJYWBMFZR" type="106">
+    <describe>保荐业务部门负责人</describe>
+    <sql>{"statement":"tUser.ID in (select userid from lbmember where roleid = (select id from jgcrm.lbrole where rolecode='JG_BJYWBMFZR')) \r\nand tUser.Status = 1","args":[],"type":0}</sql>
+    <parameters/>
+</dynOwner>

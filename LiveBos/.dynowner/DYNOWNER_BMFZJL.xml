@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="GB2312" standalone="no"?>
+<dynOwner flag="0" name="DYNOWNER_BMFZJL" type="106">
+    <describe>部门副总经理</describe>
+    <sql>{"statement":"tUser.ID in (select userid from lbmember where orgid=JGCRM.Func_IB_GetBmtop(:pBM) and roleid=4) and tUser.Status = 1","args":[],"type":0}</sql>
+    <parameters>
+        <parameter>
+            <name>Pbm</name>
+            <describe>部门</describe>
+            <comment/>
+            <type>0</type>
+            <length>30</length>
+            <scale>0</scale>
+        </parameter>
+    </parameters>
+</dynOwner>

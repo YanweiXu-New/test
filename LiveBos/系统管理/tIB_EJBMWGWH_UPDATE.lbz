@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_EJBMWGWH_UPDATE" name="tIB_EJBMWGWH_UPDATE" object="tIB_EJBMWGWH" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>二级部门文官维护-刷新流程</describe>
+  <variables />
+  <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+    <describe>数据库组件_执行SQL语句</describe>
+    <arg name="TranType">sql</arg>
+    <arg name="datasource">ECIF</arg>
+    <arg name="SQL">["declare\r\nbegin\r\n  EXECUTE IMMEDIATE 'TRUNCATE TABLE  ecif.tIB_EJBMWGWH';\r\n  INSERT INTO ecif.tIB_EJBMWGWH\r\n    (id, fid, grade, type, bm, orgtype, orgcode, name, wg, fdncode, xssx)\r\n    SELECT A.id,\r\n           A.fid,\r\n           A.grade,\r\n           A.type,\r\n           A.ID      AS bm,\r\n           A.orgtype,\r\n           A.orgcode,\r\n           A.name,\r\n           B.USERID  AS wg,\r\n           A.fdncode,\r\n           A.xssx\r\n      FROM JGCRM.LBORGANIZATION A\r\n      LEFT JOIN (SELECT USERID, ORGID FROM JGCRM.LBMEMBER B WHERE ROLEID = 6) B\r\n        ON A.ID = B.ORGID\r\n     WHERE A.ORGTYPE != 5;\r\n  commit;\r\nend;",[]]</arg>
+  </invoke>
+</process>
+

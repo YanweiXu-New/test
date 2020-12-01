@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_XMXX_XSB_XZCXDDXX" name="tIB_XMXX_XSB_XZCXDDXX_OperateInitialize_Param_UI" object="tIB_XMXX_XSB" type="2" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>界面初始化界面事件</describe>
+  <variables>
+    <variable describe="V_INIT" messageType="" name="V_INIT" type="resultSet" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+      <describe>界面处理_更新值</describe>
+      <arg flag="field" name="GPQZJZYQK" type="expression">1</arg>
+      <arg flag="field" name="ZJSFQL" type="expression">1</arg>
+      <arg flag="field" name="SFCZWGDB" type="expression">1</arg>
+      <arg flag="field" name="SFCZCNSX" type="expression">1</arg>
+      <arg flag="field" name="QLRQ" type="expression">null</arg>
+    </invoke>
+    <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
+      <describe>数据库组件_SQL查询</describe>
+      <arg name="TranType">sql</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="SQL">["SELECT 1 LX FROM DUAL\r\nUNION ALL\r\nSELECT 2 LX FROM DUAL\r\nUNION ALL\r\nSELECT 3 LX FROM DUAL",[]]</arg>
+      <arg name="@retResultSet" type="output">V_INIT</arg>
+    </invoke>
+    <invoke component="FormUIHypotOperate" id="0" name="表格操作_添加结果集数据" operation="insertByResult">
+      <describe>表格添加结果集数据[项目信息_新三板]</describe>
+      <arg name="@objectName">tIB_XMXX_XSB</arg>
+      <arg name="@columnName">GSXX</arg>
+      <arg name="@resultSet" type="variable">V_INIT</arg>
+      <arg name="@clearRowsets">true</arg>
+      <arg flag="field" name="ZWLX">LX</arg>
+    </invoke>
+  </sequence>
+</process>
+

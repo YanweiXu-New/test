@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="4" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_ZDFQLC_QD" name="tIB_ZDFQLC_QD" object="tIB_ZDFQLC" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>自动发起流程-批量启动流程</describe>
+  <variables>
+    <variable describe="V_LCXX" messageType="" name="V_LCXX" type="resultSet" />
+    <variable describe="V_DBLC" instanceType="tIB_DFQLC" messageType="" name="V_DBLC" type="objectSet" />
+    <variable describe="V_LCJG" messageType="" name="V_LCJG" type="int" />
+    <variable describe="V_RET" messageType="" name="V_RET" type="int" />
+    <variable describe="V_MSG" messageType="" name="V_MSG" type="string" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
+      <describe>获取需要发起的流程待办</describe>
+      <arg name="TranType">sql</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="@retResultSet" type="output">V_LCXX</arg>
+      <arg name="SQL">["select * from (SELECT ID,BM,BZID,LCID,FQR FROM ECIF.tIB_DFQLC  dfq  WHERE ZXZT=0 AND exists (select 1 from jgcrm.tuser usr  where  dfq.fqr=usr.id and usr.status =1) ORDER BY SCSJ DESC) where ROWNUM &lt;= 50 ",[]]</arg>
+    </invoke>
+    <forEach collection="V_LCXX" id="0" toVariable="V_DBLC">
+      <describe>迭代</describe>
+      <sequence id="0" name="顺序">
+        <invoke component="Workflow" id="0" name="工作流组件_执行动作" operation="doAction">
+          <describe>工作流组件_执行动作</describe>
+          <arg name="@objectName" type="expression">V_DBLC.BM</arg>
+          <arg name="@ID" type="expression">V_DBLC.LCID</arg>
+          <arg name="actionID" type="expression">V_DBLC.BZID</arg>
+          <arg name="user" type="expression">V_DBLC.FQR</arg>
+          <arg name="@retValue" type="output">V_LCJG</arg>
+        </invoke>
+        <if id="0">
+          <describe>判断</describe>
+          <conditions>
+            <condition name="" type="expression">
+              <arg name="expression">V_LCJG&gt;0</arg>
+            </condition>
+          </conditions>
+          <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+            <describe>变更数据状态</describe>
+            <arg name="TranType">procedure</arg>
+            <arg name="datasource">ECIF</arg>
+            <arg name="ret" type="output">V_RET</arg>
+            <arg name="msg" type="output">V_MSG</arg>
+            <arg name="SQL">["CALL PRO_IB_BGDBZT(:ret,:msg,{0},{1})",[{"expression":"V_DBLC.ID","scale":"","length":"","type":"1"},{"expression":"V_LCJG","scale":"","length":"","type":"1"}]]</arg>
+          </invoke>
+        </if>
+      </sequence>
+    </forEach>
+    <invoke component="expression" id="0" name="执行脚本">
+      <describe>刷新流程缓存</describe>
+      <arg name="expression">ABS_flushObjCache('WORKFLOW.TASK')</arg>
+    </invoke>
+  </sequence>
+</process>
+

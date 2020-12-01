@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_LXLCB_CWX_JLR_KF_UI" object="lcIB_LXLCB_CWX" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>净利润(扣非)(万元)界面事件</describe>
+  <variables />
+  <sequence id="0" name="顺序">
+    <if id="0">
+      <describe>判断</describe>
+      <conditions>
+        <condition name="" type="expression">
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+O_MASTER.JLR_KF&gt;=10000</arg>
+        </condition>
+      </conditions>
+      <response exit="false" id="0">
+        <describe>输出</describe>
+        <retvalue type="">-92</retvalue>
+        <message>请确认'净利润(扣非)'是否为正确金额!</message>
+        <uiforward redirect="false">
+          <url />
+        </uiforward>
+      </response>
+    </if>
+  </sequence>
+</process>
+

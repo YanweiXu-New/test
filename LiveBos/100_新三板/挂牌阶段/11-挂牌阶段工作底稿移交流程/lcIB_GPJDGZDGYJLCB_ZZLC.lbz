@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="lcIB_GPJDGZDGYJLCB_ZZLC" name="lcIB_GPJDGZDGYJLCB_ZZLC" object="lcIB_GPJDGZDGYJLCB" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>挂牌阶段工作底稿移交流程-终止流程流程</describe>
+  <variables />
+  <invoke component="expression" id="0" name="执行脚本">
+    <describe>执行脚本</describe>
+    <arg name="expression">LB_killWork(O_MASTER.InstID, O_PARAMETER.ZZYH)</arg>
+  </invoke>
+</process>
+

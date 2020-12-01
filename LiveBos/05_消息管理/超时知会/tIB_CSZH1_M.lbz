@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="4" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_CSZH1_M" name="tIB_CSZH1_M" object="tIB_CSZH1" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>超时知会-知会流程</describe>
+  <variables>
+    <variable describe="V_Ret" messageType="" name="V_Ret" type="int" />
+    <variable describe="V_Msg" messageType="" name="V_Msg" type="string" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+      <describe>执行调度</describe>
+      <arg name="TranType">procedure</arg>
+      <arg name="SQL">["call ecif.pro_ib_cszh(:ret,:msg,{0})",[{"expression":"O_PARAMETER.DDRQ","scale":"","length":"","type":"3"}]]</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="ret" type="output">V_Ret</arg>
+      <arg name="msg" type="output">V_Msg</arg>
+      <arg name="@autoExit" type="expression">false</arg>
+    </invoke>
+    <response exit="false" id="0">
+      <describe>输出</describe>
+      <retvalue type="variable">V_Ret</retvalue>
+      <message type="variable">V_Msg</message>
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
+  </sequence>
+</process>
+

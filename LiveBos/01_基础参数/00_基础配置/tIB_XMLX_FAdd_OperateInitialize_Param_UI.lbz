@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_XMLX_FAdd" name="tIB_XMLX_FAdd_OperateInitialize_Param_UI" object="tIB_XMLX" type="2" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>界面初始化界面事件</describe>
+  <variables>
+    <variable describe="V_CNT" messageType="" name="V_CNT" type="int" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <assign id="0">
+      <describe>赋值</describe>
+      <copy>
+        <from type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE("SELECT COUNT(ID) FROM ECIF.TIB_XMLX WHERE TYPE=1");</from>
+        <to variable="V_CNT" />
+      </copy>
+    </assign>
+    <if id="0">
+      <describe>判断</describe>
+      <conditions>
+        <condition name="" type="expression">
+          <arg name="expression">V_CNT&gt;0</arg>
+        </condition>
+      </conditions>
+      <invoke component="FormUI" id="0" name="界面处理_使用字符串填充可选项" operation="putOptionsByString">
+        <describe>剔除根节点选项</describe>
+        <arg flag="field" name="@columnName">Type</arg>
+        <arg name="@clearOptions">true</arg>
+        <arg name="@optionString">0|普通节点;2|末节点</arg>
+      </invoke>
+      <else>
+        <describe>Else</describe>
+        <invoke component="FormUI" id="0" name="界面处理_使用字符串填充可选项" operation="putOptionsByString">
+          <describe>只选择根节点</describe>
+          <arg flag="field" name="@columnName">Type</arg>
+          <arg name="@clearOptions">true</arg>
+          <arg name="@optionString">1|根节点</arg>
+        </invoke>
+      </else>
+    </if>
+  </sequence>
+</process>
+

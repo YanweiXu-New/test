@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_BMXMZBWH_SC" name="tIB_BMXMZBWH_SC" object="tIB_BMXMZBWH" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>部门项目指标维护-删除流程</describe>
+  <variables />
+  <invoke component="FormOperate" id="0" name="对象组件_删除" operation="delete">
+    <describe>删除对象[部门项目指标维护]</describe>
+    <arg name="@objectName">tIB_BMXMZBWH</arg>
+    <arg name="@object" type="variable">O_MASTER</arg>
+  </invoke>
+</process>
+

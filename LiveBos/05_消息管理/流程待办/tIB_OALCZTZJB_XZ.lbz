@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="2" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_OALCZTZJB_XZ" name="tIB_OALCZTZJB_XZ" object="tIB_OALCZTZJB" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>OA流程状态中间表-新增流程</describe>
+  <variables>
+    <variable describe="V_CODE" messageType="" name="V_CODE" type="int" />
+    <variable describe="V_NOTE" messageType="" name="V_NOTE" type="string" />
+    <variable describe="V_RESULT" messageType="" name="V_RESULT" type="int" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+      <describe>数据库组件_执行SQL语句</describe>
+      <arg name="TranType">procedure</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="SQL">["call ECIF.PRO_IB_HQOALCZT(:code,:note,:result,{0},{1},{2},{3},{4})",[{"expression":"O_PARAMETER.OALCID","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.JSBZ","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.OALXID","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.OALCZT","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.CZR","scale":"","length":"","type":"0"}]]</arg>
+      <arg name="code" type="output">V_CODE</arg>
+      <arg name="note" type="output">V_NOTE</arg>
+      <arg name="result" type="output">V_RESULT</arg>
+    </invoke>
+    <response exit="false" id="0">
+      <describe>输出</describe>
+      <retvalue type="expression">V_CODE</retvalue>
+      <message type="expression">V_NOTE</message>
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
+  </sequence>
+</process>
+

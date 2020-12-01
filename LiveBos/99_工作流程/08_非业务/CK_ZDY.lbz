@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="CK_ZDY" name="CK_ZDY" object="tIB_IPOJYXX" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>IPO项目简要信息-查看1流程</describe>
+  <variables />
+  <response exit="true" id="0">
+    <describe>输出</describe>
+    <retvalue>10</retvalue>
+    <message />
+    <uiforward redirect="true">
+      <url type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+'/OperateProcessor?operate=View&amp;Table=tIB_IPOJYXX&amp;&amp;ID='+O_MASTER.ID+'&amp;HideCancelBtn=true'</url>
+    </uiforward>
+  </response>
+</process>
+

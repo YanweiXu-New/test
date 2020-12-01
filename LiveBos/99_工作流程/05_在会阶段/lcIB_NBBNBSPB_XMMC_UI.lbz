@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_NBBNBSPB_XMMC_UI" object="lcIB_NBBNBSPB" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目名称界面事件</describe>
+  <variables />
+  <sequence id="0" name="顺序">
+    <invoke component="FormUI" id="0" name="界面处理_刷新字段可选项" operation="resetOption">
+      <describe>界面处理_刷新字段可选项</describe>
+      <arg flag="field" name="XMMC" type="">true</arg>
+    </invoke>
+    <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+      <describe>界面处理_更新值</describe>
+      <arg flag="field" name="XMLX" type="expression">O_MASTER.XMMC.XMLX</arg>
+      <arg flag="field" name="XMFZRR" type="expression">O_MASTER.XMMC.XMFZR</arg>
+      <arg flag="field" name="BJDBR" type="expression">O_MASTER.XMMC.QZBJDBR</arg>
+      <arg flag="field" name="XMZCY" type="expression">O_MASTER.XMMC.QTCY</arg>
+      <arg flag="field" name="XMFZR" type="expression">O_MASTER.XMMC.XMFZR</arg>
+      <arg flag="field" name="BHRQ" type="expression">O_MASTER.XMMC.GHRQ</arg>
+      <arg flag="field" name="NHZKSHYZS" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_IF(ABS_NULLSUB(O_MASTER.XMMC.ECNHZKSHY_ZS,0)!=0,O_MASTER.XMMC.ECNHZKSHY_ZS,O_MASTER.XMMC.NHZKSHY_ZS)</arg>
+      <arg flag="field" name="NHZKSHYFS" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_IF(ABS_NULLSUB(O_MASTER.XMMC.ECNHZKSHY_FS,0)!=0,O_MASTER.XMMC.ECNHZKSHY_FS,O_MASTER.XMMC.NHZKSHY_FS)</arg>
+      <arg flag="field" name="ZKZS" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_IF(ABS_NULLSUB(O_MASTER.XMMC.ECNHZKSHY_ZS,0)!=0,O_MASTER.XMMC.ECNHZKSHY_ZS,O_MASTER.XMMC.NHZKSHY_ZS)</arg>
+      <arg flag="field" name="NHBZS" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE("select t1.NHZY_ZS from ECIF.lcIB_NHSP t1 inner join jgcrm.os_wfentry t2 on t2.id=t1.instid  where t2.state=4 and t1.XMMC=? and rownum = 1 order by t1.instid desc",[O_MASTER.XMMC])</arg>
+      <arg flag="field" name="DGXTXMCLJLXJDSCBL" type="expression">ABS_SQLVALUE("SELECT   ECIF.FUNC_IB_GET_DGJDWCBL (?,?,?,?,?) FROM DUAL",[O_MASTER.XMMC,1,1005,null,O_MASTER.GXSSQJ.JDSZ])</arg>
+      <arg flag="field" name="BLSCDDRQ" type="expression">ABS_SQLVALUE("SELECT  ECIF.FUNC_IB_GET_DGJDSCWCRQ(?,?,?,?,?) FROM DUAL",[O_MASTER.XMMC,1,1005,null,O_MASTER.GXSSQJ.JDSZ])</arg>
+    </invoke>
+  </sequence>
+</process>
+

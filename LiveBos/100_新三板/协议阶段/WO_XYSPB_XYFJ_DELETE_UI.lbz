@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="WO_XYSPB_XYFJ_DELETE_UI" object="WO_XYSPB" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>删除*界面事件</describe>
+  <meta name="extend-button">WO_XYSPB_XYFJ_DELETE</meta>
+  <variables />
+  <invoke component="FormUIHypotOperate" id="0" name="表格操作_批量删除" operation="batchDelete">
+    <describe>批量删除表格对象[协议审批表]</describe>
+    <arg name="@objectName">WO_XYSPB</arg>
+    <arg name="@object" type="variable">O_MASTER</arg>
+    <arg name="@columnName">XYFJ</arg>
+    <arg name="@condition">&lt;%@ livebos language='javascript' %&gt;
+(O_MASTER.XYFJ.ID==O_MASTER.ID) &amp;&amp; (O_MASTER.XYFJ.FJLX==null)</arg>
+  </invoke>
+</process>
+

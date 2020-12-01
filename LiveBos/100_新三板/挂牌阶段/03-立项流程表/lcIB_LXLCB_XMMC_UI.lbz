@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_LXLCB_XMMC_UI" object="lcIB_LXLCB" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目名称界面事件</describe>
+  <variables>
+    <variable describe="V_FJLX" messageType="" name="V_FJLX" type="resultSet" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+      <describe>界面处理_更新值</describe>
+      <arg flag="field" name="KHQC" type="expression">O_MASTER.XMMC.XMMC.SSKH</arg>
+      <arg flag="field" name="GSJC" type="expression">O_MASTER.XMMC.XMMC.SSKH.KHJC</arg>
+      <arg flag="field" name="TYSHXYDM" type="expression">O_MASTER.XMMC.XMMC.SSKH.TYSHXYDM</arg>
+      <arg flag="field" name="SSHYFL" type="expression">O_MASTER.XMMC.SSHYFL</arg>
+      <arg flag="field" name="GPGSHYFL" type="expression">O_MASTER.XMMC.GPGSHYFL</arg>
+      <arg flag="field" name="ZLXXHY" type="expression">O_MASTER.XMMC.ZLXXHY</arg>
+      <arg flag="field" name="YXGSCLRQ" type="expression">O_MASTER.XMMC.YXGSCLRQ</arg>
+      <arg flag="field" name="GFGSCLRQ" type="expression">O_MASTER.XMMC.GFGSCLRQ</arg>
+      <arg flag="field" name="KHDM" type="expression">O_MASTER.XMMC.XMMC.SSKH.KHBH</arg>
+      <arg flag="field" name="SSXT" type="expression">O_MASTER.XMMC.XMSSXT</arg>
+      <arg flag="field" name="YLXSPJG" type="expression">O_MASTER.XMMC.YLXSPJG</arg>
+      <arg flag="field" name="KHMC" type="expression">O_MASTER.XMMC.XMMC.SSKH</arg>
+      <arg flag="field" name="XMSSXT" type="expression">O_MASTER.XMMC.XMSSXT</arg>
+      <arg flag="field" name="XMLX" type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+var xmlx=ABS_SQLVALUE("select XMLX from ECIF.tIB_XMXX_XSB where id = ?",[O_MASTER.XMMC]);&#xD;
+var dyxmlx;&#xD;
+if(xmlx==110100){&#xD;
+  dyxmlx=0;&#xD;
+};&#xD;
+if(xmlx==110300){&#xD;
+  dyxmlx=1;&#xD;
+};&#xD;
+if(xmlx==110500){&#xD;
+  dyxmlx=2;&#xD;
+};&#xD;
+if(xmlx==110400){&#xD;
+  dyxmlx=3;&#xD;
+};&#xD;
+if(xmlx==110600){&#xD;
+  dyxmlx=4;&#xD;
+};&#xD;
+if(xmlx==110700){&#xD;
+  dyxmlx=5;&#xD;
+};&#xD;
+if(xmlx==119900){&#xD;
+  dyxmlx=6;&#xD;
+};&#xD;
+dyxmlx;</arg>
+      <arg flag="field" name="DGSCBL" type="expression">ABS_SQLVALUE('select ecif.FUNC_IB_GET_DGJDWCBL (?,?,?) from dual',[O_MASTER.XMMC,2,1201])</arg>
+      <arg flag="field" name="BLSCDDRQ" type="expression">ABS_SQLVALUE('select ECIF.FUNC_IB_GET_DGJDSCWCRQ (?,?,?) from dual',[O_MASTER.XMMC,2,1201])</arg>
+      <arg flag="field" name="XMSSBM" type="expression">O_MASTER.XMMC.XMSSBM</arg>
+      <arg flag="field" name="XMFZR" type="expression">O_MASTER.XMMC.XMFZR</arg>
+      <arg flag="field" name="YJSBNHRQ" type="expression">O_MASTER.XMMC.YJSBNHRQ</arg>
+      <arg flag="field" name="YJJZR" type="expression">O_MASTER.XMMC.YJJZR</arg>
+      <arg flag="field" name="XMZCY" type="expression">O_MASTER.XMMC.XMMC.QTCY</arg>
+    </invoke>
+    <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
+      <describe>数据库组件_SQL查询</describe>
+      <arg name="TranType">sql</arg>
+      <arg name="SQL">["SELECT ID,wdlxm,tjsx,XM360ZS,sfbt FROM tIB_WDLXPZ WHERE lcbd='lcIB_LXLCB' AND XMLX={0}  ORDER by tjsx",[{"expression":"O_MASTER.XMLX","scale":"","length":"","type":"1"}]]</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="@retResultSet" type="output">V_FJLX</arg>
+    </invoke>
+    <invoke component="FormUIHypotOperate" id="0" name="表格操作_添加结果集数据" operation="insertByResult">
+      <describe>表格添加结果集数据[项目立项流程]</describe>
+      <arg name="@objectName">lcIB_LXLCB</arg>
+      <arg name="@object" type="variable">O_MASTER</arg>
+      <arg name="@columnName">FJ</arg>
+      <arg name="@resultSet" type="variable">V_FJLX</arg>
+      <arg name="@clearRowsets">true</arg>
+      <arg flag="field" name="TJSX">tjsx</arg>
+      <arg flag="field" name="FJLX">id</arg>
+      <arg flag="field" name="SFBT">sfbt</arg>
+      <arg flag="field" name="SF360XS">XM360ZS</arg>
+    </invoke>
+  </sequence>
+</process>
+

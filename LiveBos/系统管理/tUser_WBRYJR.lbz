@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tUser_WBRYJR" name="tUser_WBRYJR" object="tUser" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>用户管理-外部人员同步流程</describe>
+  <variables>
+    <variable describe="V_Ret" messageType="" name="V_Ret" type="int" />
+    <variable describe="V_Msg" messageType="" name="V_Msg" type="string" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+      <describe>数据库组件_执行SQL语句</describe>
+      <arg name="TranType">procedure</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="ret" type="output">V_Ret</arg>
+      <arg name="msg" type="output">V_Msg</arg>
+      <arg name="SQL">["CALL ECIF.PRO_IB_WBRYTB(:ret,:msg,{0},{1})",[{"expression":"O_PARAMETER.XM","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.LOGINID","scale":"","length":"","type":"0"}]]</arg>
+    </invoke>
+    <response exit="false" id="0">
+      <describe>输出</describe>
+      <retvalue type="variable">V_Ret</retvalue>
+      <message type="variable">V_Msg</message>
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
+  </sequence>
+</process>
+

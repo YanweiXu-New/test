@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_XSB_LXSMSHLC_JGTSXX_UI" object="lcIB_XSB_LXSMSHLC" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>军工提示选项界面事件</describe>
+  <variables />
+  <if id="0">
+    <describe>判断</describe>
+    <conditions>
+      <condition name="" type="expression">
+        <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+O_MASTER.JGTSXX==1</arg>
+      </condition>
+    </conditions>
+    <invoke component="ConfirmDialog" id="0" name="消息确认框">
+      <describe>消息确认框</describe>
+      <arg flag="" name="message" type="expression">'请按照公司涉军项目管理要求，履行线下审批程序!'</arg>
+      <arg flag="" name="title" type="expression">'注意'</arg>
+      <arg name="icon">WARN</arg>
+      <arg name="options">OK;CANCEL</arg>
+    </invoke>
+  </if>
+</process>
+

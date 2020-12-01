@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_TY_ZZBDGYJ_XMMC_QY_UI" object="lcIB_TY_ZZBDGYJ" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目名称（权益）界面事件</describe>
+  <variables />
+  <sequence id="0" name="顺序">
+    <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+      <describe>界面处理_更新值</describe>
+      <arg flag="field" name="XMMC" type="expression">O_MASTER.XMMC_QY</arg>
+      <arg flag="field" name="XMLX" type="expression">O_MASTER.XMMC_QY.XMLX</arg>
+      <arg flag="field" name="SSBM" type="expression">O_MASTER.XMMC_QY.SSBM</arg>
+      <arg flag="field" name="BJDBR" type="expression">O_MASTER.XMMC_QY.QZBJDBR</arg>
+      <arg flag="field" name="XBR" type="expression">O_MASTER.XMMC_QY.XBR</arg>
+      <arg flag="field" name="QTCY" type="expression">O_MASTER.XMMC_QY.QTCY</arg>
+      <arg flag="field" name="NHRQ" type="expression">O_MASTER.XMMC_QY.NHRQ</arg>
+      <arg flag="field" name="NHSHYJ" type="expression">O_MASTER.XMMC_QY.NHJG</arg>
+      <arg flag="field" name="NHZKSHY_ZS" type="expression">O_MASTER.XMMC_QY.NHZKSHY_ZS</arg>
+      <arg flag="field" name="NHZKSHY_FS" type="expression">O_MASTER.XMMC_QY.NHZKSHY_FS</arg>
+      <arg flag="field" name="GSMC" type="expression">O_MASTER.XMMC_QY.SSKH</arg>
+      <arg flag="field" name="SSHY" type="expression">O_MASTER.GSMC.SSHY</arg>
+      <arg flag="field" name="SSBK" type="expression">O_MASTER.XMMC_QY.BK</arg>
+      <arg flag="field" name="GFGSCLRQ" type="expression">O_MASTER.GSMC.GFGSCLRQ</arg>
+      <arg flag="field" name="DGZKSHY_ZS" type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+ABS_IF(ABS_NULLSUB( O_MASTER.XMMC_QY.NHZKSHY_ZS,0)!=0,O_MASTER.XMMC_QY.NHZKSHY_ZS,O_MASTER.XMMC_QY.ZKBSHRYZS)</arg>
+      <arg flag="field" name="XMFZR" type="expression">O_MASTER.XMMC_QY.XMFZR</arg>
+      <arg flag="field" name="XMMC_ID" type="expression">O_MASTER.XMMC_QY</arg>
+    </invoke>
+    <invoke component="FormUI" id="0" name="界面处理_重计算表达式" operation="evalExpression">
+      <describe>界面处理_重计算表达式</describe>
+      <arg flag="field" name="CKNHLC" type="">true</arg>
+    </invoke>
+  </sequence>
+</process>
+

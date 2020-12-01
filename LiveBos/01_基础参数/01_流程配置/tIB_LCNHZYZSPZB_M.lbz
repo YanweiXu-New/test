@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_LCNHZYZSPZB_M" name="tIB_LCNHZYZSPZB_M" object="tIB_LCNHZYZSPZB" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>流程内核专员主审配置表-修改人员或状态流程</describe>
+  <variables />
+  <invoke component="FormOperate" id="0" name="对象组件_修改" operation="update">
+    <describe>修改对象[流程内核专员主审配置表]</describe>
+    <arg name="@objectName">tIB_LCNHZYZSPZB</arg>
+    <arg name="@object" type="variable">O_MASTER</arg>
+    <arg flag="field" name="NHBZS" type="expression">O_PARAMETER.NHBZS</arg>
+    <arg flag="field" name="QYZT" type="expression">O_PARAMETER.QYZT</arg>
+  </invoke>
+</process>
+

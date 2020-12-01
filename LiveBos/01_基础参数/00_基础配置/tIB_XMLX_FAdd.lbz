@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_XMLX_FAdd" name="tIB_XMLX_FAdd" object="tIB_XMLX" type="0" version="" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目类型-新增</describe>
+  <variables>
+    <variable describe="V_Ret" name="V_Ret" type="int" />
+    <variable describe="V_Msg" name="V_Msg" type="string" />
+  </variables>
+  <restriction id="0">
+    <describe />
+    <sequence id="0">
+      <describe />
+      <invoke component="SQL" id="0" name="执行SQL语句" operation="execute">
+        <describe>业务校验</describe>
+        <arg name="datasource">ECIF</arg>
+        <arg name="SQL">["CALL PRO_IB_XMLX(:ret,:msg,{0},{1},0,{2})",[{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"'[check]'","scale":"","length":"","type":"0"},{"expression":"O_MASTER.ID","scale":"","length":"","type":"0"}]]</arg>
+        <arg name="TranType">procedure</arg>
+        <arg name="ret" type="output">V_Ret</arg>
+        <arg name="msg" type="output">V_Msg</arg>
+      </invoke>
+      <response exit="false" id="0">
+        <describe>输出</describe>
+        <retvalue type="variable">V_Ret</retvalue>
+        <message type="variable">V_Msg</message>
+        <uiforward redirect="false">
+          <url />
+        </uiforward>
+      </response>
+    </sequence>
+  </restriction>
+  <sequence id="0">
+    <describe />
+    <if id="0">
+      <describe>IFID校验</describe>
+      <conditions>
+        <condition name="" type="expression">
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE("SELECT COUNT(1) FROM ECIF.tIB_XMLX WHERE ID = ?",[O_PARAMETER.BM])&gt;0</arg>
+        </condition>
+      </conditions>
+      <response exit="true" id="0">
+        <describe>输出</describe>
+        <retvalue>-1</retvalue>
+        <message>当前编码已存在!</message>
+        <uiforward redirect="false">
+          <url />
+        </uiforward>
+      </response>
+    </if>
+    <invoke component="SQL" id="0" name="执行SQL语句" operation="execute">
+      <describe>新增</describe>
+      <arg name="TranType">sql</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="SQL">["INSERT INTO tIB_XMLX(ID,FID,Type,BM,Name,SFWKJH,SFWLSZ,ZT,BZ)\r\nVALUES ({1},{4},{0},{1},{2},{5},{6},1,{3})",[{"expression":"O_PARAMETER.Type","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.BM","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.Name","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.BZ","scale":"","length":"","type":"0"},{"expression":"O_MASTER.ID","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.SFWKJH","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.SFWLSZ","scale":"","length":"","type":"1"}]]</arg>
+    </invoke>
+    <invoke component="SQL" id="0" name="执行SQL语句" operation="execute">
+      <describe>后处理</describe>
+      <arg name="datasource">ECIF</arg>
+      <arg name="SQL">["CALL PRO_IB_XMLX(:ret,:msg,{0},{1},0,{2})",[{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"$Login.IP","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.BM","scale":"","length":"","type":"0"}]]</arg>
+      <arg name="TranType">procedure</arg>
+      <arg name="ret" type="output">V_Ret</arg>
+      <arg name="msg" type="output">V_Msg</arg>
+    </invoke>
+    <response exit="false" id="0">
+      <describe>输出</describe>
+      <retvalue type="variable">V_Ret</retvalue>
+      <message type="variable">V_Msg</message>
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
+  </sequence>
+</process>
+

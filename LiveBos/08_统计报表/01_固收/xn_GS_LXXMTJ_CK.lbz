@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="xn_GS_LXXMTJ_CK" name="xn_GS_LXXMTJ_CK" object="xn_GS_LXXMTJ" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>立项项目统计-查看流程明细流程</describe>
+  <variables />
+  <response exit="true" id="0">
+    <describe>输出</describe>
+    <retvalue>1</retvalue>
+    <message />
+    <uiforward redirect="false">
+      <url type="expression">&lt;%@ livebos language='javascript' %&gt;
+'/UIProcessor?Creator=workflow&amp;Table=wfIB_GS_LXLC&amp;WorkID='+O_MASTER.ID+'&amp;HideCancelBtn=true'</url>
+    </uiforward>
+  </response>
+</process>
+

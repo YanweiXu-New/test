@@ -1,0 +1,2905 @@
+<?xml version="1.0" encoding="gb2312"?>
+<!DOCTYPE workflow PUBLIC "-//Apexsoft LiveBos//DTD Workflow 2.8//EN" "http://www.livebos.com/workflow/workflow_2_8_abs.dtd"><workflow>
+  <meta name="Designer">Studio</meta>
+  <meta name="workflow.category">固收类-后续管理</meta>
+  <meta name="created">2017-07-28 14:34:57</meta>
+  <meta name="modify">2019-04-22 14:15:22</meta>
+  <meta name="Describe">常规付息流程</meta>
+  <meta name="WorkflowName">wfIB_GS_CGFX</meta>
+  <meta name="WorkflowType">2</meta>
+  <meta name="version"></meta>
+  <object  name="lcIB_GS_CGFX" editAttribute="0" >
+  </object>
+  <initial-actions>
+    <action id="0" name="开始">
+      <meta name="NodeType">0</meta>
+      <results>
+        <unconditional-result id="2" old-status="完成" status="待处理" step="5">
+        </unconditional-result>
+      </results>
+    </action>
+  </initial-actions>
+  <steps>
+    <step id="1" name="结束">
+      <meta name="finish">true</meta>
+      <meta name="NodeType">1</meta>
+      <pre-functions>
+        <function id="0" name="lb.WfFormUpdate" type="class">
+          <arg name="$F{WCRQ}">ABS_DATESTRING(ABS_TODAY(),&quot;yyyyMMdd&quot;)</arg>
+          <arg name="class.name">com.apex.livebos.workflow.function.WorkFormUpdateFunction</arg>
+        </function>
+        <function id="0" name="abs.ExecSQL" type="class">
+          <arg name="SQL">[&quot;CALL ecif.pro_IB_WFFinish_GS(?,?,'lcIB_GS_CGFX',{0},{1})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+          <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+          <arg name="datasource">ECIF</arg>
+        </function>
+      </pre-functions>
+    </step>
+    <step id="5" name="提交审批">
+      <meta name="NodeType">2</meta>
+      <object  name="lcIB_GS_CGFX" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBT" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="GWZW" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="XMMC_FXQ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="ZQMC" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="JYCS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="QTJYSC" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="ZQJC" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="ZQDM" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="ZQJC_SJS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="ZQDM_SJS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="ZQJC_YHJ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="ZQDM_YHJ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="ZQJC_QT" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="ZQDM_QT" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="XMLX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="WSJS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="WSJSSM" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="ZQQXR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQDQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SSSJ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="SSSJ_SJS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="SSSJ_YHJ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="SSSJ_QT" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FXED" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="ZQQX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="PMLL_FX" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="PMLL" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FXPL" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="TSTK" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQFZR" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="ZQSSBM" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FXR_LXR" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FXR_DH" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FXR_YX" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="SFCRHXGLZR" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="MJZJYT" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="DYYWPC" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="ZKSBZS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="ZKSBFS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="FJ" disabled="false" hidden="false" summary="false">
+            <object  name="lcIB_GS_CGFX_FJ" editAttribute="53" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="TJSX" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="FJLX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJM" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="WDMC" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="SCZ" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="SCSJ" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="SF360XS" disabled="false" hidden="true" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+          <column  name="ZJAPPD" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="CJSHYJ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="ZKBSHYJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZKYJHF" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="ZKBSHYJHF" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="OLDBH" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="XMMC" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="XMLX_EJ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="FKBZ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="CFRQ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="FXR" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="WCRQ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="YJJG" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="DBXZ" disabled="false" hidden="true" summary="false">
+          </column>
+        </columns>
+      </object>
+      <notify >
+      </notify>
+      <actions>
+        <action id="6" name="提交">
+          <meta name="IconCls">default</meta>
+          <meta name="NodeType">5</meta>
+          <meta name="allow.recover">true</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="SQL">[&quot;call ecif.PRO_IB_GSLCHCL(?,?,{0},'lcIB_GS_CGFX',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="datasource">ECIF</arg>
+            </function>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="SQL">[&quot;UPDATE TIB_XMXX_GS_ZQRL SET TJBZ = 1,TJRQ = SYSDATE,INSTID = {0} WHERE ZQMC = {1} AND RQ = {2}&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.InstID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.ZQMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.FXR&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;10&quot;,&quot;type&quot;:&quot;13&quot;}]]</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="datasource">ECIF</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <result id="60" old-status="完成" status="待处理" step="9" display-name="业务部门发起">
+              <conditions>
+                <condition id="0" name="abs.FormExpOfStepCondition" type="class">
+                  <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+var key;
+key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CONNECT BY PRIOR ID = FID START WITH ID = 10016&quot;,[$Login.User.OrgID]);
+key==0</arg>
+                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
+                  <arg name="Table">lcIB_GS_CGFX</arg>
+                </condition>
+              </conditions>
+            </result>
+            <result id="96" old-status="完成" status="待处理" step="55">
+              <conditions>
+                <condition id="0" name="abs.FormExpOfStepCondition" type="class">
+                  <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM ecif.tIB_XMXX_GS WHERE TDFZR = ? AND ID = ? AND EXISTS (SELECT 1 FROM JGCRM.LBORGANIZATION WHERE ID =? CONNECT BY PRIOR ID = FID START WITH ID = 10016)&quot;,[$Login.User,O_WORKFLOW.XMMC,$Login.User.OrgID])&gt;0</arg>
+                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
+                  <arg name="Table">lcIB_GS_CGFX</arg>
+                </condition>
+              </conditions>
+            </result>
+            <unconditional-result id="59" old-status="完成" status="待处理" step="21" display-name="固收部门发起">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+    <step id="9" name="部门文管审核">
+      <meta name="step.reject.mode">prev</meta>
+      <meta name="step.allow.approve.sign">true</meta>
+      <meta name="step.approve.sign.action.name">会签</meta>
+      <meta name="NodeType">16</meta>
+      <meta name="approve.sign.modes">endorsesign</meta>
+      <meta name="step.allow.reassign">true</meta>
+      <meta name="step.allow.reject">true</meta>
+      <meta name="approve.mode">true</meta>
+      <object  name="lcIB_GS_CGFX" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="GWZW" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMLX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="WSJS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="WSJSSM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="JYCS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="QTJYSC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQDM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQQXR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQDQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SSSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXED" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQQX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="PMLL" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXPL" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="TSTK" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQFZR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQSSBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXR_LXR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXR_DH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXR_YX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SFCRHXGLZR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="MJZJYT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZKSBZS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="ZKSBFS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="FJ" disabled="true" hidden="false" summary="false">
+            <object  name="lcIB_GS_CGFX_FJ" editAttribute="0" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="TJSX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJLX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJM" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="WDMC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SCZ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SCSJ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SF360XS" disabled="false" hidden="true" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+          <column  name="ZJAPPD" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="CJSHYJ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="ZKBSHYJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZKBSHYJHF" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="OLDBH" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="XMLX_EJ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="FKBZ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="CFRQ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="FXR" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="WCRQ" disabled="false" hidden="true" summary="false">
+          </column>
+        </columns>
+      </object>
+      <dynOwners>
+        <dynOwner  type="1" describe="部门文管" >
+          <expression><![CDATA[
+{"name":"DW_BMWG","parameters":{"pBM":"O_WORKFLOW.SQBM"}}]]></expression>
+          </dynOwner>
+              </dynOwners>
+      <notify >
+      </notify>
+      <actions>
+        <action id="10" name="提交职能审批">
+          <meta name="NodeType">17</meta>
+          <meta name="approve.action">true</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="SQL">[&quot;call ecif.PRO_IB_GSLCHCL(?,?,{0},'lcIB_GS_CGFX',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="datasource">ECIF</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <unconditional-result id="24" old-status="完成" status="待处理" step="11">
+            </unconditional-result>
+          </results>
+        </action>
+        <action id="97" name="提交总经理审批">
+          <meta name="NodeType">17</meta>
+          <meta name="approve.action">true</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="SQL">[&quot;call ecif.PRO_IB_GSLCHCL(?,?,{0},'lcIB_GS_CGFX',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="datasource">ECIF</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <unconditional-result id="98" old-status="完成" status="待处理" step="13">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+    <step id="11" name="部门职能审批" owner="$D{Designate}">
+      <meta name="step.reject.mode">any</meta>
+      <meta name="step.allow.approve.sign">true</meta>
+      <meta name="step.approve.sign.action.name">会签</meta>
+      <meta name="NodeType">16</meta>
+      <meta name="approve.sign.modes">endorsesign</meta>
+      <meta name="step.allow.reassign">true</meta>
+      <meta name="step.allow.reject">true</meta>
+      <meta name="approve.mode">true</meta>
+      <object  name="lcIB_GS_CGFX" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="GWZW" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMLX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="WSJS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="WSJSSM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="JYCS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="QTJYSC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQDM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQQXR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQDQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SSSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXED" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQQX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="PMLL" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXPL" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="TSTK" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQFZR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQSSBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXR_LXR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXR_DH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXR_YX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SFCRHXGLZR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="MJZJYT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZKSBZS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="ZKSBFS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="FJ" disabled="true" hidden="false" summary="false">
+            <object  name="lcIB_GS_CGFX_FJ" editAttribute="0" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="TJSX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJLX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJM" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="WDMC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SCZ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SCSJ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SF360XS" disabled="false" hidden="true" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+          <column  name="ZJAPPD" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="CJSHYJ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="ZKBSHYJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZKBSHYJHF" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="OLDBH" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="XMLX_EJ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="FKBZ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="CFRQ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="FXR" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="WCRQ" disabled="false" hidden="true" summary="false">
+          </column>
+        </columns>
+      </object>
+      <dynOwners>
+        <dynOwner  type="1" describe="部门职能(经理)" >
+          <expression><![CDATA[
+{"name":"DW_BMZN","parameters":{"pBM":"O_WORKFLOW.SQBM"}}]]></expression>
+          </dynOwner>
+              </dynOwners>
+      <notify >
+      </notify>
+      <actions>
+        <action id="12" name="审批通过">
+          <meta name="NodeType">17</meta>
+          <meta name="approve.action">true</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="SQL">[&quot;call ecif.PRO_IB_GSLCHCL(?,?,{0},'lcIB_GS_CGFX',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="datasource">ECIF</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <unconditional-result id="25" old-status="完成" status="待处理" step="13">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+    <step id="13" name="部门总经理审批">
+      <meta name="step.reject.mode">any</meta>
+      <meta name="step.allow.approve.sign">true</meta>
+      <meta name="step.approve.sign.action.name">会签</meta>
+      <meta name="NodeType">16</meta>
+      <meta name="approve.sign.modes">endorsesign</meta>
+      <meta name="step.allow.reassign">true</meta>
+      <meta name="step.allow.reject">true</meta>
+      <meta name="approve.mode">true</meta>
+      <object  name="lcIB_GS_CGFX" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="GWZW" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMLX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="WSJS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="WSJSSM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="JYCS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="QTJYSC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQDM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQQXR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQDQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SSSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXED" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQQX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="PMLL" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXPL" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="TSTK" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQFZR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQSSBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXR_LXR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXR_DH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXR_YX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SFCRHXGLZR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="MJZJYT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZKSBZS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="ZKSBFS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="FJ" disabled="true" hidden="false" summary="false">
+            <object  name="lcIB_GS_CGFX_FJ" editAttribute="0" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="TJSX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJLX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJM" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="WDMC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SCZ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SCSJ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SF360XS" disabled="false" hidden="true" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+          <column  name="ZJAPPD" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="CJSHYJ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="ZKBSHYJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZKBSHYJHF" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="OLDBH" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="XMLX_EJ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="FKBZ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="CFRQ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="FXR" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="WCRQ" disabled="false" hidden="true" summary="false">
+          </column>
+        </columns>
+      </object>
+      <dynOwners>
+        <dynOwner  type="1" describe="部门总经理" >
+          <expression><![CDATA[
+{"name":"DW_BMZJL","parameters":{"pBM":"O_WORKFLOW.SQBM"}}]]></expression>
+          </dynOwner>
+              </dynOwners>
+      <notify >
+      </notify>
+      <actions>
+        <action id="14" name="审批通过">
+          <meta name="NodeType">17</meta>
+          <meta name="approve.action">true</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="SQL">[&quot;call ecif.PRO_IB_GSLCHCL(?,?,{0},'lcIB_GS_CGFX',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="datasource">ECIF</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <result id="109" old-status="完成" status="待处理" step="35">
+              <conditions>
+                <condition id="0" name="abs.FormExpOfStepCondition" type="class">
+                  <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.OS_HISTORYSTEP WHERE ENTRY_ID = ? AND STEP_ID = 33 AND ACTION_ID = 34&quot;,[O_WORKFLOW.InstID])&gt;0</arg>
+                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
+                  <arg name="Table">lcIB_GS_CGFX</arg>
+                </condition>
+              </conditions>
+              <pre-functions>
+                <function id="0" name="lb.WfFormUpdate" type="class">
+                  <arg name="class.name">com.apex.livebos.workflow.function.WorkFormUpdateFunction</arg>
+                  <arg name="$F{YJJG}">1</arg>
+                </function>
+              </pre-functions>
+            </result>
+            <unconditional-result id="105" old-status="完成" status="待处理" step="33">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+    <step id="21" name="团队负责人审批">
+      <meta name="step.reject.mode">any</meta>
+      <meta name="step.allow.approve.sign">true</meta>
+      <meta name="step.approve.sign.action.name">会签</meta>
+      <meta name="NodeType">16</meta>
+      <meta name="approve.sign.modes">endorsesign</meta>
+      <meta name="step.allow.reassign">true</meta>
+      <meta name="step.allow.reject">true</meta>
+      <meta name="approve.mode">true</meta>
+      <object  name="lcIB_GS_CGFX" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="GWZW" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMLX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="WSJS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="WSJSSM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="JYCS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="QTJYSC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQDM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQQXR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQDQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SSSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXED" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQQX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="PMLL" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXPL" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="TSTK" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQFZR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQSSBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXR_LXR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXR_DH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXR_YX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SFCRHXGLZR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="MJZJYT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZKSBZS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="ZKSBFS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="FJ" disabled="true" hidden="false" summary="false">
+            <object  name="lcIB_GS_CGFX_FJ" editAttribute="0" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="TJSX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJLX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJM" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="WDMC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SCZ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SCSJ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SF360XS" disabled="false" hidden="true" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+          <column  name="ZJAPPD" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="CJSHYJ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="ZKBSHYJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZKBSHYJHF" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="OLDBH" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="XMLX_EJ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="FKBZ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="CFRQ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="FXR" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="WCRQ" disabled="false" hidden="true" summary="false">
+          </column>
+        </columns>
+      </object>
+      <dynOwners>
+        <dynOwner  type="1" describe="固收_团队负责人" >
+          <expression><![CDATA[
+{"name":"DW_GS_TDFZR","parameters":{"pXMID":"O_WORKFLOW.XMMC"}}]]></expression>
+          </dynOwner>
+              </dynOwners>
+      <notify >
+        <message><![CDATA[
+O_WORKFLOW.LCBT]]></message>
+                <dynOwners>
+          <dynOwner  type="1" describe="固收_总部文管" >
+            <expression><![CDATA[
+{"name":"DW_GS_BMWG","parameters":{}}]]></expression>
+            </dynOwner>
+                  </dynOwners>
+      </notify>
+      <actions>
+        <action id="22" name="审批通过">
+          <meta name="NodeType">17</meta>
+          <meta name="approve.action">true</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="SQL">[&quot;call ecif.PRO_IB_GSLCHCL(?,?,{0},'lcIB_GS_CGFX',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="datasource">ECIF</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <unconditional-result id="32" old-status="完成" status="待处理" step="55">
+            </unconditional-result>
+          </results>
+        </action>
+        <action id="78" name="干预">
+          <meta name="action.allow.monitor">true</meta>
+          <meta name="NodeType">10</meta>
+          <restrict-to>
+            <conditions type="OR">
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;,[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="dynOwner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;,[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+              </condition>
+            </conditions>
+          </restrict-to>
+          <results>
+            <unconditional-result id="83" old-status="完成" status="待处理" step="76">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+    <step id="33" name="质控三部文管形式审核">
+      <meta name="step.allow.communicate">false</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="step.allow.approve.sign">true</meta>
+      <meta name="step.communicate.to.steps">-10001</meta>
+      <meta name="step.approve.sign.action.name">会签</meta>
+      <meta name="NodeType">16</meta>
+      <meta name="approve.sign.modes">endorsesign</meta>
+      <meta name="step.allow.reassign">true</meta>
+      <meta name="step.allow.reject">true</meta>
+      <meta name="approve.mode">true</meta>
+      <object  name="lcIB_GS_CGFX" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="GWZW" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMLX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="WSJS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="WSJSSM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="JYCS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="QTJYSC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQDM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQQXR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQDQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SSSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXED" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQQX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="PMLL" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXPL" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="TSTK" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQFZR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQSSBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXR_LXR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXR_DH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXR_YX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SFCRHXGLZR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="MJZJYT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZKSBZS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="ZKSBFS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FJ" disabled="true" hidden="false" summary="false">
+            <object  name="lcIB_GS_CGFX_FJ" editAttribute="0" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="TJSX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJLX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJM" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="WDMC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SCZ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SCSJ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SF360XS" disabled="false" hidden="true" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+          <column  name="CJSHYJ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="ZKBSHYJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZKBSHYJHF" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="OLDBH" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="XMLX_EJ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="FKBZ" disabled="false" hidden="true" summary="false">
+          </column>
+        </columns>
+      </object>
+      <dynOwners>
+        <dynOwner  type="1" describe="固收_质控三部文管" >
+          <expression><![CDATA[
+{"name":"DW_GS_ZKSBWG","parameters":{}}]]></expression>
+          </dynOwner>
+              </dynOwners>
+      <notify >
+      </notify>
+      <actions>
+        <action id="34" name="审批通过">
+          <meta name="NodeType">17</meta>
+          <meta name="approve.action">true</meta>
+          <meta name="allow.recover">true</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="SQL">[&quot;call ecif.PRO_IB_GSLCHCL(?,?,{0},'lcIB_GS_CGFX',{1},{2},31)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="datasource">ECIF</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <unconditional-result id="47" old-status="完成" status="待处理" step="35">
+              <pre-functions>
+                <function id="0" name="lb.WfFormUpdate" type="class">
+                  <arg name="class.name">com.apex.livebos.workflow.function.WorkFormUpdateFunction</arg>
+                  <arg name="$F{YJJG}">1</arg>
+                </function>
+              </pre-functions>
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+    <step id="35" name="质控三部主副审审核" owner="$AM{4}">
+      <meta name="step.allow.communicate">false</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="step.allow.approve.sign">true</meta>
+      <meta name="step.communicate.to.steps">-10001</meta>
+      <meta name="wfnotify.panel">false</meta>
+      <meta name="step.approve.sign.action.name">会签</meta>
+      <meta name="NodeType">16</meta>
+      <meta name="approve.sign.modes">endorsesign</meta>
+      <meta name="step.allow.reassign">true</meta>
+      <meta name="step.allow.reject">true</meta>
+      <meta name="approve.mode">true</meta>
+      <object  name="lcIB_GS_CGFX" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="GWZW" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMLX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="WSJS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="WSJSSM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="JYCS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="QTJYSC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQDM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQQXR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQDQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SSSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXED" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="PMLL" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXPL" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="TSTK" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXR_LXR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXR_DH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXR_YX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SFCRHXGLZR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="MJZJYT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FJ" disabled="true" hidden="false" summary="false">
+            <object  name="lcIB_GS_CGFX_FJ" editAttribute="0" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="TJSX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJLX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJM" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="WDMC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SCZ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SCSJ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SF360XS" disabled="false" hidden="true" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+          <column  name="CJSHYJ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="ZKBSHYJ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="ZKBSHYJHF" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="OLDBH" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="XMLX_EJ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="FKBZ" disabled="false" hidden="true" summary="false">
+          </column>
+        </columns>
+      </object>
+      <dynOwners>
+        <dynOwner  type="0" describe="固收_质控三部主副审" >
+          <expression><![CDATA[
+["(tUser.ID={0} OR INSTR(';'||{1}||';',';'||tUser.ID||';')>0)",[{"expression":"O_WORKFLOW.ZKSBZS","scale":0,"length":0,"type":1},{"expression":"O_WORKFLOW.ZKSBFS","scale":0,"length":0,"type":0}]]]]></expression>
+          </dynOwner>
+              </dynOwners>
+      <notify >
+      </notify>
+      <actions>
+        <action id="36" name="审批通过">
+          <meta name="NodeType">17</meta>
+          <meta name="approve.action">true</meta>
+          <meta name="allow.recover">true</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="SQL">[&quot;call ECIF.PRO_IB_SETWFZKZY_GS(?,?,{0},{1},2)&quot;,[{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.InstID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="datasource">ECIF</arg>
+            </function>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="SQL">[&quot;call ecif.PRO_IB_GSLCHCL(?,?,{0},'lcIB_GS_CGFX',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="datasource">ECIF</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <result id="106" old-status="完成" status="待处理" step="5">
+              <conditions>
+                <condition id="0" name="abs.FormExpOfStepCondition" type="class">
+                  <arg name="expression">&lt;%@ livebos language='javascript' %&gt;O_WORKFLOW.YJJG==0&amp;&amp;O_WORKFLOW.ZKSBZS!=$Login.User</arg>
+                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
+                  <arg name="Table">lcIB_GS_CGFX</arg>
+                </condition>
+              </conditions>
+            </result>
+            <unconditional-result id="77" old-status="完成" status="待处理" step="1">
+            </unconditional-result>
+          </results>
+        </action>
+        <action id="72" name="提交发起人回复">
+          <meta name="NodeType">17</meta>
+          <meta name="approve.action">true</meta>
+          <meta name="allow.recover">true</meta>
+          <pre-functions>
+            <function id="0" name="lb.WfFormUpdate" type="class">
+              <arg name="class.name">com.apex.livebos.workflow.function.WorkFormUpdateFunction</arg>
+              <arg name="$F{YJJG}">&lt;%@ livebos language='javascript' %&gt;
+ABS_IF(O_WORKFLOW.ZKSBZS==$Login.User,0,O_WORKFLOW.YJJG)</arg>
+              <arg name="$F{FKBZ}">1</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <result id="107" old-status="完成" status="待处理" step="1">
+              <conditions>
+                <condition id="0" name="abs.FormExpOfStepCondition" type="class">
+                  <arg name="expression">&lt;%@ livebos language='javascript' %&gt;O_WORKFLOW.YJJG==1&amp;&amp;O_WORKFLOW.ZKSBZS!=$Login.User</arg>
+                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
+                  <arg name="Table">lcIB_GS_CGFX</arg>
+                </condition>
+              </conditions>
+            </result>
+            <unconditional-result id="73" old-status="完成" status="待处理" step="5">
+              <pre-functions>
+                <function id="0" name="abs.ExecSQL" type="class">
+                  <arg name="SQL">[&quot;call ECIF.PRO_IB_SETWFZKZY_GS(?,?,{0},{1},2)&quot;,[{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.InstID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+                  <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+                  <arg name="datasource">ECIF</arg>
+                </function>
+              </pre-functions>
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+      <reject-functions>
+        <function id="0" name="abs.ExecSQL" type="class">
+          <arg name="SQL">[&quot;call ECIF.PRO_IB_SETWFZKZY_GS(?,?,{0},{1},2)&quot;,[{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.InstID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+          <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+          <arg name="datasource">ECIF</arg>
+        </function>
+      </reject-functions>
+    </step>
+    <step id="53" name="综合部负责人审批">
+      <meta name="step.reject.mode">any</meta>
+      <meta name="step.allow.approve.sign">true</meta>
+      <meta name="step.approve.sign.action.name">会签</meta>
+      <meta name="NodeType">16</meta>
+      <meta name="approve.sign.modes">endorsesign</meta>
+      <meta name="step.allow.reassign">true</meta>
+      <meta name="step.allow.reject">true</meta>
+      <meta name="approve.mode">true</meta>
+      <object  name="lcIB_GS_CGFX" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="GWZW" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMLX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="WSJS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="WSJSSM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="JYCS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="QTJYSC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQDM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQQXR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQDQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SSSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXED" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQQX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="PMLL" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXPL" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="TSTK" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQFZR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQSSBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXR_LXR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXR_DH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXR_YX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SFCRHXGLZR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="MJZJYT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZKSBZS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="ZKSBFS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="FJ" disabled="true" hidden="false" summary="false">
+            <object  name="lcIB_GS_CGFX_FJ" editAttribute="0" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="TJSX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJLX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJM" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="WDMC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SCZ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SCSJ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SF360XS" disabled="false" hidden="true" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+          <column  name="CJSHYJ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="ZKBSHYJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZKBSHYJHF" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="OLDBH" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="XMLX_EJ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="FKBZ" disabled="false" hidden="true" summary="false">
+          </column>
+        </columns>
+      </object>
+      <dynOwners>
+        <dynOwner  type="1" describe="固收_综合部负责人" >
+          <expression><![CDATA[
+{"name":"DW_GS_SHGFZR","parameters":{}}]]></expression>
+          </dynOwner>
+              </dynOwners>
+      <notify >
+      </notify>
+      <pre-functions>
+        <function id="0" name="abs.Expression" type="null">
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+var s=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.OS_CURRENTSTEP T,JGCRM.LBWFCURRENTOWNER A WHERE T.ID = A.STEPID AND T.ENTRY_ID = ? AND T.STEP_ID = 53 AND A.OWNER = ?&quot;,[O_WORKFLOW.InstID,$Login.User]);
+if (s&gt;0){
+LB_workAction(&quot;lcIB_GS_CGFX&quot;,O_WORKFLOW.ID,54,&quot;&quot;);
+ABS_flushObjCache('WORKFLOW.TASK')
+}</arg>
+          <arg name="class.name"> com.apex.livebos.workflow.ExecExpressionFunction</arg>
+        </function>
+      </pre-functions>
+      <actions>
+        <action id="54" name="审核通过">
+          <meta name="NodeType">17</meta>
+          <meta name="approve.action">true</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="SQL">[&quot;call ecif.PRO_IB_GSLCHCL(?,?,{0},'lcIB_GS_CGFX',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="datasource">ECIF</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <result id="108" old-status="完成" status="待处理" step="35">
+              <conditions>
+                <condition id="0" name="abs.FormExpOfStepCondition" type="class">
+                  <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.OS_HISTORYSTEP WHERE ENTRY_ID = ? AND STEP_ID = 33 AND ACTION_ID = 34&quot;,[O_WORKFLOW.InstID])&gt;0</arg>
+                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
+                  <arg name="Table">lcIB_GS_CGFX</arg>
+                </condition>
+              </conditions>
+              <pre-functions>
+                <function id="0" name="lb.WfFormUpdate" type="class">
+                  <arg name="class.name">com.apex.livebos.workflow.function.WorkFormUpdateFunction</arg>
+                  <arg name="$F{YJJG}">1</arg>
+                </function>
+              </pre-functions>
+            </result>
+            <unconditional-result id="104" old-status="完成" status="待处理" step="33">
+            </unconditional-result>
+          </results>
+        </action>
+        <action id="81" name="干预">
+          <meta name="action.allow.monitor">true</meta>
+          <meta name="NodeType">10</meta>
+          <restrict-to>
+            <conditions type="OR">
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;,[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="dynOwner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;,[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+              </condition>
+            </conditions>
+          </restrict-to>
+          <results>
+            <unconditional-result id="85" old-status="完成" status="待处理" step="76">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+    <step id="55" name="固收审核岗审核">
+      <meta name="step.reject.mode">any</meta>
+      <meta name="step.allow.approve.sign">true</meta>
+      <meta name="step.approve.sign.action.name">会签</meta>
+      <meta name="NodeType">16</meta>
+      <meta name="approve.sign.modes">endorsesign</meta>
+      <meta name="step.allow.reassign">true</meta>
+      <meta name="step.allow.reject">true</meta>
+      <meta name="approve.mode">true</meta>
+      <object  name="lcIB_GS_CGFX" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="GWZW" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMLX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="WSJS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="WSJSSM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="JYCS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="QTJYSC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQDM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQQXR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQDQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SSSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXED" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQQX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="PMLL" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXPL" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="TSTK" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQFZR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQSSBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXR_LXR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXR_DH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXR_YX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SFCRHXGLZR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="MJZJYT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZKSBZS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="ZKSBFS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="FJ" disabled="true" hidden="false" summary="false">
+            <object  name="lcIB_GS_CGFX_FJ" editAttribute="0" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="TJSX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJLX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJM" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="WDMC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SCZ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SCSJ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SF360XS" disabled="false" hidden="true" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+          <column  name="ZJAPPD" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="CJSHYJ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="ZKBSHYJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZKBSHYJHF" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="OLDBH" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="XMLX_EJ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="FKBZ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="CFRQ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="FXR" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="WCRQ" disabled="false" hidden="true" summary="false">
+          </column>
+        </columns>
+      </object>
+      <dynOwners>
+        <dynOwner  type="1" describe="固收_团队审核" >
+          <expression><![CDATA[
+{"name":"DW_GS_TDSH","parameters":{"PTDZ":"O_WORKFLOW.XMMC.TDFZR"}}]]></expression>
+          </dynOwner>
+              </dynOwners>
+      <notify >
+      </notify>
+      <actions>
+        <action id="56" name="审批通过">
+          <meta name="NodeType">17</meta>
+          <meta name="approve.action">true</meta>
+          <meta name="allow.recover">true</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="SQL">[&quot;call ECIF.PRO_IB_SETWFZKZY_GS(?,?,{0},{1},1)&quot;,[{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.InstID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="datasource">ECIF</arg>
+            </function>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="SQL">[&quot;call ecif.PRO_IB_GSLCHCL(?,?,{0},'lcIB_GS_CGFX',{1},{2},30)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="datasource">ECIF</arg>
+            </function>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="SQL">[&quot;CALL ECIF.PRO_IB_LCTSCL_GS(?,?,{0},9,{1},{2},1,{3},{4})&quot;,[{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.ZQMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.ZJAPPD&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.FXR&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;13&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.InstID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="datasource">ECIF</arg>
+            </function>
+            <function id="0" name="abs.CallBizProcessFunction" type="class">
+              <arg name="$P{SFZX}">O_WORKFLOW.ZJAPPD</arg>
+              <arg name="@ID"></arg>
+              <arg name="$P{CFLX}">11</arg>
+              <arg name="class.name">com.apex.livebos.workflow.function.CallBizProcessFunction</arg>
+              <arg name="processName">lcIB_GS_DFXJDBRFH_CF</arg>
+              <arg name="$P{ZQID}">O_WORKFLOW.ZQMC</arg>
+              <arg name="$P{LCINSTID}">O_WORKFLOW.InstID</arg>
+              <arg name="$P{FXR}">O_WORKFLOW.FXR</arg>
+            </function>
+            <function id="0" name="abs.CallBizProcessFunction" type="class">
+              <arg name="$P{SFZX}">O_WORKFLOW.ZJAPPD</arg>
+              <arg name="@ID"></arg>
+              <arg name="$P{CFLX}">11</arg>
+              <arg name="class.name">com.apex.livebos.workflow.function.CallBizProcessFunction</arg>
+              <arg name="processName">lcIB_GS_XYFXPCBGSP_CF</arg>
+              <arg name="$P{ZQID}">O_WORKFLOW.ZQMC</arg>
+              <arg name="$P{LCINSTID}">O_WORKFLOW.InstID</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <unconditional-result id="58" old-status="完成" status="待处理" step="53">
+            </unconditional-result>
+          </results>
+        </action>
+        <action id="80" name="干预">
+          <meta name="action.allow.monitor">true</meta>
+          <meta name="NodeType">10</meta>
+          <restrict-to>
+            <conditions type="OR">
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;,[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="dynOwner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;,[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+              </condition>
+            </conditions>
+          </restrict-to>
+          <results>
+            <unconditional-result id="84" old-status="完成" status="待处理" step="76">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+      <reject-functions>
+        <function id="0" name="abs.ExecSQL" type="class">
+          <arg name="SQL">[&quot;call ECIF.PRO_IB_SETWFZKZY_GS(?,?,{0},{1},1)&quot;,[{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.InstID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+          <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+          <arg name="datasource">ECIF</arg>
+        </function>
+        <function id="0" name="abs.ExecSQL" type="class">
+          <arg name="SQL">[&quot;CALL ECIF.PRO_IB_LCTSCL_GS(?,?,{0},9,{1},{2},1,{3},{4})&quot;,[{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.ZQMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.ZJAPPD&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.FXR&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;13&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.InstID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
+          <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+          <arg name="datasource">ECIF</arg>
+        </function>
+        <function id="0" name="abs.CallBizProcessFunction" type="class">
+          <arg name="$P{SFZX}">O_WORKFLOW.ZJAPPD</arg>
+          <arg name="@ID"></arg>
+          <arg name="$P{CFLX}">11</arg>
+          <arg name="class.name">com.apex.livebos.workflow.function.CallBizProcessFunction</arg>
+          <arg name="processName">lcIB_GS_DFXJDBRFH_CF</arg>
+          <arg name="$P{ZQID}">O_WORKFLOW.ZQMC</arg>
+          <arg name="$P{LCINSTID}">O_WORKFLOW.InstID</arg>
+          <arg name="$P{FXR}">O_WORKFLOW.FXR</arg>
+        </function>
+        <function id="0" name="abs.CallBizProcessFunction" type="class">
+          <arg name="$P{SFZX}">O_WORKFLOW.ZJAPPD</arg>
+          <arg name="@ID"></arg>
+          <arg name="$P{CFLX}">11</arg>
+          <arg name="class.name">com.apex.livebos.workflow.function.CallBizProcessFunction</arg>
+          <arg name="processName">lcIB_GS_XYFXPCBGSP_CF</arg>
+          <arg name="$P{ZQID}">O_WORKFLOW.ZQMC</arg>
+          <arg name="$P{LCINSTID}">O_WORKFLOW.InstID</arg>
+        </function>
+      </reject-functions>
+    </step>
+    <step id="76" name="固收文管干预">
+      <meta name="step.allow.approve.sign">true</meta>
+      <meta name="step.approve.sign.action.name">会签</meta>
+      <meta name="NodeType">16</meta>
+      <meta name="approve.sign.modes">endorsesign</meta>
+      <meta name="approve.mode">true</meta>
+      <object  name="lcIB_GS_CGFX" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="GWZW" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMLX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="WSJS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="WSJSSM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="JYCS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="QTJYSC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQDM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQQXR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQDQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SSSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXED" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQQX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="PMLL" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXPL" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="TSTK" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQFZR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQSSBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXR_LXR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXR_DH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXR_YX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SFCRHXGLZR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="MJZJYT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZKSBZS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="ZKSBFS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="FJ" disabled="true" hidden="false" summary="false">
+            <object  name="lcIB_GS_CGFX_FJ" editAttribute="48" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="TJSX" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="FJLX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJM" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="WDMC" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="SCZ" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="SCSJ" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="SF360XS" disabled="false" hidden="true" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+          <column  name="CJSHYJ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="ZKBSHYJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZKBSHYJHF" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="OLDBH" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="XMLX_EJ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="FKBZ" disabled="false" hidden="true" summary="false">
+          </column>
+        </columns>
+      </object>
+      <dynOwners>
+        <dynOwner  type="1" describe="固收_总部文管" >
+          <expression><![CDATA[
+{"name":"DW_GS_BMWG","parameters":{}}]]></expression>
+          </dynOwner>
+              </dynOwners>
+      <notify >
+      </notify>
+      <actions>
+        <action id="77" name="提交团队负责人">
+          <meta name="NodeType">17</meta>
+          <meta name="approve.action">true</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="SQL">[&quot;call ecif.PRO_IB_GSLCHCL(?,?,{0},'lcIB_GS_CGFX',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="datasource">ECIF</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <unconditional-result id="87" old-status="完成" status="待处理" step="21">
+            </unconditional-result>
+          </results>
+        </action>
+        <action id="88" name="提交固收审核岗">
+          <meta name="NodeType">17</meta>
+          <meta name="approve.action">true</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="SQL">[&quot;call ecif.PRO_IB_GSLCHCL(?,?,{0},'lcIB_GS_CGFX',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="datasource">ECIF</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <unconditional-result id="89" old-status="完成" status="待处理" step="55" owner="$D{Designate}">
+            </unconditional-result>
+          </results>
+        </action>
+        <action id="90" name="提交综合部负责人">
+          <meta name="NodeType">17</meta>
+          <meta name="approve.action">true</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="SQL">[&quot;call ecif.PRO_IB_GSLCHCL(?,?,{0},'lcIB_GS_CGFX',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="datasource">ECIF</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <unconditional-result id="93" old-status="完成" status="待处理" step="53">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+  </steps>
+</workflow>

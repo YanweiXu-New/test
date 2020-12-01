@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="TJG_YWXQFZ_XZ" name="TJG_YWXQFZ_XZ" object="TJG_YWXQFZ" type="0" version="" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>业务需求属性分组-新增</describe>
+  <variables>
+    <variable describe="V_Ret" name="V_Ret" type="int" />
+    <variable describe="V_Msg" name="V_Msg" type="string" />
+    <variable describe="V_Obj" instanceType="TJG_YWXQFZ" name="V_Obj" type="object" />
+  </variables>
+  <sequence id="0">
+    <describe />
+    <invoke component="FormOperate" id="0" name="新增" operation="insert">
+      <describe>新增数据</describe>
+      <arg flag="field" name="XSLS" type="expression">O_PARAMETER.XSLS</arg>
+      <arg flag="field" name="ZT" type="expression">O_PARAMETER.ZT</arg>
+      <arg flag="field" name="XSSX" type="expression">O_PARAMETER.XSSX</arg>
+      <arg flag="field" name="MC" type="expression">O_PARAMETER.MC</arg>
+      <arg flag="field" name="YWID" type="expression">O_PARAMETER.YWID</arg>
+      <arg flag="field" name="BZ" type="expression">O_PARAMETER.BZ</arg>
+      <arg name="@retObject" type="output">V_Obj</arg>
+      <arg name="@objectName">TJG_YWXQFZ</arg>
+      <arg flag="field" name="ZHXGIP" type="expression">$Login.IP</arg>
+      <arg flag="field" name="ZHXGSJ" type="expression">$DateTime.Now</arg>
+      <arg flag="field" name="ZHXGR" type="expression">$Login.User</arg>
+    </invoke>
+    <invoke component="SQL" id="0" name="执行SQL语句" operation="execute">
+      <describe>后处理</describe>
+      <arg name="SQL">["CALL PRO_JG_YWXQFZ(:ret,:msg,{0},{1},0,{2})",[{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"$Login.IP","scale":"","length":"","type":"0"},{"expression":"V_Obj.ID","scale":"","length":"","type":"1"}]]</arg>
+      <arg name="TranType">procedure</arg>
+      <arg name="ret" type="output">V_Ret</arg>
+      <arg name="msg" type="output">V_Msg</arg>
+    </invoke>
+    <response exit="false" id="0">
+      <describe>输出</describe>
+      <retvalue type="variable">V_Ret</retvalue>
+      <message type="variable">V_Msg</message>
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
+  </sequence>
+</process>
+

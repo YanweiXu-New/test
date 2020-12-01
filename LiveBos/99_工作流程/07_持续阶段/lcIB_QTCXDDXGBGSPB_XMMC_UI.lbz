@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_QTCXDDXGBGSPB_XMMC_UI" object="lcIB_QTCXDDXGBGSPB" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目名称界面事件</describe>
+  <variables />
+  <sequence id="0" name="顺序">
+    <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+      <describe>界面处理_更新值</describe>
+      <arg flag="field" name="XMLX" type="expression">O_MASTER.XMMC.XMLX</arg>
+      <arg flag="field" name="XMFZR" type="expression">O_MASTER.XMMC.XMFZR</arg>
+      <arg flag="field" name="BJDBR" type="expression">O_MASTER.XMMC.QZBJDBR</arg>
+      <arg flag="field" name="XMZCY" type="expression">O_MASTER.XMMC.QTCY</arg>
+      <arg flag="field" name="BHRQ" type="expression">&lt;%@ livebos language='javascript' %&gt;
+if(O_MASTER.XMMC.XMLX!=5&amp;&amp;O_MASTER.XMMC.XMLX!=6&amp;&amp;O_MASTER.XMMC.XMLX!=7&amp;&amp;O_MASTER.XMMC.XMLX!=10){
+O_THIS.getColumn("BHRQ").setLabel("&lt;font color=red&gt;*&lt;/font&gt;报会日期");
+O_THIS.getColumn("GHRQ").setLabel("&lt;font color=red&gt;*&lt;/font&gt;过会日期");
+O_THIS.getColumn("FXRQ").setLabel("&lt;font color=red&gt;*&lt;/font&gt;发行日期");
+O_THIS.getColumn("SSRQ").setLabel("&lt;font color=red&gt;*&lt;/font&gt;上市日期");
+}else{
+O_THIS.getColumn("BHRQ").setLabel("报会日期");
+O_THIS.getColumn("GHRQ").setLabel("过会日期");
+O_THIS.getColumn("FXRQ").setLabel("发行日期");
+O_THIS.getColumn("SSRQ").setLabel("上市日期");
+}
+O_MASTER.XMMC.BHRQ</arg>
+      <arg flag="field" name="GHRQ" type="expression">O_MASTER.XMMC.GHRQ</arg>
+      <arg flag="field" name="FXRQ" type="expression">O_MASTER.XMMC.FXRQ</arg>
+      <arg flag="field" name="SSRQ" type="expression">O_MASTER.XMMC.SSRQ</arg>
+      <arg flag="field" name="LSBL" type="expression">O_MASTER.LSBL+1</arg>
+      <arg flag="field" name="GPDM" type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+ABS_SQLVALUE('SELECT GPDM FROM ECIF.tIB_KHXX WHERE ID = ?',[O_MASTER.XMMC.SSKH])</arg>
+    </invoke>
+    <if id="0">
+      <describe>判断</describe>
+      <conditions>
+        <condition name="" type="expression">
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+O_MASTER.LSBL%2==1</arg>
+        </condition>
+      </conditions>
+      <invoke component="FormUI" id="0" name="界面处理_更改输入状态" operation="changeState">
+        <describe>界面处理_更改输入状态</describe>
+        <arg flag="field" name="LCBH" type="">8</arg>
+      </invoke>
+      <else>
+        <describe>Else</describe>
+        <invoke component="FormUI" id="0" name="界面处理_更改输入状态" operation="changeState">
+          <describe>界面处理_更改输入状态</describe>
+          <arg flag="field" name="LCBH" type="">4</arg>
+        </invoke>
+      </else>
+    </if>
+  </sequence>
+</process>
+

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_CXSQWJLC_XMCZQSRQ_UI" object="lcIB_CXSQWJLC" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目承做起始日期界面事件</describe>
+  <variables />
+  <if id="0">
+    <describe>项目承做起始日期和立项日期不为空</describe>
+    <conditions>
+      <condition name="" type="expression">
+        <arg name="expression">ABS_NULLSUB(O_MASTER.XMCZQSRQ,0)&gt;0&amp;&amp;ABS_NULLSUB(O_MASTER.XMMC.LXRQ,0)&gt;0</arg>
+      </condition>
+    </conditions>
+    <if id="0">
+      <describe>判断项目承做起始日期在立项日期之前</describe>
+      <conditions>
+        <condition name="" type="expression">
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+var a;
+a=ABS_SQLVALUE("select 1 from ecif.tIB_XMXX where substr(?,1,8)&gt;(select nvl(lxrq,0) from ecif.tIB_XMXX where id = ?)",[O_MASTER.XMCZQSRQ,O_MASTER.XMMC])
+a==1</arg>
+        </condition>
+      </conditions>
+      <invoke component="ConfirmDialog" id="0" name="消息确认框">
+        <describe>消息确认框</describe>
+        <arg flag="" name="message" type="expression">'该项目承做日期晚于立项日期，请确认项目承做日期'</arg>
+        <arg flag="" name="title" type="expression">'注意'</arg>
+        <arg name="icon">WARN</arg>
+        <arg name="options">OK;CANCEL</arg>
+      </invoke>
+    </if>
+    <else>
+      <describe>Else</describe>
+      <invoke component="ConfirmDialog" id="0" name="消息确认框">
+        <describe>消息确认框</describe>
+        <arg flag="" name="message" type="expression">'此项目立项日期为空'</arg>
+        <arg flag="" name="title" type="expression">'注意'</arg>
+        <arg name="icon">WARN</arg>
+        <arg name="options">OK;CANCEL</arg>
+      </invoke>
+    </else>
+  </if>
+</process>
+

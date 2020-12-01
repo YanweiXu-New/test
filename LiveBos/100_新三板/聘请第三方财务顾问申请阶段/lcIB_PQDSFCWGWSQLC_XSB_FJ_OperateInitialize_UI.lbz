@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_PQDSFCWGWSQLC_XSB_FJ_OperateInitialize_UI" object="lcIB_PQDSFCWGWSQLC_XSB_FJ" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>界面初始化界面事件</describe>
+  <variables />
+  <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+    <describe>界面处理_更新值</describe>
+    <arg flag="field" name="SCSJ" type="expression">$DateTime.Timestamp.Update</arg>
+  </invoke>
+</process>
+

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="lcIB_QY_YWZLTJ_XZ" name="lcIB_QY_YWZLTJ_XZ" object="lcIB_QY_YWZLTJ" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>业务资料新增-新增流程</describe>
+  <variables>
+    <variable describe="V_Ret" messageType="" name="V_Ret" type="int" />
+    <variable describe="V_Msg" messageType="" name="V_Msg" type="string" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+      <describe>执行SQL语句</describe>
+      <arg name="TranType">procedure</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="ret" type="output">V_Ret</arg>
+      <arg name="msg" type="output">V_Msg</arg>
+      <arg name="SQL">["CALL PRO_IB_LCDB_YWZLXZ(:ret,:msg,{0},{1},{2},{3},{4})",[{"expression":"O_PARAMETER.PINSTID","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.PUSERID","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.PXMZFZR","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.PXMZCY","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.PZSLX","scale":"","length":"","type":"1"}]]</arg>
+    </invoke>
+    <invoke component="expression" id="0" name="执行脚本">
+      <describe>执行脚本</describe>
+      <arg name="expression">ABS_flushObjCache('WORKFLOW.TASK')</arg>
+    </invoke>
+    <invoke component="ConfirmDialog" id="0" name="消息确认框">
+      <describe>消息确认框</describe>
+      <arg flag="" name="message" type="expression">V_Msg</arg>
+      <arg flag="" name="title" type="expression">ABS_IF(V_Ret&gt;0,'流程发起成功','流程发起失败')</arg>
+      <arg name="icon">INFO</arg>
+      <arg name="options">OK</arg>
+    </invoke>
+  </sequence>
+</process>
+

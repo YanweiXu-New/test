@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="GB2312" standalone="no"?>
+<dynOwner flag="0" name="DW_BMZKZY" type="106">
+    <describe>部门级质控专员</describe>
+    <sql>{"statement":"tUser.ID in (select zkzy from ecif.TIB_ZKZYWH where ywbm=:pBM) and tUser.Status = 1","args":[],"type":0}</sql>
+    <parameters>
+        <parameter>
+            <name>pBM</name>
+            <describe>部门</describe>
+            <comment/>
+            <type>1</type>
+            <length>16</length>
+            <scale>0</scale>
+        </parameter>
+    </parameters>
+</dynOwner>

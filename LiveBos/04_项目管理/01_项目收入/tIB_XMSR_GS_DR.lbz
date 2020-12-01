@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_XMSR_GS_DR" name="tIB_XMSR_GS_DR" object="tIB_XMSR_GS" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目收入-固收类-导入流程</describe>
+  <variables />
+  <response exit="true" id="0">
+    <describe>输出</describe>
+    <retvalue>199</retvalue>
+    <message>执行导入成功</message>
+    <uiforward redirect="true">
+      <url type="expression">&lt;%@ livebos language='javascript' %&gt;
+LB_ObjURI("vIB_XMSRDR_GS",[],0,[],["NoTitle"])</url>
+    </uiforward>
+  </response>
+</process>
+

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_XMXX_GS_ZQXX_XZ" name="tIB_XMXX_GS_ZQXX_XZ_TSTK_Param_UI" object="tIB_XMXX_GS_ZQXX" type="2" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>特殊条款界面事件</describe>
+  <variables />
+  <sequence id="0" name="顺序">
+    <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+      <describe>界面处理_更新值</describe>
+      <arg flag="field" name="LJJE" type="expression">&lt;%@ livebos language='javascript' %&gt;
+var s1=ABS_SQLVALUE("SELECT COUNT(1) FROM DUAL WHERE INSTR(?,'1')&gt;0",[O_PARAMETER.TSTK]);
+ABS_IF(s1==0,0,O_PARAMETER.LJJE)</arg>
+      <arg flag="field" name="LJJE_SH" type="expression">&lt;%@ livebos language='javascript' %&gt;
+var s1=ABS_SQLVALUE("SELECT COUNT(1) FROM DUAL WHERE INSTR(?,'2')&gt;0",[O_PARAMETER.TSTK]);
+ABS_IF(s1==0,0,O_PARAMETER.LJJE_SH)</arg>
+      <arg flag="field" name="SYJE" type="expression">O_PARAMETER.FXJE-O_PARAMETER.LJJE-O_PARAMETER.LJJE_SH</arg>
+    </invoke>
+    <invoke component="FormUI" id="0" name="界面处理_重计算表达式" operation="evalExpression">
+      <describe>界面处理_重计算表达式</describe>
+      <arg flag="field" name="SYJE" type="">true</arg>
+    </invoke>
+  </sequence>
+</process>
+

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_EJBMGSSHGPZB_XZ" name="tIB_EJBMGSSHGPZB_XZ" object="tIB_EJBMGSSHGPZB" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>二级部门固收审核岗配置表-新增流程</describe>
+  <variables />
+  <invoke component="FormOperate" id="0" name="对象组件_新增" operation="insert">
+    <describe>新增对象[二级部门固收审核岗配置表]</describe>
+    <arg name="@objectName">tIB_EJBMGSSHGPZB</arg>
+    <arg flag="field" name="EJBM" type="expression">O_PARAMETER.EJBM2</arg>
+    <arg flag="field" name="GSSHG" type="expression">O_PARAMETER.GSSHG2</arg>
+    <arg flag="field" name="XGSJ" type="expression">$DateTime.Now</arg>
+    <arg flag="field" name="XGR" type="expression">$Login.User</arg>
+  </invoke>
+</process>
+

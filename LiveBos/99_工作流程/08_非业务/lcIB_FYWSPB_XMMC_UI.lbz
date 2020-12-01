@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_FYWSPB_XMMC_UI" object="lcIB_FYWSPB" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目名称界面事件</describe>
+  <variables />
+  <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+    <describe>界面处理_更新值</describe>
+    <arg flag="field" name="ZKZS" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_IF(ABS_NULLSUB( O_MASTER.XMMC.NHZKSHY_ZS,0)!=0,O_MASTER.XMMC.NHZKSHY_ZS,O_MASTER.XMMC.ZKBSHRYZS)</arg>
+  </invoke>
+</process>
+

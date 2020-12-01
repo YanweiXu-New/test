@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="GB2312" standalone="no"?>
+<dataset create-date="2018.09.18 11:50:19" creator="张庆" flag="0" modifier="null" modify-date="null" name="cx_GS_ZQXYFXFLTJ" object-id="16d9f439-3b77-489e-b60e-1438f190cacb" package="08_统计报表.01_固收" type="17" version="1.0">
+    <describe>债券信用风险分类统计</describe>
+    <comment/>
+    <parent/>
+    <attribute>296</attribute>
+    <parameters/>
+    <columns/>
+    <query>
+        <sql>{"statement":"CALL PCX_IB_GS_ZQXYFXFLTJ(?,{0})","args":[{"expression":"$Login.User","scale":0,"length":0,"type":0}],"type":0}</sql>
+        <sql-type>1</sql-type>
+        <datasource-name>ECIF</datasource-name>
+        <result-option>
+            <scale>0</scale>
+            <result-type>1</result-type>
+        </result-option>
+    </query>
+    <display-options>
+        <commands>
+            <command type="2">
+                <describe>导出</describe>
+                <define>
+                    <item>cx_GS_ZQXYFXFLTJ</item>
+                    <item>ToExcel</item>
+                </define>
+                <is-default>2</is-default>
+                <attribute>0</attribute>
+                <icon-cls/>
+                <tip/>
+            </command>
+        </commands>
+        <relations/>
+    </display-options>
+    <properties>
+        <property>
+            <name>5</name>
+            <value>30</value>
+        </property>
+    </properties>
+    <orders/>
+    <extend-buttons/>
+</dataset>

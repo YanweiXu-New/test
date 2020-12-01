@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="8" exitOnStandardFault="false" isHorizontalLayout="false" method="TJG_YWXQXX_DEL" name="TJG_YWXQXX_DEL" object="TJG_YWXQXX" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>业务需求分类-删除流程</describe>
+  <variables />
+  <restriction id="0">
+    <sequence id="0">
+      <invoke component="ExpValidator" id="0">
+        <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE("SELECT CASE WHEN COUNT(0)&gt;0 THEN 1 ELSE 0 END FROM TJG_YWXQXX WHERE FID=?",[O_MASTER.ID])</arg>
+        <arg name="assertType">false</arg>
+        <arg name="message" type="expression">"此节点含有子节点，不能删除！"</arg>
+      </invoke>
+      <invoke component="ExpValidator" id="0">
+        <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+O_MASTER.Type==1;</arg>
+        <arg name="assertType">false</arg>
+        <arg name="message" type="expression">"根节点不能被删除！"</arg>
+      </invoke>
+      <invoke component="ExpValidator" id="0">
+        <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE("SELECT CASE WHEN COUNT(0)&gt;0 THEN 1 ELSE 0 END FROM TJG_YWZLXX WHERE YWID=?",[O_MASTER.ID])</arg>
+        <arg name="assertType">false</arg>
+        <arg name="message" type="expression">"此业务下已维护业务资料信息，不能删除！"</arg>
+      </invoke>
+    </sequence>
+  </restriction>
+  <sequence id="0">
+    <invoke component="SQL" id="0" name="执行SQL语句" operation="execute">
+      <describe>执行SQL语句</describe>
+      <meta name="FUNCTION">true</meta>
+      <arg name="TranType">sql</arg>
+      <arg name="SQL">["DELETE FROM TJG_YWXQSXSZ WHERE YWID={0}",[{"expression":"O_PARAMETER.ID","scale":"","length":"16","type":"1"}]]</arg>
+      <arg name="@autoExit">false</arg>
+    </invoke>
+    <invoke component="SQL" id="0" name="执行SQL语句" operation="execute">
+      <describe>执行SQL语句2</describe>
+      <meta name="FUNCTION">true</meta>
+      <arg name="TranType">sql</arg>
+      <arg name="SQL">["DELETE FROM TJG_GZYW WHERE YWID={0}",[{"expression":"O_PARAMETER.ID","scale":"","length":"16","type":"1"}]]</arg>
+      <arg name="@autoExit">false</arg>
+    </invoke>
+    <invoke component="FormOperate" id="0" name="删除" operation="delete">
+      <describe>删除记录</describe>
+      <meta name="FUNCTION">true</meta>
+      <arg name="@objectName">TJG_YWXQXX</arg>
+      <arg name="@object" type="variable">O_MASTER</arg>
+    </invoke>
+  </sequence>
+</process>
+

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_XMXX_GS_XGFXQXX" name="tIB_XMXX_GS_XGFXQXX_OperateInitialize_Param_UI" object="tIB_XMXX_GS" type="2" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>界面初始化界面事件</describe>
+  <variables>
+    <variable describe="V_MID" messageType="" name="V_MID" type="int" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <assign id="0">
+      <describe>赋值</describe>
+      <copy>
+        <from type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE("SELECT T.FID FROM ECIF.TIB_XMLX T WHERE T.ID=?",[O_PARAMETER.XMLX])</from>
+        <to variable="V_MID" />
+      </copy>
+    </assign>
+    <if id="0">
+      <describe>判断</describe>
+      <conditions>
+        <condition name="" type="expression">
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+V_MID==120100</arg>
+        </condition>
+      </conditions>
+      <invoke component="FormUI" id="0" name="界面处理_更改输入状态" operation="changeState">
+        <describe>显示受托管理人</describe>
+        <arg flag="field" name="SLTGR" type="">0</arg>
+        <arg flag="field" name="ZQDLR" type="">8</arg>
+        <arg flag="field" name="HXGLR" type="">8</arg>
+      </invoke>
+      <elseif>
+        <describe>ElseIf</describe>
+        <conditions>
+          <condition name="" type="expression">
+            <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+V_MID==120300</arg>
+          </condition>
+        </conditions>
+        <invoke component="FormUI" id="0" name="界面处理_更改输入状态" operation="changeState">
+          <describe>显示债券管理人</describe>
+          <arg flag="field" name="SLTGR" type="">8</arg>
+          <arg flag="field" name="ZQDLR" type="">0</arg>
+          <arg flag="field" name="HXGLR" type="">8</arg>
+        </invoke>
+      </elseif>
+      <else>
+        <describe>Else</describe>
+        <invoke component="FormUI" id="0" name="界面处理_更改输入状态" operation="changeState">
+          <describe>显示后续管理人</describe>
+          <arg flag="field" name="SLTGR" type="">8</arg>
+          <arg flag="field" name="ZQDLR" type="">8</arg>
+          <arg flag="field" name="HXGLR" type="">0</arg>
+        </invoke>
+      </else>
+    </if>
+    <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+      <describe>界面处理_更新值</describe>
+    </invoke>
+  </sequence>
+</process>
+

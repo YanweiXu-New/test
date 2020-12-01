@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_SJQY_XSB_XG" name="tIB_SJQY_XSB_XG" object="tIB_SJQY_XSB" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>数据迁移_新三板-修改流程</describe>
+  <variables />
+  <invoke component="FormOperate" id="0" name="对象组件_修改" operation="update">
+    <describe>修改对象[数据迁移_新三板]</describe>
+    <arg name="@objectName">tIB_SJQY_XSB</arg>
+    <arg name="@object" type="variable">O_MASTER</arg>
+    <arg flag="field" name="XMLX" type="expression">O_PARAMETER.XMLX</arg>
+    <arg flag="field" name="XMID_XSB" type="expression">O_PARAMETER.XMID_XSB</arg>
+    <arg flag="field" name="XMID_GS" type="expression">O_PARAMETER.XMID_GS</arg>
+    <arg flag="field" name="XMID_ZQ" type="expression">O_PARAMETER.XMID_ZQ</arg>
+    <arg flag="field" name="DYXT" type="expression">O_PARAMETER.DYXT</arg>
+    <arg flag="field" name="LCLX" type="expression">O_PARAMETER.LCLX</arg>
+    <arg flag="field" name="XTLC" type="expression">O_PARAMETER.XTLC</arg>
+    <arg flag="field" name="YTHXTLC" type="expression">O_PARAMETER.YTHXTLC</arg>
+    <arg flag="field" name="MBLCLX" type="expression">O_PARAMETER.MBLCLX</arg>
+    <arg flag="field" name="BZSM" type="expression">O_PARAMETER.BZSM</arg>
+    <arg flag="field" name="PPCD" type="expression">O_PARAMETER.PPCD</arg>
+  </invoke>
+</process>
+

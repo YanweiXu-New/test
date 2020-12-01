@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="GB2312" standalone="no"?>
+<dynOwner flag="0" name="DW_WYH" type="106">
+    <describe>委员会成员</describe>
+    <sql>{"statement":"INSTR((SELECT ';'||XZZZ||';'||XZCY||';' FROM tIB_WYHXX WHERE YWLX = :pYWLX AND HYLB = :pHYLX),tUser.ID) &gt; 0","args":[],"type":0}</sql>
+    <parameters>
+        <parameter>
+            <name>pHYLX</name>
+            <describe>会议类型</describe>
+            <comment/>
+            <type>1</type>
+            <length>10</length>
+            <scale>0</scale>
+        </parameter>
+        <parameter>
+            <name>pYWLX</name>
+            <describe>业务类型</describe>
+            <comment/>
+            <type>1</type>
+            <length>10</length>
+            <scale>0</scale>
+        </parameter>
+    </parameters>
+</dynOwner>

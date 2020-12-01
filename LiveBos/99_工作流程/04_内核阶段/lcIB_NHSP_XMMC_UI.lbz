@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_NHSP_XMMC_UI" object="lcIB_NHSP" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目名称界面事件</describe>
+  <variables>
+    <variable describe="V_CWZB" messageType="" name="V_CWZB" type="resultSet" />
+    <variable describe="V_INIT" messageType="" name="V_INIT" type="resultSet" />
+    <variable describe="V_XMRYXX" messageType="" name="V_XMRYXX" type="resultSet" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+      <describe>界面处理_更新值</describe>
+      <arg flag="field" name="XMFZR" type="expression">O_MASTER.XMMC.XMFZR</arg>
+      <arg flag="field" name="XMLX" type="expression">O_MASTER.XMMC.XMLX</arg>
+      <arg flag="field" name="BJDBR" type="expression">O_MASTER.XMMC.QZBJDBR</arg>
+      <arg flag="field" name="XMZCY" type="expression">O_MASTER.XMMC.QTCY</arg>
+      <arg flag="field" name="LXRQ" type="expression">O_MASTER.XMMC.LXRQ</arg>
+      <arg flag="field" name="GSMC" type="expression">O_MASTER.XMMC.SSKH.KHQC</arg>
+      <arg flag="field" name="HY" type="expression">O_MASTER.XMMC.SSKH.SSHY</arg>
+      <arg flag="field" name="SSBK" type="expression">O_MASTER.XMMC.BK</arg>
+      <arg flag="field" name="GFGSCLRQ" type="expression">O_MASTER.XMMC.SSKH.GFGSCLRQ</arg>
+      <arg flag="field" name="LXZKBSHY" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_IF(ABS_NULLSUB(O_MASTER.XMMC.ECZKBSHRYZS,0)!=0,O_MASTER.XMMC.ECZKBSHRYZS,O_MASTER.XMMC.ZKBSHRYZS)</arg>
+      <arg flag="field" name="LXZKBSHY_FS" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_IF(ABS_NULLSUB(O_MASTER.XMMC.ECZKBSHSRFS,0)!=0,O_MASTER.XMMC.ECZKBSHSRFS,O_MASTER.XMMC.ZKBSHSRFS)</arg>
+      <arg flag="field" name="NHZKBSHY_ZS" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_IF(ABS_NULLSUB(O_MASTER.XMMC.ECZKBSHRYZS,0)!=0,O_MASTER.XMMC.ECZKBSHRYZS,O_MASTER.XMMC.ZKBSHRYZS)</arg>
+      <arg flag="field" name="NHZKBSHY_FS" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_IF(ABS_NULLSUB(O_MASTER.XMMC.ECZKBSHSRFS,0)!=0,O_MASTER.XMMC.ECZKBSHSRFS,O_MASTER.XMMC.ZKBSHSRFS)</arg>
+      <arg flag="field" name="CHRY" type="expression">O_MASTER.NHXZCY</arg>
+      <arg flag="field" name="XBR" type="expression">O_MASTER.XMMC.XBR</arg>
+      <arg flag="field" name="DGXTXMCLJLXJDSCBL" type="expression">ABS_SQLVALUE('SELECT   ECIF.FUNC_IB_GET_DGJDWCBL (?,1,?) FROM DUAL',[O_MASTER.XMMC,1002])</arg>
+      <arg flag="field" name="BLSCDDRQ" type="expression">ABS_SQLVALUE('SELECT  ECIF.FUNC_IB_GET_DGJDSCWCRQ(?,?,?) FROM DUAL',[O_MASTER.XMMC,1,1002])</arg>
+      <arg flag="field" name="DGXMCLJLXJDSCBL" type="expression">ABS_SQLVALUE('SELECT   ECIF.FUNC_IB_GET_DGJDWCBL (?,1,?) FROM DUAL',[O_MASTER.XMMC,1002])</arg>
+      <arg flag="field" name="DGXTJZDCJDSCBL" type="expression">ABS_SQLVALUE('SELECT   ECIF.FUNC_IB_GET_DGJDWCBL (?,1,?) FROM DUAL',[O_MASTER.XMMC,1002])</arg>
+      <arg flag="field" name="XMMCXX" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE('select xmmc from ecif.tib_xmxx where id = ?',[O_MASTER.XMMC])</arg>
+      <arg flag="field" name="XMLXMC" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE("select xmlxmc from ecif.tib_xmxx where id = ?",[O_MASTER.XMMC])</arg>
+    </invoke>
+    <invoke component="FormUI" id="0" name="界面处理_重计算表达式" operation="evalExpression">
+      <describe>界面处理_重计算表达式</describe>
+      <arg flag="field" name="CKLXLC" type="">true</arg>
+    </invoke>
+    <if id="0">
+      <describe>判断</describe>
+      <conditions>
+        <condition name="" type="expression">
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+var yf=ABS_SQLVALUE("select TO_NUMBER(TO_CHAR(SYSDATE, 'mm')) from dual") ;
+yf&gt;= 01 &amp;&amp; yf&lt;=03</arg>
+        </condition>
+      </conditions>
+      <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
+        <describe>数据库组件_SQL查询</describe>
+        <arg name="TranType">sql</arg>
+        <arg name="datasource">ECIF</arg>
+        <arg name="SQL">["SELECT NFXX, ZZC, JZC, YYSR, MSYZJLR, LRZE\r\n  FROM TIB_XMXX_CWXX\r\n WHERE TIB_XMXX_ID = {0}\r\n   AND (SUBSTR(NFXX, 5, 6) = 12 AND\r\n       SUBSTR(NFXX, 1, 4) BETWEEN TO_NUMBER(TO_CHAR(SYSDATE, 'yyyy')) - 4 AND\r\n       TO_NUMBER(TO_CHAR(SYSDATE, 'yyyy')) - 1)",[{"expression":"O_MASTER.XMMC","scale":"","length":"","type":"1"}]]</arg>
+        <arg name="@retResultSet" type="output">V_CWZB</arg>
+      </invoke>
+      <else>
+        <describe>Else</describe>
+        <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
+          <describe>数据库组件_SQL查询</describe>
+          <arg name="TranType">sql</arg>
+          <arg name="SQL">["SELECT NFXX, ZZC, JZC, YYSR, MSYZJLR, LRZE\r\n  FROM TIB_XMXX_CWXX\r\n WHERE TIB_XMXX_ID = {0}\r\n   AND ((SUBSTR(NFXX, 5, 6) = 12 AND\r\n       SUBSTR(NFXX, 1, 4) BETWEEN TO_NUMBER(TO_CHAR(SYSDATE, 'yyyy')) - 3 AND\r\n       TO_NUMBER(TO_CHAR(SYSDATE, 'yyyy')) - 1)\r\n    OR NFXX BETWEEN TO_NUMBER(TO_CHAR(SYSDATE, 'yyyymm')) - 3 AND\r\n       TO_NUMBER(TO_CHAR(SYSDATE, 'yyyymm')))",[{"expression":"O_MASTER.XMMC","scale":"","length":"","type":"1"}]]</arg>
+          <arg name="datasource">ECIF</arg>
+          <arg name="@retResultSet" type="output">V_CWZB</arg>
+        </invoke>
+      </else>
+    </if>
+    <invoke component="FormUIHypotOperate" id="0" name="表格操作_添加结果集数据" operation="insertByResult">
+      <describe>表格添加结果集数据[内核审批表]</describe>
+      <arg name="@objectName">lcIB_NHSP</arg>
+      <arg name="@object" type="variable">O_MASTER</arg>
+      <arg name="@columnName">CWZB</arg>
+      <arg name="@resultSet" type="variable">V_CWZB</arg>
+      <arg name="@clearRowsets">true</arg>
+      <arg flag="field" name="NFXX">NFXX</arg>
+      <arg flag="field" name="ZZC">ZZC</arg>
+      <arg flag="field" name="JZC">JZC</arg>
+      <arg flag="field" name="YYSR">YYSR</arg>
+      <arg flag="field" name="MSYZJLR">MSYZJLR</arg>
+      <arg flag="field" name="LRZE">LRZE</arg>
+    </invoke>
+    <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
+      <describe>数据库组件_SQL查询</describe>
+      <arg name="TranType">sql</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="SQL">["SELECT ID,tjsx,XM360ZS FROM ECIF.TIB_WDLXPZ WHERE LCBD = 'lcIB_NHSP' \r\nAND (INSTR(','||BZSM||',',','||{0}||',') &gt;0 OR BZSM IS NULL) ORDER BY TJSX",[{"expression":"O_MASTER.XMLX","scale":"","length":"","type":"1"}]]</arg>
+      <arg name="@retResultSet" type="output">V_INIT</arg>
+    </invoke>
+    <invoke component="FormUIHypotOperate" id="0" name="表格操作_添加结果集数据" operation="insertByResult">
+      <describe>表格添加结果集数据[内核审批表]</describe>
+      <arg name="@objectName">lcIB_NHSP</arg>
+      <arg name="@object" type="variable">O_MASTER</arg>
+      <arg name="@columnName">FJ</arg>
+      <arg flag="field" name="TJSX">TJSX</arg>
+      <arg flag="field" name="FJLX">ID</arg>
+      <arg name="@clearRowsets">true</arg>
+      <arg name="@resultSet" type="variable">V_INIT</arg>
+      <arg flag="field" name="SF360XS">XM360ZS</arg>
+    </invoke>
+    <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
+      <describe>数据库组件_SQL查询</describe>
+      <arg name="TranType">sql</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="SQL">["SELECT LISTAGG(t3.roleid, ';') WITHIN GROUP(ORDER BY t3.roleid) roleid ,t2.ID ,t1.zjlx,t1.zjmc,t1.zjhm,t1.sjh,t1.orgid,t1.zwxx FROM ECIF.tIB_YGXX t1,jgcrm.tuser t2,jgcrm.LBMEMBER t3  WHERE t1.OAID = t2.userid AND t2.id = t3.userid AND INSTR(';'||{0}||';',';'||t2.id||';')&gt;0 GROUP BY t2.ID ,t1.zjlx,t1.zjmc,t1.zjhm,t1.sjh,t1.orgid,t1.zwxx ",[{"expression":"O_MASTER.XMZCY","scale":"","length":"","type":"0"}]]</arg>
+      <arg name="@retResultSet" type="output">V_XMRYXX</arg>
+    </invoke>
+    <invoke component="FormUIHypotOperate" id="0" name="表格操作_添加结果集数据" operation="insertByResult">
+      <describe>表格添加结果集数据[内核审批表]</describe>
+      <arg name="@objectName">lcIB_NHSP</arg>
+      <arg name="@object" type="variable">O_MASTER</arg>
+      <arg name="@columnName">XMZRYXX</arg>
+      <arg name="@resultSet" type="variable">V_XMRYXX</arg>
+      <arg name="@clearRowsets">true</arg>
+      <arg flag="field" name="RYJS">roleid</arg>
+      <arg flag="field" name="XM">ID</arg>
+      <arg flag="field" name="ZJLX">zjlx</arg>
+      <arg flag="field" name="ZW">zwxx</arg>
+      <arg flag="field" name="BM">orgid</arg>
+      <arg flag="field" name="SJH">sjh</arg>
+      <arg flag="field" name="ZJHM">zjhm</arg>
+      <arg flag="field" name="ZJMC">zjmc</arg>
+    </invoke>
+  </sequence>
+</process>
+

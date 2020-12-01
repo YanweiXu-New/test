@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_KHXX_GS_XG" name="tIB_KHXX_GS_XG" object="tIB_KHXX" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>客户信息表-修改[固收]流程</describe>
+  <variables>
+    <variable describe="V_RET" messageType="" name="V_RET" type="int" />
+    <variable describe="V_MSG" messageType="" name="V_MSG" type="string" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <invoke component="FormOperate" id="0" name="对象组件_修改" operation="update">
+      <describe>修改对象[客户信息表]</describe>
+      <arg name="@objectName">tIB_KHXX</arg>
+      <arg name="@object" type="variable">O_MASTER</arg>
+      <arg flag="field" name="KHQC" type="expression">O_PARAMETER.KHQC</arg>
+      <arg flag="field" name="GPDM" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_IF(O_PARAMETER.SFSSGS==1,O_PARAMETER.GPDM,O_PARAMETER.PGPDM)</arg>
+      <arg flag="field" name="SSHY" type="expression">O_PARAMETER.SSHY</arg>
+      <arg flag="field" name="PROVINCE" type="expression">O_PARAMETER.PROVINCE</arg>
+      <arg flag="field" name="CITY" type="expression">O_PARAMETER.CITY</arg>
+      <arg flag="field" name="TYSHXYDM" type="expression">O_PARAMETER.TYSHXYDM</arg>
+      <arg flag="field" name="CWXX" type="expression">O_PARAMETER.CWXX</arg>
+      <arg flag="field" name="SFGSKH" type="expression">O_PARAMETER.SFGSKH</arg>
+      <arg flag="field" name="XSBZBBS" type="expression">O_PARAMETER.XSBZBBS</arg>
+      <arg flag="field" name="QYXZ" type="expression">O_PARAMETER.QYXZ</arg>
+      <arg flag="field" name="SFSSGS" type="expression">O_PARAMETER.SFSSGS</arg>
+      <arg flag="field" name="SFYMGS" type="expression">O_PARAMETER.SFYMGS</arg>
+      <arg flag="field" name="SSMGSJLR" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_IF(O_PARAMETER.SFYMGS==1,O_PARAMETER.SSMGSJLR,O_PARAMETER.PSSMGSJLR)</arg>
+      <arg flag="field" name="SSSF_JYD" type="expression">O_PARAMETER.SSSF_JYD</arg>
+      <arg flag="field" name="SSCS_JYD" type="expression">O_PARAMETER.SSCS_JYD</arg>
+      <arg flag="field" name="JYHDXJJLL" type="expression">O_PARAMETER.JYHDXJJLL</arg>
+      <arg flag="field" name="LDBL" type="expression">O_PARAMETER.LDBL</arg>
+      <arg flag="field" name="SDBL" type="expression">O_PARAMETER.SDBL</arg>
+      <arg flag="field" name="ZCFZL" type="expression">O_PARAMETER.ZCFZL</arg>
+      <arg flag="field" name="EBITDA" type="expression">O_PARAMETER.EBITDA</arg>
+      <arg flag="field" name="YBGGYSSR" type="expression">O_PARAMETER.YBGGYSSR</arg>
+      <arg flag="field" name="FZL" type="expression">O_PARAMETER.FZL</arg>
+      <arg flag="field" name="ZWL" type="expression">O_PARAMETER.ZWL</arg>
+      <arg flag="field" name="FXRCBSJ" type="expression">O_PARAMETER.FXRCBSJ</arg>
+      <arg flag="field" name="XGSJ" type="expression">$DateTime.Now</arg>
+    </invoke>
+    <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+      <describe>后处理</describe>
+      <arg name="TranType">procedure</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="SQL">["CALL ECIF.PRO_TIB_KHWH(:ret,:msg,)",[{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"$Login.IP","scale":"","length":"","type":"0"},{"expression":"O_MASTER.ID","scale":"","length":"","type":"1"}]]</arg>
+      <arg name="ret" type="output">V_RET</arg>
+      <arg name="msg" type="output">V_MSG</arg>
+    </invoke>
+    <response exit="false" id="0">
+      <describe>输出</describe>
+      <retvalue type="variable">V_RET</retvalue>
+      <message type="variable">V_MSG</message>
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
+  </sequence>
+</process>
+

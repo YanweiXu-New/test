@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="2" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_DGDBYJXXB_XZYJXX" name="tIB_DGDBYJXXB_XZYJXX" object="tIB_DGDBYJXXB" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>底稿待办预警消息表-新增预警信息流程</describe>
+  <variables>
+    <variable describe="V_CODE" messageType="" name="V_CODE" type="int" />
+    <variable describe="V_NOTE" messageType="" name="V_NOTE" type="string" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+      <describe>数据库组件_执行SQL语句</describe>
+      <arg name="TranType">procedure</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="code" type="output">V_CODE</arg>
+      <arg name="note" type="output">V_NOTE</arg>
+      <arg name="SQL">["call ecif.PRO_IB_XZYJXX(:code,:note,{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10})",[{"expression":"O_PARAMETER.I_XMID","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.I_XMFL","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.I_XMMC","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.I_TXNR","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.I_TXRQ","scale":"","length":"","type":"13"},{"expression":"O_PARAMETER.I_TXYH","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.I_TSZT","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.I_XXID","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.I_XXLX","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.I_JDID","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.I_MBJDID","scale":"","length":"","type":"0"}]]</arg>
+    </invoke>
+    <response exit="false" id="0">
+      <describe>输出</describe>
+      <retvalue type="expression">V_CODE</retvalue>
+      <message type="expression">V_NOTE</message>
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
+  </sequence>
+</process>
+

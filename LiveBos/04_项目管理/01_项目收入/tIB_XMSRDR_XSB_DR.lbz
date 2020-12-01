@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_XMSRDR_XSB_DR" name="tIB_XMSRDR_XSB_DR" object="tIB_XMSRDR_XSB" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目收入导入_新三板-Excel导入流程</describe>
+  <variables />
+  <response exit="false" id="0">
+    <describe>输出</describe>
+    <retvalue>199</retvalue>
+    <message />
+    <uiforward redirect="true">
+      <url type="expression">&lt;%@ livebos language='javascript' %&gt;
+'/bss/ibb/project/page/uploadExcel.sdo?type=4'</url>
+    </uiforward>
+  </response>
+</process>
+

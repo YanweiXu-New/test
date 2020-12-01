@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="TJG_STMB_XG" name="TJG_STMB_XG_CCZB_Param_UI" object="TJG_STMB" type="2" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>层次主表界面事件</describe>
+  <variables />
+  <sequence id="0" name="顺序">
+    <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+      <describe>更新值</describe>
+      <arg flag="field" name="WDGLM" type="expression">null</arg>
+      <arg flag="field" name="BMGLM" type="expression">null</arg>
+    </invoke>
+    <invoke component="FormUI" id="0" name="界面处理_刷新字段可选项" operation="resetOption">
+      <describe>刷新字段可选项</describe>
+      <arg flag="field" name="WDGLM" type="">true</arg>
+      <arg flag="field" name="BMGLM" type="">true</arg>
+    </invoke>
+  </sequence>
+</process>
+

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="GB2312" standalone="no"?>
+<dynOwner flag="0" name="DW_GS_TDSH" type="106">
+    <describe>固收_团队审核(项目)</describe>
+    <sql>{"statement":"tUser.ID IN (SELECT OWNER FROM TABLE(ECIF.FUNC_GET_LCSHR_TDSH_GS(:PTDZ)))  and tUser.Status = 1","args":[],"type":0}</sql>
+    <parameters>
+        <parameter>
+            <name>PTDZ</name>
+            <describe>团队长</describe>
+            <comment/>
+            <type>1</type>
+            <length>16</length>
+            <scale>0</scale>
+        </parameter>
+    </parameters>
+</dynOwner>

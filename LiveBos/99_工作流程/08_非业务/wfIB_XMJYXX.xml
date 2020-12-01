@@ -1,0 +1,842 @@
+<?xml version="1.0" encoding="gb2312"?>
+<!DOCTYPE workflow PUBLIC "-//Apexsoft LiveBos//DTD Workflow 2.8//EN" "http://www.livebos.com/workflow/workflow_2_8_abs.dtd"><workflow>
+  <meta name="workflow.category">权益类_08_非业务</meta>
+  <meta name="Designer">Studio</meta>
+  <meta name="created">2018-08-24 16:44:02</meta>
+  <meta name="modify">2019-03-26 13:49:41</meta>
+  <meta name="Describe">项目简要信息流程</meta>
+  <meta name="WorkflowName">wfIB_XMJYXX</meta>
+  <meta name="WorkflowType">2</meta>
+  <meta name="version"></meta>
+  <object  name="lcIB_XMJYXX" editAttribute="0" >
+  </object>
+  <initial-actions>
+    <action id="0" name="开始">
+      <meta name="NodeType">0</meta>
+      <results>
+        <unconditional-result id="2" old-status="完成" status="待处理" step="3">
+        </unconditional-result>
+      </results>
+    </action>
+  </initial-actions>
+  <steps>
+    <step id="1" name="结束">
+      <meta name="finish">true</meta>
+      <meta name="NodeType">1</meta>
+    </step>
+    <step id="3" name="填写信息">
+      <meta name="NodeType">2</meta>
+      <object  name="lcIB_XMJYXX" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="IPO" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="ZRZ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="CZ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="LCBT" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="NHLC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMMC" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="XMSCJD" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="XMLX" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="XMFZR" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="SSBM" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="XMSF" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="BJRDB" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="XMXBR" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FXRLS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="KJSSWS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FLZJ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="SJJG" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="PGJG" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="LXRQ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="NHRQ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="NHHYJY" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="NHZS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="NHFS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="SCSBRQ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="ZJHSLRQ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="SDFKYJRQ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="BSFKYJHFRQ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="CHHRQ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FSHRQ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="LQPWRQ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="XXTS_1" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="XXTS2" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="GSMC" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="IPORQ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="SSBK" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="NSSBK" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="SSSF" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="HYFL" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="QYXZ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="KGGD" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="SJKZR" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="NFXGFSL" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="NMJZJJE" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="QZJLX" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="QZJSJ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="KZQBG" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="ZYCP" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="GSZS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="CZQK" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="SBQCWSJ" disabled="false" hidden="false" summary="false">
+            <object  name="lcIB_XMJYXX_CWSJ_IPO" editAttribute="120" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="SD" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="ZZC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="JZC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="YYSR" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="JLR" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="KFJLR" disabled="false" hidden="false" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+          <column  name="CWSJ_ZRZ" disabled="false" hidden="false" summary="false">
+            <object  name="lcIB_XMJYXX_CWSJ_ZRZ" editAttribute="120" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="SD" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="ZZC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="JZC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="YYSR" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="JLR" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="ZGB" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="KFJLR" disabled="false" hidden="false" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+          <column  name="CWSJ_CZ" disabled="false" hidden="false" summary="false">
+            <object  name="lcIB_XMJYXX_CWSJ_CZ" editAttribute="120" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="SD" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="ZZC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="JZC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="YYSR" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="JLR" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="ZGB" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="KFJLR" disabled="false" hidden="false" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+          <column  name="SYL" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FZL" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FXJG" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="XFGFS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="MJZE_QT" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="ZJYT_ZRZ_QT" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FXJ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="GFS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="DXMJZIZE" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="ZJYT" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="DXFXFS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="KZQ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="SL" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="DX" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="SDQ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FXJ_PG" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="DXQ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="SL_PG" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="PSBL" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="GDSL" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="RPBL" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="ZJZE" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="ZJYT_PG" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FZL_LZZ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="BL" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FXFS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="PJ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="DB" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="DBFS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="DBR" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="MJZE" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="ZJYT_KZZ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FXJ_YXG" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FXRQ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FXSL" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="MJJE" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FG" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="ZJYT_YXG" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FXZT" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FXFS_YXG" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="YXTK" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="KFZH" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="GXL" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="KFLJ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="HSTK" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="SHTK" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="DX_YXG" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="DXRS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="LJRS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="JYLX" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="JDYD" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="JYJG" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="JYPGJG" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="PGZZL" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="JYDF" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="GLJY" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="SFJK" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="SFPM" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="JYZFFS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="YJCN" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="PMQK" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="PMZJZE" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="DGDCYQK" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="GLFCYQK" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="HX" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="ZDZCSJ" disabled="false" hidden="false" summary="false">
+            <object  name="lcIB_XMJYXX_BDZCSJ" editAttribute="125" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="BSF" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="ZCZE" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="JZC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="YYSR" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="JLR" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="ZGB" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="XMMC" disabled="false" hidden="true" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+          <column  name="ZYSFBH" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="BCGSJBXX" disabled="false" hidden="false" summary="false">
+            <object  name="lcIB_XMJYXX_BCGSJBXX" editAttribute="120" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="BDZC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="HY" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SFGQZC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="GQBL" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="ZYYW" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="GSZS" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="LSJYGZ" disabled="false" hidden="false" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+          <column  name="BDGSCWZB" disabled="false" hidden="false" summary="false">
+            <object  name="lcIB_XMJYXX_BDGSCWZB" editAttribute="120" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="BDZC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SD" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="ZZC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="JZC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="YYSR" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="JLR" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="ZGB" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="KFJLR" disabled="false" hidden="false" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+        </columns>
+      </object>
+      <notify >
+      </notify>
+      <actions>
+        <action id="4" name="提交">
+          <meta name="NodeType">5</meta>
+          <pre-functions>
+            <function id="0" name="lb.Assert" type="class">
+              <arg name="assert.1">&lt;%@ livebos language='javascript' %&gt;
+var a = ABS_SQLVALUE(&quot;select count(1) from(select bdzc,sd from ECIF.lcIB_XMJYXX_BDGSCWZB b where B.LCIB_XMJYXX_ID = ?  group by bdzc,sd having count(*) &gt; 1)&quot;,[O_WORKFLOW.ID]);
+a&lt;=0;
+</arg>
+              <arg name="class.name">com.apex.livebos.workflow.function.AssertFunction</arg>
+              <arg name="message.1">'输入了重复的标的资产财务数据！！标的资产与时点不能同时重复'</arg>
+            </function>
+            <function id="0" name="abs.FormUpdate" type="class">
+              <arg name="$F{XMJD}">O_WORKFLOW.XMSCJD</arg>
+              <arg name="condition">[&quot;tIB_XMXX.ID={0}&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+              <arg name="class.name">com.apex.workflow.FormUpdateFunction</arg>
+              <arg name="Table">tIB_XMXX</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <unconditional-result id="5" old-status="完成" status="待处理" step="6">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+    <step id="6" name="质控内核主审审批" owner="$DG{7.lcIB_XMJYXX.NHZS}">
+      <meta name="step.reject.mode">any</meta>
+      <meta name="step.allow.approve.sign">true</meta>
+      <meta name="step.approve.sign.action.name">会签</meta>
+      <meta name="NodeType">16</meta>
+      <meta name="approve.sign.modes">endorsesign</meta>
+      <meta name="step.allow.reject">true</meta>
+      <meta name="approve.mode">true</meta>
+      <meta name="reject.reason.mandatory">false</meta>
+      <object  name="lcIB_XMJYXX" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="IPO" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="ZRZ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="CZ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="LCBT" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="NHLC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMMC" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="XMSCJD" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="XMLX" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="XMFZR" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="SSBM" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="XMSF" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="BJRDB" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="XMXBR" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FXRLS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="KJSSWS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FLZJ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="SJJG" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="PGJG" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="LXRQ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="NHRQ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="NHHYJY" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="NHZS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="NHFS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="SCSBRQ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="ZJHSLRQ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="SDFKYJRQ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="BSFKYJHFRQ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="CHHRQ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FSHRQ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="LQPWRQ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="XXTS_1" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XXTS2" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="GSMC" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="IPORQ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="SSBK" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="NSSBK" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="SSSF" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="HYFL" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="QYXZ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="KGGD" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="SJKZR" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="NFXGFSL" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="NMJZJJE" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="QZJLX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="QZJSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="KZQBG" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="ZYCP" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="GSZS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="CZQK" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="SBQCWSJ" disabled="false" hidden="false" summary="false">
+            <object  name="lcIB_XMJYXX_CWSJ_IPO" editAttribute="0" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="SD" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="ZZC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="JZC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="YYSR" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="JLR" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="KFJLR" disabled="false" hidden="false" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+          <column  name="CWSJ_ZRZ" disabled="false" hidden="false" summary="false">
+            <object  name="lcIB_XMJYXX_CWSJ_ZRZ" editAttribute="0" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="SD" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="ZZC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="JZC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="YYSR" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="JLR" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="ZGB" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="KFJLR" disabled="false" hidden="false" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+          <column  name="CWSJ_CZ" disabled="false" hidden="false" summary="false">
+            <object  name="lcIB_XMJYXX_CWSJ_CZ" editAttribute="0" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="SD" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="ZZC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="JZC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="YYSR" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="JLR" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="ZGB" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="KFJLR" disabled="false" hidden="false" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+          <column  name="SYL" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FZL" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FXJG" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="XFGFS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="MJZE_QT" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="ZJYT_ZRZ_QT" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FXJ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="GFS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="DXMJZIZE" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="ZJYT" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="DXFXFS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="KZQ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="SL" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="DX" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="SDQ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FXJ_PG" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="DXQ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="SL_PG" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="PSBL" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="GDSL" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="RPBL" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="ZJZE" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="ZJYT_PG" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FZL_LZZ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="BL" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FXFS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="PJ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="DB" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="DBFS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="DBR" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="MJZE" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="ZJYT_KZZ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FXJ_YXG" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FXRQ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FXSL" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="MJJE" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FG" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="ZJYT_YXG" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FXZT" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FXFS_YXG" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="YXTK" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="KFZH" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="GXL" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="KFLJ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="HSTK" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="SHTK" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="DX_YXG" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="DXRS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="LJRS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="JYLX" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="JDYD" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="JYJG" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="JYPGJG" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="PGZZL" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="JYDF" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="GLJY" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="SFJK" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="SFPM" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="JYZFFS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="YJCN" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="PMQK" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="PMZJZE" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="DGDCYQK" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="GLFCYQK" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="HX" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="ZDZCSJ" disabled="false" hidden="false" summary="false">
+            <object  name="lcIB_XMJYXX_BDZCSJ" editAttribute="117" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="BSF" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="ZCZE" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="JZC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="YYSR" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="JLR" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="ZGB" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="XMMC" disabled="false" hidden="true" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+          <column  name="ZYSFBH" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="BCGSJBXX" disabled="false" hidden="false" summary="false">
+            <object  name="lcIB_XMJYXX_BCGSJBXX" editAttribute="0" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="BDZC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="HY" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SFGQZC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="GQBL" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="ZYYW" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="GSZS" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="LSJYGZ" disabled="false" hidden="false" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+          <column  name="BDGSCWZB" disabled="false" hidden="false" summary="false">
+            <object  name="lcIB_XMJYXX_BDGSCWZB" editAttribute="0" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="BDZC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SD" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="ZZC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="JZC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="YYSR" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="JLR" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="ZGB" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="KFJLR" disabled="false" hidden="false" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+        </columns>
+      </object>
+      <notify >
+      </notify>
+      <actions>
+        <action id="7" name="审批通过">
+          <meta name="NodeType">17</meta>
+          <meta name="approve.action">true</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="SQL">[&quot;CALL ecif.pro_ib_jyxxlchcl(?,?,{0},'lcIB_XMJYXX',{1},{2},{3})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMLX&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <unconditional-result id="8" old-status="完成" status="待处理" step="1">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+  </steps>
+</workflow>

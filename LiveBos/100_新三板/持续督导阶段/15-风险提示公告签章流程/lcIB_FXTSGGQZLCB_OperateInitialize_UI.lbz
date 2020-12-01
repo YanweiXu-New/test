@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_FXTSGGQZLCB_OperateInitialize_UI" object="lcIB_FXTSGGQZLCB" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>界面初始化界面事件</describe>
+  <variables>
+    <variable describe="V_INIT" messageType="" name="V_INIT" type="resultSet" />
+    <variable describe="V_FJMB" messageType="" name="V_FJMB" type="resultSet" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <if id="0">
+      <describe>校验流程新增初始化</describe>
+      <conditions>
+        <condition name="流程未提交" type="expression">
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+O_MASTER.InstID==null ||O_MASTER.InstID&lt;0</arg>
+        </condition>
+      </conditions>
+      <sequence id="0" name="顺序">
+        <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
+          <describe>获取附件模板</describe>
+          <arg name="TranType">sql</arg>
+          <arg name="SQL">["SELECT ID, SFBT,WDLXM, TJSX, XM360ZS,SFYY FROM ECIF.TIB_WDLXPZ WHERE LCBD = 'lcIB_FXTSGGQZLCB' ORDER BY TJSX",[]]</arg>
+          <arg name="@retResultSet" type="output">V_FJMB</arg>
+          <arg name="datasource">ECIF</arg>
+        </invoke>
+        <invoke component="FormUIHypotOperate" id="0" name="表格操作_添加结果集数据" operation="insertByResult">
+          <describe>填充附件模板</describe>
+          <arg name="@objectName">lcIB_FXTSGGQZLCB</arg>
+          <arg name="@object" type="variable">O_MASTER</arg>
+          <arg name="@columnName">FJ</arg>
+          <arg name="@resultSet" type="variable">V_FJMB</arg>
+          <arg flag="field" name="TJSX">TJSX</arg>
+          <arg flag="field" name="FJLX">ID</arg>
+          <arg flag="field" name="SF360XS">XM360ZS</arg>
+          <arg name="@clearRowsets">true</arg>
+          <arg flag="field" name="SFBT">SFBT</arg>
+          <arg flag="field" name="SFYY">SFYY</arg>
+        </invoke>
+      </sequence>
+    </if>
+  </sequence>
+</process>
+

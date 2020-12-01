@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tUser_M" name="tUser_M" object="tUser" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>用户管理-方法流程</describe>
+  <variables>
+    <variable describe="V_1" messageType="" name="V_1" type="resultSet" />
+    <variable describe="V_STEPID" messageType="" name="V_STEPID" type="int" />
+    <variable describe="V_OWNER" messageType="" name="V_OWNER" type="string" />
+    <variable describe="V_RET" messageType="" name="V_RET" type="int" />
+    <variable describe="V_MSG" messageType="" name="V_MSG" type="string" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+      <describe>数据库组件_流程移交处理</describe>
+      <arg name="TranType">procedure</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="ret" type="output">V_RET</arg>
+      <arg name="msg" type="output">V_MSG</arg>
+      <arg name="SQL">["call ECIF.PRO_IB_LCYJCL(:ret,:msg,{0},{1},{2},{3},{4})",[{"expression":"O_PARAMETER.YJFS","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.YJR","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.JSR","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.LCLB","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.DBLC","scale":"","length":"","type":"0"}]]</arg>
+    </invoke>
+    <invoke component="FormOperate" id="0" name="对象组件_新增" operation="insert">
+      <describe>新增对象[流程移交记录表]</describe>
+      <arg name="@objectName">tIB_LCYJJLB</arg>
+      <arg flag="field" name="YJR" type="expression">O_PARAMETER.YJR</arg>
+      <arg flag="field" name="JSR" type="expression">O_PARAMETER.JSR</arg>
+      <arg flag="field" name="YJSJ" type="expression">$DateTime.Today</arg>
+    </invoke>
+    <invoke component="expression" id="0" name="执行脚本">
+      <describe>刷新缓存</describe>
+      <arg name="expression">ABS_flushObjCache('WORKFLOW.TASK')</arg>
+    </invoke>
+  </sequence>
+</process>
+

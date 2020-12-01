@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="4" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_ZDFQLC_XMTZJC" name="tIB_ZDFQLC_XMTZJC" object="tIB_ZDFQLC" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>自动发起流程-项目台账监测流程</describe>
+  <variables>
+    <variable describe="V_CODE" messageType="output" name="V_CODE" type="int" />
+    <variable describe="V_NOTE" messageType="output" name="V_NOTE" type="string" />
+  </variables>
+  <sequence id="0">
+    <invoke component="SQL" id="0" operation="execute">
+      <describe>数据库组件-执行SQL语句</describe>
+      <meta name="FUNCTION">true</meta>
+      <arg name="TranType">procedure</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="CODE" type="output">V_CODE</arg>
+      <arg name="NOTE" type="output">V_NOTE</arg>
+      <arg name="SQL">["CALL ECIF.PRO_IB_LCDB_LCSCJK(:CODE,:NOTE,{0})",[{"expression":"O_PARAMETER.DDRQ","scale":"","length":"","type":"13"}]]</arg>
+    </invoke>
+  </sequence>
+</process>
+

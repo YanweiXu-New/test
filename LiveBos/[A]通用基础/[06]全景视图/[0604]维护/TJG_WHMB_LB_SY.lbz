@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="TJG_WHMB_LB_SY" name="TJG_WHMB_LB_SY" object="TJG_WHMB_LB" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>维护模板列表配置-上移流程</describe>
+  <variables>
+    <variable describe="V_Ret" name="V_Ret" type="int" />
+    <variable describe="V_Msg" name="V_Msg" type="string" />
+  </variables>
+  <sequence id="0">
+    <describe />
+    <invoke component="SQL" id="0" name="执行SQL语句" operation="execute">
+      <describe>业务处理</describe>
+      <arg name="datasource">ECIF</arg>
+      <arg name="SQL">["CALL PRO_JG_WHMB_LB(:ret,:msg,{0},{1},6,{2})",[{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"$Login.IP","scale":"","length":"","type":"0"},{"expression":"O_MASTER.ID","scale":"","length":"","type":"1"}]]</arg>
+      <arg name="TranType">procedure</arg>
+      <arg name="ret" type="output">V_Ret</arg>
+      <arg name="msg" type="output">V_Msg</arg>
+    </invoke>
+    <response exit="false" id="0">
+      <describe>输出</describe>
+      <retvalue type="variable">V_Ret</retvalue>
+      <message type="variable">V_Msg</message>
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
+  </sequence>
+</process>
+

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_XMJYXX_XMLX_UI" object="lcIB_XMJYXX" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目类型界面事件</describe>
+  <variables>
+    <variable describe="V_BDXX" messageType="" name="V_BDXX" type="resultSet" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <if id="0">
+      <describe>判断</describe>
+      <conditions>
+        <condition name="" type="expression">
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+O_MASTER.XMLX==5||O_MASTER.XMLX==12</arg>
+        </condition>
+      </conditions>
+      <sequence id="0" name="顺序">
+        <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+          <describe>界面处理_更新值</describe>
+        </invoke>
+        <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
+          <describe>数据库组件_SQL查询</describe>
+          <arg name="TranType">sql</arg>
+          <arg name="SQL">["SELECT TJSX,wdlxm,{0} xmmc FROM tIB_WDLXPZ WHERE lcbd='lcIB_XMJYXX' ORDER by TJSX",[{"expression":"O_MASTER.XMMC","scale":"","length":"","type":"1"}]]</arg>
+          <arg name="@retResultSet" type="output">V_BDXX</arg>
+          <arg name="datasource">ECIF</arg>
+        </invoke>
+        <invoke component="FormUIHypotOperate" id="0" name="表格操作_添加结果集数据" operation="insertByResult">
+          <describe>表格添加结果集数据[项目简要信息流程]</describe>
+          <arg name="@objectName">lcIB_XMJYXX</arg>
+          <arg name="@object" type="variable">O_MASTER</arg>
+          <arg name="@columnName">ZDZCSJ</arg>
+          <arg flag="field" name="BSF">WDLXM</arg>
+          <arg flag="field" name="XMMC">XMMC</arg>
+          <arg name="@resultSet" type="variable">V_BDXX</arg>
+          <arg name="@clearRowsets">true</arg>
+        </invoke>
+      </sequence>
+      <else>
+        <describe>Else</describe>
+        <sequence id="0" name="顺序">
+          <invoke component="FormUIHypotOperate" id="0" name="表格操作_批量删除" operation="batchDelete">
+            <describe>批量删除表格对象[项目简要信息流程]</describe>
+            <arg name="@objectName">lcIB_XMJYXX</arg>
+            <arg name="@object" type="variable">O_MASTER</arg>
+            <arg name="@columnName">ZDZCSJ</arg>
+            <arg name="@condition">&lt;%@ livebos language='javascript' %&gt;
+O_MASTER.ZDZCSJ.BSF!=null</arg>
+          </invoke>
+        </sequence>
+      </else>
+    </if>
+  </sequence>
+</process>
+

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_XMXX_GS_XZFXQSHXX" name="tIB_XMXX_GS_XZFXQSHXX_SFCRHXGLZR_Param_UI" object="tIB_XMXX_GS" type="2" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>是否承担后续管理责任界面事件</describe>
+  <variables>
+    <variable describe="V_MJD" messageType="" name="V_MJD" type="int" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <assign id="0">
+      <describe>赋值</describe>
+      <copy>
+        <from type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE("SELECT T.FID FROM ECIF.TIB_XMLX T WHERE T.ID=?",[O_PARAMETER.XMLX])</from>
+        <to variable="V_MJD" />
+      </copy>
+    </assign>
+    <if id="0">
+      <describe>判断</describe>
+      <conditions>
+        <condition name="" type="expression">
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+V_MJD==120100</arg>
+        </condition>
+      </conditions>
+      <sequence id="0" name="顺序">
+        <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+          <describe>界面处理_更新值</describe>
+          <arg flag="field" name="ZQDLR" type="expression">null</arg>
+          <arg flag="field" name="HXGLR" type="expression">null</arg>
+          <arg flag="field" name="SLTGR" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_IF(O_PARAMETER.SFCRHXGLZR==1,31,null)</arg>
+          <arg flag="field" name="QTXXSM" type="expression">null</arg>
+        </invoke>
+      </sequence>
+      <elseif>
+        <describe>ElseIf</describe>
+        <conditions>
+          <condition name="" type="expression">
+            <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+V_MJD==120300</arg>
+          </condition>
+        </conditions>
+        <sequence id="0" name="顺序">
+          <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+            <describe>界面处理_更新值</describe>
+            <arg flag="field" name="SLTGR" type="expression">null</arg>
+            <arg flag="field" name="ZQDLR" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_IF(O_PARAMETER.SFCRHXGLZR==1,31,null)</arg>
+            <arg flag="field" name="HXGLR" type="expression">null</arg>
+            <arg flag="field" name="QTXXSM" type="expression">null</arg>
+          </invoke>
+        </sequence>
+      </elseif>
+      <else>
+        <describe>Else</describe>
+        <sequence id="0" name="顺序">
+          <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+            <describe>界面处理_更新值</describe>
+            <arg flag="field" name="SLTGR" type="expression">null</arg>
+            <arg flag="field" name="ZQDLR" type="expression">null</arg>
+            <arg flag="field" name="HXGLR" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_IF(O_PARAMETER.SFCRHXGLZR==1,31,null)</arg>
+            <arg flag="field" name="QTXXSM" type="expression">null</arg>
+          </invoke>
+        </sequence>
+      </else>
+    </if>
+  </sequence>
+</process>
+

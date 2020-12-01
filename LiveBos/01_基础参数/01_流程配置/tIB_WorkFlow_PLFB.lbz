@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_WorkFlow_PLFB" name="tIB_WorkFlow_PLFB" object="tIB_WorkFlow" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>工作流系统-批量发布流程</describe>
+  <variables>
+    <variable describe="V_DFBLC" messageType="" name="V_DFBLC" type="resultSet" />
+    <variable describe="V_LCCL" messageType="" name="V_LCCL" type="resultSet" />
+    <variable describe="V_LCDM" messageType="" name="V_LCDM" type="string" />
+    <variable describe="V_1" instanceType="tIB_DFBLC" messageType="" name="V_1" type="object" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
+      <describe>获取待发布流程列表</describe>
+      <arg name="TranType">sql</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="SQL">["select t1.name as LCDM from ecif.tIB_DFBLC t1 where instr(';'||{0}||';',t1.id)&gt;0",[{"expression":"O_PARAMETER.DFBLC","scale":"","length":"","type":"0"}]]</arg>
+      <arg name="@retResultSet" type="output">V_DFBLC</arg>
+    </invoke>
+    <forEach collection="V_DFBLC" id="0" toVariable="V_LCCL">
+      <describe>迭代</describe>
+      <sequence id="0" name="顺序">
+        <assign id="0">
+          <describe>赋值</describe>
+          <copy>
+            <from type="expression">V_LCCL.LCDM</from>
+            <to variable="V_LCDM" />
+          </copy>
+        </assign>
+        <invoke component="expression" id="0" name="执行脚本">
+          <describe>执行脚本</describe>
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+var bean = ABS_LOADBEAN('com.apex.bss.mod.workflow.BatchReleaseFlow');&#xD;
+var result = bean.multivariantFlow(V_LCDM,1);&#xD;
+result;</arg>
+        </invoke>
+      </sequence>
+    </forEach>
+    <invoke component="expression" id="0" name="执行脚本">
+      <describe>刷新缓存</describe>
+      <arg name="expression">ABS_flushObjCache('WORKFLOW.TASK')</arg>
+    </invoke>
+    <response exit="false" id="0">
+      <describe>输出</describe>
+      <retvalue>1</retvalue>
+      <message />
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
+  </sequence>
+</process>
+

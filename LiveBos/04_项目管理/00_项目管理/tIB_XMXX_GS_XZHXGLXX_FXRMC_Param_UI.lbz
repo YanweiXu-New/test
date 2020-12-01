@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_XMXX_GS_XZHXGLXX" name="tIB_XMXX_GS_XZHXGLXX_FXRMC_Param_UI" object="tIB_XMXX_GS" type="2" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>发行人名称界面事件</describe>
+  <variables>
+    <variable describe="V_Obj" instanceType="tIB_WD_FXRXX" messageType="" name="V_Obj" type="objectSet" />
+    <variable describe="V_FXR" messageType="" name="V_FXR" type="resultSet" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
+      <describe>获取万得发行人数据</describe>
+      <arg name="TranType">sql</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="@retResultSet" type="output">V_FXR</arg>
+      <arg name="SQL">["SELECT * FROM ecif.tIB_WD_FXRXX WHERE TRIM(FXRMC) LIKE '%'||{0}||'%' AND ROWNUM = 1",[{"expression":"O_PARAMETER.FXRMC","scale":"","length":"","type":"0"}]]</arg>
+    </invoke>
+    <forEach collection="V_FXR" id="0" toVariable="V_Obj">
+      <describe>迭代</describe>
+      <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+        <describe>界面处理_更新值</describe>
+        <arg flag="field" name="FXRMC" type="expression">V_Obj.FXRMC</arg>
+        <arg flag="field" name="QYXZ" type="expression">V_Obj.QYXZ</arg>
+        <arg flag="field" name="ZXCS" type="expression">V_Obj.ZXCS</arg>
+        <arg flag="field" name="JYCS" type="expression">V_Obj.JYCS</arg>
+        <arg flag="field" name="QTJYSC" type="expression">V_Obj.QTJYSC</arg>
+        <arg flag="field" name="WDEJFL" type="expression">V_Obj.WDEJFL</arg>
+        <arg flag="field" name="ZXQK" type="expression">V_Obj.ZXQK</arg>
+      </invoke>
+    </forEach>
+  </sequence>
+</process>
+

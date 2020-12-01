@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="2" exitOnStandardFault="false" isHorizontalLayout="false" method="TPIF_CPWDK_XGJBXX" name="TPIF_CPWDK_XGJBXX" object="TPIF_CPWDK" type="0" version="" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>产品文档库-修改基本信息对象流程</describe>
+  <variables>
+    <variable describe="V_RET" name="V_RET" type="int" />
+    <variable describe="V_MSG" name="V_MSG" type="string" />
+  </variables>
+  <sequence id="0">
+    <describe />
+    <invoke component="FormOperate" id="0" name="修改" operation="update">
+      <describe>对象[产品文档库]:修改</describe>
+      <arg flag="field" name="BZ" type="expression">O_PARAMETER.BZ</arg>
+      <arg flag="field" name="ZHXGR" type="expression">$Login.User</arg>
+      <arg flag="field" name="WDGS" type="expression">O_PARAMETER.WDGS</arg>
+      <arg flag="field" name="SFYX" type="expression">O_PARAMETER.SFYX</arg>
+      <arg flag="field" name="SCRY" type="expression">O_PARAMETER.SCRY</arg>
+      <arg flag="field" name="XGRQ" type="expression">$DateTime.Today</arg>
+      <arg flag="field" name="WDYSTJ" type="expression">O_PARAMETER.WDYSTJ</arg>
+      <arg flag="field" name="WDMS" type="expression">O_PARAMETER.WDMS</arg>
+      <arg flag="field" name="WDMC" type="expression">O_PARAMETER.WDMC</arg>
+      <arg flag="field" name="CPWDMX" type="expression">O_PARAMETER.CPWDMX</arg>
+      <arg flag="field" name="WDFL" type="expression">O_PARAMETER.WDFL</arg>
+      <arg flag="field" name="CPID" type="expression">O_PARAMETER.CPID</arg>
+      <arg flag="field" name="BM" type="expression">O_PARAMETER.BM</arg>
+      <arg name="@objectName">TPIF_CPWDK</arg>
+      <arg name="@object" type="variable">O_MASTER</arg>
+    </invoke>
+    <invoke component="SQL" id="0" name="执行SQL语句" operation="execute">
+      <describe>记录操作日志_修改基本信息</describe>
+      <arg name="TranType">procedure</arg>
+      <arg name="datasource">PIF</arg>
+      <arg name="ret" type="output">V_RET</arg>
+      <arg name="msg" type="output">V_MSG</arg>
+      <arg name="SQL">["CALL PRO_PIF_CPWDK_CZRZDJ(:ret,:msg,{0},{1},1,{2})",[{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"$Login.IP","scale":"","length":"","type":"0"},{"expression":"O_MASTER.ID","scale":"","length":"","type":"1"}]]</arg>
+    </invoke>
+    <response exit="false" id="0">
+      <describe>输出</describe>
+      <retvalue type="variable">V_RET</retvalue>
+      <message type="variable">V_MSG</message>
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
+  </sequence>
+</process>
+

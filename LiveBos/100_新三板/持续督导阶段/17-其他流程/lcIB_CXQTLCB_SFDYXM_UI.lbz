@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_CXQTLCB_SFDYXM_UI" object="lcIB_CXQTLCB" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>是否对应项目界面事件</describe>
+  <variables />
+  <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+    <describe>界面处理_更新值</describe>
+    <arg flag="field" name="XMMC" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_IF(O_MASTER.SFDYXM==0,null,O_MASTER.XMMC)</arg>
+    <arg flag="field" name="XMKPJD" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_IF(O_MASTER.SFDYXM==0,null,O_MASTER.XMKPJD)</arg>
+    <arg flag="field" name="KHQC" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_IF(O_MASTER.SFDYXM==0,null,O_MASTER.KHQC)</arg>
+  </invoke>
+</process>
+

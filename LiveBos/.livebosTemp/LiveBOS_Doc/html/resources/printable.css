@@ -1,0 +1,382 @@
+/*
+ * Copyright (c) 1996-2013 ApexSoft co.,td.
+ * site: http://www.apexsoft.com.cn
+ * 版权所有：福建顶点软件股份有限公司
+ * 地址：福建省福州市软件大道89号软件园顶点软件中心 350003
+ */
+
+
+body {
+    background: #fff;
+}
+
+table.OperateForm {
+    border: 1px solid #bfbfbf;
+    /*width: 90%;*/
+}
+
+.OperateForm td.Title, .OperateForm td.Data {
+    border: 1px solid #bfbfbf;
+}
+
+/*table.print-view-grid {width: 100%;}*/
+table.print-view-grid, table.print-view-grid td, table.print-view-grid th {
+
+    border: 1px solid #a8b1c5;
+    table-layout: fixed;
+    border-collapse: collapse;
+    padding: 3px;
+}
+
+table.print-view-grid th {
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+    font-size: 13px;
+    border-bottom: 1px double #a8b1c5;
+}
+body.black table.print-view-grid th {
+    border-color:#fff;
+}
+
+table.print-view-grid td {
+    /*border-bottom: 1px solid #a8b1c5;*/
+}
+
+TR.GroupCaption TD {
+    border-bottom: none;
+    background: none;
+    font-size: 14px;
+}
+TR.GroupCaption TD img {
+ 	display: none;
+}
+tr.GroupCaption2{
+    display: none;
+}
+
+#right-tool{
+    display: none;
+}
+
+div.header{text-align:center;font-size: 25px;padding:10px;font-weight: bold;}
+
+@media screen {
+body.preview {
+    background: #ccc;
+   	margin:0;padding:0;
+}
+body.preview  #right-tool {position:fixed;right:30px;top:15px;display: block;width:24px;cursor:pointer;}
+* html,* html body.preview  /* 修正IE6振动bug */{background-image:url(about:blank);background-attachment:fixed;}
+* html body.preview  #right-tool{
+    display: block;
+    position: absolute;
+    right: 10px;
+    /*top: expression(((document.documentElement.scrollTop+10)||0)+'px');*/
+}
+body.preview #workBody{
+    padding:30px;
+    background: #fff;
+    box-shadow: 3px 3px 3px 2px #888888;
+    /*outline:#888 ridge;*/
+    margin:30px ;
+    margin-left:90px;
+    margin-right:90px;
+}
+
+body.preview  #closeModalBtn {
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    background: #3a3a3b url(images/exit.png) no-repeat 50% 50%;
+}
+body.preview  #closeModalBtn:hover{
+    background-color: #0400c6;
+}
+
+
+body.black {
+    background: #000;
+    color:#ccc;
+}
+
+body.black tr.GroupCaption td,
+body.black td.Title, body.black td.Data, body.black * {
+    color: #fff !important;
+}
+body.black .OperateForm,body.black .OperateForm tr,body.black .OperateForm td{
+    border-color: #fff;
+}
+body.black #workBody{
+    border:1px solid #fff;
+    background-color: #000;
+}
+body.black{
+    border-color: #bfbfbf;
+}
+
+body.preview #controls{display: block;}
+body.preview #controls {
+    position: fixed;
+    bottom: 0;
+    width: 242px;
+    left: 47%;
+    margin-left: -153px;
+    padding: 7px 0;
+    background-color: #000;
+    border-radius: 12px 12px 0 0;
+    opacity: 0;
+    z-index: 100;
+    box-shadow: 0 0 6px #eee;
+    -webkit-box-shadow: 0 0 6px #eee;
+    -ms-box-shadow: 0 0 6px #eee;
+    -moz-box-shadow: 0 0 6px #eee;
+    -o-box-shadow: 0 0 6px #eee;
+    -webkit-transition: opacity 1.25s;
+    -ms-transition: opacity 1.25s;
+    -moz-transition: opacity 1.25s;
+    transition: opacity 1.25s;
+
+    filter: "alpha(opacity=0)"; /* IE 8 */
+    filter: alpha(opacity=0);   /* IE 4-7 */
+}
+
+* htmlbody.preview #controls {
+    display: block;
+    position: absolute;
+    left: 50%;
+}
+body.preview #controls.visible {
+    opacity: 1;
+    transition: opacity 1s;
+    -webkit-transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    -ms-transition: opacity 1s;
+    filter: "alpha(opacity=100)"; /* IE 8 */
+    filter: alpha(opacity=100);   /* IE 4-7 */
+}
+
+body.preview #controls div {
+    vertical-align: middle;
+    float: left;
+    margin-right: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+body.preview #controls  div:hover {
+    background: #0066cc;
+}
+
+
+body.preview #controls  div:active {
+    background: #004891;
+}
+
+
+body.preview #controls div.first-of-type {
+    margin-left: 14px;
+}
+
+
+body.preview #controls  div.last-of-type {
+    margin-right: 0;
+}
+
+/* 放大,缩小 begin*/
+body.zoom2 h1{
+    font:bold 28px/38px SimSun;
+}
+body.zoom2 h3{
+	font:bold 21px/28px SimSun;
+}
+body.zoom2 h4{
+	font: bold 17px/20px SimSun;
+}
+body.zoom2 ul.main-ul li{
+	font:14px/24px SimSun;
+}
+body.zoom2 .main-remark{
+	font-size:16px;
+}
+body.zoom2 td{
+	font-size:14px;
+}
+
+body.zoom3 h1{
+    font:bold 30px/40px SimSun;
+}
+body.zoom3 h3{
+	font:bold 23px/30px SimSun;
+}
+body.zoom3 h4{
+	font: bold 19px/22px SimSun;
+}
+body.zoom3 ul.main-ul li{
+	font:16px/26px SimSun;
+}
+body.zoom3 .main-remark{
+	font-size:18px;
+}
+body.zoom3 td{
+	font-size:16px;
+}
+
+body.zoom4 h1{
+    font:bold 32px/42px SimSun;
+}
+body.zoom4 h3{
+	font:bold 25px/32px SimSun;
+}
+body.zoom4 h4{
+	font: bold 21px/23px SimSun;
+}
+body.zoom4 ul.main-ul li{
+	font:18px/28px SimSun;
+}
+body.zoom4 .main-remark{
+	font-size:20px;
+}
+body.zoom4 td{
+	font-size:18px;
+}
+
+body.zoom5 h1{
+    font:bold 34px/44px SimSun;
+}
+body.zoom5 h3{
+	font:bold 27px/34px SimSun;
+}
+body.zoom5 h4{
+	font: bold 23px/26px SimSun;
+}
+body.zoom5 ul.main-ul li{
+	font:20px/30px SimSun;
+}
+body.zoom5 .main-remark{
+	font-size:22px;
+}
+body.zoom5 td{
+	font-size:20px;
+}
+
+body.zoom6 h1{
+    font:bold 36px/46px SimSun;
+}
+body.zoom6 h3{
+	font:bold 29px/36px SimSun;
+}
+body.zoom6 h4{
+	font: bold 25px/28px SimSun;
+}
+body.zoom6 ul.main-ul li{
+	font:22px/32px SimSun;
+}
+body.zoom6 .main-remark{
+	font-size:24px;
+}
+body.zoom6 td{
+	font-size:22px;
+}
+
+body.zoom7 h1{
+    font:bold 38px/48px SimSun;
+}
+body.zoom7 h3{
+	font:bold 31px/38px SimSun;
+}
+body.zoom7 h4{
+	font: bold 27px/30px SimSun;
+}
+body.zoom7 ul.main-ul li{
+	font:24px/34px SimSun;
+}
+body.zoom7 .main-remark{
+	font-size:26px;
+}
+body.zoom7 td{
+	font-size:24px;
+}
+}
+/* 放大,缩小 end*/
+.approve-box,.communication {
+    border: 0 !important;
+}
+
+.communication .comminfo {
+    background: none !important;
+}
+
+.approve-box .approve-title-bar {
+    background: none !important;
+    border-bottom: 1px solid;
+}
+
+table.approve-title-bg {
+    border: none !important;
+    background: none !important;
+    margin: 0 !important;
+}
+
+.approve-summary {
+    background: none !important;
+}
+
+.communication .respinfo, .communication  .comminfo {
+    border: 0 !important;
+}
+
+.communication .comminfo .title,
+.communication .comminfo .respinfo {
+    background: none !important;
+    border-bottom: 1px solid !important;
+}
+
+.approve-box .approve-title-bar{
+    background: none!important;
+}
+.communication    .respinfo .first-child {
+    display: none !important;
+}
+
+body.pr_print{overflow:hidden;}
+#id_print_waiting_box {
+    border: 1px solid #ccc;
+    position: absolute;
+    background: #fff;
+    top: 0;
+    left: 0;
+    font-size: 30px;
+    margin:0;
+    padding:50%;
+    padding-top:20%;
+    padding-left:20%;
+}
+
+@media print {
+    #controls, #id_print_waiting_box {
+        display: none;
+    }
+
+    #workBody, body {
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        border: 0;
+    }
+}
+
+.lb-pr-approve {
+    width: 100% !important;
+}
+
+.lb-pr-approve-caller, .lb-pr-approve-action {
+    width: 60px !important;
+}
+
+.lb-pr-approve-time {
+    width: 120px !important;
+}
+.lb-printable-wccr ol {
+	border: 1px solid #CFCFCF;
+}

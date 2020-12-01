@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="TPIF_WDQXXX_XG" name="TPIF_WDQXXX_XG" object="TPIF_WDQXXX" type="0" version="" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>文档权限信息-修改对象流程</describe>
+  <variables />
+  <sequence id="0">
+    <describe />
+    <invoke component="FormOperate" id="0" name="修改" operation="update">
+      <describe>对象[文档权限信息]:修改</describe>
+      <arg name="@objectName">TPIF_WDQXXX</arg>
+      <arg name="@object" type="variable">O_MASTER</arg>
+      <arg flag="field" name="LWBM" type="expression">O_PARAMETER.LWBM</arg>
+      <arg flag="field" name="LWJS" type="expression">O_PARAMETER.LWJS</arg>
+      <arg flag="field" name="LWRY" type="expression">O_PARAMETER.LWRY</arg>
+      <arg flag="field" name="SZRQ" type="expression">O_PARAMETER.SZRQ</arg>
+    </invoke>
+    <response exit="false" id="0">
+      <describe>输出</describe>
+      <retvalue>199</retvalue>
+      <message>执行修改成功</message>
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
+  </sequence>
+</process>
+

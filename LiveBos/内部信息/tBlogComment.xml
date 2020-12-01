@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="GB2312"?>
+<object name="tBlogComment" type="0" object-id="e0bf839afbcb8c7c4dc27b5e315b41a5" version="V1.1" modify-date="2009.12.15 17:37:07" create-date="2007.11.20 09:00:00" creator="livebos" modifier="开发者1" flag="1" package="内部信息">
+  <describe>我要评论</describe>
+  <comment />
+  <datasource-name />
+  <parent />
+  <parent-method />
+  <attribute>66562</attribute>
+  <templet>NewsComment</templet>
+  <columns>
+    <column>
+      <name>ID</name>
+      <describe>ID</describe>
+      <comment />
+      <type>1</type>
+      <length>12</length>
+      <scale>0</scale>
+      <control>0</control>
+      <primary-property>2</primary-property>
+      <nullable>false</nullable>
+      <unique>false</unique>
+      <enabled>true</enabled>
+      <visible>true</visible>
+      <option />
+      <meta-column />
+      <ref-object />
+      <default />
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <invisible-expression />
+      <disable-expression />
+      <category />
+      <fire-event>0</fire-event>
+      <check-type>0</check-type>
+      <validation />
+      <constraint />
+      <scope-permissions />
+    </column>
+    <column>
+      <name>UID</name>
+      <describe>发言人</describe>
+      <comment />
+      <type>6</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>2</control>
+      <primary-property>0</primary-property>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <enabled>true</enabled>
+      <visible>true</visible>
+      <option />
+      <meta-column />
+      <ref-object>tUser</ref-object>
+      <default />
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <invisible-expression />
+      <disable-expression />
+      <category />
+      <fire-event>0</fire-event>
+      <check-type>0</check-type>
+      <validation />
+      <constraint />
+      <scope-permissions />
+    </column>
+    <column>
+      <name>Comment</name>
+      <describe>评论</describe>
+      <comment />
+      <type>0</type>
+      <length>4000</length>
+      <scale>0</scale>
+      <control>7</control>
+      <primary-property>0</primary-property>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <enabled>true</enabled>
+      <visible>true</visible>
+      <option />
+      <meta-column />
+      <ref-object />
+      <default />
+      <real-type>0</real-type>
+      <attribute>3</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <invisible-expression />
+      <disable-expression />
+      <category />
+      <fire-event>0</fire-event>
+      <check-type>0</check-type>
+      <validation />
+      <constraint />
+      <scope-permissions />
+    </column>
+    <column>
+      <name>BlogID</name>
+      <describe>对象</describe>
+      <comment />
+      <type>6</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>0</control>
+      <primary-property>0</primary-property>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <enabled>true</enabled>
+      <visible>true</visible>
+      <option />
+      <meta-column />
+      <ref-object>tBlog</ref-object>
+      <default />
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <invisible-expression />
+      <disable-expression />
+      <category />
+      <fire-event>0</fire-event>
+      <check-type>0</check-type>
+      <validation />
+      <constraint />
+      <scope-permissions />
+    </column>
+    <column>
+      <name>CommentTime</name>
+      <describe>时间</describe>
+      <comment />
+      <type>3</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>3</control>
+      <primary-property>0</primary-property>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <enabled>true</enabled>
+      <visible>true</visible>
+      <option />
+      <meta-column />
+      <ref-object />
+      <default />
+      <real-type>0</real-type>
+      <attribute>4</attribute>
+      <order-direction>1</order-direction>
+      <expression />
+      <invisible-expression />
+      <disable-expression />
+      <category />
+      <fire-event>0</fire-event>
+      <check-type>0</check-type>
+      <validation />
+      <constraint />
+      <scope-permissions />
+    </column>
+  </columns>
+  <display-options>
+    <commands>
+      <command type="2">
+        <describe>查看</describe>
+        <define>
+          <item>tBlogComment</item>
+          <item>View</item>
+        </define>
+        <produce-mark />
+        <is-default>0</is-default>
+        <attribute>0</attribute>
+      </command>
+      <command type="2">
+        <describe>新增</describe>
+        <define>
+          <item>tBlogComment</item>
+          <item>Add</item>
+        </define>
+        <produce-mark />
+        <is-default>0</is-default>
+        <attribute>0</attribute>
+      </command>
+      <command type="2">
+        <describe>删除</describe>
+        <define>
+          <item>tBlogComment</item>
+          <item>Delete</item>
+        </define>
+        <produce-mark />
+        <is-default>0</is-default>
+        <attribute>0</attribute>
+      </command>
+      <command type="2">
+        <describe>修改</describe>
+        <define>
+          <item>tBlogComment</item>
+          <item>Update</item>
+        </define>
+        <produce-mark />
+        <is-default>0</is-default>
+        <attribute>0</attribute>
+      </command>
+      <command type="2">
+        <describe>打印</describe>
+        <define>
+          <item>tBlogComment</item>
+          <item>Print</item>
+        </define>
+        <produce-mark />
+        <is-default>0</is-default>
+        <attribute>0</attribute>
+      </command>
+      <command type="2">
+        <describe>导入</describe>
+        <define>
+          <item>tBlogComment</item>
+          <item>LoadExcel</item>
+        </define>
+        <produce-mark />
+        <is-default>0</is-default>
+        <attribute>0</attribute>
+      </command>
+      <command type="2">
+        <describe>统计</describe>
+        <define>
+          <item>tBlogComment</item>
+          <item>Compute</item>
+        </define>
+        <produce-mark />
+        <is-default>0</is-default>
+        <attribute>0</attribute>
+      </command>
+      <command type="2">
+        <describe>导出</describe>
+        <define>
+          <item>tBlogComment</item>
+          <item>ToExcel</item>
+        </define>
+        <produce-mark />
+        <is-default>0</is-default>
+        <attribute>0</attribute>
+      </command>
+    </commands>
+    <relations />
+  </display-options>
+  <subdivisions />
+  <methods />
+  <properties>
+    <property>
+      <name>112</name>
+      <value>false</value>
+    </property>
+    <property>
+      <name>113</name>
+      <value>false</value>
+    </property>
+  </properties>
+  <ui-logics>
+    <events />
+  </ui-logics>
+</object>
+

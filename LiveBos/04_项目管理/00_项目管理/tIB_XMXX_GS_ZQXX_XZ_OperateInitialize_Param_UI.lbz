@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_XMXX_GS_ZQXX_XZ" name="tIB_XMXX_GS_ZQXX_XZ_OperateInitialize_Param_UI" object="tIB_XMXX_GS_ZQXX" type="2" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>界面初始化界面事件</describe>
+  <variables />
+  <sequence id="0" name="顺序">
+    <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+      <describe>界面处理_更新值</describe>
+      <arg flag="field" name="ZQFZR" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE("SELECT (CASE WHEN TYPE = 4 THEN YG ELSE FYG END) FROM ECIF.TIB_GDSYZBRYJG WHERE YG = ?",[$Login.User])</arg>
+    </invoke>
+    <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+      <describe>重置回售日期排序</describe>
+      <arg name="TranType">sql</arg>
+      <arg name="SQL">["begin\nMERGE INTO JGCRM.TCUSTOMSERIAL A\nUSING (SELECT 'tIB_XMXX_GS_ZQXX_HSRQ.PX.null' NAME FROM DUAL) B\nON (A.NAME = B.NAME)\nWHEN MATCHED THEN UPDATE SET A.ID = 1;\nend;",[]]</arg>
+    </invoke>
+  </sequence>
+</process>
+

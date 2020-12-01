@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_RCYWBLLCB_FJ_FJLX_UI" object="lcIB_RCYWBLLCB_FJ" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>附件类型界面事件</describe>
+  <variables />
+  <sequence id="0" name="顺序">
+    <invoke component="FormUI" id="0" name="界面处理_刷新字段可选项" operation="resetOption">
+      <describe>界面处理_刷新字段可选项</describe>
+      <arg flag="field" name="FJLX" type="">true</arg>
+    </invoke>
+    <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+      <describe>界面处理_更新值</describe>
+      <arg flag="field" name="SFYY" type="expression">ABS_SQLVALUE("SELECT SFYY FROM ECIF.TIB_WDLXPZ WHERE ID = ?",[O_MASTER.FJLX])</arg>
+    </invoke>
+  </sequence>
+</process>
+

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="TJG_XTYYZD_MX_XZ" name="TJG_XTYYZD_MX_XZ" object="TJG_XTYYZD_MX" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>应用字典明细-新增流程</describe>
+  <variables>
+    <variable describe="V_Ret" messageType="" name="V_Ret" type="int" />
+    <variable describe="V_Msg" messageType="" name="V_Msg" type="string" />
+  </variables>
+  <restriction id="0">
+    <sequence id="0" name="顺序">
+      <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+        <describe>业务校验</describe>
+        <arg name="TranType">procedure</arg>
+        <arg name="datasource">ECIF</arg>
+        <arg name="ret" type="output">V_Ret</arg>
+        <arg name="msg" type="output">V_Msg</arg>
+        <arg name="SQL">["call PRO_JG_XTYYZD_MX(:ret,:msg,{0},{1},0,{2},{3},{4},{5},{6})",[{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"'[check]'","scale":"","length":"","type":"0"},{"expression":"O_MASTER.FLDM","scale":"","length":"","type":"0"},{"expression":"O_MASTER.IBM","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.IBM","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.CBM","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.NOTE","scale":"","length":"","type":"0"}]]</arg>
+      </invoke>
+      <response exit="false" id="0">
+        <describe>输出</describe>
+        <retvalue type="variable">V_Ret</retvalue>
+        <message type="variable">V_Msg</message>
+        <uiforward redirect="false">
+          <url />
+        </uiforward>
+      </response>
+    </sequence>
+  </restriction>
+  <sequence id="0" name="顺序">
+    <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+      <describe>业务处理</describe>
+      <arg name="TranType">procedure</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="ret" type="output">V_Ret</arg>
+      <arg name="msg" type="output">V_Msg</arg>
+      <arg name="SQL">["call PRO_JG_XTYYZD_MX(:ret,:msg,{0},{1},0,{2},{3},{4},{5},{6})",[{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"$Login.IP","scale":"","length":"","type":"0"},{"expression":"O_MASTER.FLDM","scale":"","length":"","type":"0"},{"expression":"O_MASTER.IBM","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.IBM","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.CBM","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.NOTE","scale":"","length":"","type":"0"}]]</arg>
+    </invoke>
+    <response exit="false" id="0">
+      <describe>输出</describe>
+      <retvalue type="variable">V_Ret</retvalue>
+      <message type="variable">V_Msg</message>
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
+  </sequence>
+</process>
+

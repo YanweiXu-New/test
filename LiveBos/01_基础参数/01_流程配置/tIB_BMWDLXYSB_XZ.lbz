@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_BMWDLXYSB_XZ" name="tIB_BMWDLXYSB_XZ" object="tIB_BMWDLXYSB" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>部门文档类型映射表-新增流程</describe>
+  <variables />
+  <invoke component="FormOperate" id="0" name="对象组件_新增" operation="insert">
+    <describe>新增对象[部门文档类型映射表]</describe>
+    <arg name="@objectName">tIB_BMWDLXYSB</arg>
+    <arg flag="field" name="BM" type="expression">O_PARAMETER.BM2</arg>
+    <arg flag="field" name="XGSJ" type="expression">$DateTime.Now</arg>
+    <arg flag="field" name="LCBD" type="expression">O_PARAMETER.LCBD</arg>
+  </invoke>
+</process>
+

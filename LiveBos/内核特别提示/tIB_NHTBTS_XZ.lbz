@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_NHTBTS_XZ" name="tIB_NHTBTS_XZ" object="tIB_NHTBTS" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>内核特别提示-新增流程</describe>
+  <variables />
+  <sequence id="0">
+    <if id="0">
+      <describe>判断</describe>
+      <conditions>
+        <condition name="" type="expression">
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+O_PARAMETER.XMMC2==null||O_PARAMETER.XMMC2==''||O_PARAMETER.XMMC2==""</arg>
+        </condition>
+      </conditions>
+      <response exit="false" id="0">
+        <describe>输出</describe>
+        <retvalue>-1</retvalue>
+        <message type="expression">if(O_PARAMETER.YWLX2==3)
+"债券不存在！";
+else
+"项目不存在！";</message>
+        <uiforward redirect="false">
+          <url />
+        </uiforward>
+      </response>
+      <else>
+        <describe>Else</describe>
+        <invoke component="FormOperate" id="0" operation="insert">
+          <describe>新增对象[内核特别提示]</describe>
+          <meta name="FUNCTION">true</meta>
+          <arg name="@objectName">tIB_NHTBTS</arg>
+          <arg flag="field" name="XMID" type="expression">O_PARAMETER.XMID2</arg>
+          <arg flag="field" name="YWLX" type="expression">O_PARAMETER.YWLX2</arg>
+          <arg flag="field" name="XMMC" type="expression">O_PARAMETER.XMMC2</arg>
+          <arg flag="field" name="CNSX" type="expression">O_PARAMETER.CNSX2</arg>
+          <arg flag="field" name="CJSJ" type="expression">O_PARAMETER.CJSJ2</arg>
+          <arg flag="field" name="CJR" type="expression">O_PARAMETER.CJR2</arg>
+          <arg flag="field" name="SFXS" type="expression">1</arg>
+          <arg flag="field" name="Tablename" type="expression">O_PARAMETER.Tablename2</arg>
+        </invoke>
+      </else>
+    </if>
+  </sequence>
+</process>
+

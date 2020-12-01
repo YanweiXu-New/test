@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="8" exitOnStandardFault="false" isHorizontalLayout="false" method="vIBLCNHZYZSPZBQYL_XZ" name="vIBLCNHZYZSPZBQYL_XZ" object="vIBLCNHZYZSPZBQYL" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>流程内核专员主审配置表_权益类-新增流程</describe>
+  <variables />
+  <invoke component="FormOperate" id="0" operation="insert">
+    <describe>新增对象[流程内核专员主审配置表]</describe>
+    <meta name="FUNCTION">true</meta>
+    <arg name="@objectName">tIB_LCNHZYZSPZB</arg>
+    <arg flag="field" name="YWLX" type="expression">O_PARAMETER.YWLX2</arg>
+    <arg flag="field" name="LCDM" type="expression">O_PARAMETER.LCDM2</arg>
+    <arg flag="field" name="LCMC" type="expression">O_PARAMETER.LCMC2</arg>
+    <arg flag="field" name="NHBZS" type="expression">O_PARAMETER.NHBZS2</arg>
+    <arg flag="field" name="QYZT" type="expression">O_PARAMETER.QYZT2</arg>
+  </invoke>
+</process>
+

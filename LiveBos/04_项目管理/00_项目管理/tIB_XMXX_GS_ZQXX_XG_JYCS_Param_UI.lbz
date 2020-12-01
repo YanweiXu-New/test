@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_XMXX_GS_ZQXX_XG" name="tIB_XMXX_GS_ZQXX_XG_JYCS_Param_UI" object="tIB_XMXX_GS_ZQXX" type="2" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>交易市场界面事件</describe>
+  <variables />
+  <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+    <describe>界面处理_更新值</describe>
+    <arg flag="field" name="QTJYSC" type="expression">ABS_IF(JYCS.indexOf('99')&lt;0,null,O_PARAMETER.QTJYSC)</arg>
+    <arg flag="field" name="ZQJC" type="expression">ABS_IF(JYCS.indexOf('1')&lt;0,null,O_PARAMETER.ZQJC)</arg>
+    <arg flag="field" name="ZQDM" type="expression">ABS_IF(JYCS.indexOf('1')&lt;0,null,O_PARAMETER.ZQDM)</arg>
+    <arg flag="field" name="ZQJC_SJS" type="expression">ABS_IF(JYCS.indexOf('2')&lt;0,null,O_PARAMETER.ZQJC_SJS)</arg>
+    <arg flag="field" name="ZQDM_SJS" type="expression">ABS_IF(JYCS.indexOf('2')&lt;0,null,O_PARAMETER.ZQDM_SJS)</arg>
+    <arg flag="field" name="ZQJC_YHJ" type="expression">ABS_IF(JYCS.indexOf('3')&lt;0,null,O_PARAMETER.ZQJC_YHJ)</arg>
+    <arg flag="field" name="ZQDM_YHJ" type="expression">ABS_IF(JYCS.indexOf('3')&lt;0,null,O_PARAMETER.ZQDM_YHJ)</arg>
+    <arg flag="field" name="ZQJC_QT" type="expression">ABS_IF(JYCS.indexOf('99')&lt;0,null,O_PARAMETER.ZQJC_QT)</arg>
+    <arg flag="field" name="ZQDM_QT" type="expression">ABS_IF(JYCS.indexOf('99')&lt;0,null,O_PARAMETER.ZQDM_QT)</arg>
+    <arg flag="field" name="SSSJ" type="expression">ABS_IF(JYCS.indexOf('1')&lt;0,null,O_PARAMETER.SSSJ)</arg>
+    <arg flag="field" name="SSSJ_SJS" type="expression">ABS_IF(JYCS.indexOf('2')&lt;0,null,O_PARAMETER.SSSJ_SJS)</arg>
+    <arg flag="field" name="SSSJ_YHJ" type="expression">ABS_IF(JYCS.indexOf('3')&lt;0,null,O_PARAMETER.SSSJ_YHJ)</arg>
+    <arg flag="field" name="SSSJ_QT" type="expression">ABS_IF(JYCS.indexOf('99')&lt;0,null,O_PARAMETER.SSSJ_QT)</arg>
+  </invoke>
+</process>
+

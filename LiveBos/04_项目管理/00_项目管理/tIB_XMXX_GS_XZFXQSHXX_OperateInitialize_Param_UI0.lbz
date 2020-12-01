@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_XMXX_GS_XZFXQSHXX" name="tIB_XMXX_GS_XZFXQSHXX_OperateInitialize_Param_UI0" object="tIB_XMXX_GS" type="2" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>新增发行前项目界面初始化界面事件</describe>
+  <variables />
+  <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+    <describe>界面处理_更新值</describe>
+    <arg flag="field" name="TDFZR" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE("SELECT (CASE WHEN TYPE = 4 THEN YG ELSE FYG END) FROM ECIF.TIB_GDSYZBRYJG WHERE YG = ?",[$Login.User])</arg>
+    <arg flag="field" name="TDZKZY" type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+var  count =ABS_SQLVALUE("SELECT count(1) FROM jgcrm.lborganization t1 where id=? start with t1.id=10016 connect by prior t1.id= t1.fid",[$Login.User.OrgID]);&#xD;
+var tdzkzy='';&#xD;
+if(count&gt;=1){&#xD;
+tdzkzy=ABS_SQLVALUE("select TDZKZY from ECIF.tIB_GDSYZBRYJG where type=4 start with yg=? connect by prior fid=id",[$Login.User]);&#xD;
+}&#xD;
+tdzkzy;</arg>
+    <arg flag="field" name="GSSHG" type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+var  count =ABS_SQLVALUE("SELECT count(1) FROM jgcrm.lborganization t1 where id=? start with t1.id=10016 connect by prior t1.id= t1.fid",[$Login.User.OrgID]);&#xD;
+var gsshg='';&#xD;
+if (count&gt;=1){&#xD;
+ gsshg= ABS_SQLVALUE("select ZHBSHG from ECIF.tIB_GDSYZBRYJG where type=4 start with yg=? connect by prior fid=id",[$Login.User]);&#xD;
+}&#xD;
+gsshg;</arg>
+    <arg flag="field" name="BMZKZY" type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+ABS_SQLVALUE("select ZKZY from ecif.tIB_ZKZYWH where YWBM=? and ? not in (SELECT id FROM jgcrm.lborganization t1 where 1=1 start with t1.id=10016 connect by prior t1.id= t1.fid)",[$Login.User.OrgID,$Login.User.OrgID]);</arg>
+  </invoke>
+</process>
+

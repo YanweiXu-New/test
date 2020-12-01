@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="TJG_QJZB_XG" name="TJG_QJZB_XG" object="TJG_QJZB" type="0" version="" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>区间指标-修改</describe>
+  <variables>
+    <variable describe="V_Ret" name="V_Ret" type="int" />
+    <variable describe="V_Msg" name="V_Msg" type="string" />
+  </variables>
+  <sequence id="0">
+    <describe />
+    <invoke component="FormOperate" id="0" name="修改" operation="update">
+      <describe>修改</describe>
+      <arg flag="field" name="ZHXGIP" type="expression">$Login.IP</arg>
+      <arg flag="field" name="ZHXGSJ" type="expression">$DateTime.Now</arg>
+      <arg flag="field" name="ZHXGR" type="expression">$Login.User</arg>
+      <arg flag="field" name="BZ" type="expression">O_PARAMETER.BZ</arg>
+      <arg flag="field" name="ZBLB" type="expression">O_PARAMETER.ZBLB</arg>
+      <arg flag="field" name="ZBMC" type="expression">O_PARAMETER.ZBMC</arg>
+      <arg flag="field" name="ZBDM" type="expression">O_PARAMETER.ZBDM</arg>
+      <arg name="@objectName">TJG_QJZB</arg>
+      <arg name="@object" type="variable">O_MASTER</arg>
+    </invoke>
+    <invoke component="SQL" id="0" name="执行SQL语句" operation="execute">
+      <describe>业务处理</describe>
+      <arg name="SQL">["CALL PRO_JG_QJZB(:ret,:msg,{0},{1},1,{2})",[{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"$Login.IP","scale":"","length":"","type":"0"},{"expression":"O_MASTER.ID","scale":"","length":"","type":"1"}]]</arg>
+      <arg name="TranType">procedure</arg>
+      <arg name="ret" type="output">V_Ret</arg>
+      <arg name="msg" type="output">V_Msg</arg>
+      <arg name="datasource">ECIF</arg>
+    </invoke>
+    <response exit="false" id="0">
+      <describe>输出</describe>
+      <retvalue type="variable">V_Ret</retvalue>
+      <message type="variable">V_Msg</message>
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
+  </sequence>
+</process>
+

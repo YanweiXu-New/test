@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_OS_WFENTRY_ZZ" name="tIB_OS_WFENTRY_ZZ" object="tIB_OS_WFENTRY" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>系统已发起流程-终止流程流程</describe>
+  <variables />
+  <restriction id="0">
+    <if id="0">
+      <describe>判断</describe>
+      <conditions>
+        <condition name="" type="expression">
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE("SELECT COUNT(1) FROM jgcrm.TSYSPARAM WHERE PARAMNAME = 'sys.workflow.terminate' AND PARAMVALUE = 'ADMIN'") ==0</arg>
+        </condition>
+      </conditions>
+      <response exit="true" id="0">
+        <describe>输出</describe>
+        <retvalue>-1</retvalue>
+        <message>系统设置当前功能未开启!</message>
+        <uiforward redirect="false">
+          <url />
+        </uiforward>
+      </response>
+    </if>
+  </restriction>
+  <sequence id="0" name="顺序">
+    <if id="0">
+      <describe>判断</describe>
+      <conditions>
+        <condition name="" type="expression">
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+var s1='ADMIN'+ABS_DATESTRING(ABS_TODAY(),"yyyyMMdd");&#xD;
+O_PARAMETER.YZM!=s1</arg>
+        </condition>
+      </conditions>
+      <response exit="true" id="0">
+        <describe>输出</describe>
+        <retvalue>-1</retvalue>
+        <message>您输入的验证码不正确!</message>
+        <uiforward redirect="false">
+          <url />
+        </uiforward>
+      </response>
+    </if>
+    <invoke component="expression" id="0" name="执行脚本">
+      <describe>执行脚本</describe>
+      <arg name="expression">LB_killWork(O_MASTER.ID, O_PARAMETER.ZZYH)</arg>
+    </invoke>
+  </sequence>
+</process>
+

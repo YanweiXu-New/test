@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_WorkFlow_RefreshStep" name="tIB_WorkFlow_RefreshStep" object="tIB_WorkFlow" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>工作流系统-刷新步骤流程</describe>
+  <variables />
+  <restriction id="0">
+    <invoke component="ExpValidator" id="0">
+      <describe>启动异常1</describe>
+      <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+O_MASTER.WF_NAME==''</arg>
+      <arg name="assertType">false</arg>
+      <arg name="message" type="expression">"请选择正确的工作流!"</arg>
+    </invoke>
+  </restriction>
+  <sequence id="0">
+    <invoke component="SQL" id="0" name="执行SQL语句" operation="execute">
+      <describe>执行SQL语句</describe>
+      <meta name="FUNCTION">true</meta>
+      <arg name="TranType">sql</arg>
+      <arg name="SQL">["CALL ECIF.pro_IB_RefreshWorkFlowStep (?,?,{0})",[{"expression":"O_MASTER.WF_NAME","scale":"","length":"","type":"0"}]]</arg>
+      <arg name="@autoExit">false</arg>
+    </invoke>
+  </sequence>
+</process>
+

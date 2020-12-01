@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="GB2312" standalone="no"?>
+<dynOwner flag="0" name="DW_HGTDFZR" type="106">
+    <describe>合规团队负责人</describe>
+    <sql>{"statement":"tUser.ID in (select userid from lbmember where roleid in (SELECT id FROM JGCRM.LBROLE WHERE\r\nROLECODE = 'JG_GLPT_HGTDFZR') and orgid in(10015,13833,13832) and rownum =1)","args":[],"type":0}</sql>
+    <parameters/>
+</dynOwner>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="2" exitOnStandardFault="false" isHorizontalLayout="false" method="TPIF_CPWDK_SZYX" name="TPIF_CPWDK_SZYX" object="TPIF_CPWDK" type="0" version="" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>产品文档库-设置有效对象流程</describe>
+  <variables>
+    <variable describe="V_RET" name="V_RET" type="int" />
+    <variable describe="V_MSG" name="V_MSG" type="string" />
+  </variables>
+  <sequence id="0">
+    <describe />
+    <invoke component="SQL" id="0" name="执行SQL语句" operation="execute">
+      <describe>设置记录无效</describe>
+      <arg name="TranType">sql</arg>
+      <arg name="SQL">["UPDATE PIF.TPIF_CPWDK SET SFYX = 0 WHERE SFYX = 1 AND BM = {0}",[{"expression":"O_PARAMETER.BM","scale":"","length":"","type":"1"}]]</arg>
+      <arg name="datasource">PIF</arg>
+    </invoke>
+    <invoke component="SQL" id="0" name="执行SQL语句" operation="execute">
+      <describe>记录操作日志_设置无效</describe>
+      <arg name="TranType">procedure</arg>
+      <arg name="datasource">PIF</arg>
+      <arg name="ret" type="output">V_RET</arg>
+      <arg name="msg" type="output">V_MSG</arg>
+      <arg name="SQL">["CALL PRO_PIF_CPWDK_CZRZDJ(:ret,:msg,{0},{1},3,{2})",[{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"$Login.IP","scale":"","length":"","type":"0"},{"expression":"&lt;%@ livebos language='javascript' %&gt;\nABS_SQLVALUE(\"SELECT ID FROM PIF.TPIF_CPWDK WHERE SFYX=1 AND BM=\"+O_PARAMETER.BM)","scale":"","length":"","type":"1"}]]</arg>
+    </invoke>
+    <response exit="false" id="0">
+      <describe>输出</describe>
+      <retvalue type="variable">V_RET</retvalue>
+      <message type="variable">V_MSG</message>
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
+    <invoke component="SQL" id="0" name="执行SQL语句" operation="execute">
+      <describe>设置记录有效</describe>
+      <arg name="TranType">sql</arg>
+      <arg name="datasource">PIF</arg>
+      <arg name="SQL">["UPDATE PIF.TPIF_CPWDK SET SFYX = 1 WHERE BM = {1} AND ID = {0}",[{"expression":"O_MASTER.ID","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.BM","scale":"","length":"","type":"1"}]]</arg>
+    </invoke>
+    <invoke component="SQL" id="0" name="执行SQL语句" operation="execute">
+      <describe>记录操作日志_设置有效</describe>
+      <arg name="TranType">procedure</arg>
+      <arg name="datasource">PIF</arg>
+      <arg name="ret" type="output">V_RET</arg>
+      <arg name="msg" type="output">V_MSG</arg>
+      <arg name="SQL">["CALL PRO_PIF_CPWDK_CZRZDJ(:ret,:msg,{0},{1},3,{2})",[{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"$Login.IP","scale":"","length":"","type":"0"},{"expression":"O_MASTER.ID","scale":"","length":"","type":"1"}]]</arg>
+    </invoke>
+  </sequence>
+</process>
+

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="gb2312"?>
+<object name="tIB_ZBWHZT" type="0" object-id="3147ddcb-99a9-4d65-b5e3-4625101415e1" version="1.0" modify-date="null" create-date="2017.08.26 13:52:08" modifier="null" creator="杨智勇" package="06_业务管理.[02]_周报" flag="0">
+  <describe>周报维护状态</describe>
+  <comment />
+  <parent />
+  <attribute>264</attribute>
+  <templet>默认</templet>
+  <datasource-name>ECIF</datasource-name>
+  <columns>
+    <column>
+      <name>ID</name>
+      <describe>ID</describe>
+      <comment />
+      <biz-type>200</biz-type>
+      <type>1</type>
+      <length>16</length>
+      <scale>0</scale>
+      <control>0</control>
+      <primary-property>2</primary-property>
+      <option />
+      <ref-object />
+      <default />
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category />
+      <fire-event>0</fire-event>
+      <visible>false</visible>
+      <enabled>false</enabled>
+      <nullable>false</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+    <column>
+      <name>ZC</name>
+      <describe>周次</describe>
+      <comment />
+      <biz-type>500</biz-type>
+      <type>6</type>
+      <length>16</length>
+      <scale>0</scale>
+      <control>10</control>
+      <primary-property>0</primary-property>
+      <option />
+      <ref-object>tIB_RQ</ref-object>
+      <default />
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category />
+      <fire-event>0</fire-event>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="3">
+        <SQL>["type= 0",[]]</SQL>
+        <refColumns />
+      </constraint>
+    </column>
+    <column>
+      <name>NFWH</name>
+      <describe>能否维护</describe>
+      <comment />
+      <biz-type>400</biz-type>
+      <type>7</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>5</control>
+      <primary-property>0</primary-property>
+      <option>1|能;2|否</option>
+      <ref-object />
+      <default>2</default>
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category />
+      <fire-event>0</fire-event>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+  </columns>
+  <display-options>
+    <relations />
+    <commands>
+      <command type="2">
+        <describe>新增</describe>
+        <define>
+          <item>tIB_ZBWHZT</item>
+          <item>Add</item>
+        </define>
+        <is-default>2</is-default>
+        <attribute>0</attribute>
+        <icon-cls />
+        <tip />
+      </command>
+      <command type="2">
+        <describe>删除</describe>
+        <define>
+          <item>tIB_ZBWHZT</item>
+          <item>Delete</item>
+        </define>
+        <is-default>2</is-default>
+        <attribute>0</attribute>
+        <icon-cls />
+        <tip />
+      </command>
+      <command type="2">
+        <describe>修改</describe>
+        <define>
+          <item>tIB_ZBWHZT</item>
+          <item>Update</item>
+        </define>
+        <is-default>2</is-default>
+        <attribute>0</attribute>
+        <icon-cls />
+        <tip />
+      </command>
+    </commands>
+  </display-options>
+  <subdivisions />
+  <methods />
+  <services />
+  <properties />
+</object>
+

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="GB2312" standalone="no"?>
+<dynOwner flag="0" name="DW_QY_DEBD" type="106">
+    <describe>权益_第二保代</describe>
+    <sql>{"statement":"tUser.ID IN (SELECT SUBSTR(QZBJDBR,INSTR(QZBJDBR,';')+1) FROM ECIF.TIB_XMXX WHERE ID = :PXMMC) AND tUser.Status = 1","args":[],"type":0}</sql>
+    <parameters>
+        <parameter>
+            <name>PXMMC</name>
+            <describe>项目名称</describe>
+            <comment/>
+            <type>1</type>
+            <length>16</length>
+            <scale>0</scale>
+        </parameter>
+    </parameters>
+</dynOwner>

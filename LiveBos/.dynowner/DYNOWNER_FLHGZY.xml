@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="GB2312" standalone="no"?>
+<dynOwner flag="0" name="DYNOWNER_FLHGZY" type="106">
+    <describe>法律合规专员</describe>
+    <sql>{"statement":"tUser.ID in (select userid from  jgcrm.lbMember where roleid in(select id from jgcrm.lbRole where name like '%法律合规专员%')AND ORGID =:pBM) and tUser.Status = 1","args":[],"type":0}</sql>
+    <parameters>
+        <parameter>
+            <name>pBM</name>
+            <describe>立项部门</describe>
+            <comment/>
+            <type>1</type>
+            <length>10</length>
+            <scale>0</scale>
+        </parameter>
+    </parameters>
+</dynOwner>

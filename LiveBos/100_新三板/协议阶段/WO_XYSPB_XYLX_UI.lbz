@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="WO_XYSPB_XYLX_UI" object="WO_XYSPB" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>协议类型界面事件</describe>
+  <variables />
+  <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
+    <describe>数据库组件_SQL查询</describe>
+    <arg name="TranType">sql</arg>
+    <arg name="datasource">ECIF</arg>
+    <arg name="SQL">["",[]]</arg>
+  </invoke>
+</process>
+

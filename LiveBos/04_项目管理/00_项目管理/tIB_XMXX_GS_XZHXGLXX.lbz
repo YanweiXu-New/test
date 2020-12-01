@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_XMXX_GS_XZHXGLXX" name="tIB_XMXX_GS_XZHXGLXX" object="tIB_XMXX_GS" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目信息_固收-新增后续管理信息流程</describe>
+  <variables>
+    <variable describe="V_RET" messageType="" name="V_RET" type="int" />
+    <variable describe="V_MSG" messageType="" name="V_MSG" type="string" />
+    <variable describe="V_OBJ_GS" instanceType="tIB_XMXX_GS" messageType="" name="V_OBJ_GS" type="object" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <invoke component="FormOperate" id="0" name="对象组件_新增" operation="insert">
+      <describe>新增对象[项目信息_固收]</describe>
+      <arg name="@objectName">tIB_XMXX_GS</arg>
+      <arg flag="field" name="XMMC" type="expression">O_PARAMETER.XMZBID</arg>
+      <arg flag="field" name="SFHX" type="expression">O_PARAMETER.SFHX</arg>
+      <arg flag="field" name="FXRMC" type="expression">O_PARAMETER.FXRMC</arg>
+      <arg flag="field" name="QYXZ" type="expression">O_PARAMETER.QYXZ</arg>
+      <arg flag="field" name="ZXCS" type="expression">O_PARAMETER.ZXCS</arg>
+      <arg flag="field" name="SFSSGS" type="expression">O_PARAMETER.SFSSGS</arg>
+      <arg flag="field" name="JYCS" type="expression">O_PARAMETER.JYCS</arg>
+      <arg flag="field" name="FXRSSZJJ" type="expression">O_PARAMETER.FXRSSZJJ</arg>
+      <arg flag="field" name="KPJD" type="expression">122</arg>
+      <arg flag="field" name="FXFS" type="expression">O_PARAMETER.FXFS</arg>
+      <arg name="@retObject" type="output">V_OBJ_GS</arg>
+      <arg flag="field" name="CJR" type="expression">$Login.User</arg>
+      <arg flag="field" name="CJBM" type="expression">$Login.User.OrgID</arg>
+      <arg flag="field" name="CJSJ" type="expression">$DateTime.Now</arg>
+      <arg flag="field" name="XMMC_RY" type="expression">O_PARAMETER.XMMC_RY</arg>
+      <arg flag="field" name="XMBH" type="expression">O_PARAMETER.XMMC.XMBH</arg>
+      <arg flag="field" name="FXQJDID" type="expression">O_PARAMETER.XMMC</arg>
+      <arg flag="field" name="ZXQK" type="expression">O_PARAMETER.ZXQK</arg>
+      <arg flag="field" name="DBR" type="expression">O_PARAMETER.DBR</arg>
+      <arg flag="field" name="QTJYSC" type="expression">O_PARAMETER.QTJYSC</arg>
+      <arg flag="field" name="WDEJFL" type="expression">O_PARAMETER.WDEJFL</arg>
+      <arg flag="field" name="WSJS" type="expression">O_PARAMETER.XMMC.WSJS</arg>
+      <arg flag="field" name="WSJSSM" type="expression">O_PARAMETER.XMMC.WSJSSM</arg>
+      <arg flag="field" name="SFWKJZ" type="expression">O_PARAMETER.SFWKJZ</arg>
+      <arg flag="field" name="HGQSR" type="expression">O_PARAMETER.HGQSR</arg>
+      <arg flag="field" name="HGJSR" type="expression">O_PARAMETER.HGJSR</arg>
+    </invoke>
+    <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+      <describe>数据处理</describe>
+      <arg name="TranType">procedure</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="ret" type="output">V_RET</arg>
+      <arg name="msg" type="output">V_MSG</arg>
+      <arg name="SQL">["CALL PRO_IB_XMXX_GS(:ret,:msg,{0},{1},1,{2},{3},{4})",[{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"$Login.IP","scale":"","length":"","type":"0"},{"expression":"V_OBJ_GS.ID","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.XMZBID","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.QTCY","scale":"","length":"","type":"0"}]]</arg>
+    </invoke>
+    <response exit="true" id="0">
+      <describe>输出</describe>
+      <retvalue type="variable">V_RET</retvalue>
+      <message type="variable">V_MSG</message>
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
+  </sequence>
+</process>
+

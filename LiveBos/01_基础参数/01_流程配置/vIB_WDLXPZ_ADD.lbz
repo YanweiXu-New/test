@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="8" exitOnStandardFault="false" isHorizontalLayout="false" method="vIB_WDLXPZ_ADD" name="vIB_WDLXPZ_ADD" object="vIB_WDLXPZ" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>流程文档模板-新增流程</describe>
+  <variables>
+    <variable describe="V_OBJ" instanceType="vIB_WDLXPZ" messageType="" name="V_OBJ" type="object" />
+    <variable describe="V_CODE" messageType="" name="V_CODE" type="int" />
+    <variable describe="V_NOTE" messageType="" name="V_NOTE" type="string" />
+    <variable describe="V_CNT1" messageType="" name="V_CNT1" type="int" />
+    <variable describe="V_CNT2" messageType="" name="V_CNT2" type="int" />
+  </variables>
+  <restriction id="0">
+    <sequence id="0">
+      <invoke component="ExpValidator" id="0">
+        <describe>启动限制</describe>
+        <arg name="assertType">false</arg>
+        <arg name="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+var count = ABS_SQLVALUE("select ecif.FUNC_WDLXPZBXG(?,?) from dual",[$Login.User,O_MASTER.parameter.p_WF_NAME]);&#xD;
+var count1 = ABS_SQLVALUE("SELECT COUNT(1) FROM ECIF.TIB_BMWDLXYSB WHERE lcbd =?",[O_MASTER.parameter.p_WF_NAME]);&#xD;
+var yh = $Login.User.ID;&#xD;
+if (count &gt; 0||yh == 0){&#xD;
+   false;&#xD;
+}else{&#xD;
+   true;&#xD;
+}</arg>
+        <arg name="message" type="expression">"抱歉，您没有权限！"</arg>
+      </invoke>
+    </sequence>
+  </restriction>
+  <sequence id="0">
+    <invoke component="FormOperate" id="0" operation="insert">
+      <describe>新增对象[流程文档模板]</describe>
+      <meta name="FUNCTION">true</meta>
+      <arg name="@objectName">vIB_WDLXPZ</arg>
+      <arg flag="field" name="LCBD" type="expression">O_PARAMETER.LCBD</arg>
+      <arg flag="field" name="LCBDM" type="expression">O_PARAMETER.LCBDM</arg>
+      <arg flag="field" name="XMJD" type="expression">O_PARAMETER.XMJD</arg>
+      <arg flag="field" name="XYLX" type="expression">O_PARAMETER.XYLX</arg>
+      <arg flag="field" name="XM360ZS" type="expression">O_PARAMETER.XM360ZS</arg>
+      <arg flag="field" name="WDLXM" type="expression">O_PARAMETER.WDLXM</arg>
+      <arg flag="field" name="TJSX" type="expression">O_PARAMETER.TJSX</arg>
+      <arg flag="field" name="SFBT" type="expression">O_PARAMETER.SFBT</arg>
+      <arg flag="field" name="BZSM" type="expression">O_PARAMETER.BZSM</arg>
+      <arg flag="field" name="XMLX" type="expression">O_PARAMETER.XMLX2</arg>
+      <arg flag="field" name="SFYY" type="expression">O_PARAMETER.SFYY</arg>
+      <arg flag="field" name="XGRY" type="expression">O_PARAMETER.XGRY</arg>
+      <arg name="@retObject" type="output">V_OBJ</arg>
+    </invoke>
+    <response exit="false" id="0" name="response">
+      <describe>输出</describe>
+      <retvalue>1</retvalue>
+      <message>‘新增成功！’</message>
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
+  </sequence>
+</process>
+

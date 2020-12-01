@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="8" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_XMLX_GQL_Update" name="tIB_XMLX_GQL_Update" object="tIB_XMLX_GQL" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>股权类项目类型-修改流程</describe>
+  <variables />
+  <invoke component="FormOperate" id="0" operation="update">
+    <describe>修改对象[股权类项目类型]</describe>
+    <meta name="FUNCTION">true</meta>
+    <arg name="@objectName">tIB_XMLX_GQL</arg>
+    <arg name="@object" type="variable">O_MASTER</arg>
+    <arg flag="field" name="LXMC" type="expression">O_PARAMETER.LXMC</arg>
+    <arg flag="field" name="BZSM" type="expression">O_PARAMETER.BZSM</arg>
+  </invoke>
+</process>
+

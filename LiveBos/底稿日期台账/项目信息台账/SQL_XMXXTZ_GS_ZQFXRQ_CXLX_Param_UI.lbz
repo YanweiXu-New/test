@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="SQL_XMXXTZ_GS_ZQFXRQ_CXLX_Param_UI" object="SQL_XMXXTZ_GS_ZQFXRQ" type="2" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>查询类型界面事件</describe>
+  <variables />
+  <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+    <describe>界面处理_更新值</describe>
+    <arg flag="field" name="XMFL" type="expression">ABS_SQLVALUE("SELECT DECODE(?,1,1,2,2,3,2,4,2,3) FROM DUAL ",[CXLX])</arg>
+    <arg flag="field" name="SSKH" type="expression">null</arg>
+    <arg flag="field" name="XMMC" type="expression">null</arg>
+    <arg flag="field" name="XMMC_XSB" type="expression">null</arg>
+    <arg flag="field" name="XMLX" type="expression">null</arg>
+    <arg flag="field" name="XMJD" type="expression">null</arg>
+    <arg flag="field" name="LXLX" type="expression">null</arg>
+    <arg flag="field" name="QZBJDBR" type="expression">null</arg>
+    <arg flag="field" name="XMFZR" type="expression">null</arg>
+    <arg flag="field" name="SSBM" type="expression">null</arg>
+    <arg flag="field" name="ZKLXZFS" type="expression">null</arg>
+    <arg flag="field" name="CZBM" type="expression">null</arg>
+    <arg flag="field" name="ZKNHZFS" type="expression">null</arg>
+    <arg flag="field" name="ND" type="expression">null</arg>
+    <arg flag="field" name="SFYQ" type="expression">null</arg>
+    <arg flag="field" name="SFYSTG" type="expression">null</arg>
+  </invoke>
+</process>
+

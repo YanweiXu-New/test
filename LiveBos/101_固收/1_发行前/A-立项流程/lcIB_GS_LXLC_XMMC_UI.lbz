@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_GS_LXLC_XMMC_UI" object="lcIB_GS_LXLC" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目名称界面事件</describe>
+  <variables />
+  <sequence id="0" name="顺序">
+    <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+      <describe>界面处理_更新值</describe>
+      <arg flag="field" name="XMLX" type="expression">O_MASTER.XMMC.XMMC.XMLX</arg>
+      <arg flag="field" name="QTXMLX" type="expression">O_MASTER.XMMC.XMMC.QTXMLXMC</arg>
+      <arg flag="field" name="WSJS" type="expression">O_MASTER.XMMC.WSJS</arg>
+      <arg flag="field" name="WSJSSM" type="expression">O_MASTER.XMMC.WSJSSM</arg>
+      <arg flag="field" name="GSMC" type="expression">O_MASTER.XMMC.XMMC.SSKH</arg>
+      <arg flag="field" name="QYXZ" type="expression">O_MASTER.XMMC.XMMC.SSKH.QYXZ</arg>
+      <arg flag="field" name="FXFS" type="expression">O_MASTER.XMMC.FXFS</arg>
+      <arg flag="field" name="FXED" type="expression">O_MASTER.XMMC.FXED</arg>
+      <arg flag="field" name="FXQX" type="expression">O_MASTER.XMMC.FXQX</arg>
+      <arg flag="field" name="CXFS" type="expression">O_MASTER.XMMC.CXFS</arg>
+      <arg flag="field" name="CXBL" type="expression">O_MASTER.XMMC.CXBL</arg>
+      <arg flag="field" name="DBR" type="expression">O_MASTER.XMMC.DBR</arg>
+      <arg flag="field" name="DBFS" type="expression">O_MASTER.XMMC.DBFS</arg>
+      <arg flag="field" name="QTDBFS" type="expression">O_MASTER.XMMC.QTDBFS</arg>
+      <arg flag="field" name="ZTPJ" type="expression">O_MASTER.XMMC.ZTPJ</arg>
+      <arg flag="field" name="QTZTPJ" type="expression">O_MASTER.XMMC.QTZTPJ</arg>
+      <arg flag="field" name="ZXPJ" type="expression">O_MASTER.XMMC.ZXPJ</arg>
+      <arg flag="field" name="QTZXPJ" type="expression">O_MASTER.XMMC.QTZXPJ</arg>
+      <arg flag="field" name="MJZJYT" type="expression">O_MASTER.XMMC.MJZJYT</arg>
+      <arg flag="field" name="SFCLHXGLZR" type="expression">O_MASTER.XMMC.SFCRHXGLZR</arg>
+      <arg flag="field" name="STGLR" type="expression">O_MASTER.XMMC.SLTGR</arg>
+      <arg flag="field" name="ZQGLR" type="expression">O_MASTER.XMMC.ZQDLR</arg>
+      <arg flag="field" name="HXGLR" type="expression">O_MASTER.XMMC.HXGLR</arg>
+      <arg flag="field" name="FXRSFWSSGS" type="expression">O_MASTER.XMMC.XMMC.SSKH.SFSSGS</arg>
+      <arg flag="field" name="XMLX_EJ" type="expression">O_MASTER.XMMC.XMMC.XMLX.FID</arg>
+      <arg flag="field" name="JWZTPJ" type="expression">O_MASTER.XMMC.JWZTPJ</arg>
+      <arg flag="field" name="JWZXPJ" type="expression">O_MASTER.XMMC.JWZXPJ</arg>
+      <arg flag="field" name="XMZCY" type="expression">O_MASTER.XMMC.XMMC.QTCY</arg>
+      <arg flag="field" name="SFCRHXGLZR" type="expression">O_MASTER.SFCRHXGLZR</arg>
+      <arg flag="field" name="QTXXSM" type="expression">O_MASTER.XMMC.QTXXSM</arg>
+      <arg flag="field" name="SLTGR" type="expression">O_MASTER.XMMC.SLTGR</arg>
+      <arg flag="field" name="ZQDLR" type="expression">O_MASTER.XMMC.ZQDLR</arg>
+      <arg flag="field" name="LXCS" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE("SELECT COUNT(1) + 1 FROM ECIF.lcIB_GS_LXLC WHERE XMMC = ? AND NVL(BJJG,999)!=999",[O_MASTER.XMMC]);</arg>
+      <arg flag="field" name="ZKSBZS" type="expression">O_MASTER.XMMC.ZKSBZS</arg>
+      <arg flag="field" name="ZKSBFS" type="expression">O_MASTER.XMMC.ZKSBFS</arg>
+      <arg flag="field" name="FCPJMX" type="expression">O_MASTER.XMMC.FCPJMX</arg>
+      <arg flag="field" name="LXXZZZ" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE("SELECT xzzz FROM ecif.tIB_WYHXX WHERE hylb=1 AND YWLX = 2")</arg>
+      <arg flag="field" name="CLLXJDBL" type="expression">ABS_SQLVALUE("select ecif.FUNC_IB_GET_DGJDWCBL(?,?,?) from dual",[O_MASTER.XMMC,3,1101]);</arg>
+      <arg flag="field" name="BLSCDBRQ" type="expression">ABS_SQLVALUE("select ecif.FUNC_IB_GET_DGJDSCWCRQ(?,?,?) from dual",[O_MASTER.XMMC,3,1101]);</arg>
+      <arg flag="field" name="QTZCXS" type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+ABS_IF(O_MASTER.XMMC.WSJS==1,31,null)</arg>
+    </invoke>
+    <if id="0">
+      <describe>判断</describe>
+      <conditions>
+        <condition name="" type="expression">
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+O_MASTER.XMMC.XMMC.XMLX_EJ==1201</arg>
+        </condition>
+      </conditions>
+      <invoke component="FormUI" id="0" name="界面处理_更改输入状态" operation="changeState">
+        <describe>界面处理_更改输入状态</describe>
+        <arg flag="field" name="STGLR" type="">0</arg>
+        <arg flag="field" name="ZQGLR" type="">8</arg>
+        <arg flag="field" name="HXGLR" type="">8</arg>
+        <arg flag="field" name="SLTGR" type="">0</arg>
+        <arg flag="field" name="ZQDLR" type="">8</arg>
+      </invoke>
+      <elseif>
+        <describe>ElseIf</describe>
+        <conditions>
+          <condition name="" type="expression">
+            <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+O_MASTER.XMMC.XMMC.XMLX_EJ==1203</arg>
+          </condition>
+        </conditions>
+        <invoke component="FormUI" id="0" name="界面处理_更改输入状态" operation="changeState">
+          <describe>界面处理_更改输入状态</describe>
+          <arg flag="field" name="STGLR" type="">8</arg>
+          <arg flag="field" name="ZQGLR" type="">0</arg>
+          <arg flag="field" name="HXGLR" type="">8</arg>
+          <arg flag="field" name="SLTGR" type="">8</arg>
+          <arg flag="field" name="ZQDLR" type="">0</arg>
+        </invoke>
+      </elseif>
+      <else>
+        <describe>Else</describe>
+        <invoke component="FormUI" id="0" name="界面处理_更改输入状态" operation="changeState">
+          <describe>界面处理_更改输入状态</describe>
+          <arg flag="field" name="STGLR" type="">8</arg>
+          <arg flag="field" name="ZQGLR" type="">8</arg>
+          <arg flag="field" name="HXGLR" type="">0</arg>
+          <arg flag="field" name="ZQDLR" type="">8</arg>
+          <arg flag="field" name="SLTGR" type="">8</arg>
+        </invoke>
+      </else>
+    </if>
+  </sequence>
+</process>
+

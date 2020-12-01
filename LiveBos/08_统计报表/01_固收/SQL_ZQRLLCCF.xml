@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="GB2312" standalone="no"?>
+<dataset create-date="2018.07.10 16:47:39" creator="开发者" flag="0" modifier="null" modify-date="null" name="SQL_ZQRLLCCF" object-id="1f6ef30c-300e-4145-a3fc-827e09c983b9" package="08_统计报表.01_固收" type="17" version="1.0">
+    <describe>债券日历_流程触发</describe>
+    <comment/>
+    <parent/>
+    <attribute>264</attribute>
+    <parameters/>
+    <columns/>
+    <query>
+        <sql>{"statement":"call PCX_IB_GS_20180711(:outCursor,{0})","args":[{"expression":"$Login.User","scale":0,"length":0,"type":1}],"type":0}</sql>
+        <sql-type>1</sql-type>
+        <datasource-name>ECIF</datasource-name>
+        <result-option>
+            <scale>0</scale>
+            <result-type>1</result-type>
+        </result-option>
+    </query>
+    <display-options>
+        <commands/>
+        <relations/>
+    </display-options>
+    <properties>
+        <property>
+            <name>63</name>
+            <value>true</value>
+        </property>
+    </properties>
+    <orders/>
+    <extend-buttons/>
+</dataset>

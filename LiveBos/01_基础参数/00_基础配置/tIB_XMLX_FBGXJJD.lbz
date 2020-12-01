@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process attribute="0" method="tIB_XMLX_FBGXJJD"
+    name="tIB_XMLX_FBGXJJD" object="tIB_XMLX" type="0" version=""
+    xmlns="http://www.livebos.com/bizlogic/process"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+    <describe>项目类型-变更上级节点</describe>
+    <variables>
+        <variable describe="V_Ret" name="V_Ret" type="int"/>
+        <variable describe="V_Msg" name="V_Msg" type="string"/>
+    </variables>
+    <sequence>
+        <describe/>
+        <invoke component="SQL" id="0" name="执行SQL语句" operation="execute">
+            <describe>后处理</describe>
+            <arg name="datasource"><![CDATA[ECIF]]></arg>
+            <arg name="SQL"><![CDATA[["CALL PRO_IB_XMLX(:ret,:msg,{0},{1},5,{2},{3})",[{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"$Login.IP","scale":"","length":"","type":"0"},{"expression":"O_MASTER.ID","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.BGW","scale":"","length":"","type":"0"}]]]]></arg>
+            <arg name="TranType"><![CDATA[procedure]]></arg>
+            <arg name="ret" type="output"><![CDATA[V_Ret]]></arg>
+            <arg name="msg" type="output"><![CDATA[V_Msg]]></arg>
+        </invoke>
+        <response exit="false" id="0">
+            <describe>输出</describe>
+            <retvalue type="variable"><![CDATA[V_Ret]]></retvalue>
+            <message type="variable"><![CDATA[V_Msg]]></message>
+            <uiforward redirect="false">
+                <url/>
+            </uiforward>
+        </response>
+    </sequence>
+</process>

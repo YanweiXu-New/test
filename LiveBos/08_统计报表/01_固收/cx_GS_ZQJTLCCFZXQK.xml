@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="GB2312" standalone="no"?>
+<dataset create-date="2017.08.31 01:50:43" creator="戴文生" flag="0" modifier="null" modify-date="null" name="cx_GS_ZQJTLCCFZXQK" object-id="68b020fe-4fb5-4637-9760-609df393579a" package="08_统计报表.01_固收" type="17" version="1.0">
+    <describe>债券具体流程触发执行情况</describe>
+    <comment/>
+    <parent/>
+    <attribute>264</attribute>
+    <parameters/>
+    <columns/>
+    <query>
+        <sql>{"statement":"CALL PCX_IB_GS_ZQCFZXQK(?,{0})","args":[{"expression":"$Login.User","scale":0,"length":0,"type":1}],"type":0}</sql>
+        <sql-type>1</sql-type>
+        <datasource-name>ECIF</datasource-name>
+        <result-option>
+            <scale>0</scale>
+            <result-type>1</result-type>
+        </result-option>
+    </query>
+    <display-options>
+        <commands/>
+        <relations/>
+    </display-options>
+    <properties>
+        <property>
+            <name>63</name>
+            <value>true</value>
+        </property>
+    </properties>
+    <orders/>
+    <extend-buttons/>
+</dataset>

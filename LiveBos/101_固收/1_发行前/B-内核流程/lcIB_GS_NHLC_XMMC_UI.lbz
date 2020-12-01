@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_GS_NHLC_XMMC_UI" object="lcIB_GS_NHLC" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目名称界面事件</describe>
+  <variables>
+    <variable describe="V_OBJ" messageType="" name="V_OBJ" type="resultSet" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+      <describe>界面处理_更新值</describe>
+      <arg flag="field" name="GSMC" type="expression">O_MASTER.XMMC.XMMC.SSKH</arg>
+      <arg flag="field" name="FXFS" type="expression">null</arg>
+      <arg flag="field" name="FXED" type="expression">null</arg>
+      <arg flag="field" name="FXQX" type="expression">null</arg>
+      <arg flag="field" name="CXFS" type="expression">null</arg>
+      <arg flag="field" name="CXBL" type="expression">null</arg>
+      <arg flag="field" name="DBR" type="expression">null</arg>
+      <arg flag="field" name="DBFS" type="expression">null</arg>
+      <arg flag="field" name="QTDBFS" type="expression">null</arg>
+      <arg flag="field" name="ZTPJ" type="expression">null</arg>
+      <arg flag="field" name="QTZTPJ" type="expression">O_MASTER.XMMC.QTZTPJ</arg>
+      <arg flag="field" name="ZXPJ" type="expression">null</arg>
+      <arg flag="field" name="QTZXPJ" type="expression">O_MASTER.XMMC.QTZXPJ</arg>
+      <arg flag="field" name="MJZJYT" type="expression">null</arg>
+      <arg flag="field" name="SLTGR" type="expression">null</arg>
+      <arg flag="field" name="ZQDLR" type="expression">null</arg>
+      <arg flag="field" name="HXGLR" type="expression">null</arg>
+      <arg flag="field" name="XMLX_EJ" type="expression">O_MASTER.XMMC.XMMC.XMLX_EJ</arg>
+      <arg flag="field" name="JWZTPJ" type="expression">null</arg>
+      <arg flag="field" name="JWZXPJ" type="expression">null</arg>
+      <arg flag="field" name="XMZCY" type="expression">O_MASTER.XMMC.XMMC.QTCY</arg>
+      <arg flag="field" name="QTXXSM" type="expression">null</arg>
+      <arg flag="field" name="CWBGKSRQ" type="expression">null</arg>
+      <arg flag="field" name="CWBGJSRQ" type="expression">null</arg>
+      <arg flag="field" name="ZKSBZS" type="expression">O_MASTER.XMMC.ZKSBZS</arg>
+      <arg flag="field" name="ZKSBFS" type="expression">O_MASTER.XMMC.ZKSBFS</arg>
+      <arg flag="field" name="FCPJMX" type="expression">null</arg>
+      <arg flag="field" name="HNXZZZ" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE("SELECT xzzz FROM ecif.tIB_WYHXX WHERE hylb=2 and ywlx=2")</arg>
+      <arg flag="field" name="NHXZCY" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE("SELECT xzcy FROM ecif.tIB_WYHXX WHERE hylb=2 and ywlx=2")</arg>
+      <arg flag="field" name="LXFS" type="expression">&lt;%@ livebos language='javascript' %&gt;
+var sfgsz=ABS_SQLVALUE("select count(1) from ECIF.TIB_XMXX_GS where xmmc in (select id from ECIF.TIB_XMXX where XMLX in （SELECT id  FROM ECIF.TIB_XMLX CONNECT BY PRIOR ID = FID START WITH NAME = '公司债'）and XMFL=3) and id = ?",[O_MASTER.XMMC]);
+var nhfs = null;
+if ( sfgsz &gt;0 ) {
+  nhfs=2;
+}
+nhfs;</arg>
+      <arg flag="field" name="JZDCJDSCBL" type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+ABS_SQLVALUE("select ecif.FUNC_IB_GET_DGJDWCBL(?,?,?) from dual",[O_MASTER.XMMC,3,1102]);</arg>
+      <arg flag="field" name="BLSCDBRQ" type="expression">ABS_SQLVALUE("select ecif.FUNC_IB_GET_DGJDSCWCRQ(?,?,?) from dual",[O_MASTER.XMMC,3,1102]);</arg>
+      <arg flag="field" name="XMJC" type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+ABS_SQLVALUE("select XMJC from  (select A.XMJC  XMJC from ecif.lcIB_GS_LXLC A,jgcrm.os_wfentry B where A.instid = B.id and B.state = 4 and A.xmmc = ? and  A.BJJG IN (1,2)  order by A.id desc)  where  rownum &lt;=1 ",[O_MASTER.XMMC])</arg>
+      <arg flag="field" name="QTZCXS" type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+ABS_SQLVALUE("select qtzcxs from (select  A.qtzcxs  qtzcxs from ecif.lcIB_GS_LXLC A,jgcrm.os_wfentry B where A.instid = B.id and B.state = 4 and A.xmmc = ?  and A.BJJG IN (1,2)  order by A.id desc) where rownum &lt;= 1 ",[O_MASTER.XMMC])</arg>
+      <arg flag="field" name="QTQTZCXS" type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+ABS_SQLVALUE("select QTQTZCXS from (select  A.QTQTZCXS  QTQTZCXS from ecif.lcIB_GS_LXLC A,jgcrm.os_wfentry B where A.instid = B.id and B.state = 4 and A.xmmc = ?  and A.BJJG IN (1,2)  order by A.id desc) where rownum &lt;= 1 ",[O_MASTER.XMMC])</arg>
+      <arg flag="field" name="XMLX" type="expression">O_MASTER.XMMC.XMMC.XMLX</arg>
+      <arg flag="field" name="XMLXMC" type="expression">O_MASTER.XMMC.XMMC.QTXMLXMC</arg>
+      <arg flag="field" name="XMQY" type="expression">O_MASTER.XMMC.XMQY</arg>
+      <arg flag="field" name="QYMC" type="expression">O_MASTER.XMMC.XMQYMC</arg>
+      <arg flag="field" name="XMZFZR" type="expression">O_MASTER.XMMC.XMMC.XMFZR_GS</arg>
+    </invoke>
+    <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
+      <describe>数据库组件_SQL查询</describe>
+      <arg name="TranType">sql</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="SQL">[" select t1.id as XM,t2.ZJLX as ZJLX,t2.ZJMC as ZJMC,t2.ZJHM as ZJHM ,t2.SJH as SJH,t1.orgid as BM,t2.ZWXX as ZWXX,14 as RYJS\r\n from jgcrm.tuser t1 left join ecif.tIB_YGXX t2 on t1.userid = t2.oaid\r\n where instr(';'||{0}||';',';'||t1.id||';') &gt; 0\r\n union \r\n  select t1.id as XM,t2.ZJLX as ZJLX,t2.ZJMC as ZJMC,t2.ZJHM as ZJHM ,t2.SJH as SJH,t1.orgid as BM,t2.ZWXX as ZWXX,11 as RYJS\r\n from jgcrm.tuser t1 left join ecif.tIB_YGXX t2 on t1.userid = t2.oaid\r\n where instr(';'||{1}||';',';'||t1.id||';') &gt; 0",[{"expression":"O_MASTER.XMMC.XMMC.QTCY","scale":"","length":"","type":"0"},{"expression":"O_MASTER.XMMC.XMMC.XMFZR_GS","scale":"","length":"","type":"1"}]]</arg>
+      <arg name="@retResultSet" type="output">V_OBJ</arg>
+    </invoke>
+    <invoke component="FormUIHypotOperate" id="0" name="表格操作_添加结果集数据" operation="insertByResult">
+      <describe>表格添加结果集数据[内核流程]</describe>
+      <arg name="@objectName">lcIB_GS_NHLC</arg>
+      <arg name="@object" type="variable">O_MASTER</arg>
+      <arg name="@columnName">XMZRYXX</arg>
+      <arg name="@clearRowsets">true</arg>
+      <arg name="@resultSet" type="variable">V_OBJ</arg>
+      <arg flag="field" name="RYJS">RYJS</arg>
+      <arg flag="field" name="XM">XM</arg>
+      <arg flag="field" name="ZJLX">ZJLX</arg>
+      <arg flag="field" name="ZJMC">ZJMC</arg>
+      <arg flag="field" name="ZJHM">ZJHM</arg>
+      <arg flag="field" name="SJH">SJH</arg>
+      <arg flag="field" name="BM">BM</arg>
+      <arg flag="field" name="ZW">ZWXX</arg>
+    </invoke>
+  </sequence>
+</process>
+

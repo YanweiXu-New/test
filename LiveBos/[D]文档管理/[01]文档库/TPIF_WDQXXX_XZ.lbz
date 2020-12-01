@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="TPIF_WDQXXX_XZ" name="TPIF_WDQXXX_XZ" object="TPIF_WDQXXX" type="0" version="" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>文档权限信息-新增对象流程</describe>
+  <variables>
+    <variable describe="V_OBJ" instanceType="TPIF_WDQXXX" name="V_OBJ" type="object" />
+    <variable describe="V_RET" name="V_RET" type="int" />
+    <variable describe="V_MSG" name="V_MSG" type="string" />
+  </variables>
+  <sequence id="0">
+    <describe />
+    <invoke component="SQL" id="0" name="执行SQL语句" operation="execute">
+      <describe>数据库组件_执行SQL语句</describe>
+      <arg name="TranType">procedure</arg>
+      <arg name="datasource">PIF</arg>
+      <arg name="ret" type="output">V_RET</arg>
+      <arg name="msg" type="output">V_MSG</arg>
+      <arg name="SQL">["CALL PRO_PIF_CPWDGL_SZWDQX(:ret,:msg,{0},{1},{2},{3},NULL,{4},{5},NULL)",[{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"$Login.IP","scale":"","length":"","type":"0"},{"expression":"&lt;%@ livebos language='javascript' %&gt;\nif(O_PARAMETER.FL==1)\r\n2;\r\nelse\r\n3;","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.WDK","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.LWBM","scale":"","length":"","type":"1"},{"expression":"&lt;%@ livebos language='javascript' %&gt;\nif(O_PARAMETER.FL==1)\r\nO_PARAMETER.LWJS;\r\nelse\r\nO_PARAMETER.LWRY;","scale":"","length":"","type":"0"}]]</arg>
+    </invoke>
+    <response exit="false" id="0" name="输出">
+      <describe>输出</describe>
+      <retvalue>199</retvalue>
+      <message>执行新增成功.</message>
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
+  </sequence>
+</process>
+

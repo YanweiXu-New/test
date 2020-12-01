@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="vIB_lbMember_ZJ" name="vIB_lbMember_ZJ" object="vIB_lbMember" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>岗位成员表-增加流程</describe>
+  <variables>
+    <variable describe="V_CODE" messageType="" name="V_CODE" type="int" />
+    <variable describe="V_NOTE" messageType="" name="V_NOTE" type="string" />
+    <variable describe="V_OBJ" instanceType="lbMember" messageType="" name="V_OBJ" type="object" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <invoke component="FormOperate" id="0" name="对象组件_新增" operation="insert">
+      <describe>新增对象[岗位成员表]</describe>
+      <arg name="@objectName">lbMember</arg>
+      <arg flag="field" name="OrgID" type="expression">O_PARAMETER.OrgID</arg>
+      <arg flag="field" name="RoleID" type="expression">O_PARAMETER.RoleID</arg>
+      <arg flag="field" name="UserID" type="expression">O_PARAMETER.UserID</arg>
+      <arg name="@retObject" type="output">V_OBJ</arg>
+      <arg flag="field" name="AuditFlag" type="expression">1</arg>
+    </invoke>
+    <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+      <describe>数据库组件_执行SQL语句</describe>
+      <arg name="TranType">procedure</arg>
+      <arg name="RET" type="output">V_CODE</arg>
+      <arg name="MSG" type="output">V_NOTE</arg>
+      <arg name="SQL">["CALL PRO_IB_GWCYBWH(:RET,:MSG,1,{0},{1},{2})",[{"expression":"V_OBJ.ID","scale":"","length":"","type":"1"},{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"$Login.IP","scale":"","length":"","type":"0"}]]</arg>
+    </invoke>
+    <response exit="false" id="0">
+      <describe>输出</describe>
+      <retvalue type="variable">V_CODE</retvalue>
+      <message type="variable">V_NOTE</message>
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
+  </sequence>
+</process>
+

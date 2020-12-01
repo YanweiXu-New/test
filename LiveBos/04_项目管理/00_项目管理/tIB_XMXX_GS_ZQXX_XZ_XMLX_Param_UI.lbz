@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_XMXX_GS_ZQXX_XZ" name="tIB_XMXX_GS_ZQXX_XZ_XMLX_Param_UI" object="tIB_XMXX_GS_ZQXX" type="2" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>新增项目类型界面事件</describe>
+  <variables />
+  <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+    <describe>界面处理_更新值</describe>
+    <arg flag="field" name="XMLXMC" type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+ABS_IF(O_PARAMETER.XMLX==120900||O_PARAMETER.XMLX==120106||O_PARAMETER.XMLX==120208||O_PARAMETER.XMLX==120305||O_PARAMETER.XMLX==120403,O_PARAMETER.XMZBID.QTXMLXMC,null)</arg>
+  </invoke>
+</process>
+

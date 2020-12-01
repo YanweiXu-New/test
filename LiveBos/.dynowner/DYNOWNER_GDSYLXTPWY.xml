@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="GB2312" standalone="no"?>
+<dynOwner flag="0" name="DYNOWNER_GDSYLXTPWY" type="106">
+    <describe>固定收益立项投票委员</describe>
+    <sql>{"statement":"tUser.ID in (select BJR from ecif.lcIB_GS_LXLC_BJMX where lcIB_GS_LXLC_ID=:pBM AND BJYJ IS NOT NULL) and tUser.Status = 1","args":[],"type":0}</sql>
+    <parameters>
+        <parameter>
+            <name>pBM</name>
+            <describe>流程ID</describe>
+            <comment/>
+            <type>1</type>
+            <length>16</length>
+            <scale>0</scale>
+        </parameter>
+    </parameters>
+</dynOwner>

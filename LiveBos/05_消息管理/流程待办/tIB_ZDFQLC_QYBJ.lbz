@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="4" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_ZDFQLC_QYBJ" name="tIB_ZDFQLC_QYBJ" object="tIB_ZDFQLC" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>自动发起流程-权益立项内核表决流程</describe>
+  <variables>
+    <variable describe="V_JKLB" messageType="" name="V_JKLB" type="resultSet" />
+    <variable describe="V_LCCL" messageType="" name="V_LCCL" type="resultSet" />
+    <variable describe="V_Ret" messageType="" name="V_Ret" type="int" />
+    <variable describe="V_Msg" messageType="" name="V_Msg" type="string" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
+      <describe>获取立项表决流程</describe>
+      <arg name="TranType">sql</arg>
+      <arg name="SQL">["SELECT ID AS LCBDID, 'lcIB_LXSP' AS LCBD, 328 AS DZID, '到期系统自动干预' AS DZZY\r\nFROM (SELECT T.ID, 5 AS BJBS, (SELECT COUNT(1)\r\n                FROM ECIF.LCIB_LXSP_BJMX\r\n                WHERE LCIB_LXSP_ID = T.ID AND\r\n                      BJYJ IS NOT NULL AND BJYJ&lt;&gt;5) AS BJRS,\r\n                      (SELECT CEIL(COUNT(1)*1/3)\r\n                  FROM ECIF.LCIB_LXSP_BJMX\r\n                 WHERE LCIB_LXSP_ID = T.ID\r\n                   AND BJYJ IS NOT NULL\r\n                   ) AS BJSYRS,\r\n                (SELECT COUNT(1)\r\n                  FROM ECIF.LCIB_LXSP_BJMX\r\n                 WHERE LCIB_LXSP_ID = T.ID\r\n                   AND BJYJ IS NOT NULL\r\n                   and SFNKRY = 1\r\n                   ) AS NKRS,(CASE\r\n                WHEN TO_NUMBER(TO_CHAR(SYSDATE, 'YYYYMMDDHH24')) &gt;=\r\n                     TO_NUMBER(T.BJJZRQ || '12') THEN\r\n                 1\r\n                ELSE\r\n                 0\r\n              END) AS BJJZ\r\n       FROM ECIF.LCIB_LXSP T, JGCRM.OS_CURRENTSTEP A\r\n       WHERE T.INSTID = A.ENTRY_ID AND A.STEP_ID = 291)\r\nWHERE BJJZ = 1 AND BJRS &gt;= BJBS AND NKRS &gt;= BJSYRS",[]]</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="@retResultSet" type="output">V_JKLB</arg>
+    </invoke>
+    <forEach collection="V_JKLB" id="0" toVariable="V_LCCL">
+      <describe>迭代</describe>
+      <sequence id="0" name="顺序">
+        <invoke component="Workflow" id="0" name="工作流组件_执行动作" operation="doAction">
+          <describe>工作流组件_执行动作</describe>
+          <arg name="@objectName" type="expression">V_LCCL.LCBD</arg>
+          <arg name="@ID" type="expression">V_LCCL.LCBDID</arg>
+          <arg name="actionID" type="expression">V_LCCL.DZID</arg>
+          <arg name="summary" type="expression">V_LCCL.DZZY</arg>
+          <arg name="user" type="expression">0</arg>
+          <arg name="@retValue" type="output">V_Ret</arg>
+        </invoke>
+        <response exit="false" id="0">
+          <describe>输出</describe>
+          <retvalue type="variable">V_Ret</retvalue>
+          <message type="variable">V_Msg</message>
+          <uiforward redirect="false">
+            <url />
+          </uiforward>
+        </response>
+      </sequence>
+    </forEach>
+    <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
+      <describe>获取内核表决流程</describe>
+      <arg name="TranType">sql</arg>
+      <arg name="SQL">["SELECT T.ID AS LCBDID,'lcIB_NHSP' AS LCBD,328 AS DZID,'到期系统自动干预' AS DZZY\r\n  FROM ECIF.lcIB_NHSP T,JGCRM.OS_CURRENTSTEP A\r\n WHERE T.INSTID = A.ENTRY_ID AND A.STEP_ID = 240 AND ECIF.FUNC_GET_NHBJZT_QY(2,T.ID,0) = 2",[]]</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="@retResultSet" type="output">V_JKLB</arg>
+    </invoke>
+    <forEach collection="V_JKLB" id="0" toVariable="V_LCCL">
+      <describe>迭代</describe>
+      <sequence id="0" name="顺序">
+        <invoke component="Workflow" id="0" name="工作流组件_执行动作" operation="doAction">
+          <describe>工作流组件_执行动作</describe>
+          <arg name="@objectName" type="expression">V_LCCL.LCBD</arg>
+          <arg name="@ID" type="expression">V_LCCL.LCBDID</arg>
+          <arg name="actionID" type="expression">V_LCCL.DZID</arg>
+          <arg name="summary" type="expression">V_LCCL.DZZY</arg>
+          <arg name="user" type="expression">0</arg>
+          <arg name="@retValue" type="output">V_Ret</arg>
+        </invoke>
+        <response exit="false" id="0">
+          <describe>输出</describe>
+          <retvalue type="variable">V_Ret</retvalue>
+          <message type="variable">V_Msg</message>
+          <uiforward redirect="false">
+            <url />
+          </uiforward>
+        </response>
+      </sequence>
+    </forEach>
+    <invoke component="expression" id="0" name="执行脚本">
+      <describe>刷新流程缓存</describe>
+      <arg name="expression">ABS_flushObjCache('WORKFLOW.TASK')</arg>
+    </invoke>
+    <response exit="false" id="0">
+      <describe>输出</describe>
+      <retvalue>1</retvalue>
+      <message />
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
+  </sequence>
+</process>
+

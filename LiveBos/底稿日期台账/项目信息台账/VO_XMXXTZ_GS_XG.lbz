@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="VO_XMXXTZ_GS_XG" name="VO_XMXXTZ_GS_XG" object="VO_XMXXTZ_GS" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目信息台账(终止底稿验收)-修改流程</describe>
+  <variables>
+    <variable describe="V_CODE" messageType="" name="V_CODE" type="int" />
+    <variable describe="V_NOTE" messageType="" name="V_NOTE" type="string" />
+  </variables>
+  <sequence id="0">
+    <invoke component="FormSetOperate" id="0" operation="update">
+      <describe>批量修改对象[项目信息台账]</describe>
+      <meta name="FUNCTION">true</meta>
+      <arg name="@objectName">tIB_XMXXTZ</arg>
+      <arg name="@ID" type="expression">O_PARAMETER.ID</arg>
+      <arg flag="field" name="XMMC" type="expression">O_PARAMETER.XMMC</arg>
+      <arg flag="field" name="XMLX" type="expression">O_PARAMETER.XMLX</arg>
+      <arg flag="field" name="XMJD" type="expression">O_PARAMETER.XMJD</arg>
+      <arg flag="field" name="SSBM" type="expression">O_PARAMETER.SSBM</arg>
+      <arg flag="field" name="GDSJRQ" type="expression">O_PARAMETER.GDSJRQ</arg>
+      <arg flag="field" name="GDR" type="expression">O_PARAMETER.GDR</arg>
+      <arg flag="field" name="SFYSTG" type="expression">O_PARAMETER.SFYSTG</arg>
+      <arg flag="field" name="ZZDGCS" type="expression">O_PARAMETER.ZZDGCS</arg>
+      <arg flag="field" name="GPSL" type="expression">O_PARAMETER.GPSL</arg>
+      <arg flag="field" name="DGCFDD" type="expression">O_PARAMETER.DGCFDD</arg>
+      <arg flag="field" name="ZZDGBH" type="expression">O_PARAMETER.ZZDGBH</arg>
+      <arg flag="field" name="BZ" type="expression">O_PARAMETER.BZ</arg>
+    </invoke>
+    <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+      <describe>数据库组件_执行SQL语句</describe>
+      <arg name="TranType">procedure</arg>
+      <arg name="SQL">["call ecif.PRO_IB_XMTZ_XXTB(?,?,{0})",[{"expression":"$Login.User","length":"","scale":"","type":"-1"}]]</arg>
+      <arg name="datasource">ECIF</arg>
+    </invoke>
+  </sequence>
+</process>
+

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="TJG_QJMB_XZ" name="TJG_QJMB_TJG_QJMB_XZ_OI_UI" object="TJG_QJMB" type="2" version="" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>全景模板定义-新增-参数-界面初始化</describe>
+  <documentation />
+  <variables />
+  <sequence id="0">
+    <describe />
+    <if id="0">
+      <describe>IF赋值节点类型</describe>
+      <conditions>
+        <condition name="" type="expression">
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+var s1=ABS_SQLVALUE("SELECT COUNT(1) FROM ECIF.TJG_QJMB WHERE ID &lt; ?",[O_MASTER.ID]);
+ABS_NULLSUB(O_MASTER.ID,0)==0||(O_MASTER.Type==1&amp;&amp;s1==0)</arg>
+        </condition>
+      </conditions>
+      <invoke component="FormUI" id="0" name="更新值" operation="setValue">
+        <describe>更新值</describe>
+        <arg flag="field" name="Type" type="expression">1</arg>
+      </invoke>
+    </if>
+    <invoke component="FormUIHypotOperate" id="0" name="批量删除" operation="batchDelete">
+      <describe>表格操作_批量删除</describe>
+      <arg name="@columnName">SYFW</arg>
+      <arg name="@objectName">TJG_QJMB</arg>
+      <arg name="@condition">&lt;%@ livebos language='javascript' %&gt;
+1==1</arg>
+    </invoke>
+  </sequence>
+</process>
+

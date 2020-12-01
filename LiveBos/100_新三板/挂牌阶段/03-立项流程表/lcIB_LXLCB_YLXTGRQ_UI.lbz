@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_LXLCB_YLXTGRQ_UI" object="lcIB_LXLCB" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>预立项通过日期界面事件</describe>
+  <variables>
+    <variable describe="V_INIT" messageType="" name="V_INIT" type="resultSet" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <validate id="0">
+      <describe>验证</describe>
+      <conditions>
+        <condition name="" type="expression">
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+var value= ABS_SQLVALUE("select to_number(substr(?,5,2)) from dual",[O_MASTER.YLXTGRQ]);
+ABS_IF(value&gt;3,1,0)</arg>
+        </condition>
+      </conditions>
+      <success id="0">
+        <describe>成功</describe>
+        <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
+          <describe>数据库组件_SQL查询</describe>
+          <arg name="TranType">sql</arg>
+          <arg name="datasource">ECIF</arg>
+          <arg name="@retResultSet" type="output">V_INIT</arg>
+          <arg name="SQL">["select id from (select ID from tIB_NFXX \r\nWHERE ID &lt; TO_NUMBER(SUBSTR({0},1,6))   \r\n  ORDER BY ID DESC) where rownum &lt;= 1\r\nunion all\r\nselect id from  tIB_NFXX  where id = TO_NUMBER(SUBSTR({0},1,4)- 1)||'12'  \r\nunion all\r\nselect id from  tIB_NFXX  where id = TO_NUMBER(SUBSTR({0},1,4)- 2)||'12' \r\norder by id desc",[{"expression":"O_MASTER.YLXTGRQ","scale":"","length":"","type":"13"}]]</arg>
+        </invoke>
+      </success>
+      <failure id="0">
+        <describe>失败</describe>
+        <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
+          <describe>数据库组件_SQL查询</describe>
+          <arg name="TranType">sql</arg>
+          <arg name="datasource">ECIF</arg>
+          <arg name="@retResultSet" type="output">V_INIT</arg>
+          <arg name="SQL">["select id from  tIB_NFXX  where id = to_number(SUBSTR({0},1,4) - 1)||'12'  \r\nunion all\r\nselect id from  tIB_NFXX  where id = to_number(SUBSTR({0},1,4) - 2)||'12' \r\nunion all\r\nselect id from  tIB_NFXX  where id = to_number(SUBSTR({0},1,4) - 3)||'12' \r\norder by id desc",[{"expression":"O_MASTER.YLXTGRQ","scale":"","length":"","type":"13"}]]</arg>
+        </invoke>
+      </failure>
+    </validate>
+    <invoke component="FormUIHypotOperate" id="0" name="表格操作_添加结果集数据" operation="insertByResult">
+      <describe>表格添加结果集数据[立项流程表]</describe>
+      <arg name="@objectName">lcIB_LXLCB</arg>
+      <arg name="@object" type="variable">O_MASTER</arg>
+      <arg name="@columnName">CWX</arg>
+      <arg name="@clearRowsets">true</arg>
+      <arg name="@resultSet" type="variable">V_INIT</arg>
+      <arg flag="field" name="NF">ID</arg>
+    </invoke>
+  </sequence>
+</process>
+

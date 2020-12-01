@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="GB2312" standalone="no"?>
+<dynOwner flag="0" name="DW_GS_ZH_ZKLDDRY" type="106">
+    <describe>固收_知会_质控领导(带人员)</describe>
+    <sql>{"statement":"TUSER.ID IN (SELECT USERID FROM LBMEMBER WHERE ORGID IN (13831,13834) AND ROLEID=3 UNION ALL SELECT TO_NUMBER(COLUMN_VALUE) AS USERID FROM TABLE(JGCRM.SPLIT((SELECT ZKRY_ZS||';'||ZKRY_FS FROM ECIF.TIB_XMXX_GS_ZQXX WHERE ID = :PZQID),';'))) AND TUSER.STATUS = 1","args":[],"type":0}</sql>
+    <parameters>
+        <parameter>
+            <name>PZQID</name>
+            <describe>债券ID</describe>
+            <comment/>
+            <type>1</type>
+            <length>16</length>
+            <scale>0</scale>
+        </parameter>
+    </parameters>
+</dynOwner>

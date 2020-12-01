@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tUser_M" name="tUser_M_OperateInitialize_Param_UI" object="tUser" type="2" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>界面初始化界面事件</describe>
+  <variables>
+    <variable describe="V_RET" messageType="" name="V_RET" type="int" />
+    <variable describe="V_MSG" messageType="" name="V_MSG" type="string" />
+  </variables>
+  <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+    <describe>数据库组件_执行SQL语句</describe>
+    <arg name="TranType">procedure</arg>
+    <arg name="datasource">ECIF</arg>
+    <arg name="SQL">["call ECIF.PRO_IB_LCYJCSH(:RET,:MSG,{0})",[{"expression":"O_PARAMETER.YJR","scale":"","length":"","type":"1"}]]</arg>
+    <arg name="RET" type="output">V_RET</arg>
+    <arg name="MSG" type="output">V_MSG</arg>
+  </invoke>
+</process>
+

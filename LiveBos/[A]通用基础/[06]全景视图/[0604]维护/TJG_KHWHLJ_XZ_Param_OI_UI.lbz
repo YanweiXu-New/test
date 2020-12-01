@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="TJG_KHWHLJ_XZ" name="TJG_KHWHLJ_XZ_Param_OI_UI" object="TJG_KHWHLJ" type="2" version="" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>客户维护链接-新增-参数-界面初始化</describe>
+  <variables />
+  <invoke component="FormUIHypotOperate" id="0" name="批量删除" operation="batchDelete">
+    <describe>初始化表格数据</describe>
+    <arg name="@columnName">SYFW</arg>
+    <arg name="@objectName">TJG_KHWHLJ</arg>
+    <arg name="@condition">&lt;%@ livebos language='javascript' %&gt;
+1==1</arg>
+  </invoke>
+</process>
+

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_JJSQB_XMMC_UI" object="lcIB_JJSQB" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目名称界面事件</describe>
+  <variables>
+    <variable describe="V_LCJJXX" messageType="" name="V_LCJJXX" type="resultSet" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
+      <describe>数据库组件_SQL查询</describe>
+      <arg name="TranType">sql</arg>
+      <arg name="SQL">["SELECT JJJE,TQRQ,TQR,BZ FROM ECIF.tIB_XMXX_JJFFQK WHERE TIB_XMXX_ID={0}",[{"expression":"O_MASTER.XMMC","scale":"","length":"","type":"1"}]]</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="@retResultSet" type="output">V_LCJJXX</arg>
+    </invoke>
+    <invoke component="FormUIHypotOperate" id="0" name="表格操作_添加结果集数据" operation="insertByResult">
+      <describe>表格添加结果集数据[奖金申请表]</describe>
+      <arg name="@objectName">lcIB_JJSQB</arg>
+      <arg name="@object" type="variable">O_MASTER</arg>
+      <arg name="@columnName">LCJJSQXX</arg>
+      <arg name="@resultSet" type="variable">V_LCJJXX</arg>
+      <arg name="@clearRowsets">true</arg>
+      <arg flag="field" name="YTJJJE">JJJE</arg>
+      <arg flag="field" name="TQJJRQ">TQRQ</arg>
+      <arg flag="field" name="JJTQR">TQR</arg>
+      <arg flag="field" name="BZ">BZ</arg>
+    </invoke>
+  </sequence>
+</process>
+

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="GB2312" standalone="no"?>
+<dynOwner flag="0" name="DW_LXNHZKZY" type="106">
+    <describe>质控专员（立项内核流程）</describe>
+    <sql>{"statement":"tUser.ID IN (SELECT DISTINCT(COLUMN_VALUE) AS ID FROM TABLE(JGCRM.SPLIT((SELECT BMZKZY||';' FROM ECIF.tIB_XMXX WHERE ID = :PXMID),';'))) and tUser.Status = 1","args":[],"type":0}</sql>
+    <parameters>
+        <parameter>
+            <name>PXMID</name>
+            <describe>项目ID</describe>
+            <comment/>
+            <type>1</type>
+            <length>10</length>
+            <scale>0</scale>
+        </parameter>
+    </parameters>
+</dynOwner>

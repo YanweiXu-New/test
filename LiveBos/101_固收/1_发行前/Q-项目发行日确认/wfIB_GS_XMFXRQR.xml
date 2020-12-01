@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="gb2312"?>
+<!DOCTYPE workflow PUBLIC "-//Apexsoft LiveBos//DTD Workflow 2.8//EN" "http://www.livebos.com/workflow/workflow_2_8_abs.dtd"><workflow>
+  <meta name="workflow.category">固收类-待办</meta>
+  <meta name="Designer">Studio</meta>
+  <meta name="created">2017-07-28 14:34:57</meta>
+  <meta name="modify">2017-09-14 19:23:46</meta>
+  <meta name="Describe">项目发行日确认</meta>
+  <meta name="WorkflowName">wfIB_GS_XMFXRQR</meta>
+  <meta name="workflow.attribute">0</meta>
+  <meta name="WorkflowType">2</meta>
+  <meta name="version"></meta>
+  <object  name="lcIB_GS_XMFXRQR" editAttribute="0" >
+  </object>
+  <initial-actions>
+    <action id="0" name="开始">
+      <meta name="NodeType">0</meta>
+      <results>
+        <unconditional-result id="2" old-status="完成" status="待处理" step="5">
+        </unconditional-result>
+      </results>
+    </action>
+  </initial-actions>
+  <steps>
+    <step id="1" name="结束">
+      <meta name="finish">true</meta>
+      <meta name="NodeType">1</meta>
+      <pre-functions>
+        <function id="0" name="abs.ExecSQL" type="class">
+          <arg name="SQL">[&quot;CALL ecif.pro_IB_WFFinish_GS(?,?,'lcIB_GS_XMFXRQR',{0},{1})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+          <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+          <arg name="datasource">ECIF</arg>
+        </function>
+      </pre-functions>
+    </step>
+    <step id="5" name="团队负责人确认">
+      <meta name="NodeType">2</meta>
+      <object  name="lcIB_GS_XMFXRQR" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXRMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="CXSMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXRQ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="BZ" disabled="false" hidden="false" summary="false">
+          </column>
+        </columns>
+      </object>
+      <notify >
+      </notify>
+      <actions>
+        <action id="6" name="确认">
+          <meta name="IconCls">default</meta>
+          <meta name="NodeType">5</meta>
+          <pre-functions>
+            <function id="0" name="abs.FormUpdate" type="class">
+              <arg name="$F{XMJD}">ABS_IF(tIB_XMXX.XMJD&lt;120550,120550,tIB_XMXX.XMJD)</arg>
+              <arg name="condition">[&quot;tIB_XMXX.ID={0}&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+              <arg name="class.name">com.apex.workflow.FormUpdateFunction</arg>
+              <arg name="Table">tIB_XMXX</arg>
+            </function>
+            <function id="0" name="abs.FormUpdate" type="class">
+              <arg name="$F{FXRQ}">O_WORKFLOW.FXRQ</arg>
+              <arg name="condition">[&quot;tIB_XMXX_KZ.XMMC={0}&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+              <arg name="class.name">com.apex.workflow.FormUpdateFunction</arg>
+              <arg name="Table">tIB_XMXX_KZ</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <unconditional-result id="61" old-status="完成" status="待处理" step="1">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+  </steps>
+</workflow>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_XYZZSPLC_GS_SFYJRK_UI" object="lcIB_XYZZSPLC_GS" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>是否已经入库界面事件</describe>
+  <variables />
+  <sequence id="0" name="顺序">
+    <invoke component="FormUI" id="0" name="界面处理_刷新字段可选项" operation="resetOption">
+      <describe>界面处理_刷新字段可选项</describe>
+      <arg flag="field" name="XMMC" type="">true</arg>
+    </invoke>
+    <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+      <describe>界面处理_更新值</describe>
+      <arg flag="field" name="XYQSRQ" type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+var sfrk = O_MASTER.SFYJRK;&#xD;
+if (sfrk == 1){&#xD;
+  ABS_SQLVALUE("select ZZRQ from (select id,to_number(to_char(XMZZRQ,'yyyymmdd')) ZZRQ from ecif.tIB_XMXX_ZZK where GSXMMC= ? order by id desc) where rownum &lt;= 1",[O_MASTER.XMMC]);&#xD;
+}else{&#xD;
+null;&#xD;
+}</arg>
+    </invoke>
+  </sequence>
+</process>
+

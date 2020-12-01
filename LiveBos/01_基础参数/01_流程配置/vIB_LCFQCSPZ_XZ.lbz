@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="8" exitOnStandardFault="false" isHorizontalLayout="false" method="vIB_LCFQCSPZ_XZ" name="vIB_LCFQCSPZ_XZ" object="vIB_LCFQCSPZ" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>流程发起次数配置-新增流程</describe>
+  <variables />
+  <invoke component="FormOperate" id="0" operation="insert">
+    <describe>新增对象[流程发起次数配置]</describe>
+    <meta name="FUNCTION">true</meta>
+    <arg name="@objectName">tIB_LCFQCSPZ</arg>
+    <arg flag="field" name="LCBD" type="expression">O_PARAMETER.LCDM</arg>
+    <arg flag="field" name="LCBDM" type="expression">O_PARAMETER.GZLBDM</arg>
+    <arg flag="field" name="XMLX" type="expression">O_PARAMETER.XMLX2</arg>
+    <arg flag="field" name="CS" type="expression">O_PARAMETER.CS2</arg>
+    <arg flag="field" name="XGR" type="expression">$Login.User</arg>
+    <arg flag="field" name="XGSJ" type="expression">$DateTime.Now</arg>
+    <arg flag="field" name="LCLX" type="expression">O_PARAMETER.LCLX</arg>
+  </invoke>
+</process>
+

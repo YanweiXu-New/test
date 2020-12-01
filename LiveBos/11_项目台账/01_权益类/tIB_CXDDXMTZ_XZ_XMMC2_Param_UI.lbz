@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_CXDDXMTZ_XZ" name="tIB_CXDDXMTZ_XZ_XMMC2_Param_UI" object="tIB_CXDDXMTZ" type="2" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目名称界面事件</describe>
+  <variables />
+  <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+    <describe>界面处理_更新值</describe>
+    <arg flag="field" name="SSBM2" type="expression">O_PARAMETER.XMMC2.SSBM</arg>
+    <arg flag="field" name="XMLX2" type="expression">O_PARAMETER.XMMC2.XMLX</arg>
+    <arg flag="field" name="CXDDQSRQ2" type="expression">O_PARAMETER.XMMC2.JRCXDDRQ</arg>
+    <arg flag="field" name="CXDDQ2" type="expression">O_PARAMETER.XMMC2.CXDDQ</arg>
+    <arg flag="field" name="CXDDJSRQ2" type="expression">O_PARAMETER.XMMC2.CXDDJSRQ</arg>
+    <arg flag="field" name="GSMC2" type="expression">O_PARAMETER.XMMC2.SSKH</arg>
+    <arg flag="field" name="CXDDBDZBR2" type="expression">O_PARAMETER.XMMC2.QZBJDBR</arg>
+  </invoke>
+</process>
+

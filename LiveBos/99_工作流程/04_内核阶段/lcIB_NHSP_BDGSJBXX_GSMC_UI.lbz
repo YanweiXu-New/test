@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_NHSP_BDGSJBXX_GSMC_UI" object="lcIB_NHSP_BDGSJBXX" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>公司名称界面事件</describe>
+  <variables />
+  <sequence id="0" name="顺序">
+    <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+      <describe>插入中转表</describe>
+      <arg name="TranType">sql</arg>
+      <arg name="SQL">["insert into tib_bdgszzb select jgcrm.func_nextid('TIB_BDGSZZB'),{0} from dual",[{"expression":"O_MASTER.GSMC","scale":"","length":"","type":"0"}]]</arg>
+      <arg name="datasource">ECIF</arg>
+    </invoke>
+  </sequence>
+</process>
+

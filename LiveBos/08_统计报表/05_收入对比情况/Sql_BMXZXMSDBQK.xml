@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="GB2312" standalone="no"?>
+<dataset create-date="2019.09.26 16:42:56" creator="开发者" flag="0" modifier="null" modify-date="null" name="Sql_BMXZXMSDBQK" object-id="eca5999d-c860-4f94-abd2-f23c34b0507f" package="08_统计报表.05_收入对比情况" type="17" version="1.0">
+    <describe>部门新增项目数对比情况</describe>
+    <comment/>
+    <parent/>
+    <attribute>264</attribute>
+    <parameters>
+        <column>
+            <name>ND</name>
+            <describe>年度</describe>
+            <type>1</type>
+            <biz-type>303</biz-type>
+            <length>4</length>
+            <scale>0</scale>
+            <control>51</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+    </parameters>
+    <columns/>
+    <query>
+        <sql>{"statement":"CALL ECIF.PCX_TH_BMXZXMSDBQK(?,{0},{1})","args":[{"expression":"$Login.User","scale":0,"length":0,"type":1},{"expression":"parameter.ND","scale":0,"length":0,"type":1}],"type":0}</sql>
+        <sql-type>1</sql-type>
+        <datasource-name/>
+        <result-option>
+            <scale>0</scale>
+            <result-type>1</result-type>
+        </result-option>
+    </query>
+    <display-options>
+        <commands/>
+        <relations/>
+    </display-options>
+    <properties/>
+    <orders/>
+    <extend-buttons/>
+</dataset>

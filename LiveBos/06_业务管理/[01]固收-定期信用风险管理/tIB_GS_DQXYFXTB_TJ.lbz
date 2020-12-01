@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_GS_DQXYFXTB_TJ" name="tIB_GS_DQXYFXTB_TJ" object="tIB_GS_DQXYFXTB" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>定期信用风险分类填报-确认填报信息流程</describe>
+  <variables />
+  <restriction id="0">
+    <sequence id="0" name="顺序">
+      <if id="0">
+        <describe>判断未填报</describe>
+        <conditions>
+          <condition name="" type="expression">
+            <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+O_MASTER.TBZT==1</arg>
+          </condition>
+        </conditions>
+        <response exit="true" id="0">
+          <describe>输出</describe>
+          <retvalue>-1</retvalue>
+          <message>该填报信息已提交，不需重新提交!</message>
+          <uiforward redirect="false">
+            <url />
+          </uiforward>
+        </response>
+      </if>
+      <if id="0">
+        <describe>判断已确认</describe>
+        <conditions>
+          <condition name="" type="expression">
+            <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+O_MASTER.TBZT==2</arg>
+          </condition>
+        </conditions>
+        <response exit="true" id="0">
+          <describe>输出</describe>
+          <retvalue>-1</retvalue>
+          <message>该填报信息已确认，不需重新提交!</message>
+          <uiforward redirect="false">
+            <url />
+          </uiforward>
+        </response>
+      </if>
+    </sequence>
+  </restriction>
+  <sequence id="0" name="顺序">
+    <invoke component="FormOperate" id="0" name="对象组件_修改" operation="update">
+      <describe>修改对象[定期信用风险分类填报]</describe>
+      <arg name="@objectName">tIB_GS_DQXYFXTB</arg>
+      <arg name="@object" type="variable">O_MASTER</arg>
+      <arg flag="field" name="TBZT" type="expression">1</arg>
+    </invoke>
+    <response exit="false" id="0">
+      <describe>输出</describe>
+      <retvalue>1</retvalue>
+      <message />
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
+  </sequence>
+</process>
+

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="8" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_ZFSPZB_XG" name="tIB_ZFSPZB_XG" object="tIB_ZFSPZB" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>流程主副审节点配置表-修改流程</describe>
+  <variables />
+  <invoke component="FormOperate" id="0" operation="update">
+    <describe>修改对象[流程主副审节点配置表]</describe>
+    <meta name="FUNCTION">true</meta>
+    <arg name="@objectName">tIB_ZFSPZB</arg>
+    <arg name="@object" type="variable">O_MASTER</arg>
+    <arg flag="field" name="ZSRY" type="expression">O_PARAMETER.ZSRY</arg>
+    <arg flag="field" name="FSRY" type="expression">O_PARAMETER.FSRY</arg>
+    <arg flag="field" name="FZBM" type="expression">O_PARAMETER.FZBM</arg>
+    <arg flag="field" name="ZT" type="expression">O_PARAMETER.ZT</arg>
+  </invoke>
+</process>
+

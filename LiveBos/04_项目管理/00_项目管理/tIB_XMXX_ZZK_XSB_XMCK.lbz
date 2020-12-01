@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_XMXX_ZZK_XSB_XMCK" name="tIB_XMXX_ZZK_XSB_XMCK" object="tIB_XMXX_ZZK_XSB" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目信息_终止库_新三板-项目出库流程</describe>
+  <variables />
+  <sequence id="0" name="顺序">
+    <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+      <describe>修改是否入终止库</describe>
+      <arg name="TranType">sql</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="SQL">["UPDATE ECIF.TIB_XMXX SET SFRZZK=0 WHERE ID={0}",[{"expression":"O_MASTER.XSBXMMC.XMMC.ID","scale":"","length":"","type":"1"}]]</arg>
+    </invoke>
+    <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+      <describe>从终止库中删除</describe>
+      <arg name="TranType">sql</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="SQL">["DELETE FROM ECIF.TIB_XMXX_ZZK WHERE ID = {0}",[{"expression":"O_MASTER.ID","scale":"","length":"","type":"1"}]]</arg>
+    </invoke>
+  </sequence>
+</process>
+

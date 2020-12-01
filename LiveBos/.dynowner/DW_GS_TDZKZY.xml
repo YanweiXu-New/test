@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="GB2312" standalone="no"?>
+<dynOwner flag="0" name="DW_GS_TDZKZY" type="106">
+    <describe>固收_团队质控专员(按团队取)</describe>
+    <sql>{"statement":"tUser.ID IN (SELECT DISTINCT(COLUMN_VALUE) AS ID FROM TABLE(JGCRM.SPLIT((SELECT TDZKZY||';' FROM ECIF.tIB_GDSYZBRYJG WHERE TYPE = 4 AND YG = :PTDZ),';'))) and tUser.Status = 1","args":[],"type":0}</sql>
+    <parameters>
+        <parameter>
+            <name>PTDZ</name>
+            <describe>团队长</describe>
+            <comment/>
+            <type>1</type>
+            <length>16</length>
+            <scale>0</scale>
+        </parameter>
+    </parameters>
+</dynOwner>

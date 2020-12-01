@@ -1,0 +1,1408 @@
+<?xml version="1.0" encoding="gb2312"?>
+<!DOCTYPE workflow PUBLIC "-//Apexsoft LiveBos//DTD Workflow 2.8//EN" "http://www.livebos.com/workflow/workflow_2_8_abs.dtd"><workflow>
+  <meta name="Describe">质控督导审批流程</meta>
+  <meta name="Designer">Studio</meta>
+  <meta name="modify">2020-11-19 11:02:17</meta>
+  <meta name="created">2017-08-09 19:21:40</meta>
+  <meta name="WorkflowName">wfIB_LSFXSJCXDDLCGZL</meta>
+  <meta name="WorkflowType">2</meta>
+  <meta name="workflow.category">新三板-持续督导阶段</meta>
+  <meta name="version"></meta>
+  <object  name="lcIB_LSFXSJCXDDLC" editAttribute="0" >
+  </object>
+  <initial-actions>
+    <action id="0" name="开始">
+      <meta name="NodeType">0</meta>
+      <results>
+        <unconditional-result id="2" old-status="完成" status="待处理" step="23">
+        </unconditional-result>
+      </results>
+    </action>
+  </initial-actions>
+  <steps>
+    <step id="1" name="结束">
+      <meta name="NodeType">1</meta>
+      <meta name="finish">true</meta>
+      <pre-functions>
+        <function id="0" name="abs.ExecSQL" type="class">
+          <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+          <arg name="SQL">[&quot;call ecif.PRO_IB_XSB_WFFINISH(?,?,'lcIB_LSFXSJCXDDLC',{0},{1})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+        </function>
+      </pre-functions>
+    </step>
+    <step id="23" name="质控部发起督导">
+      <meta name="NodeType">2</meta>
+      <object  name="lcIB_LSFXSJCXDDLC" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="TS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="OLDBH" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="LCBT" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="GWZW" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="LDSP" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="BZ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="XMMC" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="SM" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="CFYY" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FSFXRQ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="CXDDZY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SSXT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXSJMS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SFFXXM" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="CBRDRQ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="RDSFFXXM" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="RDRQ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SFXCHC" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="XCHCKSR" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="XCHCJSRQ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SFTJOA" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="XSCFJ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FJ" disabled="false" hidden="true" summary="false">
+            <object  name="lcIB_LSFXSJCXDDLC_FJ" editAttribute="48" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="TJSX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJLX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJM" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="WDMC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SCZ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SCSJ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SF360XS" disabled="false" hidden="true" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+          <column  name="DBXZ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="OASPXX" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="ZDWCBZ" disabled="false" hidden="true" summary="false">
+          </column>
+        </columns>
+      </object>
+      <notify >
+      </notify>
+      <actions>
+        <action id="7" name="提交">
+          <meta name="NodeType">5</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="datasource">ECIF</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.PRO_IB_XSB_LCHCL(?,?,{0},'lcIB_LSFXSJCXDDLC',{1},{2},31)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+            </function>
+            <function id="1" name="abs.ExecSQL" type="class">
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_IB_XSB_SetWFZkzy(?,?,{0},'lcIB_LSFXSJCXDDLC',{1},{2},112,2)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <unconditional-result id="26" old-status="完成" status="待处理" step="9">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+    <step id="9" name="质控二部总经理审批">
+      <meta name="step.approve.sign.action.name">会签</meta>
+      <meta name="step.allow.approve.sign">true</meta>
+      <meta name="approve.sign.modes">endorsesign</meta>
+      <meta name="step.allow.reassign">true</meta>
+      <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">prev</meta>
+      <meta name="NodeType">16</meta>
+      <meta name="approve.mode">true</meta>
+      <object  name="lcIB_LSFXSJCXDDLC" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="TS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="OLDBH" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="LCBT" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="GWZW" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="LDSP" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="BZ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="XMMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SM" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="CFYY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FSFXRQ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="CXDDZY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SSXT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXSJMS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SFFXXM" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="CBRDRQ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="RDSFFXXM" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="RDRQ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SFTJOA" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SFXCHC" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="XCHCKSR" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="XCHCJSRQ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="XSCFJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FJ" disabled="false" hidden="true" summary="false">
+            <object  name="lcIB_LSFXSJCXDDLC_FJ" editAttribute="0" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="TJSX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJLX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJM" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="WDMC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SCZ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SCSJ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SF360XS" disabled="false" hidden="true" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+          <column  name="DBXZ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="OASPXX" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="ZDWCBZ" disabled="false" hidden="true" summary="false">
+          </column>
+        </columns>
+      </object>
+      <dynOwners>
+        <dynOwner  type="1" describe="动态用户" >
+          <expression><![CDATA[
+{"name":"DW_XSB_ZKEBZJL","parameters":{}}]]></expression>
+          </dynOwner>
+              </dynOwners>
+      <notify >
+      </notify>
+      <actions>
+        <action id="10" name="审批通过">
+          <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
+          <meta name="allow.recover">true</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.PRO_IB_XSB_LCHCL(?,?,{0},'lcIB_LSFXSJCXDDLC',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <unconditional-result id="27" old-status="完成" status="待处理" step="125">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+    <step id="11" name="项目持续督导专员接收" owner="$DG{7.lcIB_LSFXSJCXDDLC.CXDDZY}">
+      <meta name="step.approve.sign.action.name">会签</meta>
+      <meta name="step.allow.approve.sign">true</meta>
+      <meta name="approve.sign.modes">endorsesign</meta>
+      <meta name="step.allow.reassign">true</meta>
+      <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
+      <meta name="approve.mode">true</meta>
+      <object  name="lcIB_LSFXSJCXDDLC" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="TS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="OLDBH" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="OASPXX" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="LCBT" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="GWZW" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="LDSP" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="BZ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="XMMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SM" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FSFXRQ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="CXDDZY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SSXT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXSJMS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SFFXXM" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="CBRDRQ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="RDSFFXXM" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="RDRQ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SFTJOA" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SFXCHC" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="XCHCKSR" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="XCHCJSRQ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="XSCFJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FJ" disabled="false" hidden="false" summary="false">
+            <object  name="lcIB_LSFXSJCXDDLC_FJ" editAttribute="53" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="TJSX" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="FJLX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJM" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="WDMC" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="SCZ" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="SCSJ" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="SF360XS" disabled="false" hidden="true" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+          <column  name="DBXZ" disabled="false" hidden="true" summary="false">
+          </column>
+        </columns>
+      </object>
+      <notify >
+      </notify>
+      <actions>
+        <action id="12" name="接收">
+          <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.PRO_IB_XSB_LCHCL(?,?,{0},'lcIB_LSFXSJCXDDLC',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <unconditional-result id="28" old-status="完成" status="待处理" step="13">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+    <step id="13" name="部门级质控专员审核">
+      <meta name="step.approve.sign.action.name">会签</meta>
+      <meta name="step.allow.approve.sign">true</meta>
+      <meta name="approve.sign.modes">endorsesign</meta>
+      <meta name="step.allow.reassign">true</meta>
+      <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
+      <meta name="approve.mode">true</meta>
+      <meta name="step.allow.communicate">false</meta>
+      <meta name="step.communicate.to.steps">-10001</meta>
+      <object  name="lcIB_LSFXSJCXDDLC" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="OLDBH" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="OASPXX" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="LCBT" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="GWZW" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="LDSP" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="BZ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="XMMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FSFXRQ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="CXDDZY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SSXT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXSJMS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SFFXXM" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="CBRDRQ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="RDSFFXXM" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="RDRQ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SFTJOA" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SFXCHC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XCHCKSR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XCHCJSRQ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XSCFJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FJ" disabled="true" hidden="false" summary="false">
+            <object  name="lcIB_LSFXSJCXDDLC_FJ" editAttribute="0" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="TJSX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJLX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJM" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="WDMC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SCZ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SCSJ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SF360XS" disabled="false" hidden="true" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+        </columns>
+      </object>
+      <dynOwners>
+        <dynOwner  type="1" describe="动态用户" >
+          <expression><![CDATA[
+{"name":"DW_BMZKZY","parameters":{"pBM":"O_WORKFLOW.CXDDZY.OrgID"}}]]></expression>
+          </dynOwner>
+              </dynOwners>
+      <notify >
+      </notify>
+      <actions>
+        <action id="14" name="审核通过">
+          <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.PRO_IB_XSB_LCHCL(?,?,{0},'lcIB_LSFXSJCXDDLC',{1},{2},30)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+            </function>
+            <function id="1" name="abs.ExecSQL" type="class">
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_IB_XSB_SetWFZkzy(?,?,{0},'lcIB_LSFXSJCXDDLC',{1},{2},112,1)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <unconditional-result id="29" old-status="完成" status="待处理" step="15">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+    <step id="15" name="部门总经理审批">
+      <meta name="step.approve.sign.action.name">会签</meta>
+      <meta name="step.allow.approve.sign">true</meta>
+      <meta name="approve.sign.modes">endorsesign</meta>
+      <meta name="step.allow.reassign">true</meta>
+      <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
+      <meta name="approve.mode">true</meta>
+      <object  name="lcIB_LSFXSJCXDDLC" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="OLDBH" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="OASPXX" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="LCBT" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="GWZW" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="LDSP" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="BZ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="XMMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FSFXRQ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="CXDDZY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SSXT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXSJMS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SFFXXM" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="CBRDRQ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="RDSFFXXM" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="RDRQ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SFTJOA" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SFXCHC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XCHCKSR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XCHCJSRQ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XSCFJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FJ" disabled="true" hidden="false" summary="false">
+            <object  name="lcIB_LSFXSJCXDDLC_FJ" editAttribute="0" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="TJSX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJLX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJM" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="WDMC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SCZ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SCSJ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SF360XS" disabled="false" hidden="true" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+        </columns>
+      </object>
+      <dynOwners>
+        <dynOwner  type="1" describe="动态用户" >
+          <expression><![CDATA[
+{"name":"DW_BMZJL","parameters":{"pBM":"O_WORKFLOW.CXDDZY.OrgID"}}]]></expression>
+          </dynOwner>
+              </dynOwners>
+      <notify >
+      </notify>
+      <actions>
+        <action id="16" name="审批通过">
+          <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.PRO_IB_XSB_LCHCL(?,?,{0},'lcIB_LSFXSJCXDDLC',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <unconditional-result id="30" old-status="完成" status="待处理" step="18">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+    <step id="18" name="投资银行总部文管员审核">
+      <meta name="step.approve.sign.action.name">会签</meta>
+      <meta name="step.allow.approve.sign">true</meta>
+      <meta name="approve.sign.modes">endorsesign</meta>
+      <meta name="step.allow.reassign">true</meta>
+      <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
+      <meta name="approve.mode">true</meta>
+      <object  name="lcIB_LSFXSJCXDDLC" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="OLDBH" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="OASPXX" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="LCBT" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="GWZW" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="LDSP" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="BZ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="XMMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FSFXRQ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="CXDDZY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SSXT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXSJMS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SFFXXM" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="CBRDRQ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="RDSFFXXM" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="RDRQ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SFTJOA" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SFXCHC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XCHCKSR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XCHCJSRQ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XSCFJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FJ" disabled="true" hidden="false" summary="false">
+            <object  name="lcIB_LSFXSJCXDDLC_FJ" editAttribute="0" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="TJSX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJLX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJM" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="WDMC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SCZ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SCSJ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SF360XS" disabled="false" hidden="true" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+        </columns>
+      </object>
+      <dynOwners>
+        <dynOwner  type="1" describe="动态用户" >
+          <expression><![CDATA[
+{"name":"DW_XSB_ZXRWG","parameters":{}}]]></expression>
+          </dynOwner>
+              </dynOwners>
+      <notify >
+      </notify>
+      <actions>
+        <action id="19" name="审核通过">
+          <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.PRO_IB_XSB_LCHCL(?,?,{0},'lcIB_LSFXSJCXDDLC',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <unconditional-result id="31" old-status="完成" status="待处理" step="20">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+    <step id="20" name="投资银行总部职能经理审批">
+      <meta name="step.approve.sign.action.name">会签</meta>
+      <meta name="step.allow.approve.sign">true</meta>
+      <meta name="approve.sign.modes">endorsesign</meta>
+      <meta name="step.allow.reassign">true</meta>
+      <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
+      <meta name="approve.mode">true</meta>
+      <meta name="step.allow.communicate">false</meta>
+      <meta name="step.communicate.to.steps">-10001</meta>
+      <object  name="lcIB_LSFXSJCXDDLC" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="OLDBH" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="OASPXX" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="LCBT" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="GWZW" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="LDSP" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="BZ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="XMMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FSFXRQ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="CXDDZY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SSXT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXSJMS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SFFXXM" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="CBRDRQ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="RDSFFXXM" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="RDRQ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SFTJOA" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SFXCHC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XCHCKSR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XCHCJSRQ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XSCFJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FJ" disabled="true" hidden="false" summary="false">
+            <object  name="lcIB_LSFXSJCXDDLC_FJ" editAttribute="0" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="TJSX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJLX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJM" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="WDMC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SCZ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SCSJ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SF360XS" disabled="false" hidden="true" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+        </columns>
+      </object>
+      <dynOwners>
+        <dynOwner  type="1" describe="动态用户" >
+          <expression><![CDATA[
+{"name":"DW_XSB_ZXRZN","parameters":{}}]]></expression>
+          </dynOwner>
+              </dynOwners>
+      <notify >
+      </notify>
+      <actions>
+        <action id="21" name="审批通过">
+          <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.PRO_IB_XSB_LCHCL(?,?,{0},'lcIB_LSFXSJCXDDLC',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <unconditional-result id="32" old-status="完成" status="待处理" step="22">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+    <step id="22" name="投资银行总部总经理审批">
+      <meta name="step.approve.sign.action.name">会签</meta>
+      <meta name="step.allow.approve.sign">true</meta>
+      <meta name="approve.sign.modes">endorsesign</meta>
+      <meta name="step.allow.reassign">true</meta>
+      <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
+      <meta name="approve.mode">true</meta>
+      <object  name="lcIB_LSFXSJCXDDLC" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="OLDBH" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="OASPXX" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="LCBT" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="GWZW" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="LDSP" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="BZ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="XMMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FSFXRQ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="CXDDZY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SSXT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXSJMS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SFFXXM" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="CBRDRQ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="RDSFFXXM" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="RDRQ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SFTJOA" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SFXCHC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XCHCKSR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XCHCJSRQ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XSCFJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FJ" disabled="false" hidden="false" summary="false">
+            <object  name="lcIB_LSFXSJCXDDLC_FJ" editAttribute="0" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="TJSX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJLX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJM" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="WDMC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SCZ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SCSJ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SF360XS" disabled="false" hidden="true" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+        </columns>
+      </object>
+      <dynOwners>
+        <dynOwner  type="1" describe="动态用户" >
+          <expression><![CDATA[
+{"name":"DW_XSB_ZXRZJL","parameters":{}}]]></expression>
+          </dynOwner>
+              </dynOwners>
+      <notify >
+      </notify>
+      <actions>
+        <action id="123" name="审批通过">
+          <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.PRO_IB_XSB_LCHCL(?,?,{0},'lcIB_LSFXSJCXDDLC',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <unconditional-result id="43" old-status="完成" status="待处理" step="24">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+    <step id="24" name="质控二部专员审核" owner="$DG{4}">
+      <meta name="step.approve.sign.action.name">会签</meta>
+      <meta name="step.allow.approve.sign">true</meta>
+      <meta name="approve.sign.modes">endorsesign</meta>
+      <meta name="step.allow.reassign">true</meta>
+      <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
+      <meta name="approve.mode">true</meta>
+      <object  name="lcIB_LSFXSJCXDDLC" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="OLDBH" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="OASPXX" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="LCBT" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="GWZW" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="LDSP" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="BZ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="XMMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FSFXRQ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="CXDDZY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SSXT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXSJMS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="SFFXXM" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="CBRDRQ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="RDSFFXXM" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="RDRQ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SFTJOA" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SFXCHC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XCHCKSR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XCHCJSRQ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XSCFJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FJ" disabled="true" hidden="false" summary="false">
+            <object  name="lcIB_LSFXSJCXDDLC_FJ" editAttribute="0" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="TJSX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJLX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJM" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="WDMC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SCZ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SCSJ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SF360XS" disabled="false" hidden="true" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+        </columns>
+      </object>
+      <notify >
+      </notify>
+      <actions>
+        <action id="25" name="审核通过">
+          <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
+          <meta name="allow.recover">true</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.PRO_IB_XSB_LCHCL(?,?,{0},'lcIB_LSFXSJCXDDLC',{1},{2},31)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+            </function>
+            <function id="1" name="abs.ExecSQL" type="class">
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_IB_XSB_SetWFZkzy(?,?,{0},'lcIB_LSFXSJCXDDLC',{1},{2},112,2)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <unconditional-result id="44" old-status="完成" status="待处理" step="33">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+    <step id="33" name="质控二部总经理审批">
+      <meta name="step.approve.sign.action.name">会签</meta>
+      <meta name="step.allow.approve.sign">true</meta>
+      <meta name="approve.sign.modes">endorsesign</meta>
+      <meta name="step.allow.reassign">true</meta>
+      <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
+      <meta name="approve.mode">true</meta>
+      <object  name="lcIB_LSFXSJCXDDLC" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="OLDBH" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="OASPXX" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="LCBT" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="GWZW" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="LDSP" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="BZ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="XMMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FSFXRQ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="CXDDZY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SSXT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXSJMS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SFFXXM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="CBRDRQ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="RDSFFXXM" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="RDRQ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="SFTJOA" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="SFXCHC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XCHCKSR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XCHCJSRQ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XSCFJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FJ" disabled="true" hidden="false" summary="false">
+            <object  name="lcIB_LSFXSJCXDDLC_FJ" editAttribute="0" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="TJSX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJLX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJM" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="WDMC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SCZ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SCSJ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SF360XS" disabled="false" hidden="true" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+        </columns>
+      </object>
+      <dynOwners>
+        <dynOwner  type="1" describe="动态用户" >
+          <expression><![CDATA[
+{"name":"DW_XSB_ZKEBZJL","parameters":{}}]]></expression>
+          </dynOwner>
+              </dynOwners>
+      <notify >
+      </notify>
+      <actions>
+        <action id="34" name="审批通过">
+          <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
+          <meta name="allow.recover">true</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.PRO_IB_XSB_LCHCL(?,?,{0},'lcIB_LSFXSJCXDDLC',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <unconditional-result id="128" old-status="完成" status="待处理" step="37">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+    <step id="37" name="质控总部总经理审批">
+      <meta name="step.approve.sign.action.name">会签</meta>
+      <meta name="step.allow.approve.sign">true</meta>
+      <meta name="approve.sign.modes">endorsesign</meta>
+      <meta name="step.allow.reassign">true</meta>
+      <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
+      <meta name="approve.mode">true</meta>
+      <object  name="lcIB_LSFXSJCXDDLC" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="OLDBH" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="OASPXX" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="LCBT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="GWZW" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LDSP" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="BZ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FSFXRQ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="CXDDZY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SSXT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXSJMS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SFFXXM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="CBRDRQ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="RDSFFXXM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="RDRQ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SFTJOA" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SFXCHC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XCHCKSR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XCHCJSRQ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FJ" disabled="true" hidden="false" summary="false">
+            <object  name="lcIB_LSFXSJCXDDLC_FJ" editAttribute="0" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="TJSX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJLX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SFSC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="FJM" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="WDMC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SCZ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SCSJ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SF360XS" disabled="false" hidden="true" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+        </columns>
+      </object>
+      <dynOwners>
+        <dynOwner  type="1" describe="动态用户" >
+          <expression><![CDATA[
+{"name":"DW_TH_ZKZBZJL","parameters":{}}]]></expression>
+          </dynOwner>
+              </dynOwners>
+      <notify >
+      </notify>
+      <actions>
+        <action id="38" name="审批通过">
+          <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
+          <meta name="allow.recover">true</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.PRO_IB_XSB_LCHCL(?,?,{0},'lcIB_LSFXSJCXDDLC',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <unconditional-result id="143" old-status="完成" status="待处理" step="1">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+    <step id="125" name="质控总部总经理审批">
+      <meta name="step.approve.sign.action.name">会签</meta>
+      <meta name="step.allow.approve.sign">true</meta>
+      <meta name="approve.sign.modes">endorsesign</meta>
+      <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
+      <meta name="approve.mode">true</meta>
+      <object  name="lcIB_LSFXSJCXDDLC" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="TS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="OLDBH" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="LCBT" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="GWZW" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="LDSP" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="BZ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="XMMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SM" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="CFYY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FSFXRQ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="CXDDZY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SSXT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXSJMS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SFFXXM" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="CBRDRQ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="RDSFFXXM" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="RDRQ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SFXCHC" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="XCHCKSR" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="XCHCJSRQ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SFTJOA" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="XSCFJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FJ" disabled="false" hidden="true" summary="false">
+            <object  name="lcIB_LSFXSJCXDDLC_FJ" editAttribute="0" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="TJSX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJLX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJM" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="WDMC" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="SCZ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SCSJ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SF360XS" disabled="false" hidden="true" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+          <column  name="DBXZ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="OASPXX" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="ZDWCBZ" disabled="false" hidden="true" summary="false">
+          </column>
+        </columns>
+      </object>
+      <dynOwners>
+        <dynOwner  type="1" describe="动态用户" >
+          <expression><![CDATA[
+{"name":"DW_TH_ZKZBZJL","parameters":{}}]]></expression>
+          </dynOwner>
+              </dynOwners>
+      <notify >
+      </notify>
+      <actions>
+        <action id="126" name="审批通过">
+          <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.PRO_IB_XSB_LCHCL(?,?,{0},'lcIB_LSFXSJCXDDLC',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <unconditional-result id="127" old-status="完成" status="待处理" step="11">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+  </steps>
+</workflow>

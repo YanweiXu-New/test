@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_NHLCB_CWXX_ZFZ_UI" object="lcIB_NHLCB_CWXX" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>总负债(万元)界面事件</describe>
+  <variables />
+  <if id="0">
+    <describe>判断</describe>
+    <conditions>
+      <condition name="" type="expression">
+        <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+O_MASTER.ZFZ &gt;=10000</arg>
+      </condition>
+    </conditions>
+    <response exit="false" id="0">
+      <describe>输出</describe>
+      <retvalue type="">-92</retvalue>
+      <message>请确认'总负债'是否为正确金额!</message>
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
+  </if>
+</process>
+

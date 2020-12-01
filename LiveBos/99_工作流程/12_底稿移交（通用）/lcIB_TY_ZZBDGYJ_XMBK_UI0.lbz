@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_TY_ZZBDGYJ_XMBK_UI0" object="lcIB_TY_ZZBDGYJ" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目板块界面事件</describe>
+  <variables>
+    <variable describe="V_XYXX" messageType="" name="V_XYXX" type="resultSet" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
+      <describe>数据库组件_SQL查询</describe>
+      <arg name="TranType">sql</arg>
+      <arg name="SQL">["SELECT XMLX,ID,wdlxm,tjsx,XM360ZS FROM tIB_WDLXPZ WHERE lcbd='lcIB_TY_ZZBDGYJ' AND XMLX={0} ORDER by tjsx",[{"expression":"O_MASTER.XMBK","scale":"","length":"","type":"-1"}]]</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="@retResultSet" type="output">V_XYXX</arg>
+    </invoke>
+    <invoke component="FormUI" id="0" name="界面处理_使用结果集填充可选项" operation="putOptionsByResult">
+      <describe>界面处理_使用结果集填充可选项</describe>
+      <arg flag="field" name="@columnName">GZGLX</arg>
+      <arg name="@resultSet" type="variable">V_XYXX</arg>
+      <arg name="@noteLabel">WDLXM</arg>
+      <arg name="@clearOptions">true</arg>
+      <arg name="@valueLabel">ID</arg>
+    </invoke>
+  </sequence>
+</process>
+

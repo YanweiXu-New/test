@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_DFQLC_QD" name="tIB_DFQLC_QD" object="tIB_DFQLC" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>待发起流程-启动流程</describe>
+  <variables>
+    <variable describe="V_RET" messageType="" name="V_RET" type="int" />
+    <variable describe="V_Msg" messageType="" name="V_Msg" type="string" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <invoke component="Workflow" id="0" name="工作流组件_执行动作" operation="doAction">
+      <describe>工作流组件_执行动作</describe>
+      <arg name="@objectName">lcIB_GS_KXZBQKDCLC</arg>
+      <arg name="@ID">400068</arg>
+      <arg name="actionID">0</arg>
+      <arg name="user">1457</arg>
+      <arg name="@retValue" type="output">V_RET</arg>
+    </invoke>
+    <response exit="false" id="0">
+      <describe>输出</describe>
+      <retvalue>1</retvalue>
+      <message type="variable">V_RET</message>
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
+  </sequence>
+</process>
+

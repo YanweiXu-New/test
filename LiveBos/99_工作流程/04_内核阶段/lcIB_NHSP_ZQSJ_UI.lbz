@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_NHSP_ZQSJ_UI" object="lcIB_NHSP" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>知情时间界面事件</describe>
+  <variables />
+  <sequence id="0" name="顺序">
+    <if id="0">
+      <describe>判断</describe>
+      <conditions>
+        <condition name="" type="expression">
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+var i =  ABS_SQLVALUE("select to_number(to_char(sysdate,'yyyymmdd')) from dual");
+O_MASTER.ZQSJ &gt; i</arg>
+        </condition>
+      </conditions>
+      <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+        <describe>界面处理_更新值</describe>
+        <arg flag="field" name="ZQSJ" type="expression">null</arg>
+      </invoke>
+    </if>
+    <invoke component="Assert" id="0" name="断言">
+      <describe>断言</describe>
+      <arg name="assert.1" type="expression">&lt;%@ livebos language='javascript' %&gt;
+var i =  ABS_SQLVALUE("select to_number(to_char(sysdate,'yyyymmdd')) from dual");
+i &gt;= O_MASTER.ZQSJ</arg>
+      <arg name="message.1" type="expression">'知情时间需早于当天，请重新选择'</arg>
+    </invoke>
+  </sequence>
+</process>
+

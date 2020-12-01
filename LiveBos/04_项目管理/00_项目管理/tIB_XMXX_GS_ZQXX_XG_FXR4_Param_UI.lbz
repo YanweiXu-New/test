@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_XMXX_GS_ZQXX_XG" name="tIB_XMXX_GS_ZQXX_XG_FXR4_Param_UI" object="tIB_XMXX_GS_ZQXX" type="2" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>付息日4界面事件</describe>
+  <variables />
+  <sequence id="0" name="顺序">
+    <if id="0">
+      <describe>简易判断付息日格式</describe>
+      <conditions>
+        <condition name="" type="expression">
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+var s1=ABS_SQLVALUE("SELECT LENGTH(?) FROM DUAL",[O_PARAMETER.FXR4]);
+var s2=ABS_SQLVALUE("SELECT SUBSTR(?,1,2) FROM DUAL",[O_PARAMETER.FXR4]);
+var s3=ABS_SQLVALUE("SELECT SUBSTR(?,3,2) FROM DUAL",[O_PARAMETER.FXR4]);
+s1!=4||s2&gt;12||s3&gt;31</arg>
+        </condition>
+      </conditions>
+      <response exit="true" id="0">
+        <describe>不合规输出</describe>
+        <retvalue type="">-92</retvalue>
+        <message>付息日需为月日格式(四位数字)!</message>
+        <uiforward redirect="false">
+          <url />
+        </uiforward>
+      </response>
+    </if>
+  </sequence>
+</process>
+

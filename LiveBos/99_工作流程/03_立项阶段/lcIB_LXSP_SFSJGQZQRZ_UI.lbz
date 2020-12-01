@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_LXSP_SFSJGQZQRZ_UI" object="lcIB_LXSP" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>是否涉及股权、债权融资界面事件</describe>
+  <variables />
+  <sequence id="0" name="顺序">
+    <invoke component="FormUIHypotOperate" id="0" name="表格操作_批量删除" operation="batchDelete">
+      <describe>批量删除表格对象[立项审批表]</describe>
+      <arg name="@objectName">lcIB_LXSP</arg>
+      <arg name="@object" type="variable">O_MASTER</arg>
+      <arg name="@columnName">FJ</arg>
+      <arg name="@condition">&lt;%@ livebos language='javascript' %&gt;
+O_MASTER.FJ.FJLX==835</arg>
+    </invoke>
+    <if id="0">
+      <describe>判断是否涉及</describe>
+      <conditions>
+        <condition name="" type="expression">
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+O_MASTER.SFSJGQZQRZ==1</arg>
+        </condition>
+      </conditions>
+      <invoke component="FormUIHypotOperate" id="0" name="表格操作_新增" operation="insert">
+        <describe>新增表格对象[立项审批表]</describe>
+        <arg name="@objectName">lcIB_LXSP</arg>
+        <arg name="@object" type="variable">O_MASTER</arg>
+        <arg name="@columnName">FJ</arg>
+        <arg flag="field" name="TJSX" type="expression">11</arg>
+        <arg flag="field" name="FJLX" type="expression">835</arg>
+        <arg flag="field" name="SF360XS" type="expression">1</arg>
+      </invoke>
+    </if>
+  </sequence>
+</process>
+

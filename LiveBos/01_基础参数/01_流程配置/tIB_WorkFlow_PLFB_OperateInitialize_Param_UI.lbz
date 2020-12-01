@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_WorkFlow_PLFB" name="tIB_WorkFlow_PLFB_OperateInitialize_Param_UI" object="tIB_WorkFlow" type="2" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>界面初始化界面事件</describe>
+  <variables>
+    <variable describe="V_CODE" messageType="" name="V_CODE" type="int" />
+    <variable describe="V_NOTE" messageType="" name="V_NOTE" type="string" />
+  </variables>
+  <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+    <describe>数据库组件_执行SQL语句</describe>
+    <arg name="TranType">procedure</arg>
+    <arg name="datasource">ECIF</arg>
+    <arg name="CODE" type="output">V_CODE</arg>
+    <arg name="NOTE" type="output">V_NOTE</arg>
+    <arg name="SQL">["CALL ECIF.PRO_IB_DFBLCCSH(:CODE,:NOTE,{0})",[{"expression":"$Login.User","scale":"","length":"","type":"1"}]]</arg>
+  </invoke>
+</process>
+

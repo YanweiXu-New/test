@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="GB2312" standalone="no"?>
+<dynOwner flag="0" name="DW_XSB_ZLKZZY" type="106">
+    <describe>新三板_质量控制专员</describe>
+    <sql>{"statement":"instr(';'||(select ZLKZBZY from ecif.tIB_XMXX_XSB where id = :pXMID)||';',';'||tUser.ID||';')&gt;0","args":[],"type":0}</sql>
+    <parameters>
+        <parameter>
+            <name>pXMID</name>
+            <describe>项目ID</describe>
+            <comment/>
+            <type>1</type>
+            <length>16</length>
+            <scale>0</scale>
+        </parameter>
+    </parameters>
+</dynOwner>

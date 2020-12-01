@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="lcIB_QY_YWZLTJ_XZWD" name="lcIB_QY_YWZLTJ_XZWD" object="lcIB_QY_YWZLTJ" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>业务资料新增-新增文档流程</describe>
+  <variables />
+  <response exit="true" id="0">
+    <describe>输出</describe>
+    <retvalue>199</retvalue>
+    <message />
+    <uiforward redirect="true">
+      <url type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+var zsmc=ABS_SQLVALUE("select name from jgcrm.TJG_YWXQXX where id=?",[O_PARAMETER.PFL]);&#xD;
+'/bss/ibb/knowledge/page/uploadView.sdo?id='+O_PARAMETER.PFL+'&amp;name='+encodeURIComponent(zsmc)</url>
+    </uiforward>
+  </response>
+</process>
+

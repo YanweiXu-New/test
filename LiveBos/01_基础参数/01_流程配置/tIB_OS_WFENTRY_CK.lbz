@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_OS_WFENTRY_CK" name="tIB_OS_WFENTRY_CK" object="tIB_OS_WFENTRY" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>系统已发起流程-流程跟踪流程</describe>
+  <variables />
+  <response exit="true" id="0">
+    <describe>输出</describe>
+    <retvalue>1</retvalue>
+    <message />
+    <uiforward redirect="true">
+      <url type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+'/UIProcessor?Creator=workflow&amp;Table='+O_MASTER.NAME+'&amp;WorkID='+O_MASTER.ID+'&amp;HideCancelBtn=true'</url>
+    </uiforward>
+  </response>
+</process>
+

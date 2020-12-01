@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="TJG_QJMB_CZ_XG" name="TJG_QJMB_CZ_XG" object="TJG_QJMB_CZ" type="0" version="" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>全景操作配置-修改</describe>
+  <variables>
+    <variable describe="V_Ret" name="V_Ret" type="int" />
+    <variable describe="V_Msg" name="V_Msg" type="string" />
+  </variables>
+  <restriction id="0">
+    <describe />
+    <sequence id="0">
+      <describe />
+      <invoke component="SQL" id="0" name="执行SQL语句" operation="execute">
+        <describe>业务校验</describe>
+        <arg name="datasource">ECIF</arg>
+        <arg name="SQL">["CALL PRO_JG_QJMB_CZ(:ret,:msg,{0},{1},1,{2})",[{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"'[check]'","scale":"","length":"","type":"0"},{"expression":"O_MASTER.ID","scale":"","length":"","type":"1"}]]</arg>
+        <arg name="TranType">procedure</arg>
+        <arg name="ret" type="output">V_Ret</arg>
+        <arg name="msg" type="output">V_Msg</arg>
+      </invoke>
+      <response exit="false" id="0">
+        <describe>输出</describe>
+        <retvalue type="variable">V_Ret</retvalue>
+        <message type="variable">V_Msg</message>
+        <uiforward redirect="false">
+          <url />
+        </uiforward>
+      </response>
+    </sequence>
+  </restriction>
+  <sequence id="0">
+    <describe />
+    <invoke component="FormOperate" id="0" name="修改" operation="update">
+      <describe>业务处理</describe>
+      <arg flag="field" name="GSXZ" type="expression">O_PARAMETER.GSXZ</arg>
+      <arg flag="field" name="SYFW" type="expression">O_PARAMETER.SYFW</arg>
+      <arg flag="field" name="STQJCZ" type="expression">O_PARAMETER.STQJCZ</arg>
+      <arg flag="field" name="XSSX" type="expression">O_PARAMETER.XSSX</arg>
+      <arg flag="field" name="XSMC" type="expression">O_PARAMETER.XSMC</arg>
+      <arg flag="field" name="BZ" type="expression">O_PARAMETER.BZ</arg>
+      <arg name="@objectName">TJG_QJMB_CZ</arg>
+      <arg name="@object" type="variable">O_MASTER</arg>
+      <arg flag="field" name="CZBZ" type="expression">O_PARAMETER.CZBZ</arg>
+      <arg flag="field" name="CXLX" type="expression">O_PARAMETER.CXLX</arg>
+    </invoke>
+    <invoke component="SQL" id="0" name="执行SQL语句" operation="execute">
+      <describe>后处理</describe>
+      <arg name="datasource">ECIF</arg>
+      <arg name="SQL">["CALL PRO_JG_QJMB_CZ(:ret,:msg,{0},{1},1,{2})",[{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"$Login.IP","scale":"","length":"","type":"0"},{"expression":"O_MASTER.ID","scale":"","length":"","type":"1"}]]</arg>
+      <arg name="TranType">procedure</arg>
+      <arg name="ret" type="output">V_Ret</arg>
+      <arg name="msg" type="output">V_Msg</arg>
+    </invoke>
+    <response exit="false" id="0">
+      <describe>输出</describe>
+      <retvalue type="variable">V_Ret</retvalue>
+      <message type="variable">V_Msg</message>
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
+  </sequence>
+</process>
+

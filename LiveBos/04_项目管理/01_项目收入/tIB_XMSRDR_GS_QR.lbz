@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_XMSRDR_GS_QR" name="tIB_XMSRDR_GS_QR" object="tIB_XMSRDR_GS" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目收入导入_固收-确认入库流程</describe>
+  <variables />
+  <sequence id="0" name="顺序">
+    <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+      <describe>迁移数据</describe>
+      <arg name="TranType">sql</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="SQL">["BEGIN\r\n  INSERT INTO ECIF.tIB_XMSR_GS(ID,TDZ,YF,YSSR,XMSR,XMID,DJR,DJSJ)\r\n  SELECT JGCRM.FUNC_NEXTID('tIB_XMSR_GS'),TDZ,YF,YSSR,XMSR,XMID,DJR,SYSDATE\r\n    FROM ECIF.tIB_XMSRDR_GS WHERE DJR = {0};\r\n  DELETE FROM ECIF.tIB_XMSRDR_GS WHERE DJR = {0};\r\nEND;",[{"expression":"$Login.User","scale":"","length":"","type":"1"}]]</arg>
+    </invoke>
+    <response exit="false" id="0">
+      <describe>输出</describe>
+      <retvalue>1</retvalue>
+      <message />
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
+  </sequence>
+</process>
+

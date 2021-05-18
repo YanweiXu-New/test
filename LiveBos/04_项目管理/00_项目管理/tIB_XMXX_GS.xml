@@ -12,7 +12,7 @@
             <describe>项目名称</describe>
             <type>0</type>
             <biz-type>100</biz-type>
-            <length>100</length>
+            <length>150</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -110,7 +110,7 @@
             <describe>区域名称</describe>
             <type>0</type>
             <biz-type>100</biz-type>
-            <length>500</length>
+            <length>50</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -129,11 +129,11 @@
         <column>
             <name>NJYCS</name>
             <describe>交易场所</describe>
-            <type>7</type>
-            <biz-type>400</biz-type>
+            <type>15</type>
+            <biz-type>401</biz-type>
             <length>0</length>
             <scale>0</scale>
-            <control>2</control>
+            <control>4</control>
             <primary-property>0</primary-property>
             <nullable>false</nullable>
             <unique>false</unique>
@@ -144,9 +144,10 @@
             <attribute>0</attribute>
             <order-direction>0</order-direction>
             <category>监管信息</category>
-            <fire-event>0</fire-event>
+            <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <validation/>
             <properties/>
         </column>
         <column>
@@ -154,7 +155,7 @@
             <describe>交易场所名称</describe>
             <type>0</type>
             <biz-type>100</biz-type>
-            <length>500</length>
+            <length>100</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -164,6 +165,7 @@
             <visible>true</visible>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <invisible-expression>NJYCS.indexOf('99')&lt;0</invisible-expression>
             <category>监管信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
@@ -214,6 +216,7 @@
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <validation/>
             <properties/>
         </column>
         <column>
@@ -257,6 +260,219 @@
             <attribute>0</attribute>
             <order-direction>0</order-direction>
             <category>监管信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>HDPWSJ</name>
+            <describe>获得批文时间</describe>
+            <type>13</type>
+            <biz-type>300</biz-type>
+            <length>8</length>
+            <scale>0</scale>
+            <control>3</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object/>
+            <default>null</default>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category>储备阶段信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties>
+                <ctrl-width>200</ctrl-width>
+            </properties>
+        </column>
+        <column>
+            <name>PWHM</name>
+            <describe>批文号码</describe>
+            <type>0</type>
+            <biz-type>100</biz-type>
+            <length>30</length>
+            <scale>0</scale>
+            <control>1</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category>储备阶段信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+        </column>
+        <column>
+            <name>NDPWGM</name>
+            <describe>拿到批文的规模(万元)</describe>
+            <type>1</type>
+            <biz-type>200</biz-type>
+            <length>16</length>
+            <scale>2</scale>
+            <control>1</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category>储备阶段信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+        </column>
+        <column>
+            <name>YFXDGM</name>
+            <describe>已发行的规模(万元)</describe>
+            <type>1</type>
+            <biz-type>200</biz-type>
+            <length>16</length>
+            <scale>2</scale>
+            <control>1</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category>储备阶段信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+        </column>
+        <column>
+            <name>JTHZDW</name>
+            <describe>集团合作单位</describe>
+            <type>15</type>
+            <biz-type>401</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>4</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option>$D{IB_XTDW}</option>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category>储备阶段信息</category>
+            <fire-event>1</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>FH</name>
+            <describe>分行</describe>
+            <type>0</type>
+            <biz-type>100</biz-type>
+            <length>30</length>
+            <scale>0</scale>
+            <control>1</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;&#13;
+JTHZDW.indexOf('2')&lt;0  &#13;
+</invisible-expression>
+            <category>储备阶段信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>GHHDCKJE</name>
+            <describe>光行获得存款金额(万元)</describe>
+            <type>1</type>
+            <biz-type>200</biz-type>
+            <length>16</length>
+            <scale>2</scale>
+            <control>1</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;&#13;
+JTHZDW.indexOf('2')&lt;0  &#13;
+</invisible-expression>
+            <category>储备阶段信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>TJFX</name>
+            <describe>推荐方向</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>10</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option>$D{IB_TJFX}</option>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
+JTHZDW=='100'</invisible-expression>
+            <category>储备阶段信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>HZXS</name>
+            <describe>合作形式</describe>
+            <type>15</type>
+            <biz-type>401</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>4</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option>$D{IB_HZXS}</option>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
+JTHZDW=='100'</invisible-expression>
+            <category>储备阶段信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
@@ -552,235 +768,28 @@
             <properties/>
         </column>
         <column>
-            <name>HDPWSJ</name>
-            <describe>获得批文时间</describe>
-            <type>13</type>
-            <biz-type>300</biz-type>
-            <length>8</length>
+            <name>LXLCFQSJ</name>
+            <describe>立项流程发起时间</describe>
+            <type>3</type>
+            <biz-type>301</biz-type>
+            <length>12</length>
             <scale>0</scale>
-            <control>3</control>
+            <control>37</control>
             <primary-property>0</primary-property>
             <nullable>true</nullable>
             <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
+            <enabled>false</enabled>
+            <visible>false</visible>
             <option/>
             <ref-object/>
+            <default>null</default>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties>
-                <ctrl-width>200</ctrl-width>
-            </properties>
-        </column>
-        <column>
-            <name>PWHM</name>
-            <describe>批文号码</describe>
-            <type>0</type>
-            <biz-type>100</biz-type>
-            <length>300</length>
-            <scale>0</scale>
-            <control>1</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <category/>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-        </column>
-        <column>
-            <name>NDPWGM</name>
-            <describe>拿到批文的规模（万元）</describe>
-            <type>1</type>
-            <biz-type>200</biz-type>
-            <length>16</length>
-            <scale>2</scale>
-            <control>1</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
-            <option/>
-            <ref-object/>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <category/>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-        </column>
-        <column>
-            <name>FXED</name>
-            <describe>发行规模(万元)</describe>
-            <type>1</type>
-            <biz-type>200</biz-type>
-            <length>16</length>
-            <scale>2</scale>
-            <control>1</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
-            <option/>
-            <meta-column/>
-            <ref-object/>
-            <default/>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category/>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-            <properties/>
-        </column>
-        <column>
-            <name>YFXDGM</name>
-            <describe>已发行的规模(万元)</describe>
-            <type>1</type>
-            <biz-type>200</biz-type>
-            <length>16</length>
-            <scale>2</scale>
-            <control>1</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
-            <option/>
-            <ref-object/>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <category/>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-        </column>
-        <column>
-            <name>JTHZDW</name>
-            <describe>集团合作单位</describe>
-            <type>7</type>
-            <biz-type>400</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>10</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
-            <option>$D{IB_XTDW}</option>
-            <ref-object/>
-            <default/>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <category/>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <properties/>
-        </column>
-        <column>
-            <name>FH</name>
-            <describe>分行</describe>
-            <type>0</type>
-            <biz-type>100</biz-type>
-            <length>100</length>
-            <scale>0</scale>
-            <control>1</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <category/>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-        </column>
-        <column>
-            <name>GHHDCKJE</name>
-            <describe>光行获得存款金额</describe>
-            <type>1</type>
-            <biz-type>200</biz-type>
-            <length>16</length>
-            <scale>2</scale>
-            <control>1</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
-            <option/>
-            <ref-object/>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <category/>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-        </column>
-        <column>
-            <name>TJFX</name>
-            <describe>推荐方向</describe>
-            <type>7</type>
-            <biz-type>400</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>2</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
-            <option>$D{IB_TJFX}</option>
-            <ref-object/>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <category/>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <properties/>
-        </column>
-        <column>
-            <name>HZXS</name>
-            <describe>合作形式</describe>
-            <type>7</type>
-            <biz-type>400</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>2</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
-            <option>$D{IB_HZXS}</option>
-            <ref-object/>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <category/>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
+            <comment>立项流程写入</comment>
             <properties/>
         </column>
         <column>
@@ -1005,6 +1014,37 @@ SLTGR!=999999&amp;&amp;ZQDLR!=999999&amp;&amp;HXGLR!=999999        </invisible-e
             <properties/>
         </column>
         <column>
+            <name>FXED</name>
+            <describe>发行规模(万元)</describe>
+            <type>1</type>
+            <biz-type>200</biz-type>
+            <length>16</length>
+            <scale>2</scale>
+            <control>1</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>发行前审核阶段</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+            <properties/>
+        </column>
+        <column>
             <name>FXQX</name>
             <describe>发行期限</describe>
             <type>0</type>
@@ -1200,13 +1240,13 @@ DBFS!=99        </invisible-expression>
             <biz-type>400</biz-type>
             <length>0</length>
             <scale>0</scale>
-            <control>2</control>
+            <control>10</control>
             <primary-property>0</primary-property>
             <nullable>true</nullable>
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
-            <option>$D{IB_ZTPJ}</option>
+            <option>$D{IB_XBZTPJ}</option>
             <meta-column/>
             <ref-object/>
             <default/>
@@ -1624,6 +1664,7 @@ ZXPJ!=9        </invisible-expression>
             <visible>true</visible>
             <option/>
             <ref-object/>
+            <default>null</default>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
             <category>发行前审核阶段</category>
@@ -3263,7 +3304,7 @@ JYCS.indexOf('99')&lt;0        </invisible-expression>
                     <describe>项目名称</describe>
                     <type>0</type>
                     <biz-type>100</biz-type>
-                    <length>100</length>
+                    <length>150</length>
                     <scale>0</scale>
                     <control>1</control>
                     <primary-property>0</primary-property>
@@ -3384,7 +3425,7 @@ XMLX!=120900&amp;&amp;XMLX!=120106&amp;&amp;XMLX!=120208&amp;&amp;XMLX!=120305&a
                     <describe>区域名称</describe>
                     <type>0</type>
                     <biz-type>100</biz-type>
-                    <length>500</length>
+                    <length>50</length>
                     <scale>0</scale>
                     <control>1</control>
                     <primary-property>0</primary-property>
@@ -3405,11 +3446,11 @@ XMQY!=37</invisible-expression>
                 <column>
                     <name>JYCS</name>
                     <describe>交易场所</describe>
-                    <type>7</type>
-                    <biz-type>400</biz-type>
+                    <type>15</type>
+                    <biz-type>401</biz-type>
                     <length>0</length>
                     <scale>0</scale>
-                    <control>10</control>
+                    <control>4</control>
                     <primary-property>0</primary-property>
                     <nullable>false</nullable>
                     <unique>false</unique>
@@ -3423,6 +3464,7 @@ XMQY!=37</invisible-expression>
                     <fire-event>1</fire-event>
                     <check-type>0</check-type>
                     <real-type>0</real-type>
+                    <validation/>
                     <properties/>
                 </column>
                 <column>
@@ -3430,7 +3472,7 @@ XMQY!=37</invisible-expression>
                     <describe>交易场所名称</describe>
                     <type>0</type>
                     <biz-type>100</biz-type>
-                    <length>500</length>
+                    <length>100</length>
                     <scale>0</scale>
                     <control>1</control>
                     <primary-property>0</primary-property>
@@ -3441,7 +3483,7 @@ XMQY!=37</invisible-expression>
                     <attribute>0</attribute>
                     <order-direction>0</order-direction>
                     <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-JYCS !=99</invisible-expression>
+JYCS.indexOf('99')&lt;0  </invisible-expression>
                     <category>监管信息</category>
                     <fire-event>0</fire-event>
                     <check-type>0</check-type>
@@ -3470,6 +3512,8 @@ JYCS !=99</invisible-expression>
                     <fire-event>0</fire-event>
                     <check-type>0</check-type>
                     <real-type>0</real-type>
+                    <comment>&lt;font color=red&gt;(即项目申报受理日期)&lt;/font&gt;</comment>
+                    <validation/>
                     <properties>
                         <ctrl-width>200</ctrl-width>
                     </properties>
@@ -3540,7 +3584,13 @@ O_THIS.getColumn("TDFZR").setLabel("&lt;font color=red&gt;*&lt;/font&gt;团队负责
                     <check-type>0</check-type>
                     <real-type>16</real-type>
                     <comment/>
-                    <validation/>
+                    <validation>
+                        <validator name="expression">
+                            <expression>ABS_SQLVALUE("select LENGTH(?) - LENGTH(REPLACE(?,';','')) from dual",[XMZCY,XMZCY]) &lt; 30</expression>
+                            <message>项目组成员不得超过30人</message>
+                            <attribute>0</attribute>
+                        </validator>
+                    </validation>
                     <scope-permissions/>
                     <properties>
                         <ctrl-width>300</ctrl-width>
@@ -3554,24 +3604,20 @@ O_THIS.getColumn("TDFZR").setLabel("&lt;font color=red&gt;*&lt;/font&gt;团队负责
                     <length>0</length>
                     <scale>0</scale>
                     <control>10</control>
-                    <primary-property>10</primary-property>
+                    <primary-property>0</primary-property>
                     <nullable>true</nullable>
                     <unique>false</unique>
                     <enabled>false</enabled>
                     <visible>true</visible>
                     <option/>
                     <ref-object>tIB_XMJD</ref-object>
+                    <default>120010</default>
                     <attribute>0</attribute>
                     <order-direction>0</order-direction>
-                    <expression>120099</expression>
                     <category>基本信息</category>
                     <fire-event>0</fire-event>
                     <check-type>0</check-type>
                     <real-type>0</real-type>
-                    <constraint type="3">
-                        <SQL>["tIB_XMJD.ID in (select id from tIB_XMJD where 1=1 start with id = 120000 connect by prior id = fid) and tIB_XMJD.ID != 120000",[]]</SQL>
-                        <refColumns/>
-                    </constraint>
                     <properties/>
                 </column>
                 <column>
@@ -4172,7 +4218,7 @@ DBFS!=99        </invisible-expression>
                     <biz-type>400</biz-type>
                     <length>0</length>
                     <scale>0</scale>
-                    <control>2</control>
+                    <control>10</control>
                     <primary-property>10</primary-property>
                     <nullable>true</nullable>
                     <unique>false</unique>
@@ -4582,7 +4628,7 @@ O_THIS.getColumn("TDFZR").setLabel("&lt;font color=red&gt;*&lt;/font&gt;团队负责
                 </property>
                 <property>
                     <name>69</name>
-                    <value>906*550</value>
+                    <value>1000*600</value>
                 </property>
                 <property>
                     <name>28</name>
@@ -5356,7 +5402,7 @@ JYCS.indexOf('99')&lt;0        </invisible-expression>
                     <describe>项目名称</describe>
                     <type>0</type>
                     <biz-type>100</biz-type>
-                    <length>100</length>
+                    <length>150</length>
                     <scale>0</scale>
                     <control>1</control>
                     <primary-property>10</primary-property>
@@ -5456,7 +5502,7 @@ XMLX!=120900&amp;&amp;XMLX!=120106&amp;&amp;XMLX!=120208&amp;&amp;XMLX!=120305&a
                     <biz-type>400</biz-type>
                     <length>0</length>
                     <scale>0</scale>
-                    <control>2</control>
+                    <control>10</control>
                     <primary-property>0</primary-property>
                     <nullable>false</nullable>
                     <unique>false</unique>
@@ -5477,7 +5523,7 @@ XMLX!=120900&amp;&amp;XMLX!=120106&amp;&amp;XMLX!=120208&amp;&amp;XMLX!=120305&a
                     <describe>区域名称</describe>
                     <type>8</type>
                     <biz-type>100</biz-type>
-                    <length>500</length>
+                    <length>50</length>
                     <scale>0</scale>
                     <control>1</control>
                     <primary-property>0</primary-property>
@@ -5499,10 +5545,10 @@ XMQY!=37</invisible-expression>
                     <name>NJYCS</name>
                     <describe>交易场所</describe>
                     <type>8</type>
-                    <biz-type>400</biz-type>
+                    <biz-type>401</biz-type>
                     <length>0</length>
                     <scale>0</scale>
-                    <control>2</control>
+                    <control>4</control>
                     <primary-property>0</primary-property>
                     <nullable>false</nullable>
                     <unique>false</unique>
@@ -5515,7 +5561,8 @@ XMQY!=37</invisible-expression>
                     <category>监管信息</category>
                     <fire-event>1</fire-event>
                     <check-type>0</check-type>
-                    <real-type>7</real-type>
+                    <real-type>15</real-type>
+                    <validation/>
                     <properties/>
                 </column>
                 <column>
@@ -5523,7 +5570,7 @@ XMQY!=37</invisible-expression>
                     <describe>交易场所名称</describe>
                     <type>8</type>
                     <biz-type>100</biz-type>
-                    <length>500</length>
+                    <length>100</length>
                     <scale>0</scale>
                     <control>1</control>
                     <primary-property>0</primary-property>
@@ -5534,7 +5581,7 @@ XMQY!=37</invisible-expression>
                     <attribute>0</attribute>
                     <order-direction>0</order-direction>
                     <invisible-expression>&lt;%@ livebos language='javascript' %&gt;&#13;
-NJYCS != 99</invisible-expression>
+NJYCS.indexOf('99')&lt;0  </invisible-expression>
                     <category>监管信息</category>
                     <fire-event>0</fire-event>
                     <check-type>0</check-type>
@@ -5562,6 +5609,7 @@ NJYCS != 99</invisible-expression>
                     <fire-event>0</fire-event>
                     <check-type>0</check-type>
                     <real-type>13</real-type>
+                    <comment>&lt;font color=red&gt;(即项目申报受理日期)&lt;/font&gt;</comment>
                     <properties>
                         <ctrl-width>200</ctrl-width>
                     </properties>
@@ -5632,7 +5680,13 @@ O_THIS.getColumn("TDFZR").setLabel("&lt;font color=red&gt;*&lt;/font&gt;团队负责
                     <check-type>0</check-type>
                     <real-type>16</real-type>
                     <comment/>
-                    <validation/>
+                    <validation>
+                        <validator name="expression">
+                            <expression>ABS_SQLVALUE("select LENGTH(?) - LENGTH(REPLACE(?,';','')) from dual",[XMZCY,XMZCY]) &lt; 30</expression>
+                            <message>项目组成员不得超过30人</message>
+                            <attribute>0</attribute>
+                        </validator>
+                    </validation>
                     <scope-permissions/>
                     <properties>
                         <ctrl-width>300</ctrl-width>
@@ -5950,6 +6004,45 @@ O_THIS.getColumn("FXFS").setLabel("&lt;font color=red&gt;*&lt;/font&gt;发行方式"
                     </properties>
                 </column>
                 <column>
+                    <name>FXED</name>
+                    <describe>发行规模(万元)</describe>
+                    <type>8</type>
+                    <biz-type>200</biz-type>
+                    <length>16</length>
+                    <scale>2</scale>
+                    <control>1</control>
+                    <primary-property>0</primary-property>
+                    <nullable>true</nullable>
+                    <unique>false</unique>
+                    <enabled>true</enabled>
+                    <visible>true</visible>
+                    <option/>
+                    <meta-column/>
+                    <ref-object/>
+                    <default/>
+                    <attribute>0</attribute>
+                    <order-direction>0</order-direction>
+                    <expression/>
+                    <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
+if (XMLX==120207||XMLX==120900){
+O_THIS.getColumn("FXED").setLabel("发行规模(万元)");
+ }else{
+O_THIS.getColumn("FXED").setLabel("&lt;font color=red&gt;*&lt;/font&gt;发行规模(万元)");
+ }
+1==0         </invisible-expression>
+                    <disable-expression/>
+                    <category>基本信息</category>
+                    <fire-event>0</fire-event>
+                    <check-type>0</check-type>
+                    <real-type>1</real-type>
+                    <comment/>
+                    <validation/>
+                    <scope-permissions/>
+                    <properties>
+                        <ctrl-width>300</ctrl-width>
+                    </properties>
+                </column>
+                <column>
                     <name>FXQX</name>
                     <describe>发行期限</describe>
                     <type>8</type>
@@ -6185,7 +6278,7 @@ DBFS!=99        </invisible-expression>
                     <biz-type>400</biz-type>
                     <length>0</length>
                     <scale>0</scale>
-                    <control>2</control>
+                    <control>10</control>
                     <primary-property>10</primary-property>
                     <nullable>true</nullable>
                     <unique>false</unique>
@@ -6598,9 +6691,10 @@ GSSH;
                     <visible>true</visible>
                     <option/>
                     <ref-object/>
+                    <default>null</default>
                     <attribute>0</attribute>
                     <order-direction>0</order-direction>
-                    <category>基本信息</category>
+                    <category>储备阶段信息</category>
                     <fire-event>0</fire-event>
                     <check-type>0</check-type>
                     <real-type>13</real-type>
@@ -6613,7 +6707,7 @@ GSSH;
                     <describe>批文号码</describe>
                     <type>8</type>
                     <biz-type>100</biz-type>
-                    <length>300</length>
+                    <length>30</length>
                     <scale>0</scale>
                     <control>1</control>
                     <primary-property>0</primary-property>
@@ -6623,14 +6717,14 @@ GSSH;
                     <visible>true</visible>
                     <attribute>0</attribute>
                     <order-direction>0</order-direction>
-                    <category>基本信息</category>
+                    <category>储备阶段信息</category>
                     <fire-event>0</fire-event>
                     <check-type>0</check-type>
                     <real-type>0</real-type>
                 </column>
                 <column>
                     <name>NDPWGM</name>
-                    <describe>拿到批文的规模（万元）</describe>
+                    <describe>拿到批文的规模(万元)</describe>
                     <type>8</type>
                     <biz-type>200</biz-type>
                     <length>16</length>
@@ -6645,50 +6739,10 @@ GSSH;
                     <ref-object/>
                     <attribute>0</attribute>
                     <order-direction>0</order-direction>
-                    <category>基本信息</category>
+                    <category>储备阶段信息</category>
                     <fire-event>0</fire-event>
                     <check-type>0</check-type>
                     <real-type>1</real-type>
-                    <properties/>
-                </column>
-                <column>
-                    <name>FXED</name>
-                    <describe>发行规模(万元)</describe>
-                    <type>8</type>
-                    <biz-type>200</biz-type>
-                    <length>16</length>
-                    <scale>2</scale>
-                    <control>1</control>
-                    <primary-property>0</primary-property>
-                    <nullable>true</nullable>
-                    <unique>false</unique>
-                    <enabled>true</enabled>
-                    <visible>true</visible>
-                    <option/>
-                    <meta-column/>
-                    <ref-object/>
-                    <default/>
-                    <attribute>0</attribute>
-                    <order-direction>0</order-direction>
-                    <expression/>
-                    <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-if (XMLX==120207||XMLX==120900){
-O_THIS.getColumn("FXED").setLabel("发行规模(万元)");
- }else{
-O_THIS.getColumn("FXED").setLabel("&lt;font color=red&gt;*&lt;/font&gt;发行规模(万元)");
- }
-1==0         </invisible-expression>
-                    <disable-expression/>
-                    <category>基本信息</category>
-                    <fire-event>0</fire-event>
-                    <check-type>0</check-type>
-                    <real-type>1</real-type>
-                    <comment/>
-                    <validation/>
-                    <scope-permissions/>
-                    <properties>
-                        <ctrl-width>300</ctrl-width>
-                    </properties>
                 </column>
                 <column>
                     <name>YFXDGM</name>
@@ -6707,7 +6761,7 @@ O_THIS.getColumn("FXED").setLabel("&lt;font color=red&gt;*&lt;/font&gt;发行规模(
                     <ref-object/>
                     <attribute>0</attribute>
                     <order-direction>0</order-direction>
-                    <category>基本信息</category>
+                    <category>储备阶段信息</category>
                     <fire-event>0</fire-event>
                     <check-type>0</check-type>
                     <real-type>1</real-type>
@@ -6716,10 +6770,10 @@ O_THIS.getColumn("FXED").setLabel("&lt;font color=red&gt;*&lt;/font&gt;发行规模(
                     <name>JTHZDW</name>
                     <describe>集团合作单位</describe>
                     <type>8</type>
-                    <biz-type>400</biz-type>
+                    <biz-type>401</biz-type>
                     <length>0</length>
                     <scale>0</scale>
-                    <control>10</control>
+                    <control>4</control>
                     <primary-property>0</primary-property>
                     <nullable>true</nullable>
                     <unique>false</unique>
@@ -6727,13 +6781,13 @@ O_THIS.getColumn("FXED").setLabel("&lt;font color=red&gt;*&lt;/font&gt;发行规模(
                     <visible>true</visible>
                     <option>$D{IB_XTDW}</option>
                     <ref-object/>
-                    <default/>
                     <attribute>0</attribute>
                     <order-direction>0</order-direction>
-                    <category>基本信息</category>
+                    <category>储备阶段信息</category>
                     <fire-event>1</fire-event>
                     <check-type>0</check-type>
-                    <real-type>7</real-type>
+                    <real-type>15</real-type>
+                    <validation/>
                     <properties/>
                 </column>
                 <column>
@@ -6741,19 +6795,19 @@ O_THIS.getColumn("FXED").setLabel("&lt;font color=red&gt;*&lt;/font&gt;发行规模(
                     <describe>分行</describe>
                     <type>8</type>
                     <biz-type>100</biz-type>
-                    <length>100</length>
+                    <length>30</length>
                     <scale>0</scale>
                     <control>1</control>
                     <primary-property>0</primary-property>
-                    <nullable>true</nullable>
+                    <nullable>false</nullable>
                     <unique>false</unique>
                     <enabled>true</enabled>
                     <visible>true</visible>
                     <attribute>0</attribute>
                     <order-direction>0</order-direction>
-                    <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-JTHZDW != 2</invisible-expression>
-                    <category>基本信息</category>
+                    <invisible-expression>&lt;%@ livebos language='javascript' %&gt;&#13;
+JTHZDW.indexOf('2')&lt;0  </invisible-expression>
+                    <category>储备阶段信息</category>
                     <fire-event>0</fire-event>
                     <check-type>0</check-type>
                     <real-type>0</real-type>
@@ -6761,14 +6815,14 @@ JTHZDW != 2</invisible-expression>
                 </column>
                 <column>
                     <name>GHHDCKJE</name>
-                    <describe>光行获得存款金额</describe>
+                    <describe>光行获得存款金额(万元)</describe>
                     <type>8</type>
                     <biz-type>200</biz-type>
                     <length>16</length>
                     <scale>2</scale>
                     <control>1</control>
                     <primary-property>0</primary-property>
-                    <nullable>true</nullable>
+                    <nullable>false</nullable>
                     <unique>false</unique>
                     <enabled>true</enabled>
                     <visible>true</visible>
@@ -6776,9 +6830,9 @@ JTHZDW != 2</invisible-expression>
                     <ref-object/>
                     <attribute>0</attribute>
                     <order-direction>0</order-direction>
-                    <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-JTHZDW != 2</invisible-expression>
-                    <category>基本信息</category>
+                    <invisible-expression>&lt;%@ livebos language='javascript' %&gt;&#13;
+JTHZDW.indexOf('2')&lt;0  </invisible-expression>
+                    <category>储备阶段信息</category>
                     <fire-event>0</fire-event>
                     <check-type>0</check-type>
                     <real-type>1</real-type>
@@ -6791,7 +6845,7 @@ JTHZDW != 2</invisible-expression>
                     <biz-type>400</biz-type>
                     <length>0</length>
                     <scale>0</scale>
-                    <control>2</control>
+                    <control>10</control>
                     <primary-property>0</primary-property>
                     <nullable>true</nullable>
                     <unique>false</unique>
@@ -6801,7 +6855,9 @@ JTHZDW != 2</invisible-expression>
                     <ref-object/>
                     <attribute>0</attribute>
                     <order-direction>0</order-direction>
-                    <category>基本信息</category>
+                    <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
+JTHZDW=='100'</invisible-expression>
+                    <category>储备阶段信息</category>
                     <fire-event>0</fire-event>
                     <check-type>0</check-type>
                     <real-type>7</real-type>
@@ -6811,10 +6867,10 @@ JTHZDW != 2</invisible-expression>
                     <name>HZXS</name>
                     <describe>合作形式</describe>
                     <type>8</type>
-                    <biz-type>400</biz-type>
+                    <biz-type>401</biz-type>
                     <length>0</length>
                     <scale>0</scale>
-                    <control>2</control>
+                    <control>4</control>
                     <primary-property>0</primary-property>
                     <nullable>true</nullable>
                     <unique>false</unique>
@@ -6824,10 +6880,13 @@ JTHZDW != 2</invisible-expression>
                     <ref-object/>
                     <attribute>0</attribute>
                     <order-direction>0</order-direction>
-                    <category>基本信息</category>
+                    <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
+JTHZDW=='100'</invisible-expression>
+                    <category>储备阶段信息</category>
                     <fire-event>0</fire-event>
                     <check-type>0</check-type>
-                    <real-type>7</real-type>
+                    <real-type>15</real-type>
+                    <validation/>
                     <properties/>
                 </column>
             </parameters>
@@ -6875,7 +6934,7 @@ JTHZDW != 2</invisible-expression>
                 </property>
                 <property>
                     <name>69</name>
-                    <value>906*550</value>
+                    <value>1000*600</value>
                 </property>
                 <property>
                     <name>28</name>

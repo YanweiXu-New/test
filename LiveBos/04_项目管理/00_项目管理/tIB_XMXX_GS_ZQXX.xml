@@ -173,7 +173,7 @@
             <describe>项目类型名称</describe>
             <type>0</type>
             <biz-type>100</biz-type>
-            <length>500</length>
+            <length>100</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -218,7 +218,7 @@
             <describe>区域名称</describe>
             <type>0</type>
             <biz-type>100</biz-type>
-            <length>500</length>
+            <length>50</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -269,9 +269,9 @@
         <column>
             <name>ZQQS</name>
             <describe>项目期次</describe>
-            <type>0</type>
-            <biz-type>100</biz-type>
-            <length>300</length>
+            <type>1</type>
+            <biz-type>200</biz-type>
+            <length>2</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -279,6 +279,8 @@
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
+            <option/>
+            <ref-object/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
             <category>监管信息</category>
@@ -359,7 +361,7 @@ JYCS.indexOf('99')&lt;0  </invisible-expression>
             <describe>债券简称(上交所)</describe>
             <type>0</type>
             <biz-type>100</biz-type>
-            <length>100</length>
+            <length>20</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -390,7 +392,7 @@ JYCS.indexOf('99')&lt;0  </invisible-expression>
             <describe>债券代码(上交所)</describe>
             <type>0</type>
             <biz-type>100</biz-type>
-            <length>100</length>
+            <length>15</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -421,7 +423,7 @@ JYCS.indexOf('99')&lt;0  </invisible-expression>
             <describe>债券简称(深交所)</describe>
             <type>0</type>
             <biz-type>100</biz-type>
-            <length>100</length>
+            <length>20</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -452,7 +454,7 @@ JYCS.indexOf('99')&lt;0  </invisible-expression>
             <describe>债券代码(深交所)</describe>
             <type>0</type>
             <biz-type>100</biz-type>
-            <length>100</length>
+            <length>15</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -483,7 +485,7 @@ JYCS.indexOf('99')&lt;0  </invisible-expression>
             <describe>债券简称(银行间)</describe>
             <type>0</type>
             <biz-type>100</biz-type>
-            <length>100</length>
+            <length>20</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -514,7 +516,7 @@ JYCS.indexOf('99')&lt;0  </invisible-expression>
             <describe>债券代码(银行间)</describe>
             <type>0</type>
             <biz-type>100</biz-type>
-            <length>100</length>
+            <length>15</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -545,7 +547,7 @@ JYCS.indexOf('99')&lt;0  </invisible-expression>
             <describe>债券简称(其他)</describe>
             <type>0</type>
             <biz-type>100</biz-type>
-            <length>100</length>
+            <length>20</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -576,7 +578,7 @@ JYCS.indexOf('99')&lt;0  </invisible-expression>
             <describe>债券代码(其他)</describe>
             <type>0</type>
             <biz-type>100</biz-type>
-            <length>100</length>
+            <length>15</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -1020,7 +1022,7 @@ ZXPJ!=9  </invisible-expression>
         </column>
         <column>
             <name>FXJE</name>
-            <describe>本期计划发行规模(万元)</describe>
+            <describe>发行规模(万元)</describe>
             <type>1</type>
             <biz-type>200</biz-type>
             <length>16</length>
@@ -1044,32 +1046,10 @@ ZXPJ!=9  </invisible-expression>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <comment>名称由发行规模改为本期计划发行规模</comment>
+            <comment/>
             <validation/>
             <scope-permissions/>
             <properties/>
-        </column>
-        <column>
-            <name>WSJHYEBXBL</name>
-            <describe>我司计划余额包销比例（%）</describe>
-            <type>1</type>
-            <biz-type>200</biz-type>
-            <length>5</length>
-            <scale>2</scale>
-            <control>1</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
-            <option/>
-            <ref-object/>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <category/>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
         </column>
         <column>
             <name>DQYE</name>
@@ -1101,26 +1081,6 @@ ZXPJ!=9  </invisible-expression>
             <validation/>
             <scope-permissions/>
             <properties/>
-        </column>
-        <column>
-            <name>BZ</name>
-            <describe>备注</describe>
-            <type>0</type>
-            <biz-type>100</biz-type>
-            <length>300</length>
-            <scale>0</scale>
-            <control>1</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <category/>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
         </column>
         <column>
             <name>FWSCXGM</name>
@@ -1193,13 +1153,13 @@ ZXPJ!=9  </invisible-expression>
             <biz-type>400</biz-type>
             <length>0</length>
             <scale>0</scale>
-            <control>2</control>
+            <control>10</control>
             <primary-property>0</primary-property>
             <nullable>false</nullable>
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
-            <option>$D{IB_ZTPJ}</option>
+            <option>$D{IB_XBZTPJ}</option>
             <meta-column/>
             <ref-object/>
             <default/>
@@ -1375,6 +1335,70 @@ ZXZXPJ!=9  </invisible-expression>
             <validation/>
             <scope-permissions/>
             <properties/>
+        </column>
+        <column>
+            <name>BQJHFXGM</name>
+            <describe>本期计划发行规模(万元)</describe>
+            <type>1</type>
+            <biz-type>200</biz-type>
+            <length>16</length>
+            <scale>2</scale>
+            <control>1</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category>储备阶段信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+        </column>
+        <column>
+            <name>WSJHYEBXBL</name>
+            <describe>我司计划余额包销比例(%)</describe>
+            <type>1</type>
+            <biz-type>200</biz-type>
+            <length>10</length>
+            <scale>0</scale>
+            <control>1</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category>储备阶段信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+        </column>
+        <column>
+            <name>BZ</name>
+            <describe>备注</describe>
+            <type>0</type>
+            <biz-type>100</biz-type>
+            <length>30</length>
+            <scale>0</scale>
+            <control>1</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category>储备阶段信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
         </column>
         <column>
             <name>FXPL</name>
@@ -4562,7 +4586,7 @@ SFTSQX!=1||TSTK.indexOf('1')&lt;0  </invisible-expression>
                     <unique>false</unique>
                     <enabled>false</enabled>
                     <visible>true</visible>
-                    <attribute>262144</attribute>
+                    <attribute>266240</attribute>
                     <order-direction>0</order-direction>
                     <expression>&lt;%@ livebos language='javascript' %&gt;&#13;
 '&lt;font color = red size = 1&gt;&lt;b&gt;以下信息拟报送监管系统，请谨慎填写&lt;/b&gt;&lt;/font&gt;'</expression>
@@ -4589,7 +4613,7 @@ SFTSQX!=1||TSTK.indexOf('1')&lt;0  </invisible-expression>
                     <meta-column/>
                     <ref-object>tIB_XMXX</ref-object>
                     <default/>
-                    <attribute>4</attribute>
+                    <attribute>4100</attribute>
                     <order-direction>2</order-direction>
                     <expression/>
                     <invisible-expression/>
@@ -4615,12 +4639,12 @@ SFTSQX!=1||TSTK.indexOf('1')&lt;0  </invisible-expression>
                     <nullable>true</nullable>
                     <unique>false</unique>
                     <enabled>false</enabled>
-                    <visible>false</visible>
+                    <visible>true</visible>
                     <option/>
                     <meta-column/>
                     <ref-object>tIB_XMXX_GS</ref-object>
                     <default/>
-                    <attribute>0</attribute>
+                    <attribute>4096</attribute>
                     <order-direction>0</order-direction>
                     <expression/>
                     <invisible-expression/>
@@ -4632,6 +4656,29 @@ SFTSQX!=1||TSTK.indexOf('1')&lt;0  </invisible-expression>
                     <comment/>
                     <validation/>
                     <scope-permissions/>
+                    <properties/>
+                </column>
+                <column>
+                    <name>XMTS</name>
+                    <describe>发行前项目提示</describe>
+                    <type>0</type>
+                    <biz-type>100</biz-type>
+                    <length>300</length>
+                    <scale>0</scale>
+                    <control>16</control>
+                    <primary-property>8</primary-property>
+                    <nullable>true</nullable>
+                    <unique>false</unique>
+                    <enabled>false</enabled>
+                    <visible>true</visible>
+                    <attribute>266240</attribute>
+                    <order-direction>0</order-direction>
+                    <expression>&lt;%@ livebos language='javascript' %&gt;&#13;
+'&lt;font  color=red&gt;&lt;b&gt;项目名称（发行前）字段仅用于识别项目，并不报送监管&lt;/b&gt;&lt;/font&gt;'</expression>
+                    <category>监管信息</category>
+                    <fire-event>0</fire-event>
+                    <check-type>0</check-type>
+                    <real-type>0</real-type>
                     <properties/>
                 </column>
                 <column>
@@ -4705,7 +4752,7 @@ SFTSQX!=1||TSTK.indexOf('1')&lt;0  </invisible-expression>
                     <describe>项目类型名称</describe>
                     <type>8</type>
                     <biz-type>100</biz-type>
-                    <length>500</length>
+                    <length>100</length>
                     <scale>0</scale>
                     <control>1</control>
                     <primary-property>0</primary-property>
@@ -4731,7 +4778,7 @@ XMLX!=120900&amp;&amp;XMLX!=120106&amp;&amp;XMLX!=120208&amp;&amp;XMLX!=120305&a
                     <biz-type>400</biz-type>
                     <length>0</length>
                     <scale>0</scale>
-                    <control>2</control>
+                    <control>10</control>
                     <primary-property>0</primary-property>
                     <nullable>false</nullable>
                     <unique>false</unique>
@@ -4752,7 +4799,7 @@ XMLX!=120900&amp;&amp;XMLX!=120106&amp;&amp;XMLX!=120208&amp;&amp;XMLX!=120305&a
                     <describe>区域名称</describe>
                     <type>8</type>
                     <biz-type>100</biz-type>
-                    <length>500</length>
+                    <length>50</length>
                     <scale>0</scale>
                     <control>1</control>
                     <primary-property>0</primary-property>
@@ -4762,7 +4809,7 @@ XMLX!=120900&amp;&amp;XMLX!=120106&amp;&amp;XMLX!=120208&amp;&amp;XMLX!=120305&a
                     <visible>true</visible>
                     <attribute>0</attribute>
                     <order-direction>0</order-direction>
-                    <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
+                    <invisible-expression>&lt;%@ livebos language='javascript' %&gt;&#13;
 XMQY != 37</invisible-expression>
                     <category>监管信息</category>
                     <fire-event>0</fire-event>
@@ -4804,20 +4851,43 @@ XMQY != 37</invisible-expression>
                 <column>
                     <name>ZQQS</name>
                     <describe>项目期次</describe>
+                    <type>8</type>
+                    <biz-type>200</biz-type>
+                    <length>2</length>
+                    <scale>0</scale>
+                    <control>1</control>
+                    <primary-property>0</primary-property>
+                    <nullable>false</nullable>
+                    <unique>false</unique>
+                    <enabled>true</enabled>
+                    <visible>true</visible>
+                    <option/>
+                    <ref-object/>
+                    <attribute>4096</attribute>
+                    <order-direction>0</order-direction>
+                    <category>监管信息</category>
+                    <fire-event>0</fire-event>
+                    <check-type>0</check-type>
+                    <real-type>1</real-type>
+                    <properties/>
+                </column>
+                <column>
+                    <name>XMQCTS</name>
+                    <describe>项目期次提示</describe>
                     <type>0</type>
                     <biz-type>100</biz-type>
-                    <length>3000</length>
+                    <length>500</length>
                     <scale>0</scale>
                     <control>16</control>
-                    <primary-property>6</primary-property>
+                    <primary-property>8</primary-property>
                     <nullable>true</nullable>
                     <unique>false</unique>
-                    <enabled>false</enabled>
+                    <enabled>true</enabled>
                     <visible>true</visible>
-                    <attribute>0</attribute>
+                    <attribute>266240</attribute>
                     <order-direction>0</order-direction>
-                    <expression>&lt;%@ livebos language='javascript' %&gt;
-'&lt;font color=red&gt;'+O_MASTER.ZQQS+'&lt;/font&gt;'</expression>
+                    <expression>&lt;%@ livebos language='javascript' %&gt;&#13;
+'&lt;font color=red&gt;请核对项目期次连续性和正确性。&lt;/font&gt;'</expression>
                     <category>监管信息</category>
                     <fire-event>0</fire-event>
                     <check-type>0</check-type>
@@ -4896,7 +4966,7 @@ JYCS.indexOf('99')&lt;0  </invisible-expression>
                     <describe>债券简称(上交所)</describe>
                     <type>8</type>
                     <biz-type>100</biz-type>
-                    <length>100</length>
+                    <length>20</length>
                     <scale>0</scale>
                     <control>1</control>
                     <primary-property>0</primary-property>
@@ -4933,7 +5003,7 @@ JYCS.indexOf('1')&lt;0  </invisible-expression>
                     <fire-event>0</fire-event>
                     <check-type>0</check-type>
                     <real-type>0</real-type>
-                    <comment/>
+                    <comment>请准确填写债券简称，债券简称前后不应有空格。</comment>
                     <validation/>
                     <scope-permissions/>
                     <properties>
@@ -4945,7 +5015,7 @@ JYCS.indexOf('1')&lt;0  </invisible-expression>
                     <describe>债券代码(上交所)</describe>
                     <type>8</type>
                     <biz-type>100</biz-type>
-                    <length>100</length>
+                    <length>15</length>
                     <scale>0</scale>
                     <control>1</control>
                     <primary-property>0</primary-property>
@@ -4983,7 +5053,7 @@ JYCS.indexOf('1')&lt;0  </invisible-expression>
                     <fire-event>0</fire-event>
                     <check-type>0</check-type>
                     <real-type>0</real-type>
-                    <comment/>
+                    <comment>请准确完整填写债券代码，债券代码尾缀应包含“.SH、.SZ、.IB”等信息，债券代码前后不应有空格。</comment>
                     <validation/>
                     <scope-permissions/>
                     <properties>
@@ -4995,7 +5065,7 @@ JYCS.indexOf('1')&lt;0  </invisible-expression>
                     <describe>债券简称(深交所)</describe>
                     <type>8</type>
                     <biz-type>100</biz-type>
-                    <length>100</length>
+                    <length>20</length>
                     <scale>0</scale>
                     <control>1</control>
                     <primary-property>0</primary-property>
@@ -5016,7 +5086,7 @@ JYCS.indexOf('1')&lt;0  </invisible-expression>
                     <fire-event>0</fire-event>
                     <check-type>0</check-type>
                     <real-type>0</real-type>
-                    <comment/>
+                    <comment>请准确填写债券简称，债券简称前后不应有空格。</comment>
                     <validation/>
                     <scope-permissions/>
                     <properties>
@@ -5028,7 +5098,7 @@ JYCS.indexOf('1')&lt;0  </invisible-expression>
                     <describe>债券代码(深交所)</describe>
                     <type>8</type>
                     <biz-type>100</biz-type>
-                    <length>100</length>
+                    <length>15</length>
                     <scale>0</scale>
                     <control>1</control>
                     <primary-property>0</primary-property>
@@ -5049,7 +5119,7 @@ JYCS.indexOf('1')&lt;0  </invisible-expression>
                     <fire-event>0</fire-event>
                     <check-type>0</check-type>
                     <real-type>0</real-type>
-                    <comment/>
+                    <comment>请准确完整填写债券代码，债券代码尾缀应包含“.SH、.SZ、.IB”等信息，债券代码前后不应有空格。</comment>
                     <validation/>
                     <scope-permissions/>
                     <properties>
@@ -5061,7 +5131,7 @@ JYCS.indexOf('1')&lt;0  </invisible-expression>
                     <describe>债券简称(银行间)</describe>
                     <type>8</type>
                     <biz-type>100</biz-type>
-                    <length>100</length>
+                    <length>20</length>
                     <scale>0</scale>
                     <control>1</control>
                     <primary-property>0</primary-property>
@@ -5082,7 +5152,7 @@ JYCS.indexOf('1')&lt;0  </invisible-expression>
                     <fire-event>0</fire-event>
                     <check-type>0</check-type>
                     <real-type>0</real-type>
-                    <comment/>
+                    <comment>请准确填写债券简称，债券简称前后不应有空格。</comment>
                     <validation/>
                     <scope-permissions/>
                     <properties>
@@ -5094,7 +5164,7 @@ JYCS.indexOf('1')&lt;0  </invisible-expression>
                     <describe>债券代码(银行间)</describe>
                     <type>8</type>
                     <biz-type>100</biz-type>
-                    <length>100</length>
+                    <length>15</length>
                     <scale>0</scale>
                     <control>1</control>
                     <primary-property>0</primary-property>
@@ -5115,7 +5185,7 @@ JYCS.indexOf('1')&lt;0  </invisible-expression>
                     <fire-event>0</fire-event>
                     <check-type>0</check-type>
                     <real-type>0</real-type>
-                    <comment/>
+                    <comment>请准确完整填写债券代码，债券代码尾缀应包含“.SH、.SZ、.IB”等信息，债券代码前后不应有空格。</comment>
                     <validation/>
                     <scope-permissions/>
                     <properties>
@@ -5127,7 +5197,7 @@ JYCS.indexOf('1')&lt;0  </invisible-expression>
                     <describe>债券简称(其他)</describe>
                     <type>8</type>
                     <biz-type>100</biz-type>
-                    <length>100</length>
+                    <length>20</length>
                     <scale>0</scale>
                     <control>1</control>
                     <primary-property>0</primary-property>
@@ -5148,7 +5218,7 @@ JYCS.indexOf('1')&lt;0  </invisible-expression>
                     <fire-event>0</fire-event>
                     <check-type>0</check-type>
                     <real-type>0</real-type>
-                    <comment/>
+                    <comment>请准确填写债券简称，债券简称前后不应有空格。</comment>
                     <validation/>
                     <scope-permissions/>
                     <properties>
@@ -5160,7 +5230,7 @@ JYCS.indexOf('1')&lt;0  </invisible-expression>
                     <describe>债券代码(其他)</describe>
                     <type>8</type>
                     <biz-type>100</biz-type>
-                    <length>100</length>
+                    <length>15</length>
                     <scale>0</scale>
                     <control>1</control>
                     <primary-property>0</primary-property>
@@ -5181,7 +5251,7 @@ JYCS.indexOf('1')&lt;0  </invisible-expression>
                     <fire-event>0</fire-event>
                     <check-type>0</check-type>
                     <real-type>0</real-type>
-                    <comment/>
+                    <comment>请准确完整填写债券代码，债券代码尾缀应包含“.SH、.SZ、.IB”等信息，债券代码前后不应有空格。</comment>
                     <validation/>
                     <scope-permissions/>
                     <properties>
@@ -5242,7 +5312,7 @@ JYCS.indexOf('1')&lt;0  </invisible-expression>
                     <order-direction>0</order-direction>
                     <expression/>
                     <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-O_MASTER.XMMC.XMLX_EJ!=1201  </invisible-expression>
+ABS_SQLVALUE("SELECT SUBSTR(?,1,4) FROM DUAL",[XMLX])!=1201  </invisible-expression>
                     <disable-expression/>
                     <category/>
                     <fire-event>1</fire-event>
@@ -5468,7 +5538,7 @@ SFWKJZ!=1  </invisible-expression>
                     <order-direction>0</order-direction>
                     <expression/>
                     <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-SFWKJZ!=1||O_MASTER.XMMC.XMLX_EJ!=1201  </invisible-expression>
+SFWKJZ!=1||ABS_SQLVALUE("SELECT SUBSTR(?,1,4) FROM DUAL",[XMLX])!=1201  </invisible-expression>
                     <disable-expression/>
                     <category/>
                     <fire-event>0</fire-event>
@@ -5502,7 +5572,7 @@ SFWKJZ!=1||O_MASTER.XMMC.XMLX_EJ!=1201  </invisible-expression>
                     <order-direction>0</order-direction>
                     <expression/>
                     <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-SFWKJZ!=1||O_MASTER.XMMC.XMLX_EJ!=1201  </invisible-expression>
+SFWKJZ!=1||ABS_SQLVALUE("SELECT SUBSTR(?,1,4) FROM DUAL",[XMLX])!=1201  </invisible-expression>
                     <disable-expression/>
                     <category/>
                     <fire-event>0</fire-event>
@@ -5536,7 +5606,7 @@ SFWKJZ!=1||O_MASTER.XMMC.XMLX_EJ!=1201  </invisible-expression>
                     <order-direction>0</order-direction>
                     <expression/>
                     <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-SFWKJZ!=1||O_MASTER.XMMC.XMLX_EJ!=1201  </invisible-expression>
+SFWKJZ!=1||ABS_SQLVALUE("SELECT SUBSTR(?,1,4) FROM DUAL",[XMLX])!=1201  </invisible-expression>
                     <disable-expression/>
                     <category/>
                     <fire-event>1</fire-event>
@@ -5570,7 +5640,7 @@ SFWKJZ!=1||O_MASTER.XMMC.XMLX_EJ!=1201  </invisible-expression>
                     <order-direction>0</order-direction>
                     <expression/>
                     <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-SFWKJZ!=1||O_MASTER.XMMC.XMLX_EJ!=1201||SFHJGXG!=1  </invisible-expression>
+SFWKJZ!=1||ABS_SQLVALUE("SELECT SUBSTR(?,1,4) FROM DUAL",[XMLX])!=1201||SFHJGXG!=1  </invisible-expression>
                     <disable-expression/>
                     <category/>
                     <fire-event>0</fire-event>
@@ -5602,7 +5672,7 @@ SFWKJZ!=1||O_MASTER.XMMC.XMLX_EJ!=1201||SFHJGXG!=1  </invisible-expression>
                     <order-direction>0</order-direction>
                     <expression/>
                     <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-O_MASTER.XMMC.XMLX_EJ!=1203  </invisible-expression>
+ABS_SQLVALUE("SELECT SUBSTR(?,1,4) FROM DUAL",[XMLX])!=1203  </invisible-expression>
                     <disable-expression/>
                     <category/>
                     <fire-event>1</fire-event>
@@ -5636,7 +5706,7 @@ O_MASTER.XMMC.XMLX_EJ!=1203  </invisible-expression>
                     <order-direction>0</order-direction>
                     <expression/>
                     <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-SFTQCHBJ!=1||O_MASTER.XMMC.XMLX_EJ!=1203  </invisible-expression>
+SFTQCHBJ!=1||ABS_SQLVALUE("SELECT SUBSTR(?,1,4) FROM DUAL",[XMLX])!=1203  </invisible-expression>
                     <disable-expression/>
                     <category/>
                     <fire-event>0</fire-event>
@@ -6196,7 +6266,7 @@ ABS_SQLVALUE("SELECT INSTR(';'||?||';',';'||'999999'||';') FROM DUAL",[ZCXS],'EC
                     <biz-type>400</biz-type>
                     <length>0</length>
                     <scale>0</scale>
-                    <control>2</control>
+                    <control>10</control>
                     <primary-property>10</primary-property>
                     <nullable>false</nullable>
                     <unique>false</unique>
@@ -6359,7 +6429,7 @@ ZXPJ!=9  </invisible-expression>
                 </column>
                 <column>
                     <name>FXJE</name>
-                    <describe>本期计划发行规模(万元)</describe>
+                    <describe>发行规模(万元)</describe>
                     <type>8</type>
                     <biz-type>200</biz-type>
                     <length>16</length>
@@ -6383,54 +6453,12 @@ ZXPJ!=9  </invisible-expression>
                     <fire-event>0</fire-event>
                     <check-type>0</check-type>
                     <real-type>1</real-type>
-                    <comment>该字段名称由发行规模改为本期计划发行规模</comment>
+                    <comment/>
                     <validation/>
                     <scope-permissions/>
                     <properties>
                         <ctrl-width>293</ctrl-width>
                     </properties>
-                </column>
-                <column>
-                    <name>WSJHYEBXBL</name>
-                    <describe>我司计划余额包销比例（%）</describe>
-                    <type>8</type>
-                    <biz-type>200</biz-type>
-                    <length>5</length>
-                    <scale>2</scale>
-                    <control>1</control>
-                    <primary-property>0</primary-property>
-                    <nullable>true</nullable>
-                    <unique>false</unique>
-                    <enabled>true</enabled>
-                    <visible>true</visible>
-                    <option/>
-                    <ref-object/>
-                    <attribute>0</attribute>
-                    <order-direction>0</order-direction>
-                    <category/>
-                    <fire-event>0</fire-event>
-                    <check-type>0</check-type>
-                    <real-type>1</real-type>
-                </column>
-                <column>
-                    <name>BZ</name>
-                    <describe>备注</describe>
-                    <type>8</type>
-                    <biz-type>100</biz-type>
-                    <length>300</length>
-                    <scale>0</scale>
-                    <control>1</control>
-                    <primary-property>0</primary-property>
-                    <nullable>true</nullable>
-                    <unique>false</unique>
-                    <enabled>true</enabled>
-                    <visible>true</visible>
-                    <attribute>0</attribute>
-                    <order-direction>0</order-direction>
-                    <category/>
-                    <fire-event>0</fire-event>
-                    <check-type>0</check-type>
-                    <real-type>0</real-type>
                 </column>
                 <column>
                     <name>FWSCXGM</name>
@@ -8391,7 +8419,7 @@ XMLX.FID!=120300||SFTQCHBJ!=1||JYCS.indexOf('3')&lt;0  </invisible-expression>
                     <scale>0</scale>
                     <control>45</control>
                     <primary-property>10</primary-property>
-                    <nullable>true</nullable>
+                    <nullable>false</nullable>
                     <unique>false</unique>
                     <enabled>true</enabled>
                     <visible>true</visible>
@@ -8402,14 +8430,7 @@ XMLX.FID!=120300||SFTQCHBJ!=1||JYCS.indexOf('3')&lt;0  </invisible-expression>
                     <attribute>67108864</attribute>
                     <order-direction>0</order-direction>
                     <expression>O_MASTER.XMMC.QTCY  </expression>
-                    <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-if (SFHX==0){
-O_THIS.getColumn("QTCY").setLabel("&lt;font color=red&gt;*&lt;/font&gt;项目组成员");
-}
-else{
-O_THIS.getColumn("QTCY").setLabel("项目组成员");
-} 
-1==0</invisible-expression>
+                    <invisible-expression/>
                     <disable-expression/>
                     <category>承做信息</category>
                     <fire-event>0</fire-event>
@@ -8668,6 +8689,70 @@ O_THIS.getColumn("FXR_YX").setLabel("发行人联系邮箱");
                         <tb-del-item>deleteOnly</tb-del-item>
                     </properties>
                 </column>
+                <column>
+                    <name>BQJHFXGM</name>
+                    <describe>本期计划发行规模(万元)</describe>
+                    <type>8</type>
+                    <biz-type>200</biz-type>
+                    <length>16</length>
+                    <scale>2</scale>
+                    <control>1</control>
+                    <primary-property>0</primary-property>
+                    <nullable>false</nullable>
+                    <unique>false</unique>
+                    <enabled>true</enabled>
+                    <visible>true</visible>
+                    <option/>
+                    <ref-object/>
+                    <attribute>0</attribute>
+                    <order-direction>0</order-direction>
+                    <category>储备阶段信息</category>
+                    <fire-event>0</fire-event>
+                    <check-type>0</check-type>
+                    <real-type>1</real-type>
+                </column>
+                <column>
+                    <name>WSJHYEBXBL</name>
+                    <describe>我司计划余额包销比例(%)</describe>
+                    <type>8</type>
+                    <biz-type>200</biz-type>
+                    <length>10</length>
+                    <scale>0</scale>
+                    <control>1</control>
+                    <primary-property>0</primary-property>
+                    <nullable>false</nullable>
+                    <unique>false</unique>
+                    <enabled>true</enabled>
+                    <visible>true</visible>
+                    <option/>
+                    <ref-object/>
+                    <attribute>0</attribute>
+                    <order-direction>0</order-direction>
+                    <category>储备阶段信息</category>
+                    <fire-event>0</fire-event>
+                    <check-type>0</check-type>
+                    <real-type>1</real-type>
+                </column>
+                <column>
+                    <name>BZ</name>
+                    <describe>备注</describe>
+                    <type>8</type>
+                    <biz-type>100</biz-type>
+                    <length>30</length>
+                    <scale>0</scale>
+                    <control>1</control>
+                    <primary-property>0</primary-property>
+                    <nullable>true</nullable>
+                    <unique>false</unique>
+                    <enabled>true</enabled>
+                    <visible>true</visible>
+                    <attribute>0</attribute>
+                    <order-direction>0</order-direction>
+                    <category>储备阶段信息</category>
+                    <fire-event>0</fire-event>
+                    <check-type>0</check-type>
+                    <real-type>0</real-type>
+                </column>
             </parameters>
             <ui-logics>
                 <events>
@@ -8729,7 +8814,7 @@ O_THIS.getColumn("FXR_YX").setLabel("发行人联系邮箱");
                 </property>
                 <property>
                     <name>69</name>
-                    <value>910*600</value>
+                    <value>1100*600</value>
                 </property>
                 <property>
                     <name>6</name>
@@ -8801,7 +8886,8 @@ O_THIS.getColumn("FXR_YX").setLabel("发行人联系邮箱");
                     <fire-event>1</fire-event>
                     <check-type>0</check-type>
                     <real-type>0</real-type>
-                    <comment>&lt;font color=red&gt;&lt;b&gt;请先建立发行前阶段项目卡片，新增债券时进行选择关联&lt;/b&gt;&lt;/font&gt;</comment>
+                    <comment>&lt;font color=red&gt;&lt;b&gt;请先建立发行前阶段项目卡片，新增债券时进行选择关联&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&#13;
+&lt;font color=red&gt;&lt;b&gt;项目名称字段仅用于识别项目，并不报送监管&lt;/b&gt;&lt;/font&gt;</comment>
                     <validation/>
                     <scope-permissions/>
                     <properties>
@@ -8935,7 +9021,7 @@ XMLX!=120900&amp;&amp;XMLX!=120106&amp;&amp;XMLX!=120208&amp;&amp;XMLX!=120305&a
                     <biz-type>400</biz-type>
                     <length>0</length>
                     <scale>0</scale>
-                    <control>2</control>
+                    <control>10</control>
                     <primary-property>0</primary-property>
                     <nullable>false</nullable>
                     <unique>false</unique>
@@ -8956,7 +9042,7 @@ XMLX!=120900&amp;&amp;XMLX!=120106&amp;&amp;XMLX!=120208&amp;&amp;XMLX!=120305&a
                     <describe>区域名称</describe>
                     <type>0</type>
                     <biz-type>100</biz-type>
-                    <length>500</length>
+                    <length>50</length>
                     <scale>0</scale>
                     <control>1</control>
                     <primary-property>0</primary-property>
@@ -9009,23 +9095,32 @@ XMQY!=37</invisible-expression>
                 </column>
                 <column>
                     <name>ZQQS</name>
-                    <describe>债券期序</describe>
-                    <type>0</type>
-                    <biz-type>100</biz-type>
-                    <length>3000</length>
+                    <describe>项目期次</describe>
+                    <type>1</type>
+                    <biz-type>200</biz-type>
+                    <length>2</length>
                     <scale>0</scale>
-                    <control>16</control>
+                    <control>1</control>
                     <primary-property>10</primary-property>
                     <nullable>false</nullable>
                     <unique>false</unique>
-                    <enabled>false</enabled>
-                    <visible>false</visible>
+                    <enabled>true</enabled>
+                    <visible>true</visible>
+                    <option/>
+                    <ref-object/>
                     <attribute>4096</attribute>
                     <order-direction>0</order-direction>
                     <expression>&lt;%@ livebos language='javascript' %&gt;
 var i ='';
-if(XMMC!=null)
- i=ABS_SQLVALUE("SELECT COUNT(1)+1 FROM  ECIF.TIB_XMXX_GS_ZQXX WHERE XMMC_FXQ  =  ?",[XMMC]);
+var zqs;
+if(XMMC!=null){
+   zqs = ABS_SQLVALUE("SELECT COUNT(1) FROM  ECIF.TIB_XMXX_GS_ZQXX WHERE XMMC_FXQ  =  ?",[XMMC]);
+   if(zqs&gt;0){
+         i=ABS_SQLVALUE("SELECT max(ZQQS)+1  FROM  ECIF.TIB_XMXX_GS_ZQXX WHERE XMMC_FXQ  =  ?",[XMMC]);
+    }else{
+         i=1;
+   }
+ }
 i;</expression>
                     <category>监管信息</category>
                     <fire-event>1</fire-event>
@@ -9036,23 +9131,32 @@ i;</expression>
                 </column>
                 <column>
                     <name>ZQQX_XS</name>
-                    <describe>项目期次</describe>
+                    <describe>项目期次显示</describe>
                     <type>0</type>
                     <biz-type>100</biz-type>
-                    <length>3000</length>
+                    <length>2</length>
                     <scale>0</scale>
                     <control>16</control>
                     <primary-property>10</primary-property>
                     <nullable>false</nullable>
                     <unique>false</unique>
                     <enabled>false</enabled>
-                    <visible>true</visible>
+                    <visible>false</visible>
+                    <option/>
+                    <ref-object/>
                     <attribute>4096</attribute>
                     <order-direction>0</order-direction>
                     <expression>&lt;%@ livebos language='javascript' %&gt;
 var i ='';
-if(XMMC!=null)
- i=ABS_SQLVALUE("SELECT COUNT(1)+1 FROM  ECIF.TIB_XMXX_GS_ZQXX WHERE XMMC_FXQ  =  ?",[XMMC]);
+var zqs;
+if(XMMC!=null){
+   zqs = ABS_SQLVALUE("SELECT COUNT(1) FROM  ECIF.TIB_XMXX_GS_ZQXX WHERE XMMC_FXQ  =  ?",[XMMC]);
+   if(zqs&gt;0){
+         i=ABS_SQLVALUE("SELECT max(ZQQS)+1  FROM  ECIF.TIB_XMXX_GS_ZQXX WHERE XMMC_FXQ  =  ?",[XMMC]);
+    }else{
+         i=1;
+   }
+ }
 '&lt;font color=red&gt;'+i+'&lt;/font&gt;'</expression>
                     <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 if(1==1){
@@ -9064,6 +9168,30 @@ O_THIS.getColumn("ZQQX_XS").setLabel("项目期次");}
                     <real-type>0</real-type>
                     <comment/>
                     <validation/>
+                    <properties/>
+                </column>
+                <column>
+                    <name>BQ</name>
+                    <describe>BQ</describe>
+                    <type>0</type>
+                    <biz-type>100</biz-type>
+                    <length>3000</length>
+                    <scale>0</scale>
+                    <control>16</control>
+                    <primary-property>8</primary-property>
+                    <nullable>false</nullable>
+                    <unique>false</unique>
+                    <enabled>false</enabled>
+                    <visible>true</visible>
+                    <attribute>266240</attribute>
+                    <order-direction>0</order-direction>
+                    <expression>&lt;%@ livebos language='javascript' %&gt;
+'&lt;font color=red&gt;请核对项目期次连续性和正确性。&lt;/font&gt;'</expression>
+                    <category>监管信息</category>
+                    <fire-event>1</fire-event>
+                    <check-type>0</check-type>
+                    <real-type>0</real-type>
+                    <comment/>
                     <properties/>
                 </column>
                 <column>
@@ -9139,7 +9267,7 @@ JYCS.indexOf('99')&lt;0  </invisible-expression>
                     <describe>债券简称(上交所)</describe>
                     <type>0</type>
                     <biz-type>100</biz-type>
-                    <length>100</length>
+                    <length>20</length>
                     <scale>0</scale>
                     <control>1</control>
                     <primary-property>0</primary-property>
@@ -9160,7 +9288,7 @@ JYCS.indexOf('99')&lt;0  </invisible-expression>
                     <fire-event>0</fire-event>
                     <check-type>0</check-type>
                     <real-type>0</real-type>
-                    <comment/>
+                    <comment>请准确填写债券简称，债券简称前后不应有空格。</comment>
                     <validation/>
                     <scope-permissions/>
                     <properties>
@@ -9172,7 +9300,7 @@ JYCS.indexOf('99')&lt;0  </invisible-expression>
                     <describe>债券代码(上交所)</describe>
                     <type>0</type>
                     <biz-type>100</biz-type>
-                    <length>100</length>
+                    <length>15</length>
                     <scale>0</scale>
                     <control>1</control>
                     <primary-property>0</primary-property>
@@ -9193,7 +9321,7 @@ JYCS.indexOf('99')&lt;0  </invisible-expression>
                     <fire-event>1</fire-event>
                     <check-type>0</check-type>
                     <real-type>0</real-type>
-                    <comment/>
+                    <comment>请准确完整填写债券代码，债券代码尾缀应包含“.SH、.SZ、.IB”等信息，债券代码前后不应有空格。</comment>
                     <validation/>
                     <scope-permissions/>
                     <properties>
@@ -9205,7 +9333,7 @@ JYCS.indexOf('99')&lt;0  </invisible-expression>
                     <describe>债券简称(深交所)</describe>
                     <type>8</type>
                     <biz-type>100</biz-type>
-                    <length>100</length>
+                    <length>20</length>
                     <scale>0</scale>
                     <control>1</control>
                     <primary-property>0</primary-property>
@@ -9226,19 +9354,17 @@ JYCS.indexOf('99')&lt;0  </invisible-expression>
                     <fire-event>0</fire-event>
                     <check-type>0</check-type>
                     <real-type>0</real-type>
-                    <comment/>
+                    <comment>请准确填写债券简称，债券简称前后不应有空格。</comment>
                     <validation/>
                     <scope-permissions/>
-                    <properties>
-                        <ctrl-width>293</ctrl-width>
-                    </properties>
+                    <properties/>
                 </column>
                 <column>
                     <name>ZQDM_SJS</name>
                     <describe>债券代码(深交所)</describe>
                     <type>0</type>
                     <biz-type>100</biz-type>
-                    <length>100</length>
+                    <length>15</length>
                     <scale>0</scale>
                     <control>1</control>
                     <primary-property>0</primary-property>
@@ -9259,7 +9385,7 @@ JYCS.indexOf('99')&lt;0  </invisible-expression>
                     <fire-event>1</fire-event>
                     <check-type>0</check-type>
                     <real-type>0</real-type>
-                    <comment/>
+                    <comment>请准确完整填写债券代码，债券代码尾缀应包含“.SH、.SZ、.IB”等信息，债券代码前后不应有空格。</comment>
                     <validation/>
                     <scope-permissions/>
                     <properties>
@@ -9271,7 +9397,7 @@ JYCS.indexOf('99')&lt;0  </invisible-expression>
                     <describe>债券简称(银行间)</describe>
                     <type>8</type>
                     <biz-type>100</biz-type>
-                    <length>100</length>
+                    <length>20</length>
                     <scale>0</scale>
                     <control>1</control>
                     <primary-property>0</primary-property>
@@ -9292,19 +9418,17 @@ JYCS.indexOf('99')&lt;0  </invisible-expression>
                     <fire-event>0</fire-event>
                     <check-type>0</check-type>
                     <real-type>0</real-type>
-                    <comment/>
+                    <comment>请准确填写债券简称，债券简称前后不应有空格。</comment>
                     <validation/>
                     <scope-permissions/>
-                    <properties>
-                        <ctrl-width>293</ctrl-width>
-                    </properties>
+                    <properties/>
                 </column>
                 <column>
                     <name>ZQDM_YHJ</name>
                     <describe>债券代码(银行间)</describe>
                     <type>0</type>
                     <biz-type>100</biz-type>
-                    <length>100</length>
+                    <length>15</length>
                     <scale>0</scale>
                     <control>1</control>
                     <primary-property>0</primary-property>
@@ -9325,7 +9449,7 @@ JYCS.indexOf('99')&lt;0  </invisible-expression>
                     <fire-event>1</fire-event>
                     <check-type>0</check-type>
                     <real-type>0</real-type>
-                    <comment/>
+                    <comment>请准确完整填写债券代码，债券代码尾缀应包含“.SH、.SZ、.IB”等信息，债券代码前后不应有空格。</comment>
                     <validation/>
                     <scope-permissions/>
                     <properties>
@@ -9337,7 +9461,7 @@ JYCS.indexOf('99')&lt;0  </invisible-expression>
                     <describe>债券简称(其他)</describe>
                     <type>8</type>
                     <biz-type>100</biz-type>
-                    <length>100</length>
+                    <length>20</length>
                     <scale>0</scale>
                     <control>1</control>
                     <primary-property>0</primary-property>
@@ -9358,19 +9482,17 @@ JYCS.indexOf('99')&lt;0  </invisible-expression>
                     <fire-event>0</fire-event>
                     <check-type>0</check-type>
                     <real-type>0</real-type>
-                    <comment/>
+                    <comment>请准确填写债券简称，债券简称前后不应有空格。</comment>
                     <validation/>
                     <scope-permissions/>
-                    <properties>
-                        <ctrl-width>293</ctrl-width>
-                    </properties>
+                    <properties/>
                 </column>
                 <column>
                     <name>ZQDM_QT</name>
                     <describe>债券代码(其他)</describe>
                     <type>0</type>
                     <biz-type>100</biz-type>
-                    <length>100</length>
+                    <length>15</length>
                     <scale>0</scale>
                     <control>1</control>
                     <primary-property>0</primary-property>
@@ -9391,7 +9513,7 @@ JYCS.indexOf('99')&lt;0  </invisible-expression>
                     <fire-event>1</fire-event>
                     <check-type>0</check-type>
                     <real-type>0</real-type>
-                    <comment/>
+                    <comment>请准确完整填写债券代码，债券代码尾缀应包含“.SH、.SZ、.IB”等信息，债券代码前后不应有空格。</comment>
                     <validation/>
                     <scope-permissions/>
                     <properties>
@@ -9405,7 +9527,7 @@ JYCS.indexOf('99')&lt;0  </invisible-expression>
                     <biz-type>400</biz-type>
                     <length>0</length>
                     <scale>0</scale>
-                    <control>2</control>
+                    <control>10</control>
                     <primary-property>0</primary-property>
                     <nullable>false</nullable>
                     <unique>false</unique>
@@ -9452,7 +9574,8 @@ JYCS.indexOf('99')&lt;0  </invisible-expression>
                     <order-direction>0</order-direction>
                     <expression/>
                     <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMZBID.XMLX_EJ!=1201</invisible-expression>
+ABS_SQLVALUE("SELECT SUBSTR(?,1,4) FROM DUAL",[XMLX])!=1201
+</invisible-expression>
                     <disable-expression/>
                     <category/>
                     <fire-event>1</fire-event>
@@ -9486,7 +9609,7 @@ XMZBID.XMLX_EJ!=1201</invisible-expression>
                     <order-direction>0</order-direction>
                     <expression/>
                     <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMZBID.XMLX_EJ!=1201||SFWKJZ!=1  </invisible-expression>
+ABS_SQLVALUE("SELECT SUBSTR(?,1,4) FROM DUAL",[XMLX])!=1201||SFWKJZ!=1  </invisible-expression>
                     <disable-expression/>
                     <category/>
                     <fire-event>1</fire-event>
@@ -9518,7 +9641,7 @@ XMZBID.XMLX_EJ!=1201||SFWKJZ!=1  </invisible-expression>
                     <order-direction>0</order-direction>
                     <expression/>
                     <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMZBID.XMLX_EJ!=1201||SFWKJZ!=1  </invisible-expression>
+ABS_SQLVALUE("SELECT SUBSTR(?,1,4) FROM DUAL",[XMLX])!=1201||SFWKJZ!=1  </invisible-expression>
                     <disable-expression/>
                     <category/>
                     <fire-event>0</fire-event>
@@ -9550,7 +9673,7 @@ XMZBID.XMLX_EJ!=1201||SFWKJZ!=1  </invisible-expression>
                     <order-direction>0</order-direction>
                     <expression/>
                     <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMZBID.XMLX_EJ!=1201||SFWKJZ!=1  </invisible-expression>
+ABS_SQLVALUE("SELECT SUBSTR(?,1,4) FROM DUAL",[XMLX])!=1201||SFWKJZ!=1  </invisible-expression>
                     <disable-expression/>
                     <category/>
                     <fire-event>0</fire-event>
@@ -9582,7 +9705,7 @@ XMZBID.XMLX_EJ!=1201||SFWKJZ!=1  </invisible-expression>
                     <order-direction>0</order-direction>
                     <expression/>
                     <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMZBID.XMLX_EJ!=1201||SFWKJZ!=1  </invisible-expression>
+ABS_SQLVALUE("SELECT SUBSTR(?,1,4) FROM DUAL",[XMLX])!=1201||SFWKJZ!=1  </invisible-expression>
                     <disable-expression/>
                     <category/>
                     <fire-event>0</fire-event>
@@ -9614,7 +9737,7 @@ XMZBID.XMLX_EJ!=1201||SFWKJZ!=1  </invisible-expression>
                     <order-direction>0</order-direction>
                     <expression/>
                     <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMZBID.XMLX_EJ!=1201||SFWKJZ!=1  </invisible-expression>
+ABS_SQLVALUE("SELECT SUBSTR(?,1,4) FROM DUAL",[XMLX])!=1201||SFWKJZ!=1  </invisible-expression>
                     <disable-expression/>
                     <category/>
                     <fire-event>0</fire-event>
@@ -9646,7 +9769,7 @@ XMZBID.XMLX_EJ!=1201||SFWKJZ!=1  </invisible-expression>
                     <order-direction>0</order-direction>
                     <expression/>
                     <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMZBID.XMLX_EJ!=1201||SFWKJZ!=1</invisible-expression>
+ABS_SQLVALUE("SELECT SUBSTR(?,1,4) FROM DUAL",[XMLX])!=1201||SFWKJZ!=1</invisible-expression>
                     <disable-expression/>
                     <category/>
                     <fire-event>0</fire-event>
@@ -9678,7 +9801,7 @@ XMZBID.XMLX_EJ!=1201||SFWKJZ!=1</invisible-expression>
                     <order-direction>0</order-direction>
                     <expression/>
                     <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-SFWKJZ!=1||XMZBID.XMLX_EJ!=1201  </invisible-expression>
+SFWKJZ!=1||ABS_SQLVALUE("SELECT SUBSTR(?,1,4) FROM DUAL",[XMLX])!=1201 </invisible-expression>
                     <disable-expression/>
                     <category/>
                     <fire-event>0</fire-event>
@@ -9712,7 +9835,7 @@ SFWKJZ!=1||XMZBID.XMLX_EJ!=1201  </invisible-expression>
                     <order-direction>0</order-direction>
                     <expression/>
                     <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-SFWKJZ!=1||XMZBID.XMLX_EJ!=1201  </invisible-expression>
+SFWKJZ!=1||ABS_SQLVALUE("SELECT SUBSTR(?,1,4) FROM DUAL",[XMLX])!=1201  </invisible-expression>
                     <disable-expression/>
                     <category/>
                     <fire-event>0</fire-event>
@@ -9746,7 +9869,7 @@ SFWKJZ!=1||XMZBID.XMLX_EJ!=1201  </invisible-expression>
                     <order-direction>0</order-direction>
                     <expression/>
                     <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-SFWKJZ!=1||XMZBID.XMLX_EJ!=1201  </invisible-expression>
+SFWKJZ!=1||ABS_SQLVALUE("SELECT SUBSTR(?,1,4) FROM DUAL",[XMLX])!=1201  </invisible-expression>
                     <disable-expression/>
                     <category/>
                     <fire-event>1</fire-event>
@@ -9780,7 +9903,7 @@ SFWKJZ!=1||XMZBID.XMLX_EJ!=1201  </invisible-expression>
                     <order-direction>0</order-direction>
                     <expression/>
                     <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-SFWKJZ!=1||XMZBID.XMLX_EJ!=1201||SFHJGXG!=1  </invisible-expression>
+SFWKJZ!=1||ABS_SQLVALUE("SELECT SUBSTR(?,1,4) FROM DUAL",[XMLX])!=1201||SFHJGXG!=1  </invisible-expression>
                     <disable-expression/>
                     <category/>
                     <fire-event>0</fire-event>
@@ -9812,7 +9935,7 @@ SFWKJZ!=1||XMZBID.XMLX_EJ!=1201||SFHJGXG!=1  </invisible-expression>
                     <order-direction>0</order-direction>
                     <expression/>
                     <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMZBID.XMLX_EJ!=1203  </invisible-expression>
+ABS_SQLVALUE("SELECT SUBSTR(?,1,4) FROM DUAL",[XMLX])!=1203  </invisible-expression>
                     <disable-expression/>
                     <category/>
                     <fire-event>1</fire-event>
@@ -9846,7 +9969,7 @@ XMZBID.XMLX_EJ!=1203  </invisible-expression>
                     <order-direction>0</order-direction>
                     <expression/>
                     <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-SFTQCHBJ!=1||XMZBID.XMLX_EJ!=1203  </invisible-expression>
+SFTQCHBJ!=1||ABS_SQLVALUE("SELECT SUBSTR(?,1,4) FROM DUAL",[XMLX])!=1203  </invisible-expression>
                     <disable-expression/>
                     <category/>
                     <fire-event>0</fire-event>
@@ -10236,30 +10359,6 @@ ABS_SQLVALUE("SELECT INSTR(';'||?||';',';'||'999999'||';') FROM DUAL",[ZCXS],'EC
                     <properties/>
                 </column>
                 <column>
-                    <name>BQ</name>
-                    <describe>BQ</describe>
-                    <type>0</type>
-                    <biz-type>100</biz-type>
-                    <length>3000</length>
-                    <scale>0</scale>
-                    <control>16</control>
-                    <primary-property>8</primary-property>
-                    <nullable>false</nullable>
-                    <unique>false</unique>
-                    <enabled>false</enabled>
-                    <visible>true</visible>
-                    <attribute>266240</attribute>
-                    <order-direction>0</order-direction>
-                    <expression>&lt;%@ livebos language='javascript' %&gt;
-'&lt;font color=red&gt;系统自动计数，即“项目名称”下每新增一次债券信息卡片，“债券期序”就增加1&lt;/font&gt;'</expression>
-                    <category/>
-                    <fire-event>1</fire-event>
-                    <check-type>0</check-type>
-                    <real-type>0</real-type>
-                    <comment/>
-                    <properties/>
-                </column>
-                <column>
                     <name>SSSJ</name>
                     <describe>上市日期(上交所)</describe>
                     <type>13</type>
@@ -10431,7 +10530,7 @@ ABS_SQLVALUE("SELECT INSTR(';'||?||';',';'||'999999'||';') FROM DUAL",[ZCXS],'EC
                     <biz-type>400</biz-type>
                     <length>0</length>
                     <scale>0</scale>
-                    <control>2</control>
+                    <control>10</control>
                     <primary-property>0</primary-property>
                     <nullable>false</nullable>
                     <unique>false</unique>
@@ -11807,7 +11906,7 @@ SFSZHSTK!=1</invisible-expression>
                     <order-direction>0</order-direction>
                     <expression/>
                     <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-(XMZBID.XMLX.FID==120300&amp;&amp;SFTQCHBJ==1)||(JYCS.indexOf('1')&lt;0&amp;&amp;JYCS.indexOf('2')&lt;0&amp;&amp;JYCS.indexOf('99')&lt;0)  </invisible-expression>
+(XMLX.FID==120300&amp;&amp;SFTQCHBJ==1)||(JYCS.indexOf('1')&lt;0&amp;&amp;JYCS.indexOf('2')&lt;0&amp;&amp;JYCS.indexOf('99')&lt;0)  </invisible-expression>
                     <disable-expression>&lt;%@ livebos language='javascript' %&gt;
 if (SFHX!=0){
 O_THIS.getColumn("CGFX").setLabel("&lt;font color=red&gt;*&lt;/font&gt;常规付息时间截点");
@@ -11850,7 +11949,7 @@ O_THIS.getColumn("CGDF").setLabel("常规兑付时间截点");
                     <order-direction>0</order-direction>
                     <expression/>
                     <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMZBID.XMLX.FID!=120300||SFTQCHBJ!=1||(JYCS.indexOf('1')&lt;0&amp;&amp;JYCS.indexOf('2')&lt;0&amp;&amp;JYCS.indexOf('99')&lt;0)  </invisible-expression>
+XMLX.FID!=120300||SFTQCHBJ!=1||(JYCS.indexOf('1')&lt;0&amp;&amp;JYCS.indexOf('2')&lt;0&amp;&amp;JYCS.indexOf('99')&lt;0)  </invisible-expression>
                     <disable-expression>&lt;%@ livebos language='javascript' %&gt;
 if (SFHX!=0){
 O_THIS.getColumn("QYZFX").setLabel("&lt;font color=red&gt;*&lt;/font&gt;企业债时间截点");
@@ -12185,7 +12284,7 @@ SFTSQX!=1||TSTK.indexOf('2')&lt;0  </invisible-expression>
                     <order-direction>0</order-direction>
                     <expression/>
                     <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-(XMZBID.XMLX.FID==120300&amp;&amp;SFTQCHBJ==1)||(JYCS.indexOf('1')&lt;0&amp;&amp;JYCS.indexOf('2')&lt;0&amp;&amp;JYCS.indexOf('99')&lt;0)  </invisible-expression>
+(XMLX.FID==120300&amp;&amp;SFTQCHBJ==1)||(JYCS.indexOf('1')&lt;0&amp;&amp;JYCS.indexOf('2')&lt;0&amp;&amp;JYCS.indexOf('99')&lt;0)  </invisible-expression>
                     <disable-expression/>
                     <category>偿债资金划转约定</category>
                     <fire-event>0</fire-event>
@@ -12219,7 +12318,7 @@ SFTSQX!=1||TSTK.indexOf('2')&lt;0  </invisible-expression>
                     <order-direction>0</order-direction>
                     <expression/>
                     <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-(XMZBID.XMLX.FID==120300&amp;&amp;SFTQCHBJ==1)||(JYCS.indexOf('1')&lt;0&amp;&amp;JYCS.indexOf('2')&lt;0&amp;&amp;JYCS.indexOf('99')&lt;0)  </invisible-expression>
+(XMLX.FID==120300&amp;&amp;SFTQCHBJ==1)||(JYCS.indexOf('1')&lt;0&amp;&amp;JYCS.indexOf('2')&lt;0&amp;&amp;JYCS.indexOf('99')&lt;0)  </invisible-expression>
                     <disable-expression/>
                     <category>偿债资金划转约定</category>
                     <fire-event>0</fire-event>
@@ -12253,7 +12352,7 @@ SFTSQX!=1||TSTK.indexOf('2')&lt;0  </invisible-expression>
                     <order-direction>0</order-direction>
                     <expression/>
                     <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-(XMZBID.XMLX.FID==120300&amp;&amp;SFTQCHBJ==1)||(JYCS.indexOf('1')&lt;0&amp;&amp;JYCS.indexOf('2')&lt;0&amp;&amp;JYCS.indexOf('99')&lt;0)  </invisible-expression>
+(XMLX.FID==120300&amp;&amp;SFTQCHBJ==1)||(JYCS.indexOf('1')&lt;0&amp;&amp;JYCS.indexOf('2')&lt;0&amp;&amp;JYCS.indexOf('99')&lt;0)  </invisible-expression>
                     <disable-expression/>
                     <category>偿债资金划转约定</category>
                     <fire-event>0</fire-event>
@@ -12317,7 +12416,7 @@ SFTSQX!=1||TSTK.indexOf('2')&lt;0  </invisible-expression>
                     <order-direction>0</order-direction>
                     <expression/>
                     <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-(XMZBID.XMLX.FID==120300&amp;&amp;SFTQCHBJ==1)||(JYCS.indexOf('3')&lt;0)  </invisible-expression>
+(XMLX.FID==120300&amp;&amp;SFTQCHBJ==1)||(JYCS.indexOf('3')&lt;0)  </invisible-expression>
                     <disable-expression>&lt;%@ livebos language='javascript' %&gt;
 if (SFHX!=0){
 O_THIS.getColumn("YHJFX").setLabel("&lt;font color=red&gt;*&lt;/font&gt;银行间付息时间截点");
@@ -12367,7 +12466,7 @@ O_THIS.getColumn("YHJDF_YQ").setLabel("结算划转要求");}
                     <order-direction>0</order-direction>
                     <expression/>
                     <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMZBID.XMLX.FID!=120300||SFTQCHBJ!=1||JYCS.indexOf('3')&lt;0  </invisible-expression>
+XMLX.FID!=120300||SFTQCHBJ!=1||JYCS.indexOf('3')&lt;0  </invisible-expression>
                     <disable-expression/>
                     <category>银行间偿债资金划转约定</category>
                     <fire-event>0</fire-event>
@@ -12465,7 +12564,7 @@ XMZBID.XMLX.FID!=120300||SFTQCHBJ!=1||JYCS.indexOf('3')&lt;0  </invisible-expres
                     <order-direction>0</order-direction>
                     <expression/>
                     <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-(XMZBID.XMLX.FID==120300&amp;&amp;SFTQCHBJ==1)||JYCS.indexOf('3')&lt;0  </invisible-expression>
+(XMLX.FID==120300&amp;&amp;SFTQCHBJ==1)||JYCS.indexOf('3')&lt;0  </invisible-expression>
                     <disable-expression/>
                     <category>银行间偿债资金划转约定</category>
                     <fire-event>0</fire-event>
@@ -12499,7 +12598,7 @@ XMZBID.XMLX.FID!=120300||SFTQCHBJ!=1||JYCS.indexOf('3')&lt;0  </invisible-expres
                     <order-direction>0</order-direction>
                     <expression/>
                     <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-(XMZBID.XMLX.FID==120300&amp;&amp;SFTQCHBJ==1)||JYCS.indexOf('3')&lt;0  </invisible-expression>
+(XMLX.FID==120300&amp;&amp;SFTQCHBJ==1)||JYCS.indexOf('3')&lt;0  </invisible-expression>
                     <disable-expression/>
                     <category>银行间偿债资金划转约定</category>
                     <fire-event>0</fire-event>
@@ -12533,7 +12632,7 @@ XMZBID.XMLX.FID!=120300||SFTQCHBJ!=1||JYCS.indexOf('3')&lt;0  </invisible-expres
                     <order-direction>0</order-direction>
                     <expression/>
                     <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-(XMZBID.XMLX.FID==120300&amp;&amp;SFTQCHBJ==1)||JYCS.indexOf('3')&lt;0  </invisible-expression>
+(XMLX.FID==120300&amp;&amp;SFTQCHBJ==1)||JYCS.indexOf('3')&lt;0  </invisible-expression>
                     <disable-expression/>
                     <category>银行间偿债资金划转约定</category>
                     <fire-event>0</fire-event>
@@ -12656,7 +12755,7 @@ XMZBID.XMLX.FID!=120300||SFTQCHBJ!=1||JYCS.indexOf('3')&lt;0  </invisible-expres
                     <scale>0</scale>
                     <control>45</control>
                     <primary-property>0</primary-property>
-                    <nullable>true</nullable>
+                    <nullable>false</nullable>
                     <unique>false</unique>
                     <enabled>true</enabled>
                     <visible>true</visible>
@@ -12667,14 +12766,7 @@ XMZBID.XMLX.FID!=120300||SFTQCHBJ!=1||JYCS.indexOf('3')&lt;0  </invisible-expres
                     <attribute>67108864</attribute>
                     <order-direction>0</order-direction>
                     <expression/>
-                    <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-if (SFHX==0){
-O_THIS.getColumn("QTCY").setLabel("&lt;font color=red&gt;*&lt;/font&gt;项目组成员");
-}
-else{
-O_THIS.getColumn("QTCY").setLabel("项目组成员");
-} 
-1==0</invisible-expression>
+                    <invisible-expression/>
                     <disable-expression/>
                     <category>承做信息</category>
                     <fire-event>0</fire-event>

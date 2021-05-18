@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="GB2312" standalone="no"?>
 <object create-date="2017.07.26 10:44:40" creator="杨智勇" flag="0" modifier="null" modify-date="null" name="lcIB_RCYWBLLCB" object-id="f7c61eed-4979-4096-v49b-b62c36070c71" package="100_新三板.持续督导阶段.12-日常业务办理流程" type="5" version="1.0">
-    <describe>日常业务办理流程</describe>
+    <describe>持续督导通用审批流程</describe>
     <comment/>
     <datasource-name>ECIF</datasource-name>
     <attribute>392</attribute>
@@ -224,18 +224,20 @@
             <properties/>
         </column>
         <column>
-            <name>YWLX_copy</name>
-            <describe>YWLX</describe>
-            <type>0</type>
-            <biz-type>100</biz-type>
-            <length>30</length>
+            <name>YWLXN</name>
+            <describe>业务类型(新)</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
             <scale>0</scale>
-            <control>1</control>
+            <control>0</control>
             <primary-property>6</primary-property>
             <nullable>true</nullable>
             <unique>false</unique>
             <enabled>false</enabled>
             <visible>false</visible>
+            <option>1|权益;2|固收(发行前);3|债券;4|新三板</option>
+            <ref-object/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
             <expression>4</expression>
@@ -243,6 +245,7 @@
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <properties/>
         </column>
         <column>
             <name>YYZL</name>
@@ -986,7 +989,7 @@ oaid&lt;=0     </invisible-expression>
             <relation type="9">
                 <define>
                     <item>VO_NHTBTS</item>
-                    <item>(XMID=XMMC|YWLX=YWLX_copy)</item>
+                    <item>(XMID=XMMC|YWLX=YWLXN)</item>
                 </define>
                 <describe>内核特别提示</describe>
             </relation>

@@ -5,109 +5,27 @@
     <variable describe="V_FJMB" messageType="" name="V_FJMB" type="resultSet" />
   </variables>
   <sequence id="0" name="顺序">
-    <if id="0">
-      <describe>判断</describe>
-      <conditions>
-        <condition name="" type="expression">
-          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
-O_MASTER.FJLX == 1</arg>
-        </condition>
-      </conditions>
-      <sequence id="0" name="顺序">
-        <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
-          <describe>获取附件模板</describe>
-          <arg name="TranType">sql</arg>
-          <arg name="SQL">["SELECT ID, SFBT,WDLXM, TJSX, XM360ZS,SFYY FROM ECIF.TIB_WDLXPZ WHERE LCBD = 'lcIB_FDJDSP'  AND (WDLXM IN ('辅导申请报告','发行人基本情况介绍','辅导计划及实施方案','辅导人员名单及简历','辅导人员职业资格证书复印件') OR (WDLXM = '其他' AND TJSX = 6)) ORDER BY TJSX",[]]</arg>
-          <arg name="datasource">ECIF</arg>
-          <arg name="@retResultSet" type="output">V_FJMB</arg>
-        </invoke>
-        <invoke component="FormUIHypotOperate" id="0" name="表格操作_添加结果集数据" operation="insertByResult">
-          <describe>表格添加结果集数据[辅导阶段审批]</describe>
-          <arg name="@objectName">lcIB_FDJDSP</arg>
-          <arg name="@object" type="variable">O_MASTER</arg>
-          <arg name="@columnName">FJ</arg>
-          <arg name="@clearRowsets">true</arg>
-          <arg name="@resultSet" type="variable">V_FJMB</arg>
-          <arg flag="field" name="TJSX">TJSX</arg>
-          <arg flag="field" name="FJLX">ID</arg>
-          <arg flag="field" name="SF360XS">XM360ZS</arg>
-          <arg flag="field" name="SFYY">SFYY</arg>
-          <arg flag="field" name="SFBT">SFBT</arg>
-        </invoke>
-      </sequence>
-      <elseif>
-        <describe>ElseIf</describe>
-        <conditions>
-          <condition name="" type="expression">
-            <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
-O_MASTER.FJLX == 2</arg>
-          </condition>
-        </conditions>
-        <sequence id="0" name="顺序">
-          <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
-            <describe>获取附件模板</describe>
-            <arg name="TranType">sql</arg>
-            <arg name="datasource">ECIF</arg>
-            <arg name="@retResultSet" type="output">V_FJMB</arg>
-            <arg name="SQL">["SELECT ID, SFBT,WDLXM, TJSX, XM360ZS,SFYY FROM ECIF.TIB_WDLXPZ WHERE LCBD = 'lcIB_FDJDSP'  AND (WDLXM = '辅导工作备案报告' OR (WDLXM = '其他' AND TJSX = 2)) ORDER BY TJSX",[]]</arg>
-          </invoke>
-          <invoke component="FormUIHypotOperate" id="0" name="表格操作_添加结果集数据" operation="insertByResult">
-            <describe>表格添加结果集数据[辅导阶段审批]</describe>
-            <arg name="@objectName">lcIB_FDJDSP</arg>
-            <arg name="@object" type="variable">O_MASTER</arg>
-            <arg name="@columnName">FJ</arg>
-            <arg name="@clearRowsets">true</arg>
-            <arg name="@resultSet" type="variable">V_FJMB</arg>
-            <arg flag="field" name="SFBT">SFBT</arg>
-            <arg flag="field" name="SF360XS">XM360ZS</arg>
-            <arg flag="field" name="SFYY">SFYY</arg>
-            <arg flag="field" name="FJLX">ID</arg>
-            <arg flag="field" name="TJSX">TJSX</arg>
-          </invoke>
-        </sequence>
-      </elseif>
-      <elseif>
-        <describe>ElseIf</describe>
-        <conditions>
-          <condition name="" type="expression">
-            <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
-O_MASTER.FJLX == 3</arg>
-          </condition>
-        </conditions>
-        <sequence id="0" name="顺序">
-          <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
-            <describe>获取附件模板</describe>
-            <arg name="TranType">sql</arg>
-            <arg name="datasource">ECIF</arg>
-            <arg name="@retResultSet" type="output">V_FJMB</arg>
-            <arg name="SQL">["SELECT ID, SFBT,WDLXM, TJSX, XM360ZS,SFYY FROM ECIF.TIB_WDLXPZ WHERE LCBD = 'lcIB_FDJDSP' AND (WDLXM IN ('辅导工作总结报告','辅导工作验收申请报告','对拟签字保荐代表人辅导参与阶段和参与情况的专项说明','发行人基本情况报告（非必须、非签章）') OR WDLXM = '其他' AND TJSX = 5) ORDER BY TJSX",[]]</arg>
-          </invoke>
-          <invoke component="FormUIHypotOperate" id="0" name="表格操作_添加结果集数据" operation="insertByResult">
-            <describe>表格添加结果集数据[辅导阶段审批]</describe>
-            <arg name="@objectName">lcIB_FDJDSP</arg>
-            <arg name="@object" type="variable">O_MASTER</arg>
-            <arg name="@columnName">FJ</arg>
-            <arg flag="field" name="TJSX">TJSX</arg>
-            <arg flag="field" name="FJLX">ID</arg>
-            <arg flag="field" name="SFBT">SFBT</arg>
-            <arg flag="field" name="SFYY">SFYY</arg>
-            <arg flag="field" name="SF360XS">XM360ZS</arg>
-            <arg name="@clearRowsets">true</arg>
-            <arg name="@resultSet" type="variable">V_FJMB</arg>
-          </invoke>
-        </sequence>
-      </elseif>
-      <else>
-        <describe>Else</describe>
-        <invoke component="FormUIHypotOperate" id="0" name="表格操作_批量删除" operation="batchDelete">
-          <describe>批量删除表格对象[辅导阶段审批]</describe>
-          <arg name="@objectName">lcIB_FDJDSP</arg>
-          <arg name="@object" type="variable">O_MASTER</arg>
-          <arg name="@columnName">FJ</arg>
-          <arg name="@condition">O_MASTER.FJ.TJSX &lt; 10</arg>
-        </invoke>
-      </else>
-    </if>
+    <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
+      <describe>数据库组件_SQL查询</describe>
+      <arg name="TranType">sql</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="SQL">["SELECT rownum as a,ID, SFBT,WDLXM, TJSX, XM360ZS,SFYY,1 AS SFSY FROM ECIF.TIB_WDLXPZ WHERE LCBD = 'lcIB_FDJDSP'  AND (BZSM = {0} OR BZSM IS NULL) ORDER BY TJSX",[{"expression":"O_MASTER.FJLX","length":"","scale":"","type":"1"}]]</arg>
+      <arg name="@retResultSet" type="output">V_FJMB</arg>
+    </invoke>
+    <invoke component="FormUIHypotOperate" id="0" name="表格操作_添加结果集数据" operation="insertByResult">
+      <describe>表格添加结果集数据[辅导阶段审批]</describe>
+      <arg name="@objectName">lcIB_FDJDSP</arg>
+      <arg name="@object" type="variable">O_MASTER</arg>
+      <arg name="@columnName">FJ</arg>
+      <arg name="@resultSet" type="variable">V_FJMB</arg>
+      <arg name="@clearRowsets">true</arg>
+      <arg flag="field" name="TJSX">a</arg>
+      <arg flag="field" name="FJLX">ID</arg>
+      <arg flag="field" name="SFBT">SFBT</arg>
+      <arg flag="field" name="SFYY">SFYY</arg>
+      <arg flag="field" name="SFSY">SFSY</arg>
+      <arg flag="field" name="SF360XS">XM360ZS</arg>
+    </invoke>
   </sequence>
 </process>
 

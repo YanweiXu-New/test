@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="gb2312"?>
 <!DOCTYPE workflow PUBLIC "-//Apexsoft LiveBos//DTD Workflow 2.8//EN" "http://www.livebos.com/workflow/workflow_2_8_abs.dtd"><workflow>
-  <meta name="workflow.category"></meta>
-  <meta name="Designer">Studio</meta>
-  <meta name="created">2018-06-20 17:49:13</meta>
-  <meta name="modify">2018-10-19 11:05:03</meta>
   <meta name="Describe">上传全套内核材料流程工作流</meta>
+  <meta name="Designer">Studio</meta>
+  <meta name="modify">2021-01-25 10:39:03</meta>
+  <meta name="created">2018-06-20 17:49:13</meta>
   <meta name="WorkflowName">WF_SCQTNHCLLCGZL</meta>
+  <meta name="workflow.category"></meta>
   <meta name="version"></meta>
   <object  name="lcIB_SCQTNHCLLC" editAttribute="0" >
   </object>
@@ -20,8 +20,8 @@
   </initial-actions>
   <steps>
     <step id="1" name="结束">
-      <meta name="finish">true</meta>
       <meta name="NodeType">1</meta>
+      <meta name="finish">true</meta>
     </step>
     <step id="5" name="质控主审上传全套内核材料">
       <meta name="NodeType">16</meta>
@@ -58,12 +58,12 @@
       </notify>
       <actions>
         <action id="6" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;update ecif.lcIB_SCQTNHCLLC set lcbh=ecif.func_ib_getlcbh where id={0}&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;update ecif.lcIB_SCQTNHCLLC set lcbh=ecif.func_ib_getlcbh where id={0}&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -74,13 +74,13 @@
       </actions>
     </step>
     <step id="8" name="质控部文管填写相关底稿信息">
-      <meta name="step.allow.approve.sign">true</meta>
-      <meta name="step.reject.mode">any</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_SCQTNHCLLC" editAttribute="0" >
         <columns>
@@ -116,8 +116,8 @@
       </notify>
       <actions>
         <action id="9" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <results>
             <unconditional-result id="13" old-status="完成" status="待处理" step="11">
             </unconditional-result>
@@ -126,13 +126,13 @@
       </actions>
     </step>
     <step id="11" name="综合部负责人审批">
-      <meta name="step.allow.approve.sign">true</meta>
-      <meta name="step.reject.mode">any</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_SCQTNHCLLC" editAttribute="0" >
         <columns>
@@ -168,8 +168,8 @@
       </notify>
       <actions>
         <action id="12" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <results>
             <unconditional-result id="14" old-status="完成" status="待处理" step="1">
             </unconditional-result>

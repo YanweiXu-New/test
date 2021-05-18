@@ -1294,7 +1294,7 @@ DBFS!=99           </invisible-expression>
             <biz-type>400</biz-type>
             <length>0</length>
             <scale>0</scale>
-            <control>2</control>
+            <control>10</control>
             <primary-property>0</primary-property>
             <nullable>false</nullable>
             <unique>false</unique>
@@ -1839,7 +1839,7 @@ SLTGR!=999999&amp;&amp;ZQDLR!=999999&amp;&amp;HXGLR!=999999           </invisibl
             <visible>true</visible>
             <option/>
             <meta-column/>
-            <ref-object>vUser_ZKSB</ref-object>
+            <ref-object>tUser</ref-object>
             <default>null</default>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
@@ -1852,6 +1852,10 @@ SLTGR!=999999&amp;&amp;ZQDLR!=999999&amp;&amp;HXGLR!=999999           </invisibl
             <real-type>0</real-type>
             <comment/>
             <validation/>
+            <constraint type="3">
+                <SQL>["tUser.OrgID in (SELECT ID  FROM JGCRM.LBORGANIZATION START WITH ID = 13831 CONNECT BY PRIOR ID = FID) \r\nand tUser.Status = 1",[]]</SQL>
+                <refColumns/>
+            </constraint>
             <scope-permissions/>
         </column>
         <column>
@@ -1869,7 +1873,7 @@ SLTGR!=999999&amp;&amp;ZQDLR!=999999&amp;&amp;HXGLR!=999999           </invisibl
             <visible>true</visible>
             <option/>
             <meta-column/>
-            <ref-object>vUser_ZKSB</ref-object>
+            <ref-object>tUser</ref-object>
             <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
@@ -1882,6 +1886,10 @@ SLTGR!=999999&amp;&amp;ZQDLR!=999999&amp;&amp;HXGLR!=999999           </invisibl
             <real-type>0</real-type>
             <comment/>
             <validation/>
+            <constraint type="3">
+                <SQL>["tUser.OrgID in (SELECT ID  FROM JGCRM.LBORGANIZATION START WITH ID = 13831 CONNECT BY PRIOR ID = FID)\r\nand tUser.Status = 1",[]]</SQL>
+                <refColumns/>
+            </constraint>
             <scope-permissions/>
         </column>
         <column>
@@ -2074,11 +2082,11 @@ SJLY==2 ||SJLY==0||OLDBH==""||OLDBH==null           </invisible-expression>
         <column>
             <name>JTHZDW</name>
             <describe>集团合作单位</describe>
-            <type>7</type>
-            <biz-type>400</biz-type>
+            <type>15</type>
+            <biz-type>401</biz-type>
             <length>0</length>
             <scale>0</scale>
-            <control>10</control>
+            <control>4</control>
             <primary-property>0</primary-property>
             <nullable>false</nullable>
             <unique>false</unique>
@@ -2088,7 +2096,7 @@ SJLY==2 ||SJLY==0||OLDBH==""||OLDBH==null           </invisible-expression>
             <ref-object/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
-            <category>申请审批信息</category>
+            <category>储备阶段信息</category>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
@@ -2099,7 +2107,7 @@ SJLY==2 ||SJLY==0||OLDBH==""||OLDBH==null           </invisible-expression>
             <describe>分行</describe>
             <type>0</type>
             <biz-type>100</biz-type>
-            <length>100</length>
+            <length>30</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -2110,8 +2118,9 @@ SJLY==2 ||SJLY==0||OLDBH==""||OLDBH==null           </invisible-expression>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-JTHZDW != 2</invisible-expression>
-            <category>申请审批信息</category>
+ABS_SQLVALUE("select count(1) from dual where instr(';'||?||';',';2;')&gt;0",[JTHZDW])==0
+</invisible-expression>
+            <category>储备阶段信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
@@ -2119,7 +2128,7 @@ JTHZDW != 2</invisible-expression>
         </column>
         <column>
             <name>GHHDCKJE</name>
-            <describe>光行获得存款金额</describe>
+            <describe>光行获得存款金额(万元)</describe>
             <type>1</type>
             <biz-type>200</biz-type>
             <length>16</length>
@@ -2135,8 +2144,8 @@ JTHZDW != 2</invisible-expression>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-JTHZDW != 2</invisible-expression>
-            <category>申请审批信息</category>
+ABS_SQLVALUE("select count(1) from dual where instr(';'||?||';',';2;')&gt;0",[JTHZDW])==0</invisible-expression>
+            <category>储备阶段信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
@@ -2159,22 +2168,26 @@ JTHZDW != 2</invisible-expression>
             <ref-object/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
-            <category>申请审批信息</category>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
+JTHZDW == '100'</invisible-expression>
+            <category>储备阶段信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <properties>
+                <ctrl-width>200</ctrl-width>
+            </properties>
         </column>
         <column>
             <name>HZXS</name>
             <describe>合作形式</describe>
-            <type>7</type>
-            <biz-type>400</biz-type>
+            <type>15</type>
+            <biz-type>401</biz-type>
             <length>0</length>
             <scale>0</scale>
-            <control>10</control>
+            <control>4</control>
             <primary-property>0</primary-property>
-            <nullable>true</nullable>
+            <nullable>false</nullable>
             <unique>false</unique>
             <enabled>false</enabled>
             <visible>true</visible>
@@ -2182,7 +2195,9 @@ JTHZDW != 2</invisible-expression>
             <ref-object/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
-            <category>申请审批信息</category>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
+JTHZDW == '100'</invisible-expression>
+            <category>储备阶段信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
@@ -2915,7 +2930,7 @@ ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.syste
             <biz-type>400</biz-type>
             <length>0</length>
             <scale>0</scale>
-            <control>2</control>
+            <control>10</control>
             <primary-property>0</primary-property>
             <nullable>false</nullable>
             <unique>false</unique>
@@ -2924,12 +2939,12 @@ ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.syste
             <option>1|线上立项表决;2|线下立项表决</option>
             <meta-column/>
             <ref-object/>
-            <default/>
+            <default>null</default>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-CJSHYJ==1&amp;&amp;ABS_NULLSUB(CJSHYJ2,-1)==-1||CJSHYJ2==1||JRLXBJBZ!=1           </invisible-expression>
+JRLXBJBZ!=1           </invisible-expression>
             <disable-expression/>
             <category>审核信息</category>
             <fire-event>1</fire-event>
@@ -2938,6 +2953,7 @@ CJSHYJ==1&amp;&amp;ABS_NULLSUB(CJSHYJ2,-1)==-1||CJSHYJ2==1||JRLXBJBZ!=1         
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>BJJZRQ</name>
@@ -2960,7 +2976,7 @@ CJSHYJ==1&amp;&amp;ABS_NULLSUB(CJSHYJ2,-1)==-1||CJSHYJ2==1||JRLXBJBZ!=1         
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-LXFS!=1||(CJSHYJ==1&amp;&amp;ABS_NULLSUB(CJSHYJ2,-1)==-1)||CJSHYJ2==1||JRLXBJBZ!=1           </invisible-expression>
+LXFS!=1        </invisible-expression>
             <disable-expression/>
             <category>审核信息</category>
             <fire-event>0</fire-event>
@@ -2994,7 +3010,7 @@ LXFS!=1||(CJSHYJ==1&amp;&amp;ABS_NULLSUB(CJSHYJ2,-1)==-1)||CJSHYJ2==1||JRLXBJBZ!
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-JRLXBJBZ!=1||(LXFS!=2&amp;&amp;SCSHYJ!=1)           </invisible-expression>
+LXFS!=2  </invisible-expression>
             <disable-expression/>
             <category>审核信息</category>
             <fire-event>0</fire-event>
@@ -3014,7 +3030,7 @@ JRLXBJBZ!=1||(LXFS!=2&amp;&amp;SCSHYJ!=1)           </invisible-expression>
             <biz-type>400</biz-type>
             <length>0</length>
             <scale>0</scale>
-            <control>2</control>
+            <control>10</control>
             <primary-property>0</primary-property>
             <nullable>false</nullable>
             <unique>false</unique>
@@ -3511,6 +3527,30 @@ LB.getClient().isStandard==false            </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+        </column>
+        <column>
+            <name>SMJSFSC</name>
+            <describe>全套扫描件是否已上传至底稿系统</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>5</control>
+            <primary-property>0</primary-property>
+            <nullable>false</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>false</visible>
+            <option>$D{JG_SF}</option>
+            <ref-object/>
+            <default>null</default>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category>全套立项材料</category>
+            <fire-event>1</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
         </column>
         <column>
             <name>QTLXCL</name>

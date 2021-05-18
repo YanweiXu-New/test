@@ -7,19 +7,6 @@
   </variables>
   <sequence id="0">
     <invoke component="FormSetOperate" id="0" operation="update">
-      <describe>批量修改对象[项目信息表]</describe>
-      <meta name="FUNCTION">true</meta>
-      <arg name="@objectName">tIB_XMXX</arg>
-      <arg name="@ID" type="expression">O_PARAMETER.XMID</arg>
-      <arg flag="field" name="XMMC" type="expression">O_PARAMETER.XMMC</arg>
-      <arg flag="field" name="XMLX" type="expression">O_PARAMETER.XMLX</arg>
-      <arg flag="field" name="QZBJDBR" type="expression">O_PARAMETER.QZBJDBR</arg>
-      <arg flag="field" name="XMFZR" type="expression">O_PARAMETER.XMFZR</arg>
-      <arg flag="field" name="SSBM" type="expression">O_PARAMETER.SSBM</arg>
-      <arg flag="field" name="XMJD" type="expression">O_PARAMETER.XMJD</arg>
-      <arg flag="field" name="XMWCRQ" type="expression">ABS_SQLVALUE("SELECT TO_DATE(TO_CHAR(?),'YYYYMMDD') FROM DUAL",[O_PARAMETER.WCRQ])</arg>
-    </invoke>
-    <invoke component="FormSetOperate" id="0" operation="update">
       <describe>批量修改对象[项目信息台账]</describe>
       <meta name="FUNCTION">true</meta>
       <arg name="@objectName">tIB_XMXXTZ</arg>
@@ -32,14 +19,27 @@
       <arg flag="field" name="QZBJDBR" type="expression">O_PARAMETER.QZBJDBR</arg>
       <arg flag="field" name="XMYSRY" type="expression">O_PARAMETER.XMYSRY</arg>
       <arg flag="field" name="GDSJRQ" type="expression">O_PARAMETER.GDSJRQ</arg>
-      <arg flag="field" name="TJZKYSRQ" type="expression">O_MASTER.ZZDGTJZKRQ</arg>
-      <arg flag="field" name="YSYJCJRQ" type="expression">O_MASTER.DGYSYJCJRQ</arg>
+      <arg flag="field" name="TJZKYSRQ" type="expression">O_PARAMETER.ZZDGTJZKRQ</arg>
+      <arg flag="field" name="YSYJCJRQ" type="expression">O_PARAMETER.DGYSYJCJRQ</arg>
       <arg flag="field" name="ZZDGZT" type="expression">O_PARAMETER.ZZDGZT</arg>
       <arg flag="field" name="GDR" type="expression">O_PARAMETER.GDR</arg>
       <arg flag="field" name="ZZDGCS" type="expression">O_PARAMETER.ZZDGCS</arg>
       <arg flag="field" name="BZ" type="expression">O_PARAMETER.BZ</arg>
-      <arg flag="field" name="ZZDGBH" type="expression">O_MASTER.ZZDGBH</arg>
+      <arg flag="field" name="ZZDGBH" type="expression">O_PARAMETER.ZZDGBH</arg>
       <arg flag="field" name="DGCFDD" type="expression">O_PARAMETER.DGCFDD</arg>
+    </invoke>
+    <invoke component="FormSetOperate" id="0" operation="update">
+      <describe>批量修改对象[项目信息表]</describe>
+      <meta name="FUNCTION">true</meta>
+      <arg name="@objectName">tIB_XMXX</arg>
+      <arg name="@ID" type="expression">O_PARAMETER.XMID</arg>
+      <arg flag="field" name="XMMC" type="expression">O_PARAMETER.XMMC</arg>
+      <arg flag="field" name="XMLX" type="expression">O_PARAMETER.XMLX</arg>
+      <arg flag="field" name="QZBJDBR" type="expression">O_PARAMETER.QZBJDBR</arg>
+      <arg flag="field" name="XMFZR" type="expression">O_PARAMETER.XMFZR</arg>
+      <arg flag="field" name="SSBM" type="expression">O_PARAMETER.SSBM</arg>
+      <arg flag="field" name="XMJD" type="expression">O_PARAMETER.XMJD</arg>
+      <arg flag="field" name="XMWCRQ" type="expression">ABS_SQLVALUE("SELECT TO_DATE(TO_CHAR(?),'YYYYMMDD') FROM DUAL",[O_PARAMETER.WCRQ])</arg>
     </invoke>
     <invoke component="SQL" id="0" name="终止日期" operation="execute">
       <describe>同步项目信息</describe>

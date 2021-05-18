@@ -56,7 +56,7 @@ dyxmlx;</arg>
     <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
       <describe>数据库组件_SQL查询</describe>
       <arg name="TranType">sql</arg>
-      <arg name="SQL">["SELECT ID,wdlxm,tjsx,XM360ZS,sfbt FROM tIB_WDLXPZ WHERE lcbd='lcIB_LXLCB' AND XMLX={0}  ORDER by tjsx",[{"expression":"O_MASTER.XMLX","scale":"","length":"","type":"1"}]]</arg>
+      <arg name="SQL">["SELECT ID,wdlxm,tjsx,XM360ZS,sfbt FROM tIB_WDLXPZ WHERE lcbd='lcIB_LXLCB' AND XMLX={0} \r\nUNION \r\nSELECT ID,wdlxm,tjsx,XM360ZS,sfbt FROM tIB_WDLXPZ WHERE lcbd='lcIB_LXLCB' AND BZSM = 'SFSJGKFX' AND {1} = 1 \r\nORDER by tjsx",[{"expression":"O_MASTER.XMLX","scale":"","length":"","type":"1"},{"expression":"O_MASTER.SFSJGKFX","scale":"","length":"","type":"1"}]]</arg>
       <arg name="datasource">ECIF</arg>
       <arg name="@retResultSet" type="output">V_FJLX</arg>
     </invoke>

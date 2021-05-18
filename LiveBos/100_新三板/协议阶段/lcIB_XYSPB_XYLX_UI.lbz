@@ -9,7 +9,7 @@
     <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
       <describe>数据库组件_SQL查询</describe>
       <arg name="TranType">sql</arg>
-      <arg name="SQL">["SELECT ID,wdlxm,tjsx,XM360ZS FROM tIB_WDLXPZ WHERE lcbd='lcIB_XYSPB' ORDER by tjsx",[]]</arg>
+      <arg name="SQL">["SELECT ID,wdlxm,tjsx,XM360ZS,SFBT,SFYY,1 AS SFSY FROM tIB_WDLXPZ WHERE lcbd='lcIB_XYSPB' ORDER by tjsx",[]]</arg>
       <arg name="datasource">ECIF</arg>
       <arg name="@retResultSet" type="output">V_FJLX</arg>
     </invoke>
@@ -23,6 +23,9 @@
       <arg flag="field" name="FJLX">ID</arg>
       <arg flag="field" name="SF360XS">XM360ZS</arg>
       <arg name="@clearRowsets">true</arg>
+      <arg flag="field" name="SFBT">SFBT</arg>
+      <arg flag="field" name="SFSY">SFSY</arg>
+      <arg flag="field" name="SFYY">SFYY</arg>
     </invoke>
   </sequence>
 </process>

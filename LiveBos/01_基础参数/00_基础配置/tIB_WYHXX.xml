@@ -55,7 +55,7 @@
             <attribute>0</attribute>
             <order-direction>0</order-direction>
             <category/>
-            <fire-event>0</fire-event>
+            <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
             <properties/>
@@ -83,12 +83,13 @@
             <invisible-expression/>
             <disable-expression/>
             <category/>
-            <fire-event>0</fire-event>
+            <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>XZZZ</name>
@@ -141,7 +142,8 @@
             <attribute>0</attribute>
             <order-direction>0</order-direction>
             <expression/>
-            <invisible-expression/>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;&#13;
+YWLX !=2 &amp; HYLB !=2 &amp; NHFS != null</invisible-expression>
             <disable-expression/>
             <category/>
             <fire-event>1</fire-event>
@@ -150,6 +152,56 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
+        </column>
+        <column>
+            <name>XSXZCY</name>
+            <describe>线上小组成员</describe>
+            <type>16</type>
+            <biz-type>600</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>45</control>
+            <primary-property>0</primary-property>
+            <nullable>false</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object>tUser</ref-object>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
+YWLX !=2 || HYLB !=2</invisible-expression>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>XXXZCY</name>
+            <describe>线下小组成员</describe>
+            <type>16</type>
+            <biz-type>600</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>45</control>
+            <primary-property>0</primary-property>
+            <nullable>false</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object>tUser</ref-object>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;&#13;
+YWLX !=2 || HYLB !=2</invisible-expression>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
             <properties/>
         </column>
         <column>

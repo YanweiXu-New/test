@@ -15,10 +15,10 @@ ABS_SQLVALUE('SELECT zkzy FROM ECIF.lcIB_NHLCB_DZBGCZ T  WHERE T.XMMC = ?  AND T
 ABS_SQLVALUE("select t1.NHZY_ZS from ECIF.lcIB_NHLCB_DZBGCZ t1 inner join jgcrm.os_wfentry t2 on t2.id=t1.instid  where t2.state=4 and t1.XMMC=? and rownum = 1 order by t1.instid desc",[O_MASTER.XMMC])</arg>
     <arg flag="field" name="DGSCBL" type="expression">&lt;%@ livebos language='javascript' %&gt;
 var fkcx = ABS_SQLVALUE('select count(1)+1 from  ecif.lcIB_XSB_DZBG_FKHFLC A,jgcrm.os_wfentry B where A.instid = B.id and B.State = 4 and A.xmmc = ?',[O_MASTER.XMMC]);&#xD;
-ABS_SQLVALUE('select ecif.FUNC_IB_GET_DGJDWCBL (?,?,?,?) from dual',[O_MASTER.XMMC,2,1206,fkcx]);</arg>
+ABS_SQLVALUE('select ecif.FUNC_IB_GET_DGJDWCBL (?,?,?,?) from dual',[O_MASTER.XMMC,2,1204,fkcx]);</arg>
     <arg flag="field" name="BLSCDDRQ" type="expression">&lt;%@ livebos language='javascript' %&gt;
 var fkcx = ABS_SQLVALUE('select count(1)+1 from  ecif.lcIB_XSB_DZBG_FKHFLC A,jgcrm.os_wfentry B where A.instid = B.id and B.State = 4 and A.xmmc = ?',[O_MASTER.XMMC]);&#xD;
-ABS_SQLVALUE('select ECIF.FUNC_IB_GET_DGJDSCWCRQ (?,?,?,?) from dual',[O_MASTER.XMMC,2,1206,fkcx]);</arg>
+ABS_SQLVALUE('select ECIF.FUNC_IB_GET_DGJDSCWCRQ (?,?,?,?) from dual',[O_MASTER.XMMC,2,1204,fkcx]);</arg>
     <arg flag="field" name="JGFKCX" type="expression">&lt;%@ livebos language='javascript' %&gt;
 ABS_SQLVALUE('select count(1)+1 from  ecif.lcIB_XSB_DZBG_FKHFLC A,jgcrm.os_wfentry B where A.instid = B.id and B.State = 4 and A.xmmc = ?',[O_MASTER.XMMC])</arg>
   </invoke>

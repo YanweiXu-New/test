@@ -9,6 +9,10 @@
     <arg flag="field" name="LXSJ" type="expression">O_MASTER.XMMC_HXGL.XMMC.LXRQ</arg>
     <arg flag="field" name="ZKSBZS" type="expression">O_MASTER.XMMC_HXGL.ZKSBZS</arg>
     <arg flag="field" name="ZKSBFS" type="expression">O_MASTER.XMMC_HXGL.ZKSBFS</arg>
+    <arg flag="field" name="YWLX" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_IF(O_MASTER.XMJD == 1,2,3)</arg>
+    <arg flag="field" name="GLXMID" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_IF(O_MASTER.XMJD==1,O_MASTER.XMMC,ABS_SQLVALUE("SELECT id FROM ecif.tIB_XMXX_GS_ZQXX where xmmc_gs = ?",[O_MASTER.XMMC_HXGL]))</arg>
   </invoke>
 </process>
 

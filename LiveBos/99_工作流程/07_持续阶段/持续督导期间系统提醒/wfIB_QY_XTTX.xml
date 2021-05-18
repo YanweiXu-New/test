@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="gb2312"?>
 <!DOCTYPE workflow PUBLIC "-//Apexsoft LiveBos//DTD Workflow 2.8//EN" "http://www.livebos.com/workflow/workflow_2_8_abs.dtd"><workflow>
-  <meta name="Designer">Studio</meta>
-  <meta name="workflow.category">权益类_07_持续阶段</meta>
-  <meta name="created">2017-07-28 14:34:57</meta>
-  <meta name="workflow.terminate.disabled">true</meta>
-  <meta name="modify">2017-09-15 03:20:06</meta>
   <meta name="Describe">持续督导系统提醒</meta>
-  <meta name="workflow.attribute">0</meta>
+  <meta name="Designer">Studio</meta>
+  <meta name="modify">2021-01-25 10:39:50</meta>
+  <meta name="workflow.terminate.disabled">true</meta>
+  <meta name="created">2017-07-28 14:34:57</meta>
   <meta name="WorkflowName">wfIB_QY_XTTX</meta>
   <meta name="WorkflowType">2</meta>
+  <meta name="workflow.attribute">0</meta>
+  <meta name="workflow.category">权益类_07_持续阶段</meta>
   <meta name="version"></meta>
   <object  name="lcIB_QY_XTTX" editAttribute="0" >
   </object>
@@ -23,13 +23,13 @@
   </initial-actions>
   <steps>
     <step id="1" name="结束">
-      <meta name="finish">true</meta>
       <meta name="NodeType">1</meta>
+      <meta name="finish">true</meta>
       <pre-functions>
         <function id="0" name="abs.ExecSQL" type="class">
-          <arg name="SQL">[&quot;CALL ecif.pro_IB_WFFinish_GS(?,?,'lcIB_QY_XTTX',{0},{1})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
-          <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
           <arg name="datasource">ECIF</arg>
+          <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+          <arg name="SQL">[&quot;CALL ecif.pro_IB_WFFinish_GS(?,?,'lcIB_QY_XTTX',{0},{1})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
         </function>
       </pre-functions>
     </step>

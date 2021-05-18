@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="gb2312"?>
+<?xml version="1.0" encoding="GB2312"?>
 <process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="VO_XMXXTZ_XZ" name="VO_XMXXTZ_XZ" object="VO_XMXXTZ" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
   <describe>项目信息台账(权益)-新增流程</describe>
   <variables>
@@ -20,6 +20,7 @@
       <arg flag="field" name="DGCFDD" type="expression">O_PARAMETER.DGCFDD</arg>
       <arg flag="field" name="ZZDGBH" type="expression">O_PARAMETER.ZZDGBH</arg>
       <arg flag="field" name="BZ" type="expression">O_PARAMETER.BZ</arg>
+      <arg flag="field" name="CJSJ" type="expression">$DateTime.Now</arg>
     </invoke>
     <invoke component="SQL" id="0" name="终止日期" operation="execute">
       <describe>同步项目信息</describe>
@@ -29,14 +30,6 @@
       <arg name="CODE" type="output">V_CODE</arg>
       <arg name="NOTE" type="output">V_NOTE</arg>
     </invoke>
-    <response exit="false" id="0" name="response">
-      <describe>输出</describe>
-      <retvalue type="variable">V_CODE</retvalue>
-      <message type="variable">V_NOTE</message>
-      <uiforward redirect="false">
-        <url />
-      </uiforward>
-    </response>
     <invoke component="FormSetOperate" id="0" operation="update">
       <describe>批量修改对象[项目信息表]</describe>
       <meta name="FUNCTION">true</meta>
@@ -59,6 +52,14 @@
       <arg flag="parameter" name="XMFL2" type="expression">1</arg>
       <arg flag="parameter" name="BM" type="expression">1008</arg>
     </invoke>
+    <response exit="false" id="0" name="response">
+      <describe>输出</describe>
+      <retvalue type="variable">V_CODE</retvalue>
+      <message type="variable">V_NOTE</message>
+      <uiforward redirect="false">
+        <url />
+      </uiforward>
+    </response>
   </sequence>
 </process>
 

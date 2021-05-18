@@ -47,7 +47,7 @@
             <biz-type>200</biz-type>
             <length>10</length>
             <scale>0</scale>
-            <control>0</control>
+            <control>1</control>
             <primary-property>0</primary-property>
             <nullable>true</nullable>
             <unique>false</unique>
@@ -69,9 +69,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties>
-                <grid-col-width>200</grid-col-width>
-            </properties>
+            <properties/>
         </column>
         <column>
             <name>FJLX</name>
@@ -106,9 +104,7 @@
                 <refColumns/>
             </constraint>
             <scope-permissions/>
-            <properties>
-                <grid-col-width>400</grid-col-width>
-            </properties>
+            <properties/>
         </column>
         <column>
             <name>SFBT</name>
@@ -129,6 +125,7 @@
             <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
             <invisible-expression/>
             <disable-expression/>
             <category/>
@@ -169,9 +166,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties>
-                <grid-col-width>200</grid-col-width>
-            </properties>
+            <properties/>
         </column>
         <column>
             <name>WDMC</name>
@@ -192,7 +187,7 @@
             <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
-            <expression>ABS_SQLVALUE("SELECT ECIF.FUNC_IB_GETALLWDMC(?) FROM DUAL",[FJM])     </expression>
+            <expression>ABS_SQLVALUE("SELECT ECIF.FUNC_IB_GETALLWDMC(?) FROM DUAL",[FJM]) </expression>
             <invisible-expression/>
             <disable-expression/>
             <category/>
@@ -203,7 +198,7 @@
             <validation/>
             <scope-permissions/>
             <properties>
-                <grid-col-width>300</grid-col-width>
+                <grid-col-width>400</grid-col-width>
             </properties>
         </column>
         <column>
@@ -235,9 +230,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties>
-                <grid-col-width>150</grid-col-width>
-            </properties>
+            <properties/>
         </column>
         <column>
             <name>SCSJ</name>
@@ -268,9 +261,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties>
-                <grid-col-width>200</grid-col-width>
-            </properties>
+            <properties/>
         </column>
         <column>
             <name>SF360XS</name>
@@ -301,9 +292,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties>
-                <grid-col-width>100</grid-col-width>
-            </properties>
+            <properties/>
         </column>
         <column>
             <name>SFYY</name>
@@ -319,13 +308,21 @@
             <enabled>true</enabled>
             <visible>true</visible>
             <option>$D{JG_SF}</option>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
             <properties/>
         </column>
         <column>

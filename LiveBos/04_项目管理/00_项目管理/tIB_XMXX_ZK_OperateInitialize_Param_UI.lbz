@@ -3,6 +3,8 @@
   <describe>界面初始化界面事件</describe>
   <variables>
     <variable describe="V_OBJ" messageType="" name="V_OBJ" type="resultSet" />
+    <variable describe="V_RET" messageType="" name="V_RET" type="int" />
+    <variable describe="V_MSG" messageType="" name="V_MSG" type="string" />
   </variables>
   <sequence id="0" name="顺序">
     <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
@@ -11,6 +13,24 @@
 O_MASTER.XMWCRQ;
 else
 O_MASTER.JRCXDDRQ;</arg>
+      <arg flag="field" name="CXDDQ" type="expression">&lt;%@ livebos language='javascript' %&gt;
+if (ABS_SQLVALUE("select 1 from ecif.tib_xmxx where id  = ? and cxddq is null ",[O_PARAMETER.ID]) == 1)
+ABS_SQLVALUE("select cxddq from ecif.tIB_XMLXCXDDQDYB where xmlx =? and bk = ? ",[O_PARAMETER.XMLX,O_PARAMETER.BK])
+else
+O_MASTER.CXDDQ</arg>
+      <arg flag="field" name="CXDDQ2" type="expression">&lt;%@ livebos language='javascript' %&gt;
+if (ABS_SQLVALUE("select 1 from ecif.tib_xmxx where id  = ? and cxddq is null ",[O_PARAMETER.ID]) == 1)
+ABS_SQLVALUE("select cxddq from ecif.tIB_XMLXCXDDQDYB where xmlx =? and bk = ? ",[O_PARAMETER.XMLX,O_PARAMETER.BK])
+else
+O_MASTER.CXDDQ</arg>
+    </invoke>
+    <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+      <describe>数据库组件_执行SQL语句</describe>
+      <arg name="TranType">procedure</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="SQL">["call ecif.pro_plrqhx(:V_RET,:V_MSG,{0},{1},{2},{3},2,null)",[{"expression":"ABS_SQLVALUE(\"SELECT SUBSTR(?,1,4) FROM DUAL\",[O_PARAMETER.JRCXDDRQ])","length":"","scale":"","type":"1"},{"expression":"O_PARAMETER.ID","length":"","scale":"","type":"1"},{"expression":"$Login.User","length":"","scale":"","type":"1"},{"expression":"O_PARAMETER.CXDDQ2","length":"","scale":"","type":"1"}]]</arg>
+      <arg name="V_RET" type="output">V_RET</arg>
+      <arg name="V_MSG" type="output">V_MSG</arg>
     </invoke>
     <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
       <describe>完成时间</describe>

@@ -86,7 +86,7 @@
             <attribute>266240</attribute>
             <order-direction>0</order-direction>
             <expression>&lt;%@ livebos language='javascript' %&gt;
-'&lt;font color=red&gt;在底稿系统中完成“项目承揽及立项阶段”底稿上传工作，才能发起立项流程&lt;font&gt;' </expression>
+'&lt;font color=red&gt;在底稿系统中完成“项目承揽及立项阶段”底稿上传工作，才能发起立项流程&lt;font&gt;'   </expression>
             <invisible-expression/>
             <disable-expression/>
             <category>申请人信息</category>
@@ -96,7 +96,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>SQR</name>
@@ -307,7 +306,7 @@
             <comment/>
             <validation/>
             <constraint type="3">
-                <SQL>["FUNC_IB_LCFQCSJY('lcIB_QY_LXSMSHLC',tIB_XMXX.ID,tIB_XMXX.XMLX,{1}) = 1 and \r\nNOT EXISTS (SELECT 1 FROM ECIF.lcIB_LXSP T,JGCRM.OS_WFENTRY WF\r\n                WHERE XMMC = tIB_XMXX.ID \r\n\t\t\t\t\t\t\t\t  AND WF.ID = T.INSTID\r\n\t\t\t\t\t\t\t\t\tAND WF.STATE IN (1)\r\n\t\t\t\t\t\t\t\t\tAND (HYJG = 0 OR HYJG IS NULL))\r\nand tIB_XMXX.XMFL=1\r\nOR ID = {0}",[{"expression":"XMMC","scale":0,"length":0,"type":1},{"expression":"ID","scale":0,"length":0,"type":1}]]</SQL>
+                <SQL>["FUNC_IB_LCFQCSJY('lcIB_QY_LXSMSHLC',tIB_XMXX.ID,tIB_XMXX.XMLX,{1}) = 1 and \r\nNOT EXISTS (SELECT 1 FROM ECIF.lcIB_LXSP T,JGCRM.OS_WFENTRY WF\r\n                WHERE XMMC = tIB_XMXX.ID \r\n\t\t\t\t\t\t\t\t  AND WF.ID = T.INSTID\r\n\t\t\t\t\t\t\t\t\tAND WF.STATE IN (1)\r\n\t\t\t\t\t\t\t\t\tAND (HYJG = 0 OR HYJG IS NULL))\r\nand tIB_XMXX.XMFL=1\r\nOR ID = {0}",[{"expression":"XMMC","length":0,"scale":0,"type":1},{"expression":"ID","length":0,"scale":0,"type":1}]]</SQL>
                 <refColumns/>
             </constraint>
             <scope-permissions/>
@@ -374,7 +373,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>XMLX</name>
@@ -636,7 +634,7 @@
             <attribute>266240</attribute>
             <order-direction>0</order-direction>
             <expression>&lt;%@ livebos language='javascript' %&gt;
-'&lt;br&gt;&lt;font color=red&gt;客户单位是否持有“武器装备科研生产保密资格证书”、“武器装备科研生产许可证书”、“武器装备质量管理体系证书”、“装备承制单位资格证书”四证之一&lt;font&gt;&lt;br&gt;'   </expression>
+'&lt;br&gt;&lt;font color=red&gt;客户单位是否持有“武器装备科研生产保密资格证书”、“武器装备科研生产许可证书”、“武器装备质量管理体系证书”、“装备承制单位资格证书”四证之一&lt;font&gt;&lt;br&gt;'     </expression>
             <invisible-expression/>
             <disable-expression/>
             <category>客户信息</category>
@@ -697,7 +695,7 @@
             <attribute>266240</attribute>
             <order-direction>0</order-direction>
             <expression>&lt;%@ livebos language='javascript' %&gt;
-'&lt;br&gt;&lt;font color=Black&gt;(此处必上传附件)&lt;font&gt;&lt;br&gt;'   </expression>
+'&lt;br&gt;&lt;font color=Black&gt;(此处必上传附件)&lt;font&gt;&lt;br&gt;'     </expression>
             <invisible-expression/>
             <disable-expression/>
             <category>附件信息</category>
@@ -760,7 +758,7 @@
             <expression>&lt;%@ livebos language='javascript' %&gt;
 var url='/gdlcDown?lcbdid='+ID+'&amp;insid='+InstID+'&amp;fjlx=1'+'&amp;yhid='+$Login.User.ID;
  '&lt;input type="button" onclick=\'window.open("'+url+'")\' value="  打包下载  " /&gt;'
- //'&lt;a target=_blank href='+url+'&gt;&lt;font color=red&gt;下载&lt;/font&gt;&lt;/a&gt;'   </expression>
+ //'&lt;a target=_blank href='+url+'&gt;&lt;font color=red&gt;下载&lt;/font&gt;&lt;/a&gt;'     </expression>
             <invisible-expression/>
             <disable-expression/>
             <category>附件信息</category>
@@ -792,7 +790,7 @@ var url='/gdlcDown?lcbdid='+ID+'&amp;insid='+InstID+'&amp;fjlx=1'+'&amp;yhid='+$
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XSBZ!=1   </invisible-expression>
+XSBZ!=1     </invisible-expression>
             <disable-expression/>
             <category>审核信息</category>
             <fire-event>0</fire-event>
@@ -827,7 +825,7 @@ XSBZ!=1   </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XSBZ!=1   </invisible-expression>
+XSBZ!=1     </invisible-expression>
             <disable-expression/>
             <category>审核信息</category>
             <fire-event>0</fire-event>
@@ -862,7 +860,7 @@ XSBZ!=1   </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-SHBZ!=2   </invisible-expression>
+SHBZ!=2     </invisible-expression>
             <disable-expression/>
             <category>审核信息</category>
             <fire-event>0</fire-event>

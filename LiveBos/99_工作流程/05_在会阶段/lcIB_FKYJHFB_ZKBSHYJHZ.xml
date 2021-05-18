@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="GB2312" standalone="no"?>
-<object create-date="2020.08.03 09:18:01" creator="xuyanwei.apex" flag="0" name="lcIB_FKYJHFB_ZKBSHYJHZ" object-id="43f1f6ad-bb03-49bc-9c58-908996c2f0a4" package="99_工作流程.05_在会阶段" type="15" version="1.0">
+<object create-date="2020.08.03 09:18:01" creator="xuyanwei.apex" flag="0" modifier="null" modify-date="null" name="lcIB_FKYJHFB_ZKBSHYJHZ" object-id="43f1f6ad-bb03-49bc-9c58-908996c2f0a4" package="99_工作流程.05_在会阶段" type="15" version="1.0">
     <describe>质控部审核意见汇总</describe>
+    <comment/>
+    <datasource-name>ECIF</datasource-name>
     <parent>lcIB_FKYJHFB</parent>
     <attribute>264</attribute>
+    <templet>默认</templet>
     <columns>
         <column>
             <name>ID</name>
@@ -17,12 +20,22 @@
             <unique>false</unique>
             <enabled>false</enabled>
             <visible>false</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>LC</name>
@@ -38,13 +51,21 @@
             <enabled>true</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>ZKBSHYJ</name>
@@ -60,14 +81,21 @@
             <enabled>false</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>SHYJWDMC</name>
@@ -82,13 +110,22 @@
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
-            <expression>ABS_SQLVALUE("SELECT ECIF.FUNC_IB_GETALLWDMC(?) FROM DUAL",[ZKBSHYJ])            </expression>
+            <expression>ABS_SQLVALUE("SELECT ECIF.FUNC_IB_GETALLWDMC(?) FROM DUAL",[ZKBSHYJ])             </expression>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>ZKBDGYJ</name>
@@ -104,14 +141,21 @@
             <enabled>false</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>DGYJWDMC</name>
@@ -126,13 +170,22 @@
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
-            <expression>ABS_SQLVALUE("SELECT ECIF.FUNC_IB_GETALLWDMC(?) FROM DUAL",[ZKBDGYJ])            </expression>
+            <expression>ABS_SQLVALUE("SELECT ECIF.FUNC_IB_GETALLWDMC(?) FROM DUAL",[ZKBDGYJ])             </expression>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>ZKBQTYJ</name>
@@ -148,14 +201,21 @@
             <enabled>false</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>QTYJWDMC</name>
@@ -170,13 +230,22 @@
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
-            <expression>ABS_SQLVALUE("SELECT ECIF.FUNC_IB_GETALLWDMC(?) FROM DUAL",[ZKBQTYJ])</expression>
+            <expression>ABS_SQLVALUE("SELECT ECIF.FUNC_IB_GETALLWDMC(?) FROM DUAL",[ZKBQTYJ]) </expression>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
     </columns>
     <display-options>

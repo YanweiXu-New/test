@@ -8,68 +8,8 @@
     <templet>默认</templet>
     <parameters>
         <column>
-            <name>XMLX</name>
-            <describe>项目类型</describe>
-            <type>6</type>
-            <biz-type>500</biz-type>
-            <length>16</length>
-            <scale>0</scale>
-            <control>10</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
-            <option/>
-            <meta-column/>
-            <ref-object>tIB_XMLX</ref-object>
-            <default>''</default>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category/>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-        </column>
-        <column>
-            <name>FQBM</name>
-            <describe>发起部门</describe>
-            <type>6</type>
-            <biz-type>500</biz-type>
-            <length>12</length>
-            <scale>0</scale>
-            <control>10</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
-            <option/>
-            <meta-column/>
-            <ref-object>lbOrganization</ref-object>
-            <default>''</default>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category/>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-        </column>
-        <column>
             <name>RQQJ</name>
-            <describe>日期区间</describe>
+            <describe>立项申请时间</describe>
             <type>13</type>
             <biz-type>300</biz-type>
             <length>8</length>
@@ -115,6 +55,280 @@
             <ref-object/>
             <default>null</default>
             <attribute>262144</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>HYSJ</name>
+            <describe>立项会议时间</describe>
+            <type>13</type>
+            <biz-type>300</biz-type>
+            <length>8</length>
+            <scale>0</scale>
+            <control>3</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default>null</default>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>HYSJ_JS</name>
+            <describe>立项会议时间_结束</describe>
+            <type>13</type>
+            <biz-type>300</biz-type>
+            <length>8</length>
+            <scale>0</scale>
+            <control>3</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default>null</default>
+            <attribute>262144</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>XMLX</name>
+            <describe>项目类型</describe>
+            <type>6</type>
+            <biz-type>500</biz-type>
+            <length>16</length>
+            <scale>0</scale>
+            <control>10</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object>vIB_XMLX_QY</ref-object>
+            <default>''</default>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>XMMC</name>
+            <describe>项目名称</describe>
+            <type>0</type>
+            <biz-type>100</biz-type>
+            <length>500</length>
+            <scale>0</scale>
+            <control>1</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default>''</default>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>SSBM</name>
+            <describe>所属部门</describe>
+            <type>6</type>
+            <biz-type>500</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>10</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object>lbOrganization</ref-object>
+            <default>''</default>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>SSHY</name>
+            <describe>所属行业</describe>
+            <type>6</type>
+            <biz-type>500</biz-type>
+            <length>16</length>
+            <scale>0</scale>
+            <control>10</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object>tIB_HYFL</ref-object>
+            <default>''</default>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>HYJG</name>
+            <describe>会议结果</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>10</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option>0|通过;1|不通过;3|暂缓表决</option>
+            <meta-column/>
+            <ref-object/>
+            <default>''</default>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
+LXFS!=2&amp;&amp;SCSZSYJ!=1</invisible-expression>
+            <disable-expression/>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+            <properties>
+                <null-item>未填写</null-item>
+            </properties>
+        </column>
+        <column>
+            <name>LCZT</name>
+            <describe>流程状态</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>10</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option>$D{IB_LCZT}</option>
+            <meta-column/>
+            <ref-object/>
+            <default>''</default>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>FQBM</name>
+            <describe>发起部门</describe>
+            <type>6</type>
+            <biz-type>500</biz-type>
+            <length>12</length>
+            <scale>0</scale>
+            <control>10</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>false</visible>
+            <option/>
+            <meta-column/>
+            <ref-object>lbOrganization</ref-object>
+            <default>''</default>
+            <attribute>0</attribute>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression/>
@@ -480,7 +694,7 @@
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-6==6      </invisible-expression>
+6==6</invisible-expression>
             <disable-expression/>
             <category>立项申请信息</category>
             <fire-event>0</fire-event>
@@ -1327,7 +1541,7 @@
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-OLDBH==""||OLDBH==null ||WDYBDXX=="" ||WDYBDXX==null     </invisible-expression>
+OLDBH==""||OLDBH==null ||WDYBDXX=="" ||WDYBDXX==null</invisible-expression>
             <disable-expression/>
             <category>客户基本信息</category>
             <fire-event>0</fire-event>
@@ -1478,7 +1692,7 @@ OLDBH==""||OLDBH==null ||WDYBDXX=="" ||WDYBDXX==null     </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMZSFHFZKZYYJ==0      </invisible-expression>
+XMZSFHFZKZYYJ==0</invisible-expression>
             <disable-expression/>
             <category>审核信息</category>
             <fire-event>0</fire-event>
@@ -1509,7 +1723,7 @@ XMZSFHFZKZYYJ==0      </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-YSZSYJ!=1     </invisible-expression>
+YSZSYJ!=1</invisible-expression>
             <disable-expression/>
             <category>审核信息</category>
             <fire-event>0</fire-event>
@@ -1571,7 +1785,7 @@ YSZSYJ!=1     </invisible-expression>
             <expression/>
             <invisible-expression/>
             <disable-expression>&lt;%@ livebos language='javascript' %&gt;
-SFYBCYJ==1     </disable-expression>
+SFYBCYJ==1</disable-expression>
             <category>审核信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
@@ -1631,7 +1845,7 @@ SFYBCYJ==1     </disable-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-SFYBCYJ!=1     </invisible-expression>
+SFYBCYJ!=1</invisible-expression>
             <disable-expression/>
             <category>审核信息</category>
             <fire-event>0</fire-event>
@@ -1662,7 +1876,7 @@ SFYBCYJ!=1     </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-SSZSYJ!=0     </invisible-expression>
+SSZSYJ!=0</invisible-expression>
             <disable-expression/>
             <category>审核信息</category>
             <fire-event>0</fire-event>
@@ -1693,7 +1907,7 @@ SSZSYJ!=0     </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-SFYBCYJ!=1||ABS_NULLSUB(FKBZ,999)!=1     </invisible-expression>
+SFYBCYJ!=1||ABS_NULLSUB(FKBZ,999)!=1</invisible-expression>
             <disable-expression/>
             <category>审核信息</category>
             <fire-event>0</fire-event>
@@ -1724,7 +1938,7 @@ SFYBCYJ!=1||ABS_NULLSUB(FKBZ,999)!=1     </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-CJECSHYJ!=1     </invisible-expression>
+CJECSHYJ!=1</invisible-expression>
             <disable-expression/>
             <category>审核信息</category>
             <fire-event>0</fire-event>
@@ -1755,7 +1969,7 @@ CJECSHYJ!=1     </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-CJECSHYJ!=1     </invisible-expression>
+CJECSHYJ!=1</invisible-expression>
             <disable-expression/>
             <category>审核信息</category>
             <fire-event>0</fire-event>
@@ -1816,7 +2030,7 @@ CJECSHYJ!=1     </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-ZBSCBXXXBGYJ==1      </invisible-expression>
+ZBSCBXXXBGYJ==1</invisible-expression>
             <disable-expression/>
             <category>审核信息</category>
             <fire-event>0</fire-event>
@@ -2549,7 +2763,7 @@ ZBSCBXXXBGYJ==1      </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-LB.getClient().isStandard==false      </invisible-expression>
+LB.getClient().isStandard==false</invisible-expression>
             <disable-expression/>
             <category>附件信息</category>
             <fire-event>0</fire-event>
@@ -2618,7 +2832,7 @@ LB.getClient().isStandard==false      </invisible-expression>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <comment>'&lt;font color=red&gt;如存在声明中的情形，请在是否回避中选择“是”！&lt;font&gt;'  </comment>
+            <comment>'&lt;font color=red&gt;如存在声明中的情形，请在是否回避中选择“是”！&lt;font&gt;'</comment>
             <validation/>
             <scope-permissions/>
         </column>
@@ -2643,7 +2857,7 @@ LB.getClient().isStandard==false      </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-SFHB!=1    </invisible-expression>
+SFHB!=1</invisible-expression>
             <disable-expression/>
             <category>立项表决</category>
             <fire-event>0</fire-event>
@@ -2674,7 +2888,7 @@ SFHB!=1    </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-SFHB!=1    </invisible-expression>
+SFHB!=1</invisible-expression>
             <disable-expression/>
             <category>立项表决</category>
             <fire-event>0</fire-event>
@@ -2765,7 +2979,7 @@ SFHB!=1    </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-SFDYSJZQ==0    </invisible-expression>
+SFDYSJZQ==0</invisible-expression>
             <disable-expression/>
             <category>知情信息</category>
             <fire-event>0</fire-event>
@@ -2949,7 +3163,7 @@ SFDYSJZQ==0    </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX!=5&amp;&amp;XMLX!=12     </invisible-expression>
+XMLX!=5&amp;&amp;XMLX!=12</invisible-expression>
             <disable-expression/>
             <category>客户基本信息</category>
             <fire-event>0</fire-event>
@@ -2980,7 +3194,7 @@ XMLX!=5&amp;&amp;XMLX!=12     </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX!=5&amp;&amp;XMLX!=12     </invisible-expression>
+XMLX!=5&amp;&amp;XMLX!=12</invisible-expression>
             <disable-expression/>
             <category>客户基本信息</category>
             <fire-event>0</fire-event>
@@ -3071,7 +3285,7 @@ XMLX!=5&amp;&amp;XMLX!=12     </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-LXFS!=1     </invisible-expression>
+LXFS!=1</invisible-expression>
             <disable-expression/>
             <category>立项会议信息</category>
             <fire-event>0</fire-event>
@@ -3105,7 +3319,7 @@ LXFS!=1     </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-LXFS!=2&amp;&amp;SCSZSYJ!=1     </invisible-expression>
+LXFS!=2&amp;&amp;SCSZSYJ!=1</invisible-expression>
             <disable-expression/>
             <category>立项会议信息</category>
             <fire-event>0</fire-event>
@@ -3136,7 +3350,7 @@ LXFS!=2&amp;&amp;SCSZSYJ!=1     </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-LXFS!=2&amp;&amp;SCSZSYJ!=1     </invisible-expression>
+LXFS!=2&amp;&amp;SCSZSYJ!=1</invisible-expression>
             <disable-expression/>
             <category>立项会议信息</category>
             <fire-event>0</fire-event>
@@ -3167,7 +3381,7 @@ LXFS!=2&amp;&amp;SCSZSYJ!=1     </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-LXFS!=1     </invisible-expression>
+LXFS!=1</invisible-expression>
             <disable-expression/>
             <category>立项表决明细</category>
             <fire-event>0</fire-event>
@@ -3177,9 +3391,658 @@ LXFS!=1     </invisible-expression>
             <validation/>
             <scope-permissions/>
         </column>
+        <column>
+            <name>TX</name>
+            <describe>提醒</describe>
+            <type>8</type>
+            <biz-type>100</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>16</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>266240</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>申请人信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>DGXTXMCLJLXJDSCBL</name>
+            <describe>底稿项目承揽及立项上传比例</describe>
+            <type>8</type>
+            <biz-type>100</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>1</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>立项申请信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+            <properties>
+                <format>0.00%</format>
+            </properties>
+        </column>
+        <column>
+            <name>BLSCDDRQ</name>
+            <describe>比例首次到达100%日期</describe>
+            <type>8</type>
+            <biz-type>100</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>3</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default>null</default>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>立项申请信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>SHXT</name>
+            <describe>审核系统</describe>
+            <type>8</type>
+            <biz-type>100</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>16</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>false</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>67371008</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.system'") == 0</invisible-expression>
+            <disable-expression/>
+            <category>审核信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>ZKBSFYYJ</name>
+            <describe>质控部是否有意见</describe>
+            <type>8</type>
+            <biz-type>100</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>5</control>
+            <primary-property>0</primary-property>
+            <nullable>false</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>false</visible>
+            <option>$D{JG_SF}</option>
+            <meta-column/>
+            <ref-object/>
+            <default>null</default>
+            <attribute>67108864</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>审核信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>ZKZYSHYJ</name>
+            <describe>质控专员审核意见</describe>
+            <type>8</type>
+            <biz-type>100</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>10</control>
+            <primary-property>0</primary-property>
+            <nullable>false</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object>tIB_SHXTWJZJB</ref-object>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.system'") == 0 || ZKBSFYYJ != 1</invisible-expression>
+            <disable-expression/>
+            <category>审核信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>SHYJ</name>
+            <describe>审核意见</describe>
+            <type>8</type>
+            <biz-type>100</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>42</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
+ZKBSFYYJ != 1</invisible-expression>
+            <disable-expression>&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.system'") == 1</disable-expression>
+            <category>审核信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>ZKBDGYJ</name>
+            <describe>质控部底稿意见</describe>
+            <type>8</type>
+            <biz-type>100</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>10</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object>tIB_SHXTWJZJB</ref-object>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.system'") == 0 || ZKBSFYYJ != 1</invisible-expression>
+            <disable-expression/>
+            <category>审核信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>DGYJ</name>
+            <describe>底稿意见</describe>
+            <type>8</type>
+            <biz-type>100</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>42</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.system'") == 0 || ZKBSFYYJ != 1</invisible-expression>
+            <disable-expression/>
+            <category>审核信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>QTSHYJ1</name>
+            <describe>其他审核意见</describe>
+            <type>8</type>
+            <biz-type>100</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>10</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object>tIB_SHXTWJZJB</ref-object>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.system'") == 0 || ZKBSFYYJ != 1</invisible-expression>
+            <disable-expression/>
+            <category>审核信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>QTYJ</name>
+            <describe>其他意见</describe>
+            <type>8</type>
+            <biz-type>100</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>42</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.system'") == 0 || ZKBSFYYJ != 1</invisible-expression>
+            <disable-expression/>
+            <category>审核信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>ZKBSHYJHZ</name>
+            <describe>质控部审核意见汇总</describe>
+            <type>8</type>
+            <biz-type>100</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>12</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object>lcIB_LXSP_ZKBSHYJHZ</ref-object>
+            <default/>
+            <attribute>67108864</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.system'") == 0 || ZKBSFYYJ == null</invisible-expression>
+            <disable-expression/>
+            <category>审核信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>LC</name>
+            <describe>轮次</describe>
+            <type>8</type>
+            <biz-type>100</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>0</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>审核信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>ZSSPDZ</name>
+            <describe>主审审批动作</describe>
+            <type>8</type>
+            <biz-type>100</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>0</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option>$D{JG_SF}</option>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>审核信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>ZSSPYJ</name>
+            <describe>主审审批意见</describe>
+            <type>8</type>
+            <biz-type>100</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>0</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option>$D{JG_SF}</option>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>审核信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>SFCJYJ1</name>
+            <describe>是否出具意见1</describe>
+            <type>8</type>
+            <biz-type>100</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>0</control>
+            <primary-property>0</primary-property>
+            <nullable>false</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>false</visible>
+            <option>$D{JG_SF}</option>
+            <meta-column/>
+            <ref-object/>
+            <default>null</default>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.system'") == 0</invisible-expression>
+            <disable-expression/>
+            <category>审核信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>ZKBSHYJ1</name>
+            <describe>质控部审核意见1</describe>
+            <type>8</type>
+            <biz-type>100</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>0</control>
+            <primary-property>0</primary-property>
+            <nullable>false</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>false</visible>
+            <option/>
+            <meta-column/>
+            <ref-object>tIB_SHXTWJZJB</ref-object>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.system'") == 0||SFCJYJ1 != 1</invisible-expression>
+            <disable-expression/>
+            <category>审核信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>ZKBSHYJ2</name>
+            <describe>质控部审核意见2</describe>
+            <type>8</type>
+            <biz-type>100</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>0</control>
+            <primary-property>0</primary-property>
+            <nullable>false</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>false</visible>
+            <option/>
+            <meta-column/>
+            <ref-object>tIB_SHXTWJZJB</ref-object>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.system'") == 0||CJECSHYJ != 1</invisible-expression>
+            <disable-expression/>
+            <category>审核信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>SFCJYJ3</name>
+            <describe>是否出具意见3</describe>
+            <type>8</type>
+            <biz-type>100</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>0</control>
+            <primary-property>0</primary-property>
+            <nullable>false</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>false</visible>
+            <option>$D{JG_SF}</option>
+            <meta-column/>
+            <ref-object/>
+            <default>null</default>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.system'") == 0</invisible-expression>
+            <disable-expression/>
+            <category>审核信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>ZKBSHYJ3</name>
+            <describe>质控部审核意见3</describe>
+            <type>8</type>
+            <biz-type>100</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>0</control>
+            <primary-property>0</primary-property>
+            <nullable>false</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>false</visible>
+            <option/>
+            <meta-column/>
+            <ref-object>tIB_SHXTWJZJB</ref-object>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.system'") == 0||SFCJYJ3!= 1</invisible-expression>
+            <disable-expression/>
+            <category>审核信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>ZKBSCSHYJ</name>
+            <describe>质控部三次审核意见</describe>
+            <type>8</type>
+            <biz-type>100</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>0</control>
+            <primary-property>0</primary-property>
+            <nullable>false</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
+SFCJYJ3!=1</invisible-expression>
+            <disable-expression>&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.system'" ) == 1</disable-expression>
+            <category>审核信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
     </columns>
     <restrictions>
-        <condition>{"statement":"(lcIB_LXSP.XMLX = {0} OR {0} IS NULL)\r\nAND (lcIB_LXSP.SQBM ={1} OR {1} IS NULL)\r\nAND (TO_NUMBER(TO_CHAR(lcIB_LXSP.SQSJ,'YYYYMMDD')) &gt;= {2} OR {2} IS NULL)\r\nAND (TO_NUMBER(TO_CHAR(lcIB_LXSP.SQSJ,'YYYYMMDD')) &lt;= {3} OR {3} IS NULL)","args":[{"expression":"parameter.XMLX","scale":0,"length":0,"type":1},{"expression":"parameter.FQBM","scale":0,"length":0,"type":1},{"expression":"parameter.RQQJ","scale":0,"length":0,"type":13},{"expression":"parameter.RQQJ_JS","scale":0,"length":0,"type":13}],"type":0}</condition>
+        <condition>{"args":[{"expression":"parameter.XMLX","length":0,"scale":0,"type":1},{"expression":"parameter.SSBM","length":0,"scale":0,"type":1},{"expression":"parameter.RQQJ","length":0,"scale":0,"type":13},{"expression":"parameter.RQQJ_JS","length":0,"scale":0,"type":13},{"expression":"parameter.XMMC","length":0,"scale":0,"type":0},{"expression":"parameter.SSHY","length":0,"scale":0,"type":1},{"expression":"parameter.HYJG","length":0,"scale":0,"type":1},{"expression":"parameter.LCZT","length":0,"scale":0,"type":1},{"expression":"parameter.HYSJ","length":0,"scale":0,"type":13},{"expression":"parameter.HYSJ_JS","length":0,"scale":0,"type":13}],"statement":"( lcIB_LXSP.XMLX= {0} OR {0} IS NULL)\r\nAND (lcIB_LXSP.SQBM ={1} OR {1} IS NULL)\r\nAND (TO_NUMBER(TO_CHAR(lcIB_LXSP.SQSJ,'YYYYMMDD')) &gt;= {2} OR {2} IS NULL)\r\nAND (TO_NUMBER(TO_CHAR(lcIB_LXSP.SQSJ,'YYYYMMDD')) &lt;= {3} OR {3} IS NULL)\r\nAND (INSTR((SELECT XMMC FROM ECIF.TIB_XMXX WHERE ID = lcIB_LXSP.XMMC),{4})&gt;0 OR {4} IS NULL)\r\nAND (lcIB_LXSP.HY = {5} OR {5} IS NULL)\r\nAND (lcIB_LXSP.HYJG = {6} OR {6} IS NULL)\r\nAND ((SELECT STATE FROM JGCRM.OS_WFENTRY WHERE ID = lcIB_LXSP.InstID) = {7} OR {7} IS NULL)\r\nAND (lcIB_LXSP.HYSJ &gt;= {8} OR {8} IS NULL)\r\nAND (lcIB_LXSP.HYSJ &lt;= {9} OR {9} IS NULL)","type":0}</condition>
     </restrictions>
     <display-options>
         <commands>
@@ -3240,6 +4103,8 @@ LXFS!=1     </invisible-expression>
             <value>LCBT</value>
             <value>GWZW</value>
             <value>XMMC</value>
+            <value>HYSJ</value>
+            <value>HYJG</value>
             <value>SFXSBGPXM</value>
             <value>SBWJZSFCZWPLSJ</value>
             <value>SFSJGQZQRZ</value>
@@ -3278,6 +4143,7 @@ LXFS!=1     </invisible-expression>
         <property>
             <name>195</name>
             <value>RQQJ;RQQJ_JS</value>
+            <value>HYSJ;HYSJ_JS</value>
         </property>
     </properties>
     <orders/>

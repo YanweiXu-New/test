@@ -39,8 +39,8 @@
             <primary-property>0</primary-property>
             <nullable>true</nullable>
             <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
+            <enabled>false</enabled>
+            <visible>false</visible>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
             <category/>
@@ -115,10 +115,10 @@
             <scale>0</scale>
             <control>10</control>
             <primary-property>0</primary-property>
-            <nullable>true</nullable>
+            <nullable>false</nullable>
             <unique>false</unique>
             <enabled>false</enabled>
-            <visible>true</visible>
+            <visible>false</visible>
             <option/>
             <ref-object>tIB_XMXX_GS_ZQXX</ref-object>
             <attribute>8</attribute>
@@ -146,7 +146,7 @@
             <nullable>true</nullable>
             <unique>false</unique>
             <enabled>false</enabled>
-            <visible>false</visible>
+            <visible>true</visible>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
             <category/>
@@ -172,7 +172,7 @@
             <nullable>true</nullable>
             <unique>false</unique>
             <enabled>false</enabled>
-            <visible>false</visible>
+            <visible>true</visible>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
             <category/>
@@ -754,6 +754,15 @@
                 <is-default>0</is-default>
                 <attribute>0</attribute>
             </command>
+            <command type="2">
+                <describe>²é¿´</describe>
+                <define>
+                    <item>VO_XMXXTZ_GS_ZQFXRQ</item>
+                    <item>View</item>
+                </define>
+                <is-default>0</is-default>
+                <attribute>0</attribute>
+            </command>
         </commands>
         <relations/>
     </display-options>
@@ -1308,6 +1317,10 @@
                     <name>56</name>
                     <value>true</value>
                 </property>
+                <property>
+                    <name>69</name>
+                    <value>940*500</value>
+                </property>
             </properties>
             <pre-functions/>
             <post-functions/>
@@ -1338,7 +1351,7 @@
                     <check-type>0</check-type>
                     <real-type>0</real-type>
                     <constraint type="3">
-                        <SQL>["tIB_XMXX_GS_ZQXX.XMMC_FXQ is not null and tIB_XMXX_GS_ZQXX.ID not in (SELECT ZQXX FROM ECIF.TIB_XMXXTZ WHERE ZQXX IS NOT NULL)",[]]</SQL>
+                        <SQL>["tIB_XMXX_GS_ZQXX.XMMC_FXQ is not null \r\nand tIB_XMXX_GS_ZQXX.ID not in (SELECT ZQXX FROM ECIF.TIB_XMXXTZ WHERE ZQXX IS NOT NULL)\r\nAND (EXISTS (SELECT 1 FROM ECIF.TIB_XMXX_GS T2,ECIF.lcIB_GS_LXLC T4,JGCRM.OS_WFENTRY T5 WHERE T2.ID = tIB_XMXX_GS_ZQXX.XMMC_FXQ AND T4.INSTID = T5.ID AND T5.STATE = 4 AND T4.XMMC = T2.ID)\r\n      OR EXISTS (SELECT 1 FROM ECIF.TIB_XMXX_GS T2,ECIF.lcIB_GS_LXSMSHLC T4,JGCRM.OS_WFENTRY T5 WHERE T4.INSTID = T5.ID AND T5.STATE = 4 AND T4.XMMC = T2.ID))",[]]</SQL>
                         <refColumns/>
                     </constraint>
                     <properties/>
@@ -1593,6 +1606,14 @@
                     <name>105</name>
                     <value>false</value>
                 </property>
+                <property>
+                    <name>57</name>
+                    <value>XMID1=2</value>
+                </property>
+                <property>
+                    <name>69</name>
+                    <value>940*500</value>
+                </property>
             </properties>
             <pre-functions/>
             <post-functions/>
@@ -1605,11 +1626,19 @@
         </property>
         <property>
             <name>120</name>
-            <value>true</value>
+            <value>false</value>
         </property>
         <property>
             <name>5</name>
             <value>30</value>
+        </property>
+        <property>
+            <name>63</name>
+            <value>true</value>
+        </property>
+        <property>
+            <name>68</name>
+            <value>true</value>
         </property>
     </properties>
     <orders/>

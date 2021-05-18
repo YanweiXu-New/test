@@ -561,6 +561,22 @@
                 <is-default>0</is-default>
                 <attribute>0</attribute>
             </command>
+            <command type="5">
+                <describe>反洗钱消息提醒</describe>
+                <define>
+                    <item>tIB_DTTX_FXQXXTX</item>
+                </define>
+                <is-default>0</is-default>
+                <attribute>0</attribute>
+            </command>
+            <command type="5">
+                <describe>关闭反洗钱消息提醒</describe>
+                <define>
+                    <item>tIB_DTTX_GBFXQXXTX</item>
+                </define>
+                <is-default>0</is-default>
+                <attribute>0</attribute>
+            </command>
         </commands>
         <relations/>
     </display-options>
@@ -701,6 +717,8 @@
                     <value>tIB_DTTX_JGXXTX</value>
                 </property>
             </properties>
+            <pre-functions/>
+            <post-functions/>
         </method>
         <method create-date="2020.11.18 10:43:20" creator="开发者" name="tIB_DTTX_JGXXGB" object-id="-212a0917:175d916cf14:-7fff" type="0">
             <describe>关闭监管消息</describe>
@@ -738,6 +756,145 @@
                     <value>tIB_DTTX_JGXXGB</value>
                 </property>
             </properties>
+            <pre-functions/>
+            <post-functions/>
+        </method>
+        <method create-date="2021.02.24 16:26:53" creator="HUANGWEI3" name="tIB_DTTX_FXQXXTX" object-id="6f4e16d1:177d325e977:-8000" type="0">
+            <describe>反洗钱消息提醒</describe>
+            <attribute>270532624</attribute>
+            <parameters>
+                <column>
+                    <name>I_TXNR</name>
+                    <describe>提醒内容</describe>
+                    <type>0</type>
+                    <biz-type>100</biz-type>
+                    <length>2000</length>
+                    <scale>0</scale>
+                    <control>7</control>
+                    <primary-property>0</primary-property>
+                    <nullable>true</nullable>
+                    <unique>false</unique>
+                    <enabled>true</enabled>
+                    <visible>true</visible>
+                    <attribute>0</attribute>
+                    <order-direction>0</order-direction>
+                    <category/>
+                    <fire-event>0</fire-event>
+                    <check-type>0</check-type>
+                    <real-type>0</real-type>
+                    <properties/>
+                </column>
+                <column>
+                    <name>I_TXRY</name>
+                    <describe>提醒人员</describe>
+                    <type>0</type>
+                    <biz-type>100</biz-type>
+                    <length>2000</length>
+                    <scale>0</scale>
+                    <control>1</control>
+                    <primary-property>0</primary-property>
+                    <nullable>true</nullable>
+                    <unique>false</unique>
+                    <enabled>true</enabled>
+                    <visible>true</visible>
+                    <attribute>0</attribute>
+                    <order-direction>0</order-direction>
+                    <category/>
+                    <fire-event>0</fire-event>
+                    <check-type>0</check-type>
+                    <real-type>0</real-type>
+                </column>
+                <column>
+                    <name>I_FXQKHID</name>
+                    <describe>反洗钱客户ID</describe>
+                    <type>1</type>
+                    <biz-type>200</biz-type>
+                    <length>16</length>
+                    <scale>0</scale>
+                    <control>1</control>
+                    <primary-property>0</primary-property>
+                    <nullable>true</nullable>
+                    <unique>false</unique>
+                    <enabled>true</enabled>
+                    <visible>true</visible>
+                    <option/>
+                    <ref-object/>
+                    <attribute>0</attribute>
+                    <order-direction>0</order-direction>
+                    <category/>
+                    <fire-event>0</fire-event>
+                    <check-type>0</check-type>
+                    <real-type>0</real-type>
+                </column>
+                <column>
+                    <name>I_TXJZRQ</name>
+                    <describe>提醒截止日期</describe>
+                    <type>0</type>
+                    <biz-type>100</biz-type>
+                    <length>30</length>
+                    <scale>0</scale>
+                    <control>1</control>
+                    <primary-property>0</primary-property>
+                    <nullable>true</nullable>
+                    <unique>false</unique>
+                    <enabled>true</enabled>
+                    <visible>true</visible>
+                    <default>null</default>
+                    <attribute>0</attribute>
+                    <order-direction>0</order-direction>
+                    <category/>
+                    <fire-event>0</fire-event>
+                    <check-type>0</check-type>
+                    <real-type>0</real-type>
+                    <validation/>
+                    <properties/>
+                </column>
+            </parameters>
+            <extend-buttons/>
+            <properties>
+                <property>
+                    <name>28</name>
+                    <value>tIB_DTTX_FXQXXTX</value>
+                </property>
+            </properties>
+            <pre-functions/>
+            <post-functions/>
+        </method>
+        <method create-date="2021.02.24 16:27:23" creator="HUANGWEI3" name="tIB_DTTX_GBFXQXXTX" object-id="6f4e16d1:177d325e977:-7fff" type="0">
+            <describe>关闭反洗钱消息提醒</describe>
+            <attribute>270532624</attribute>
+            <parameters>
+                <column>
+                    <name>I_FXQKHID</name>
+                    <describe>反洗钱客户ID</describe>
+                    <type>1</type>
+                    <biz-type>200</biz-type>
+                    <length>16</length>
+                    <scale>0</scale>
+                    <control>1</control>
+                    <primary-property>0</primary-property>
+                    <nullable>true</nullable>
+                    <unique>false</unique>
+                    <enabled>true</enabled>
+                    <visible>true</visible>
+                    <option/>
+                    <ref-object/>
+                    <attribute>0</attribute>
+                    <order-direction>0</order-direction>
+                    <category/>
+                    <fire-event>0</fire-event>
+                    <check-type>0</check-type>
+                    <real-type>0</real-type>
+                </column>
+            </parameters>
+            <properties>
+                <property>
+                    <name>28</name>
+                    <value>tIB_DTTX_GBFXQXXTX</value>
+                </property>
+            </properties>
+            <pre-functions/>
+            <post-functions/>
         </method>
     </methods>
     <properties>

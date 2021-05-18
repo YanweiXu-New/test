@@ -296,8 +296,12 @@
             <attribute>266240</attribute>
             <order-direction>0</order-direction>
             <expression>&lt;%@ livebos language='javascript' %&gt;
+if(XMMC.SFFXXM==1){
 var i=ABS_SQLVALUE("SELECT TSNR FROM ECIF.TIB_XMFXBSXX WHERE YXZT = 1");
-'&lt;font color="red"&gt;&lt;b&gt;'+i+'&lt;/b&gt;&lt;/font&gt;'  </expression>
+'&lt;font color="red"&gt;&lt;b&gt;'+i+'&lt;/b&gt;&lt;/font&gt;'  
+}else{
+null
+}</expression>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 XMMC.SFFXXM!=1  </invisible-expression>
             <disable-expression/>
@@ -308,6 +312,7 @@ XMMC.SFFXXM!=1  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>XMSCJD</name>

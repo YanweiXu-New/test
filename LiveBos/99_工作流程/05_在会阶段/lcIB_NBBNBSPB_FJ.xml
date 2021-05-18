@@ -183,7 +183,7 @@
             <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
-            <expression>ABS_SQLVALUE("SELECT ECIF.FUNC_IB_GETALLWDMC(?) FROM DUAL",[FJM])    </expression>
+            <expression>ABS_SQLVALUE("SELECT ECIF.FUNC_IB_GETALLWDMC(?) FROM DUAL",[FJM])      </expression>
             <invisible-expression/>
             <disable-expression/>
             <category/>
@@ -316,6 +316,30 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+        </column>
+        <column>
+            <name>SFSY</name>
+            <describe> «∑Ò  ”√</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>5</control>
+            <primary-property>0</primary-property>
+            <nullable>false</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option>$D{JG_SF}</option>
+            <ref-object/>
+            <default>1</default>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
         </column>
     </columns>
     <display-options>

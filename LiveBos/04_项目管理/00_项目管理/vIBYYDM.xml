@@ -1,31 +1,13 @@
 <?xml version="1.0" encoding="GB2312" standalone="no"?>
-<object create-date="2020.08.27 17:55:47" creator="开发者" flag="0" name="vIBYYDM" object-id="83fda39d-4c72-401d-b172-2659f658ee46" package="04_项目管理.00_项目管理" type="1" version="1.0">
+<object create-date="2020.10.26 17:49:05" creator="开发者" flag="0" modifier="null" modify-date="null" name="vIBYYDM" object-id="d983da64-01bb-4ea8-8472-38056c9ebd4b" package="04_项目管理.00_项目管理" type="1" version="1.0">
     <describe>已用代码</describe>
+    <comment/>
     <datasource-name>ECIF</datasource-name>
     <parent>tIB_DMFP</parent>
     <attribute>268437520</attribute>
+    <templet>默认</templet>
     <parameters/>
     <columns>
-        <column>
-            <name>ID</name>
-            <describe>ID</describe>
-            <type>8</type>
-            <biz-type>200</biz-type>
-            <length>16</length>
-            <scale>0</scale>
-            <control>0</control>
-            <primary-property>2</primary-property>
-            <nullable>false</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>false</visible>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <category/>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>1</real-type>
-        </column>
         <column>
             <name>ZT</name>
             <describe>状态</describe>
@@ -40,14 +22,21 @@
             <enabled>false</enabled>
             <visible>false</visible>
             <option/>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>1</real-type>
-            <comment/>
+            <comment>区分可用代码与不可用代码</comment>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>DMMC</name>
@@ -60,15 +49,24 @@
             <primary-property>0</primary-property>
             <nullable>true</nullable>
             <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
+            <enabled>false</enabled>
+            <visible>false</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
             <attribute>2</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
             <comment>项目名称</comment>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>DMLX</name>
@@ -81,132 +79,24 @@
             <primary-property>0</primary-property>
             <nullable>false</nullable>
             <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
+            <enabled>false</enabled>
+            <visible>false</visible>
             <option>0|再融资;1|财务顾问</option>
-            <ref-object/>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <category/>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>7</real-type>
-            <properties/>
-        </column>
-        <column>
-            <name>SYSJ</name>
-            <describe>使用时间</describe>
-            <type>8</type>
-            <biz-type>300</biz-type>
-            <length>8</length>
-            <scale>0</scale>
-            <control>3</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
-            <option/>
-            <ref-object/>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <category>不可用代码</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>3</real-type>
-            <comment>项目创建时间</comment>
-            <properties/>
-        </column>
-        <column>
-            <name>GSMC</name>
-            <describe>公司名称</describe>
-            <type>8</type>
-            <biz-type>500</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>10</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
-            <option/>
-            <ref-object>tIB_KHXX</ref-object>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <category>不可用代码</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>6</real-type>
-            <properties/>
-        </column>
-        <column>
-            <name>YWLX</name>
-            <describe>业务类型</describe>
-            <type>8</type>
-            <biz-type>100</biz-type>
-            <length>100</length>
-            <scale>0</scale>
-            <control>1</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <category>不可用代码</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-        </column>
-        <column>
-            <name>XGR</name>
-            <describe>修改人</describe>
-            <type>8</type>
-            <biz-type>500</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>10</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>false</visible>
-            <option/>
-            <ref-object>vUser_ZC</ref-object>
-            <default>$Login.User</default>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <category>可用代码</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>6</real-type>
-            <properties/>
-        </column>
-        <column>
-            <name>XGSJ</name>
-            <describe>修改时间</describe>
-            <type>8</type>
-            <biz-type>300</biz-type>
-            <length>8</length>
-            <scale>0</scale>
-            <control>3</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>false</visible>
-            <option/>
+            <meta-column/>
             <ref-object/>
             <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
-            <category>可用代码</category>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
-            <real-type>3</real-type>
-            <properties/>
+            <real-type>7</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>ZS</name>
@@ -222,21 +112,278 @@
             <enabled>false</enabled>
             <visible>false</visible>
             <option/>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>1</real-type>
             <comment>可选代码控制</comment>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>XMMC</name>
+            <describe>项目名称</describe>
+            <type>8</type>
+            <biz-type>500</biz-type>
+            <length>16</length>
+            <scale>0</scale>
+            <control>10</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object>tIB_XMXX</ref-object>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>6</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>SYSJ</name>
+            <describe>使用时间</describe>
+            <type>8</type>
+            <biz-type>300</biz-type>
+            <length>8</length>
+            <scale>0</scale>
+            <control>3</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>不可用代码</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>3</real-type>
+            <comment>项目创建时间</comment>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>GSMC</name>
+            <describe>公司名称</describe>
+            <type>8</type>
+            <biz-type>500</biz-type>
+            <length>16</length>
+            <scale>0</scale>
+            <control>10</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object>tIB_KHXX</ref-object>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>不可用代码</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>6</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>YWLX</name>
+            <describe>业务类型</describe>
+            <type>8</type>
+            <biz-type>100</biz-type>
+            <length>100</length>
+            <scale>0</scale>
+            <control>1</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>不可用代码</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>XGR</name>
+            <describe>修改人</describe>
+            <type>8</type>
+            <biz-type>500</biz-type>
+            <length>12</length>
+            <scale>0</scale>
+            <control>10</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>false</visible>
+            <option/>
+            <meta-column/>
+            <ref-object>vUser_ZC</ref-object>
+            <default>$Login.User</default>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>可用代码</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>6</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>XGSJ</name>
+            <describe>修改时间</describe>
+            <type>8</type>
+            <biz-type>301</biz-type>
+            <length>12</length>
+            <scale>0</scale>
+            <control>3</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>false</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>可用代码</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>3</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>ID</name>
+            <describe>ID</describe>
+            <type>8</type>
+            <biz-type>200</biz-type>
+            <length>16</length>
+            <scale>0</scale>
+            <control>0</control>
+            <primary-property>2</primary-property>
+            <nullable>false</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>false</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>1</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>ID</name>
+            <describe>ID</describe>
+            <type>1</type>
+            <biz-type>200</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>0</control>
+            <primary-property>0</primary-property>
+            <nullable>false</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>false</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
     </columns>
     <restrictions>
-        <condition>{"statement":"tIB_DMFP.ZT = -1","args":[],"type":0}</condition>
+        <condition>{"args":[],"statement":"tIB_DMFP.ZT = -1","type":0}</condition>
     </restrictions>
     <display-options>
-        <commands/>
+        <commands>
+            <command type="2">
+                <describe>导出</describe>
+                <define>
+                    <item>vIBYYDM</item>
+                    <item>ToExcel</item>
+                </define>
+                <is-default>0</is-default>
+                <attribute>0</attribute>
+            </command>
+        </commands>
         <relations/>
     </display-options>
     <methods/>

@@ -36,6 +36,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>F</name>
@@ -66,6 +67,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>FJLX</name>
@@ -100,6 +102,7 @@
                 <refColumns/>
             </constraint>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>SFBT</name>
@@ -120,6 +123,7 @@
             <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
             <invisible-expression/>
             <disable-expression/>
             <category/>
@@ -129,7 +133,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>FJM</name>
@@ -183,7 +186,7 @@
             <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
-            <expression>ABS_SQLVALUE("SELECT ECIF.FUNC_IB_GETALLWDMC(?) FROM DUAL",[FJM])    </expression>
+            <expression>ABS_SQLVALUE("SELECT ECIF.FUNC_IB_GETALLWDMC(?) FROM DUAL",[FJM])     </expression>
             <invisible-expression/>
             <disable-expression/>
             <category/>
@@ -226,6 +229,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>SCSJ</name>
@@ -256,6 +260,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>SF360XS</name>
@@ -286,6 +291,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>SFYY</name>
@@ -301,13 +307,21 @@
             <enabled>true</enabled>
             <visible>true</visible>
             <option>$D{JG_SF}</option>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
             <properties/>
         </column>
         <column>

@@ -1,1131 +1,1199 @@
-<?xml version="1.0" encoding="GB2312" standalone="no"?>
-<object create-date="2017.08.31 15:52:52" creator="zhong.apex" flag="0" modifier="null" modify-date="null" name="vIB_NHQZLCB_BM" object-id="24cb16e6-d624-4b8b-82b2-fc8ff400b3c5" package="100_新三板.挂牌阶段.05-内核签章流程表" type="1" version="1.0">
-    <describe>内核签章流程(部门)</describe>
-    <comment/>
-    <datasource-name>ECIF</datasource-name>
-    <parent>lcIB_NHQZLCB</parent>
-    <attribute>268437520</attribute>
-    <templet>默认</templet>
-    <parameters/>
-    <columns>
-        <column>
-            <name>ID</name>
-            <describe>ID</describe>
-            <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>0</control>
-            <primary-property>0</primary-property>
-            <nullable>false</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>false</visible>
-            <option/>
-            <meta-column/>
-            <ref-object/>
-            <default/>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category/>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-        </column>
-        <column>
-            <name>SQR</name>
-            <describe>申请人</describe>
-            <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>10</control>
-            <primary-property>0</primary-property>
-            <nullable>false</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>true</visible>
-            <option/>
-            <meta-column/>
-            <ref-object>tUser</ref-object>
-            <default>$Login.User</default>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category>申请信息</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-        </column>
-        <column>
-            <name>SQBM</name>
-            <describe>申请部门</describe>
-            <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>10</control>
-            <primary-property>0</primary-property>
-            <nullable>false</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>true</visible>
-            <option/>
-            <meta-column/>
-            <ref-object>lbOrganization</ref-object>
-            <default>$Login.User.OrgID</default>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category>申请信息</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-        </column>
-        <column>
-            <name>SQSJ</name>
-            <describe>申请时间</describe>
-            <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>37</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>true</visible>
-            <option/>
-            <meta-column/>
-            <ref-object/>
-            <default>$DateTime.Now</default>
-            <attribute>4</attribute>
-            <order-direction>2</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category>申请信息</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-        </column>
-        <column>
-            <name>LCBH</name>
-            <describe>流程编号</describe>
-            <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>1</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>true</visible>
-            <option/>
-            <meta-column/>
-            <ref-object/>
-            <default/>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category>申请信息</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-        </column>
-        <column>
-            <name>OLDBH</name>
-            <describe>老系统编号</describe>
-            <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>0</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>false</visible>
-            <option/>
-            <meta-column/>
-            <ref-object/>
-            <default/>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category>申请信息</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-        </column>
-        <column>
-            <name>InstID</name>
-            <describe>InstID</describe>
-            <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>0</control>
-            <primary-property>0</primary-property>
-            <nullable>false</nullable>
-            <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
-            <option/>
-            <meta-column/>
-            <ref-object/>
-            <default/>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category/>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-        </column>
-        <column>
-            <name>LCBT</name>
-            <describe>公文主题</describe>
-            <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>1</control>
-            <primary-property>0</primary-property>
-            <nullable>false</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>true</visible>
-            <option/>
-            <meta-column/>
-            <ref-object/>
-            <default/>
-            <attribute>4098</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category>基本信息</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-        </column>
-        <column>
-            <name>GWZW</name>
-            <describe>公文正文</describe>
-            <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>19</control>
-            <primary-property>0</primary-property>
-            <nullable>false</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>true</visible>
-            <option/>
-            <meta-column/>
-            <ref-object/>
-            <default/>
-            <attribute>4096</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category>基本信息</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-        </column>
-        <column>
-            <name>Cs</name>
-            <describe>呈送</describe>
-            <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>0</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>true</visible>
-            <option/>
-            <meta-column/>
-            <ref-object/>
-            <default/>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category>基本信息</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-        </column>
-        <column>
-            <name>Csong</name>
-            <describe>抄送</describe>
-            <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>0</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>true</visible>
-            <option/>
-            <meta-column/>
-            <ref-object/>
-            <default/>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category>基本信息</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-        </column>
-        <column>
-            <name>LDSP</name>
-            <describe>重要领导意见</describe>
-            <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>16</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>true</visible>
-            <option/>
-            <meta-column/>
-            <ref-object/>
-            <default/>
-            <attribute>4096</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-LB.getClient().isStandard==false   </invisible-expression>
-            <disable-expression/>
-            <category>基本信息</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-        </column>
-        <column>
-            <name>BZ</name>
-            <describe>备注</describe>
-            <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>7</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>true</visible>
-            <option/>
-            <meta-column/>
-            <ref-object/>
-            <default/>
-            <attribute>4096</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category>基本信息</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-        </column>
-        <column>
-            <name>XMMC</name>
-            <describe>项目名称</describe>
-            <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>10</control>
-            <primary-property>0</primary-property>
-            <nullable>false</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>true</visible>
-            <option/>
-            <meta-column/>
-            <ref-object>VIB_XMXX_XSB_WD</ref-object>
-            <default/>
-            <attribute>67108864</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category>基本信息</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment>&lt;font color=red&gt;&lt;b&gt;通过内核并完成内核流程方可发起内核签章流程。&lt;/b&gt;&lt;/font&gt;</comment>
-            <validation/>
-            <scope-permissions/>
-        </column>
-        <column>
-            <name>KHMC</name>
-            <describe>公司名称</describe>
-            <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>10</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>true</visible>
-            <option/>
-            <meta-column/>
-            <ref-object>tIB_KHXX</ref-object>
-            <default/>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category>基本信息</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-        </column>
-        <column>
-            <name>KHDM</name>
-            <describe>客户代码</describe>
-            <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>1</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>true</visible>
-            <option/>
-            <meta-column/>
-            <ref-object/>
-            <default/>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category>基本信息</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-        </column>
-        <column>
-            <name>XMFZR</name>
-            <describe>项目负责人</describe>
-            <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>10</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>true</visible>
-            <option/>
-            <meta-column/>
-            <ref-object>vUser_ZC</ref-object>
-            <default>null</default>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category>基本信息</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-        </column>
-        <column>
-            <name>SSXT</name>
-            <describe>所属系统</describe>
-            <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>0</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>true</visible>
-            <option>$D{IB_XMSSFZ}</option>
-            <meta-column/>
-            <ref-object/>
-            <default/>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category>基本信息</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-        </column>
-        <column>
-            <name>NHHTGRQ</name>
-            <describe>内核会通过日期</describe>
-            <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>3</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>true</visible>
-            <option/>
-            <meta-column/>
-            <ref-object/>
-            <default>null</default>
-            <attribute>67108864</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category>基本信息</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-            <properties>
-                <ctrl-width>200</ctrl-width>
-            </properties>
-        </column>
-        <column>
-            <name>ZKBXCHCQZRQ</name>
-            <describe>质控部现场核查开始日期</describe>
-            <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>3</control>
-            <primary-property>0</primary-property>
-            <nullable>false</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>true</visible>
-            <option/>
-            <meta-column/>
-            <ref-object/>
-            <default>null</default>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category>基本信息</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-            <properties>
-                <ctrl-width>200</ctrl-width>
-            </properties>
-        </column>
-        <column>
-            <name>ZKBXCHCZZRQ</name>
-            <describe>质控部现场核查终止日期</describe>
-            <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>3</control>
-            <primary-property>0</primary-property>
-            <nullable>false</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>true</visible>
-            <option/>
-            <meta-column/>
-            <ref-object/>
-            <default>null</default>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category>基本信息</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-            <properties>
-                <ctrl-width>200</ctrl-width>
-            </properties>
-        </column>
-        <column>
-            <name>ZKZY</name>
-            <describe>质控主审</describe>
-            <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>10</control>
-            <primary-property>0</primary-property>
-            <nullable>false</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>true</visible>
-            <option/>
-            <meta-column/>
-            <ref-object>vUser_ZC</ref-object>
-            <default>null</default>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category>基本信息</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-        </column>
-        <column>
-            <name>ZKFS</name>
-            <describe>质控副审</describe>
-            <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>45</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>true</visible>
-            <option/>
-            <meta-column/>
-            <ref-object>vUser_ZC</ref-object>
-            <default/>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category>基本信息</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-        </column>
-        <column>
-            <name>ZXRZNSHRY</name>
-            <describe>投资银行总部职能审批人员</describe>
-            <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>10</control>
-            <primary-property>0</primary-property>
-            <nullable>false</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>true</visible>
-            <option/>
-            <meta-column/>
-            <ref-object>vUser_ZC</ref-object>
-            <default>null</default>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category>基本信息</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-        </column>
-        <column>
-            <name>NMXXDJB</name>
-            <describe>内幕信息登记表</describe>
-            <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>16</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>true</visible>
-            <option/>
-            <meta-column/>
-            <ref-object/>
-            <default/>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-LB.getClient().isStandard==false   </invisible-expression>
-            <disable-expression/>
-            <category>基本信息</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-        </column>
-        <column>
-            <name>NHBZS</name>
-            <describe>内核办主审</describe>
-            <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>10</control>
-            <primary-property>0</primary-property>
-            <nullable>false</nullable>
-            <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
-            <option/>
-            <meta-column/>
-            <ref-object>vUser_ZC</ref-object>
-            <default/>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category>内核办审核信息</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-        </column>
-        <column>
-            <name>NHBFS</name>
-            <describe>内核办副审</describe>
-            <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>45</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
-            <option/>
-            <meta-column/>
-            <ref-object>vUser_ZC</ref-object>
-            <default/>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category>内核办审核信息</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-        </column>
-        <column>
-            <name>FJ</name>
-            <describe>附件</describe>
-            <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>12</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>true</visible>
-            <option/>
-            <meta-column/>
-            <ref-object>lcIB_NHQZLCB_FJ</ref-object>
-            <default/>
-            <attribute>266240</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category>需上传附件</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-        </column>
-        <column>
-            <name>DBXZ</name>
-            <describe>打包下载</describe>
-            <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>16</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
-            <option/>
-            <meta-column/>
-            <ref-object/>
-            <default/>
-            <attribute>262144</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-LB.getClient().isStandard==false   </invisible-expression>
-            <disable-expression/>
-            <category>需上传附件</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-        </column>
-        <column>
-            <name>JZDCXX</name>
-            <describe>尽职调查信息</describe>
-            <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>0</control>
-            <primary-property>0</primary-property>
-            <nullable>false</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>false</visible>
-            <option/>
-            <meta-column/>
-            <ref-object>lcIB_NHQZLCB_JZDCXX</ref-object>
-            <default/>
-            <attribute>266240</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category>尽职调查信息</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-        </column>
-        <column>
-            <name>FJXZ</name>
-            <describe>下载</describe>
-            <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>0</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>false</visible>
-            <option/>
-            <meta-column/>
-            <ref-object/>
-            <default/>
-            <attribute>262144</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category>尽职调查信息</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-        </column>
-        <column>
-            <name>SFZJZY</name>
-            <describe>是否资金占用</describe>
-            <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>0</control>
-            <primary-property>0</primary-property>
-            <nullable>false</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>false</visible>
-            <option>0|否;1|是</option>
-            <meta-column/>
-            <ref-object/>
-            <default/>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category>尽职调查信息</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-            <properties>
-                <ctrl-width>200</ctrl-width>
-            </properties>
-        </column>
-        <column>
-            <name>ZJZYJJQKSM</name>
-            <describe>资金占用解决情况说明</describe>
-            <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>0</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>false</visible>
-            <option/>
-            <meta-column/>
-            <ref-object/>
-            <default/>
-            <attribute>4096</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category>尽职调查信息</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-        </column>
-        <column>
-            <name>OASPXX</name>
-            <describe>OA审批信息</describe>
-            <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>16</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
-            <option/>
-            <meta-column/>
-            <ref-object/>
-            <default/>
-            <attribute>4096</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
+<?xml version="1.0" encoding="gb2312"?>
+<object name="vIB_NHQZLCB_BM" type="1" object-id="24cb16e6-d624-4b8b-82b2-fc8ff400b3c5" version="1.0" modify-date="null" create-date="2017.08.31 15:52:52" modifier="null" creator="zhong.apex" package="100_新三板.挂牌阶段.05-内核签章流程表" flag="0">
+  <describe>内核签章流程(部门)</describe>
+  <comment />
+  <parent>lcIB_NHQZLCB</parent>
+  <attribute>268437520</attribute>
+  <templet>默认</templet>
+  <datasource-name>ECIF</datasource-name>
+  <parameters />
+  <columns>
+    <column>
+      <name>ID</name>
+      <describe>ID</describe>
+      <comment />
+      <biz-type>0</biz-type>
+      <type>8</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>0</control>
+      <primary-property>0</primary-property>
+      <option />
+      <ref-object />
+      <default />
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category />
+      <fire-event>0</fire-event>
+      <visible>false</visible>
+      <enabled>false</enabled>
+      <nullable>false</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+    <column>
+      <name>SQR</name>
+      <describe>申请人</describe>
+      <comment />
+      <biz-type>0</biz-type>
+      <type>8</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>10</control>
+      <primary-property>0</primary-property>
+      <option />
+      <ref-object>tUser</ref-object>
+      <default>$Login.User</default>
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category>申请信息</category>
+      <fire-event>0</fire-event>
+      <visible>true</visible>
+      <enabled>false</enabled>
+      <nullable>false</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+    <column>
+      <name>SQBM</name>
+      <describe>申请部门</describe>
+      <comment />
+      <biz-type>0</biz-type>
+      <type>8</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>10</control>
+      <primary-property>0</primary-property>
+      <option />
+      <ref-object>lbOrganization</ref-object>
+      <default>$Login.User.OrgID</default>
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category>申请信息</category>
+      <fire-event>0</fire-event>
+      <visible>true</visible>
+      <enabled>false</enabled>
+      <nullable>false</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+    <column>
+      <name>SQSJ</name>
+      <describe>申请时间</describe>
+      <comment />
+      <biz-type>0</biz-type>
+      <type>8</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>37</control>
+      <primary-property>0</primary-property>
+      <option />
+      <ref-object />
+      <default>$DateTime.Now</default>
+      <real-type>0</real-type>
+      <attribute>4</attribute>
+      <order-direction>2</order-direction>
+      <expression />
+      <category>申请信息</category>
+      <fire-event>0</fire-event>
+      <visible>true</visible>
+      <enabled>false</enabled>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+    <column>
+      <name>LCBH</name>
+      <describe>流程编号</describe>
+      <comment />
+      <biz-type>0</biz-type>
+      <type>8</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>1</control>
+      <primary-property>0</primary-property>
+      <option />
+      <ref-object />
+      <default />
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category>申请信息</category>
+      <fire-event>0</fire-event>
+      <visible>true</visible>
+      <enabled>false</enabled>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+    <column>
+      <name>OLDBH</name>
+      <describe>老系统编号</describe>
+      <comment />
+      <biz-type>0</biz-type>
+      <type>8</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>0</control>
+      <primary-property>0</primary-property>
+      <option />
+      <ref-object />
+      <default />
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category>申请信息</category>
+      <fire-event>0</fire-event>
+      <visible>false</visible>
+      <enabled>false</enabled>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+    <column>
+      <name>InstID</name>
+      <describe>InstID</describe>
+      <comment />
+      <biz-type>0</biz-type>
+      <type>8</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>0</control>
+      <primary-property>0</primary-property>
+      <option />
+      <ref-object />
+      <default />
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category />
+      <fire-event>0</fire-event>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <nullable>false</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+    <column>
+      <name>LCBT</name>
+      <describe>公文主题</describe>
+      <comment />
+      <biz-type>0</biz-type>
+      <type>8</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>1</control>
+      <primary-property>0</primary-property>
+      <option />
+      <ref-object />
+      <default />
+      <real-type>0</real-type>
+      <attribute>4098</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category>基本信息</category>
+      <fire-event>0</fire-event>
+      <visible>true</visible>
+      <enabled>false</enabled>
+      <nullable>false</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+    <column>
+      <name>GWZW</name>
+      <describe>公文正文</describe>
+      <comment />
+      <biz-type>0</biz-type>
+      <type>8</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>19</control>
+      <primary-property>0</primary-property>
+      <option />
+      <ref-object />
+      <default />
+      <real-type>0</real-type>
+      <attribute>4096</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category>基本信息</category>
+      <fire-event>0</fire-event>
+      <visible>true</visible>
+      <enabled>false</enabled>
+      <nullable>false</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+    <column>
+      <name>Cs</name>
+      <describe>呈送</describe>
+      <comment />
+      <biz-type>0</biz-type>
+      <type>8</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>0</control>
+      <primary-property>0</primary-property>
+      <option />
+      <ref-object />
+      <default />
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category>基本信息</category>
+      <fire-event>0</fire-event>
+      <visible>true</visible>
+      <enabled>false</enabled>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+    <column>
+      <name>Csong</name>
+      <describe>抄送</describe>
+      <comment />
+      <biz-type>0</biz-type>
+      <type>8</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>0</control>
+      <primary-property>0</primary-property>
+      <option />
+      <ref-object />
+      <default />
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category>基本信息</category>
+      <fire-event>0</fire-event>
+      <visible>true</visible>
+      <enabled>false</enabled>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+    <column>
+      <name>LDSP</name>
+      <describe>重要领导意见</describe>
+      <comment />
+      <biz-type>0</biz-type>
+      <type>8</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>16</control>
+      <primary-property>0</primary-property>
+      <option />
+      <ref-object />
+      <default />
+      <real-type>0</real-type>
+      <attribute>4096</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category>基本信息</category>
+      <fire-event>0</fire-event>
+      <visible>true</visible>
+      <enabled>false</enabled>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression><![CDATA[<%@ livebos language='javascript' %>
+LB.getClient().isStandard==false]]></invisible-expression>
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+    <column>
+      <name>BZ</name>
+      <describe>备注</describe>
+      <comment />
+      <biz-type>0</biz-type>
+      <type>8</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>7</control>
+      <primary-property>0</primary-property>
+      <option />
+      <ref-object />
+      <default />
+      <real-type>0</real-type>
+      <attribute>4096</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category>基本信息</category>
+      <fire-event>0</fire-event>
+      <visible>true</visible>
+      <enabled>false</enabled>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+    <column>
+      <name>XMMC</name>
+      <describe>项目名称</describe>
+      <comment>&lt;font color=red&gt;&lt;b&gt;通过内核并完成内核流程方可发起内核签章流程。&lt;/b&gt;&lt;/font&gt;</comment>
+      <biz-type>0</biz-type>
+      <type>8</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>10</control>
+      <primary-property>0</primary-property>
+      <option />
+      <ref-object>VIB_XMXX_XSB_WD</ref-object>
+      <default />
+      <real-type>0</real-type>
+      <attribute>67108864</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category>基本信息</category>
+      <fire-event>0</fire-event>
+      <visible>true</visible>
+      <enabled>false</enabled>
+      <nullable>false</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+    <column>
+      <name>KHMC</name>
+      <describe>公司名称</describe>
+      <comment />
+      <biz-type>0</biz-type>
+      <type>8</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>10</control>
+      <primary-property>0</primary-property>
+      <option />
+      <ref-object>tIB_KHXX</ref-object>
+      <default />
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category>基本信息</category>
+      <fire-event>0</fire-event>
+      <visible>true</visible>
+      <enabled>false</enabled>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+    <column>
+      <name>KHDM</name>
+      <describe>客户代码</describe>
+      <comment />
+      <biz-type>0</biz-type>
+      <type>8</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>1</control>
+      <primary-property>0</primary-property>
+      <option />
+      <ref-object />
+      <default />
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category>基本信息</category>
+      <fire-event>0</fire-event>
+      <visible>true</visible>
+      <enabled>false</enabled>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+    <column>
+      <name>XMFZR</name>
+      <describe>项目负责人</describe>
+      <comment />
+      <biz-type>0</biz-type>
+      <type>8</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>10</control>
+      <primary-property>0</primary-property>
+      <option />
+      <ref-object>vUser_ZC</ref-object>
+      <default>null</default>
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category>基本信息</category>
+      <fire-event>0</fire-event>
+      <visible>true</visible>
+      <enabled>false</enabled>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+    <column>
+      <name>SSXT</name>
+      <describe>所属系统</describe>
+      <comment />
+      <biz-type>0</biz-type>
+      <type>8</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>0</control>
+      <primary-property>0</primary-property>
+      <option>$D{IB_XMSSFZ}</option>
+      <ref-object />
+      <default />
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category>基本信息</category>
+      <fire-event>0</fire-event>
+      <visible>true</visible>
+      <enabled>false</enabled>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+    <column>
+      <name>NHHTGRQ</name>
+      <describe>内核会通过日期</describe>
+      <comment />
+      <biz-type>0</biz-type>
+      <type>8</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>3</control>
+      <primary-property>0</primary-property>
+      <option />
+      <ref-object />
+      <default>null</default>
+      <real-type>0</real-type>
+      <attribute>67108864</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category>基本信息</category>
+      <fire-event>0</fire-event>
+      <visible>true</visible>
+      <enabled>false</enabled>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+      <properties>
+        <ctrl-width>200</ctrl-width>
+      </properties>
+    </column>
+    <column>
+      <name>ZKBXCHCQZRQ</name>
+      <describe>质控部现场核查开始日期</describe>
+      <comment />
+      <biz-type>0</biz-type>
+      <type>8</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>3</control>
+      <primary-property>0</primary-property>
+      <option />
+      <ref-object />
+      <default>null</default>
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category>基本信息</category>
+      <fire-event>0</fire-event>
+      <visible>true</visible>
+      <enabled>false</enabled>
+      <nullable>false</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+      <properties>
+        <ctrl-width>200</ctrl-width>
+      </properties>
+    </column>
+    <column>
+      <name>ZKBXCHCZZRQ</name>
+      <describe>质控部现场核查终止日期</describe>
+      <comment />
+      <biz-type>0</biz-type>
+      <type>8</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>3</control>
+      <primary-property>0</primary-property>
+      <option />
+      <ref-object />
+      <default>null</default>
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category>基本信息</category>
+      <fire-event>0</fire-event>
+      <visible>true</visible>
+      <enabled>false</enabled>
+      <nullable>false</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+      <properties>
+        <ctrl-width>200</ctrl-width>
+      </properties>
+    </column>
+    <column>
+      <name>ZKZY</name>
+      <describe>质控主审</describe>
+      <comment />
+      <biz-type>0</biz-type>
+      <type>8</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>10</control>
+      <primary-property>0</primary-property>
+      <option />
+      <ref-object>vUser_ZC</ref-object>
+      <default>null</default>
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category>基本信息</category>
+      <fire-event>0</fire-event>
+      <visible>true</visible>
+      <enabled>false</enabled>
+      <nullable>false</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+    <column>
+      <name>ZKFS</name>
+      <describe>质控副审</describe>
+      <comment />
+      <biz-type>0</biz-type>
+      <type>8</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>45</control>
+      <primary-property>0</primary-property>
+      <option />
+      <ref-object>vUser_ZC</ref-object>
+      <default />
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category>基本信息</category>
+      <fire-event>0</fire-event>
+      <visible>true</visible>
+      <enabled>false</enabled>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+    <column>
+      <name>ZXRZNSHRY</name>
+      <describe>投资银行总部职能审批人员</describe>
+      <comment />
+      <biz-type>0</biz-type>
+      <type>8</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>10</control>
+      <primary-property>0</primary-property>
+      <option />
+      <ref-object>vUser_ZC</ref-object>
+      <default>null</default>
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category>基本信息</category>
+      <fire-event>0</fire-event>
+      <visible>true</visible>
+      <enabled>false</enabled>
+      <nullable>false</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+    <column>
+      <name>NMXXDJB</name>
+      <describe>内幕信息登记表</describe>
+      <comment />
+      <biz-type>0</biz-type>
+      <type>8</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>16</control>
+      <primary-property>0</primary-property>
+      <option />
+      <ref-object />
+      <default />
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category>基本信息</category>
+      <fire-event>0</fire-event>
+      <visible>true</visible>
+      <enabled>false</enabled>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression><![CDATA[<%@ livebos language='javascript' %>
+LB.getClient().isStandard==false]]></invisible-expression>
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+    <column>
+      <name>NHBZS</name>
+      <describe>内核办主审</describe>
+      <comment />
+      <biz-type>0</biz-type>
+      <type>8</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>10</control>
+      <primary-property>0</primary-property>
+      <option />
+      <ref-object>vUser_ZC</ref-object>
+      <default />
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category>内核办审核信息</category>
+      <fire-event>0</fire-event>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <nullable>false</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+    <column>
+      <name>NHBFS</name>
+      <describe>内核办副审</describe>
+      <comment />
+      <biz-type>0</biz-type>
+      <type>8</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>45</control>
+      <primary-property>0</primary-property>
+      <option />
+      <ref-object>vUser_ZC</ref-object>
+      <default />
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category>内核办审核信息</category>
+      <fire-event>0</fire-event>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+    <column>
+      <name>FJ</name>
+      <describe>附件</describe>
+      <comment />
+      <biz-type>0</biz-type>
+      <type>8</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>12</control>
+      <primary-property>0</primary-property>
+      <option />
+      <ref-object>lcIB_NHQZLCB_FJ</ref-object>
+      <default />
+      <real-type>0</real-type>
+      <attribute>266240</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category>需上传附件</category>
+      <fire-event>0</fire-event>
+      <visible>true</visible>
+      <enabled>false</enabled>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+    <column>
+      <name>DBXZ</name>
+      <describe>打包下载</describe>
+      <comment />
+      <biz-type>0</biz-type>
+      <type>8</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>16</control>
+      <primary-property>0</primary-property>
+      <option />
+      <ref-object />
+      <default />
+      <real-type>0</real-type>
+      <attribute>262144</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category>需上传附件</category>
+      <fire-event>0</fire-event>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression><![CDATA[<%@ livebos language='javascript' %>
+LB.getClient().isStandard==false]]></invisible-expression>
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+    <column>
+      <name>JZDCXX</name>
+      <describe>尽职调查信息</describe>
+      <comment />
+      <biz-type>0</biz-type>
+      <type>8</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>0</control>
+      <primary-property>0</primary-property>
+      <option />
+      <ref-object>lcIB_NHQZLCB_JZDCXX</ref-object>
+      <default />
+      <real-type>0</real-type>
+      <attribute>266240</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category>尽职调查信息</category>
+      <fire-event>0</fire-event>
+      <visible>false</visible>
+      <enabled>false</enabled>
+      <nullable>false</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+    <column>
+      <name>FJXZ</name>
+      <describe>下载</describe>
+      <comment />
+      <biz-type>0</biz-type>
+      <type>8</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>0</control>
+      <primary-property>0</primary-property>
+      <option />
+      <ref-object />
+      <default />
+      <real-type>0</real-type>
+      <attribute>262144</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category>尽职调查信息</category>
+      <fire-event>0</fire-event>
+      <visible>false</visible>
+      <enabled>false</enabled>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+    <column>
+      <name>SFZJZY</name>
+      <describe>是否资金占用</describe>
+      <comment />
+      <biz-type>0</biz-type>
+      <type>8</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>0</control>
+      <primary-property>0</primary-property>
+      <option>0|否;1|是</option>
+      <ref-object />
+      <default />
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category>尽职调查信息</category>
+      <fire-event>0</fire-event>
+      <visible>false</visible>
+      <enabled>false</enabled>
+      <nullable>false</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+      <properties>
+        <ctrl-width>200</ctrl-width>
+      </properties>
+    </column>
+    <column>
+      <name>ZJZYJJQKSM</name>
+      <describe>资金占用解决情况说明</describe>
+      <comment />
+      <biz-type>0</biz-type>
+      <type>8</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>0</control>
+      <primary-property>0</primary-property>
+      <option />
+      <ref-object />
+      <default />
+      <real-type>0</real-type>
+      <attribute>4096</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category>尽职调查信息</category>
+      <fire-event>0</fire-event>
+      <visible>false</visible>
+      <enabled>false</enabled>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+    <column>
+      <name>OASPXX</name>
+      <describe>OA审批信息</describe>
+      <comment />
+      <biz-type>0</biz-type>
+      <type>8</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>16</control>
+      <primary-property>0</primary-property>
+      <option />
+      <ref-object />
+      <default />
+      <real-type>0</real-type>
+      <attribute>4096</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category>OA审批信息</category>
+      <fire-event>0</fire-event>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression><![CDATA[<%@ livebos language='javascript' %>
 var oaid=ABS_SQLVALUE("select nvl(max(oaworkflowid),0) from ecif.tib_oawfhandle where lcbd='lcIB_NHQZLCB' and lcbdid=?",[ID])
-oaid&lt;=0    </invisible-expression>
-            <disable-expression/>
-            <category>OA审批信息</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-        </column>
-        <column>
-            <name>ZDWCBZ</name>
-            <describe>自动完成标识</describe>
-            <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>0</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>false</visible>
-            <option>$D{JG_SF}</option>
-            <meta-column/>
-            <ref-object/>
-            <default>1</default>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category/>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-        </column>
-    </columns>
-    <restrictions>
-        <condition>{"args":[{"expression":"$Login.User.OrgID","length":0,"scale":0,"type":1}],"statement":"lcIB_NHQZLCB.SQBM={0}","type":0}</condition>
-    </restrictions>
-    <display-options>
-        <commands>
-            <command type="5">
-                <describe>查看</describe>
-                <define>
-                    <item>lcIB_NHQZLCB_CK</item>
-                </define>
-                <is-default>1</is-default>
-                <attribute>2</attribute>
-                <icon-cls>lb-cmd-1</icon-cls>
-                <tip/>
-            </command>
-        </commands>
-        <relations/>
-    </display-options>
-    <methods/>
-    <properties>
-        <property>
-            <name>73</name>
-            <value>SQR</value>
-            <value>SQBM</value>
-            <value>SQSJ</value>
-            <value>LCBH</value>
-            <value>GWZT</value>
-            <value>LCBT</value>
-            <value>GWZW</value>
-            <value>XMMC</value>
-            <value>KHMC</value>
-            <value>KHDM</value>
-            <value>XMFZR</value>
-            <value>SSXT</value>
-            <value>NHHTGRQ</value>
-            <value>ZKZY</value>
-            <value>ZXRZNSHRY</value>
-            <value>BMJZKHYJY</value>
-            <value>ZKBXCHCQZRQ</value>
-            <value>ZKBXCHCZZRQ</value>
-            <value>NMXXDJB</value>
-            <value>JZDCXX</value>
-            <value>SFZJZY</value>
-            <value>ZJZYJJQKSM</value>
-            <value>BZ</value>
-            <value>WF_STATE</value>
-            <value>WF_CURRENTSTEPS</value>
-        </property>
-    </properties>
-    <orders/>
-    <panels/>
-    <extend-buttons/>
+oaid<=0]]></invisible-expression>
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+    <column>
+      <name>ZDWCBZ</name>
+      <describe>自动完成标识</describe>
+      <comment />
+      <biz-type>0</biz-type>
+      <type>8</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>0</control>
+      <primary-property>0</primary-property>
+      <option>$D{JG_SF}</option>
+      <ref-object />
+      <default>1</default>
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category />
+      <fire-event>0</fire-event>
+      <visible>false</visible>
+      <enabled>false</enabled>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+  </columns>
+  <restrictions>
+    <condition type="0"><![CDATA[{"args":[{"expression":"$Login.User.OrgID","length":0,"scale":0,"type":1}],"statement":"lcIB_NHQZLCB.SQBM={0}","type":0}]]></condition>
+  </restrictions>
+  <methods />
+  <display-options>
+    <relations />
+    <commands>
+      <command type="5">
+        <describe>查看</describe>
+        <define>
+          <item>lcIB_NHQZLCB_CK</item>
+        </define>
+        <is-default>1</is-default>
+        <attribute>2</attribute>
+        <icon-cls>lb-cmd-1</icon-cls>
+        <tip />
+      </command>
+    </commands>
+  </display-options>
+  <properties>
+    <property>
+      <name>73</name>
+      <value>SQR</value>
+      <value>SQBM</value>
+      <value>SQSJ</value>
+      <value>LCBH</value>
+      <value>GWZT</value>
+      <value>LCBT</value>
+      <value>GWZW</value>
+      <value>XMMC</value>
+      <value>KHMC</value>
+      <value>KHDM</value>
+      <value>XMFZR</value>
+      <value>SSXT</value>
+      <value>NHHTGRQ</value>
+      <value>ZKZY</value>
+      <value>ZXRZNSHRY</value>
+      <value>BMJZKHYJY</value>
+      <value>ZKBXCHCQZRQ</value>
+      <value>ZKBXCHCZZRQ</value>
+      <value>NMXXDJB</value>
+      <value>JZDCXX</value>
+      <value>SFZJZY</value>
+      <value>ZJZYJJQKSM</value>
+      <value>BZ</value>
+      <value>WF_STATE</value>
+      <value>WF_CURRENTSTEPS</value>
+    </property>
+  </properties>
 </object>
+

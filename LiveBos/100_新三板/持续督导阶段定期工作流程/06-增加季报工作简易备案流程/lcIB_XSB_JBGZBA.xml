@@ -245,7 +245,7 @@
             <comment/>
             <validation/>
             <constraint type="3">
-                <SQL>["tIB_XMXX_XSB.KPJD = 112 AND (tIB_XMXX_XSB.CXDDZY = {0} OR tIB_XMXX_XSB.BMJCSDDZY = {0})",[{"expression":"$Login.User","length":0,"scale":0,"type":1}]]</SQL>
+                <SQL>["tIB_XMXX_XSB.KPJD = 112 AND (tIB_XMXX_XSB.CXDDZY = {0} OR tIB_XMXX_XSB.BMJCSDDZY = {0})",[{"expression":"$Login.User","scale":0,"length":0,"type":1}]]</SQL>
                 <refColumns/>
             </constraint>
             <scope-permissions/>
@@ -298,6 +298,7 @@ XMMC.SFFXXM!=1 </invisible-expression>
             <visible>true</visible>
             <option/>
             <ref-object/>
+            <default>null</default>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
             <category>基本信息</category>
@@ -321,6 +322,7 @@ XMMC.SFFXXM!=1 </invisible-expression>
             <visible>true</visible>
             <option/>
             <ref-object/>
+            <default>null</default>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
             <category>基本信息</category>

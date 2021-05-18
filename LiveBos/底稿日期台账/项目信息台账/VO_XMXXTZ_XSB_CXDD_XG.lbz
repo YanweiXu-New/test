@@ -20,7 +20,7 @@
       <describe>批量修改对象[项目信息台账]</describe>
       <meta name="FUNCTION">true</meta>
       <arg name="@objectName">tIB_XMXXTZ</arg>
-      <arg name="@ID" type="expression">O_PARAMETER.ID</arg>
+      <arg name="@ID" type="expression">O_PARAMETER.XMXXTZID</arg>
       <arg flag="field" name="XMMC" type="expression">O_PARAMETER.XMMC</arg>
       <arg flag="field" name="XMLX" type="expression">O_PARAMETER.XMLX</arg>
       <arg flag="field" name="SSBM" type="expression">O_PARAMETER.SSBM</arg>
@@ -29,22 +29,27 @@
       <arg flag="field" name="DGCFDD" type="expression">O_PARAMETER.DGCFDD</arg>
       <arg flag="field" name="ZZDGCS" type="expression">O_PARAMETER.ZZDGCS</arg>
       <arg flag="field" name="GDR" type="expression">O_PARAMETER.GDR</arg>
-      <arg flag="field" name="GDSJRQ" type="expression">O_PARAMETER.GDSJRQ</arg>
-    </invoke>
-    <invoke component="SQL" id="0" name="终止日期" operation="execute">
-      <describe>同步项目信息</describe>
-      <arg name="TranType">procedure</arg>
-      <arg name="datasource">ECIF</arg>
-      <arg name="SQL">["CALL ECIF.PRO_IB_XMTZ_XXTB(:CODE,:NOTE,{0})",[{"expression":"$Login.User","length":"","scale":"","type":"1"}]]</arg>
-      <arg name="CODE" type="output">V_CODE</arg>
-      <arg name="NOTE" type="output">V_NOTE</arg>
-      <arg name="@autoExit" type="expression">false</arg>
+      <arg flag="field" name="ZZRSJGDR" type="expression">O_PARAMETER.ZZRQSJGDR</arg>
     </invoke>
     <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
       <describe>数据库组件_执行SQL语句</describe>
       <arg name="TranType">sql</arg>
       <arg name="datasource">ECIF</arg>
-      <arg name="SQL">["insert into  ECIF.TIB_XMXX_XSB_NBPLRQ2 （ID, ND, CXDDNBPLRQ, BGLY, RQBGSJ, XGR, TIB_XMXX_XSB_ID）values\n（JGCRM.FUNC_NEXTID('tIB_XMXX_XSB_NBPLRQ2')，{0},{1},1,sysdate,{2},{3}）",[{"expression":"O_PARAMETER.ND","length":"","scale":"","type":"1"},{"expression":"ABS_SQLVALUE(\"SELECT TO_DATE(TO_CHAR(?),'YYYYMMDD') FROM DUAL \",[O_PARAMETER.RQ])","length":"","scale":"","type":"3"},{"expression":"$Login.User","length":"","scale":"","type":"1"},{"expression":"O_PARAMETER.XMID","length":"","scale":"","type":"1"}]]</arg>
+      <arg name="SQL">["begin \r\nMERGE INTO ECIF.tIB_XMXXTZ_SJGDR T \r\nUSING (SELECT {0} AS ND,{3} AS TIB_XMXXTZ_ID,{1} AS CXDDNBPLRQ,{4} AS SJRQ,sysdate as XGSJ,{2} as XGR\r\n             FROM DUAL WHERE {0} IS NOT NULL\r\n           ) T2\r\n ON (T.ND = T2.ND AND T.TIB_XMXXTZ_ID = T2.TIB_XMXXTZ_ID)\r\n    WHEN MATCHED THEN\r\n      UPDATE\r\n         SET T.CXDDNBPLRQ = T2.CXDDNBPLRQ,T.SJGDR = T2.SJRQ,T.XGSJ = T2.XGSJ, T.XGR = T2.XGR\r\n    WHEN NOT MATCHED THEN\r\n       INSERT\r\n        (ID, ND, CXDDNBPLRQ,SJGDR, XGSJ, XGR, TIB_XMXXTZ_ID)\r\n      VALUES\r\n        (JGCRM.FUNC_NEXTID('tIB_XMXXTZ_SJGDR'), T2.ND, T2.CXDDNBPLRQ,T2.SJRQ,\r\n          T2.XGSJ, T2.XGR, T2.TIB_XMXXTZ_ID);\r\n  commit;\r\nend;",[{"expression":"O_PARAMETER.ND","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.RQ","scale":"","length":"","type":"13"},{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.XMXXTZID","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.GDSJRQ","scale":"","length":"","type":"13"}]]</arg>
+    </invoke>
+    <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+      <describe>同步项目信息</describe>
+      <arg name="TranType">procedure</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="CODE" type="output">V_CODE</arg>
+      <arg name="NOTE" type="output">V_NOTE</arg>
+      <arg name="SQL">["CALL ECIF.PRO_IB_XMTZ_XXTB(:CODE,:NOTE,{0})",[{"expression":"$Login.User","scale":"","length":"","type":"1"}]]</arg>
+    </invoke>
+    <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+      <describe>数据库组件_执行SQL语句</describe>
+      <arg name="TranType">sql</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="SQL">["begin \nMERGE INTO ECIF.TIB_XMXX_XSB_NBPLRQ2 T \nUSING (SELECT {0} AS ND,{3} AS TIB_XMXX_XSB_ID,1 AS BGLY, {1} AS CXDDNBPLRQ, SYSDATE RQBGSJ, {2} AS XGR\n             FROM DUAL WHERE {0} IS NOT NULL\n           ) T2\n ON (T.ND = T2.ND AND T.TIB_XMXX_XSB_ID = T2.TIB_XMXX_XSB_ID  AND T.BGLY = T2.BGLY)\n    WHEN MATCHED THEN\n      UPDATE\n         SET T.RQBGSJ = T2.RQBGSJ, T.XGR = T2.XGR,T.CXDDNBPLRQ = T2.CXDDNBPLRQ\n    WHEN NOT MATCHED THEN\n       INSERT\n        (ID, ND, CXDDNBPLRQ, BGLY, RQBGSJ, XGR, TIB_XMXX_XSB_ID)\n      VALUES\n        (JGCRM.FUNC_NEXTID('tIB_XMXX_XSB_NBPLRQ2'), T2.ND, T2.CXDDNBPLRQ,\n         T2.BGLY, T2.RQBGSJ, T2.XGR, T2.TIB_XMXX_XSB_ID);\n  commit;\nend;",[{"expression":"O_PARAMETER.ND","scale":"","length":"","type":"1"},{"expression":"ABS_SQLVALUE(\"SELECT TO_DATE(TO_CHAR(?),'YYYYMMDD') FROM DUAL \",[O_PARAMETER.RQ])","scale":"","length":"","type":"3"},{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.XMID","scale":"","length":"","type":"1"}]]</arg>
     </invoke>
     <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
       <describe>数据库组件_执行SQL语句</describe>
@@ -63,8 +68,8 @@
     </invoke>
     <response exit="false" id="0" name="response">
       <describe>输出</describe>
-      <retvalue type="variable">V_CODE</retvalue>
-      <message type="variable">V_NOTE</message>
+      <retvalue type="expression">1</retvalue>
+      <message type="expression">'修改成功！'</message>
       <uiforward redirect="false">
         <url />
       </uiforward>

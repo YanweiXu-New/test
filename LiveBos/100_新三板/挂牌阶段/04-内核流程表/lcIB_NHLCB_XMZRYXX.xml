@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="GB2312" standalone="no"?>
-<object create-date="2020.10.29 09:42:25" creator="开发者" flag="0" name="lcIB_NHLCB_XMZRYXX" object-id="d5b30478-6791-4f34-aac4-ccb0ce400ee8" package="100_新三板.挂牌阶段.04-内核流程表" type="15" version="1.0">
+<object create-date="2020.10.29 09:42:25" creator="开发者" flag="0" modifier="null" modify-date="null" name="lcIB_NHLCB_XMZRYXX" object-id="d5b30478-6791-4f34-aac4-ccb0ce400ee8" package="100_新三板.挂牌阶段.04-内核流程表" type="15" version="1.0">
     <describe>项目组人员信息</describe>
+    <comment/>
+    <datasource-name>ECIF</datasource-name>
     <parent>lcIB_NHLCB</parent>
     <attribute>264</attribute>
+    <templet>默认</templet>
     <columns>
         <column>
             <name>ID</name>
@@ -17,12 +20,22 @@
             <unique>false</unique>
             <enabled>false</enabled>
             <visible>false</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>RYJS</name>
@@ -53,7 +66,9 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
+            <properties>
+                <grid-col-width>150</grid-col-width>
+            </properties>
         </column>
         <column>
             <name>XM</name>
@@ -84,6 +99,9 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties>
+                <grid-col-width>150</grid-col-width>
+            </properties>
         </column>
         <column>
             <name>ZJLX</name>
@@ -114,14 +132,16 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
+            <properties>
+                <grid-col-width>150</grid-col-width>
+            </properties>
         </column>
         <column>
             <name>ZJMC</name>
             <describe>证件名称</describe>
             <type>0</type>
             <biz-type>100</biz-type>
-            <length>128</length>
+            <length>30</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -136,8 +156,8 @@
             <attribute>0</attribute>
             <order-direction>0</order-direction>
             <expression/>
-            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;&#13;
-ZJLX != 7 </invisible-expression>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
+ZJLX != 7   </invisible-expression>
             <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
@@ -146,14 +166,16 @@ ZJLX != 7 </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
+            <properties>
+                <grid-col-width>150</grid-col-width>
+            </properties>
         </column>
         <column>
             <name>ZJHM</name>
             <describe>证件号码</describe>
             <type>0</type>
             <biz-type>100</biz-type>
-            <length>64</length>
+            <length>18</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -177,6 +199,9 @@ ZJLX != 7 </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties>
+                <grid-col-width>150</grid-col-width>
+            </properties>
         </column>
         <column>
             <name>SJH</name>
@@ -185,7 +210,7 @@ ZJLX != 7 </invisible-expression>
             <biz-type>100</biz-type>
             <length>64</length>
             <scale>0</scale>
-            <control>1</control>
+            <control>0</control>
             <primary-property>0</primary-property>
             <nullable>false</nullable>
             <unique>false</unique>
@@ -207,6 +232,9 @@ ZJLX != 7 </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties>
+                <grid-col-width>150</grid-col-width>
+            </properties>
         </column>
         <column>
             <name>BM</name>
@@ -237,17 +265,20 @@ ZJLX != 7 </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties>
+                <grid-col-width>200</grid-col-width>
+            </properties>
         </column>
         <column>
             <name>ZW</name>
             <describe>职务</describe>
             <type>0</type>
             <biz-type>100</biz-type>
-            <length>256</length>
+            <length>100</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
-            <nullable>false</nullable>
+            <nullable>true</nullable>
             <unique>false</unique>
             <enabled>false</enabled>
             <visible>true</visible>
@@ -267,6 +298,9 @@ ZJLX != 7 </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties>
+                <grid-col-width>150</grid-col-width>
+            </properties>
         </column>
     </columns>
     <display-options>
@@ -275,8 +309,20 @@ ZJLX != 7 </invisible-expression>
     </display-options>
     <subdivisions/>
     <methods/>
-    <properties/>
+    <properties>
+        <property>
+            <name>112</name>
+            <value>true</value>
+        </property>
+    </properties>
     <orders/>
+    <ui-logics>
+        <events>
+            <event attribute="0" src="ZJLX" type="0">
+                <process-name>lcIB_NHLCB_XMZRYXX_ZJLX_UI</process-name>
+            </event>
+        </events>
+    </ui-logics>
     <panels/>
     <extend-buttons/>
 </object>

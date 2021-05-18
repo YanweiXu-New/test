@@ -35,7 +35,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>InstID</name>
@@ -66,14 +65,13 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>IPO</name>
             <describe>表IPO</describe>
             <type>6</type>
             <biz-type>500</biz-type>
-            <length>0</length>
+            <length>16</length>
             <scale>0</scale>
             <control>10</control>
             <primary-property>0</primary-property>
@@ -82,21 +80,28 @@
             <enabled>false</enabled>
             <visible>false</visible>
             <option/>
+            <meta-column/>
             <ref-object>tIB_IPOJYXX</ref-object>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>ZRZ</name>
             <describe>再融资</describe>
             <type>6</type>
             <biz-type>500</biz-type>
-            <length>0</length>
+            <length>16</length>
             <scale>0</scale>
             <control>10</control>
             <primary-property>0</primary-property>
@@ -105,21 +110,28 @@
             <enabled>false</enabled>
             <visible>false</visible>
             <option/>
+            <meta-column/>
             <ref-object>tIB_ZRZJYXX</ref-object>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>CZ</name>
             <describe>重组</describe>
             <type>6</type>
             <biz-type>500</biz-type>
-            <length>0</length>
+            <length>16</length>
             <scale>0</scale>
             <control>10</control>
             <primary-property>0</primary-property>
@@ -128,14 +140,21 @@
             <enabled>false</enabled>
             <visible>false</visible>
             <option/>
+            <meta-column/>
             <ref-object>tIB_CZJYXX</ref-object>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>LCBT</name>
@@ -156,7 +175,7 @@
             <default/>
             <attribute>4098</attribute>
             <order-direction>0</order-direction>
-            <expression>"项目简要信息流程 "+SQR.Name+" "+$DateTime.Today</expression>
+            <expression>"项目简要信息流程 "+SQR.Name+" "+$DateTime.Today   </expression>
             <invisible-expression/>
             <disable-expression/>
             <category/>
@@ -166,14 +185,13 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>NHLC</name>
             <describe>内核流程</describe>
             <type>6</type>
             <biz-type>500</biz-type>
-            <length>0</length>
+            <length>16</length>
             <scale>0</scale>
             <control>0</control>
             <primary-property>0</primary-property>
@@ -182,18 +200,25 @@
             <enabled>false</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object>vIB_NHSPB</ref-object>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment/>
+            <validation/>
             <constraint type="3">
-                <SQL>["lcIB_NHSP.XMMC ={0} and rownum = 1 order by lcIB_NHSP.rSQSJ ",[{"expression":"XMMC","scale":0,"length":0,"type":1}]]</SQL>
+                <SQL>["lcIB_NHSP.XMMC ={0} and rownum = 1 order by lcIB_NHSP.rSQSJ ",[{"expression":"XMMC","length":0,"scale":0,"type":1}]]</SQL>
                 <refColumns/>
             </constraint>
-            <properties/>
+            <scope-permissions/>
         </column>
         <column>
             <name>SQR</name>
@@ -224,7 +249,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>SQBM</name>
@@ -255,7 +279,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>SQSJ</name>
@@ -286,7 +309,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>LCBH</name>
@@ -317,7 +339,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>XMMC</name>
@@ -352,7 +373,6 @@
                 <refColumns/>
             </constraint>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>XMSCJD</name>
@@ -387,7 +407,6 @@
                 <refColumns/>
             </constraint>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>XMLX</name>
@@ -418,11 +437,10 @@
             <comment/>
             <validation/>
             <constraint type="3">
-                <SQL>["tIB_XMLX.ID in (1,3,2,11,4,9,8,5,12)",[{"expression":"XMLX","scale":0,"length":0,"type":0}]]</SQL>
+                <SQL>["tIB_XMLX.ID in (1,3,2,11,4,9,8,5,12)",[{"expression":"XMLX","length":0,"scale":0,"type":0}]]</SQL>
                 <refColumns/>
             </constraint>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>XMFZR</name>
@@ -453,7 +471,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>SSBM</name>
@@ -484,7 +501,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>XMSF</name>
@@ -505,8 +521,9 @@
             <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX!=1  </invisible-expression>
+XMLX!=1     </invisible-expression>
             <disable-expression/>
             <category>项目基本信息</category>
             <fire-event>1</fire-event>
@@ -515,7 +532,6 @@ XMLX!=1  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>BJRDB</name>
@@ -546,7 +562,6 @@ XMLX!=1  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>XMXBR</name>
@@ -569,7 +584,7 @@ XMLX!=1  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX!=1  </invisible-expression>
+XMLX!=1     </invisible-expression>
             <disable-expression/>
             <category>项目基本信息</category>
             <fire-event>1</fire-event>
@@ -578,7 +593,6 @@ XMLX!=1  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>FXRLS</name>
@@ -601,7 +615,7 @@ XMLX!=1  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX!=1  </invisible-expression>
+XMLX!=1     </invisible-expression>
             <disable-expression/>
             <category>项目基本信息</category>
             <fire-event>1</fire-event>
@@ -610,7 +624,6 @@ XMLX!=1  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>KJSSWS</name>
@@ -633,7 +646,7 @@ XMLX!=1  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX!=1  </invisible-expression>
+XMLX!=1     </invisible-expression>
             <disable-expression/>
             <category>项目基本信息</category>
             <fire-event>1</fire-event>
@@ -642,7 +655,6 @@ XMLX!=1  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>FLZJ</name>
@@ -665,7 +677,7 @@ XMLX!=1  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX==1 ||XMLX ==null;  </invisible-expression>
+XMLX==1 ||XMLX ==null;     </invisible-expression>
             <disable-expression/>
             <category>项目基本信息</category>
             <fire-event>1</fire-event>
@@ -674,7 +686,6 @@ XMLX==1 ||XMLX ==null;  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>SJJG</name>
@@ -697,7 +708,7 @@ XMLX==1 ||XMLX ==null;  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX==1 ||XMLX ==null;  </invisible-expression>
+XMLX==1 ||XMLX ==null;     </invisible-expression>
             <disable-expression/>
             <category>项目基本信息</category>
             <fire-event>1</fire-event>
@@ -706,7 +717,6 @@ XMLX==1 ||XMLX ==null;  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>PGJG</name>
@@ -729,7 +739,7 @@ XMLX==1 ||XMLX ==null;  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX==1 ||XMLX ==null;  </invisible-expression>
+XMLX==1 ||XMLX ==null;     </invisible-expression>
             <disable-expression/>
             <category>项目基本信息</category>
             <fire-event>0</fire-event>
@@ -738,7 +748,6 @@ XMLX==1 ||XMLX ==null;  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>LXRQ</name>
@@ -769,7 +778,6 @@ XMLX==1 ||XMLX ==null;  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>NHRQ</name>
@@ -800,7 +808,6 @@ XMLX==1 ||XMLX ==null;  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>NHHYJY</name>
@@ -831,7 +838,6 @@ XMLX==1 ||XMLX ==null;  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>NHZS</name>
@@ -842,7 +848,7 @@ XMLX==1 ||XMLX ==null;  </invisible-expression>
             <scale>0</scale>
             <control>10</control>
             <primary-property>0</primary-property>
-            <nullable>true</nullable>
+            <nullable>false</nullable>
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
@@ -863,7 +869,6 @@ XMLX==1 ||XMLX ==null;  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>NHFS</name>
@@ -894,7 +899,6 @@ XMLX==1 ||XMLX ==null;  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>SCSBRQ</name>
@@ -925,7 +929,6 @@ XMLX==1 ||XMLX ==null;  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>ZJHSLRQ</name>
@@ -956,7 +959,6 @@ XMLX==1 ||XMLX ==null;  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>SDFKYJRQ</name>
@@ -987,7 +989,6 @@ XMLX==1 ||XMLX ==null;  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>BSFKYJHFRQ</name>
@@ -1018,7 +1019,6 @@ XMLX==1 ||XMLX ==null;  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>CHHRQ</name>
@@ -1049,7 +1049,6 @@ XMLX==1 ||XMLX ==null;  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>FSHRQ</name>
@@ -1080,7 +1079,6 @@ XMLX==1 ||XMLX ==null;  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>LQPWRQ</name>
@@ -1111,7 +1109,6 @@ XMLX==1 ||XMLX ==null;  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>XXTS_1</name>
@@ -1134,9 +1131,9 @@ XMLX==1 ||XMLX ==null;  </invisible-expression>
             <order-direction>0</order-direction>
             <expression>&lt;%@ livebos language='javascript' %&gt;
 '&lt;p&gt;&lt;span style="color: black;font-weight:bold;font-family:宋体;"&gt;--------- 发行人基本情况 ---------&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;'
-</expression>
+   </expression>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX!=1  </invisible-expression>
+XMLX!=1     </invisible-expression>
             <disable-expression/>
             <category>公司信息</category>
             <fire-event>0</fire-event>
@@ -1169,10 +1166,10 @@ XMLX!=1  </invisible-expression>
             <attribute>266240</attribute>
             <order-direction>0</order-direction>
             <expression>&lt;%@ livebos language='javascript' %&gt;
-'&lt;p&gt;&lt;span style="color: black;font-weight:bold;font-family:宋体;"&gt;--------- 上市公司基本情况 ---------&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;'&#13;
-</expression>
+'&lt;p&gt;&lt;span style="color: black;font-weight:bold;font-family:宋体;"&gt;--------- 上市公司基本情况 ---------&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;'
+   </expression>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX==1 ||XMLX ==null;  </invisible-expression>
+XMLX==1 ||XMLX ==null;     </invisible-expression>
             <disable-expression/>
             <category>公司信息</category>
             <fire-event>0</fire-event>
@@ -1181,7 +1178,6 @@ XMLX==1 ||XMLX ==null;  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>GSMC</name>
@@ -1212,7 +1208,6 @@ XMLX==1 ||XMLX ==null;  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>IPORQ</name>
@@ -1235,7 +1230,7 @@ XMLX==1 ||XMLX ==null;  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX==1 ||XMLX ==null;  </invisible-expression>
+XMLX==1 ||XMLX ==null;     </invisible-expression>
             <disable-expression/>
             <category>公司信息</category>
             <fire-event>0</fire-event>
@@ -1244,7 +1239,6 @@ XMLX==1 ||XMLX ==null;  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>SSBK</name>
@@ -1267,7 +1261,7 @@ XMLX==1 ||XMLX ==null;  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX==1 ||XMLX ==null;  </invisible-expression>
+XMLX==1 ||XMLX ==null;     </invisible-expression>
             <disable-expression/>
             <category>公司信息</category>
             <fire-event>0</fire-event>
@@ -1301,7 +1295,7 @@ XMLX==1 ||XMLX ==null;  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX!=1  </invisible-expression>
+XMLX!=1     </invisible-expression>
             <disable-expression/>
             <category>公司信息</category>
             <fire-event>0</fire-event>
@@ -1335,7 +1329,7 @@ XMLX!=1  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX!=1  </invisible-expression>
+XMLX!=1     </invisible-expression>
             <disable-expression/>
             <category>公司信息</category>
             <fire-event>0</fire-event>
@@ -1344,7 +1338,6 @@ XMLX!=1  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>HYFL</name>
@@ -1375,7 +1368,6 @@ XMLX!=1  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>QYXZ</name>
@@ -1398,7 +1390,7 @@ XMLX!=1  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX==1 ||XMLX ==null;  </invisible-expression>
+XMLX==1 ||XMLX ==null;     </invisible-expression>
             <disable-expression/>
             <category>公司信息</category>
             <fire-event>0</fire-event>
@@ -1440,7 +1432,6 @@ XMLX==1 ||XMLX ==null;  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>SJKZR</name>
@@ -1471,7 +1462,6 @@ XMLX==1 ||XMLX ==null;  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>NFXGFSL</name>
@@ -1494,7 +1484,7 @@ XMLX==1 ||XMLX ==null;  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX!=1  </invisible-expression>
+XMLX!=1     </invisible-expression>
             <disable-expression/>
             <category>公司信息</category>
             <fire-event>0</fire-event>
@@ -1503,7 +1493,6 @@ XMLX!=1  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>NMJZJJE</name>
@@ -1526,7 +1515,7 @@ XMLX!=1  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX!=1  </invisible-expression>
+XMLX!=1     </invisible-expression>
             <disable-expression/>
             <category>公司信息</category>
             <fire-event>0</fire-event>
@@ -1535,7 +1524,6 @@ XMLX!=1  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>QZJLX</name>
@@ -1559,7 +1547,7 @@ XMLX!=1  </invisible-expression>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 XMLX != 2&amp;&amp;XMLX!=3&amp;&amp;XMLX!=4&amp;&amp;XMLX!=8&amp;&amp;XMLX!=9&amp;&amp;XMLX!=11;
-  </invisible-expression>
+     </invisible-expression>
             <disable-expression/>
             <category>公司信息</category>
             <fire-event>0</fire-event>
@@ -1568,7 +1556,6 @@ XMLX != 2&amp;&amp;XMLX!=3&amp;&amp;XMLX!=4&amp;&amp;XMLX!=8&amp;&amp;XMLX!=9&am
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>QZJSJ</name>
@@ -1592,7 +1579,7 @@ XMLX != 2&amp;&amp;XMLX!=3&amp;&amp;XMLX!=4&amp;&amp;XMLX!=8&amp;&amp;XMLX!=9&am
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 XMLX != 2&amp;&amp;XMLX!=3&amp;&amp;XMLX!=4&amp;&amp;XMLX!=8&amp;&amp;XMLX!=9&amp;&amp;XMLX!=11;
-  </invisible-expression>
+     </invisible-expression>
             <disable-expression/>
             <category>公司信息</category>
             <fire-event>0</fire-event>
@@ -1601,7 +1588,6 @@ XMLX != 2&amp;&amp;XMLX!=3&amp;&amp;XMLX!=4&amp;&amp;XMLX!=8&amp;&amp;XMLX!=9&am
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>KZQBG</name>
@@ -1625,7 +1611,7 @@ XMLX != 2&amp;&amp;XMLX!=3&amp;&amp;XMLX!=4&amp;&amp;XMLX!=8&amp;&amp;XMLX!=9&am
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 XMLX != 5&amp;&amp;XMLX!=12;
-  </invisible-expression>
+     </invisible-expression>
             <disable-expression/>
             <category>公司信息</category>
             <fire-event>0</fire-event>
@@ -1634,7 +1620,6 @@ XMLX != 5&amp;&amp;XMLX!=12;
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>ZYCP</name>
@@ -1665,7 +1650,6 @@ XMLX != 5&amp;&amp;XMLX!=12;
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>GSZS</name>
@@ -1688,7 +1672,7 @@ XMLX != 5&amp;&amp;XMLX!=12;
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX==1 ||XMLX ==null;  </invisible-expression>
+XMLX==1 ||XMLX ==null;     </invisible-expression>
             <disable-expression/>
             <category>公司信息</category>
             <fire-event>0</fire-event>
@@ -1697,7 +1681,6 @@ XMLX==1 ||XMLX ==null;  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>CZQK</name>
@@ -1721,7 +1704,7 @@ XMLX==1 ||XMLX ==null;  </invisible-expression>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 XMLX != 5&amp;&amp;XMLX!=12;
-  </invisible-expression>
+     </invisible-expression>
             <disable-expression/>
             <category>公司信息</category>
             <fire-event>0</fire-event>
@@ -1730,7 +1713,6 @@ XMLX != 5&amp;&amp;XMLX!=12;
             <comment>（逐次描述3年内重组事项，是否存在重组失败情形等）</comment>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>SBQCWSJ</name>
@@ -1753,7 +1735,7 @@ XMLX != 5&amp;&amp;XMLX!=12;
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX!=1  </invisible-expression>
+XMLX!=1     </invisible-expression>
             <disable-expression/>
             <category>公司信息</category>
             <fire-event>0</fire-event>
@@ -1762,7 +1744,6 @@ XMLX!=1  </invisible-expression>
             <comment>时点不允许重复</comment>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>CWSJ_ZRZ</name>
@@ -1786,7 +1767,7 @@ XMLX!=1  </invisible-expression>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 XMLX != 2&amp;&amp;XMLX!=3&amp;&amp;XMLX!=4&amp;&amp;XMLX!=8&amp;&amp;XMLX!=9&amp;&amp;XMLX!=11;
-  </invisible-expression>
+     </invisible-expression>
             <disable-expression/>
             <category>公司信息</category>
             <fire-event>0</fire-event>
@@ -1795,7 +1776,6 @@ XMLX != 2&amp;&amp;XMLX!=3&amp;&amp;XMLX!=4&amp;&amp;XMLX!=8&amp;&amp;XMLX!=9&am
             <comment>时点不允许重复</comment>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>CWSJ_CZ</name>
@@ -1819,7 +1799,7 @@ XMLX != 2&amp;&amp;XMLX!=3&amp;&amp;XMLX!=4&amp;&amp;XMLX!=8&amp;&amp;XMLX!=9&am
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 XMLX != 5&amp;&amp;XMLX!=12;
-  </invisible-expression>
+     </invisible-expression>
             <disable-expression/>
             <category>公司信息</category>
             <fire-event>0</fire-event>
@@ -1828,7 +1808,6 @@ XMLX != 5&amp;&amp;XMLX!=12;
             <comment>时点不允许重复</comment>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>SYL</name>
@@ -1852,7 +1831,7 @@ XMLX != 5&amp;&amp;XMLX!=12;
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 XMLX != 2&amp;&amp;XMLX!=3&amp;&amp;XMLX!=4&amp;&amp;XMLX!=8&amp;&amp;XMLX!=9&amp;&amp;XMLX!=11;
-  </invisible-expression>
+     </invisible-expression>
             <disable-expression/>
             <category>公司信息</category>
             <fire-event>0</fire-event>
@@ -1861,7 +1840,6 @@ XMLX != 2&amp;&amp;XMLX!=3&amp;&amp;XMLX!=4&amp;&amp;XMLX!=8&amp;&amp;XMLX!=9&am
             <comment>最近三个会计年度加权平均净资产收益率(%)</comment>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>FZL</name>
@@ -1885,7 +1863,7 @@ XMLX != 2&amp;&amp;XMLX!=3&amp;&amp;XMLX!=4&amp;&amp;XMLX!=8&amp;&amp;XMLX!=9&am
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 XMLX != 2&amp;&amp;XMLX!=3&amp;&amp;XMLX!=4&amp;&amp;XMLX!=8&amp;&amp;XMLX!=9&amp;&amp;XMLX!=11;
-  </invisible-expression>
+     </invisible-expression>
             <disable-expression/>
             <category>公司信息</category>
             <fire-event>0</fire-event>
@@ -1920,7 +1898,7 @@ XMLX != 2&amp;&amp;XMLX!=3&amp;&amp;XMLX!=4&amp;&amp;XMLX!=8&amp;&amp;XMLX!=9&am
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 XMLX != 2&amp;&amp;XMLX!=3&amp;&amp;XMLX!=4&amp;&amp;XMLX!=8&amp;&amp;XMLX!=9&amp;&amp;XMLX!=11;
-  </invisible-expression>
+     </invisible-expression>
             <disable-expression/>
             <category>其他信息</category>
             <fire-event>0</fire-event>
@@ -1929,7 +1907,6 @@ XMLX != 2&amp;&amp;XMLX!=3&amp;&amp;XMLX!=4&amp;&amp;XMLX!=8&amp;&amp;XMLX!=9&am
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>XFGFS</name>
@@ -1953,7 +1930,7 @@ XMLX != 2&amp;&amp;XMLX!=3&amp;&amp;XMLX!=4&amp;&amp;XMLX!=8&amp;&amp;XMLX!=9&am
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 XMLX != 2&amp;&amp;XMLX!=3&amp;&amp;XMLX!=4&amp;&amp;XMLX!=8&amp;&amp;XMLX!=9&amp;&amp;XMLX!=11;
-  </invisible-expression>
+     </invisible-expression>
             <disable-expression/>
             <category>其他信息</category>
             <fire-event>0</fire-event>
@@ -1962,7 +1939,6 @@ XMLX != 2&amp;&amp;XMLX!=3&amp;&amp;XMLX!=4&amp;&amp;XMLX!=8&amp;&amp;XMLX!=9&am
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>MJZE_QT</name>
@@ -1986,7 +1962,7 @@ XMLX != 2&amp;&amp;XMLX!=3&amp;&amp;XMLX!=4&amp;&amp;XMLX!=8&amp;&amp;XMLX!=9&am
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 XMLX != 2&amp;&amp;XMLX!=3&amp;&amp;XMLX!=4&amp;&amp;XMLX!=8&amp;&amp;XMLX!=9&amp;&amp;XMLX!=11;
-  </invisible-expression>
+     </invisible-expression>
             <disable-expression/>
             <category>其他信息</category>
             <fire-event>0</fire-event>
@@ -1995,7 +1971,6 @@ XMLX != 2&amp;&amp;XMLX!=3&amp;&amp;XMLX!=4&amp;&amp;XMLX!=8&amp;&amp;XMLX!=9&am
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>ZJYT_ZRZ_QT</name>
@@ -2019,7 +1994,7 @@ XMLX != 2&amp;&amp;XMLX!=3&amp;&amp;XMLX!=4&amp;&amp;XMLX!=8&amp;&amp;XMLX!=9&am
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 XMLX != 2&amp;&amp;XMLX!=3&amp;&amp;XMLX!=4&amp;&amp;XMLX!=8&amp;&amp;XMLX!=9&amp;&amp;XMLX!=11;
-  </invisible-expression>
+     </invisible-expression>
             <disable-expression/>
             <category>其他信息</category>
             <fire-event>0</fire-event>
@@ -2028,7 +2003,6 @@ XMLX != 2&amp;&amp;XMLX!=3&amp;&amp;XMLX!=4&amp;&amp;XMLX!=8&amp;&amp;XMLX!=9&am
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>FXJ</name>
@@ -2051,7 +2025,7 @@ XMLX != 2&amp;&amp;XMLX!=3&amp;&amp;XMLX!=4&amp;&amp;XMLX!=8&amp;&amp;XMLX!=9&am
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=11  </invisible-expression>
+XMLX !=11     </invisible-expression>
             <disable-expression/>
             <category>定向增发项目显示</category>
             <fire-event>0</fire-event>
@@ -2060,7 +2034,6 @@ XMLX !=11  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>GFS</name>
@@ -2083,7 +2056,7 @@ XMLX !=11  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=11  </invisible-expression>
+XMLX !=11     </invisible-expression>
             <disable-expression/>
             <category>定向增发项目显示</category>
             <fire-event>0</fire-event>
@@ -2092,7 +2065,6 @@ XMLX !=11  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>DXMJZIZE</name>
@@ -2115,7 +2087,7 @@ XMLX !=11  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=11  </invisible-expression>
+XMLX !=11     </invisible-expression>
             <disable-expression/>
             <category>定向增发项目显示</category>
             <fire-event>0</fire-event>
@@ -2124,7 +2096,6 @@ XMLX !=11  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>ZJYT</name>
@@ -2147,7 +2118,7 @@ XMLX !=11  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=11  </invisible-expression>
+XMLX !=11     </invisible-expression>
             <disable-expression/>
             <category>定向增发项目显示</category>
             <fire-event>0</fire-event>
@@ -2156,7 +2127,6 @@ XMLX !=11  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>DXFXFS</name>
@@ -2179,7 +2149,7 @@ XMLX !=11  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=11  </invisible-expression>
+XMLX !=11     </invisible-expression>
             <disable-expression/>
             <category>定向增发项目显示</category>
             <fire-event>0</fire-event>
@@ -2188,7 +2158,6 @@ XMLX !=11  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>KZQ</name>
@@ -2211,7 +2180,7 @@ XMLX !=11  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=11  </invisible-expression>
+XMLX !=11     </invisible-expression>
             <disable-expression/>
             <category>定向增发项目显示</category>
             <fire-event>0</fire-event>
@@ -2245,7 +2214,7 @@ XMLX !=11  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=11  </invisible-expression>
+XMLX !=11     </invisible-expression>
             <disable-expression/>
             <category>定向增发项目显示</category>
             <fire-event>0</fire-event>
@@ -2254,7 +2223,6 @@ XMLX !=11  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>DX</name>
@@ -2277,7 +2245,7 @@ XMLX !=11  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=11  </invisible-expression>
+XMLX !=11     </invisible-expression>
             <disable-expression/>
             <category>定向增发项目显示</category>
             <fire-event>0</fire-event>
@@ -2286,7 +2254,6 @@ XMLX !=11  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>SDQ</name>
@@ -2309,7 +2276,7 @@ XMLX !=11  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=11  </invisible-expression>
+XMLX !=11     </invisible-expression>
             <disable-expression/>
             <category>定向增发项目显示</category>
             <fire-event>0</fire-event>
@@ -2318,7 +2285,6 @@ XMLX !=11  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>FXJ_PG</name>
@@ -2341,7 +2307,7 @@ XMLX !=11  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=4  </invisible-expression>
+XMLX !=4     </invisible-expression>
             <disable-expression/>
             <category>配股项目显示</category>
             <fire-event>0</fire-event>
@@ -2350,7 +2316,6 @@ XMLX !=4  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>DXQ</name>
@@ -2373,7 +2338,7 @@ XMLX !=4  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=4  </invisible-expression>
+XMLX !=4     </invisible-expression>
             <disable-expression/>
             <category>配股项目显示</category>
             <fire-event>0</fire-event>
@@ -2382,7 +2347,6 @@ XMLX !=4  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>SL_PG</name>
@@ -2405,7 +2369,7 @@ XMLX !=4  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=4  </invisible-expression>
+XMLX !=4     </invisible-expression>
             <disable-expression/>
             <category>配股项目显示</category>
             <fire-event>0</fire-event>
@@ -2414,7 +2378,6 @@ XMLX !=4  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>PSBL</name>
@@ -2437,7 +2400,7 @@ XMLX !=4  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=4  </invisible-expression>
+XMLX !=4     </invisible-expression>
             <disable-expression/>
             <category>配股项目显示</category>
             <fire-event>0</fire-event>
@@ -2446,7 +2409,6 @@ XMLX !=4  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>GDSL</name>
@@ -2469,7 +2431,7 @@ XMLX !=4  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=4  </invisible-expression>
+XMLX !=4     </invisible-expression>
             <disable-expression/>
             <category>配股项目显示</category>
             <fire-event>0</fire-event>
@@ -2478,7 +2440,6 @@ XMLX !=4  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>RPBL</name>
@@ -2501,7 +2462,7 @@ XMLX !=4  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=4  </invisible-expression>
+XMLX !=4     </invisible-expression>
             <disable-expression/>
             <category>配股项目显示</category>
             <fire-event>0</fire-event>
@@ -2510,7 +2471,6 @@ XMLX !=4  </invisible-expression>
             <comment>控股股东认配数量占其原持股数量的比例(%)</comment>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>ZJZE</name>
@@ -2533,7 +2493,7 @@ XMLX !=4  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=4  </invisible-expression>
+XMLX !=4     </invisible-expression>
             <disable-expression/>
             <category>配股项目显示</category>
             <fire-event>0</fire-event>
@@ -2542,7 +2502,6 @@ XMLX !=4  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>ZJYT_PG</name>
@@ -2565,7 +2524,7 @@ XMLX !=4  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=4  </invisible-expression>
+XMLX !=4     </invisible-expression>
             <disable-expression/>
             <category>配股项目显示</category>
             <fire-event>0</fire-event>
@@ -2574,7 +2533,6 @@ XMLX !=4  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>FZL_LZZ</name>
@@ -2597,7 +2555,7 @@ XMLX !=4  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=9  </invisible-expression>
+XMLX !=9     </invisible-expression>
             <disable-expression/>
             <category>可转债项目显示</category>
             <fire-event>0</fire-event>
@@ -2606,7 +2564,6 @@ XMLX !=9  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>BL</name>
@@ -2629,7 +2586,7 @@ XMLX !=9  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=9  </invisible-expression>
+XMLX !=9     </invisible-expression>
             <disable-expression/>
             <category>可转债项目显示</category>
             <fire-event>0</fire-event>
@@ -2638,7 +2595,6 @@ XMLX !=9  </invisible-expression>
             <comment>本次发行后累计公司债券余额占最近一期末资产净额的比例(%)</comment>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>FXFS</name>
@@ -2661,7 +2617,7 @@ XMLX !=9  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=9  </invisible-expression>
+XMLX !=9     </invisible-expression>
             <disable-expression/>
             <category>可转债项目显示</category>
             <fire-event>0</fire-event>
@@ -2695,7 +2651,7 @@ XMLX !=9  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=9  </invisible-expression>
+XMLX !=9     </invisible-expression>
             <disable-expression/>
             <category>可转债项目显示</category>
             <fire-event>0</fire-event>
@@ -2729,7 +2685,7 @@ XMLX !=9  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=9 </invisible-expression>
+XMLX !=9    </invisible-expression>
             <disable-expression/>
             <category>可转债项目显示</category>
             <fire-event>0</fire-event>
@@ -2763,7 +2719,7 @@ XMLX !=9 </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=9 </invisible-expression>
+XMLX !=9    </invisible-expression>
             <disable-expression/>
             <category>可转债项目显示</category>
             <fire-event>0</fire-event>
@@ -2772,7 +2728,6 @@ XMLX !=9 </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>DBR</name>
@@ -2795,7 +2750,7 @@ XMLX !=9 </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX!=9 </invisible-expression>
+XMLX!=9    </invisible-expression>
             <disable-expression/>
             <category>可转债项目显示</category>
             <fire-event>0</fire-event>
@@ -2804,7 +2759,6 @@ XMLX!=9 </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>MJZE</name>
@@ -2827,7 +2781,7 @@ XMLX!=9 </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=9  </invisible-expression>
+XMLX !=9     </invisible-expression>
             <disable-expression/>
             <category>可转债项目显示</category>
             <fire-event>0</fire-event>
@@ -2836,7 +2790,6 @@ XMLX !=9  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>ZJYT_KZZ</name>
@@ -2859,7 +2812,7 @@ XMLX !=9  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=9  </invisible-expression>
+XMLX !=9     </invisible-expression>
             <disable-expression/>
             <category>可转债项目显示</category>
             <fire-event>0</fire-event>
@@ -2868,7 +2821,6 @@ XMLX !=9  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>FXJ_YXG</name>
@@ -2891,7 +2843,7 @@ XMLX !=9  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=8  </invisible-expression>
+XMLX !=8     </invisible-expression>
             <disable-expression/>
             <category>优先股项目显示</category>
             <fire-event>0</fire-event>
@@ -2900,7 +2852,6 @@ XMLX !=8  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>FXRQ</name>
@@ -2923,7 +2874,7 @@ XMLX !=8  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=8  </invisible-expression>
+XMLX !=8     </invisible-expression>
             <disable-expression/>
             <category>优先股项目显示</category>
             <fire-event>0</fire-event>
@@ -2932,7 +2883,6 @@ XMLX !=8  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>FXSL</name>
@@ -2955,7 +2905,7 @@ XMLX !=8  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=8  </invisible-expression>
+XMLX !=8     </invisible-expression>
             <disable-expression/>
             <category>优先股项目显示</category>
             <fire-event>0</fire-event>
@@ -2964,7 +2914,6 @@ XMLX !=8  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>MJJE</name>
@@ -2987,7 +2936,7 @@ XMLX !=8  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=8  </invisible-expression>
+XMLX !=8     </invisible-expression>
             <disable-expression/>
             <category>优先股项目显示</category>
             <fire-event>0</fire-event>
@@ -2996,7 +2945,6 @@ XMLX !=8  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>FG</name>
@@ -3019,7 +2967,7 @@ XMLX !=8  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=8  </invisible-expression>
+XMLX !=8     </invisible-expression>
             <disable-expression/>
             <category>优先股项目显示</category>
             <fire-event>0</fire-event>
@@ -3053,7 +3001,7 @@ XMLX !=8  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=8  </invisible-expression>
+XMLX !=8     </invisible-expression>
             <disable-expression/>
             <category>优先股项目显示</category>
             <fire-event>0</fire-event>
@@ -3087,7 +3035,7 @@ XMLX !=8  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=8  </invisible-expression>
+XMLX !=8     </invisible-expression>
             <disable-expression/>
             <category>优先股项目显示</category>
             <fire-event>0</fire-event>
@@ -3121,7 +3069,7 @@ XMLX !=8  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=8  </invisible-expression>
+XMLX !=8     </invisible-expression>
             <disable-expression/>
             <category>优先股项目显示</category>
             <fire-event>0</fire-event>
@@ -3155,7 +3103,7 @@ XMLX !=8  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=8  </invisible-expression>
+XMLX !=8     </invisible-expression>
             <disable-expression/>
             <category>优先股项目显示</category>
             <fire-event>0</fire-event>
@@ -3164,7 +3112,6 @@ XMLX !=8  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>KFZH</name>
@@ -3187,7 +3134,7 @@ XMLX !=8  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=8  </invisible-expression>
+XMLX !=8     </invisible-expression>
             <disable-expression/>
             <category>优先股项目显示</category>
             <fire-event>0</fire-event>
@@ -3221,7 +3168,7 @@ XMLX !=8  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=8  </invisible-expression>
+XMLX !=8     </invisible-expression>
             <disable-expression/>
             <category>优先股项目显示</category>
             <fire-event>0</fire-event>
@@ -3230,7 +3177,6 @@ XMLX !=8  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>KFLJ</name>
@@ -3253,7 +3199,7 @@ XMLX !=8  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=8  </invisible-expression>
+XMLX !=8     </invisible-expression>
             <disable-expression/>
             <category>优先股项目显示</category>
             <fire-event>0</fire-event>
@@ -3287,7 +3233,7 @@ XMLX !=8  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=8  </invisible-expression>
+XMLX !=8     </invisible-expression>
             <disable-expression/>
             <category>优先股项目显示</category>
             <fire-event>0</fire-event>
@@ -3296,7 +3242,6 @@ XMLX !=8  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>SHTK</name>
@@ -3319,7 +3264,7 @@ XMLX !=8  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=8  </invisible-expression>
+XMLX !=8     </invisible-expression>
             <disable-expression/>
             <category>优先股项目显示</category>
             <fire-event>0</fire-event>
@@ -3328,7 +3273,6 @@ XMLX !=8  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>DX_YXG</name>
@@ -3351,7 +3295,7 @@ XMLX !=8  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=8  </invisible-expression>
+XMLX !=8     </invisible-expression>
             <disable-expression/>
             <category>优先股项目显示</category>
             <fire-event>0</fire-event>
@@ -3360,7 +3304,6 @@ XMLX !=8  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>DXRS</name>
@@ -3383,7 +3326,7 @@ XMLX !=8  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=8  </invisible-expression>
+XMLX !=8     </invisible-expression>
             <disable-expression/>
             <category>优先股项目显示</category>
             <fire-event>0</fire-event>
@@ -3392,13 +3335,12 @@ XMLX !=8  </invisible-expression>
             <comment>&lt;font color=red&gt;不得超过200人&lt;font&gt;</comment>
             <validation>
                 <validator name="maxvalue">
-                    <expression>{2}=200  </expression>
+                    <expression>{2}=200     </expression>
                     <message>{0}不能大于{2}</message>
                     <attribute>0</attribute>
                 </validator>
             </validation>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>LJRS</name>
@@ -3421,23 +3363,22 @@ XMLX !=8  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMLX !=8  </invisible-expression>
+XMLX !=8     </invisible-expression>
             <disable-expression/>
             <category>优先股项目显示</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <comment>&#13;
+            <comment>
 &lt;font color=red&gt;不得超过200人&lt;font&gt;</comment>
             <validation>
                 <validator name="maxvalue">
-                    <expression>{2}=200  </expression>
+                    <expression>{2}=200     </expression>
                     <message>{0}不能大于{2}</message>
                     <attribute>0</attribute>
                 </validator>
             </validation>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>JYLX</name>
@@ -3461,7 +3402,7 @@ XMLX !=8  </invisible-expression>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 XMLX != 5&amp;&amp;XMLX!=12;
-  </invisible-expression>
+     </invisible-expression>
             <disable-expression/>
             <category>交易方案情况</category>
             <fire-event>0</fire-event>
@@ -3496,7 +3437,7 @@ XMLX != 5&amp;&amp;XMLX!=12;
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 XMLX != 5&amp;&amp;XMLX!=12;
-  </invisible-expression>
+     </invisible-expression>
             <disable-expression/>
             <category>交易方案情况</category>
             <fire-event>0</fire-event>
@@ -3505,7 +3446,6 @@ XMLX != 5&amp;&amp;XMLX!=12;
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>JYJG</name>
@@ -3529,7 +3469,7 @@ XMLX != 5&amp;&amp;XMLX!=12;
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 XMLX != 5&amp;&amp;XMLX!=12;
-  </invisible-expression>
+     </invisible-expression>
             <disable-expression/>
             <category>交易方案情况</category>
             <fire-event>0</fire-event>
@@ -3538,7 +3478,6 @@ XMLX != 5&amp;&amp;XMLX!=12;
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>JYPGJG</name>
@@ -3562,7 +3501,7 @@ XMLX != 5&amp;&amp;XMLX!=12;
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 XMLX != 5&amp;&amp;XMLX!=12;
-  </invisible-expression>
+     </invisible-expression>
             <disable-expression/>
             <category>交易方案情况</category>
             <fire-event>0</fire-event>
@@ -3571,7 +3510,6 @@ XMLX != 5&amp;&amp;XMLX!=12;
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>PGZZL</name>
@@ -3595,7 +3533,7 @@ XMLX != 5&amp;&amp;XMLX!=12;
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 XMLX != 5&amp;&amp;XMLX!=12;
-  </invisible-expression>
+     </invisible-expression>
             <disable-expression/>
             <category>交易方案情况</category>
             <fire-event>0</fire-event>
@@ -3604,7 +3542,6 @@ XMLX != 5&amp;&amp;XMLX!=12;
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>JYDF</name>
@@ -3628,7 +3565,7 @@ XMLX != 5&amp;&amp;XMLX!=12;
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 XMLX != 5&amp;&amp;XMLX!=12;
-  </invisible-expression>
+     </invisible-expression>
             <disable-expression/>
             <category>交易方案情况</category>
             <fire-event>0</fire-event>
@@ -3637,7 +3574,6 @@ XMLX != 5&amp;&amp;XMLX!=12;
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>GLJY</name>
@@ -3661,7 +3597,7 @@ XMLX != 5&amp;&amp;XMLX!=12;
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 XMLX != 5&amp;&amp;XMLX!=12;
-  </invisible-expression>
+     </invisible-expression>
             <disable-expression/>
             <category>交易方案情况</category>
             <fire-event>0</fire-event>
@@ -3696,7 +3632,7 @@ XMLX != 5&amp;&amp;XMLX!=12;
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 XMLX != 5&amp;&amp;XMLX!=12;
-  </invisible-expression>
+     </invisible-expression>
             <disable-expression/>
             <category>交易方案情况</category>
             <fire-event>0</fire-event>
@@ -3731,7 +3667,7 @@ XMLX != 5&amp;&amp;XMLX!=12;
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 XMLX != 5&amp;&amp;XMLX!=12;
-  </invisible-expression>
+     </invisible-expression>
             <disable-expression/>
             <category>交易方案情况</category>
             <fire-event>0</fire-event>
@@ -3766,7 +3702,7 @@ XMLX != 5&amp;&amp;XMLX!=12;
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 XMLX != 5&amp;&amp;XMLX!=12;
-  </invisible-expression>
+     </invisible-expression>
             <disable-expression/>
             <category>交易方案情况</category>
             <fire-event>0</fire-event>
@@ -3775,7 +3711,6 @@ XMLX != 5&amp;&amp;XMLX!=12;
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>YJCN</name>
@@ -3799,7 +3734,7 @@ XMLX != 5&amp;&amp;XMLX!=12;
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 XMLX != 5&amp;&amp;XMLX!=12;
-  </invisible-expression>
+     </invisible-expression>
             <disable-expression/>
             <category>交易方案情况</category>
             <fire-event>0</fire-event>
@@ -3808,7 +3743,6 @@ XMLX != 5&amp;&amp;XMLX!=12;
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>PMQK</name>
@@ -3830,11 +3764,11 @@ XMLX != 5&amp;&amp;XMLX!=12;
             <attribute>67371008</attribute>
             <order-direction>0</order-direction>
             <expression>&lt;%@ livebos language='javascript' %&gt;
-'&lt;p&gt;&lt;span style="color: black;font-weight:bold;font-family:宋体;"&gt;--------- 配募情况 ---------&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;'&#13;
-</expression>
+'&lt;p&gt;&lt;span style="color: black;font-weight:bold;font-family:宋体;"&gt;--------- 配募情况 ---------&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;'
+   </expression>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 XMLX != 5&amp;&amp;XMLX!=12;
-  </invisible-expression>
+     </invisible-expression>
             <disable-expression/>
             <category>交易方案情况</category>
             <fire-event>0</fire-event>
@@ -3843,7 +3777,6 @@ XMLX != 5&amp;&amp;XMLX!=12;
             <comment>&lt;font color = grey&gt;配募情况 &lt;font&gt;</comment>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>PMZJZE</name>
@@ -3867,7 +3800,7 @@ XMLX != 5&amp;&amp;XMLX!=12;
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 XMLX != 5&amp;&amp;XMLX!=12;
-  </invisible-expression>
+     </invisible-expression>
             <disable-expression/>
             <category>交易方案情况</category>
             <fire-event>0</fire-event>
@@ -3876,7 +3809,6 @@ XMLX != 5&amp;&amp;XMLX!=12;
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>DGDCYQK</name>
@@ -3900,7 +3832,7 @@ XMLX != 5&amp;&amp;XMLX!=12;
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 XMLX != 5&amp;&amp;XMLX!=12;
-  </invisible-expression>
+     </invisible-expression>
             <disable-expression/>
             <category>交易方案情况</category>
             <fire-event>0</fire-event>
@@ -3909,7 +3841,6 @@ XMLX != 5&amp;&amp;XMLX!=12;
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>GLFCYQK</name>
@@ -3933,7 +3864,7 @@ XMLX != 5&amp;&amp;XMLX!=12;
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 XMLX != 5&amp;&amp;XMLX!=12;
-  </invisible-expression>
+     </invisible-expression>
             <disable-expression/>
             <category>交易方案情况</category>
             <fire-event>0</fire-event>
@@ -3942,7 +3873,6 @@ XMLX != 5&amp;&amp;XMLX!=12;
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>HX</name>
@@ -3957,21 +3887,28 @@ XMLX != 5&amp;&amp;XMLX!=12;
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
             <attribute>262144</attribute>
             <order-direction>0</order-direction>
             <expression>&lt;%@ livebos language='javascript' %&gt;
 '&lt;p&gt;&lt;span style="color: black;font-weight:bold;font-family:宋体;"&gt;----------------------------&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;'
-&#13;
-&#13;
-</expression>
-            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;&#13;
-XMLX != 5&amp;&amp;XMLX!=12;&#13;
-  </invisible-expression>
+
+
+   </expression>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
+XMLX != 5&amp;&amp;XMLX!=12;
+     </invisible-expression>
+            <disable-expression/>
             <category>交易方案情况</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>ZDZCSJ</name>
@@ -3995,7 +3932,7 @@ XMLX != 5&amp;&amp;XMLX!=12;&#13;
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 XMLX != 5&amp;&amp;XMLX!=12;
-  </invisible-expression>
+     </invisible-expression>
             <disable-expression/>
             <category>交易方案情况</category>
             <fire-event>0</fire-event>
@@ -4031,7 +3968,7 @@ XMLX != 5&amp;&amp;XMLX!=12;
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 XMLX != 5&amp;&amp;XMLX!=12;
-  </invisible-expression>
+     </invisible-expression>
             <disable-expression/>
             <category>交易方案情况</category>
             <fire-event>0</fire-event>
@@ -4066,7 +4003,7 @@ XMLX != 5&amp;&amp;XMLX!=12;
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 XMLX != 5&amp;&amp;XMLX!=12;
-  </invisible-expression>
+     </invisible-expression>
             <disable-expression/>
             <category>标的资产情况</category>
             <fire-event>0</fire-event>
@@ -4075,7 +4012,6 @@ XMLX != 5&amp;&amp;XMLX!=12;
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>BDGSCWZB</name>
@@ -4099,7 +4035,7 @@ XMLX != 5&amp;&amp;XMLX!=12;
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 XMLX != 5&amp;&amp;XMLX!=12;
-  </invisible-expression>
+     </invisible-expression>
             <disable-expression/>
             <category>标的资产情况</category>
             <fire-event>0</fire-event>
@@ -4108,7 +4044,6 @@ XMLX != 5&amp;&amp;XMLX!=12;
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
     </columns>
     <display-options>
@@ -4143,9 +4078,6 @@ XMLX != 5&amp;&amp;XMLX!=12;
             </event>
             <event attribute="0" src="XMLX" type="0">
                 <process-name>lcIB_XMJYXX_XMLX_UI</process-name>
-            </event>
-            <event attribute="0" src="OperateInitialize" type="0">
-                <process-name>lcIB_XMJYXX_OperateInitialize_UI</process-name>
             </event>
         </events>
     </ui-logics>

@@ -284,7 +284,7 @@
             <comment/>
             <validation/>
             <constraint type="3">
-                <SQL>["tIB_XMXX_XSB.KPJD IN (112,113) AND (tIB_XMXX_XSB.CXDDZY = {0} OR tIB_XMXX_XSB.BMJCSDDZY = {0})",[{"expression":"$Login.User","scale":0,"length":0,"type":1}]]</SQL>
+                <SQL>["tIB_XMXX_XSB.KPJD IN (112,113) AND (tIB_XMXX_XSB.CXDDZY = {0} OR tIB_XMXX_XSB.BMJCSDDZY = {0})",[{"expression":"$Login.User","length":0,"scale":0,"type":1}]]</SQL>
                 <refColumns/>
             </constraint>
             <scope-permissions/>
@@ -554,7 +554,7 @@ LB.getClient().isStandard==false</invisible-expression>
         </column>
     </columns>
     <restrictions>
-        <condition>{"statement":"exists(select 1 from tIB_MyFlow where InstID=lcIB_NDXCHCJNDPXJYBALCB.InstID and UserID={0}) or {0}=0","args":[{"expression":"$Login.User","scale":0,"length":0,"type":1}],"type":0}</condition>
+        <condition>{"args":[{"expression":"$Login.User","length":0,"scale":0,"type":1}],"statement":"exists(select 1 from tIB_MyFlow where InstID=lcIB_NDXCHCJNDPXJYBALCB.InstID and UserID={0}) or {0}=0","type":0}</condition>
     </restrictions>
     <display-options>
         <commands>

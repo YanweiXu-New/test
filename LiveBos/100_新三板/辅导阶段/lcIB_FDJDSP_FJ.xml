@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="GB2312" standalone="no"?>
-<object create-date="2020.08.20 19:03:38" creator="开发者" flag="0" name="lcIB_FDJDSP_FJ" object-id="b8e039d1-b6ac-46f9-b314-0fa5839e4184" package="100_新三板.辅导阶段" type="15" version="1.0">
+<object create-date="2020.08.20 19:03:38" creator="开发者" flag="0" modifier="null" modify-date="null" name="lcIB_FDJDSP_FJ" object-id="b8e039d1-b6ac-46f9-b314-0fa5839e4184" package="100_新三板.辅导阶段" type="15" version="1.0">
     <describe>上传公文附件</describe>
+    <comment/>
+    <datasource-name>ECIF</datasource-name>
     <parent>lcIB_FDJDSP</parent>
     <attribute>264</attribute>
+    <templet>默认</templet>
     <columns>
         <column>
             <name>ID</name>
@@ -17,12 +20,22 @@
             <unique>false</unique>
             <enabled>false</enabled>
             <visible>false</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>TJSX</name>
@@ -65,7 +78,7 @@
             <primary-property>0</primary-property>
             <nullable>true</nullable>
             <unique>false</unique>
-            <enabled>true</enabled>
+            <enabled>false</enabled>
             <visible>true</visible>
             <option/>
             <meta-column/>
@@ -117,7 +130,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>SFSY</name>
@@ -133,15 +145,21 @@
             <enabled>false</enabled>
             <visible>true</visible>
             <option>$D{JG_SF}</option>
+            <meta-column/>
             <ref-object/>
             <default>1</default>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>FJM</name>
@@ -154,7 +172,7 @@
             <primary-property>0</primary-property>
             <nullable>true</nullable>
             <unique>false</unique>
-            <enabled>true</enabled>
+            <enabled>false</enabled>
             <visible>true</visible>
             <option/>
             <meta-column/>
@@ -187,7 +205,7 @@
             <primary-property>8</primary-property>
             <nullable>true</nullable>
             <unique>false</unique>
-            <enabled>true</enabled>
+            <enabled>false</enabled>
             <visible>true</visible>
             <option/>
             <meta-column/>
@@ -195,7 +213,7 @@
             <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
-            <expression>ABS_SQLVALUE("SELECT ECIF.FUNC_IB_GETALLWDMC(?) FROM DUAL",[FJM])    </expression>
+            <expression>ABS_SQLVALUE("SELECT ECIF.FUNC_IB_GETALLWDMC(?) FROM DUAL",[FJM])      </expression>
             <invisible-expression/>
             <disable-expression/>
             <category/>
@@ -280,17 +298,24 @@
             <primary-property>0</primary-property>
             <nullable>false</nullable>
             <unique>false</unique>
-            <enabled>true</enabled>
+            <enabled>false</enabled>
             <visible>true</visible>
             <option>$D{JG_SF}</option>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>SF360XS</name>
@@ -329,8 +354,23 @@
     </display-options>
     <subdivisions/>
     <methods/>
-    <properties/>
+    <properties>
+        <property>
+            <name>112</name>
+            <value>true</value>
+        </property>
+    </properties>
     <orders/>
+    <ui-logics>
+        <events>
+            <event attribute="0" src="FJLX" type="0">
+                <process-name>lcIB_FDJDSP_FJ_FJLX_UI</process-name>
+            </event>
+            <event attribute="0" src="OperateInitialize" type="0">
+                <process-name>lcIB_FDJDSP_FJ_OperateInitialize_UI</process-name>
+            </event>
+        </events>
+    </ui-logics>
     <panels/>
     <extend-buttons/>
 </object>

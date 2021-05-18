@@ -34,6 +34,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>NHHBJSJ_JS</name>
@@ -64,6 +65,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>XMLX</name>
@@ -135,6 +137,7 @@
                 <refColumns/>
             </constraint>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>QYXZ</name>
@@ -340,10 +343,332 @@
                 <null-item>全部</null-item>
             </properties>
         </column>
+        <column>
+            <name>SQSJ</name>
+            <describe>申请时间</describe>
+            <type>13</type>
+            <biz-type>300</biz-type>
+            <length>10</length>
+            <scale>0</scale>
+            <control>3</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object/>
+            <default>null</default>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>SQSJ_JS</name>
+            <describe>申请时间_结束</describe>
+            <type>13</type>
+            <biz-type>300</biz-type>
+            <length>10</length>
+            <scale>0</scale>
+            <control>3</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object/>
+            <default>null</default>
+            <attribute>67108864</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>DQBZ</name>
+            <describe>当前步骤</describe>
+            <type>6</type>
+            <biz-type>500</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>10</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object>tIB_WorkFlowStep</ref-object>
+            <attribute>4096</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <constraint type="3">
+                <SQL>["tIB_WorkFlowStep.WF_NAME = 'wfIB_GS_NHLC'",[]]</SQL>
+                <refColumns/>
+            </constraint>
+            <properties/>
+        </column>
+        <column>
+            <name>fxrmc</name>
+            <describe>公司名称</describe>
+            <type>6</type>
+            <biz-type>500</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>10</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object>tIB_KHXX</ref-object>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <constraint type="3">
+                <SQL>["tIB_KHXX.KHZT = 1",[]]</SQL>
+                <refColumns/>
+            </constraint>
+            <properties/>
+        </column>
+        <column>
+            <name>KHLB</name>
+            <describe>客户类别</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>2</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option>$D{IB_KHLB}</option>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>SSSF</name>
+            <describe>所属省份</describe>
+            <type>6</type>
+            <biz-type>500</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>2</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object>tIB_SFXX</ref-object>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <constraint type="3">
+                <SQL>["tIB_SFXX.IBM != 0",[]]</SQL>
+                <refColumns/>
+            </constraint>
+            <properties/>
+        </column>
+        <column>
+            <name>SSCS</name>
+            <describe>所属城市</describe>
+            <type>6</type>
+            <biz-type>500</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>2</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object>tIB_CSXX</ref-object>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <constraint type="0">
+                <parameter-map type="0">
+                    <ref-object>tIB_CSXX</ref-object>
+                    <ref-parameter>PARENT</ref-parameter>
+                    <map-column>SSSF</map-column>
+                </parameter-map>
+            </constraint>
+            <properties/>
+        </column>
+        <column>
+            <name>LXFS</name>
+            <describe>立项表决方式</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>2</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option>1|线上立项表决;2|线下立项表决</option>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>LXJG</name>
+            <describe>立项表决结果</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>2</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option>1|通过;2|有条件通过;-1|不通过;0|暂缓</option>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>NHFS</name>
+            <describe>内核表决方式</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>2</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option>1|线上内核表决;2|线下内核表决</option>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>NHJG</name>
+            <describe>内核表决结果</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>2</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option>1|通过;-1|不通过;0|暂缓</option>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>LXZS</name>
+            <describe>立项主审</describe>
+            <type>6</type>
+            <biz-type>500</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>10</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object>tUser</ref-object>
+            <default>null</default>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>NHZS</name>
+            <describe>内核主审</describe>
+            <type>6</type>
+            <biz-type>500</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>10</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object>tUser</ref-object>
+            <default>null</default>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+        </column>
     </parameters>
     <columns/>
     <query>
-        <sql>{"statement":"CALL PCX_IB_GS_NHXMTJ(?,{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10})","args":[{"expression":"$Login.User","scale":0,"length":0,"type":1},{"expression":"parameter.NHHBJSJ","scale":0,"length":10,"type":13},{"expression":"parameter.NHHBJSJ_JS","scale":0,"length":10,"type":13},{"expression":"parameter.XMLX","scale":0,"length":0,"type":1},{"expression":"parameter.SSHY","scale":0,"length":0,"type":1},{"expression":"parameter.QYXZ","scale":0,"length":0,"type":1},{"expression":"parameter.DBFS","scale":0,"length":0,"type":1},{"expression":"parameter.ZTPJ","scale":0,"length":0,"type":1},{"expression":"parameter.ZXPJ","scale":0,"length":0,"type":1},{"expression":"parameter.WSJS","scale":0,"length":0,"type":1},{"expression":"parameter.CXFS","scale":0,"length":0,"type":1}],"type":0}</sql>
+        <sql>{"statement":"CALL PCX_IB_GS_NHXMTJ(?,{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19},{20},{21},{22},{23})","args":[{"expression":"$Login.User","scale":0,"length":0,"type":1},{"expression":"parameter.NHHBJSJ","scale":0,"length":10,"type":13},{"expression":"parameter.NHHBJSJ_JS","scale":0,"length":10,"type":13},{"expression":"parameter.XMLX","scale":0,"length":0,"type":1},{"expression":"parameter.SSHY","scale":0,"length":0,"type":1},{"expression":"parameter.QYXZ","scale":0,"length":0,"type":1},{"expression":"parameter.DBFS","scale":0,"length":0,"type":1},{"expression":"parameter.ZTPJ","scale":0,"length":0,"type":1},{"expression":"parameter.ZXPJ","scale":0,"length":0,"type":1},{"expression":"parameter.WSJS","scale":0,"length":0,"type":1},{"expression":"parameter.CXFS","scale":0,"length":0,"type":1},{"expression":"parameter.SQSJ","scale":0,"length":0,"type":13},{"expression":"parameter.SQSJ_JS","scale":0,"length":0,"type":13},{"expression":"parameter.DQBZ","scale":0,"length":0,"type":1},{"expression":"parameter.fxrmc","scale":0,"length":0,"type":1},{"expression":"parameter.KHLB","scale":0,"length":0,"type":1},{"expression":"parameter.SSSF","scale":0,"length":0,"type":1},{"expression":"parameter.SSCS","scale":0,"length":0,"type":1},{"expression":"parameter.LXFS","scale":0,"length":0,"type":1},{"expression":"parameter.LXJG","scale":0,"length":0,"type":1},{"expression":"parameter.NHFS","scale":0,"length":0,"type":1},{"expression":"parameter.NHJG","scale":0,"length":0,"type":1},{"expression":"parameter.LXZS","scale":0,"length":0,"type":1},{"expression":"parameter.NHZS","scale":0,"length":0,"type":1}],"type":0}</sql>
         <sql-type>1</sql-type>
         <datasource-name>ECIF</datasource-name>
         <result-option>
@@ -375,6 +700,7 @@
         <property>
             <name>195</name>
             <value>NHHBJSJ;NHHBJSJ_JS</value>
+            <value>SQSJ;SQSJ_JS</value>
         </property>
     </properties>
     <orders/>

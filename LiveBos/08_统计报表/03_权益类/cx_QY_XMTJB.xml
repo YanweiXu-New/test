@@ -80,8 +80,8 @@
             <primary-property>0</primary-property>
             <nullable>true</nullable>
             <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
+            <enabled>false</enabled>
+            <visible>false</visible>
             <option>1|保密协议;2|合作框架协议;3|辅导协议;5|三方监管协议;7|其他协议;9|终止协议;100|立项会议;110|内核会议;120|承销保荐协议;130|财务顾问协议;140|首次申报签章;150|终止</option>
             <meta-column/>
             <ref-object/>
@@ -222,7 +222,7 @@
     </parameters>
     <columns/>
     <query>
-        <sql>{"statement":"CALL ECIF.PCX_IB_QY_XMTJB(?,{0},{1},{2},{3},{4},{5},{6},{7})","args":[{"expression":"$Login.User","scale":0,"length":0,"type":1},{"expression":"parameter.I_LCXX","scale":0,"length":0,"type":1},{"expression":"parameter.I_RQQJ","scale":0,"length":10,"type":13},{"expression":"parameter.I_RQQJ_JS","scale":0,"length":10,"type":13},{"expression":"parameter.I_XMMC","scale":0,"length":0,"type":1},{"expression":"parameter.I_XMLX","scale":0,"length":0,"type":1},{"expression":"parameter.I_SSBM","scale":0,"length":0,"type":1},{"expression":"parameter.I_SSHY","scale":0,"length":0,"type":1}],"type":0}</sql>
+        <sql>{"statement":"CALL ECIF.PCX_IB_QY_XMTJB(?,{0},{2},{3},{4},{5},{6},{7})","args":[{"expression":"$Login.User","scale":0,"length":0,"type":1},{"expression":"parameter.I_LCXX","scale":0,"length":0,"type":1},{"expression":"parameter.I_RQQJ","scale":0,"length":10,"type":13},{"expression":"parameter.I_RQQJ_JS","scale":0,"length":10,"type":13},{"expression":"parameter.I_XMMC","scale":0,"length":0,"type":1},{"expression":"parameter.I_XMLX","scale":0,"length":0,"type":1},{"expression":"parameter.I_SSBM","scale":0,"length":0,"type":1},{"expression":"parameter.I_SSHY","scale":0,"length":0,"type":1}],"type":0}</sql>
         <sql-type>1</sql-type>
         <datasource-name>ECIF</datasource-name>
         <result-option>

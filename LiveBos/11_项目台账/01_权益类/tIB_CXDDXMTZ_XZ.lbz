@@ -1,38 +1,136 @@
-<?xml version="1.0" encoding="GB2312"?>
-<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="8" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_CXDDXMTZ_XZ" name="tIB_CXDDXMTZ_XZ" object="tIB_CXDDXMTZ" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_CXDDXMTZ_XZ" name="tIB_CXDDXMTZ_XZ" object="tIB_CXDDXMTZ" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
   <describe>持续督导项目台账-新增流程</describe>
   <variables>
     <variable describe="V_OBJ" instanceType="tIB_CXDDXMTZ" messageType="" name="V_OBJ" type="object" />
     <variable describe="V_CODE" messageType="" name="V_CODE" type="int" />
     <variable describe="V_NOTE" messageType="" name="V_NOTE" type="string" />
+    <variable describe="V_1" messageType="" name="V_1" type="int" />
+    <variable describe="V_2" messageType="" name="V_2" type="string" />
   </variables>
   <sequence id="0">
-    <invoke component="FormOperate" id="0" operation="insert">
-      <describe>新增对象[持续督导项目台账]</describe>
-      <meta name="FUNCTION">true</meta>
-      <arg name="@objectName">tIB_CXDDXMTZ</arg>
-      <arg flag="field" name="SSBM" type="expression">O_PARAMETER.SSBM2</arg>
-      <arg flag="field" name="GSMC" type="expression">O_PARAMETER.GSMC2</arg>
-      <arg flag="field" name="GPDM" type="expression">O_PARAMETER.GPDM2</arg>
-      <arg flag="field" name="XMMC" type="expression">O_PARAMETER.XMMC2</arg>
-      <arg flag="field" name="XMLX" type="expression">O_PARAMETER.XMLX2</arg>
-      <arg flag="field" name="CXDDQSRQ" type="expression">O_PARAMETER.CXDDQSRQ2</arg>
-      <arg flag="field" name="CXDDQ" type="expression">O_PARAMETER.CXDDQ2</arg>
-      <arg flag="field" name="CXDDJSRQ" type="expression">O_MASTER.CXDDJSRQ</arg>
-      <arg flag="field" name="CXDDBDZBR" type="expression">O_PARAMETER.CXDDBDZBR2</arg>
-      <arg flag="field" name="CXDDZY" type="expression">O_PARAMETER.CXDDZY2</arg>
-      <arg flag="field" name="BZ" type="expression">O_PARAMETER.BZ2</arg>
-      <arg name="@retObject" type="output">V_OBJ</arg>
-    </invoke>
-    <invoke component="SQL" id="0" operation="execute">
-      <describe>数据回写项目信息表</describe>
-      <meta name="FUNCTION">true</meta>
-      <arg name="TranType">procedure</arg>
-      <arg name="datasource">ECIF</arg>
-      <arg name="SQL">["call ecif.PRO_IB_XMTZSJHX(:code,:note,{0},{1},1,{2})",[{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"$Login.IP","scale":"","length":"","type":"0"},{"expression":"V_OBJ.ID","scale":"","length":"","type":"1"}]]</arg>
-      <arg name="code" type="output">V_CODE</arg>
-      <arg name="note" type="output">V_NOTE</arg>
-    </invoke>
+    <if id="0">
+      <describe>判断</describe>
+      <conditions>
+        <condition name="" type="expression">
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+O_PARAMETER.XMMC2.XMJD == 12</arg>
+        </condition>
+      </conditions>
+      <sequence id="0" name="顺序">
+        <assign id="0">
+          <describe>赋值</describe>
+          <copy>
+            <from type="">1</from>
+            <to variable="V_1" />
+          </copy>
+        </assign>
+      </sequence>
+      <else>
+        <describe>Else</describe>
+        <sequence id="0" name="顺序">
+          <invoke component="ConfirmDialog" id="0" name="消息确认框">
+            <describe>消息确认框</describe>
+            <arg flag="" name="message" type="expression">&lt;%@ livebos language='javascript' %&gt;
+var xmjd = O_PARAMETER.XMMC2.XMJD.Name;&#xD;
+var txxx = '该项目为'+'['+xmjd+']'+'阶段, '+'是否要改为持续督导阶段';&#xD;
+txxx;</arg>
+            <arg flag="" name="title" type="expression">'提示'</arg>
+            <arg name="icon">WARN</arg>
+            <arg name="options">YES;NO</arg>
+            <arg name="@retValue" type="output">V_2</arg>
+          </invoke>
+          <if id="0">
+            <describe>判断</describe>
+            <conditions>
+              <condition name="" type="expression">
+                <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+V_2 == 'NO'</arg>
+              </condition>
+            </conditions>
+            <assign id="0">
+              <describe>赋值</describe>
+              <copy>
+                <from type="">0</from>
+                <to variable="V_1" />
+              </copy>
+            </assign>
+            <else>
+              <describe>Else</describe>
+              <assign id="0">
+                <describe>赋值</describe>
+                <copy>
+                  <from type="">1</from>
+                  <to variable="V_1" />
+                </copy>
+              </assign>
+            </else>
+          </if>
+        </sequence>
+      </else>
+    </if>
+    <if id="0">
+      <describe>判断</describe>
+      <conditions>
+        <condition name="" type="expression">
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+V_1 == 1</arg>
+        </condition>
+      </conditions>
+      <sequence id="0" name="顺序">
+        <invoke component="FormOperate" id="0" operation="insert">
+          <describe>新增对象[持续督导项目台账]</describe>
+          <meta name="FUNCTION">true</meta>
+          <arg name="@objectName">tIB_CXDDXMTZ</arg>
+          <arg flag="field" name="SSBM" type="expression">O_PARAMETER.SSBM2</arg>
+          <arg flag="field" name="GSMC" type="expression">O_PARAMETER.GSMC2</arg>
+          <arg flag="field" name="GPDM" type="expression">O_PARAMETER.GPDM2</arg>
+          <arg flag="field" name="XMMC" type="expression">O_PARAMETER.XMMC2</arg>
+          <arg flag="field" name="XMLX" type="expression">O_PARAMETER.XMLX2</arg>
+          <arg flag="field" name="CXDDQSRQ" type="expression">O_PARAMETER.CXDDQSRQ2</arg>
+          <arg flag="field" name="CXDDQ" type="expression">O_PARAMETER.CXDDQ2</arg>
+          <arg flag="field" name="CXDDJSRQ" type="expression">O_PARAMETER.CXDDJSRQ2</arg>
+          <arg flag="field" name="CXDDBDZBR" type="expression">O_PARAMETER.CXDDBDZBR2</arg>
+          <arg flag="field" name="CXDDZY" type="expression">O_PARAMETER.CXDDZY2</arg>
+          <arg flag="field" name="BZ" type="expression">O_PARAMETER.BZ2</arg>
+          <arg name="@retObject" type="output">V_OBJ</arg>
+          <arg flag="field" name="XMMC_XS" type="expression">O_PARAMETER.XMMC2.XMMC</arg>
+          <arg flag="field" name="SSBM_XS" type="expression">O_PARAMETER.SSBM2.Name</arg>
+          <arg flag="field" name="GSMC_XS" type="expression">O_PARAMETER.GSMC2.KHQC</arg>
+          <arg flag="field" name="XMLX_XS" type="expression">O_PARAMETER.XMLX2.Name</arg>
+          <arg flag="field" name="CXDDZY_XS" type="expression">O_PARAMETER.CXDDZY2.Name</arg>
+          <arg flag="field" name="CXDDBDZBR_XS" type="expression">&lt;%@ livebos language='javascript' %&gt;
+var bdr = '';&#xD;
+bdr = ABS_SQLVALUE("select listagg(name,';') within group(order by ID) name from jgcrm.tuser T where instr(';'||?||';',';'||T.ID||';') &gt;0",[O_PARAMETER.CXDDBDZBR2]);&#xD;
+bdr;</arg>
+          <arg flag="field" name="SFSGXZ" type="expression">1</arg>
+          <arg flag="field" name="CJR" type="expression">$Login.User</arg>
+          <arg flag="field" name="CJSJ" type="expression">$DateTime.Now</arg>
+          <arg flag="field" name="XGSJ" type="expression">$DateTime.Now</arg>
+          <arg flag="field" name="XGR" type="expression">$Login.User</arg>
+        </invoke>
+        <invoke component="SQL" id="0" operation="execute">
+          <describe>数据回写项目信息表</describe>
+          <meta name="FUNCTION">true</meta>
+          <arg name="TranType">procedure</arg>
+          <arg name="datasource">ECIF</arg>
+          <arg name="SQL">["call ecif.PRO_IB_XMTZSJHX(:code,:note,{0},{1},1,{2})",[{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"$Login.IP","scale":"","length":"","type":"0"},{"expression":"V_OBJ.ID","scale":"","length":"","type":"1"}]]</arg>
+          <arg name="code" type="output">V_CODE</arg>
+          <arg name="note" type="output">V_NOTE</arg>
+        </invoke>
+      </sequence>
+      <else>
+        <describe>Else</describe>
+        <response exit="false" id="0">
+          <describe>输出</describe>
+          <retvalue>-1</retvalue>
+          <message type="expression">'请重选项目!'</message>
+          <uiforward redirect="false">
+            <url />
+          </uiforward>
+        </response>
+      </else>
+    </if>
   </sequence>
 </process>
 

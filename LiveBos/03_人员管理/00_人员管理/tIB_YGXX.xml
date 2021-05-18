@@ -402,7 +402,7 @@
             <describe>证件名称</describe>
             <type>0</type>
             <biz-type>100</biz-type>
-            <length>128</length>
+            <length>30</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -432,7 +432,7 @@
             <describe>证件号码</describe>
             <type>0</type>
             <biz-type>100</biz-type>
-            <length>64</length>
+            <length>18</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -466,10 +466,10 @@
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
-            <nullable>false</nullable>
+            <nullable>true</nullable>
             <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
+            <enabled>false</enabled>
+            <visible>false</visible>
             <option/>
             <meta-column/>
             <ref-object/>
@@ -486,17 +486,18 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>ZWXX</name>
             <describe>职务信息</describe>
             <type>0</type>
             <biz-type>100</biz-type>
-            <length>256</length>
+            <length>100</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
-            <nullable>false</nullable>
+            <nullable>true</nullable>
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
@@ -1088,7 +1089,7 @@
                     <describe>证件名称</describe>
                     <type>8</type>
                     <biz-type>100</biz-type>
-                    <length>128</length>
+                    <length>30</length>
                     <scale>0</scale>
                     <control>1</control>
                     <primary-property>0</primary-property>
@@ -1104,7 +1105,7 @@
                     <order-direction>0</order-direction>
                     <expression/>
                     <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-ZJLX!=7 </invisible-expression>
+ZJLX != 7</invisible-expression>
                     <disable-expression/>
                     <category>证件信息</category>
                     <fire-event>0</fire-event>
@@ -1113,13 +1114,14 @@ ZJLX!=7 </invisible-expression>
                     <comment/>
                     <validation/>
                     <scope-permissions/>
+                    <properties/>
                 </column>
                 <column>
                     <name>ZJHM</name>
                     <describe>证件号码</describe>
                     <type>8</type>
                     <biz-type>100</biz-type>
-                    <length>64</length>
+                    <length>18</length>
                     <scale>0</scale>
                     <control>1</control>
                     <primary-property>0</primary-property>
@@ -1153,10 +1155,10 @@ ZJLX!=7 </invisible-expression>
                     <scale>0</scale>
                     <control>1</control>
                     <primary-property>0</primary-property>
-                    <nullable>false</nullable>
-                    <unique>true</unique>
-                    <enabled>true</enabled>
-                    <visible>true</visible>
+                    <nullable>true</nullable>
+                    <unique>false</unique>
+                    <enabled>false</enabled>
+                    <visible>false</visible>
                     <option/>
                     <meta-column/>
                     <ref-object/>
@@ -1173,17 +1175,18 @@ ZJLX!=7 </invisible-expression>
                     <comment/>
                     <validation/>
                     <scope-permissions/>
+                    <properties/>
                 </column>
                 <column>
                     <name>ZWXX</name>
                     <describe>职务信息</describe>
                     <type>8</type>
                     <biz-type>100</biz-type>
-                    <length>256</length>
+                    <length>100</length>
                     <scale>0</scale>
                     <control>1</control>
                     <primary-property>0</primary-property>
-                    <nullable>false</nullable>
+                    <nullable>true</nullable>
                     <unique>false</unique>
                     <enabled>true</enabled>
                     <visible>true</visible>
@@ -1205,6 +1208,14 @@ ZJLX!=7 </invisible-expression>
                     <scope-permissions/>
                 </column>
             </parameters>
+            <ui-logics>
+                <events>
+                    <event attribute="0" src="ZJLX" type="0">
+                        <process-name>tIB_YGXX_XG_ZJLX_Param_UI</process-name>
+                    </event>
+                </events>
+            </ui-logics>
+            <extend-buttons/>
             <properties>
                 <property>
                     <name>56</name>
@@ -1217,6 +1228,10 @@ ZJLX!=7 </invisible-expression>
                 <property>
                     <name>28</name>
                     <value>tIB_YGXX_XG</value>
+                </property>
+                <property>
+                    <name>112</name>
+                    <value>true</value>
                 </property>
             </properties>
             <pre-functions/>

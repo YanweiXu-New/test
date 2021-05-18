@@ -13,7 +13,7 @@
             <describe>项目名称</describe>
             <type>8</type>
             <biz-type>100</biz-type>
-            <length>100</length>
+            <length>150</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -111,7 +111,7 @@
             <describe>区域名称</describe>
             <type>8</type>
             <biz-type>100</biz-type>
-            <length>500</length>
+            <length>50</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -131,10 +131,10 @@
             <name>NJYCS</name>
             <describe>交易场所</describe>
             <type>8</type>
-            <biz-type>400</biz-type>
+            <biz-type>401</biz-type>
             <length>0</length>
             <scale>0</scale>
-            <control>2</control>
+            <control>4</control>
             <primary-property>0</primary-property>
             <nullable>false</nullable>
             <unique>false</unique>
@@ -145,9 +145,10 @@
             <attribute>0</attribute>
             <order-direction>0</order-direction>
             <category>监管信息</category>
-            <fire-event>0</fire-event>
+            <fire-event>1</fire-event>
             <check-type>0</check-type>
-            <real-type>7</real-type>
+            <real-type>15</real-type>
+            <validation/>
             <properties/>
         </column>
         <column>
@@ -155,7 +156,7 @@
             <describe>交易场所名称</describe>
             <type>8</type>
             <biz-type>100</biz-type>
-            <length>500</length>
+            <length>100</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -165,6 +166,7 @@
             <visible>true</visible>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <invisible-expression>NJYCS.indexOf('99')&lt;0</invisible-expression>
             <category>监管信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
@@ -215,6 +217,7 @@
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>16</real-type>
+            <validation/>
             <properties/>
         </column>
         <column>
@@ -261,6 +264,219 @@
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>10</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>HDPWSJ</name>
+            <describe>获得批文时间</describe>
+            <type>8</type>
+            <biz-type>300</biz-type>
+            <length>8</length>
+            <scale>0</scale>
+            <control>3</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object/>
+            <default>null</default>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category>储备阶段信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>13</real-type>
+            <properties>
+                <ctrl-width>200</ctrl-width>
+            </properties>
+        </column>
+        <column>
+            <name>PWHM</name>
+            <describe>批文号码</describe>
+            <type>8</type>
+            <biz-type>100</biz-type>
+            <length>30</length>
+            <scale>0</scale>
+            <control>1</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category>储备阶段信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+        </column>
+        <column>
+            <name>NDPWGM</name>
+            <describe>拿到批文的规模(万元)</describe>
+            <type>8</type>
+            <biz-type>200</biz-type>
+            <length>16</length>
+            <scale>2</scale>
+            <control>1</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category>储备阶段信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>1</real-type>
+        </column>
+        <column>
+            <name>YFXDGM</name>
+            <describe>已发行的规模(万元)</describe>
+            <type>8</type>
+            <biz-type>200</biz-type>
+            <length>16</length>
+            <scale>2</scale>
+            <control>1</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category>储备阶段信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>1</real-type>
+        </column>
+        <column>
+            <name>JTHZDW</name>
+            <describe>集团合作单位</describe>
+            <type>8</type>
+            <biz-type>401</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>4</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option>$D{IB_XTDW}</option>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category>储备阶段信息</category>
+            <fire-event>1</fire-event>
+            <check-type>0</check-type>
+            <real-type>15</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>FH</name>
+            <describe>分行</describe>
+            <type>8</type>
+            <biz-type>100</biz-type>
+            <length>30</length>
+            <scale>0</scale>
+            <control>1</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;&#13;
+JTHZDW.indexOf('2')&lt;0  &#13;
+</invisible-expression>
+            <category>储备阶段信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>GHHDCKJE</name>
+            <describe>光行获得存款金额(万元)</describe>
+            <type>8</type>
+            <biz-type>200</biz-type>
+            <length>16</length>
+            <scale>2</scale>
+            <control>1</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;&#13;
+JTHZDW.indexOf('2')&lt;0  &#13;
+</invisible-expression>
+            <category>储备阶段信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>1</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>TJFX</name>
+            <describe>推荐方向</describe>
+            <type>8</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>10</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option>$D{IB_TJFX}</option>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
+JTHZDW=='100'</invisible-expression>
+            <category>储备阶段信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>7</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>HZXS</name>
+            <describe>合作形式</describe>
+            <type>8</type>
+            <biz-type>401</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>4</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option>$D{IB_HZXS}</option>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
+JTHZDW=='100'</invisible-expression>
+            <category>储备阶段信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>15</real-type>
             <properties/>
         </column>
         <column>
@@ -549,6 +765,31 @@
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment>立项流程写入</comment>
+            <properties/>
+        </column>
+        <column>
+            <name>LXLCFQSJ</name>
+            <describe>立项流程发起时间</describe>
+            <type>8</type>
+            <biz-type>301</biz-type>
+            <length>12</length>
+            <scale>0</scale>
+            <control>37</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>false</visible>
+            <option/>
+            <ref-object/>
+            <default>null</default>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>3</real-type>
             <comment>立项流程写入</comment>
             <properties/>
         </column>

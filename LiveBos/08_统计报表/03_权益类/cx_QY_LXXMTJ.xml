@@ -34,6 +34,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>I_LXHYQJ_JS</name>
@@ -64,6 +65,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>I_XMMC</name>
@@ -82,7 +84,7 @@
             <meta-column/>
             <ref-object>vIB_XMXX_QY</ref-object>
             <default/>
-            <attribute>0</attribute>
+            <attribute>4096</attribute>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression/>
@@ -94,6 +96,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>I_XMLX</name>
@@ -112,7 +115,7 @@
             <meta-column/>
             <ref-object>tIB_XMLX</ref-object>
             <default/>
-            <attribute>0</attribute>
+            <attribute>4096</attribute>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression/>
@@ -128,6 +131,7 @@
                 <refColumns/>
             </constraint>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>I_SSBM</name>
@@ -146,7 +150,7 @@
             <meta-column/>
             <ref-object>lbOrganization</ref-object>
             <default/>
-            <attribute>0</attribute>
+            <attribute>4096</attribute>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression/>
@@ -158,6 +162,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>I_SSHY</name>
@@ -176,7 +181,7 @@
             <meta-column/>
             <ref-object>tIB_HYFL</ref-object>
             <default/>
-            <attribute>0</attribute>
+            <attribute>4096</attribute>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression/>
@@ -188,6 +193,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>I_LXHYJG</name>
@@ -206,7 +212,7 @@
             <meta-column/>
             <ref-object/>
             <default>null</default>
-            <attribute>0</attribute>
+            <attribute>4096</attribute>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression/>
@@ -218,6 +224,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>I_LCZT</name>
@@ -232,11 +239,11 @@
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
-            <option>1|流转中;3|已终止;4|已完成</option>
+            <option>1|流转中;4|已完成</option>
             <meta-column/>
             <ref-object/>
             <default>null</default>
-            <attribute>0</attribute>
+            <attribute>4096</attribute>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression/>
@@ -248,11 +255,12 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
     </parameters>
     <columns/>
     <query>
-        <sql>{"statement":"CALL PCX_IB_QY_LXXMTJ(?,{0},{1},{2},{3},{4},{5},{6},{7},{8})","args":[{"expression":"$Login.User","scale":0,"length":0,"type":1},{"expression":"parameter.I_LXHYQJ","scale":0,"length":10,"type":13},{"expression":"parameter.I_LXHYQJ_JS","scale":0,"length":10,"type":13},{"expression":"parameter.I_XMMC","scale":0,"length":0,"type":1},{"expression":"parameter.I_XMLX","scale":0,"length":0,"type":1},{"expression":"parameter.I_SSBM","scale":0,"length":0,"type":1},{"expression":"parameter.I_SSHY","scale":0,"length":0,"type":1},{"expression":"parameter.I_LXHYJG","scale":0,"length":0,"type":1},{"expression":"parameter.I_LCZT","scale":0,"length":0,"type":1}],"type":0}</sql>
+        <sql>{"statement":"CALL PCX_IB_QY_LXNHXMTJ(?,1,{0},{1},{2},{3},{4},{5},{6},{7},{8})","args":[{"expression":"$Login.User","scale":0,"length":0,"type":1},{"expression":"parameter.I_LXHYQJ","scale":0,"length":10,"type":13},{"expression":"parameter.I_LXHYQJ_JS","scale":0,"length":10,"type":13},{"expression":"parameter.I_XMMC","scale":0,"length":0,"type":1},{"expression":"parameter.I_XMLX","scale":0,"length":0,"type":1},{"expression":"parameter.I_SSBM","scale":0,"length":0,"type":1},{"expression":"parameter.I_SSHY","scale":0,"length":0,"type":1},{"expression":"parameter.I_LXHYJG","scale":0,"length":0,"type":1},{"expression":"parameter.I_LCZT","scale":0,"length":0,"type":1}],"type":0}</sql>
         <sql-type>1</sql-type>
         <datasource-name>ECIF</datasource-name>
         <result-option>
@@ -283,7 +291,15 @@
         </property>
         <property>
             <name>195</name>
-            <value>I_LXRQQJ;I_LXRQQJ_JS</value>
+            <value>I_LXHYQJ;I_LXHYQJ_JS</value>
+        </property>
+        <property>
+            <name>116</name>
+            <value>2</value>
+        </property>
+        <property>
+            <name>115</name>
+            <value>true</value>
         </property>
     </properties>
     <orders/>

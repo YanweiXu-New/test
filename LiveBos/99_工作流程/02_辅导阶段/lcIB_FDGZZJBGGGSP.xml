@@ -35,30 +35,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
-        </column>
-        <column>
-            <name>YYZL</name>
-            <describe>用印种类</describe>
-            <type>7</type>
-            <biz-type>400</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>2</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>true</visible>
-            <option>$D{IB_YYZL}</option>
-            <ref-object/>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <category>公告申请信息</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <properties/>
         </column>
         <column>
             <name>InstID</name>
@@ -89,28 +65,36 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
-            <name>YWLX</name>
-            <describe>业务类型</describe>
-            <type>0</type>
-            <biz-type>100</biz-type>
-            <length>100</length>
+            <name>ZDWCBZ</name>
+            <describe>自动完成标识</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
             <scale>0</scale>
-            <control>1</control>
-            <primary-property>6</primary-property>
+            <control>0</control>
+            <primary-property>0</primary-property>
             <nullable>true</nullable>
             <unique>false</unique>
             <enabled>false</enabled>
             <visible>false</visible>
+            <option>$D{JG_SF}</option>
+            <meta-column/>
+            <ref-object/>
+            <default>1</default>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
-            <expression>1</expression>
-            <category>公告申请信息</category>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>SQR</name>
@@ -141,7 +125,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>SQBM</name>
@@ -172,7 +155,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>SQSJ</name>
@@ -203,7 +185,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>LCBH</name>
@@ -234,7 +215,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>OLDBH</name>
@@ -265,7 +245,36 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
+        </column>
+        <column>
+            <name>YYZL</name>
+            <describe>用印种类</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>2</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option>$D{IB_YYZL}</option>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>公告申请信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>LCBT</name>
@@ -296,7 +305,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>GWZW</name>
@@ -327,7 +335,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>Cs</name>
@@ -342,13 +349,22 @@
             <unique>false</unique>
             <enabled>false</enabled>
             <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>公告申请信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>Csong</name>
@@ -363,13 +379,22 @@
             <unique>false</unique>
             <enabled>false</enabled>
             <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>公告申请信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>ZYLDYJ</name>
@@ -392,9 +417,9 @@
             <order-direction>0</order-direction>
             <expression>&lt;%@ livebos language='javascript' %&gt;
 var varSrc="/bss/ibb/nworkflow/page/suggestion.sdo?LcbdID="+ID+"&amp;Lcbd=lcIB_FDGZZJBGGGSP";
-"&lt;iframe id='lc_zyldyj' frameborder='0' width='100%' height='100%' scrolling='no' src='"+varSrc+"'&gt;&lt;/iframe&gt;"   </expression>
+"&lt;iframe id='lc_zyldyj' frameborder='0' width='100%' height='100%' scrolling='no' src='"+varSrc+"'&gt;&lt;/iframe&gt;"    </expression>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-LB.getClient().isStandard==false  </invisible-expression>
+LB.getClient().isStandard==false   </invisible-expression>
             <disable-expression/>
             <category>公告申请信息</category>
             <fire-event>0</fire-event>
@@ -403,7 +428,6 @@ LB.getClient().isStandard==false  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>XMMC</name>
@@ -438,7 +462,6 @@ LB.getClient().isStandard==false  </invisible-expression>
                 <refColumns/>
             </constraint>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>XMLX</name>
@@ -469,7 +492,6 @@ LB.getClient().isStandard==false  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>XMFZR</name>
@@ -500,7 +522,6 @@ LB.getClient().isStandard==false  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>BJDBR</name>
@@ -531,7 +552,6 @@ LB.getClient().isStandard==false  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>XMZCY</name>
@@ -562,7 +582,6 @@ LB.getClient().isStandard==false  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>LXZKSHY_ZS</name>
@@ -593,7 +612,6 @@ LB.getClient().isStandard==false  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>LXZKSHY_FS</name>
@@ -624,7 +642,6 @@ LB.getClient().isStandard==false  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>LXRQ</name>
@@ -646,7 +663,7 @@ LB.getClient().isStandard==false  </invisible-expression>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
             <expression/>
-            <invisible-expression>XYLX&lt;&gt;5   </invisible-expression>
+            <invisible-expression>XYLX&lt;&gt;5    </invisible-expression>
             <disable-expression/>
             <category>公告申请信息</category>
             <fire-event>0</fire-event>
@@ -688,7 +705,6 @@ LB.getClient().isStandard==false  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>ZKSF</name>
@@ -719,7 +735,6 @@ LB.getClient().isStandard==false  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>FDBBRQ</name>
@@ -741,7 +756,7 @@ LB.getClient().isStandard==false  </invisible-expression>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
             <expression/>
-            <invisible-expression>XYLX&lt;&gt;5   </invisible-expression>
+            <invisible-expression>XYLX&lt;&gt;5    </invisible-expression>
             <disable-expression/>
             <category>公告申请信息</category>
             <fire-event>0</fire-event>
@@ -774,7 +789,7 @@ LB.getClient().isStandard==false  </invisible-expression>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
             <expression/>
-            <invisible-expression>XYLX&lt;&gt;5   </invisible-expression>
+            <invisible-expression>XYLX&lt;&gt;5    </invisible-expression>
             <disable-expression/>
             <category>公告申请信息</category>
             <fire-event>0</fire-event>
@@ -817,7 +832,6 @@ ABS_SQLVALUE("select NHBZS from ecif.tIB_LCNHZYZSPZB where LCDM='lcIB_FDGZZJBGGG
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>NHBFS</name>
@@ -848,7 +862,57 @@ ABS_SQLVALUE("select NHBZS from ecif.tIB_LCNHZYZSPZB where LCDM='lcIB_FDGZZJBGGG
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
+        </column>
+        <column>
+            <name>CSRY</name>
+            <describe>抄送人员</describe>
+            <type>16</type>
+            <biz-type>600</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>45</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object>vUser_ZC</ref-object>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>公告申请信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>YWLX</name>
+            <describe>业务类型</describe>
+            <type>0</type>
+            <biz-type>100</biz-type>
+            <length>100</length>
+            <scale>0</scale>
+            <control>1</control>
+            <primary-property>6</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>false</visible>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression>1</expression>
+            <category>公告申请信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
         </column>
         <column>
             <name>BZSM</name>
@@ -870,7 +934,7 @@ ABS_SQLVALUE("select NHBZS from ecif.tIB_LCNHZYZSPZB where LCDM='lcIB_FDGZZJBGGG
             <attribute>266240</attribute>
             <order-direction>0</order-direction>
             <expression>&lt;%@ livebos language='javascript' %&gt;
-'&lt;br&gt;&lt;font color=red&gt;“请确保上传的附件与公文正文中列示的文件保持一致”、“该附件框中每一附件类型中仅上传一份最新版本附件至协同平台，用户可新增附件类型行”&lt;font&gt;'   </expression>
+'&lt;br&gt;&lt;font color=red&gt;“请确保上传的附件与公文正文中列示的文件保持一致”、“该附件框中每一附件类型中仅上传一份最新版本附件至协同平台，用户可新增附件类型行”&lt;font&gt;'    </expression>
             <invisible-expression/>
             <disable-expression/>
             <category>上传公文附件</category>
@@ -880,7 +944,6 @@ ABS_SQLVALUE("select NHBZS from ecif.tIB_LCNHZYZSPZB where LCDM='lcIB_FDGZZJBGGG
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>FJ</name>
@@ -911,7 +974,72 @@ ABS_SQLVALUE("select NHBZS from ecif.tIB_LCNHZYZSPZB where LCDM='lcIB_FDGZZJBGGG
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
+        </column>
+        <column>
+            <name>DBXZ</name>
+            <describe>打包下载</describe>
+            <type>0</type>
+            <biz-type>100</biz-type>
+            <length>200</length>
+            <scale>0</scale>
+            <control>16</control>
+            <primary-property>8</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>262144</attribute>
+            <order-direction>0</order-direction>
+            <expression>&lt;%@ livebos language='javascript' %&gt;
+var url='/gdlcDown?lcbdid='+ID+'&amp;insid='+InstID+'&amp;fjlx=1'+'&amp;yhid='+$Login.User;
+ '&lt;input type="button" onclick=\'window.open("'+url+'")\' value="  打包下载  " /&gt;'
+ //'&lt;a target=_blank href='+url+'&gt;&lt;font color=red&gt;下载&lt;/font&gt;&lt;/a&gt;'
+   </expression>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
+LB.getClient().isStandard==false    </invisible-expression>
+            <disable-expression/>
+            <category>上传公文附件</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>FYYBCWJ</name>
+            <describe>非用印备查文件</describe>
+            <type>21</type>
+            <biz-type>802</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>42</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>4096</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
+O_THIS.getColumn("FYYBCWJ").setLabel("非用印备查文件&lt;font color=red&gt;&lt;br&gt;(不上传至OA)&lt;/font&gt;"); </invisible-expression>
+            <disable-expression/>
+            <category>上传公文附件</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>BZ</name>
@@ -942,7 +1070,6 @@ ABS_SQLVALUE("select NHBZS from ecif.tIB_LCNHZYZSPZB where LCDM='lcIB_FDGZZJBGGG
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>OASPXX</name>
@@ -966,10 +1093,10 @@ ABS_SQLVALUE("select NHBZS from ecif.tIB_LCNHZYZSPZB where LCDM='lcIB_FDGZZJBGGG
             <expression>&lt;%@ livebos language='javascript' %&gt;
 var oaid=ABS_SQLVALUE("select nvl(max(oaworkflowid),0) from ecif.tib_oawfhandle where lcbd='lcIB_FDGZZJBGGGSP' and lcbdid=?",[ID])
 var varSrc="/bss/ibb/nworkflow/page/oAsuggestion.sdo?oaWorkId="+oaid+"&amp;lcbd=lcIB_FDGZZJBGGGSP&amp;lcbdId="+ID;
-"&lt;iframe id='lc_oayj' frameborder='0' width='100%' height='100%' scrolling='no' src='"+varSrc+"'&gt;&lt;/iframe&gt;"   </expression>
+"&lt;iframe id='lc_oayj' frameborder='0' width='100%' height='100%' scrolling='no' src='"+varSrc+"'&gt;&lt;/iframe&gt;"    </expression>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 var oaid=ABS_SQLVALUE("select nvl(max(oaworkflowid),0) from ecif.tib_oawfhandle where lcbd='lcIB_FDGZZJBGGGSP' and lcbdid=?",[ID])
-oaid&lt;=0   </invisible-expression>
+oaid&lt;=0    </invisible-expression>
             <disable-expression/>
             <category>OA审批信息</category>
             <fire-event>0</fire-event>
@@ -978,123 +1105,6 @@ oaid&lt;=0   </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
-        </column>
-        <column>
-            <name>DBXZ</name>
-            <describe>打包下载</describe>
-            <type>0</type>
-            <biz-type>100</biz-type>
-            <length>200</length>
-            <scale>0</scale>
-            <control>16</control>
-            <primary-property>8</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
-            <option/>
-            <meta-column/>
-            <ref-object/>
-            <default/>
-            <attribute>262144</attribute>
-            <order-direction>0</order-direction>
-            <expression>&lt;%@ livebos language='javascript' %&gt;
-var url='/gdlcDown?lcbdid='+ID+'&amp;insid='+InstID+'&amp;fjlx=1'+'&amp;yhid='+$Login.User;
- '&lt;input type="button" onclick=\'window.open("'+url+'")\' value="  打包下载  " /&gt;'
- //'&lt;a target=_blank href='+url+'&gt;&lt;font color=red&gt;下载&lt;/font&gt;&lt;/a&gt;'
-  </expression>
-            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-LB.getClient().isStandard==false   </invisible-expression>
-            <disable-expression/>
-            <category>上传公文附件</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-            <properties/>
-        </column>
-        <column>
-            <name>FYYBCWJ</name>
-            <describe>非用印备查文件</describe>
-            <type>21</type>
-            <biz-type>802</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>42</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>true</visible>
-            <option/>
-            <ref-object/>
-            <attribute>4096</attribute>
-            <order-direction>0</order-direction>
-            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-O_THIS.getColumn("FYYBCWJ").setLabel("非用印备查文件&lt;font color=red&gt;&lt;br&gt;(不上传至OA)&lt;/font&gt;");</invisible-expression>
-            <category>上传公文附件</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <properties/>
-        </column>
-        <column>
-            <name>ZDWCBZ</name>
-            <describe>自动完成标识</describe>
-            <type>7</type>
-            <biz-type>400</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>0</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>false</visible>
-            <option>$D{JG_SF}</option>
-            <meta-column/>
-            <ref-object/>
-            <default>1</default>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category/>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-            <properties/>
-        </column>
-        <column>
-            <name>CSRY</name>
-            <describe>抄送人员</describe>
-            <type>16</type>
-            <biz-type>600</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>45</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>true</visible>
-            <option/>
-            <ref-object>vUser_ZC</ref-object>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <category>公告申请信息</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <properties/>
         </column>
     </columns>
     <display-options>

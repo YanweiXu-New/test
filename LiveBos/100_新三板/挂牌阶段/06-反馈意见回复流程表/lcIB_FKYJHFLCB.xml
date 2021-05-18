@@ -35,7 +35,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>InstID</name>
@@ -66,6 +65,29 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+        </column>
+        <column>
+            <name>YWLX</name>
+            <describe>业务类型</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>0</control>
+            <primary-property>6</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>false</visible>
+            <option>1|权益;2|固收(发行前);3|债券;4|新三板</option>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression>4</expression>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
             <properties/>
         </column>
         <column>
@@ -97,7 +119,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>SQBM</name>
@@ -128,7 +149,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>SQSJ</name>
@@ -159,7 +179,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>LCBH</name>
@@ -190,7 +209,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>OLDBH</name>
@@ -221,7 +239,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>BZSM_copy</name>
@@ -236,15 +253,23 @@
             <unique>false</unique>
             <enabled>false</enabled>
             <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
             <attribute>266240</attribute>
             <order-direction>0</order-direction>
             <expression>&lt;%@ livebos language='javascript' %&gt;
-'&lt;br&gt;&lt;font color=red&gt;在底稿系统中完成“监管机构审核反馈阶段”底稿上传工作，才能发起反馈意见回复流程&lt;font&gt;' </expression>
+'&lt;br&gt;&lt;font color=red&gt;在底稿系统中完成“监管机构审核反馈阶段”底稿上传工作，才能发起反馈意见回复流程&lt;font&gt;'</expression>
+            <invisible-expression/>
+            <disable-expression/>
             <category>申请信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>YYZL</name>
@@ -260,14 +285,21 @@
             <enabled>false</enabled>
             <visible>true</visible>
             <option>$D{IB_YYZL}</option>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>基本信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>LCBT</name>
@@ -298,7 +330,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>GWZW</name>
@@ -329,7 +360,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>Cs</name>
@@ -344,13 +374,22 @@
             <unique>false</unique>
             <enabled>false</enabled>
             <visible>false</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>基本信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>Csong</name>
@@ -365,13 +404,22 @@
             <unique>false</unique>
             <enabled>false</enabled>
             <visible>false</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>基本信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>LDSP</name>
@@ -394,9 +442,9 @@
             <order-direction>0</order-direction>
             <expression>&lt;%@ livebos language='javascript' %&gt;
 var varSrc="/bss/ibb/nworkflow/page/suggestion.sdo?LcbdID="+ID+"&amp;Lcbd=lcIB_FKYJHFLCB"+"&amp;Ywlx=110000";
-"&lt;iframe id='lc_zyldyj' frameborder='0' width='100%' height='100%' scrolling='no' src='"+varSrc+"'&gt;&lt;/iframe&gt;"  </expression>
+"&lt;iframe id='lc_zyldyj' frameborder='0' width='100%' height='100%' scrolling='no' src='"+varSrc+"'&gt;&lt;/iframe&gt;"</expression>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-LB.getClient().isStandard==false </invisible-expression>
+LB.getClient().isStandard==false</invisible-expression>
             <disable-expression/>
             <category>基本信息</category>
             <fire-event>0</fire-event>
@@ -405,7 +453,6 @@ LB.getClient().isStandard==false </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>BZ</name>
@@ -436,7 +483,6 @@ LB.getClient().isStandard==false </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>XMMC</name>
@@ -471,7 +517,6 @@ LB.getClient().isStandard==false </invisible-expression>
                 <refColumns/>
             </constraint>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>DGSCBL</name>
@@ -487,14 +532,21 @@ LB.getClient().isStandard==false </invisible-expression>
             <enabled>false</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>基本信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment/>
             <validation/>
+            <scope-permissions/>
             <properties>
                 <format>0.00%</format>
             </properties>
@@ -513,15 +565,21 @@ LB.getClient().isStandard==false </invisible-expression>
             <enabled>false</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object/>
             <default>null</default>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>基本信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>XMZCY</name>
@@ -537,14 +595,21 @@ LB.getClient().isStandard==false </invisible-expression>
             <enabled>false</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object>tUser</ref-object>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>基本信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>KHMC</name>
@@ -575,7 +640,6 @@ LB.getClient().isStandard==false </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>XMFZR</name>
@@ -606,7 +670,6 @@ LB.getClient().isStandard==false </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>SSXT</name>
@@ -637,7 +700,6 @@ LB.getClient().isStandard==false </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>XMJZR</name>
@@ -693,7 +755,7 @@ LB.getClient().isStandard==false </invisible-expression>
             <order-direction>0</order-direction>
             <expression>&lt;%@ livebos language='javascript' %&gt;
 var  key = ABS_SQLVALUE("SELECT COUNT(1) +1 FROM ECIF.lcIB_FKYJHFLCB WHERE XMMC = ?",[XMMC]);
-key </expression>
+key</expression>
             <invisible-expression/>
             <disable-expression/>
             <category>基本信息</category>
@@ -703,7 +765,6 @@ key </expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>ZXRZNSHRY</name>
@@ -734,7 +795,6 @@ key </expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>ZKZY</name>
@@ -742,40 +802,6 @@ key </expression>
             <type>6</type>
             <biz-type>500</biz-type>
             <length>12</length>
-            <scale>0</scale>
-            <control>10</control>
-            <primary-property>0</primary-property>
-            <nullable>false</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>true</visible>
-            <option/>
-            <meta-column/>
-            <ref-object>vUser_ZC</ref-object>
-            <default>null</default>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <invisible-expression/>
-            <disable-expression/>
-            <category>基本信息</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <constraint type="3">
-                <SQL>["tUser.OrgID in (select id from lborganization start with id = 13831  connect by  prior id = fid)",[]]</SQL>
-                <refColumns/>
-            </constraint>
-            <scope-permissions/>
-            <properties/>
-        </column>
-        <column>
-            <name>ZKFS</name>
-            <describe>质控副审</describe>
-            <type>6</type>
-            <biz-type>500</biz-type>
-            <length>0</length>
             <scale>0</scale>
             <control>10</control>
             <primary-property>0</primary-property>
@@ -803,7 +829,40 @@ key </expression>
                 <refColumns/>
             </constraint>
             <scope-permissions/>
-            <properties/>
+        </column>
+        <column>
+            <name>ZKFS</name>
+            <describe>质控副审</describe>
+            <type>6</type>
+            <biz-type>500</biz-type>
+            <length>12</length>
+            <scale>0</scale>
+            <control>10</control>
+            <primary-property>0</primary-property>
+            <nullable>false</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object>vUser_ZC</ref-object>
+            <default>null</default>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>基本信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <constraint type="3">
+                <SQL>["tUser.OrgID in (select id from lborganization start with id = 13831  connect by  prior id = fid)",[]]</SQL>
+                <refColumns/>
+            </constraint>
+            <scope-permissions/>
         </column>
         <column>
             <name>GZFKCJR</name>
@@ -900,7 +959,6 @@ key </expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>NMXXDJB</name>
@@ -924,10 +982,9 @@ key </expression>
             <expression>&lt;%@ livebos language='javascript' %&gt;
 var url='/excelOut?ywlx=110000&amp;insid='+InstID+'&amp;lcbd=lcIB_FKYJHFLCB';
  '&lt;input type="button" onclick=\'window.open("'+url+'")\' value="  下载  " /&gt;'
- //'&lt;a target=_blank href='+url+'&gt;&lt;font color=red&gt;下载&lt;/font&gt;&lt;/a&gt;'
- </expression>
+ //'&lt;a target=_blank href='+url+'&gt;&lt;font color=red&gt;下载&lt;/font&gt;&lt;/a&gt;'</expression>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-LB.getClient().isStandard==false </invisible-expression>
+LB.getClient().isStandard==false</invisible-expression>
             <disable-expression/>
             <category>基本信息</category>
             <fire-event>0</fire-event>
@@ -936,7 +993,6 @@ LB.getClient().isStandard==false </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>NHBZS</name>
@@ -968,7 +1024,6 @@ ABS_SQLVALUE("select t1.NHZY_ZS from ECIF.lcIB_NHLCB t1 inner join jgcrm.os_wfen
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>NHBFS</name>
@@ -999,7 +1054,6 @@ ABS_SQLVALUE("select t1.NHZY_ZS from ECIF.lcIB_NHLCB t1 inner join jgcrm.os_wfen
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>CSRY</name>
@@ -1015,14 +1069,21 @@ ABS_SQLVALUE("select t1.NHZY_ZS from ECIF.lcIB_NHLCB t1 inner join jgcrm.os_wfen
             <enabled>false</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object>vUser_ZC</ref-object>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>基本信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>JGFKCX</name>
@@ -1038,13 +1099,21 @@ ABS_SQLVALUE("select t1.NHZY_ZS from ECIF.lcIB_NHLCB t1 inner join jgcrm.os_wfen
             <enabled>false</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>基本信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>SHXT</name>
@@ -1069,7 +1138,7 @@ ABS_SQLVALUE("select t1.NHZY_ZS from ECIF.lcIB_NHLCB t1 inner join jgcrm.os_wfen
 var i = ABS_LOADBEAN('com.apex.bss.mod.ibb.systemdocking.apexsoft.livebosbean.PageJumpToAms');
 //var url=i.getLivebosPageUrl('admin','tIB_ZSHRW','tIB_ZSHRW_XJRW','');
 var url=i.getCompleteUrl($Login.User.UserID,'/bss/ams/page/index.sdo#task')
- '&lt;input type="button" onclick=\'window.open("'+url+'")\' value="审核系统" /&gt;'  </expression>
+ '&lt;input type="button" onclick=\'window.open("'+url+'")\' value="审核系统" /&gt;'</expression>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.system'") == 0</invisible-expression>
             <disable-expression/>
@@ -1080,7 +1149,6 @@ ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.syste
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>ZKBSFYYJ</name>
@@ -1096,10 +1164,12 @@ ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.syste
             <enabled>false</enabled>
             <visible>false</visible>
             <option>$D{JG_SF}</option>
+            <meta-column/>
             <ref-object/>
             <default>null</default>
             <attribute>67108864</attribute>
             <order-direction>0</order-direction>
+            <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.system'") == 0&amp;&amp;ZKBSFYYJ == null</invisible-expression>
             <disable-expression>&lt;%@ livebos language='javascript' %&gt;
@@ -1108,14 +1178,16 @@ ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.syste
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>ZKZYSHYJ</name>
             <describe>质控专员审核意见</describe>
             <type>6</type>
             <biz-type>500</biz-type>
-            <length>0</length>
+            <length>16</length>
             <scale>0</scale>
             <control>10</control>
             <primary-property>0</primary-property>
@@ -1124,20 +1196,26 @@ ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.syste
             <enabled>false</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object>tIB_SHXTWJZJB</ref-object>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.system'") == 0||ZKBSFYYJ != 1</invisible-expression>
+            <disable-expression/>
             <category>审核意见</category>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment/>
+            <validation/>
             <constraint type="3">
                 <SQL>["tIB_SHXTWJZJB.XMID={0} \r\nand tIB_SHXTWJZJB.LCID={1} \r\nand tIB_SHXTWJZJB.FILETYPEID = 4 \r\nand tIB_SHXTWJZJB.KYZT = 1",[{"expression":"XMMC.XMMC","scale":0,"length":0,"type":1},{"expression":"InstID","scale":0,"length":0,"type":1}]]</SQL>
                 <refColumns/>
             </constraint>
-            <properties/>
+            <scope-permissions/>
         </column>
         <column>
             <name>SHYJ</name>
@@ -1153,10 +1231,13 @@ ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.syste
             <enabled>false</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
-            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;&#13;
+            <expression/>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.system'") == 0||ZKBSFYYJ != 1</invisible-expression>
             <disable-expression>&lt;%@ livebos language='javascript' %&gt;
 1==1</disable-expression>
@@ -1164,14 +1245,16 @@ ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.syste
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>ZKBDGYJ</name>
             <describe>质控部底稿意见</describe>
             <type>6</type>
             <biz-type>500</biz-type>
-            <length>0</length>
+            <length>16</length>
             <scale>0</scale>
             <control>10</control>
             <primary-property>0</primary-property>
@@ -1180,20 +1263,26 @@ ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.syste
             <enabled>false</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object>tIB_SHXTWJZJB</ref-object>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
-            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;&#13;
+            <expression/>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.system'") == 0||ZKBSFYYJ != 1</invisible-expression>
+            <disable-expression/>
             <category>审核意见</category>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment/>
+            <validation/>
             <constraint type="3">
                 <SQL>["tIB_SHXTWJZJB.XMID={0} \r\nand tIB_SHXTWJZJB.LCID={1} \r\nand tIB_SHXTWJZJB.FILETYPEID = 5 \r\nand tIB_SHXTWJZJB.KYZT = 1",[{"expression":"XMMC.XMMC","scale":0,"length":0,"type":1},{"expression":"InstID","scale":0,"length":0,"type":1}]]</SQL>
                 <refColumns/>
             </constraint>
-            <properties/>
+            <scope-permissions/>
         </column>
         <column>
             <name>DGYJ</name>
@@ -1209,23 +1298,29 @@ ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.syste
             <enabled>false</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
-            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;&#13;
+            <expression/>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.system'") == 0||ZKBSFYYJ != 1</invisible-expression>
+            <disable-expression/>
             <category>审核意见</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>ZKBQTYJ</name>
             <describe>质控部其他意见</describe>
             <type>6</type>
             <biz-type>500</biz-type>
-            <length>0</length>
+            <length>16</length>
             <scale>0</scale>
             <control>10</control>
             <primary-property>0</primary-property>
@@ -1234,20 +1329,26 @@ ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.syste
             <enabled>false</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object>tIB_SHXTWJZJB</ref-object>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
-            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;&#13;
+            <expression/>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.system'") == 0||ZKBSFYYJ != 1</invisible-expression>
+            <disable-expression/>
             <category>审核意见</category>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment/>
+            <validation/>
             <constraint type="3">
                 <SQL>["tIB_SHXTWJZJB.XMID={0} \r\nand tIB_SHXTWJZJB.LCID={1} \r\nand tIB_SHXTWJZJB.FILETYPEID = 6 \r\nand tIB_SHXTWJZJB.KYZT = 1",[{"expression":"XMMC.XMMC","scale":0,"length":0,"type":1},{"expression":"InstID","scale":0,"length":0,"type":1}]]</SQL>
                 <refColumns/>
             </constraint>
-            <properties/>
+            <scope-permissions/>
         </column>
         <column>
             <name>QTYJ</name>
@@ -1263,16 +1364,22 @@ ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.syste
             <enabled>false</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
-            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;&#13;
+            <expression/>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.system'") == 0||ZKBSFYYJ != 1</invisible-expression>
+            <disable-expression/>
             <category>审核意见</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>ZKBSHYJHZ</name>
@@ -1288,18 +1395,24 @@ ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.syste
             <enabled>false</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object>lcIB_FKYJHFLCB_ZKBSHYJHZ</ref-object>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 var cnt1= ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.system'");
 var cnt2 = ABS_SQLVALUE("select count(1) from ecif.lcIB_FKYJHFLCB_ZKBSHYJHZ where lcIB_FKYJHFLCB_ID=?",[ID]);
 (cnt1==0&amp;&amp;cnt2==0)||( cnt1==1 &amp;&amp; ZKBSFYYJ==null)</invisible-expression>
+            <disable-expression/>
             <category>审核意见</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>LC</name>
@@ -1315,14 +1428,21 @@ var cnt2 = ABS_SQLVALUE("select count(1) from ecif.lcIB_FKYJHFLCB_ZKBSHYJHZ wher
             <enabled>false</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>审核意见</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>SFCJYJ</name>
@@ -1345,7 +1465,7 @@ var cnt2 = ABS_SQLVALUE("select count(1) from ecif.lcIB_FKYJHFLCB_ZKBSHYJHZ wher
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.system'") == 0  </invisible-expression>
+ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.system'") == 0</invisible-expression>
             <disable-expression/>
             <category>审核意见</category>
             <fire-event>1</fire-event>
@@ -1354,7 +1474,6 @@ ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.syste
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>ZKBSHYJ1</name>
@@ -1377,7 +1496,7 @@ ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.syste
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.system'") == 0||SFCJYJ != 1  </invisible-expression>
+ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.system'") == 0||SFCJYJ != 1</invisible-expression>
             <disable-expression/>
             <category>审核意见</category>
             <fire-event>1</fire-event>
@@ -1390,7 +1509,6 @@ ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.syste
                 <refColumns/>
             </constraint>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>ZKBSHYJ</name>
@@ -1413,9 +1531,9 @@ ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.syste
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.system'") == 0||SFCJYJ != 1  </invisible-expression>
+ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.system'") == 0||SFCJYJ != 1</invisible-expression>
             <disable-expression>&lt;%@ livebos language='javascript' %&gt;
-ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.system'" ) == 1   </disable-expression>
+ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.system'" ) == 1</disable-expression>
             <category>审核意见</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
@@ -1423,7 +1541,6 @@ ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.syste
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>ZKXCGZBG</name>
@@ -1446,7 +1563,7 @@ ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.syste
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.system'") == 0 </invisible-expression>
+ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.system'") == 0</invisible-expression>
             <disable-expression/>
             <category>审核意见</category>
             <fire-event>1</fire-event>
@@ -1459,7 +1576,6 @@ ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.syste
                 <refColumns/>
             </constraint>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>ZKBXCGZBG</name>
@@ -1481,10 +1597,10 @@ ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.syste
             <attribute>0</attribute>
             <order-direction>0</order-direction>
             <expression/>
-            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;&#13;
-ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.system'") == 0 </invisible-expression>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.system'") == 0</invisible-expression>
             <disable-expression>&lt;%@ livebos language='javascript' %&gt;
-ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.system'" ) == 1  </disable-expression>
+ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.system'" ) == 1</disable-expression>
             <category>审核意见</category>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
@@ -1492,7 +1608,6 @@ ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.syste
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>BZSM</name>
@@ -1507,15 +1622,23 @@ ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.syste
             <unique>false</unique>
             <enabled>false</enabled>
             <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
             <attribute>262144</attribute>
             <order-direction>0</order-direction>
-            <expression>&lt;%@ livebos language='javascript' %&gt;&#13;
-'&lt;br&gt;&lt;font color=red&gt;请确保上传的附件与公文正文中列示的文件保持一致、该附件框中每一附件类型中仅上传一份最新版本附件至协同平台，用户可新增附件类型行&lt;font&gt;' </expression>
+            <expression>&lt;%@ livebos language='javascript' %&gt;
+'&lt;br&gt;&lt;font color=red&gt;请确保上传的附件与公文正文中列示的文件保持一致、该附件框中每一附件类型中仅上传一份最新版本附件至协同平台，用户可新增附件类型行&lt;font&gt;'</expression>
+            <invisible-expression/>
+            <disable-expression/>
             <category>上传公文附件</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>FJ</name>
@@ -1546,7 +1669,6 @@ ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.syste
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>DBXZ</name>
@@ -1570,10 +1692,9 @@ ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.syste
             <expression>&lt;%@ livebos language='javascript' %&gt;
 var url='/gdlcDown?lcbdid='+ID+'&amp;insid='+InstID+'&amp;fjlx=1'+'&amp;yhid='+$Login.User;
  '&lt;input type="button" onclick=\'window.open("'+url+'")\' value="  打包下载  " /&gt;'
- //'&lt;a target=_blank href='+url+'&gt;&lt;font color=red&gt;下载&lt;/font&gt;&lt;/a&gt;'
- </expression>
+ //'&lt;a target=_blank href='+url+'&gt;&lt;font color=red&gt;下载&lt;/font&gt;&lt;/a&gt;'</expression>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-LB.getClient().isStandard==false </invisible-expression>
+LB.getClient().isStandard==false</invisible-expression>
             <disable-expression/>
             <category>上传公文附件</category>
             <fire-event>0</fire-event>
@@ -1582,7 +1703,6 @@ LB.getClient().isStandard==false </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>FYYBCWJ</name>
@@ -1598,17 +1718,22 @@ LB.getClient().isStandard==false </invisible-expression>
             <enabled>false</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>4096</attribute>
             <order-direction>0</order-direction>
-            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;&#13;
+            <expression/>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 O_THIS.getColumn("FYYBCWJ").setLabel("非用印备查文件&lt;font color=red&gt;&lt;br&gt;(不上传至OA)&lt;/font&gt;");</invisible-expression>
+            <disable-expression/>
             <category>上传公文附件</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
             <comment/>
-            <properties/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>OASPXX</name>
@@ -1632,11 +1757,10 @@ O_THIS.getColumn("FYYBCWJ").setLabel("非用印备查文件&lt;font color=red&gt;&lt;br
             <expression>&lt;%@ livebos language='javascript' %&gt;
 var oaid=ABS_SQLVALUE("select nvl(max(oaworkflowid),0) from ecif.tib_oawfhandle where lcbd='lcIB_FKYJHFLCB' and lcbdid=?",[ID])
 var varSrc="/bss/ibb/nworkflow/page/oAsuggestion.sdo?oaWorkId="+oaid+"&amp;lcbd=lcIB_FKYJHFLCB&amp;lcbdId="+ID;
-"&lt;iframe id='lc_oayj' frameborder='0' width='100%' height='100%' scrolling='no' src='"+varSrc+"'&gt;&lt;/iframe&gt;"
-  </expression>
+"&lt;iframe id='lc_oayj' frameborder='0' width='100%' height='100%' scrolling='no' src='"+varSrc+"'&gt;&lt;/iframe&gt;"</expression>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 var oaid=ABS_SQLVALUE("select nvl(max(oaworkflowid),0) from ecif.tib_oawfhandle where lcbd='lcIB_GS_SBCLSH' and lcbdid=?",[ID])
-oaid&lt;=0  </invisible-expression>
+oaid&lt;=0</invisible-expression>
             <disable-expression/>
             <category>OA审批信息</category>
             <fire-event>0</fire-event>
@@ -1645,7 +1769,6 @@ oaid&lt;=0  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>ZDWCBZ</name>
@@ -1676,7 +1799,6 @@ oaid&lt;=0  </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
     </columns>
     <display-options>
@@ -1718,11 +1840,21 @@ oaid&lt;=0  </invisible-expression>
                 <define>
                     <item>lcIB_FKYJHFLCB_SHXXHZ</item>
                 </define>
-                <is-default>0</is-default>
+                <is-default>2</is-default>
                 <attribute>0</attribute>
+                <icon-cls/>
+                <tip/>
             </command>
         </commands>
-        <relations/>
+        <relations>
+            <relation type="9">
+                <define>
+                    <item>VO_NHTBTS</item>
+                    <item>(XMID=XMMC|YWLX=YWLX)</item>
+                </define>
+                <describe>内核特别提示</describe>
+            </relation>
+        </relations>
     </display-options>
     <subdivisions/>
     <methods>
@@ -1740,8 +1872,9 @@ oaid&lt;=0  </invisible-expression>
             <pre-functions/>
             <post-functions/>
         </method>
-        <method create-date="2020.08.04 08:55:11" creator="xuyanwei.apex" name="lcIB_FKYJHFLCB_SHXXHZ" object-id="195071d6:173b6f70e94:-8000" type="0">
+        <method create-date="2020.08.04 08:55:11" creator="xuyanwei.apex" modifier="null" modify-date="null" name="lcIB_FKYJHFLCB_SHXXHZ" object-id="195071d6:173b6f70e94:-8000" type="12" version="null">
             <describe>审核信息汇总</describe>
+            <comment/>
             <attribute>270532624</attribute>
             <parameters/>
             <properties>
@@ -1764,12 +1897,12 @@ oaid&lt;=0  </invisible-expression>
             <value>2</value>
         </property>
         <property>
-            <name>112</name>
-            <value>true</value>
-        </property>
-        <property>
             <name>57</name>
             <value>ZKBSHYJHZ=2</value>
+        </property>
+        <property>
+            <name>112</name>
+            <value>true</value>
         </property>
     </properties>
     <orders/>

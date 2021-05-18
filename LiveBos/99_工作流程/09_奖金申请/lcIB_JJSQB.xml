@@ -297,9 +297,9 @@
             <order-direction>0</order-direction>
             <expression>&lt;%@ livebos language='javascript' %&gt;
 var varSrc="/bss/ibb/nworkflow/page/suggestion.sdo?LcbdID="+ID+"&amp;Lcbd=lcIB_JJSQB";
-"&lt;iframe id='lc_zyldyj' frameborder='0' width='100%' height='100%' scrolling='no' src='"+varSrc+"'&gt;&lt;/iframe&gt;"   </expression>
+"&lt;iframe id='lc_zyldyj' frameborder='0' width='100%' height='100%' scrolling='no' src='"+varSrc+"'&gt;&lt;/iframe&gt;"    </expression>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-LB.getClient().isStandard==false</invisible-expression>
+LB.getClient().isStandard==false </invisible-expression>
             <disable-expression/>
             <category>申请审批信息</category>
             <fire-event>0</fire-event>
@@ -308,7 +308,6 @@ LB.getClient().isStandard==false</invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>XMMC</name>
@@ -373,7 +372,7 @@ LB.getClient().isStandard==false</invisible-expression>
             <comment/>
             <validation/>
             <constraint type="3">
-                <SQL>["tUser.ID in (select userid from jgcrm.lbmember where roleid=3 and orgid={0})",[{"expression":"SQBM","scale":0,"length":0,"type":1}]]</SQL>
+                <SQL>["tUser.ID in (select userid from jgcrm.lbmember where roleid=3 and orgid={0})",[{"expression":"SQBM","length":0,"scale":0,"type":1}]]</SQL>
                 <refColumns/>
             </constraint>
             <scope-permissions/>
@@ -610,10 +609,10 @@ LB.getClient().isStandard==false</invisible-expression>
             <expression>&lt;%@ livebos language='javascript' %&gt;
 var oaid=ABS_SQLVALUE("select nvl(max(oaworkflowid),0) from ecif.tib_oawfhandle where lcbd='lcIB_JJSQB' and lcbdid=?",[ID])
 var varSrc="/bss/ibb/nworkflow/page/oAsuggestion.sdo?oaWorkId="+oaid+"&amp;lcbd=lcIB_JJSQB&amp;lcbdId="+ID;
-"&lt;iframe id='lc_oayj' frameborder='0' width='100%' height='100%' scrolling='no' src='"+varSrc+"'&gt;&lt;/iframe&gt;"   </expression>
+"&lt;iframe id='lc_oayj' frameborder='0' width='100%' height='100%' scrolling='no' src='"+varSrc+"'&gt;&lt;/iframe&gt;"    </expression>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 var oaid=ABS_SQLVALUE("select nvl(max(oaworkflowid),0) from ecif.tib_oawfhandle where lcbd='lcIB_JJSQB' and lcbdid=?",[ID])
-oaid&lt;=0   </invisible-expression>
+oaid&lt;=0    </invisible-expression>
             <disable-expression/>
             <category>OA审批信息</category>
             <fire-event>0</fire-event>
@@ -636,20 +635,27 @@ oaid&lt;=0   </invisible-expression>
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
             <attribute>262144</attribute>
             <order-direction>0</order-direction>
-            <expression>&lt;%@ livebos language='javascript' %&gt;&#13;
-var url='/gdlcDown?lcbdid='+ID+'&amp;insid='+InstID+'&amp;fjlx=1'+'&amp;yhid='+$Login.User;&#13;
- '&lt;input type="button" onclick=\'window.open("'+url+'")\' value="  打包下载  " /&gt;'&#13;
- //'&lt;a target=_blank href='+url+'&gt;&lt;font color=red&gt;下载&lt;/font&gt;&lt;/a&gt;'&#13;
-</expression>
+            <expression>&lt;%@ livebos language='javascript' %&gt;
+var url='/gdlcDown?lcbdid='+ID+'&amp;insid='+InstID+'&amp;fjlx=1'+'&amp;yhid='+$Login.User;
+ '&lt;input type="button" onclick=\'window.open("'+url+'")\' value="  打包下载  " /&gt;'
+ //'&lt;a target=_blank href='+url+'&gt;&lt;font color=red&gt;下载&lt;/font&gt;&lt;/a&gt;'
+ </expression>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-LB.getClient().isStandard==false </invisible-expression>
+LB.getClient().isStandard==false  </invisible-expression>
+            <disable-expression/>
             <category>附件信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>ZDWCBZ</name>
@@ -665,15 +671,21 @@ LB.getClient().isStandard==false </invisible-expression>
             <enabled>false</enabled>
             <visible>false</visible>
             <option>$D{JG_SF}</option>
+            <meta-column/>
             <ref-object/>
             <default>1</default>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
     </columns>
     <display-options>
@@ -708,17 +720,18 @@ LB.getClient().isStandard==false </invisible-expression>
                 <is-default>1</is-default>
                 <attribute>2</attribute>
                 <icon-cls>lb-cmd-1</icon-cls>
+                <tip/>
             </command>
         </commands>
         <relations/>
     </display-options>
     <subdivisions/>
     <methods>
-        <method create-date="2017.09.21 15:36:06" creator="zhong.apex" name="lcIB_JJSQB_CK" object-id="-2b893564:15ea3208993:-7ff1" type="0">
+        <method create-date="2017.09.21 15:36:06" creator="zhong.apex" modifier="null" modify-date="null" name="lcIB_JJSQB_CK" object-id="-2b893564:15ea3208993:-7ff1" type="12" version="null">
             <describe>查看</describe>
+            <comment/>
             <attribute>270532624</attribute>
             <parameters/>
-            <extend-buttons/>
             <properties>
                 <property>
                     <name>28</name>

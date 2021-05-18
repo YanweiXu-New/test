@@ -10,6 +10,8 @@
     <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
       <describe>界面处理_更新值</describe>
       <arg flag="field" name="SFYY" type="expression">ABS_SQLVALUE("SELECT SFYY FROM ECIF.TIB_WDLXPZ WHERE ID = ?",[O_MASTER.FJLX])</arg>
+      <arg flag="field" name="SFBT" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE("SELECT SFBT  FROM ECIF.TIB_WDLXPZ WHERE ID = ?",[O_MASTER.FJLX])</arg>
     </invoke>
   </sequence>
 </process>

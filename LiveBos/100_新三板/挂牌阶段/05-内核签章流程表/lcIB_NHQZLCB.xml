@@ -35,6 +35,31 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
+        </column>
+        <column>
+            <name>YWLX</name>
+            <describe>业务类型</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>0</control>
+            <primary-property>6</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>false</visible>
+            <option>1|权益;2|固收(发行前);3|债券;4|新三板</option>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression>4</expression>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
         </column>
         <column>
             <name>SQR</name>
@@ -65,6 +90,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>SQBM</name>
@@ -95,6 +121,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>SQSJ</name>
@@ -125,6 +152,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>LCBH</name>
@@ -155,6 +183,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>OLDBH</name>
@@ -185,6 +214,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>BZSM_1</name>
@@ -206,7 +236,7 @@
             <attribute>266240</attribute>
             <order-direction>0</order-direction>
             <expression>&lt;%@ livebos language='javascript' %&gt;
-'&lt;br&gt;&lt;font color=red&gt;在底稿系统中完成“申报阶段”底稿上传工作后，才能发起内核后签章流程&lt;font&gt;'  </expression>
+'&lt;br&gt;&lt;font color=red&gt;在底稿系统中完成“申报阶段”底稿上传工作后，才能发起内核后签章流程&lt;font&gt;'</expression>
             <invisible-expression/>
             <disable-expression/>
             <category>申请信息</category>
@@ -216,6 +246,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>InstID</name>
@@ -246,6 +277,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>YYZL</name>
@@ -276,6 +308,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>LCBT</name>
@@ -306,6 +339,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>GWZW</name>
@@ -336,6 +370,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>Cs</name>
@@ -366,6 +401,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>Csong</name>
@@ -396,6 +432,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>LDSP</name>
@@ -418,9 +455,9 @@
             <order-direction>0</order-direction>
             <expression>&lt;%@ livebos language='javascript' %&gt;
 var varSrc="/bss/ibb/nworkflow/page/suggestion.sdo?LcbdID="+ID+"&amp;Lcbd=lcIB_NHQZLCB"+"&amp;Ywlx=110000";
-"&lt;iframe id='lc_zyldyj' frameborder='0' width='100%' height='100%' scrolling='no' src='"+varSrc+"'&gt;&lt;/iframe&gt;"    </expression>
+"&lt;iframe id='lc_zyldyj' frameborder='0' width='100%' height='100%' scrolling='no' src='"+varSrc+"'&gt;&lt;/iframe&gt;"</expression>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-LB.getClient().isStandard==false   </invisible-expression>
+LB.getClient().isStandard==false</invisible-expression>
             <disable-expression/>
             <category>基本信息</category>
             <fire-event>0</fire-event>
@@ -429,6 +466,7 @@ LB.getClient().isStandard==false   </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>BZ</name>
@@ -459,6 +497,7 @@ LB.getClient().isStandard==false   </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>XMMC</name>
@@ -489,10 +528,11 @@ LB.getClient().isStandard==false   </invisible-expression>
             <comment>&lt;font color=red&gt;&lt;b&gt;通过内核并完成内核流程方可发起内核签章流程。&lt;/b&gt;&lt;/font&gt;</comment>
             <validation/>
             <constraint type="3">
-                <SQL>["KPJD = 111\r\nOR ID = {0}",[{"expression":"XMMC","length":0,"scale":0,"type":1}]]</SQL>
+                <SQL>["KPJD = 111\r\nOR ID = {0}",[{"expression":"XMMC","scale":0,"length":0,"type":1}]]</SQL>
                 <refColumns/>
             </constraint>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>DGSCBL</name>
@@ -556,6 +596,7 @@ LB.getClient().isStandard==false   </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>XMLX</name>
@@ -586,6 +627,7 @@ LB.getClient().isStandard==false   </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>KHMC</name>
@@ -616,6 +658,7 @@ LB.getClient().isStandard==false   </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>KHDM</name>
@@ -646,6 +689,7 @@ LB.getClient().isStandard==false   </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>XMFZR</name>
@@ -676,6 +720,7 @@ LB.getClient().isStandard==false   </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>SSXT</name>
@@ -706,6 +751,7 @@ LB.getClient().isStandard==false   </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>NHHTGRQ</name>
@@ -821,7 +867,7 @@ LB.getClient().isStandard==false   </invisible-expression>
             <visible>true</visible>
             <option/>
             <meta-column/>
-            <ref-object>vUser_ZC</ref-object>
+            <ref-object>tUser</ref-object>
             <default>null</default>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
@@ -835,10 +881,11 @@ LB.getClient().isStandard==false   </invisible-expression>
             <comment/>
             <validation/>
             <constraint type="3">
-                <SQL>["tUser.OrgID in (select id from lborganization start with id = 13831  connect by  prior id = fid)",[]]</SQL>
+                <SQL>["tUser.OrgID in (SELECT ID  FROM JGCRM.LBORGANIZATION START WITH ID = 13831 CONNECT BY PRIOR ID = FID) \r\nand tUser.Status = 1",[]]</SQL>
                 <refColumns/>
             </constraint>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>ZKFS</name>
@@ -855,7 +902,7 @@ LB.getClient().isStandard==false   </invisible-expression>
             <visible>true</visible>
             <option/>
             <meta-column/>
-            <ref-object>vUser_ZC</ref-object>
+            <ref-object>tUser</ref-object>
             <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
@@ -868,7 +915,58 @@ LB.getClient().isStandard==false   </invisible-expression>
             <real-type>0</real-type>
             <comment/>
             <validation/>
+            <constraint type="3">
+                <SQL>["tUser.OrgID in (SELECT ID  FROM JGCRM.LBORGANIZATION START WITH ID = 13831 CONNECT BY PRIOR ID = FID) \r\nand tUser.Status = 1",[]]</SQL>
+                <refColumns/>
+            </constraint>
             <scope-permissions/>
+            <properties/>
+        </column>
+        <column>
+            <name>JGTS</name>
+            <describe>军工提示</describe>
+            <type>0</type>
+            <biz-type>100</biz-type>
+            <length>1000</length>
+            <scale>0</scale>
+            <control>16</control>
+            <primary-property>8</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <attribute>266240</attribute>
+            <order-direction>0</order-direction>
+            <expression>&lt;%@ livebos language='javascript' %&gt;&#13;
+'&lt;br&gt;&lt;font color=red&gt;客户单位是否持有“武器装备科研生产保密资格证书”、“武器装备科研生产许可证书”、“武器装备质量管理体系证书”、“装备承制单位资格证书”四证之一&lt;font&gt;'</expression>
+            <category>基本信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>JGTSXX</name>
+            <describe>军工提示选项</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>5</control>
+            <primary-property>0</primary-property>
+            <nullable>false</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option>1|是;0|否</option>
+            <ref-object/>
+            <attribute>266240</attribute>
+            <order-direction>0</order-direction>
+            <category>基本信息</category>
+            <fire-event>1</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
         </column>
         <column>
             <name>ZXRZNSHRY</name>
@@ -899,6 +997,7 @@ LB.getClient().isStandard==false   </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>NMXXDJB</name>
@@ -922,10 +1021,9 @@ LB.getClient().isStandard==false   </invisible-expression>
             <expression>&lt;%@ livebos language='javascript' %&gt;
 var url='/excelOut?ywlx=110000&amp;insid='+InstID+'&amp;lcbd=lcIB_NHQZLCB';
  '&lt;input type="button" onclick=\'window.open("'+url+'")\' value="  下载  " /&gt;'
- //'&lt;a target=_blank href='+url+'&gt;&lt;font color=red&gt;下载&lt;/font&gt;&lt;/a&gt;'
-   </expression>
+ //'&lt;a target=_blank href='+url+'&gt;&lt;font color=red&gt;下载&lt;/font&gt;&lt;/a&gt;'</expression>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-LB.getClient().isStandard==false   </invisible-expression>
+LB.getClient().isStandard==false</invisible-expression>
             <disable-expression/>
             <category>基本信息</category>
             <fire-event>0</fire-event>
@@ -934,6 +1032,7 @@ LB.getClient().isStandard==false   </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>CSRY</name>
@@ -964,6 +1063,7 @@ LB.getClient().isStandard==false   </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>SBRQ</name>
@@ -991,7 +1091,7 @@ LB.getClient().isStandard==false   </invisible-expression>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <comment/>
+            <comment>&lt;font color=red&gt;（即项目申报受理日期）&lt;font&gt;</comment>
             <validation/>
             <scope-permissions/>
             <properties>
@@ -1005,7 +1105,7 @@ LB.getClient().isStandard==false   </invisible-expression>
             <biz-type>100</biz-type>
             <length>200</length>
             <scale>0</scale>
-            <control>16</control>
+            <control>0</control>
             <primary-property>8</primary-property>
             <nullable>true</nullable>
             <unique>false</unique>
@@ -1018,7 +1118,7 @@ LB.getClient().isStandard==false   </invisible-expression>
             <attribute>266240</attribute>
             <order-direction>0</order-direction>
             <expression>&lt;%@ livebos language='javascript' %&gt;
-'&lt;font color="red"&gt;根据监管要求，请填写申报受理日期，并知会项目负责人和保荐代表人。&lt;/font&gt;'  </expression>
+'&lt;font color="red"&gt;根据监管要求，请填写申报受理日期，并知会项目负责人和保荐代表人。&lt;/font&gt;'</expression>
             <invisible-expression/>
             <disable-expression/>
             <category>基本信息</category>
@@ -1028,6 +1128,7 @@ LB.getClient().isStandard==false   </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>NHBZS</name>
@@ -1049,7 +1150,7 @@ LB.getClient().isStandard==false   </invisible-expression>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
             <expression>&lt;%@ livebos language='javascript' %&gt;
-ABS_SQLVALUE("select t1.NHZY_ZS from ECIF.lcIB_NHLCB t1 inner join jgcrm.os_wfentry t2 on t2.id=t1.instid  where t2.state=4 and t1.XMMC=? and rownum = 1 order by t1.instid desc",[XMMC])  </expression>
+ABS_SQLVALUE("select t1.NHZY_ZS from ECIF.lcIB_NHLCB t1 inner join jgcrm.os_wfentry t2 on t2.id=t1.instid  where t2.state=4 and t1.XMMC=? and rownum = 1 order by t1.instid desc",[XMMC])</expression>
             <invisible-expression/>
             <disable-expression/>
             <category>内核办审核信息</category>
@@ -1059,6 +1160,7 @@ ABS_SQLVALUE("select t1.NHZY_ZS from ECIF.lcIB_NHLCB t1 inner join jgcrm.os_wfen
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>NHBFS</name>
@@ -1089,6 +1191,7 @@ ABS_SQLVALUE("select t1.NHZY_ZS from ECIF.lcIB_NHLCB t1 inner join jgcrm.os_wfen
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>BZSM</name>
@@ -1110,7 +1213,7 @@ ABS_SQLVALUE("select t1.NHZY_ZS from ECIF.lcIB_NHLCB t1 inner join jgcrm.os_wfen
             <attribute>262144</attribute>
             <order-direction>0</order-direction>
             <expression>&lt;%@ livebos language='javascript' %&gt;
-'&lt;br&gt;&lt;font color=red&gt;请确保上传的附件与公文正文中列示的文件保持一致、该附件框中每一附件类型中仅上传一份最新版本附件至协同平台，用户可新增附件类型行&lt;font&gt;'  </expression>
+'&lt;br&gt;&lt;font color=red&gt;请确保上传的附件与公文正文中列示的文件保持一致、该附件框中每一附件类型中仅上传一份最新版本附件至协同平台，用户可新增附件类型行&lt;font&gt;'</expression>
             <invisible-expression/>
             <disable-expression/>
             <category>上传公文附件</category>
@@ -1120,6 +1223,7 @@ ABS_SQLVALUE("select t1.NHZY_ZS from ECIF.lcIB_NHLCB t1 inner join jgcrm.os_wfen
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>FJ</name>
@@ -1150,6 +1254,7 @@ ABS_SQLVALUE("select t1.NHZY_ZS from ECIF.lcIB_NHLCB t1 inner join jgcrm.os_wfen
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>DBXZ</name>
@@ -1173,10 +1278,9 @@ ABS_SQLVALUE("select t1.NHZY_ZS from ECIF.lcIB_NHLCB t1 inner join jgcrm.os_wfen
             <expression>&lt;%@ livebos language='javascript' %&gt;
 var url='/gdlcDown?lcbdid='+ID+'&amp;insid='+InstID+'&amp;fjlx=1'+'&amp;yhid='+$Login.User;
  '&lt;input type="button" onclick=\'window.open("'+url+'")\' value="  打包下载  " /&gt;'
- //'&lt;a target=_blank href='+url+'&gt;&lt;font color=red&gt;下载&lt;/font&gt;&lt;/a&gt;'
-   </expression>
+ //'&lt;a target=_blank href='+url+'&gt;&lt;font color=red&gt;下载&lt;/font&gt;&lt;/a&gt;'</expression>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-LB.getClient().isStandard==false   </invisible-expression>
+LB.getClient().isStandard==false</invisible-expression>
             <disable-expression/>
             <category>上传公文附件</category>
             <fire-event>0</fire-event>
@@ -1185,6 +1289,7 @@ LB.getClient().isStandard==false   </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>FYYBCWJ</name>
@@ -1207,8 +1312,7 @@ LB.getClient().isStandard==false   </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-O_THIS.getColumn("FYYBCWJ").setLabel("非用印备查文件&lt;font color=red&gt;&lt;br&gt;(不上传至OA)&lt;/font&gt;");
- </invisible-expression>
+O_THIS.getColumn("FYYBCWJ").setLabel("非用印备查文件&lt;font color=red&gt;&lt;br&gt;(不上传至OA)&lt;/font&gt;");</invisible-expression>
             <disable-expression/>
             <category>上传公文附件</category>
             <fire-event>0</fire-event>
@@ -1217,6 +1321,7 @@ O_THIS.getColumn("FYYBCWJ").setLabel("非用印备查文件&lt;font color=red&gt;&lt;br
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>JZDCXX</name>
@@ -1247,6 +1352,7 @@ O_THIS.getColumn("FYYBCWJ").setLabel("非用印备查文件&lt;font color=red&gt;&lt;br
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>FJXZ</name>
@@ -1270,8 +1376,7 @@ O_THIS.getColumn("FYYBCWJ").setLabel("非用印备查文件&lt;font color=red&gt;&lt;br
             <expression>&lt;%@ livebos language='javascript' %&gt;
 var url='/gdlcDown?lcbdid='+ID+'&amp;insid='+InstID+'&amp;fjlx=4'+'&amp;yhid='+$Login.User;
  '&lt;input type="button" onclick=\'window.open("'+url+'")\' value="  打包下载  " /&gt;'
- //'&lt;a target=_blank href='+url+'&gt;&lt;font color=red&gt;下载&lt;/font&gt;&lt;/a&gt;'
-   </expression>
+ //'&lt;a target=_blank href='+url+'&gt;&lt;font color=red&gt;下载&lt;/font&gt;&lt;/a&gt;'</expression>
             <invisible-expression/>
             <disable-expression/>
             <category>尽职调查信息</category>
@@ -1281,6 +1386,7 @@ var url='/gdlcDown?lcbdid='+ID+'&amp;insid='+InstID+'&amp;fjlx=4'+'&amp;yhid='+$
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>SFZJZY</name>
@@ -1344,6 +1450,7 @@ var url='/gdlcDown?lcbdid='+ID+'&amp;insid='+InstID+'&amp;fjlx=4'+'&amp;yhid='+$
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>OASPXX</name>
@@ -1367,11 +1474,10 @@ var url='/gdlcDown?lcbdid='+ID+'&amp;insid='+InstID+'&amp;fjlx=4'+'&amp;yhid='+$
             <expression>&lt;%@ livebos language='javascript' %&gt;
 var oaid=ABS_SQLVALUE("select nvl(max(oaworkflowid),0) from ecif.tib_oawfhandle where lcbd='lcIB_NHQZLCB' and lcbdid=?",[ID])
 var varSrc="/bss/ibb/nworkflow/page/oAsuggestion.sdo?oaWorkId="+oaid+"&amp;lcbd=lcIB_NHQZLCB&amp;lcbdId="+ID;
-"&lt;iframe id='lc_oayj' frameborder='0' width='100%' height='100%' scrolling='no' src='"+varSrc+"'&gt;&lt;/iframe&gt;"
-    </expression>
+"&lt;iframe id='lc_oayj' frameborder='0' width='100%' height='100%' scrolling='no' src='"+varSrc+"'&gt;&lt;/iframe&gt;"</expression>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 var oaid=ABS_SQLVALUE("select nvl(max(oaworkflowid),0) from ecif.tib_oawfhandle where lcbd='lcIB_NHQZLCB' and lcbdid=?",[ID])
-oaid&lt;=0    </invisible-expression>
+oaid&lt;=0</invisible-expression>
             <disable-expression/>
             <category>OA审批信息</category>
             <fire-event>0</fire-event>
@@ -1380,6 +1486,7 @@ oaid&lt;=0    </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>ZDWCBZ</name>
@@ -1410,6 +1517,7 @@ oaid&lt;=0    </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
     </columns>
     <display-options>
@@ -1447,7 +1555,15 @@ oaid&lt;=0    </invisible-expression>
                 <tip/>
             </command>
         </commands>
-        <relations/>
+        <relations>
+            <relation type="9">
+                <define>
+                    <item>VO_NHTBTS</item>
+                    <item>(XMID=XMMC|YWLX=YWLX)</item>
+                </define>
+                <describe>内核特别提示</describe>
+            </relation>
+        </relations>
     </display-options>
     <subdivisions/>
     <methods>
@@ -1488,6 +1604,9 @@ oaid&lt;=0    </invisible-expression>
             </event>
             <event attribute="0" src="XMMC" type="0">
                 <process-name>lcIB_NHQZLCB_XMMC_UI</process-name>
+            </event>
+            <event attribute="0" src="JGTSXX" type="0">
+                <process-name>lcIB_NHQZLCB_JGTSXX_UI</process-name>
             </event>
         </events>
     </ui-logics>

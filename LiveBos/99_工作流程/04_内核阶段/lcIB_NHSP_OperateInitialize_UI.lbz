@@ -47,44 +47,44 @@ ABS_SQLVALUE("SELECT wbzj FROM ecif.tIB_WYHXX WHERE hylb=2 and ywlx=1")</arg>
       <describe>判断</describe>
       <conditions>
         <condition name="" type="expression">
-          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
 1 == ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.system'")</arg>
         </condition>
       </conditions>
       <sequence id="0" name="顺序">
         <invoke component="expression" id="0" name="执行脚本">
           <describe>获取质控部审核意见</describe>
-          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
-var bean = ABS_LOADBEAN('com.apex.bss.mod.ibb.systemdocking.apexsoft.livebosbean.GetInstFileListBean');&#xD;
-var result = bean.perform($Login.User.UserID,O_MASTER.XMMC, O_MASTER.InstID, "4");&#xD;
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+var bean = ABS_LOADBEAN('com.apex.bss.mod.ibb.systemdocking.apexsoft.livebosbean.GetInstFileListBean');
+var result = bean.perform($Login.User.UserID,O_MASTER.XMMC, O_MASTER.InstID, "4");
 true;</arg>
         </invoke>
         <invoke component="expression" id="0" name="执行脚本">
           <describe>获取底稿审核意见</describe>
-          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
-var bean = ABS_LOADBEAN('com.apex.bss.mod.ibb.systemdocking.apexsoft.livebosbean.GetInstFileListBean');&#xD;
-var result = bean.perform($Login.User.UserID,O_MASTER.XMMC, O_MASTER.InstID, "5");&#xD;
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+var bean = ABS_LOADBEAN('com.apex.bss.mod.ibb.systemdocking.apexsoft.livebosbean.GetInstFileListBean');
+var result = bean.perform($Login.User.UserID,O_MASTER.XMMC, O_MASTER.InstID, "5");
 true;</arg>
         </invoke>
         <invoke component="expression" id="0" name="执行脚本">
           <describe>获取质量控制报告</describe>
-          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
-var bean = ABS_LOADBEAN('com.apex.bss.mod.ibb.systemdocking.apexsoft.livebosbean.GetInstFileListBean');&#xD;
-var result = bean.perform($Login.User.UserID,O_MASTER.XMMC, O_MASTER.InstID, "3");&#xD;
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+var bean = ABS_LOADBEAN('com.apex.bss.mod.ibb.systemdocking.apexsoft.livebosbean.GetInstFileListBean');
+var result = bean.perform($Login.User.UserID,O_MASTER.XMMC, O_MASTER.InstID, "3");
 true;</arg>
         </invoke>
         <invoke component="expression" id="0" name="执行脚本">
           <describe>获取现场工作报告</describe>
-          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
-var bean = ABS_LOADBEAN('com.apex.bss.mod.ibb.systemdocking.apexsoft.livebosbean.GetInstFileListBean');&#xD;
-var result = bean.perform($Login.User.UserID,O_MASTER.XMMC, O_MASTER.InstID, "1");&#xD;
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+var bean = ABS_LOADBEAN('com.apex.bss.mod.ibb.systemdocking.apexsoft.livebosbean.GetInstFileListBean');
+var result = bean.perform($Login.User.UserID,O_MASTER.XMMC, O_MASTER.InstID, "1");
 true;</arg>
         </invoke>
         <invoke component="expression" id="0" name="执行脚本">
           <describe>获取其他类文件</describe>
-          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
-var bean = ABS_LOADBEAN('com.apex.bss.mod.ibb.systemdocking.apexsoft.livebosbean.GetInstFileListBean');&#xD;
-var result = bean.perform($Login.User.UserID,O_MASTER.XMMC, O_MASTER.InstID, "6");&#xD;
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+var bean = ABS_LOADBEAN('com.apex.bss.mod.ibb.systemdocking.apexsoft.livebosbean.GetInstFileListBean');
+var result = bean.perform($Login.User.UserID,O_MASTER.XMMC, O_MASTER.InstID, "6");
 true;</arg>
         </invoke>
       </sequence>

@@ -299,7 +299,7 @@
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMMC.SFFXXM!=1 </invisible-expression>
+XMMC.SFFXXM!=1   </invisible-expression>
             <disable-expression/>
             <category>立项申请信息</category>
             <fire-event>0</fire-event>
@@ -723,7 +723,7 @@ XMMC.SFFXXM!=1 </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XZBZ!=1  </invisible-expression>
+XZBZ!=1    </invisible-expression>
             <disable-expression/>
             <category>审核信息</category>
             <fire-event>0</fire-event>
@@ -754,7 +754,7 @@ XZBZ!=1  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XZBZ!=1  </invisible-expression>
+XZBZ!=1    </invisible-expression>
             <disable-expression/>
             <category>审核信息</category>
             <fire-event>0</fire-event>
@@ -785,7 +785,7 @@ XZBZ!=1  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-SHBZ!=2  </invisible-expression>
+SHBZ!=2    </invisible-expression>
             <disable-expression/>
             <category>审核信息</category>
             <fire-event>0</fire-event>
@@ -887,7 +887,7 @@ SHBZ!=2  </invisible-expression>
         </column>
     </columns>
     <restrictions>
-        <condition>{"args":[{"expression":"$Login.User","length":0,"scale":0,"type":1}],"statement":"exists(select 1 from tIB_MyFlow where InstID=lcIB_XSB_LXSMSHLC.InstID and UserID={0}) or {0}=0","type":0}</condition>
+        <condition>{"statement":"exists(select 1 from tIB_MyFlow where InstID=lcIB_XSB_LXSMSHLC.InstID and UserID={0}) or {0}=0","args":[{"expression":"$Login.User","scale":0,"length":0,"type":1}],"type":0}</condition>
     </restrictions>
     <display-options>
         <commands>

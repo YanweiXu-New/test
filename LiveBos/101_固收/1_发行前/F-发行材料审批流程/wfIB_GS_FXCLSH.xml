@@ -3,7 +3,7 @@
   <meta name="workflow.category">固收类-发行前</meta>
   <meta name="Designer">Studio</meta>
   <meta name="created">2017-07-28 14:34:57</meta>
-  <meta name="modify">2020-11-24 13:30:26</meta>
+  <meta name="modify">2021-04-29 10:35:18</meta>
   <meta name="Describe">发行材料审批流程</meta>
   <meta name="WorkflowName">wfIB_GS_FXCLSH</meta>
   <meta name="WorkflowType">2</meta>
@@ -33,6 +33,8 @@
           <column  name="InstID" disabled="false" hidden="true" summary="false">
           </column>
           <column  name="ZDWCBZ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="YWLX" disabled="false" hidden="true" summary="false">
           </column>
           <column  name="SQR" disabled="true" hidden="false" summary="false">
           </column>
@@ -98,9 +100,9 @@
           </column>
           <column  name="CSRY" disabled="false" hidden="false" summary="false">
           </column>
-          <column  name="ZQXX" disabled="true" hidden="false" summary="false">
+          <column  name="ZQXX" disabled="false" hidden="false" summary="false">
           </column>
-          <column  name="HDPWSJ" disabled="true" hidden="false" summary="false">
+          <column  name="HDPWSJ" disabled="false" hidden="false" summary="false">
           </column>
           <column  name="PWHM" disabled="false" hidden="false" summary="false">
           </column>
@@ -112,16 +114,20 @@
           </column>
           <column  name="WSJHYEBXBL" disabled="false" hidden="false" summary="false">
           </column>
+          <column  name="PWDQRQ" disabled="false" hidden="false" summary="false">
+          </column>
           <column  name="GWFJBZSM" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="FJ" disabled="false" hidden="false" summary="false">
-            <object  name="lcIB_GS_FXCLSH_FJ" editAttribute="48" >
+            <object  name="lcIB_GS_FXCLSH_FJ" editAttribute="52" >
               <columns>
                 <column  name="ID" disabled="false" hidden="true" summary="false">
                 </column>
                 <column  name="TJSX" disabled="false" hidden="true" summary="false">
                 </column>
                 <column  name="FJLX" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SFBT" disabled="true" hidden="false" summary="false">
                 </column>
                 <column  name="FJM" disabled="false" hidden="false" summary="false">
                 </column>
@@ -132,6 +138,8 @@
                 <column  name="SCSJ" disabled="false" hidden="true" summary="false">
                 </column>
                 <column  name="SFYY" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SFSY" disabled="false" hidden="false" summary="false">
                 </column>
                 <column  name="SF360XS" disabled="false" hidden="true" summary="false">
                 </column>
@@ -187,7 +195,7 @@
               <arg name="datasource">ECIF</arg>
             </function>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;CALL ECIF.PRO_IB_GSXMXXHX(?,?,{0},{1},2,{2},{3},null,null,null,null,null,{4},{5},{6},{7},{8},{9})&quot;,[{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.IP&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.ZQXX&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.HDPWSJ&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;13&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.PWHM&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.NDPWGM&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.YFXGM&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.BQJHFXGM&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.WSJHYEBXBL&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+              <arg name="SQL">[&quot;call ecif.PRO_IB_GSXMXXHX(?,?,{0},{1},2,{2},{3},null,null,null,null,null,{4},{5},{6},{7},{8},{9})&quot;,[{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.IP&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.ZQXX&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.HDPWSJ&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;13&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.PWHM&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.NDPWGM&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.YFXGM&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.BQJHFXGM&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.WSJHYEBXBL&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
               <arg name="datasource">ECIF</arg>
             </function>
@@ -647,13 +655,36 @@ ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM ecif.tIB_XMXX_GS WHERE TDFZR = ? AND ID 
             </function>
           </pre-functions>
           <results>
-            <unconditional-result id="26" old-status="完成" status="待处理" step="15">
+            <result id="1057" old-status="完成" status="待处理" step="15" display-name="投资银行总部及其下属部门">
+              <conditions>
+                <condition id="0" name="abs.FormExpOfStepCondition" type="class">
+                  <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+var cnt1 = ABS_SQLVALUE(&quot;select count(1) from jgcrm.lborganization where fid = 1 and id = 10015 start with id = ?  connect by prior fid = id&quot;,[O_WORKFLOW.SQR.OrgID]);
+cnt1 == 1 </arg>
+                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
+                  <arg name="Table">lcIB_GS_FXCLSH</arg>
+                </condition>
+              </conditions>
+            </result>
+            <result id="1058" old-status="完成" status="待处理" step="17" display-name="并购融资部及其下属部门">
+              <conditions>
+                <condition id="0" name="abs.FormExpOfStepCondition" type="class">
+                  <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+var cnt1 = ABS_SQLVALUE(&quot;select count(1) from jgcrm.lborganization where fid = 1 and id = 13929 start with id = ?  connect by prior fid = id&quot;,[O_WORKFLOW.SQR.OrgID]);
+cnt1 == 1 </arg>
+                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
+                  <arg name="Table">lcIB_GS_FXCLSH</arg>
+                </condition>
+              </conditions>
+            </result>
+            <unconditional-result id="26" old-status="完成" status="待处理" step="19">
             </unconditional-result>
           </results>
         </action>
       </actions>
     </step>
-    <step id="15" name="固收文管审核">
+    <step id="15" name="投资银行总部总经理审批">
+      <meta name="step.allow.auto.approve">true</meta>
       <meta name="step.reject.mode">any</meta>
       <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
@@ -757,9 +788,9 @@ ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM ecif.tIB_XMXX_GS WHERE TDFZR = ? AND ID 
         </columns>
       </object>
       <dynOwners>
-        <dynOwner  type="1" describe="固收_部门文管" >
+        <dynOwner  type="1" describe="" >
           <expression><![CDATA[
-{"name":"DW_GS_BMWG","parameters":{}}]]></expression>
+{"name":"DW_GSTXZBZJL","parameters":{}}]]></expression>
           </dynOwner>
               </dynOwners>
       <notify >
@@ -776,13 +807,14 @@ ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM ecif.tIB_XMXX_GS WHERE TDFZR = ? AND ID 
             </function>
           </pre-functions>
           <results>
-            <unconditional-result id="27" old-status="完成" status="待处理" step="17">
+            <unconditional-result id="27" old-status="完成" status="待处理" step="19">
             </unconditional-result>
           </results>
         </action>
       </actions>
     </step>
-    <step id="17" name="固收审核岗审核" owner="$D{Designate}">
+    <step id="17" name="并购融资部总经理审批" owner="$D{Designate}">
+      <meta name="step.allow.auto.approve">false</meta>
       <meta name="step.reject.mode">any</meta>
       <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
@@ -886,13 +918,24 @@ ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM ecif.tIB_XMXX_GS WHERE TDFZR = ? AND ID 
         </columns>
       </object>
       <dynOwners>
-        <dynOwner  type="1" describe="固收_综合部审核岗" >
+        <dynOwner  type="1" describe="" >
           <expression><![CDATA[
-{"name":"DW_GSZHBSHG","parameters":{}}]]></expression>
+{"name":"DW_GSBGRZBZJL","parameters":{}}]]></expression>
           </dynOwner>
               </dynOwners>
       <notify >
       </notify>
+      <pre-functions>
+        <function id="0" name="abs.Expression" type="null">
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+var s=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.OS_CURRENTSTEP T,JGCRM.LBWFCURRENTOWNER A WHERE T.ID = A.STEPID AND T.ENTRY_ID = ? AND T.STEP_ID = 17 AND A.OWNER = ?&quot;,[O_WORKFLOW.InstID,$Login.User]);
+if (s&gt;0){
+LB_workAction(&quot;lcIB_GS_FXCLSH&quot;,O_WORKFLOW.ID,18,&quot;&quot;);
+ABS_flushObjCache('WORKFLOW.TASK')
+}</arg>
+          <arg name="class.name"> com.apex.livebos.workflow.ExecExpressionFunction</arg>
+        </function>
+      </pre-functions>
       <actions>
         <action id="18" name="审批通过">
           <meta name="NodeType">17</meta>
@@ -912,7 +955,8 @@ ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM ecif.tIB_XMXX_GS WHERE TDFZR = ? AND ID 
         </action>
       </actions>
     </step>
-    <step id="19" name="固收总部总经理">
+    <step id="19" name="债券业务负责人审核">
+      <meta name="step.allow.auto.approve">false</meta>
       <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.reject.mode">any</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
@@ -1023,6 +1067,17 @@ ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM ecif.tIB_XMXX_GS WHERE TDFZR = ? AND ID 
               </dynOwners>
       <notify >
       </notify>
+      <pre-functions>
+        <function id="0" name="abs.Expression" type="null">
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+var s=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.OS_CURRENTSTEP T,JGCRM.LBWFCURRENTOWNER A WHERE T.ID = A.STEPID AND T.ENTRY_ID = ? AND T.STEP_ID = 19 AND A.OWNER = ?&quot;,[O_WORKFLOW.InstID,$Login.User]);
+if (s&gt;0){
+LB_workAction(&quot;lcIB_GS_FXCLSH&quot;,O_WORKFLOW.ID,20,&quot;&quot;);
+ABS_flushObjCache('WORKFLOW.TASK')
+}</arg>
+          <arg name="class.name"> com.apex.livebos.workflow.ExecExpressionFunction</arg>
+        </function>
+      </pre-functions>
       <actions>
         <action id="20" name="审批通过">
           <meta name="NodeType">17</meta>
@@ -1207,6 +1262,70 @@ O_WORKFLOW.LCBT]]></message>
           <meta name="NodeType">10</meta>
           <restrict-to>
             <conditions type="OR">
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
               <condition name="verify.caller" type="class">
                 <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
@@ -2346,6 +2465,8 @@ ABS_IF(O_WORKFLOW.ZKSBZS==$Login.User,0,O_WORKFLOW.YJJG)</arg>
           </column>
           <column  name="ZDWCBZ" disabled="false" hidden="true" summary="false">
           </column>
+          <column  name="YWLX" disabled="false" hidden="true" summary="false">
+          </column>
           <column  name="SQR" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="SQBM" disabled="true" hidden="false" summary="false">
@@ -2354,9 +2475,17 @@ ABS_IF(O_WORKFLOW.ZKSBZS==$Login.User,0,O_WORKFLOW.YJJG)</arg>
           </column>
           <column  name="LCBH" disabled="true" hidden="false" summary="false">
           </column>
+          <column  name="TIPS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="YYZL" disabled="true" hidden="false" summary="false">
+          </column>
           <column  name="LCBT" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="GWZW" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="Cs" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="Csong" disabled="false" hidden="true" summary="false">
           </column>
           <column  name="LDSP" disabled="true" hidden="false" summary="false">
           </column>
@@ -2400,6 +2529,24 @@ ABS_IF(O_WORKFLOW.ZKSBZS==$Login.User,0,O_WORKFLOW.YJJG)</arg>
           </column>
           <column  name="NMXXDJB" disabled="true" hidden="false" summary="false">
           </column>
+          <column  name="CSRY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQXX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="HDPWSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="PWHM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="NDPWGM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="YFXGM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="BQJHFXGM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="WSJHYEBXBL" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="GWFJBZSM" disabled="true" hidden="false" summary="false">
+          </column>
           <column  name="FJ" disabled="true" hidden="false" summary="false">
             <object  name="lcIB_GS_FXCLSH_FJ" editAttribute="0" >
               <columns>
@@ -2416,6 +2563,12 @@ ABS_IF(O_WORKFLOW.ZKSBZS==$Login.User,0,O_WORKFLOW.YJJG)</arg>
                 <column  name="SCZ" disabled="true" hidden="false" summary="false">
                 </column>
                 <column  name="SCSJ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SFYY" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SFBT" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SFSY" disabled="true" hidden="false" summary="false">
                 </column>
                 <column  name="SF360XS" disabled="false" hidden="true" summary="false">
                 </column>
@@ -2444,11 +2597,16 @@ ABS_IF(O_WORKFLOW.ZKSBZS==$Login.User,0,O_WORKFLOW.YJJG)</arg>
           </column>
           <column  name="DBXZ" disabled="false" hidden="false" summary="false">
           </column>
+          <column  name="FYYBCWJ" disabled="true" hidden="false" summary="false">
+          </column>
           <column  name="NHYJHF" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="NHBHF" disabled="true" hidden="false" summary="false">
           </column>
         </columns>
+        <relations>
+<relation name='VO_NHTBTS.(XMID=XMMC|YWLX=YWLX)' />
+        </relations>
       </object>
       <dynOwners>
         <dynOwner  type="1" describe="内核办文管" >
@@ -2745,6 +2903,70 @@ status==1</arg>
           <meta name="NodeType">10</meta>
           <restrict-to>
             <conditions type="OR">
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
               <condition name="verify.caller" type="class">
                 <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
@@ -4077,6 +4299,70 @@ ABS_flushObjCache('WORKFLOW.TASK')
               </condition>
               <condition name="verify.caller" type="class">
                 <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;,[]]</arg>
               </condition>
               <condition name="verify.caller" type="class">
@@ -4248,6 +4534,8 @@ ABS_flushObjCache('WORKFLOW.TASK')
           </column>
           <column  name="ZDWCBZ" disabled="false" hidden="true" summary="false">
           </column>
+          <column  name="YWLX" disabled="false" hidden="true" summary="false">
+          </column>
           <column  name="SQR" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="SQBM" disabled="true" hidden="false" summary="false">
@@ -4256,9 +4544,17 @@ ABS_flushObjCache('WORKFLOW.TASK')
           </column>
           <column  name="LCBH" disabled="true" hidden="false" summary="false">
           </column>
+          <column  name="TIPS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="YYZL" disabled="true" hidden="false" summary="false">
+          </column>
           <column  name="LCBT" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="GWZW" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="Cs" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="Csong" disabled="false" hidden="true" summary="false">
           </column>
           <column  name="LDSP" disabled="true" hidden="false" summary="false">
           </column>
@@ -4302,6 +4598,24 @@ ABS_flushObjCache('WORKFLOW.TASK')
           </column>
           <column  name="NMXXDJB" disabled="true" hidden="false" summary="false">
           </column>
+          <column  name="CSRY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQXX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="HDPWSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="PWHM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="NDPWGM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="YFXGM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="BQJHFXGM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="WSJHYEBXBL" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="GWFJBZSM" disabled="true" hidden="false" summary="false">
+          </column>
           <column  name="FJ" disabled="true" hidden="false" summary="false">
             <object  name="lcIB_GS_FXCLSH_FJ" editAttribute="0" >
               <columns>
@@ -4318,6 +4632,12 @@ ABS_flushObjCache('WORKFLOW.TASK')
                 <column  name="SCZ" disabled="true" hidden="false" summary="false">
                 </column>
                 <column  name="SCSJ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SFYY" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SFBT" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SFSY" disabled="true" hidden="false" summary="false">
                 </column>
                 <column  name="SF360XS" disabled="false" hidden="true" summary="false">
                 </column>
@@ -4346,11 +4666,16 @@ ABS_flushObjCache('WORKFLOW.TASK')
           </column>
           <column  name="DBXZ" disabled="false" hidden="false" summary="false">
           </column>
+          <column  name="FYYBCWJ" disabled="true" hidden="false" summary="false">
+          </column>
           <column  name="NHYJHF" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="NHBHF" disabled="true" hidden="false" summary="false">
           </column>
         </columns>
+        <relations>
+<relation name='VO_NHTBTS.(XMID=XMMC|YWLX=YWLX)' />
+        </relations>
       </object>
       <dynOwners>
         <dynOwner  type="1" describe="内核办文管" >
@@ -4403,6 +4728,8 @@ ABS_flushObjCache('WORKFLOW.TASK')
           </column>
           <column  name="ZDWCBZ" disabled="false" hidden="true" summary="false">
           </column>
+          <column  name="YWLX" disabled="false" hidden="true" summary="false">
+          </column>
           <column  name="SQR" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="SQBM" disabled="true" hidden="false" summary="false">
@@ -4411,9 +4738,17 @@ ABS_flushObjCache('WORKFLOW.TASK')
           </column>
           <column  name="LCBH" disabled="true" hidden="false" summary="false">
           </column>
+          <column  name="TIPS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="YYZL" disabled="true" hidden="false" summary="false">
+          </column>
           <column  name="LCBT" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="GWZW" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="Cs" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="Csong" disabled="false" hidden="true" summary="false">
           </column>
           <column  name="LDSP" disabled="true" hidden="false" summary="false">
           </column>
@@ -4457,6 +4792,24 @@ ABS_flushObjCache('WORKFLOW.TASK')
           </column>
           <column  name="NMXXDJB" disabled="true" hidden="false" summary="false">
           </column>
+          <column  name="CSRY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQXX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="HDPWSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="PWHM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="NDPWGM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="YFXGM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="BQJHFXGM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="WSJHYEBXBL" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="GWFJBZSM" disabled="true" hidden="false" summary="false">
+          </column>
           <column  name="FJ" disabled="true" hidden="false" summary="false">
             <object  name="lcIB_GS_FXCLSH_FJ" editAttribute="0" >
               <columns>
@@ -4473,6 +4826,12 @@ ABS_flushObjCache('WORKFLOW.TASK')
                 <column  name="SCZ" disabled="true" hidden="false" summary="false">
                 </column>
                 <column  name="SCSJ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SFYY" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SFBT" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SFSY" disabled="true" hidden="false" summary="false">
                 </column>
                 <column  name="SF360XS" disabled="false" hidden="true" summary="false">
                 </column>
@@ -4501,11 +4860,16 @@ ABS_flushObjCache('WORKFLOW.TASK')
           </column>
           <column  name="DBXZ" disabled="false" hidden="false" summary="false">
           </column>
+          <column  name="FYYBCWJ" disabled="true" hidden="false" summary="false">
+          </column>
           <column  name="NHYJHF" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="NHBHF" disabled="true" hidden="false" summary="false">
           </column>
         </columns>
+        <relations>
+<relation name='VO_NHTBTS.(XMID=XMMC|YWLX=YWLX)' />
+        </relations>
       </object>
       <dynOwners>
         <dynOwner  type="0" describe="内核办主副审" >
@@ -4528,7 +4892,7 @@ ABS_flushObjCache('WORKFLOW.TASK')
             </function>
           </pre-functions>
           <results>
-            <unconditional-result id="1043" old-status="完成" status="待处理" step="1038">
+            <unconditional-result id="1043" old-status="完成" status="待处理" step="1054">
             </unconditional-result>
           </results>
         </action>
@@ -4573,6 +4937,8 @@ ABS_flushObjCache('WORKFLOW.TASK')
           </column>
           <column  name="ZDWCBZ" disabled="false" hidden="true" summary="false">
           </column>
+          <column  name="YWLX" disabled="false" hidden="true" summary="false">
+          </column>
           <column  name="SQR" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="SQBM" disabled="true" hidden="false" summary="false">
@@ -4581,9 +4947,17 @@ ABS_flushObjCache('WORKFLOW.TASK')
           </column>
           <column  name="LCBH" disabled="true" hidden="false" summary="false">
           </column>
+          <column  name="TIPS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="YYZL" disabled="true" hidden="false" summary="false">
+          </column>
           <column  name="LCBT" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="GWZW" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="Cs" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="Csong" disabled="false" hidden="true" summary="false">
           </column>
           <column  name="LDSP" disabled="true" hidden="false" summary="false">
           </column>
@@ -4627,6 +5001,24 @@ ABS_flushObjCache('WORKFLOW.TASK')
           </column>
           <column  name="NMXXDJB" disabled="true" hidden="false" summary="false">
           </column>
+          <column  name="CSRY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQXX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="HDPWSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="PWHM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="NDPWGM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="YFXGM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="BQJHFXGM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="WSJHYEBXBL" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="GWFJBZSM" disabled="true" hidden="false" summary="false">
+          </column>
           <column  name="FJ" disabled="true" hidden="false" summary="false">
             <object  name="lcIB_GS_FXCLSH_FJ" editAttribute="0" >
               <columns>
@@ -4643,6 +5035,12 @@ ABS_flushObjCache('WORKFLOW.TASK')
                 <column  name="SCZ" disabled="true" hidden="false" summary="false">
                 </column>
                 <column  name="SCSJ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SFYY" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SFBT" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SFSY" disabled="true" hidden="false" summary="false">
                 </column>
                 <column  name="SF360XS" disabled="false" hidden="true" summary="false">
                 </column>
@@ -4671,11 +5069,16 @@ ABS_flushObjCache('WORKFLOW.TASK')
           </column>
           <column  name="DBXZ" disabled="false" hidden="false" summary="false">
           </column>
+          <column  name="FYYBCWJ" disabled="true" hidden="false" summary="false">
+          </column>
           <column  name="NHYJHF" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="NHBHF" disabled="true" hidden="false" summary="false">
           </column>
         </columns>
+        <relations>
+<relation name='VO_NHTBTS.(XMID=XMMC|YWLX=YWLX)' />
+        </relations>
       </object>
       <dynOwners>
         <dynOwner  type="1" describe="内核办主任" >
@@ -4728,6 +5131,8 @@ ABS_flushObjCache('WORKFLOW.TASK')
           </column>
           <column  name="ZDWCBZ" disabled="false" hidden="true" summary="false">
           </column>
+          <column  name="YWLX" disabled="false" hidden="true" summary="false">
+          </column>
           <column  name="SQR" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="SQBM" disabled="true" hidden="false" summary="false">
@@ -4736,9 +5141,17 @@ ABS_flushObjCache('WORKFLOW.TASK')
           </column>
           <column  name="LCBH" disabled="true" hidden="false" summary="false">
           </column>
+          <column  name="TIPS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="YYZL" disabled="true" hidden="false" summary="false">
+          </column>
           <column  name="LCBT" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="GWZW" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="Cs" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="Csong" disabled="false" hidden="true" summary="false">
           </column>
           <column  name="LDSP" disabled="true" hidden="false" summary="false">
           </column>
@@ -4782,6 +5195,24 @@ ABS_flushObjCache('WORKFLOW.TASK')
           </column>
           <column  name="NMXXDJB" disabled="true" hidden="false" summary="false">
           </column>
+          <column  name="CSRY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQXX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="HDPWSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="PWHM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="NDPWGM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="YFXGM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="BQJHFXGM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="WSJHYEBXBL" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="GWFJBZSM" disabled="true" hidden="false" summary="false">
+          </column>
           <column  name="FJ" disabled="true" hidden="false" summary="false">
             <object  name="lcIB_GS_FXCLSH_FJ" editAttribute="0" >
               <columns>
@@ -4798,6 +5229,12 @@ ABS_flushObjCache('WORKFLOW.TASK')
                 <column  name="SCZ" disabled="true" hidden="false" summary="false">
                 </column>
                 <column  name="SCSJ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SFYY" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SFBT" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SFSY" disabled="true" hidden="false" summary="false">
                 </column>
                 <column  name="SF360XS" disabled="false" hidden="true" summary="false">
                 </column>
@@ -4826,7 +5263,16 @@ ABS_flushObjCache('WORKFLOW.TASK')
           </column>
           <column  name="DBXZ" disabled="false" hidden="false" summary="false">
           </column>
+          <column  name="FYYBCWJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="NHYJHF" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="NHBHF" disabled="true" hidden="false" summary="false">
+          </column>
         </columns>
+        <relations>
+<relation name='VO_NHTBTS.(XMID=XMMC|YWLX=YWLX)' />
+        </relations>
       </object>
       <dynOwners>
         <dynOwner  type="1" describe="内核办小组组长" >
@@ -4982,6 +5428,194 @@ ABS_flushObjCache('WORKFLOW.TASK')
         <function id="0" name="lb.WfFormUpdate" type="class">
           <arg name="class.name">com.apex.livebos.workflow.function.WorkFormUpdateFunction</arg>
           <arg name="$F{FKBZ}">1</arg>
+        </function>
+      </reject-functions>
+    </step>
+    <step id="1054" name="内核办非权益类团队负责人审核" owner="$R{171}">
+      <meta name="step.allow.approve.sign">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="step.approve.sign.action.name">会签</meta>
+      <meta name="NodeType">16</meta>
+      <meta name="approve.sign.modes">endorsesign</meta>
+      <meta name="step.allow.reassign">true</meta>
+      <meta name="step.allow.reject">true</meta>
+      <meta name="approve.mode">true</meta>
+      <object  name="lcIB_GS_FXCLSH" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="ZDWCBZ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="YWLX" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="TIPS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="YYZL" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="GWZW" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="Cs" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="Csong" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="LDSP" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SSKH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="WSJS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="WSJSSM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SLTGR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQDLR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="HXGLR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="QTXXSM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXFS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXED" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FXQX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="MJZJYT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="YJFXSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="PWRQ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZKSBZS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZKSBFS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="NHBZS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="NHBFS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMZCY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="NMXXDJB" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="CSRY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZQXX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="HDPWSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="PWHM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="NDPWGM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="YFXGM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="BQJHFXGM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="WSJHYEBXBL" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="GWFJBZSM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FJ" disabled="true" hidden="false" summary="false">
+            <object  name="lcIB_GS_FXCLSH_FJ" editAttribute="0" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="TJSX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJLX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJM" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="WDMC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SCZ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SCSJ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SFYY" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SFBT" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SFSY" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SF360XS" disabled="false" hidden="true" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+          <column  name="CJSHYJ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="ZKBSHYJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZKYJHF" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZKBSHYJHF" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="OASPXX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="OLDBH" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="XMLX_EJ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="FKBZ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="NHBZ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="YJJG" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="DBXZ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FYYBCWJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="NHYJHF" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="NHBHF" disabled="true" hidden="false" summary="false">
+          </column>
+        </columns>
+        <relations>
+<relation name='VO_NHTBTS.(XMID=XMMC|YWLX=YWLX)' />
+        </relations>
+      </object>
+      <notify >
+      </notify>
+      <actions>
+        <action id="1055" name="审批通过">
+          <meta name="NodeType">17</meta>
+          <meta name="approve.action">true</meta>
+          <meta name="allow.recover">true</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="SQL">[&quot;call ecif.PRO_IB_GSLCHCL(?,?,{0},'lcIB_GS_FXCLSH',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="datasource">ECIF</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <unconditional-result id="1056" old-status="完成" status="待处理" step="1038">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+      <reject-functions>
+        <function id="0" name="lb.WfFormUpdate" type="class">
+          <arg name="class.name">com.apex.livebos.workflow.function.WorkFormUpdateFunction</arg>
+          <arg name="$F{FKBZ}">1</arg>
+          <arg name="$F{NHBZ}">1</arg>
         </function>
       </reject-functions>
     </step>

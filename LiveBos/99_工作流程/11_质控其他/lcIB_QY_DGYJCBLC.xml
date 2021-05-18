@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="GB2312" standalone="no"?>
 <object create-date="2017.12.18 14:18:04" creator="zhong.apex" flag="0" modifier="null" modify-date="null" name="lcIB_QY_DGYJCBLC" object-id="d08daeda-574e-4678-b464-50f8055dc11d" package="99_工作流程.11_质控其他" type="5" version="1.0">
-    <describe>底稿移交流程</describe>
+    <describe>底稿移交催办流程</describe>
     <comment/>
     <datasource-name>ECIF</datasource-name>
     <attribute>392</attribute>
@@ -223,12 +223,12 @@
             <biz-type>500</biz-type>
             <length>16</length>
             <scale>0</scale>
-            <control>10</control>
+            <control>0</control>
             <primary-property>0</primary-property>
             <nullable>true</nullable>
             <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
+            <enabled>false</enabled>
+            <visible>false</visible>
             <option/>
             <meta-column/>
             <ref-object>vIB_XMXX_MY</ref-object>
@@ -397,6 +397,36 @@
             <scope-permissions/>
         </column>
         <column>
+            <name>NHZKBSHY_ZS</name>
+            <describe>内核质控部审核员(主审)</describe>
+            <type>6</type>
+            <biz-type>500</biz-type>
+            <length>12</length>
+            <scale>0</scale>
+            <control>10</control>
+            <primary-property>0</primary-property>
+            <nullable>false</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object>vUser_ZC</ref-object>
+            <default>null</default>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>项目信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
             <name>DGYJR</name>
             <describe>底稿移交人</describe>
             <type>6</type>
@@ -487,11 +517,11 @@
             <scope-permissions/>
         </column>
         <column>
-            <name>DGSL</name>
+            <name>F2</name>
             <describe>底稿数量</describe>
-            <type>1</type>
-            <biz-type>200</biz-type>
-            <length>10</length>
+            <type>0</type>
+            <biz-type>100</biz-type>
+            <length>30</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -539,36 +569,6 @@
             <invisible-expression/>
             <disable-expression/>
             <category>项目工作底稿表单信息</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-        </column>
-        <column>
-            <name>NHZKBSHY_ZS</name>
-            <describe>内核质控部审核员(主审)</describe>
-            <type>6</type>
-            <biz-type>500</biz-type>
-            <length>12</length>
-            <scale>0</scale>
-            <control>10</control>
-            <primary-property>0</primary-property>
-            <nullable>false</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>true</visible>
-            <option/>
-            <meta-column/>
-            <ref-object>vUser_ZC</ref-object>
-            <default>null</default>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category>项目信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>

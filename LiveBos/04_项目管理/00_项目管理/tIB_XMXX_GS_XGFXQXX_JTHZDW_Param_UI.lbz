@@ -2,12 +2,20 @@
 <process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_XMXX_GS_XGFXQXX" name="tIB_XMXX_GS_XGFXQXX_JTHZDW_Param_UI" object="tIB_XMXX_GS" type="2" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
   <describe>集团合作单位界面事件</describe>
   <variables />
-  <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
-    <describe>界面处理_更新值</describe>
-    <arg flag="field" name="FH" type="expression">&lt;%@ livebos language='javascript' %&gt;
-ABS_IF(O_PARAMETER.JTHZDW==2,O_PARAMETER.FH,null)</arg>
-    <arg flag="field" name="GHHDCKJE" type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
-ABS_IF(O_PARAMETER.JTHZDW==2,O_PARAMETER.GHHDCKJE,null)</arg>
-  </invoke>
+  <sequence id="0" name="顺序">
+    <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+      <describe>界面处理_更新值</describe>
+      <arg flag="field" name="FH" type="expression">&lt;%@ livebos language='javascript' %&gt;
+var cnt = ABS_SQLVALUE("select count(1) from dual where instr(';'||?||';',';2;')&gt;0",[O_PARAMETER.JTHZDW]);
+ABS_IF(cnt==0,null,O_PARAMETER.FH)</arg>
+      <arg flag="field" name="GHHDCKJE" type="expression">&lt;%@ livebos language='javascript' %&gt;
+var cnt = ABS_SQLVALUE("select count(1) from dual where instr(';'||?||';',';2;')&gt;0",[O_PARAMETER.JTHZDW]);
+ABS_IF(cnt==0,null,O_PARAMETER.GHHDCKJE)</arg>
+      <arg flag="field" name="TJFX" type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+ABS_IF(O_PARAMETER.JTHZDW=='100',null,O_PARAMETER.TJFX)</arg>
+      <arg flag="field" name="HZXS" type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+ABS_IF(O_PARAMETER.JTHZDW=='100',null,O_PARAMETER.HZXS)</arg>
+    </invoke>
+  </sequence>
 </process>
 

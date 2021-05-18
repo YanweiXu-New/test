@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="gb2312"?>
 <!DOCTYPE workflow PUBLIC "-//Apexsoft LiveBos//DTD Workflow 2.8//EN" "http://www.livebos.com/workflow/workflow_2_8_abs.dtd"><workflow>
-  <meta name="Designer">Studio</meta>
-  <meta name="workflow.category"></meta>
-  <meta name="created">2018-01-23 16:28:02</meta>
-  <meta name="modify">2018-01-26 11:45:32</meta>
   <meta name="Describe">投行业务标准化手册新增流程</meta>
+  <meta name="Designer">Studio</meta>
+  <meta name="modify">2021-01-25 10:38:52</meta>
+  <meta name="created">2018-01-23 16:28:02</meta>
   <meta name="WorkflowName">wfIB_YWZLXZ</meta>
   <meta name="WorkflowType">2</meta>
+  <meta name="workflow.category"></meta>
   <meta name="version"></meta>
   <object  name="lcIB_QY_YWZLTJ" editAttribute="0" >
   </object>
@@ -21,8 +21,8 @@
   </initial-actions>
   <steps>
     <step id="1" name="结束">
-      <meta name="finish">true</meta>
       <meta name="NodeType">1</meta>
+      <meta name="finish">true</meta>
     </step>
     <step id="3" name="投行业务标准化手册新增申请">
       <meta name="NodeType">2</meta>
@@ -49,8 +49,8 @@
           <meta name="NodeType">5</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;update ecif.lcIB_QY_YWZLTJ set lcbh=ecif.func_ib_getlcbh where id={0}&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;update ecif.lcIB_CCLCB set lcbh=ecif.func_ib_getlcbh where id={0}&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -60,7 +60,7 @@
         </action>
       </actions>
     </step>
-    <step id="5" name="项目组成员提交" owner="$AM{2},$DG{7.lcIB_QY_YWZLTJ.XMFZR},$DG{7.lcIB_QY_YWZLTJ.XMZCY}">
+    <step id="5" name="项目组成员提交" owner="$AM{2}">
       <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_QY_YWZLTJ" editAttribute="0" >
@@ -79,22 +79,30 @@
           </column>
           <column  name="SQR" disabled="true" hidden="false" summary="false">
           </column>
-          <column  name="ZSLX" disabled="true" hidden="false" summary="false">
+          <column  name="ZSLX" disabled="false" hidden="true" summary="false">
           </column>
           <column  name="DBXZ" disabled="false" hidden="false" summary="false">
           </column>
-          <column  name="XMFZR" disabled="false" hidden="true" summary="false">
+          <column  name="F" disabled="false" hidden="false" summary="false">
           </column>
-          <column  name="XMZCY" disabled="false" hidden="true" summary="false">
+          <column  name="XMFZR" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="XMZCY" disabled="false" hidden="false" summary="false">
           </column>
         </columns>
       </object>
+      <dynOwners>
+        <dynOwner  type="1" describe="动态用户" >
+          <expression><![CDATA[
+{"name":"DW_XTGLY","parameters":{}}]]></expression>
+          </dynOwner>
+              </dynOwners>
       <notify >
       </notify>
       <actions>
         <action id="6" name="提交">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <results>
             <unconditional-result id="9" old-status="完成" status="待处理" step="1">
             </unconditional-result>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="GB2312" standalone="no"?>
 <object create-date="2017.08.31 11:38:23" creator="zhong.apex" flag="0" modifier="null" modify-date="null" name="vIB_RCYWBLLCB_C" object-id="6a70bec1-30ac-4ebc-a2b7-e0ae9f42e104" package="100_新三板.持续督导阶段.12-日常业务办理流程" type="1" version="1.0">
-    <describe>我参与的日常业务办理流程</describe>
+    <describe>我参与的持续督导通用审批流程</describe>
     <comment/>
     <datasource-name>ECIF</datasource-name>
     <parent>lcIB_RCYWBLLCB</parent>
@@ -804,6 +804,126 @@ oaid&lt;=0     </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+        </column>
+        <column>
+            <name>YWLXN</name>
+            <describe>业务类型(新)</describe>
+            <type>8</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>0</control>
+            <primary-property>6</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>false</visible>
+            <option>1|权益;2|固收(发行前);3|债券;4|新三板</option>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression>4</expression>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>7</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>YYZL</name>
+            <describe>用印种类</describe>
+            <type>8</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>2</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option>$D{IB_YYZL}</option>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category>基本信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>7</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>CSRY</name>
+            <describe>抄送人员</describe>
+            <type>8</type>
+            <biz-type>600</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>45</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object>vUser_ZC</ref-object>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category>基本信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>16</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>BZSM</name>
+            <describe>备注说明</describe>
+            <type>8</type>
+            <biz-type>100</biz-type>
+            <length>30</length>
+            <scale>0</scale>
+            <control>16</control>
+            <primary-property>8</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <attribute>262144</attribute>
+            <order-direction>0</order-direction>
+            <expression>&lt;%@ livebos language='javascript' %&gt;&#13;
+'&lt;br&gt;&lt;font color=red&gt;请确保上传的附件与公文正文中列示的文件保持一致、该附件框中每一附件类型中仅上传一份最新版本附件至协同平台，用户可新增附件类型行&lt;font&gt;' </expression>
+            <category>上传公文附件</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>FYYBCWJ</name>
+            <describe>非用印备查文件</describe>
+            <type>8</type>
+            <biz-type>802</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>42</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;&#13;
+O_THIS.getColumn("FYYBCWJ").setLabel("非用印备查文件&lt;font color=red&gt;&lt;br&gt;(不上传至OA)&lt;/font&gt;");&#13;
+</invisible-expression>
+            <category>上传公文附件</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>21</real-type>
+            <comment/>
+            <properties/>
         </column>
     </columns>
     <restrictions>

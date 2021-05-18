@@ -5,7 +5,7 @@
   <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
     <describe>界面处理_更新值</describe>
     <arg flag="field" name="JYCSMC" type="expression">&lt;%@ livebos language='javascript' %&gt;
-ABS_IF(O_PARAMETER.NJYCS==99,O_PARAMETER.JYCSMC,null)</arg>
+ABS_IF(O_PARAMETER.NJYCS.indexOf('99')&gt;0,O_PARAMETER.JYCSMC,null)</arg>
   </invoke>
 </process>
 

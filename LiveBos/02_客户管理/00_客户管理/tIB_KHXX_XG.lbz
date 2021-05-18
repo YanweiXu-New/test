@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="gb2312"?>
+<?xml version="1.0" encoding="GB2312"?>
 <process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_KHXX_XG" name="tIB_KHXX_XG" object="tIB_KHXX" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
   <describe>客户信息表-修改流程</describe>
   <variables>
@@ -52,6 +52,13 @@ ABS_IF(O_PARAMETER.P_KHZT==-1,-1,1)</arg>
       <arg name="ret" type="output">V_RET</arg>
       <arg name="msg" type="output">V_MSG</arg>
       <arg name="SQL">["CALL ECIF.PRO_TIB_KHWH(:ret,:msg,{0},{1},2,{2})",[{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"$Login.IP","scale":"","length":"","type":"0"},{"expression":"O_MASTER.ID","scale":"","length":"","type":"1"}]]</arg>
+    </invoke>
+    <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+      <describe>数据库组件_执行SQL语句</describe>
+      <arg name="TranType">sql</arg>
+      <arg name="@autoExit" type="expression">false</arg>
+      <arg name="SQL">["update ecif.tib_xmxx set zqdm = {0} ,GPDM = {0},XGSJ = sysdate where xmfl = 1 and sskh = {1}",[{"expression":"O_PARAMETER.GPDM","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.ID","scale":"","length":"","type":"1"}]]</arg>
+      <arg name="datasource">ECIF</arg>
     </invoke>
     <response exit="false" id="0">
       <describe>输出</describe>

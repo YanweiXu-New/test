@@ -8,17 +8,16 @@
     <describe>界面处理_更新值</describe>
     <arg flag="field" name="XMLX" type="expression">O_MASTER.XMMC.XMLX</arg>
     <arg flag="field" name="XMFZR" type="expression">O_MASTER.XMMC.XMFZR</arg>
-    <arg flag="field" name="BJDBR" type="expression">O_MASTER.XMMC.QZBJDBR</arg>
-    <arg flag="field" name="XMZCY" type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
-ABS_SQLVALUE('select QTCY from ecif.tIB_XMXX where id = ?',[O_MASTER.XMMC])</arg>
-    <arg flag="field" name="LXRQ" type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+    <arg flag="field" name="BJDBR" type="expression">O_MASTER.XMMC.BJYWDBR</arg>
+    <arg flag="field" name="XMZCY" type="expression">O_MASTER.XMMC.QTCY</arg>
+    <arg flag="field" name="LXRQ" type="expression">&lt;%@ livebos language='javascript' %&gt;
 ABS_SQLVALUE('SELECT LXRQ FROM ecif.tIB_XMXX where id = ?',[O_MASTER.ID])</arg>
-    <arg flag="field" name="ZKZS" type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
-ABS_SQLVALUE('SELECT ZKBSHRYZS FROM ecif.tIB_XMXX where id = ?',[O_MASTER.ID])</arg>
+    <arg flag="field" name="ZKZS" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE('SELECT ZKBSHRYZS FROM ecif.tIB_XMXX where id = (SELECT XMMC FROM ECIF.TIB_XMXX_XSB WHERE ID = ?)',[O_MASTER.XMMC])</arg>
     <arg flag="field" name="LXZKSHY_ZS" type="expression">&lt;%@ livebos language='javascript' %&gt;
-ABS_SQLVALUE('SELECT ZKBSHRYZS FROM ecif.tIB_XMXX where id = ?',[O_MASTER.ID])</arg>
-    <arg flag="field" name="LXZKSHY_FS" type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
-ABS_SQLVALUE('SELECT ZKBSHSRFS FROM ecif.tIB_XMXX where id = ?',[O_MASTER.ID])</arg>
+ABS_SQLVALUE('SELECT ZKBSHRYZS FROM ecif.tIB_XMXX where id = (SELECT XMMC FROM ECIF.TIB_XMXX_XSB WHERE ID = ?)',[O_MASTER.XMMC])</arg>
+    <arg flag="field" name="LXZKSHY_FS" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE('SELECT ZKBSHSRFS FROM ecif.tIB_XMXX where id = (SELECT XMMC FROM ECIF.TIB_XMXX_XSB WHERE ID = ?)',[O_MASTER.XMMC])</arg>
   </invoke>
 </process>
 

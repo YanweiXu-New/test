@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="GB2312" standalone="no"?>
-<object create-date="2017.07.26 17:05:43" creator="刘浪浪" flag="0" name="tIB_XMXX_XSB_KZ_NDSFMX" object-id="84a4f35f-7ca5-48b3-ac2f-39f47d6cff47" package="[A]通用基础.[92]快照对象.项目管理" type="15" version="1.0">
+<object create-date="2017.07.26 17:05:43" creator="刘浪浪" flag="0" modifier="null" modify-date="null" name="tIB_XMXX_XSB_KZ_NDSFMX" object-id="84a4f35f-7ca5-48b3-ac2f-39f47d6cff47" package="[A]通用基础.[92]快照对象.项目管理" type="15" version="1.0">
     <describe>年度收费明细</describe>
+    <comment/>
     <datasource-name>ECIF</datasource-name>
     <parent>tIB_XMXX_XSB_KZ</parent>
     <attribute>264</attribute>
+    <templet>默认</templet>
     <columns>
         <column>
             <name>ID</name>
@@ -18,13 +20,22 @@
             <unique>false</unique>
             <enabled>false</enabled>
             <visible>false</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>YSJH</name>
@@ -55,7 +66,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>YSJE_A</name>
@@ -71,14 +81,21 @@
             <enabled>true</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>YSJE_B</name>
@@ -94,14 +111,21 @@
             <enabled>true</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>DSJE</name>
@@ -117,15 +141,21 @@
             <enabled>true</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
-            <expression>YSJE_A - YSJE_B</expression>
+            <expression>YSJE_A - YSJE_B  </expression>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
     </columns>
     <display-options>
@@ -136,12 +166,12 @@
     <methods/>
     <properties>
         <property>
-            <name>2</name>
-            <value>2</value>
-        </property>
-        <property>
             <name>56</name>
             <value>true</value>
+        </property>
+        <property>
+            <name>2</name>
+            <value>2</value>
         </property>
     </properties>
     <orders/>

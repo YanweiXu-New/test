@@ -229,6 +229,7 @@
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <validation/>
             <properties/>
         </column>
         <column>
@@ -303,6 +304,29 @@
         <column>
             <name>XMFZR</name>
             <describe>项目负责人</describe>
+            <type>6</type>
+            <biz-type>500</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>10</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object>tUser</ref-object>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>ZLKZBZY</name>
+            <describe>质量控制部专员</describe>
             <type>6</type>
             <biz-type>500</biz-type>
             <length>0</length>
@@ -510,6 +534,29 @@
             <properties/>
         </column>
         <column>
+            <name>SJGDR</name>
+            <describe>持续督导年报披露日期实际归档日</describe>
+            <type>10</type>
+            <biz-type>700</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>12</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object>tIB_XMXXTZ_SJGDR</ref-object>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+        </column>
+        <column>
             <name>TJZKYSRQ</name>
             <describe>纸质底稿提供质控验收日期</describe>
             <type>13</type>
@@ -675,6 +722,7 @@
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <validation/>
             <properties/>
         </column>
         <column>
@@ -715,6 +763,101 @@
             <visible>true</visible>
             <option/>
             <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>LXSJ</name>
+            <describe>立项时间</describe>
+            <type>3</type>
+            <biz-type>301</biz-type>
+            <length>12</length>
+            <scale>0</scale>
+            <control>37</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object/>
+            <default>null</default>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>SGXZBZ</name>
+            <describe>手工新增标志</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>0</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>false</visible>
+            <option>1|手工新增;2|定时任务同步</option>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>CJSJ</name>
+            <describe>创建时间</describe>
+            <type>3</type>
+            <biz-type>301</biz-type>
+            <length>12</length>
+            <scale>0</scale>
+            <control>37</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object/>
+            <default>null</default>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>ZZRSJGDR</name>
+            <describe>终止日期实际归档日（新三板）</describe>
+            <type>13</type>
+            <biz-type>300</biz-type>
+            <length>8</length>
+            <scale>0</scale>
+            <control>3</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object/>
+            <default>null</default>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
             <category/>

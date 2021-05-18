@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="GB2312"?>
+<?xml version="1.0" encoding="gb2312"?>
 <process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_QY_FJXGWJSPLC_XMMC_UI" object="lcIB_QY_FJXGWJSPLC" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
   <describe>项目名称界面事件</describe>
   <variables />
@@ -8,13 +8,13 @@
     <arg flag="field" name="XMFZR" type="expression">O_MASTER.XMMC.XMFZR</arg>
     <arg flag="field" name="XMLX" type="expression">O_MASTER.XMMC.XMLX</arg>
     <arg flag="field" name="QZBJDBR" type="expression">O_MASTER.XMMC.QZBJDBR</arg>
-    <arg flag="field" name="NHZKSHYZS" type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+    <arg flag="field" name="NHZKSHYZS" type="expression">&lt;%@ livebos language='javascript' %&gt;
 ABS_IF(ABS_NULLSUB(O_MASTER.XMMC.ECNHZKSHY_ZS,0)!=0,O_MASTER.XMMC.ECNHZKSHY_ZS,O_MASTER.XMMC.NHZKSHY_ZS)</arg>
-    <arg flag="field" name="NHZKSHYFS" type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+    <arg flag="field" name="NHZKSHYFS" type="expression">&lt;%@ livebos language='javascript' %&gt;
 ABS_IF(ABS_NULLSUB(O_MASTER.XMMC.ECNHZKSHY_FS,0)!=0,O_MASTER.XMMC.ECNHZKSHY_FS,O_MASTER.XMMC.NHZKSHY_FS)</arg>
-    <arg flag="field" name="ZKZS" type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+    <arg flag="field" name="ZKZS" type="expression">&lt;%@ livebos language='javascript' %&gt;
 ABS_IF(ABS_NULLSUB(O_MASTER.XMMC.ECNHZKSHY_ZS,0)!=0,O_MASTER.XMMC.ECNHZKSHY_ZS,O_MASTER.XMMC.NHZKSHY_ZS)</arg>
-    <arg flag="field" name="ZKFS" type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+    <arg flag="field" name="ZKFS" type="expression">&lt;%@ livebos language='javascript' %&gt;
 ABS_IF(ABS_NULLSUB(O_MASTER.XMMC.ECNHZKSHY_FS,0)!=0,O_MASTER.XMMC.ECNHZKSHY_FS,O_MASTER.XMMC.NHZKSHY_FS)</arg>
   </invoke>
 </process>

@@ -12,7 +12,7 @@
       <arg flag="field" name="XMFZR" type="expression">O_MASTER.XMMC.XMFZR</arg>
       <arg flag="field" name="XMLX" type="expression">O_MASTER.XMMC.XMLX</arg>
       <arg flag="field" name="BJDBR" type="expression">O_MASTER.XMMC.QZBJDBR</arg>
-      <arg flag="field" name="XMZCY" type="expression">O_MASTER.XMMC.QTCY</arg>
+      <arg flag="field" name="XMZCY" type="expression">ABS_SQLVALUE("SELECT qtcy FROM ECIF.TIB_XMXX WHERE ID = ?",[O_MASTER.XMMC])</arg>
       <arg flag="field" name="LXRQ" type="expression">O_MASTER.XMMC.LXRQ</arg>
       <arg flag="field" name="GSMC" type="expression">O_MASTER.XMMC.SSKH.KHQC</arg>
       <arg flag="field" name="HY" type="expression">O_MASTER.XMMC.SSKH.SSHY</arg>
@@ -28,14 +28,12 @@ ABS_IF(ABS_NULLSUB(O_MASTER.XMMC.ECZKBSHRYZS,0)!=0,O_MASTER.XMMC.ECZKBSHRYZS,O_M
 ABS_IF(ABS_NULLSUB(O_MASTER.XMMC.ECZKBSHSRFS,0)!=0,O_MASTER.XMMC.ECZKBSHSRFS,O_MASTER.XMMC.ZKBSHSRFS)</arg>
       <arg flag="field" name="CHRY" type="expression">O_MASTER.NHXZCY</arg>
       <arg flag="field" name="XBR" type="expression">O_MASTER.XMMC.XBR</arg>
-      <arg flag="field" name="DGXTXMCLJLXJDSCBL" type="expression">ABS_SQLVALUE('SELECT   ECIF.FUNC_IB_GET_DGJDWCBL (?,1,?) FROM DUAL',[O_MASTER.XMMC,1002])</arg>
-      <arg flag="field" name="BLSCDDRQ" type="expression">ABS_SQLVALUE('SELECT  ECIF.FUNC_IB_GET_DGJDSCWCRQ(?,?,?) FROM DUAL',[O_MASTER.XMMC,1,1002])</arg>
-      <arg flag="field" name="DGXMCLJLXJDSCBL" type="expression">ABS_SQLVALUE('SELECT   ECIF.FUNC_IB_GET_DGJDWCBL (?,1,?) FROM DUAL',[O_MASTER.XMMC,1002])</arg>
       <arg flag="field" name="DGXTJZDCJDSCBL" type="expression">ABS_SQLVALUE('SELECT   ECIF.FUNC_IB_GET_DGJDWCBL (?,1,?) FROM DUAL',[O_MASTER.XMMC,1002])</arg>
-      <arg flag="field" name="XMMCXX" type="expression">&lt;%@ livebos language='javascript' %&gt;
-ABS_SQLVALUE('select xmmc from ecif.tib_xmxx where id = ?',[O_MASTER.XMMC])</arg>
-      <arg flag="field" name="XMLXMC" type="expression">&lt;%@ livebos language='javascript' %&gt;
-ABS_SQLVALUE("select xmlxmc from ecif.tib_xmxx where id = ?",[O_MASTER.XMMC])</arg>
+      <arg flag="field" name="BLSCDDRQ" type="expression">ABS_SQLVALUE('SELECT  ECIF.FUNC_IB_GET_DGJDSCWCRQ(?,?,?) FROM DUAL',[O_MASTER.XMMC,1,1002])</arg>
+      <arg flag="field" name="XMLXMC" type="expression">ABS_SQLVALUE("SELECT XMLXMC FROM ECIF.TIB_XMXX WHERE ID = ?",[O_MASTER.XMMC])</arg>
+      <arg flag="field" name="XMQY" type="expression">ABS_SQLVALUE("SELECT XMQY FROM ECIF.TIB_XMXX WHERE ID = ?",[O_MASTER.XMMC])</arg>
+      <arg flag="field" name="QYMC" type="expression">ABS_SQLVALUE("SELECT QYMC2 FROM ECIF.TIB_XMXX WHERE ID = ?",[O_MASTER.XMMC])</arg>
+      <arg flag="field" name="XMMCXX" type="expression">ABS_SQLVALUE("SELECT xmmc FROM ECIF.TIB_XMXX WHERE ID = ?",[O_MASTER.XMMC])</arg>
     </invoke>
     <invoke component="FormUI" id="0" name="界面处理_重计算表达式" operation="evalExpression">
       <describe>界面处理_重计算表达式</describe>
@@ -104,7 +102,7 @@ yf&gt;= 01 &amp;&amp; yf&lt;=03</arg>
       <describe>数据库组件_SQL查询</describe>
       <arg name="TranType">sql</arg>
       <arg name="datasource">ECIF</arg>
-      <arg name="SQL">["SELECT LISTAGG(t3.roleid, ';') WITHIN GROUP(ORDER BY t3.roleid) roleid ,t2.ID ,t1.zjlx,t1.zjmc,t1.zjhm,t1.sjh,t1.orgid,t1.zwxx FROM ECIF.tIB_YGXX t1,jgcrm.tuser t2,jgcrm.LBMEMBER t3  WHERE t1.OAID = t2.userid AND t2.id = t3.userid AND INSTR(';'||{0}||';',';'||t2.id||';')&gt;0 GROUP BY t2.ID ,t1.zjlx,t1.zjmc,t1.zjhm,t1.sjh,t1.orgid,t1.zwxx ",[{"expression":"O_MASTER.XMZCY","scale":"","length":"","type":"0"}]]</arg>
+      <arg name="SQL">["SELECT  '项目组成员' ryjs,t2.ID ,t1.zjlx,decode(t1.zjlx,7,t1.zjmc,NULL) AS \"zjmc\",t1.zjhm,t1.sjh,t1.orgid,t1.zwxx \r\nFROM ECIF.tIB_YGXX t1 INNER JOIN ECIF.tuser t2 \r\nON (t1.OAID = t2.userid  AND (INSTR(';'||{0}||';',';'||t2.id||';')&gt;0) ) UNION ALL\r\nSELECT  '项目负责人' ryjs,t2.ID ,t1.zjlx,decode(t1.zjlx,7,t1.zjmc,NULL) AS \"zjmc\",t1.zjhm,t1.sjh,t1.orgid,t1.zwxx \r\nFROM ECIF.tIB_YGXX t1 INNER JOIN ECIF.tuser t2 \r\nON (t1.OAID = t2.userid  AND (INSTR(';'||{1}||';',';'||t2.id||';')&gt;0) ) UNION ALL\r\nSELECT  '签字人（保荐代表人/主办人）'  ryjs ,t2.ID ,t1.zjlx,decode(t1.zjlx,7,t1.zjmc,NULL) AS \"zjmc\",t1.zjhm,t1.sjh,t1.orgid,t1.zwxx \r\nFROM ECIF.tIB_YGXX t1 INNER JOIN ECIF.tuser t2 \r\nON (t1.OAID = t2.userid  AND (INSTR(';'||{2}||';',';'||t2.id||';')&gt;0) ) UNION ALL\r\nSELECT  '协办人' ryjs,t2.ID ,t1.zjlx,decode(t1.zjlx,7,t1.zjmc,NULL) AS \"zjmc\",t1.zjhm,t1.sjh,t1.orgid,t1.zwxx \r\nFROM ECIF.tIB_YGXX t1 INNER JOIN ECIF.tuser t2 \r\nON (t1.OAID = t2.userid  AND (INSTR(';'||{3}||';',';'||t2.id||';')&gt;0) )",[{"expression":"O_MASTER.XMZCY","scale":"","length":"","type":"0"},{"expression":"O_MASTER.XMFZR","scale":"","length":"","type":"0"},{"expression":"O_MASTER.BJDBR","scale":"","length":"","type":"0"},{"expression":"O_MASTER.XBR","scale":"","length":"","type":"0"}]]</arg>
       <arg name="@retResultSet" type="output">V_XMRYXX</arg>
     </invoke>
     <invoke component="FormUIHypotOperate" id="0" name="表格操作_添加结果集数据" operation="insertByResult">
@@ -112,16 +110,16 @@ yf&gt;= 01 &amp;&amp; yf&lt;=03</arg>
       <arg name="@objectName">lcIB_NHSP</arg>
       <arg name="@object" type="variable">O_MASTER</arg>
       <arg name="@columnName">XMZRYXX</arg>
-      <arg name="@resultSet" type="variable">V_XMRYXX</arg>
-      <arg name="@clearRowsets">true</arg>
-      <arg flag="field" name="RYJS">roleid</arg>
+      <arg flag="field" name="RYJS">ryjs</arg>
       <arg flag="field" name="XM">ID</arg>
       <arg flag="field" name="ZJLX">zjlx</arg>
-      <arg flag="field" name="ZW">zwxx</arg>
-      <arg flag="field" name="BM">orgid</arg>
-      <arg flag="field" name="SJH">sjh</arg>
-      <arg flag="field" name="ZJHM">zjhm</arg>
       <arg flag="field" name="ZJMC">zjmc</arg>
+      <arg flag="field" name="ZJHM">zjhm</arg>
+      <arg flag="field" name="SJH">sjh</arg>
+      <arg flag="field" name="BM">orgid</arg>
+      <arg flag="field" name="ZW">zwxx</arg>
+      <arg name="@clearRowsets">true</arg>
+      <arg name="@resultSet" type="variable">V_XMRYXX</arg>
     </invoke>
   </sequence>
 </process>

@@ -73,155 +73,186 @@ V_2 == 1</arg>
         </condition>
       </conditions>
       <sequence id="0" name="顺序">
-        <if id="0">
-          <describe>项目名称手动键入</describe>
-          <conditions>
-            <condition name="" type="expression">
-              <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
-O_PARAMETER.SFCDMKZXQ == 0</arg>
-            </condition>
-          </conditions>
-          <invoke component="FormOperate" id="0" name="对象组件_新增" operation="insert">
-            <describe>新增对象[项目信息表]</describe>
-            <arg name="@objectName">tIB_XMXX</arg>
-            <arg flag="field" name="XMMC" type="expression">O_PARAMETER.XMMC</arg>
-            <arg flag="field" name="XMFL" type="expression">O_PARAMETER.XMFL2</arg>
-            <arg flag="field" name="XMLX" type="expression">O_PARAMETER.XMLX</arg>
-            <arg flag="field" name="XMJD" type="expression">O_PARAMETER.XMJD2</arg>
-            <arg flag="field" name="SSKH" type="expression">O_PARAMETER.SSKH2</arg>
-            <arg flag="field" name="BK" type="expression">O_PARAMETER.BK2</arg>
-            <arg flag="field" name="FXGS" type="expression">O_PARAMETER.FXGS2</arg>
-            <arg flag="field" name="MJZJ" type="expression">O_PARAMETER.MJZJ2</arg>
-            <arg flag="field" name="DM" type="expression">O_PARAMETER.DM2</arg>
-            <arg flag="field" name="CWZJ" type="expression">O_PARAMETER.CWZJ2</arg>
-            <arg flag="field" name="SJKZR" type="expression">O_PARAMETER.SJKZR2</arg>
-            <arg flag="field" name="CWXX" type="expression">O_PARAMETER.CWXX</arg>
-            <arg flag="field" name="QZBJDBR" type="expression">O_PARAMETER.QZBJDBR2</arg>
-            <arg flag="field" name="XMFZR" type="expression">O_PARAMETER.XMFZR2</arg>
-            <arg flag="field" name="XCFZR" type="expression">O_PARAMETER.XCFZR2</arg>
-            <arg flag="field" name="KJSSWS" type="expression">O_PARAMETER.KJSSWS2</arg>
-            <arg flag="field" name="QZKJS" type="expression">O_PARAMETER.QZKJS2</arg>
-            <arg flag="field" name="LSSWS" type="expression">O_PARAMETER.LSSWS2</arg>
-            <arg flag="field" name="QZLS" type="expression">O_PARAMETER.QZLS2</arg>
-            <arg flag="field" name="XBR" type="expression">O_PARAMETER.XBR2</arg>
-            <arg flag="field" name="QTCY" type="expression">O_PARAMETER.QTCY2</arg>
-            <arg flag="field" name="SSBM" type="expression">O_PARAMETER.SSBM2</arg>
-            <arg flag="field" name="BMZKZY" type="expression">O_PARAMETER.BMZKZY2</arg>
-            <arg flag="field" name="CJR" type="expression">$Login.User</arg>
-            <arg flag="field" name="CJBM" type="expression">$Login.User.OrgID</arg>
-            <arg flag="field" name="CJSJ" type="expression">$DateTime.Now</arg>
-            <arg flag="field" name="XGSJ" type="expression">$DateTime.Now</arg>
-            <arg name="@retObject" type="output">V_OBJ</arg>
-            <arg flag="field" name="QYRQ" type="expression">null</arg>
-            <arg flag="field" name="LXRQ" type="expression">null</arg>
-            <arg flag="field" name="FDYSRQ" type="expression">null</arg>
-            <arg flag="field" name="NHRQ" type="expression">null</arg>
-            <arg flag="field" name="SLRQ" type="expression">null</arg>
-            <arg flag="field" name="BHRQ" type="expression">null</arg>
-            <arg flag="field" name="SBRQ" type="expression">null</arg>
-            <arg flag="field" name="GHRQ" type="expression">null</arg>
-            <arg flag="field" name="FXRQ" type="expression">null</arg>
-            <arg flag="field" name="PWRQ" type="expression">null</arg>
-            <arg flag="field" name="SSRQ" type="expression">null</arg>
-            <arg flag="field" name="FDBBRQ" type="expression">null</arg>
-            <arg flag="field" name="JRCXDDRQ" type="expression">null</arg>
-            <arg flag="field" name="XMJBQK" type="expression">O_PARAMETER.XMJBQK</arg>
-            <arg flag="field" name="SFGLF_QYXSB" type="expression">O_PARAMETER.SFGLF_QYXSB</arg>
-            <arg flag="field" name="XYZJE_QYXSB" type="expression">O_PARAMETER.XYZJE_QYXSB</arg>
-            <arg flag="field" name="YJZSR_QYXSB" type="expression">O_PARAMETER.YJZSR_QYXSB</arg>
-            <arg flag="field" name="SRXZ_QYXSB" type="expression">O_PARAMETER.SRXZ_QYXSB</arg>
-            <arg flag="field" name="LSDM" type="expression">O_PARAMETER.LSDM2</arg>
-            <arg flag="field" name="GPDM" type="expression">O_PARAMETER.GPDM2</arg>
-            <arg flag="field" name="XMLXMC" type="expression">O_PARAMETER.XMLXMC</arg>
-            <arg flag="field" name="FXSJ" type="expression">O_PARAMETER.FXSJ2</arg>
-            <arg flag="field" name="SBSJ" type="expression">O_PARAMETER.SBSJ2</arg>
-            <arg flag="field" name="JYCSMC" type="expression">O_PARAMETER.JYCSMC2</arg>
-            <arg flag="field" name="JYCS" type="expression">O_PARAMETER.JYCS2</arg>
-            <arg flag="field" name="XMQC" type="expression">O_PARAMETER.XMQC2</arg>
-            <arg flag="field" name="QYMC2" type="expression">O_PARAMETER.QYMC22</arg>
-            <arg flag="field" name="XMQY" type="expression">O_PARAMETER.XMQY2</arg>
-          </invoke>
-          <else>
-            <describe>从代码库中选取</describe>
-            <sequence id="0" name="顺序">
-              <invoke component="FormOperate" id="0" name="对象组件_新增" operation="insert">
-                <describe>新增对象[项目信息表]</describe>
-                <arg name="@objectName">tIB_XMXX</arg>
-                <arg flag="field" name="XMMC" type="expression">O_PARAMETER.KXDM.DMMC</arg>
-                <arg flag="field" name="XMFL" type="expression">O_PARAMETER.XMFL2</arg>
-                <arg flag="field" name="XMLX" type="expression">O_PARAMETER.XMLX</arg>
-                <arg flag="field" name="XMJD" type="expression">O_PARAMETER.XMJD2</arg>
-                <arg flag="field" name="SSKH" type="expression">O_PARAMETER.SSKH2</arg>
-                <arg flag="field" name="BK" type="expression">O_PARAMETER.BK2</arg>
-                <arg flag="field" name="FXGS" type="expression">O_PARAMETER.FXGS2</arg>
-                <arg flag="field" name="MJZJ" type="expression">O_PARAMETER.MJZJ2</arg>
-                <arg flag="field" name="DM" type="expression">O_PARAMETER.DM2</arg>
-                <arg flag="field" name="CWZJ" type="expression">O_PARAMETER.CWZJ2</arg>
-                <arg flag="field" name="SJKZR" type="expression">O_PARAMETER.SJKZR2</arg>
-                <arg flag="field" name="XMJBQK" type="expression">O_PARAMETER.XMJBQK</arg>
-                <arg flag="field" name="SFGLF_QYXSB" type="expression">O_PARAMETER.SFGLF_QYXSB</arg>
-                <arg flag="field" name="XYZJE_QYXSB" type="expression">O_PARAMETER.XYZJE_QYXSB</arg>
-                <arg flag="field" name="YJZSR_QYXSB" type="expression">O_PARAMETER.YJZSR_QYXSB</arg>
-                <arg flag="field" name="SRXZ_QYXSB" type="expression">O_PARAMETER.SRXZ_QYXSB</arg>
-                <arg flag="field" name="CWXX" type="expression">O_PARAMETER.CWXX</arg>
-                <arg flag="field" name="QZBJDBR" type="expression">O_PARAMETER.QZBJDBR2</arg>
-                <arg flag="field" name="XMFZR" type="expression">O_PARAMETER.XMFZR2</arg>
-                <arg flag="field" name="XCFZR" type="expression">O_PARAMETER.XCFZR2</arg>
-                <arg flag="field" name="KJSSWS" type="expression">O_PARAMETER.KJSSWS2</arg>
-                <arg flag="field" name="QZKJS" type="expression">O_PARAMETER.QZKJS2</arg>
-                <arg flag="field" name="LSSWS" type="expression">O_PARAMETER.LSSWS2</arg>
-                <arg flag="field" name="QZLS" type="expression">O_PARAMETER.QZLS2</arg>
-                <arg flag="field" name="XBR" type="expression">O_PARAMETER.XBR2</arg>
-                <arg flag="field" name="SSBM" type="expression">O_PARAMETER.SSBM2</arg>
-                <arg flag="field" name="BMZKZY" type="expression">O_PARAMETER.BMZKZY2</arg>
-                <arg flag="field" name="QTCY" type="expression">O_PARAMETER.QTCY2</arg>
-                <arg flag="field" name="QYRQ" type="expression">null</arg>
-                <arg flag="field" name="LXRQ" type="expression">null</arg>
-                <arg flag="field" name="FDBBRQ" type="expression">null</arg>
-                <arg flag="field" name="FDYSRQ" type="expression">null</arg>
-                <arg flag="field" name="SLRQ" type="expression">null</arg>
-                <arg flag="field" name="BHRQ" type="expression">null</arg>
-                <arg flag="field" name="SBRQ" type="expression">null</arg>
-                <arg flag="field" name="GHRQ" type="expression">null</arg>
-                <arg flag="field" name="FXRQ" type="expression">null</arg>
-                <arg flag="field" name="PWRQ" type="expression">null</arg>
-                <arg flag="field" name="SSRQ" type="expression">null</arg>
-                <arg flag="field" name="JRCXDDRQ" type="expression">null</arg>
-                <arg flag="field" name="CJR" type="expression">$Login.User</arg>
-                <arg flag="field" name="CJBM" type="expression">$Login.User.OrgID</arg>
-                <arg flag="field" name="CJSJ" type="expression">$DateTime.Now</arg>
-                <arg flag="field" name="XGSJ" type="expression">$DateTime.Now</arg>
-                <arg name="@retObject" type="output">V_OBJ</arg>
-                <arg flag="field" name="LSDM" type="expression">O_PARAMETER.LSDM2</arg>
-                <arg flag="field" name="GPDM" type="expression">O_PARAMETER.GPDM2</arg>
-                <arg flag="field" name="XMLXMC" type="expression">O_PARAMETER.XMLXMC</arg>
-                <arg flag="field" name="FXSJ" type="expression">O_PARAMETER.FXSJ2</arg>
-                <arg flag="field" name="SBSJ" type="expression">O_PARAMETER.SBSJ2</arg>
-                <arg flag="field" name="JYCSMC" type="expression">O_PARAMETER.JYCSMC2</arg>
-                <arg flag="field" name="JYCS" type="expression">O_PARAMETER.JYCS2</arg>
-                <arg flag="field" name="XMQC" type="expression">O_PARAMETER.XMQC2</arg>
-                <arg flag="field" name="QYMC2" type="expression">O_PARAMETER.QYMC22</arg>
-                <arg flag="field" name="XMQY" type="expression">O_PARAMETER.XMQY2</arg>
-              </invoke>
-            </sequence>
-          </else>
-        </if>
         <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
-          <describe>后处理</describe>
+          <describe>数据库组件_执行SQL语句</describe>
           <arg name="TranType">procedure</arg>
           <arg name="datasource">ECIF</arg>
           <arg name="ret" type="output">V_RET</arg>
           <arg name="msg" type="output">V_MSG</arg>
-          <arg name="SQL">["CALL ECIF.PRO_TIB_XMWH(:ret,:msg,{0},{1},1,{2})",[{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"$Login.IP","scale":"","length":"","type":"0"},{"expression":"V_OBJ.ID","scale":"","length":"","type":"1"}]]</arg>
+          <arg name="SQL">["call ecif.pcx_wcrqzqjy(:ret,:msg,{0},{1},{2},{3})",[{"expression":"ABS_SQLVALUE(\"SELECT to_char(?,'yyyymmdd') FROM DUAL\",[O_PARAMETER.XMWCRQ])","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.ZQDM2","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.ZQJC2","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.XMLX","scale":"","length":"","type":"1"}]]</arg>
         </invoke>
-        <response exit="false" id="0">
-          <describe>输出</describe>
-          <retvalue type="variable">V_RET</retvalue>
-          <message type="variable">V_MSG</message>
-          <uiforward redirect="false">
-            <url />
-          </uiforward>
-        </response>
+        <if id="0">
+          <describe>判断</describe>
+          <conditions>
+            <condition name="" type="expression">
+              <arg name="expression">V_RET &gt; 0</arg>
+            </condition>
+          </conditions>
+          <sequence id="0" name="顺序">
+            <if id="0">
+              <describe>判断</describe>
+              <conditions>
+                <condition name="" type="expression">
+                  <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+O_PARAMETER.SFCDMKZXQ == 0</arg>
+                </condition>
+              </conditions>
+              <sequence id="0" name="顺序">
+                <invoke component="FormOperate" id="0" name="对象组件_新增" operation="insert">
+                  <describe>新增对象[项目信息表]</describe>
+                  <arg name="@objectName">tIB_XMXX</arg>
+                  <arg flag="field" name="XMMC" type="expression">O_PARAMETER.XMMC</arg>
+                  <arg flag="field" name="XMFL" type="expression">O_PARAMETER.XMFL2</arg>
+                  <arg flag="field" name="XMLX" type="expression">O_PARAMETER.XMLX</arg>
+                  <arg flag="field" name="XMJD" type="expression">O_PARAMETER.XMJD2</arg>
+                  <arg flag="field" name="SSKH" type="expression">O_PARAMETER.SSKH2</arg>
+                  <arg flag="field" name="BK" type="expression">O_PARAMETER.BK2</arg>
+                  <arg flag="field" name="FXGS" type="expression">O_PARAMETER.FXGS2</arg>
+                  <arg flag="field" name="MJZJ" type="expression">O_PARAMETER.MJZJ2</arg>
+                  <arg flag="field" name="DM" type="expression">O_PARAMETER.DM2</arg>
+                  <arg flag="field" name="CWZJ" type="expression">O_PARAMETER.CWZJ2</arg>
+                  <arg flag="field" name="SJKZR" type="expression">O_PARAMETER.SJKZR2</arg>
+                  <arg flag="field" name="CWXX" type="expression">O_PARAMETER.CWXX</arg>
+                  <arg flag="field" name="QZBJDBR" type="expression">O_PARAMETER.QZBJDBR2</arg>
+                  <arg flag="field" name="XMFZR" type="expression">O_PARAMETER.XMFZR2</arg>
+                  <arg flag="field" name="XCFZR" type="expression">O_PARAMETER.XCFZR2</arg>
+                  <arg flag="field" name="KJSSWS" type="expression">O_PARAMETER.KJSSWS2</arg>
+                  <arg flag="field" name="QZKJS" type="expression">O_PARAMETER.QZKJS2</arg>
+                  <arg flag="field" name="LSSWS" type="expression">O_PARAMETER.LSSWS2</arg>
+                  <arg flag="field" name="QZLS" type="expression">O_PARAMETER.QZLS2</arg>
+                  <arg flag="field" name="XBR" type="expression">O_PARAMETER.XBR2</arg>
+                  <arg flag="field" name="QTCY" type="expression">O_PARAMETER.QTCY2</arg>
+                  <arg flag="field" name="SSBM" type="expression">O_PARAMETER.SSBM2</arg>
+                  <arg flag="field" name="BMZKZY" type="expression">O_PARAMETER.BMZKZY2</arg>
+                  <arg flag="field" name="CJR" type="expression">$Login.User</arg>
+                  <arg flag="field" name="CJBM" type="expression">$Login.User.OrgID</arg>
+                  <arg flag="field" name="CJSJ" type="expression">$DateTime.Now</arg>
+                  <arg flag="field" name="XGSJ" type="expression">$DateTime.Now</arg>
+                  <arg name="@retObject" type="output">V_OBJ</arg>
+                  <arg flag="field" name="QYRQ" type="expression">null</arg>
+                  <arg flag="field" name="LXRQ" type="expression">null</arg>
+                  <arg flag="field" name="FDYSRQ" type="expression">null</arg>
+                  <arg flag="field" name="NHRQ" type="expression">null</arg>
+                  <arg flag="field" name="SLRQ" type="expression">null</arg>
+                  <arg flag="field" name="BHRQ" type="expression">null</arg>
+                  <arg flag="field" name="SBRQ" type="expression">O_PARAMETER.SBRQ2</arg>
+                  <arg flag="field" name="GHRQ" type="expression">null</arg>
+                  <arg flag="field" name="FXRQ" type="expression">O_PARAMETER.FXRQ2</arg>
+                  <arg flag="field" name="PWRQ" type="expression">null</arg>
+                  <arg flag="field" name="SSRQ" type="expression">null</arg>
+                  <arg flag="field" name="FDBBRQ" type="expression">null</arg>
+                  <arg flag="field" name="JRCXDDRQ" type="expression">null</arg>
+                  <arg flag="field" name="XMJBQK" type="expression">O_PARAMETER.XMJBQK</arg>
+                  <arg flag="field" name="SFGLF_QYXSB" type="expression">O_PARAMETER.SFGLF_QYXSB</arg>
+                  <arg flag="field" name="XYZJE_QYXSB" type="expression">O_PARAMETER.XYZJE_QYXSB</arg>
+                  <arg flag="field" name="YJZSR_QYXSB" type="expression">O_PARAMETER.YJZSR_QYXSB</arg>
+                  <arg flag="field" name="SRXZ_QYXSB" type="expression">O_PARAMETER.SRXZ_QYXSB</arg>
+                  <arg flag="field" name="LSDM" type="expression">O_PARAMETER.LSDM2</arg>
+                  <arg flag="field" name="GPDM" type="expression">O_PARAMETER.ZQDM2</arg>
+                  <arg flag="field" name="XMLXMC" type="expression">O_PARAMETER.XMLXMC</arg>
+                  <arg flag="field" name="JYCSMC" type="expression">O_PARAMETER.JYCSMC2</arg>
+                  <arg flag="field" name="JYCS" type="expression">O_PARAMETER.JYCS2</arg>
+                  <arg flag="field" name="XMQC" type="expression">O_PARAMETER.XMQC2</arg>
+                  <arg flag="field" name="QYMC2" type="expression">O_PARAMETER.QYMC22</arg>
+                  <arg flag="field" name="XMQY" type="expression">O_PARAMETER.XMQY2</arg>
+                  <arg flag="field" name="ZQDM" type="expression">O_PARAMETER.ZQDM2</arg>
+                  <arg flag="field" name="ZQJC" type="expression">O_PARAMETER.ZQJC2</arg>
+                  <arg flag="field" name="XMWCRQ" type="expression">O_PARAMETER.XMWCRQ</arg>
+                </invoke>
+              </sequence>
+              <else>
+                <describe>Else</describe>
+                <invoke component="FormOperate" id="0" name="对象组件_新增" operation="insert">
+                  <describe>新增对象[项目信息表]</describe>
+                  <arg name="@objectName">tIB_XMXX</arg>
+                  <arg flag="field" name="XMMC" type="expression">ABS_SQLVALUE("select dmmc from ecif.tib_dmfp where id = ?",[O_PARAMETER.KXDM])</arg>
+                  <arg flag="field" name="XMFL" type="expression">O_PARAMETER.XMFL2</arg>
+                  <arg flag="field" name="XMLX" type="expression">O_PARAMETER.XMLX</arg>
+                  <arg flag="field" name="XMJD" type="expression">O_PARAMETER.XMJD2</arg>
+                  <arg flag="field" name="SSKH" type="expression">O_PARAMETER.SSKH2</arg>
+                  <arg flag="field" name="BK" type="expression">O_PARAMETER.BK2</arg>
+                  <arg flag="field" name="LSDM" type="expression">O_PARAMETER.LSDM2</arg>
+                  <arg flag="field" name="GPDM" type="expression">O_PARAMETER.ZQDM2</arg>
+                  <arg flag="field" name="FXGS" type="expression">O_PARAMETER.FXGS2</arg>
+                  <arg flag="field" name="MJZJ" type="expression">O_PARAMETER.MJZJ2</arg>
+                  <arg flag="field" name="DM" type="expression">O_PARAMETER.DM2</arg>
+                  <arg flag="field" name="CWZJ" type="expression">O_PARAMETER.CWZJ2</arg>
+                  <arg flag="field" name="SJKZR" type="expression">O_PARAMETER.SJKZR2</arg>
+                  <arg flag="field" name="XMJBQK" type="expression">O_PARAMETER.XMJBQK</arg>
+                  <arg flag="field" name="SFGLF_QYXSB" type="expression">O_PARAMETER.SFGLF_QYXSB</arg>
+                  <arg flag="field" name="XYZJE_QYXSB" type="expression">O_PARAMETER.XYZJE_QYXSB</arg>
+                  <arg flag="field" name="YJZSR_QYXSB" type="expression">O_PARAMETER.YJZSR_QYXSB</arg>
+                  <arg flag="field" name="SRXZ_QYXSB" type="expression">O_PARAMETER.SRXZ_QYXSB</arg>
+                  <arg flag="field" name="XMQY" type="expression">O_PARAMETER.XMQY2</arg>
+                  <arg flag="field" name="QYMC2" type="expression">O_PARAMETER.QYMC22</arg>
+                  <arg flag="field" name="XMQC" type="expression">O_PARAMETER.XMQC2</arg>
+                  <arg flag="field" name="JYCS" type="expression">O_PARAMETER.JYCS2</arg>
+                  <arg flag="field" name="JYCSMC" type="expression">O_PARAMETER.JYCSMC2</arg>
+                  <arg flag="field" name="XMLXMC" type="expression">O_PARAMETER.XMLXMC</arg>
+                  <arg flag="field" name="ZQDM" type="expression">O_PARAMETER.ZQDM2</arg>
+                  <arg flag="field" name="ZQJC" type="expression">O_PARAMETER.ZQJC2</arg>
+                  <arg flag="field" name="CWXX" type="expression">O_PARAMETER.CWXX</arg>
+                  <arg flag="field" name="QZBJDBR" type="expression">O_PARAMETER.QZBJDBR2</arg>
+                  <arg flag="field" name="XMFZR" type="expression">O_PARAMETER.XMFZR2</arg>
+                  <arg flag="field" name="XCFZR" type="expression">O_PARAMETER.XCFZR2</arg>
+                  <arg flag="field" name="KJSSWS" type="expression">O_PARAMETER.KJSSWS2</arg>
+                  <arg flag="field" name="QZKJS" type="expression">O_PARAMETER.QZKJS2</arg>
+                  <arg flag="field" name="LSSWS" type="expression">O_PARAMETER.LSSWS2</arg>
+                  <arg flag="field" name="QZLS" type="expression">O_PARAMETER.QZLS2</arg>
+                  <arg flag="field" name="XBR" type="expression">O_PARAMETER.XBR2</arg>
+                  <arg flag="field" name="QTCY" type="expression">O_PARAMETER.QTCY2</arg>
+                  <arg flag="field" name="SSBM" type="expression">O_PARAMETER.SSBM2</arg>
+                  <arg flag="field" name="BMZKZY" type="expression">O_PARAMETER.BMZKZY2</arg>
+                  <arg flag="field" name="QYRQ" type="expression">null</arg>
+                  <arg flag="field" name="LXRQ" type="expression">null</arg>
+                  <arg flag="field" name="FDBBRQ" type="expression">null</arg>
+                  <arg flag="field" name="FDYSRQ" type="expression">null</arg>
+                  <arg flag="field" name="NHRQ" type="expression">null</arg>
+                  <arg flag="field" name="SLRQ" type="expression">null</arg>
+                  <arg flag="field" name="BHRQ" type="expression">null</arg>
+                  <arg flag="field" name="SBRQ" type="expression">O_PARAMETER.SBRQ2</arg>
+                  <arg flag="field" name="GHRQ" type="expression">null</arg>
+                  <arg flag="field" name="FXRQ" type="expression">O_PARAMETER.FXRQ2</arg>
+                  <arg flag="field" name="PWRQ" type="expression">null</arg>
+                  <arg flag="field" name="SSRQ" type="expression">null</arg>
+                  <arg flag="field" name="JRCXDDRQ" type="expression">null</arg>
+                  <arg flag="field" name="CJR" type="expression">$Login.User</arg>
+                  <arg flag="field" name="CJBM" type="expression">$Login.User.OrgID</arg>
+                  <arg flag="field" name="XGSJ" type="expression">$DateTime.Now</arg>
+                  <arg flag="field" name="CJSJ" type="expression">$DateTime.Now</arg>
+                  <arg name="@retObject" type="output">V_OBJ</arg>
+                </invoke>
+              </else>
+            </if>
+            <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+              <describe>后处理</describe>
+              <arg name="TranType">procedure</arg>
+              <arg name="datasource">ECIF</arg>
+              <arg name="ret" type="output">V_RET</arg>
+              <arg name="msg" type="output">V_MSG</arg>
+              <arg name="SQL">["CALL ECIF.PRO_TIB_XMWH(:ret,:msg,{0},{1},1,{2})",[{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"$Login.IP","scale":"","length":"","type":"0"},{"expression":"V_OBJ.ID","scale":"","length":"","type":"1"}]]</arg>
+            </invoke>
+            <response exit="false" id="0">
+              <describe>输出</describe>
+              <retvalue type="variable">V_RET</retvalue>
+              <message type="variable">V_MSG</message>
+              <uiforward redirect="false">
+                <url />
+              </uiforward>
+            </response>
+          </sequence>
+          <else>
+            <describe>Else</describe>
+            <response exit="false" id="0">
+              <describe>输出</describe>
+              <retvalue type="expression">V_RET</retvalue>
+              <message type="expression">V_MSG</message>
+              <uiforward redirect="false">
+                <url />
+              </uiforward>
+            </response>
+          </else>
+        </if>
       </sequence>
       <else>
         <describe>Else</describe>

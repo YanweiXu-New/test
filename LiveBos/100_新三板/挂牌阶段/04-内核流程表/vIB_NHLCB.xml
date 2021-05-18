@@ -303,7 +303,7 @@
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-ABS_NULLSUB(SJLY,'0')!=2||LB.getClient().isStandard==false  </invisible-expression>
+ABS_NULLSUB(SJLY,'0')!=2||LB.getClient().isStandard==false   </invisible-expression>
             <disable-expression/>
             <category>申请信息</category>
             <fire-event>0</fire-event>
@@ -1222,7 +1222,7 @@ ABS_NULLSUB(SJLY,'0')!=2||LB.getClient().isStandard==false  </invisible-expressi
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-LB.getClient().isStandard==false  </invisible-expression>
+LB.getClient().isStandard==false   </invisible-expression>
             <disable-expression/>
             <category>基本信息</category>
             <fire-event>0</fire-event>
@@ -1253,7 +1253,7 @@ LB.getClient().isStandard==false  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-ABS_NULLSUB(SJLY,'0')!=1 </invisible-expression>
+ABS_NULLSUB(SJLY,'0')!=1  </invisible-expression>
             <disable-expression/>
             <category>基本信息</category>
             <fire-event>0</fire-event>
@@ -1374,7 +1374,7 @@ ABS_NULLSUB(SJLY,'0')!=1 </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-LB.getClient().isStandard==false  </invisible-expression>
+LB.getClient().isStandard==false   </invisible-expression>
             <disable-expression/>
             <category>需上传附件</category>
             <fire-event>0</fire-event>
@@ -1514,7 +1514,7 @@ LB.getClient().isStandard==false  </invisible-expression>
             <biz-type>100</biz-type>
             <length>0</length>
             <scale>0</scale>
-            <control>2</control>
+            <control>0</control>
             <primary-property>0</primary-property>
             <nullable>true</nullable>
             <unique>false</unique>
@@ -1694,7 +1694,7 @@ LB.getClient().isStandard==false  </invisible-expression>
             <biz-type>100</biz-type>
             <length>0</length>
             <scale>0</scale>
-            <control>3</control>
+            <control>0</control>
             <primary-property>0</primary-property>
             <nullable>false</nullable>
             <unique>false</unique>
@@ -1790,7 +1790,7 @@ LB.getClient().isStandard==false  </invisible-expression>
             <biz-type>100</biz-type>
             <length>0</length>
             <scale>0</scale>
-            <control>0</control>
+            <control>45</control>
             <primary-property>0</primary-property>
             <nullable>true</nullable>
             <unique>false</unique>
@@ -1839,7 +1839,7 @@ LB.getClient().isStandard==false  </invisible-expression>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <comment/>
+            <comment>原来为中小融职能审批人员</comment>
             <validation/>
             <scope-permissions/>
         </column>
@@ -2424,7 +2424,7 @@ LB.getClient().isStandard==false  </invisible-expression>
         </column>
     </columns>
     <restrictions>
-        <condition>{"statement":"{0} IS NULL \r\nOR ({0} = 0 AND NOT EXISTS (SELECT 1 FROM ECIF.lcIB_NHLCB_NHCL WHERE lcIB_NHLCB_ID = lcIB_NHLCB.ID))\r\nOR ({0} = 1 AND EXISTS (SELECT 1 FROM ECIF.lcIB_NHLCB_NHCL WHERE lcIB_NHLCB_ID = lcIB_NHLCB.ID))","args":[{"expression":"parameter.DGYJ","scale":0,"length":0,"type":1}],"type":0}</condition>
+        <condition>{"args":[{"expression":"parameter.DGYJ","length":0,"scale":0,"type":1}],"statement":"{0} IS NULL \r\nOR ({0} = 0 AND NOT EXISTS (SELECT 1 FROM ECIF.lcIB_NHLCB_NHCL WHERE lcIB_NHLCB_ID = lcIB_NHLCB.ID))\r\nOR ({0} = 1 AND EXISTS (SELECT 1 FROM ECIF.lcIB_NHLCB_NHCL WHERE lcIB_NHLCB_ID = lcIB_NHLCB.ID))","type":0}</condition>
     </restrictions>
     <display-options>
         <commands>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="GB2312"?>
+<?xml version="1.0" encoding="gb2312"?>
 <process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="8" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_CXDDXMTZ_XG" name="tIB_CXDDXMTZ_XG" object="tIB_CXDDXMTZ" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
   <describe>持续督导项目台账-修改流程</describe>
   <variables>
@@ -7,6 +7,15 @@
     <variable describe="V_NOTE" messageType="" name="V_NOTE" type="string" />
   </variables>
   <sequence id="0">
+    <invoke component="SQL" id="0" operation="execute">
+      <describe>监管信息回写</describe>
+      <meta name="FUNCTION">true</meta>
+      <arg name="TranType">procedure</arg>
+      <arg name="datasource">ECIF</arg>
+      <arg name="SQL">["call ecif.PRO_IB_XMTZSJHX_JGXX(:code,:note,{0},{1},1,{2},{3})",[{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"$Login.IP","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.XMMC","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.GPDM","scale":"","length":"","type":"0"}]]</arg>
+      <arg name="code" type="output">V_CODE</arg>
+      <arg name="note" type="output">V_NOTE</arg>
+    </invoke>
     <invoke component="FormOperate" id="0" operation="update">
       <describe>修改对象[持续督导项目台账]</describe>
       <meta name="FUNCTION">true</meta>
@@ -24,6 +33,17 @@
       <arg flag="field" name="CXDDZY" type="expression">O_PARAMETER.CXDDZY</arg>
       <arg flag="field" name="BZ" type="expression">O_PARAMETER.BZ</arg>
       <arg name="@retObject" type="output">V_OBJ</arg>
+      <arg flag="field" name="XMMC_XS" type="expression">O_PARAMETER.XMMC.XMMC</arg>
+      <arg flag="field" name="SSBM_XS" type="expression">O_PARAMETER.SSBM.Name</arg>
+      <arg flag="field" name="GSMC_XS" type="expression">O_PARAMETER.GSMC.KHQC</arg>
+      <arg flag="field" name="XMLX_XS" type="expression">O_PARAMETER.XMLX.Name</arg>
+      <arg flag="field" name="CXDDZY_XS" type="expression">O_PARAMETER.CXDDZY.Name</arg>
+      <arg flag="field" name="CXDDBDZBR_XS" type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+var bdr = '';&#xD;
+bdr = ABS_SQLVALUE("select listagg(name,';') within group(order by ID) name from jgcrm.tuser T where instr(';'||?||';',';'||T.ID||';') &gt;0",[O_PARAMETER.CXDDBDZBR]);&#xD;
+bdr;</arg>
+      <arg flag="field" name="XGSJ" type="expression">$DateTime.Now</arg>
+      <arg flag="field" name="XGR" type="expression">$Login.User</arg>
     </invoke>
     <invoke component="SQL" id="0" operation="execute">
       <describe>数据回写项目信息表</describe>

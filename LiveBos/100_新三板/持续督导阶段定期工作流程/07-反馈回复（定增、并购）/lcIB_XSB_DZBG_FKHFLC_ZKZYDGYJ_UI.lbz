@@ -9,9 +9,9 @@
     </invoke>
     <invoke component="expression" id="0" name="执行脚本">
       <describe>执行脚本</describe>
-      <arg name="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
-var bean = ABS_LOADBEAN('com.apex.bss.mod.ibb.systemdocking.apexsoft.livebosbean.SyncAmsReportFiles');&#xD;
-var result = bean.perform($Login.User.UserID,O_MASTER.ZKZYDGYJ);&#xD;
+      <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+var bean = ABS_LOADBEAN('com.apex.bss.mod.ibb.systemdocking.apexsoft.livebosbean.SyncAmsReportFiles');
+var result = bean.perform($Login.User.UserID,O_MASTER.ZKZYDGYJ);
 true;</arg>
     </invoke>
     <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">

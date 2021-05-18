@@ -27,6 +27,8 @@ ABS_IF(ABS_NULLSUB(O_MASTER.XMMC.ECNHZKSHY_ZS,0)!=0,O_MASTER.XMMC.ECNHZKSHY_ZS,O
 ABS_SQLVALUE("select t1.NHZY_ZS from ECIF.lcIB_NHSP t1 inner join jgcrm.os_wfentry t2 on t2.id=t1.instid  where t2.state=4 and t1.XMMC=? and rownum = 1 order by t1.instid desc",[O_MASTER.XMMC])</arg>
       <arg flag="field" name="DGXTXMCLJLXJDSCBL" type="expression">ABS_SQLVALUE('SELECT   ECIF.FUNC_IB_GET_DGJDWCBL (?,?,?) FROM DUAL',[O_MASTER.XMMC,1,1004])</arg>
       <arg flag="field" name="BLSCDDRQ" type="expression">ABS_SQLVALUE('SELECT  ECIF.FUNC_IB_GET_DGJDSCWCRQ(?,?,?) FROM DUAL',[O_MASTER.XMMC,1,1004])</arg>
+      <arg flag="field" name="XMLXXGYY" type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+ABS_SQLVALUE("SELECT XMLXXGYY FROM ECIF.TIB_XMXX WHERE XMMC LIKE ? ",[O_MASTER.XMMC.XMMC])</arg>
     </invoke>
   </sequence>
 </process>

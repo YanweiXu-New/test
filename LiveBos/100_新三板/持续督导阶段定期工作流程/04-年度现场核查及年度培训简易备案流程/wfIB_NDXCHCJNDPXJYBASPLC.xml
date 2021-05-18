@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="gb2312"?>
 <!DOCTYPE workflow PUBLIC "-//Apexsoft LiveBos//DTD Workflow 2.8//EN" "http://www.livebos.com/workflow/workflow_2_8_abs.dtd"><workflow>
-  <meta name="Designer">Studio</meta>
-  <meta name="workflow.category">新三板-持续督导阶段</meta>
-  <meta name="created">2017-07-26 11:29:24</meta>
-  <meta name="modify">2018-09-15 11:09:31</meta>
   <meta name="Describe">年度现场核查及年度培训持续督导流程</meta>
+  <meta name="Designer">Studio</meta>
+  <meta name="modify">2020-11-11 18:08:26</meta>
+  <meta name="created">2017-07-26 11:29:24</meta>
   <meta name="WorkflowName">wfIB_NDXCHCJNDPXJYBASPLC</meta>
+  <meta name="workflow.category">新三板-持续督导阶段</meta>
   <meta name="version"></meta>
   <object  name="lcIB_NDXCHCJNDPXJYBALCB" editAttribute="0" >
   </object>
@@ -104,9 +104,9 @@
           <meta name="NodeType">5</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.PRO_IB_XSB_LCHCL(?,?,{0},'lcIB_NDXCHCJNDPXJYBALCB',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
-              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
               <arg name="datasource">ECIF</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.PRO_IB_XSB_LCHCL(?,?,{0},'lcIB_NDXCHCJNDPXJYBALCB',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -117,13 +117,13 @@
       </actions>
     </step>
     <step id="25" name="质控部专员审核" owner="$D{Designate},$AM{1}">
-      <meta name="step.reject.mode">prev</meta>
-      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">prev</meta>
+      <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_NDXCHCJNDPXJYBALCB" editAttribute="0" >
         <columns>
@@ -145,17 +145,17 @@
       </notify>
       <actions>
         <action id="26" name="审核通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <meta name="allow.recover">true</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.PRO_IB_XSB_LCHCL(?,?,{0},'lcIB_NDXCHCJNDPXJYBALCB',{1},{2},31)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.PRO_IB_XSB_LCHCL(?,?,{0},'lcIB_NDXCHCJNDPXJYBALCB',{1},{2},31)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
             </function>
             <function id="1" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_IB_XSB_SetWFZkzy(?,?,{0},'lcIB_NDXCHCJNDPXJYBALCB',{1},{2},112,2)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_IB_XSB_SetWFZkzy(?,?,{0},'lcIB_NDXCHCJNDPXJYBALCB',{1},{2},112,2)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -166,12 +166,12 @@
       </actions>
     </step>
     <step id="36" name="结束">
-      <meta name="finish">true</meta>
       <meta name="NodeType">1</meta>
+      <meta name="finish">true</meta>
       <pre-functions>
         <function id="0" name="abs.ExecSQL" type="class">
-          <arg name="SQL">[&quot;call ecif.PRO_IB_XSB_WFFINISH(?,?,'lcIB_NDXCHCJNDPXJYBALCB',{0},{1})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
           <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+          <arg name="SQL">[&quot;call ecif.PRO_IB_XSB_WFFINISH(?,?,'lcIB_NDXCHCJNDPXJYBALCB',{0},{1})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
         </function>
       </pre-functions>
     </step>

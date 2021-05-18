@@ -629,7 +629,7 @@ SFZJZY!=1 </invisible-expression>
         </column>
     </columns>
     <restrictions>
-        <condition>{"statement":"lcIB_BNBGZJYBAJZJZYLCB.SQR={0} and exists(select 1 from jgcrm.OS_WFENTRY where id=lcIB_BNBGZJYBAJZJZYLCB.InstID and state&lt;&gt;3) or {0}=0","args":[{"expression":"$Login.User","scale":0,"length":0,"type":1}],"type":0}</condition>
+        <condition>{"args":[{"expression":"$Login.User","length":0,"scale":0,"type":1}],"statement":"lcIB_BNBGZJYBAJZJZYLCB.SQR={0} and exists(select 1 from jgcrm.OS_WFENTRY where id=lcIB_BNBGZJYBAJZJZYLCB.InstID and state&lt;&gt;3) or {0}=0","type":0}</condition>
     </restrictions>
     <display-options>
         <commands>

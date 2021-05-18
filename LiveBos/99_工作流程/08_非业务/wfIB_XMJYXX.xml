@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="gb2312"?>
 <!DOCTYPE workflow PUBLIC "-//Apexsoft LiveBos//DTD Workflow 2.8//EN" "http://www.livebos.com/workflow/workflow_2_8_abs.dtd"><workflow>
-  <meta name="workflow.category">权益类_08_非业务</meta>
-  <meta name="Designer">Studio</meta>
-  <meta name="created">2018-08-24 16:44:02</meta>
-  <meta name="modify">2019-03-26 13:49:41</meta>
   <meta name="Describe">项目简要信息流程</meta>
+  <meta name="Designer">Studio</meta>
+  <meta name="modify">2021-01-25 10:40:03</meta>
+  <meta name="created">2018-08-24 16:44:02</meta>
   <meta name="WorkflowName">wfIB_XMJYXX</meta>
   <meta name="WorkflowType">2</meta>
+  <meta name="workflow.category">权益类_08_非业务</meta>
   <meta name="version"></meta>
   <object  name="lcIB_XMJYXX" editAttribute="0" >
   </object>
@@ -21,8 +21,8 @@
   </initial-actions>
   <steps>
     <step id="1" name="结束">
-      <meta name="finish">true</meta>
       <meta name="NodeType">1</meta>
+      <meta name="finish">true</meta>
     </step>
     <step id="3" name="填写信息">
       <meta name="NodeType">2</meta>
@@ -411,18 +411,18 @@
           <meta name="NodeType">5</meta>
           <pre-functions>
             <function id="0" name="lb.Assert" type="class">
+              <arg name="message.1">'输入了重复的标的资产财务数据！！标的资产与时点不能同时重复'</arg>
               <arg name="assert.1">&lt;%@ livebos language='javascript' %&gt;
 var a = ABS_SQLVALUE(&quot;select count(1) from(select bdzc,sd from ECIF.lcIB_XMJYXX_BDGSCWZB b where B.LCIB_XMJYXX_ID = ?  group by bdzc,sd having count(*) &gt; 1)&quot;,[O_WORKFLOW.ID]);
 a&lt;=0;
 </arg>
               <arg name="class.name">com.apex.livebos.workflow.function.AssertFunction</arg>
-              <arg name="message.1">'输入了重复的标的资产财务数据！！标的资产与时点不能同时重复'</arg>
             </function>
             <function id="0" name="abs.FormUpdate" type="class">
-              <arg name="$F{XMJD}">O_WORKFLOW.XMSCJD</arg>
               <arg name="condition">[&quot;tIB_XMXX.ID={0}&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
-              <arg name="class.name">com.apex.workflow.FormUpdateFunction</arg>
               <arg name="Table">tIB_XMXX</arg>
+              <arg name="$F{XMJD}">O_WORKFLOW.XMSCJD</arg>
+              <arg name="class.name">com.apex.workflow.FormUpdateFunction</arg>
             </function>
           </pre-functions>
           <results>
@@ -432,15 +432,15 @@ a&lt;=0;
         </action>
       </actions>
     </step>
-    <step id="6" name="质控内核主审审批" owner="$DG{7.lcIB_XMJYXX.NHZS}">
-      <meta name="step.reject.mode">any</meta>
-      <meta name="step.allow.approve.sign">true</meta>
+    <step id="6" name="质控内核主审审批">
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reject">true</meta>
-      <meta name="approve.mode">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="reject.reason.mandatory">false</meta>
+      <meta name="approve.mode">true</meta>
       <object  name="lcIB_XMJYXX" editAttribute="0" >
         <columns>
           <column  name="ID" disabled="false" hidden="true" summary="false">
@@ -465,7 +465,7 @@ a&lt;=0;
           </column>
           <column  name="LCBH" disabled="true" hidden="false" summary="false">
           </column>
-          <column  name="XMMC" disabled="false" hidden="false" summary="false">
+          <column  name="XMMC" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="XMSCJD" disabled="false" hidden="false" summary="false">
           </column>
@@ -819,16 +819,22 @@ a&lt;=0;
           </column>
         </columns>
       </object>
+      <dynOwners>
+        <dynOwner  type="0" describe="动态用户" >
+          <expression><![CDATA[
+["tUser.ID ={0}",[{"expression":"O_WORKFLOW.NHZS","length":0,"scale":0,"type":1}]]]]></expression>
+          </dynOwner>
+              </dynOwners>
       <notify >
       </notify>
       <actions>
         <action id="7" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;CALL ecif.pro_ib_jyxxlchcl(?,?,{0},'lcIB_XMJYXX',{1},{2},{3})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMLX&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;CALL ecif.pro_ib_jyxxlchcl(?,?,{0},'lcIB_XMJYXX',{1},{2},{3})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMLX&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>

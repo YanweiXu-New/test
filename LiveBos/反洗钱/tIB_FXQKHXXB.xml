@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="GB2312" standalone="no"?>
-<object create-date="2020.11.13 09:36:17" creator="HUANGWEI3" flag="0" name="tIB_FXQKHXXB" object-id="d7044e2c-5aab-4353-beee-b6d381943cb6" package="反洗钱" type="0" version="1.0">
+<object create-date="2020.11.13 09:36:17" creator="HUANGWEI3" flag="0" modifier="null" modify-date="null" name="tIB_FXQKHXXB" object-id="d7044e2c-5aab-4353-beee-b6d381943cb6" package="反洗钱" type="0" version="1.0">
     <describe>反洗钱客户信息表</describe>
+    <comment/>
     <datasource-name>ECIF</datasource-name>
+    <parent/>
     <attribute>264</attribute>
+    <templet>默认</templet>
     <columns>
         <column>
             <name>ID</name>
@@ -17,12 +20,22 @@
             <unique>false</unique>
             <enabled>false</enabled>
             <visible>false</visible>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>4</attribute>
+            <order-direction>2</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>FXQKHWYBZ</name>
@@ -37,22 +50,29 @@
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>KHMC</name>
             <describe>客户名称</describe>
             <type>6</type>
             <biz-type>500</biz-type>
-            <length>0</length>
+            <length>16</length>
             <scale>0</scale>
             <control>10</control>
             <primary-property>0</primary-property>
@@ -61,14 +81,232 @@
             <enabled>true</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object>tIB_KHXX</ref-object>
-            <attribute>0</attribute>
+            <default/>
+            <attribute>2</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>KHCYM</name>
+            <describe>客户曾用名</describe>
+            <type>0</type>
+            <biz-type>100</biz-type>
+            <length>100</length>
+            <scale>0</scale>
+            <control>1</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>SBZT</name>
+            <describe>识别状态</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>2</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>false</visible>
+            <option>$D{SBZT}</option>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>SBLX</name>
+            <describe>识别类型</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>5</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option>$D{SBLX_FXQ}</option>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
+SFYC = 1      </invisible-expression>
+            <disable-expression/>
+            <category/>
+            <fire-event>1</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>KHLX</name>
+            <describe>客户类型</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>5</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option>$D{KHLX_FXQ}</option>
+            <meta-column/>
+            <ref-object/>
+            <default>1</default>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>QYLX</name>
+            <describe>企业类型</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>10</control>
+            <primary-property>0</primary-property>
+            <nullable>false</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option>$D{QYLX_FXQ}</option>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>GYSX</name>
+            <describe>国有属性</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>5</control>
+            <primary-property>0</primary-property>
+            <nullable>false</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option>$D{GYSX}</option>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>SSSX</name>
+            <describe>上市属性</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>5</control>
+            <primary-property>0</primary-property>
+            <nullable>false</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option>$D{SSSX}</option>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>ZCZBJ</name>
@@ -79,41 +317,58 @@
             <scale>2</scale>
             <control>1</control>
             <primary-property>0</primary-property>
-            <nullable>false</nullable>
+            <nullable>true</nullable>
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
+QYLX == 9  </invisible-expression>
+            <disable-expression/>
             <category/>
-            <fire-event>0</fire-event>
+            <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>ZCZJBZ</name>
             <describe>注册资金币种</describe>
             <type>6</type>
             <biz-type>500</biz-type>
-            <length>0</length>
+            <length>16</length>
             <scale>0</scale>
             <control>10</control>
             <primary-property>0</primary-property>
-            <nullable>false</nullable>
+            <nullable>true</nullable>
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object>tIB_CJGJBZ</ref-object>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
+QYLX == 9  </invisible-expression>
+            <disable-expression/>
             <category/>
-            <fire-event>0</fire-event>
+            <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>YWFW</name>
@@ -124,21 +379,60 @@
             <scale>0</scale>
             <control>7</control>
             <primary-property>0</primary-property>
-            <nullable>false</nullable>
+            <nullable>true</nullable>
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment/>
+            <validation/>
             <scope-permissions/>
         </column>
         <column>
             <name>ZMHFDZZ</name>
             <describe>证明合法的执照</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>5</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option>$D{ZMJGHFDZZ}</option>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>ZZDQRSFCQ</name>
+            <describe>执照到期日是否长期</describe>
             <type>7</type>
             <biz-type>400</biz-type>
             <length>0</length>
@@ -149,15 +443,22 @@
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
-            <option>$D{ZMJGHFDZZ}</option>
+            <option>$D{JG_SF}</option>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
-            <fire-event>0</fire-event>
+            <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>ZZHM</name>
@@ -168,63 +469,240 @@
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
-            <nullable>false</nullable>
+            <nullable>true</nullable>
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
-            <name>XGSJ</name>
-            <describe>修改时间</describe>
+            <name>ZZYXDQR</name>
+            <describe>执照有效到期日</describe>
             <type>13</type>
             <biz-type>300</biz-type>
             <length>8</length>
             <scale>0</scale>
             <control>3</control>
             <primary-property>0</primary-property>
-            <nullable>false</nullable>
+            <nullable>true</nullable>
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object/>
+            <default>null</default>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
-            <name>FRDB</name>
-            <describe>法人代表</describe>
+            <name>GJGSXTDJZT</name>
+            <describe>国家公示系统登记状态</describe>
             <type>0</type>
             <biz-type>100</biz-type>
             <length>100</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
-            <nullable>false</nullable>
+            <nullable>true</nullable>
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>SPZT</name>
+            <describe>审批状态</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>10</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option>$D{SPZT}</option>
+            <meta-column/>
+            <ref-object/>
+            <default>1</default>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>SFHMD</name>
+            <describe>是否黑名单</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>2</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option>$D{JG_SF}</option>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>FXDJ</name>
+            <describe>风险等级</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>5</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option>$D{FXDJ_FXQ}</option>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>FRDB</name>
+            <describe>法人代表</describe>
+            <type>0</type>
+            <biz-type>100</biz-type>
+            <length>200</length>
+            <scale>0</scale>
+            <control>1</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>法人代表</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>FRZJLX</name>
             <describe>法人证件类型</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>10</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option>$D{ZJLX}</option>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>法人代表</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>FRZJSFCQ</name>
+            <describe>法人证件是否长期</describe>
             <type>7</type>
             <biz-type>400</biz-type>
             <length>0</length>
@@ -235,15 +713,22 @@
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
-            <option>$D{ZJLX}</option>
+            <option>$D{JG_SF}</option>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>法人代表</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>FRZJHM</name>
@@ -254,16 +739,26 @@
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
-            <nullable>false</nullable>
+            <nullable>true</nullable>
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>法人代表</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>FRZJYXQ</name>
@@ -274,44 +769,30 @@
             <scale>0</scale>
             <control>3</control>
             <primary-property>0</primary-property>
-            <nullable>false</nullable>
+            <nullable>true</nullable>
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object/>
             <default>null</default>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>法人代表</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
-            <name>SJKZR</name>
-            <describe>实际控制人</describe>
-            <type>0</type>
-            <biz-type>100</biz-type>
-            <length>100</length>
-            <scale>0</scale>
-            <control>1</control>
-            <primary-property>0</primary-property>
-            <nullable>false</nullable>
-            <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <category>实际控制人</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-        </column>
-        <column>
-            <name>KZRZJLX</name>
-            <describe>控制人证件类型</describe>
+            <name>GDGZWSX</name>
+            <describe>股东国资委属性</describe>
             <type>7</type>
             <biz-type>400</biz-type>
             <length>0</length>
@@ -322,7 +803,37 @@
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
-            <option>$D{ZJLX}</option>
+            <option>$D{JG_SF}</option>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>实际控制人</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>WFHYQDGDXX</name>
+            <describe>无符合要求的股东信息</describe>
+            <type>15</type>
+            <biz-type>401</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>4</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option>$D{WFHTJ}</option>
             <ref-object/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
@@ -333,72 +844,98 @@
             <properties/>
         </column>
         <column>
-            <name>KZRZJHM</name>
-            <describe>控制人证件号码</describe>
-            <type>0</type>
-            <biz-type>100</biz-type>
-            <length>200</length>
+            <name>GDXX</name>
+            <describe>股东信息</describe>
+            <type>10</type>
+            <biz-type>700</biz-type>
+            <length>0</length>
             <scale>0</scale>
-            <control>1</control>
-            <primary-property>0</primary-property>
-            <nullable>false</nullable>
-            <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <category>实际控制人</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-        </column>
-        <column>
-            <name>KZRZJYXQ</name>
-            <describe>控制人证件有效期</describe>
-            <type>13</type>
-            <biz-type>300</biz-type>
-            <length>8</length>
-            <scale>0</scale>
-            <control>3</control>
+            <control>12</control>
             <primary-property>0</primary-property>
             <nullable>false</nullable>
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
             <option/>
-            <ref-object/>
-            <default>null</default>
+            <meta-column/>
+            <ref-object>tIB_FXQKHXXB_GDXX</ref-object>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>实际控制人</category>
-            <fire-event>0</fire-event>
+            <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>SQBLYWRY</name>
-            <describe>授权办理业务人员</describe>
+            <describe>客户方联系人</describe>
             <type>0</type>
             <biz-type>100</biz-type>
-            <length>100</length>
+            <length>200</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
-            <nullable>false</nullable>
+            <nullable>true</nullable>
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>业务人员</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>YWRYZJLX</name>
-            <describe>业务人员证件类型</describe>
+            <describe>联系人证件类型</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>10</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option>$D{ZJLX}</option>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>业务人员</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>YWRYZJSFCQ</name>
+            <describe>联系人证件是否长期</describe>
             <type>7</type>
             <biz-type>400</biz-type>
             <length>0</length>
@@ -409,55 +946,101 @@
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
-            <option>$D{ZJLX}</option>
+            <option>$D{JG_SF}</option>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>业务人员</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>YWRYZJHM</name>
-            <describe>业务人员证件号码</describe>
+            <describe>联系人证件号码</describe>
             <type>0</type>
             <biz-type>100</biz-type>
             <length>200</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
-            <nullable>false</nullable>
+            <nullable>true</nullable>
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>业务人员</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>YWRYZJYXQ</name>
-            <describe>业务人员证件有效期</describe>
+            <describe>联系人证件有效期</describe>
             <type>13</type>
             <biz-type>300</biz-type>
             <length>8</length>
             <scale>0</scale>
             <control>3</control>
             <primary-property>0</primary-property>
-            <nullable>false</nullable>
+            <nullable>true</nullable>
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object/>
             <default>null</default>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>业务人员</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>SFCZJYDS</name>
+            <describe>是否存在交易对手</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>5</control>
+            <primary-property>0</primary-property>
+            <nullable>false</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option>$D{JG_SF}</option>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category>交易对手信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
@@ -477,14 +1060,141 @@
             <enabled>true</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object>tIB_FXQKHXXB_JYDSXX</ref-object>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>交易对手信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>CJR</name>
+            <describe>创建人</describe>
+            <type>6</type>
+            <biz-type>500</biz-type>
+            <length>12</length>
+            <scale>0</scale>
+            <control>10</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object>tUser</ref-object>
+            <default>$Login.User</default>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>维护人员</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>CJSJ</name>
+            <describe>创建时间</describe>
+            <type>3</type>
+            <biz-type>301</biz-type>
+            <length>12</length>
+            <scale>0</scale>
+            <control>37</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default>$DateTime.Now</default>
+            <attribute>0</attribute>
+            <order-direction>2</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>维护人员</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>XGR</name>
+            <describe>修改人</describe>
+            <type>6</type>
+            <biz-type>500</biz-type>
+            <length>12</length>
+            <scale>0</scale>
+            <control>10</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object>tUser</ref-object>
+            <default>$Login.User</default>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>维护人员</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>XGSJ</name>
+            <describe>修改时间</describe>
+            <type>3</type>
+            <biz-type>301</biz-type>
+            <length>12</length>
+            <scale>0</scale>
+            <control>37</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default>null</default>
+            <attribute>8</attribute>
+            <order-direction>2</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>维护人员</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
     </columns>
     <display-options>

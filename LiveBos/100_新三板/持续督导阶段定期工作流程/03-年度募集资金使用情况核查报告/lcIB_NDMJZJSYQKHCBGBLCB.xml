@@ -70,17 +70,19 @@
         </column>
         <column>
             <name>YWLX</name>
-            <describe>YWLX</describe>
-            <type>0</type>
-            <biz-type>100</biz-type>
-            <length>30</length>
+            <describe>业务类型</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
             <scale>0</scale>
-            <control>1</control>
+            <control>0</control>
             <primary-property>6</primary-property>
             <nullable>true</nullable>
             <unique>false</unique>
             <enabled>false</enabled>
             <visible>false</visible>
+            <option>1|权益;2|固收(发行前);3|债券;4|新三板</option>
+            <ref-object/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
             <expression>4</expression>
@@ -88,6 +90,7 @@
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <properties/>
         </column>
         <column>
             <name>ZDWCBZ</name>
@@ -496,7 +499,7 @@ LB.getClient().isStandard==false    </invisible-expression>
             <comment/>
             <validation/>
             <constraint type="3">
-                <SQL>["tIB_XMXX_XSB.KPJD = 112 AND (tIB_XMXX_XSB.CXDDZY = {0} OR tIB_XMXX_XSB.BMJCSDDZY = {0})",[{"expression":"$Login.User","length":0,"scale":0,"type":1}]]</SQL>
+                <SQL>["tIB_XMXX_XSB.KPJD = 112 AND (tIB_XMXX_XSB.CXDDZY = {0} OR tIB_XMXX_XSB.BMJCSDDZY = {0})",[{"expression":"$Login.User","scale":0,"length":0,"type":1}]]</SQL>
                 <refColumns/>
             </constraint>
             <scope-permissions/>

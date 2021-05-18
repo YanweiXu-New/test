@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="GB2312" standalone="no"?>
-<object create-date="2020.08.04 17:13:30" creator="开发者" flag="0" name="tIB_XMXX_XSB_NBPLRQ2" object-id="82073c19-e2f5-45df-934a-4ea340a19e15" package="04_项目管理.00_项目管理" type="15" version="1.0">
+<object create-date="2020.08.04 17:13:30" creator="开发者" flag="0" modifier="null" modify-date="null" name="tIB_XMXX_XSB_NBPLRQ2" object-id="82073c19-e2f5-45df-934a-4ea340a19e15" package="04_项目管理.00_项目管理" type="15" version="1.0">
     <describe>年报披露日期</describe>
+    <comment/>
     <datasource-name>ECIF</datasource-name>
     <parent>tIB_XMXX_XSB</parent>
     <attribute>264</attribute>
+    <templet>默认</templet>
     <columns>
         <column>
             <name>ID</name>
@@ -18,12 +20,23 @@
             <unique>false</unique>
             <enabled>false</enabled>
             <visible>false</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>ND</name>
@@ -39,13 +52,20 @@
             <enabled>true</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>4</attribute>
             <order-direction>2</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment/>
+            <validation/>
             <scope-permissions/>
             <properties/>
         </column>
@@ -63,14 +83,21 @@
             <enabled>true</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object/>
             <default>null</default>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
             <properties/>
         </column>
         <column>
@@ -81,19 +108,27 @@
             <length>0</length>
             <scale>0</scale>
             <control>10</control>
-            <primary-property>0</primary-property>
+            <primary-property>10</primary-property>
             <nullable>false</nullable>
             <unique>false</unique>
             <enabled>false</enabled>
             <visible>false</visible>
             <option>$D{IB_BGLY}</option>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression>1</expression>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
             <properties/>
         </column>
         <column>
@@ -110,14 +145,21 @@
             <enabled>false</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object/>
             <default>$DateTime.Now</default>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
             <properties/>
         </column>
         <column>
@@ -125,7 +167,7 @@
             <describe>修改人</describe>
             <type>6</type>
             <biz-type>500</biz-type>
-            <length>0</length>
+            <length>12</length>
             <scale>0</scale>
             <control>10</control>
             <primary-property>0</primary-property>
@@ -134,14 +176,21 @@
             <enabled>false</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object>tUser</ref-object>
             <default>$Login.User</default>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
             <properties/>
         </column>
     </columns>
@@ -151,7 +200,16 @@
     </display-options>
     <subdivisions/>
     <methods/>
-    <properties/>
+    <properties>
+        <property>
+            <name>73</name>
+            <value>ND</value>
+            <value>CXDDNBPLRQ</value>
+            <value>BGLY</value>
+            <value>RQBGSJ</value>
+            <value>XGR</value>
+        </property>
+    </properties>
     <orders/>
     <panels/>
     <extend-buttons/>

@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="gb2312"?>
+<?xml version="1.0" encoding="GB2312"?>
 <layouts>
   <pools>
-    <pool id="84" type="pool" height="1316" width="1135" x="5" y="5" closed="false">
+    <pool id="84" type="pool" height="1316" width="1073" x="5" y="5" closed="false">
       <describe>审核流程</describe>
-      <lane id="0" type="lane" height="200" width="1103" x="35" y="6" closed="false">
+      <lane id="0" type="lane" height="200" width="1041" x="35" y="6" closed="false">
         <describe>部门发起</describe>
         <stepId>0</stepId>
         <stepId>9</stepId>
@@ -11,15 +11,16 @@
         <stepId>15</stepId>
         <stepId>20</stepId>
         <stepId>83</stepId>
+        <stepId>156</stepId>
       </lane>
-      <lane id="85" type="lane" height="313" width="1103" x="35" y="208" closed="false">
+      <lane id="85" type="lane" height="313" width="1041" x="35" y="208" closed="false">
         <describe>投总审批</describe>
         <stepId>30</stepId>
         <stepId>24</stepId>
         <stepId>22</stepId>
         <stepId>138</stepId>
       </lane>
-      <lane id="86" type="lane" height="795" width="1103" x="35" y="523" closed="false">
+      <lane id="86" type="lane" height="795" width="1041" x="35" y="523" closed="false">
         <describe>质控审批</describe>
         <stepId>78</stepId>
         <stepId>1</stepId>
@@ -43,8 +44,10 @@
         <stepId>132</stepId>
         <stepId>135</stepId>
         <stepId>143</stepId>
-        <stepId>147</stepId>
-        <stepId>152</stepId>
+        <stepId>146</stepId>
+        <stepId>148</stepId>
+        <stepId>163</stepId>
+        <stepId>168</stepId>
       </lane>
     </pool>
   </pools>
@@ -91,18 +94,7 @@
       <dimension type="second" w="-22" h="-60" />
     </bendpoint>
   </transition>
-  <transition id="140">
-    <bendpoint index="0">
-      <dimension type="first" w="99" h="38" />
-      <dimension type="second" w="22" h="-237" />
-    </bendpoint>
-  </transition>
-  <transition id="142">
-    <bendpoint index="0">
-      <dimension type="first" w="-713" h="392" />
-      <dimension type="second" w="-248" h="-6" />
-    </bendpoint>
-  </transition>
+  <transition id="158" />
   <cell id="22" type="StepCell" height="60" width="133" x="40" y="60" />
   <cell id="23" type="ActionCell" height="40" width="60" x="168" y="71" />
   <transition id="49" />
@@ -133,34 +125,29 @@
   </transition>
   <cell id="76" type="ActionCell" height="56" width="74" x="311" y="32" />
   <transition id="77" />
-  <cell id="36" type="StepCell" height="60" width="116" x="931" y="209" />
-  <cell id="37" type="ActionCell" height="35" width="60" x="957" y="269" />
+  <cell id="36" type="StepCell" height="60" width="116" x="895" y="198" />
+  <cell id="37" type="ActionCell" height="35" width="60" x="921" y="258" />
   <transition id="112" />
-  <cell id="38" type="StepCell" height="74" width="120" x="896" y="25" />
-  <cell id="39" type="ActionCell" height="43" width="65" x="926" y="99" />
+  <cell id="38" type="StepCell" height="74" width="120" x="853" y="14" />
+  <cell id="39" type="ActionCell" height="43" width="65" x="883" y="88" />
   <transition id="58" />
-  <cell id="40" type="StepCell" height="57" width="115" x="474" y="62" />
-  <cell id="41" type="ActionCell" height="55" width="75" x="585" y="68" />
+  <cell id="40" type="StepCell" height="57" width="115" x="470" y="53" />
+  <cell id="41" type="ActionCell" height="55" width="75" x="581" y="59" />
   <transition id="56" />
-  <cell id="69" type="ActionCell" height="49" width="93" x="441" y="120" />
+  <cell id="69" type="ActionCell" height="49" width="93" x="437" y="111" />
   <transition id="71">
     <bendpoint index="0">
       <dimension type="first" w="-405" h="17" />
       <dimension type="second" w="0" h="-62" />
     </bendpoint>
   </transition>
-  <cell id="42" type="StepCell" height="58" width="130" x="504" y="213" />
-  <cell id="43" type="ActionCell" height="40" width="61" x="637" y="250" />
+  <cell id="42" type="StepCell" height="58" width="130" x="506" y="216" />
+  <cell id="43" type="ActionCell" height="40" width="61" x="630" y="241" />
   <transition id="57" />
-  <transition id="149" />
-  <transition id="151">
+  <transition id="165">
     <bendpoint index="0">
-      <dimension type="first" w="-48" h="-55" />
-      <dimension type="second" w="88" h="115" />
-    </bendpoint>
-    <bendpoint index="1">
-      <dimension type="first" w="-115" h="-83" />
-      <dimension type="second" w="21" h="87" />
+      <dimension type="first" w="-10" h="-61" />
+      <dimension type="second" w="75" h="20" />
     </bendpoint>
   </transition>
   <cell id="46" type="StepCell" height="72" width="119" x="304" y="516" />
@@ -186,8 +173,8 @@
   <cell id="89" type="StepCell" height="56" width="96" x="175" y="188" />
   <cell id="90" type="ActionCell" height="40" width="60" x="269" y="199" />
   <transition id="91" />
-  <cell id="95" type="StepCell" height="60" width="116" x="919" y="342" />
-  <cell id="96" type="ActionCell" height="35" width="60" x="945" y="402" />
+  <cell id="95" type="StepCell" height="60" width="116" x="832" y="322" />
+  <cell id="96" type="ActionCell" height="35" width="60" x="858" y="382" />
   <transition id="119" />
   <cell id="101" type="StepCell" height="57" width="78" x="43" y="297" />
   <cell id="102" type="ActionCell" height="33" width="43" x="123" y="308" />
@@ -202,20 +189,17 @@
   <cell id="108" type="ActionCell" height="40" width="61" x="537" y="351" />
   <transition id="121">
     <bendpoint index="0">
-      <dimension type="first" w="-8" h="50" />
-      <dimension type="second" w="226" h="-21" />
+      <dimension type="first" w="-200" h="-2" />
+      <dimension type="second" w="34" h="-73" />
     </bendpoint>
-  </transition>
-  <transition id="154" />
-  <transition id="156">
-    <bendpoint index="0">
-      <dimension type="first" w="59" h="66" />
-      <dimension type="second" w="-106" h="-37" />
+    <bendpoint index="1">
+      <dimension type="first" w="-203" h="22" />
+      <dimension type="second" w="31" h="-49" />
     </bendpoint>
   </transition>
   <cell id="115" type="StepCell" height="60" width="116" x="674" y="434" />
   <cell id="116" type="ActionCell" height="35" width="81" x="783" y="437" />
-  <transition id="145" />
+  <transition id="127" />
   <cell id="118" type="ActionCell" height="40" width="94" x="598" y="474" />
   <transition id="120">
     <bendpoint index="0">
@@ -229,17 +213,23 @@
   <cell id="125" type="StepCell" height="60" width="116" x="492" y="521" />
   <cell id="126" type="ActionCell" height="35" width="60" x="433" y="536" />
   <transition id="129" />
-  <cell id="132" type="StepCell" height="58" width="140" x="779" y="120" />
-  <cell id="133" type="ActionCell" height="40" width="62" x="821" y="87" />
-  <transition id="134">
+  <cell id="132" type="StepCell" height="58" width="140" x="745" y="222" />
+  <cell id="133" type="ActionCell" height="40" width="62" x="789" y="183" />
+  <transition id="162">
     <bendpoint index="0">
-      <dimension type="first" w="-4" h="-21" />
-      <dimension type="second" w="179" h="13" />
+      <dimension type="first" w="-9" h="-114" />
+      <dimension type="second" w="284" h="1" />
     </bendpoint>
   </transition>
-  <cell id="135" type="StepCell" height="70" width="228" x="219" y="400" />
-  <cell id="136" type="ActionCell" height="40" width="62" x="449" y="431" />
+  <cell id="135" type="StepCell" height="70" width="228" x="230" y="413" />
+  <cell id="136" type="ActionCell" height="40" width="62" x="460" y="444" />
   <transition id="137" />
+  <transition id="172">
+    <bendpoint index="0">
+      <dimension type="first" w="-8" h="-50" />
+      <dimension type="second" w="-67" h="8" />
+    </bendpoint>
+  </transition>
   <cell id="138" type="StepCell" height="58" width="140" x="736" y="196" />
   <cell id="139" type="ActionCell" height="40" width="62" x="777" y="252" />
   <transition id="141">
@@ -248,14 +238,31 @@
       <dimension type="second" w="8" h="-95" />
     </bendpoint>
   </transition>
-  <cell id="143" type="StepCell" height="60" width="116" x="820" y="518" />
-  <cell id="144" type="ActionCell" height="35" width="60" x="828" y="601" />
-  <transition id="146" />
-  <cell id="147" type="StepCell" height="58" width="140" x="618" y="136" />
-  <cell id="148" type="ActionCell" height="40" width="62" x="556" y="137" />
-  <transition id="150" />
-  <cell id="152" type="StepCell" height="58" width="140" x="706" y="301" />
-  <cell id="153" type="ActionCell" height="40" width="62" x="747" y="357" />
+  <cell id="143" type="StepCell" height="60" width="116" x="863" y="530" />
+  <cell id="144" type="ActionCell" height="35" width="60" x="802" y="540" />
+  <transition id="145" />
+  <cell id="146" type="StepCell" height="58" width="140" x="668" y="128" />
+  <cell id="147" type="ActionCell" height="40" width="62" x="704" y="90" />
+  <transition id="161" />
+  <cell id="148" type="StepCell" height="58" width="140" x="642" y="296" />
+  <cell id="149" type="ActionCell" height="40" width="62" x="683" y="352" />
   <transition id="155" />
+  <cell id="156" type="StepCell" height="57" width="108" x="817" y="83" />
+  <cell id="157" type="ActionCell" height="34" width="55" x="877" y="163" />
+  <transition id="159">
+    <bendpoint index="0">
+      <dimension type="first" w="17" h="189" />
+      <dimension type="second" w="623" h="-204" />
+    </bendpoint>
+  </transition>
+  <transition id="160" />
+  <cell id="163" type="StepCell" height="57" width="108" x="521" y="145" />
+  <cell id="164" type="ActionCell" height="34" width="55" x="586" y="108" />
+  <transition id="166" />
+  <transition id="167" />
+  <cell id="168" type="StepCell" height="57" width="108" x="496" y="371" />
+  <cell id="169" type="ActionCell" height="34" width="55" x="610" y="385" />
+  <transition id="170" />
+  <transition id="171" />
 </layouts>
 

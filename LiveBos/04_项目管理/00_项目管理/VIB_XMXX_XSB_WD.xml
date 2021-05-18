@@ -13,7 +13,7 @@
             <describe>项目名称</describe>
             <type>8</type>
             <biz-type>100</biz-type>
-            <length>100</length>
+            <length>150</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -70,14 +70,13 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>XMLXMC</name>
             <describe>项目类型名称</describe>
             <type>8</type>
             <biz-type>100</biz-type>
-            <length>300</length>
+            <length>100</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -85,20 +84,29 @@
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>监管分组</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>ZQJC</name>
             <describe>证券简称</describe>
             <type>8</type>
             <biz-type>100</biz-type>
-            <length>100</length>
+            <length>20</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -131,7 +139,7 @@
             <describe>证券代码</describe>
             <type>8</type>
             <biz-type>100</biz-type>
-            <length>50</length>
+            <length>15</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -173,50 +181,6 @@
             <enabled>true</enabled>
             <visible>true</visible>
             <option>$D{XMQY}</option>
-            <ref-object/>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <category>监管分组</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>7</real-type>
-            <properties/>
-        </column>
-        <column>
-            <name>QYMC2</name>
-            <describe>区域名称</describe>
-            <type>8</type>
-            <biz-type>100</biz-type>
-            <length>400</length>
-            <scale>0</scale>
-            <control>1</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <category>监管分组</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <properties/>
-        </column>
-        <column>
-            <name>BK</name>
-            <describe>板块</describe>
-            <type>8</type>
-            <biz-type>400</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>2</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
-            <option>$D{IB_SSBK}</option>
             <meta-column/>
             <ref-object/>
             <default/>
@@ -232,7 +196,66 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
+        </column>
+        <column>
+            <name>QYMC2</name>
+            <describe>区域名称</describe>
+            <type>8</type>
+            <biz-type>100</biz-type>
+            <length>50</length>
+            <scale>0</scale>
+            <control>1</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>监管分组</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>BK</name>
+            <describe>板块</describe>
+            <type>8</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>10</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option>$D{SSBK}</option>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>监管分组</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>7</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>JYCS</name>
@@ -248,21 +271,28 @@
             <enabled>true</enabled>
             <visible>true</visible>
             <option>$D{JYCS}</option>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>监管分组</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>7</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>JYCSMC</name>
             <describe>交易场所名称</describe>
             <type>8</type>
             <biz-type>100</biz-type>
-            <length>400</length>
+            <length>100</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -270,13 +300,22 @@
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>监管分组</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>SBRQ</name>
@@ -325,14 +364,21 @@
             <enabled>true</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object>tIB_XMXX_XSB_SBRQMX</ref-object>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>监管分组</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>10</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>FXSJ</name>
@@ -341,22 +387,28 @@
             <biz-type>300</biz-type>
             <length>8</length>
             <scale>0</scale>
-            <control>3</control>
+            <control>0</control>
             <primary-property>0</primary-property>
             <nullable>true</nullable>
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object/>
             <default>null</default>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>监管分组</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>13</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>BJYWDBR</name>
@@ -372,15 +424,21 @@
             <enabled>true</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object>vUser_ZC</ref-object>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
             <invisible-expression/>
+            <disable-expression/>
             <category>监管分组</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>16</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>XMFZR</name>
@@ -420,7 +478,7 @@
             <describe>项目组成员</describe>
             <type>8</type>
             <biz-type>600</biz-type>
-            <length>0</length>
+            <length>30</length>
             <scale>0</scale>
             <control>45</control>
             <primary-property>0</primary-property>
@@ -429,14 +487,21 @@
             <enabled>true</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object>vUser_ZC</ref-object>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>监管分组</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>16</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>ID</name>
@@ -467,7 +532,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>XMMC</name>
@@ -696,7 +760,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>YCXXPLRQ</name>
@@ -793,7 +856,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>XMWCRQ</name>
@@ -809,15 +871,21 @@
             <enabled>true</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object/>
             <default>null</default>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>13</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>WCRQMX</name>
@@ -833,14 +901,21 @@
             <enabled>true</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object>tIB_XMXX_XSB_WCRQMX</ref-object>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>10</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>XMZZRQ</name>
@@ -856,15 +931,21 @@
             <enabled>true</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object/>
             <default>null</default>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>3</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>ZZRQMX</name>
@@ -880,13 +961,45 @@
             <enabled>true</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object>tIB_XMXX_XSB_ZZRQMX</ref-object>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>10</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>LXLCFQSJ</name>
+            <describe>立项流程发起时间</describe>
+            <type>8</type>
+            <biz-type>301</biz-type>
+            <length>12</length>
+            <scale>0</scale>
+            <control>37</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>false</visible>
+            <option/>
+            <ref-object/>
+            <default>null</default>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
-            <real-type>10</real-type>
+            <real-type>3</real-type>
+            <comment>立项流程写入</comment>
             <properties/>
         </column>
         <column>
@@ -1149,7 +1262,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>GYGPHRQ</name>
@@ -1213,7 +1325,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>YLXTGRQ</name>
@@ -1376,7 +1487,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>XYZJE</name>
@@ -1407,7 +1517,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>GPLX</name>
@@ -1423,15 +1532,21 @@
             <enabled>true</enabled>
             <visible>true</visible>
             <option>$D{IB_GPLX}</option>
+            <meta-column/>
             <ref-object/>
             <default>null</default>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>挂牌阶段</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>7</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>CXDDZY</name>
@@ -1683,7 +1798,7 @@
             <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
-            <expression>CXDDYSJE-CXDDJE_YS              </expression>
+            <expression>CXDDYSJE-CXDDJE_YS                     </expression>
             <invisible-expression/>
             <disable-expression/>
             <category>持续督导阶段</category>
@@ -1843,14 +1958,21 @@
             <enabled>true</enabled>
             <visible>true</visible>
             <option>$D{JG_SF}</option>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>持续督导阶段</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>7</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>NBPLRQ_ZX</name>
@@ -1866,14 +1988,21 @@
             <enabled>true</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>持续督导阶段</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>3</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>NBPLRQ</name>
@@ -1937,7 +2066,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>GSXX</name>
@@ -1968,7 +2096,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>SFFXXM</name>
@@ -1999,7 +2126,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>FXSJMS</name>
@@ -2030,7 +2156,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>KHDZ</name>
@@ -2061,7 +2186,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>SXQZJJ</name>
@@ -2092,7 +2216,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>SFWCXC</name>
@@ -2123,7 +2246,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>SFCYBJDDQJ</name>
@@ -2139,17 +2261,22 @@
             <enabled>true</enabled>
             <visible>true</visible>
             <option>$D{JG_SF}</option>
+            <meta-column/>
             <ref-object/>
             <default>null</default>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-SFWCXC!=3</invisible-expression>
+SFWCXC!=3       </invisible-expression>
+            <disable-expression/>
             <category>持续督导阶段</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>7</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>SFWLJRQY</name>
@@ -2180,7 +2307,6 @@ SFWCXC!=3</invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>GPQZJZYQK</name>
@@ -2368,7 +2494,7 @@ SFWCXC!=3</invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-ZJSFQL!=1              </invisible-expression>
+ZJSFQL!=1                     </invisible-expression>
             <disable-expression/>
             <category>挂牌前风险事项</category>
             <fire-event>0</fire-event>
@@ -2410,7 +2536,6 @@ ZJSFQL!=1              </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>GPQZJXX</name>
@@ -2441,7 +2566,6 @@ ZJSFQL!=1              </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>BSZJZYQK</name>
@@ -2472,7 +2596,6 @@ ZJSFQL!=1              </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>SGZJZYQK</name>
@@ -2503,7 +2626,6 @@ ZJSFQL!=1              </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>SFCZWGDB</name>
@@ -2666,7 +2788,6 @@ ZJSFQL!=1              </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>SFCZCNSX</name>
@@ -2730,7 +2851,6 @@ ZJSFQL!=1              </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>ZJZYXX</name>
@@ -2761,7 +2881,6 @@ ZJSFQL!=1              </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>WGDWDB</name>
@@ -2792,7 +2911,6 @@ ZJSFQL!=1              </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>FXXX</name>
@@ -2823,7 +2941,6 @@ ZJSFQL!=1              </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>CJRQ</name>
@@ -2879,7 +2996,7 @@ ZJSFQL!=1              </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-SFWCJCXDDXM !=1</invisible-expression>
+SFWCJCXDDXM !=1       </invisible-expression>
             <disable-expression/>
             <category>承接持续督导阶段</category>
             <fire-event>0</fire-event>
@@ -2888,7 +3005,6 @@ SFWCJCXDDXM !=1</invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>CJYY</name>
@@ -2919,7 +3035,6 @@ SFWCJCXDDXM !=1</invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>CWGWF</name>
@@ -2950,7 +3065,6 @@ SFWCJCXDDXM !=1</invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>CJR</name>
@@ -3014,7 +3128,6 @@ SFWCJCXDDXM !=1</invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>CJSJ</name>
@@ -3045,7 +3158,6 @@ SFWCJCXDDXM !=1</invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>XGSJ</name>
@@ -3076,7 +3188,6 @@ SFWCJCXDDXM !=1</invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>BZSM</name>
@@ -3107,7 +3218,6 @@ SFWCJCXDDXM !=1</invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>YLXSPJG</name>
@@ -3138,7 +3248,6 @@ SFWCJCXDDXM !=1</invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>NBPLRQ2</name>
@@ -3154,13 +3263,19 @@ SFWCJCXDDXM !=1</invisible-expression>
             <enabled>true</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object>tIB_XMXX_XSB_NBPLRQ2</ref-object>
+            <default/>
             <attribute>4096</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>系统参数</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>10</real-type>
+            <comment/>
             <validation/>
             <scope-permissions/>
             <properties>
@@ -3170,7 +3285,7 @@ SFWCJCXDDXM !=1</invisible-expression>
         </column>
     </columns>
     <restrictions>
-        <condition>{"args":[{"expression":"$Login.User","length":0,"scale":0,"type":1}],"statement":"ECIF.FUNC_IB_XMCX({0},2,tIB_XMXX_XSB.KPJD,tIB_XMXX_XSB.XMMC,tIB_XMXX_XSB.ID) = 1","type":0}</condition>
+        <condition>{"statement":"ECIF.FUNC_IB_XMCX({0},2,tIB_XMXX_XSB.KPJD,tIB_XMXX_XSB.XMMC,tIB_XMXX_XSB.ID) = 1","args":[{"expression":"$Login.User","scale":0,"length":0,"type":1}],"type":0}</condition>
     </restrictions>
     <display-options>
         <commands>

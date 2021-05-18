@@ -5,9 +5,15 @@
   <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
     <describe>界面处理_更新值</describe>
     <arg flag="field" name="FH" type="expression">&lt;%@ livebos language='javascript' %&gt;
-ABS_IF(O_MASTER.JTHZDW==2,O_MASTER.FH,null)</arg>
+var cnt = ABS_SQLVALUE("select count(1) from dual where instr(';'||?||';',';2;')&gt;0",[O_MASTER.JTHZDW]);
+ABS_IF(cnt==0,null,O_MASTER.FH)</arg>
     <arg flag="field" name="GHHDCKJE" type="expression">&lt;%@ livebos language='javascript' %&gt;
-ABS_IF(O_MASTER.JTHZDW==2,O_MASTER.GHHDCKJE,null)</arg>
+var cnt = ABS_SQLVALUE("select count(1) from dual where instr(';'||?||';',';2;')&gt;0",[O_MASTER.JTHZDW]);
+ABS_IF(cnt==0,null,O_MASTER.GHHDCKJE)</arg>
+    <arg flag="field" name="TJFX" type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+ABS_IF(O_MASTER.JTHZDW=='100',null,O_MASTER.TJFX)</arg>
+    <arg flag="field" name="HZXS" type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+ABS_IF(O_MASTER.JTHZDW=='100',null,O_MASTER.HZXS)</arg>
   </invoke>
 </process>
 

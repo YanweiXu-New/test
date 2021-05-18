@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="GB2312"?>
+<?xml version="1.0" encoding="gb2312"?>
 <process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_XMXX_XSB_XGCXDDXX" name="tIB_XMXX_XSB_XGCXDDXX" object="tIB_XMXX_XSB" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
   <describe>项目信息_新三板-修改持续督导信息流程</describe>
   <variables>
@@ -88,8 +88,8 @@ V_1 == 'NO'</arg>
       <describe>判断</describe>
       <conditions>
         <condition name="" type="expression">
-          <arg name="expression">var cnt1=ABS_SQLVALUE("SELECT LENGTH(?)-LENGTH(REPLACE(?,';','')) FROM DUAL",[O_PARAMETER.BJYWDBR,O_PARAMETER.BJYWDBR]);&#xD;
-var cnt2=O_PARAMETER.SFWCXC;&#xD;
+          <arg name="expression">var cnt1=ABS_SQLVALUE("SELECT LENGTH(?)-LENGTH(REPLACE(?,';','')) FROM DUAL",[O_PARAMETER.BJYWDBR,O_PARAMETER.BJYWDBR]);
+var cnt2=O_PARAMETER.SFWCXC;
 (cnt1&gt;=1 &amp;&amp; cnt2 ==3)|| cnt2 != 3</arg>
         </condition>
       </conditions>

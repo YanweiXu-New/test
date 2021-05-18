@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="GB2312" standalone="no"?>
 <object create-date="2020.11.02 15:23:01" creator="开发者" flag="0" name="VO_XMXXTZ" object-id="5337d002-de56-44f2-9bfa-7898d081db11" package="底稿日期台账.项目信息台账" type="18" version="1.0">
-    <describe>项目信息台账(权益)</describe>
+    <describe>项目信息台账(权益底稿验收)</describe>
     <parent>SQL_XMXXTZ</parent>
     <attribute>264</attribute>
     <columns>
@@ -163,7 +163,7 @@ O_THIS.getColumn("XMID").setLabel("项目名称");
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
-            <option>1|普通立项;2|书面立项(走书面立项流程)</option>
+            <option>1|普通立项;2|书面立项</option>
             <ref-object/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
@@ -582,7 +582,7 @@ O_THIS.getColumn("XMID").setLabel("项目名称");
         </column>
         <column>
             <name>GDR</name>
-            <describe>完成/终止底稿验收人</describe>
+            <describe>完成/终止底稿归档人</describe>
             <type>16</type>
             <biz-type>600</biz-type>
             <length>0</length>
@@ -720,6 +720,58 @@ O_THIS.getColumn("XMID").setLabel("项目名称");
                 <column>BZ</column>
             </source>
         </column>
+        <column>
+            <name>LXSJ</name>
+            <describe>立项时间</describe>
+            <type>3</type>
+            <biz-type>301</biz-type>
+            <length>12</length>
+            <scale>0</scale>
+            <control>37</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+            <source type="0">
+                <column>LXSJ</column>
+            </source>
+        </column>
+        <column>
+            <name>CJSJ</name>
+            <describe>创建时间</describe>
+            <type>3</type>
+            <biz-type>301</biz-type>
+            <length>12</length>
+            <scale>0</scale>
+            <control>37</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+            <source type="0">
+                <column>CJSJ</column>
+            </source>
+        </column>
     </columns>
     <display-options>
         <commands>
@@ -744,6 +796,15 @@ O_THIS.getColumn("XMID").setLabel("项目名称");
                 <describe>修改</describe>
                 <define>
                     <item>VO_XMXXTZ_XG</item>
+                </define>
+                <is-default>0</is-default>
+                <attribute>0</attribute>
+            </command>
+            <command type="2">
+                <describe>查看</describe>
+                <define>
+                    <item>VO_XMXXTZ</item>
+                    <item>View</item>
                 </define>
                 <is-default>0</is-default>
                 <attribute>0</attribute>
@@ -781,12 +842,12 @@ O_THIS.getColumn("XMID").setLabel("项目名称");
                 <column>
                     <name>XMID</name>
                     <describe>项目ID</describe>
-                    <type>8</type>
+                    <type>0</type>
                     <biz-type>100</biz-type>
                     <length>30</length>
                     <scale>0</scale>
                     <control>1</control>
-                    <primary-property>0</primary-property>
+                    <primary-property>6</primary-property>
                     <nullable>true</nullable>
                     <unique>false</unique>
                     <enabled>false</enabled>
@@ -795,6 +856,7 @@ O_THIS.getColumn("XMID").setLabel("项目名称");
                     <ref-object>vIB_XMXX_QY</ref-object>
                     <attribute>8</attribute>
                     <order-direction>1</order-direction>
+                    <expression>O_MASTER.XMID</expression>
                     <category>项目基本信息</category>
                     <fire-event>0</fire-event>
                     <check-type>0</check-type>
@@ -1223,10 +1285,10 @@ O_THIS.getColumn("XMID").setLabel("项目名称");
                     <name>GDR</name>
                     <describe>完成/终止底稿验收人</describe>
                     <type>8</type>
-                    <biz-type>500</biz-type>
+                    <biz-type>600</biz-type>
                     <length>0</length>
                     <scale>0</scale>
-                    <control>10</control>
+                    <control>45</control>
                     <primary-property>0</primary-property>
                     <nullable>true</nullable>
                     <unique>false</unique>
@@ -1239,11 +1301,7 @@ O_THIS.getColumn("XMID").setLabel("项目名称");
                     <category>项目台账信息</category>
                     <fire-event>0</fire-event>
                     <check-type>0</check-type>
-                    <real-type>6</real-type>
-                    <constraint type="3">
-                        <SQL>["tUser.Status=1",[]]</SQL>
-                        <refColumns/>
-                    </constraint>
+                    <real-type>16</real-type>
                     <properties>
                         <locked>false</locked>
                     </properties>
@@ -1393,7 +1451,7 @@ O_THIS.getColumn("XMID").setLabel("项目名称");
                     <check-type>0</check-type>
                     <real-type>0</real-type>
                     <constraint type="3">
-                        <SQL>[" not exists (SELECT 1 FROM ECIF.TIB_XMXXTZ WHERE XMFL = 1 AND XMID = tIB_XMXX.ID)",[]]</SQL>
+                        <SQL>[" not exists (SELECT 1 FROM ECIF.TIB_XMXXTZ WHERE XMFL = 1 AND XMID = tIB_XMXX.ID)\r\n\r\n ",[]]</SQL>
                         <refColumns/>
                     </constraint>
                     <properties/>
@@ -1422,6 +1480,33 @@ O_THIS.getColumn("XMID").setLabel("项目名称");
                     <real-type>13</real-type>
                     <properties>
                         <locked>false</locked>
+                    </properties>
+                </column>
+                <column>
+                    <name>XMZZQR</name>
+                    <describe>项目终止日期</describe>
+                    <type>13</type>
+                    <biz-type>300</biz-type>
+                    <length>8</length>
+                    <scale>0</scale>
+                    <control>3</control>
+                    <primary-property>6</primary-property>
+                    <nullable>true</nullable>
+                    <unique>false</unique>
+                    <enabled>false</enabled>
+                    <visible>true</visible>
+                    <option/>
+                    <ref-object/>
+                    <default>null</default>
+                    <attribute>0</attribute>
+                    <order-direction>0</order-direction>
+                    <expression>XMID2.XMZZRQ</expression>
+                    <category>项目台账信息</category>
+                    <fire-event>0</fire-event>
+                    <check-type>0</check-type>
+                    <real-type>0</real-type>
+                    <properties>
+                        <ctrl-width>200</ctrl-width>
                     </properties>
                 </column>
                 <column>
@@ -1683,6 +1768,14 @@ O_THIS.getColumn("XMID").setLabel("项目名称");
         <property>
             <name>5</name>
             <value>30</value>
+        </property>
+        <property>
+            <name>63</name>
+            <value>true</value>
+        </property>
+        <property>
+            <name>68</name>
+            <value>true</value>
         </property>
     </properties>
     <orders/>

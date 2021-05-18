@@ -11,12 +11,12 @@
         <column>
             <name>ID</name>
             <describe>ID</describe>
-            <type>1</type>
+            <type>8</type>
             <biz-type>200</biz-type>
-            <length>0</length>
+            <length>16</length>
             <scale>0</scale>
             <control>0</control>
-            <primary-property>0</primary-property>
+            <primary-property>2</primary-property>
             <nullable>false</nullable>
             <unique>false</unique>
             <enabled>false</enabled>
@@ -33,7 +33,7 @@
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>1</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
@@ -42,8 +42,8 @@
             <name>InstID</name>
             <describe>InstID</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
+            <biz-type>200</biz-type>
+            <length>16</length>
             <scale>0</scale>
             <control>0</control>
             <primary-property>0</primary-property>
@@ -63,7 +63,7 @@
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>1</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
@@ -72,8 +72,8 @@
             <name>SQBM</name>
             <describe>申请部门</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
+            <biz-type>500</biz-type>
+            <length>12</length>
             <scale>0</scale>
             <control>10</control>
             <primary-property>0</primary-property>
@@ -93,7 +93,7 @@
             <category>申请人信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>6</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
@@ -102,8 +102,8 @@
             <name>SQSJ</name>
             <describe>申请时间</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
+            <biz-type>301</biz-type>
+            <length>19</length>
             <scale>0</scale>
             <control>37</control>
             <primary-property>0</primary-property>
@@ -123,7 +123,7 @@
             <category>申请人信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>3</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
@@ -132,8 +132,8 @@
             <name>SQR</name>
             <describe>申请人</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
+            <biz-type>500</biz-type>
+            <length>12</length>
             <scale>0</scale>
             <control>10</control>
             <primary-property>0</primary-property>
@@ -151,9 +151,9 @@
             <invisible-expression/>
             <disable-expression/>
             <category>申请人信息</category>
-            <fire-event>0</fire-event>
+            <fire-event>1</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>6</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
@@ -163,10 +163,10 @@
             <describe>流程编号</describe>
             <type>8</type>
             <biz-type>100</biz-type>
-            <length>0</length>
+            <length>100</length>
             <scale>0</scale>
             <control>1</control>
-            <primary-property>0</primary-property>
+            <primary-property>10</primary-property>
             <nullable>true</nullable>
             <unique>false</unique>
             <enabled>false</enabled>
@@ -193,7 +193,7 @@
             <describe>公文标题</describe>
             <type>8</type>
             <biz-type>100</biz-type>
-            <length>0</length>
+            <length>500</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -223,7 +223,7 @@
             <describe>公文正文</describe>
             <type>8</type>
             <biz-type>100</biz-type>
-            <length>0</length>
+            <length>4000</length>
             <scale>0</scale>
             <control>19</control>
             <primary-property>0</primary-property>
@@ -252,8 +252,8 @@
             <name>XMMC</name>
             <describe>项目名称</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
+            <biz-type>500</biz-type>
+            <length>16</length>
             <scale>0</scale>
             <control>10</control>
             <primary-property>0</primary-property>
@@ -271,9 +271,9 @@
             <invisible-expression/>
             <disable-expression/>
             <category>项目终止入库申请信息</category>
-            <fire-event>0</fire-event>
+            <fire-event>1</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>6</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
@@ -283,10 +283,10 @@
             <describe>风险标识说明</describe>
             <type>8</type>
             <biz-type>100</biz-type>
-            <length>0</length>
+            <length>30</length>
             <scale>0</scale>
             <control>16</control>
-            <primary-property>0</primary-property>
+            <primary-property>8</primary-property>
             <nullable>true</nullable>
             <unique>false</unique>
             <enabled>true</enabled>
@@ -297,24 +297,31 @@
             <default/>
             <attribute>266240</attribute>
             <order-direction>0</order-direction>
-            <expression/>
+            <expression>&lt;%@ livebos language='javascript' %&gt;
+if(XMMC.SFFXXM==1){
+var i=ABS_SQLVALUE("SELECT TSNR FROM ECIF.TIB_XMFXBSXX WHERE YXZT = 1");
+'&lt;font color="red"&gt;&lt;b&gt;'+i+'&lt;/b&gt;&lt;/font&gt;'  
+}else{
+null
+}</expression>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 XMMC.SFFXXM!=1  </invisible-expression>
             <disable-expression/>
             <category>项目终止入库申请信息</category>
-            <fire-event>0</fire-event>
+            <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>XMSCJD</name>
             <describe>项目所处阶段</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
+            <biz-type>500</biz-type>
+            <length>16</length>
             <scale>0</scale>
             <control>10</control>
             <primary-property>0</primary-property>
@@ -334,9 +341,13 @@ XMMC.SFFXXM!=1  </invisible-expression>
             <category>项目终止入库申请信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>6</real-type>
             <comment/>
             <validation/>
+            <constraint type="3">
+                <SQL>["tIB_XMJD.FID = 110000",[]]</SQL>
+                <refColumns/>
+            </constraint>
             <scope-permissions/>
         </column>
         <column>
@@ -344,7 +355,7 @@ XMMC.SFFXXM!=1  </invisible-expression>
             <describe>公司名称</describe>
             <type>8</type>
             <biz-type>100</biz-type>
-            <length>0</length>
+            <length>200</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -373,8 +384,8 @@ XMMC.SFFXXM!=1  </invisible-expression>
             <name>XMLX</name>
             <describe>项目类型</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
+            <biz-type>500</biz-type>
+            <length>16</length>
             <scale>0</scale>
             <control>10</control>
             <primary-property>0</primary-property>
@@ -392,18 +403,22 @@ XMMC.SFFXXM!=1  </invisible-expression>
             <invisible-expression/>
             <disable-expression/>
             <category>项目终止入库申请信息</category>
-            <fire-event>0</fire-event>
+            <fire-event>1</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>6</real-type>
             <comment/>
             <validation/>
+            <constraint type="3">
+                <SQL>["tIB_XMLX.ID IN (SELECT ID FROM ECIF.tIB_XMLX CONNECT BY PRIOR ID=FID START WITH ID=110000) AND tIB_XMLX.Type=2 AND tIB_XMLX.ZT=1",[]]</SQL>
+                <refColumns/>
+            </constraint>
             <scope-permissions/>
         </column>
         <column>
             <name>XMDQZT</name>
             <describe>项目当前状态</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
+            <biz-type>400</biz-type>
             <length>0</length>
             <scale>0</scale>
             <control>2</control>
@@ -424,7 +439,7 @@ XMMC.SFFXXM!=1  </invisible-expression>
             <category>项目终止入库申请信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>7</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
@@ -433,8 +448,8 @@ XMMC.SFFXXM!=1  </invisible-expression>
             <name>XMFZR</name>
             <describe>项目负责人</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
+            <biz-type>500</biz-type>
+            <length>12</length>
             <scale>0</scale>
             <control>10</control>
             <primary-property>0</primary-property>
@@ -454,7 +469,7 @@ XMMC.SFFXXM!=1  </invisible-expression>
             <category>项目终止入库申请信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>6</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
@@ -463,8 +478,8 @@ XMMC.SFFXXM!=1  </invisible-expression>
             <name>XMZCY</name>
             <describe>项目组成员</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
+            <biz-type>500</biz-type>
+            <length>12</length>
             <scale>0</scale>
             <control>10</control>
             <primary-property>0</primary-property>
@@ -474,7 +489,7 @@ XMMC.SFFXXM!=1  </invisible-expression>
             <visible>true</visible>
             <option/>
             <meta-column/>
-            <ref-object>vUser_ZC</ref-object>
+            <ref-object>tUser</ref-object>
             <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
@@ -484,7 +499,7 @@ XMMC.SFFXXM!=1  </invisible-expression>
             <category>项目终止入库申请信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>6</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
@@ -493,7 +508,7 @@ XMMC.SFFXXM!=1  </invisible-expression>
             <name>BJDBR</name>
             <describe>保荐代表人</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
+            <biz-type>600</biz-type>
             <length>0</length>
             <scale>0</scale>
             <control>45</control>
@@ -514,7 +529,7 @@ XMMC.SFFXXM!=1  </invisible-expression>
             <category>项目终止入库申请信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>16</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
@@ -523,7 +538,7 @@ XMMC.SFFXXM!=1  </invisible-expression>
             <name>RZZKYYLX</name>
             <describe>入终止库原因</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
+            <biz-type>401</biz-type>
             <length>0</length>
             <scale>0</scale>
             <control>4</control>
@@ -544,7 +559,7 @@ XMMC.SFFXXM!=1  </invisible-expression>
             <category>项目终止入库申请信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>15</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
@@ -554,7 +569,7 @@ XMMC.SFFXXM!=1  </invisible-expression>
             <describe>项目终止原因</describe>
             <type>8</type>
             <biz-type>100</biz-type>
-            <length>0</length>
+            <length>2000</length>
             <scale>0</scale>
             <control>7</control>
             <primary-property>0</primary-property>
@@ -580,11 +595,44 @@ XMMC.SFFXXM!=1  </invisible-expression>
             <scope-permissions/>
         </column>
         <column>
+            <name>ZZRQ</name>
+            <describe>终止日期</describe>
+            <type>8</type>
+            <biz-type>300</biz-type>
+            <length>8</length>
+            <scale>0</scale>
+            <control>3</control>
+            <primary-property>0</primary-property>
+            <nullable>false</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default>null</default>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>项目终止入库申请信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>13</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+            <properties>
+                <ctrl-width>200</ctrl-width>
+            </properties>
+        </column>
+        <column>
             <name>XMZYWT</name>
             <describe>项目主要问题</describe>
             <type>8</type>
             <biz-type>100</biz-type>
-            <length>0</length>
+            <length>1000</length>
             <scale>0</scale>
             <control>7</control>
             <primary-property>0</primary-property>
@@ -613,8 +661,8 @@ XMMC.SFFXXM!=1  </invisible-expression>
             <name>XMCZQSRQ</name>
             <describe>项目承做起始日期</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
+            <biz-type>300</biz-type>
+            <length>8</length>
             <scale>0</scale>
             <control>3</control>
             <primary-property>0</primary-property>
@@ -634,7 +682,7 @@ XMMC.SFFXXM!=1  </invisible-expression>
             <category>项目终止入库申请信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>13</real-type>
             <comment>&lt;br&gt;&lt;font color=red&gt;项目承做起始日期要早于立项日期&lt;font&gt;</comment>
             <validation/>
             <scope-permissions/>
@@ -647,7 +695,7 @@ XMMC.SFFXXM!=1  </invisible-expression>
             <describe>项目约定收费</describe>
             <type>8</type>
             <biz-type>100</biz-type>
-            <length>0</length>
+            <length>30</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -677,7 +725,7 @@ XMMC.SFFXXM!=1  </invisible-expression>
             <describe>项目实际收费情况</describe>
             <type>8</type>
             <biz-type>100</biz-type>
-            <length>0</length>
+            <length>30</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -706,11 +754,11 @@ XMMC.SFFXXM!=1  </invisible-expression>
             <name>SFTGLX</name>
             <describe>是否通过立项</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
+            <biz-type>400</biz-type>
             <length>0</length>
             <scale>0</scale>
             <control>5</control>
-            <primary-property>0</primary-property>
+            <primary-property>10</primary-property>
             <nullable>false</nullable>
             <unique>false</unique>
             <enabled>false</enabled>
@@ -721,13 +769,14 @@ XMMC.SFFXXM!=1  </invisible-expression>
             <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
-            <expression/>
+            <expression>&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE("SELECT CASE WHEN T.LXJG IN ('1', '2') THEN  1 ELSE   0 END FROM ECIF.LCIB_LXLCB T WHERE T.XMMC = ?",[XMMC]);   </expression>
             <invisible-expression/>
             <disable-expression/>
             <category>项目终止入库申请信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>7</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
@@ -736,11 +785,11 @@ XMMC.SFFXXM!=1  </invisible-expression>
             <name>SFTGNH</name>
             <describe>是否通过内核</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
+            <biz-type>400</biz-type>
             <length>0</length>
             <scale>0</scale>
             <control>5</control>
-            <primary-property>0</primary-property>
+            <primary-property>10</primary-property>
             <nullable>false</nullable>
             <unique>false</unique>
             <enabled>false</enabled>
@@ -751,13 +800,19 @@ XMMC.SFFXXM!=1  </invisible-expression>
             <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
-            <expression/>
+            <expression>&lt;%@ livebos language='javascript' %&gt;
+var i=XMMC.KPJD;
+if (i==111){
+ABS_SQLVALUE("SELECT CASE WHEN T.nhJG IN ('1', '2') THEN  1 ELSE   0 END FROM ECIF.lcIB_NHLCB T WHERE T.XMMC = ?",[XMMC]);
+}else{
+ABS_SQLVALUE("SELECT CASE WHEN T.nhJG IN ('1', '2') THEN  1 ELSE   0 END FROM ECIF.lcIB_NHLCB_DZBGCZ T WHERE T.XMMC = ?",[XMMC]);
+}   </expression>
             <invisible-expression/>
             <disable-expression/>
             <category>项目终止入库申请信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>7</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
@@ -766,7 +821,7 @@ XMMC.SFFXXM!=1  </invisible-expression>
             <name>SFBJGJG</name>
             <describe>是否报监管机构</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
+            <biz-type>400</biz-type>
             <length>0</length>
             <scale>0</scale>
             <control>5</control>
@@ -785,9 +840,9 @@ XMMC.SFFXXM!=1  </invisible-expression>
             <invisible-expression/>
             <disable-expression/>
             <category>项目终止入库申请信息</category>
-            <fire-event>0</fire-event>
+            <fire-event>1</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>7</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
@@ -796,8 +851,8 @@ XMMC.SFFXXM!=1  </invisible-expression>
             <name>JGJGSLRQ</name>
             <describe>监管机构受理日期</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
+            <biz-type>300</biz-type>
+            <length>8</length>
             <scale>0</scale>
             <control>3</control>
             <primary-property>0</primary-property>
@@ -818,7 +873,7 @@ SFBJGJG !=1    </invisible-expression>
             <category>项目终止入库申请信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>13</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
@@ -830,7 +885,7 @@ SFBJGJG !=1    </invisible-expression>
             <name>SHJG</name>
             <describe>监管机构审核结果</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
+            <biz-type>400</biz-type>
             <length>0</length>
             <scale>0</scale>
             <control>5</control>
@@ -850,9 +905,9 @@ SFBJGJG !=1    </invisible-expression>
 SFBJGJG !=1    </invisible-expression>
             <disable-expression/>
             <category>项目终止入库申请信息</category>
-            <fire-event>0</fire-event>
+            <fire-event>1</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>7</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
@@ -862,7 +917,7 @@ SFBJGJG !=1    </invisible-expression>
             <describe>审核结果原因</describe>
             <type>8</type>
             <biz-type>100</biz-type>
-            <length>0</length>
+            <length>1000</length>
             <scale>0</scale>
             <control>7</control>
             <primary-property>0</primary-property>
@@ -893,8 +948,8 @@ SFBJGJG !=1    </invisible-expression>
             <name>ZKBZS</name>
             <describe>质控部主审</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
+            <biz-type>500</biz-type>
+            <length>12</length>
             <scale>0</scale>
             <control>10</control>
             <primary-property>0</primary-property>
@@ -914,7 +969,7 @@ SFBJGJG !=1    </invisible-expression>
             <category>项目终止入库申请信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>6</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
@@ -923,7 +978,7 @@ SFBJGJG !=1    </invisible-expression>
             <name>ZKBFS</name>
             <describe>质控部副审</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
+            <biz-type>600</biz-type>
             <length>0</length>
             <scale>0</scale>
             <control>45</control>
@@ -944,7 +999,7 @@ SFBJGJG !=1    </invisible-expression>
             <category>项目终止入库申请信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>16</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
@@ -953,7 +1008,7 @@ SFBJGJG !=1    </invisible-expression>
             <name>SFCJSHYJ</name>
             <describe>是否出具审核意见</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
+            <biz-type>400</biz-type>
             <length>0</length>
             <scale>0</scale>
             <control>5</control>
@@ -972,9 +1027,9 @@ SFBJGJG !=1    </invisible-expression>
             <invisible-expression/>
             <disable-expression/>
             <category>项目终止入库申请信息</category>
-            <fire-event>0</fire-event>
+            <fire-event>1</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>7</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
@@ -983,7 +1038,7 @@ SFBJGJG !=1    </invisible-expression>
             <name>ZKBSHYJ</name>
             <describe>质控部审核意见</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
+            <biz-type>802</biz-type>
             <length>0</length>
             <scale>0</scale>
             <control>42</control>
@@ -1005,7 +1060,7 @@ SFCJSHYJ  !=1    </invisible-expression>
             <category>项目终止入库申请信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>21</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
@@ -1014,7 +1069,7 @@ SFCJSHYJ  !=1    </invisible-expression>
             <name>ZKBSHYJHF</name>
             <describe>质控部审核意见回复</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
+            <biz-type>802</biz-type>
             <length>0</length>
             <scale>0</scale>
             <control>42</control>
@@ -1036,7 +1091,7 @@ SFCJSHYJ !=1||YJJG!=1    </invisible-expression>
             <category>项目终止入库申请信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>21</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
@@ -1045,7 +1100,7 @@ SFCJSHYJ !=1||YJJG!=1    </invisible-expression>
             <name>YJJG</name>
             <describe>一审结果</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
+            <biz-type>400</biz-type>
             <length>0</length>
             <scale>0</scale>
             <control>0</control>
@@ -1066,7 +1121,7 @@ SFCJSHYJ !=1||YJJG!=1    </invisible-expression>
             <category>项目终止入库申请信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>7</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
@@ -1075,7 +1130,7 @@ SFCJSHYJ !=1||YJJG!=1    </invisible-expression>
             <name>FJ</name>
             <describe>附件</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
+            <biz-type>700</biz-type>
             <length>0</length>
             <scale>0</scale>
             <control>12</control>
@@ -1096,7 +1151,7 @@ SFCJSHYJ !=1||YJJG!=1    </invisible-expression>
             <category>附件</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>10</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
@@ -1106,10 +1161,10 @@ SFCJSHYJ !=1||YJJG!=1    </invisible-expression>
             <describe>打包下载</describe>
             <type>8</type>
             <biz-type>100</biz-type>
-            <length>0</length>
+            <length>200</length>
             <scale>0</scale>
             <control>16</control>
-            <primary-property>0</primary-property>
+            <primary-property>8</primary-property>
             <nullable>true</nullable>
             <unique>false</unique>
             <enabled>true</enabled>
@@ -1120,7 +1175,11 @@ SFCJSHYJ !=1||YJJG!=1    </invisible-expression>
             <default/>
             <attribute>266240</attribute>
             <order-direction>0</order-direction>
-            <expression/>
+            <expression>&lt;%@ livebos language='javascript' %&gt;
+var url='/gdlcDown?lcbdid='+ID+'&amp;insid='+InstID+'&amp;fjlx=1'+'&amp;yhid='+$Login.User;
+ '&lt;input type="button" onclick=\'window.open("'+url+'")\' value="  打包下载  " /&gt;'
+ //'&lt;a target=_blank href='+url+'&gt;&lt;font color=red&gt;下载&lt;/font&gt;&lt;/a&gt;'
+    </expression>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 LB.getClient().isStandard==false     </invisible-expression>
             <disable-expression/>

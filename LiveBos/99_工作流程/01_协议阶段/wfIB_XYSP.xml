@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="gb2312"?>
 <!DOCTYPE workflow PUBLIC "-//Apexsoft LiveBos//DTD Workflow 2.8//EN" "http://www.livebos.com/workflow/workflow_2_8_abs.dtd"><workflow>
-  <meta name="workflow.category">权益类_01_协议阶段</meta>
-  <meta name="Designer">Studio</meta>
-  <meta name="created">2017-05-10 15:11:47</meta>
-  <meta name="modify">2020-11-25 11:30:20</meta>
-  <meta name="workflow.allow.intervene">false</meta>
   <meta name="Describe">协议审批流程</meta>
+  <meta name="Designer">Studio</meta>
+  <meta name="modify">2021-04-29 11:14:58</meta>
+  <meta name="created">2017-05-10 15:11:47</meta>
   <meta name="WorkflowName">wfIB_XYSP</meta>
+  <meta name="workflow.category">权益类_01_协议阶段</meta>
   <meta name="version"></meta>
+  <meta name="workflow.allow.intervene">false</meta>
   <object  name="lcIB_XYSP" editAttribute="0" >
   </object>
   <initial-actions>
@@ -21,8 +21,15 @@
   </initial-actions>
   <steps>
     <step id="1" name="结束">
-      <meta name="finish">true</meta>
       <meta name="NodeType">1</meta>
+      <meta name="finish">true</meta>
+      <pre-functions>
+        <function id="0" name="abs.ExecSQL" type="class">
+          <arg name="datasource">ECIF</arg>
+          <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+          <arg name="SQL">[&quot;call ecif.PRO_IB_QY_XMJDBG(?,?,{0},{1},2,{2},{3},{4})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.initiator&quot;,&quot;length&quot;:&quot;&quot;,&quot;scale&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.IP&quot;,&quot;length&quot;:&quot;&quot;,&quot;scale&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;length&quot;:&quot;&quot;,&quot;scale&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;length&quot;:&quot;&quot;,&quot;scale&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;\&quot;lcIB_XYSP\&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;scale&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
+        </function>
+      </pre-functions>
     </step>
     <step id="9" name="协议审批申请" owner="$D{RTS}">
       <meta name="NodeType">2</meta>
@@ -113,6 +120,8 @@
                 </column>
                 <column  name="FJLX" disabled="false" hidden="false" summary="false">
                 </column>
+                <column  name="SFBT" disabled="true" hidden="false" summary="false">
+                </column>
                 <column  name="FJM" disabled="false" hidden="false" summary="false">
                 </column>
                 <column  name="WDMC" disabled="false" hidden="false" summary="false">
@@ -123,9 +132,9 @@
                 </column>
                 <column  name="SFYY" disabled="false" hidden="false" summary="false">
                 </column>
-                <column  name="SF360XS" disabled="false" hidden="true" summary="false">
-                </column>
                 <column  name="SFSY" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SF360XS" disabled="false" hidden="true" summary="false">
                 </column>
               </columns>
             </object>
@@ -177,18 +186,18 @@
           <meta name="NodeType">5</meta>
           <pre-functions>
             <function id="0" name="lb.Assert" type="class">
+              <arg name="message.2">'请按照公司涉军项目管理要求，履行线下审批程序!'</arg>
+              <arg name="message.1">'请填写【签字人(保荐代表人/主办人)】!'</arg>
               <arg name="assert.1">&lt;%@ livebos language='javascript' %&gt;
 (O_WORKFLOW.XYLX!=3)||(O_WORKFLOW.XYLX==3&amp;&amp;ABS_NULLSUB(O_WORKFLOW.BJDBR,'0')&gt;'0')</arg>
               <arg name="assert.2">&lt;%@ livebos language='javascript' %&gt;
 O_WORKFLOW.JGTSXX !=1</arg>
               <arg name="class.name">com.apex.livebos.workflow.function.AssertFunction</arg>
-              <arg name="message.2">'请按照公司涉军项目管理要求，履行线下审批程序!'</arg>
-              <arg name="message.1">'请填写【签字人(保荐代表人/主办人)】!'</arg>
             </function>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
-              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
               <arg name="datasource">ECIF</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -199,17 +208,17 @@ O_WORKFLOW.JGTSXX !=1</arg>
       </actions>
     </step>
     <step id="13" name="部门文管审批">
-      <meta name="step.allow.communicate">false</meta>
-      <meta name="step.allow.approve.sign">true</meta>
-      <meta name="step.reject.mode">prev</meta>
-      <meta name="step.communicate.to.steps">-10001</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
-      <meta name="approve.mode">true</meta>
+      <meta name="step.reject.mode">prev</meta>
+      <meta name="NodeType">16</meta>
       <meta name="reject.reason.mandatory">false</meta>
+      <meta name="approve.mode">true</meta>
+      <meta name="step.allow.communicate">false</meta>
+      <meta name="step.communicate.to.steps">-10001</meta>
       <object  name="lcIB_XYSP" editAttribute="0" >
         <columns>
           <column  name="ID" disabled="false" hidden="true" summary="false">
@@ -227,6 +236,8 @@ O_WORKFLOW.JGTSXX !=1</arg>
           <column  name="LCBH" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="OLDBH" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="YYZL" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="LCBT" disabled="true" hidden="false" summary="false">
           </column>
@@ -278,9 +289,7 @@ O_WORKFLOW.JGTSXX !=1</arg>
           </column>
           <column  name="CSRY" disabled="false" hidden="false" summary="false">
           </column>
-          <column  name="YYZL" disabled="true" hidden="false" summary="false">
-          </column>
-          <column  name="FYYBCWJ" disabled="true" hidden="false" summary="false">
+          <column  name="YWLX" disabled="false" hidden="true" summary="false">
           </column>
           <column  name="NHBZS" disabled="false" hidden="true" summary="false">
           </column>
@@ -307,12 +316,16 @@ O_WORKFLOW.JGTSXX !=1</arg>
                 </column>
                 <column  name="SFYY" disabled="false" hidden="false" summary="false">
                 </column>
+                <column  name="SFSY" disabled="false" hidden="false" summary="false">
+                </column>
                 <column  name="SF360XS" disabled="false" hidden="true" summary="false">
                 </column>
               </columns>
             </object>
           </column>
           <column  name="DBXZ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FYYBCWJ" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="YJSKXX" disabled="true" hidden="false" summary="false">
             <object  name="lcIB_XYSP_YJSKXX" editAttribute="127" >
@@ -360,13 +373,13 @@ O_WORKFLOW.JGTSXX !=1</arg>
       </notify>
       <actions>
         <action id="14" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <meta name="allow.recover">false</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -375,8 +388,8 @@ O_WORKFLOW.JGTSXX !=1</arg>
                 <condition id="0" name="abs.FormExpOfStepCondition" type="class">
                   <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
 O_WORKFLOW.XYLX == 3</arg>
-                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
                   <arg name="Table">lcIB_XYSP</arg>
+                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
                 </condition>
               </conditions>
             </result>
@@ -387,16 +400,16 @@ O_WORKFLOW.XYLX == 3</arg>
       </actions>
     </step>
     <step id="15" name="部门质控专员审批">
-      <meta name="step.reject.mode">any</meta>
-      <meta name="step.allow.approve.sign">true</meta>
-      <meta name="wfnotify.panel">false</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
-      <meta name="approve.mode">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="reject.reason.mandatory">false</meta>
+      <meta name="wfnotify.panel">false</meta>
+      <meta name="approve.mode">true</meta>
       <object  name="lcIB_XYSP" editAttribute="0" >
         <columns>
           <column  name="ID" disabled="false" hidden="true" summary="false">
@@ -415,9 +428,15 @@ O_WORKFLOW.XYLX == 3</arg>
           </column>
           <column  name="OLDBH" disabled="false" hidden="true" summary="false">
           </column>
+          <column  name="YYZL" disabled="true" hidden="false" summary="false">
+          </column>
           <column  name="LCBT" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="GWZW" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="Cs" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="Csong" disabled="false" hidden="true" summary="false">
           </column>
           <column  name="LDSP" disabled="true" hidden="false" summary="false">
           </column>
@@ -437,11 +456,11 @@ O_WORKFLOW.XYLX == 3</arg>
           </column>
           <column  name="XYLX" disabled="true" hidden="false" summary="false">
           </column>
-          <column  name="SSFDF" disabled="true" hidden="false" summary="false">
-          </column>
           <column  name="QYRQ" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="XYMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SSFDF" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="PWRQ" disabled="true" hidden="false" summary="false">
           </column>
@@ -459,9 +478,13 @@ O_WORKFLOW.XYLX == 3</arg>
           </column>
           <column  name="JGTSXX" disabled="true" hidden="false" summary="false">
           </column>
+          <column  name="CSRY" disabled="true" hidden="false" summary="false">
+          </column>
           <column  name="NHBZS" disabled="false" hidden="true" summary="false">
           </column>
           <column  name="NHBFS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="BZSM" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="XYFJ" disabled="true" hidden="false" summary="false">
             <object  name="lcIB_XYSP_FJ" editAttribute="63" >
@@ -480,12 +503,16 @@ O_WORKFLOW.XYLX == 3</arg>
                 </column>
                 <column  name="SCSJ" disabled="true" hidden="false" summary="false">
                 </column>
+                <column  name="SFYY" disabled="false" hidden="false" summary="false">
+                </column>
                 <column  name="SF360XS" disabled="false" hidden="true" summary="false">
                 </column>
               </columns>
             </object>
           </column>
           <column  name="DBXZ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FYYBCWJ" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="YJSKXX" disabled="true" hidden="false" summary="false">
             <object  name="lcIB_XYSP_YJSKXX" editAttribute="8" >
@@ -533,17 +560,17 @@ O_WORKFLOW.XYLX == 3</arg>
       </notify>
       <actions>
         <action id="16" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <meta name="allow.recover">false</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2},30)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2},30)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
             </function>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_IB_SetWFZkzy(?,?,{0},'lcIB_XYSP',{1},{2},1)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_IB_SetWFZkzy(?,?,{0},'lcIB_XYSP',{1},{2},1)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -554,15 +581,15 @@ O_WORKFLOW.XYLX == 3</arg>
       </actions>
     </step>
     <step id="20" name="部门总经理审批">
-      <meta name="step.reject.mode">any</meta>
-      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
-      <meta name="approve.mode">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="reject.reason.mandatory">false</meta>
+      <meta name="approve.mode">true</meta>
       <object  name="lcIB_XYSP" editAttribute="0" >
         <columns>
           <column  name="ID" disabled="false" hidden="true" summary="false">
@@ -699,79 +726,24 @@ O_WORKFLOW.XYLX == 3</arg>
       </notify>
       <actions>
         <action id="21" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
-            <result id="111" old-status="完成" status="待处理" step="87" display-name="含承销约定的协议">
+            <result id="211" old-status="完成" status="待处理" step="209">
               <conditions>
                 <condition id="0" name="abs.FormExpOfStepCondition" type="class">
-                  <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
-O_WORKFLOW.XYLX==4</arg>
-                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
                   <arg name="Table">lcIB_XYSP</arg>
-                </condition>
-              </conditions>
-            </result>
-            <result id="184" old-status="待处理" status="待处理" step="182">
-              <conditions type="AND">
-                <condition id="0" name="abs.FormExpOfStepCondition" type="class">
                   <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
-var cnt1 = ABS_SQLVALUE(&quot;select count(1) from ecif.tIB_XMLX where SFTZ=1 and id = ?&quot;,[O_WORKFLOW.XMMC.XMLX]);
-var  yjbmid = ABS_SQLVALUE(&quot;select id  from jgcrm.lborganization where fid = 1 start with id= ? connect by prior fid = id&quot;,[O_WORKFLOW.SQR.OrgID]);
+var  yjbmid = ABS_SQLVALUE(&quot;select id  from jgcrm.lborganization where fid = 1 start with id= ? connect by prior fid = id&quot;,[O_WORKFLOW.SQBM]);
 var  cnt2 = ABS_SQLVALUE(&quot;select count(1) from jgcrm.lborganization where id = ? and sfdlbm =1&quot;,[yjbmid]);
-cnt1 == 0 &amp;&amp; cnt2 &gt; 0</arg>
+cnt2 &gt; 0</arg>
                   <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
-                  <arg name="Table">lcIB_XYSP</arg>
-                </condition>
-                <condition id="0" name="abs.FormExpOfStepCondition" type="class">
-                  <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
-O_WORKFLOW.XYLX != 4</arg>
-                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
-                  <arg name="Table">lcIB_XYSP</arg>
-                </condition>
-              </conditions>
-            </result>
-            <result id="188" old-status="完成" status="待处理" step="166">
-              <conditions type="AND">
-                <condition id="0" name="abs.FormExpOfStepCondition" type="class">
-                  <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
-O_WORKFLOW.XYLX==3||O_WORKFLOW.XYLX==7</arg>
-                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
-                  <arg name="Table">lcIB_XYSP</arg>
-                </condition>
-                <condition id="0" name="abs.FormExpOfStepCondition" type="class">
-                  <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
-var cnt1 = ABS_SQLVALUE(&quot;select count(1) from ecif.tIB_XMLX where SFTZ=1 and id = ?&quot;,[O_WORKFLOW.XMMC.XMLX]);
-var  yjbmid = ABS_SQLVALUE(&quot;select id  from jgcrm.lborganization where fid = 1 start with id= ? connect by prior fid = id&quot;,[O_WORKFLOW.SQR.OrgID]);
-var  cnt2 = ABS_SQLVALUE(&quot;select count(1) from jgcrm.lborganization where id = ? and sfdlbm =1&quot;,[yjbmid]);
-cnt1 &gt; 0 &amp;&amp; cnt2 &gt; 0</arg>
-                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
-                  <arg name="Table">lcIB_XYSP</arg>
-                </condition>
-              </conditions>
-            </result>
-            <result id="189" old-status="完成" status="待处理" step="32">
-              <conditions type="AND">
-                <condition id="0" name="abs.FormExpOfStepCondition" type="class">
-                  <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
-var cnt1 = ABS_SQLVALUE(&quot;select count(1) from ecif.tIB_XMLX where SFTZ=1 and id = ?&quot;,[O_WORKFLOW.XMMC.XMLX]);
-var  yjbmid = ABS_SQLVALUE(&quot;select id  from jgcrm.lborganization where fid = 1 start with id= ? connect by prior fid = id&quot;,[O_WORKFLOW.SQR.OrgID]);
-var  cnt2 = ABS_SQLVALUE(&quot;select count(1) from jgcrm.lborganization where id = ? and sfdlbm =1&quot;,[yjbmid]);
-cnt1 &gt; 0 &amp;&amp; cnt2 &gt; 0</arg>
-                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
-                  <arg name="Table">lcIB_XYSP</arg>
-                </condition>
-                <condition id="0" name="abs.FormExpOfStepCondition" type="class">
-                  <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
-O_WORKFLOW.XYLX != 4 &amp;&amp; O_WORKFLOW.XYLX != 3 &amp;&amp; O_WORKFLOW.XYLX != 7</arg>
-                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
-                  <arg name="Table">lcIB_XYSP</arg>
                 </condition>
               </conditions>
             </result>
@@ -782,15 +754,15 @@ O_WORKFLOW.XYLX != 4 &amp;&amp; O_WORKFLOW.XYLX != 3 &amp;&amp; O_WORKFLOW.XYLX 
       </actions>
     </step>
     <step id="22" name="投资银行总部文管审批">
-      <meta name="step.reject.mode">any</meta>
-      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
-      <meta name="approve.mode">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="reject.reason.mandatory">false</meta>
+      <meta name="approve.mode">true</meta>
       <object  name="lcIB_XYSP" editAttribute="0" >
         <columns>
           <column  name="ID" disabled="false" hidden="true" summary="false">
@@ -927,12 +899,12 @@ O_WORKFLOW.XYLX != 4 &amp;&amp; O_WORKFLOW.XYLX != 3 &amp;&amp; O_WORKFLOW.XYLX 
       </notify>
       <actions>
         <action id="23" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -943,15 +915,15 @@ O_WORKFLOW.XYLX != 4 &amp;&amp; O_WORKFLOW.XYLX != 3 &amp;&amp; O_WORKFLOW.XYLX 
       </actions>
     </step>
     <step id="24" name="投资银行总部职能审批">
-      <meta name="step.reject.mode">any</meta>
-      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
-      <meta name="approve.mode">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="reject.reason.mandatory">false</meta>
+      <meta name="approve.mode">true</meta>
       <object  name="lcIB_XYSP" editAttribute="0" >
         <columns>
           <column  name="ID" disabled="false" hidden="true" summary="false">
@@ -970,9 +942,15 @@ O_WORKFLOW.XYLX != 4 &amp;&amp; O_WORKFLOW.XYLX != 3 &amp;&amp; O_WORKFLOW.XYLX 
           </column>
           <column  name="OLDBH" disabled="false" hidden="true" summary="false">
           </column>
+          <column  name="YYZL" disabled="true" hidden="false" summary="false">
+          </column>
           <column  name="LCBT" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="GWZW" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="Cs" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="Csong" disabled="false" hidden="true" summary="false">
           </column>
           <column  name="LDSP" disabled="true" hidden="false" summary="false">
           </column>
@@ -992,11 +970,11 @@ O_WORKFLOW.XYLX != 4 &amp;&amp; O_WORKFLOW.XYLX != 3 &amp;&amp; O_WORKFLOW.XYLX 
           </column>
           <column  name="XYLX" disabled="true" hidden="false" summary="false">
           </column>
-          <column  name="SSFDF" disabled="true" hidden="false" summary="false">
-          </column>
           <column  name="QYRQ" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="XYMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SSFDF" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="PWRQ" disabled="true" hidden="false" summary="false">
           </column>
@@ -1014,9 +992,13 @@ O_WORKFLOW.XYLX != 4 &amp;&amp; O_WORKFLOW.XYLX != 3 &amp;&amp; O_WORKFLOW.XYLX 
           </column>
           <column  name="JGTSXX" disabled="true" hidden="false" summary="false">
           </column>
+          <column  name="CSRY" disabled="true" hidden="false" summary="false">
+          </column>
           <column  name="NHBZS" disabled="false" hidden="true" summary="false">
           </column>
           <column  name="NHBFS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="BZSM" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="XYFJ" disabled="true" hidden="false" summary="false">
             <object  name="lcIB_XYSP_FJ" editAttribute="8" >
@@ -1035,12 +1017,16 @@ O_WORKFLOW.XYLX != 4 &amp;&amp; O_WORKFLOW.XYLX != 3 &amp;&amp; O_WORKFLOW.XYLX 
                 </column>
                 <column  name="SCSJ" disabled="true" hidden="false" summary="false">
                 </column>
+                <column  name="SFYY" disabled="false" hidden="false" summary="false">
+                </column>
                 <column  name="SF360XS" disabled="false" hidden="true" summary="false">
                 </column>
               </columns>
             </object>
           </column>
           <column  name="DBXZ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FYYBCWJ" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="YJSKXX" disabled="true" hidden="false" summary="false">
             <object  name="lcIB_XYSP_YJSKXX" editAttribute="8" >
@@ -1088,12 +1074,12 @@ O_WORKFLOW.XYLX != 4 &amp;&amp; O_WORKFLOW.XYLX != 3 &amp;&amp; O_WORKFLOW.XYLX 
       </notify>
       <actions>
         <action id="25" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -1104,15 +1090,15 @@ O_WORKFLOW.XYLX != 4 &amp;&amp; O_WORKFLOW.XYLX != 3 &amp;&amp; O_WORKFLOW.XYLX 
       </actions>
     </step>
     <step id="26" name="项目组回复">
-      <meta name="step.reject.mode">any</meta>
-      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
-      <meta name="approve.mode">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="reject.reason.mandatory">false</meta>
+      <meta name="approve.mode">true</meta>
       <object  name="lcIB_XYSP" editAttribute="0" >
         <columns>
           <column  name="ID" disabled="false" hidden="true" summary="false">
@@ -1210,9 +1196,9 @@ O_WORKFLOW.XYLX != 4 &amp;&amp; O_WORKFLOW.XYLX != 3 &amp;&amp; O_WORKFLOW.XYLX 
                 </column>
                 <column  name="SFYY" disabled="false" hidden="false" summary="false">
                 </column>
-                <column  name="SF360XS" disabled="false" hidden="true" summary="false">
-                </column>
                 <column  name="SFSY" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SF360XS" disabled="false" hidden="true" summary="false">
                 </column>
               </columns>
             </object>
@@ -1260,19 +1246,19 @@ O_WORKFLOW.XYLX != 4 &amp;&amp; O_WORKFLOW.XYLX != 3 &amp;&amp; O_WORKFLOW.XYLX 
       <dynOwners>
         <dynOwner  type="0" describe="动态用户" >
           <expression><![CDATA[
-["tUser.ID={0}",[{"expression":"O_WORKFLOW.XMFZR","scale":0,"length":0,"type":0}]]]]></expression>
+["tUser.ID={0}",[{"expression":"O_WORKFLOW.XMFZR","length":0,"scale":0,"type":0}]]]]></expression>
           </dynOwner>
               </dynOwners>
       <notify >
       </notify>
       <actions>
         <action id="27" name="提交">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -1281,8 +1267,8 @@ O_WORKFLOW.XYLX != 4 &amp;&amp; O_WORKFLOW.XYLX != 3 &amp;&amp; O_WORKFLOW.XYLX 
                 <condition id="0" name="abs.FormExpOfStepCondition" type="class">
                   <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
 O_WORKFLOW.XYLX != 3</arg>
-                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
                   <arg name="Table">lcIB_XYSP</arg>
+                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
                 </condition>
               </conditions>
             </result>
@@ -1293,15 +1279,15 @@ O_WORKFLOW.XYLX != 3</arg>
       </actions>
     </step>
     <step id="28" name="项目组部门质控专员">
-      <meta name="step.reject.mode">any</meta>
-      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
-      <meta name="approve.mode">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="reject.reason.mandatory">false</meta>
+      <meta name="approve.mode">true</meta>
       <object  name="lcIB_XYSP" editAttribute="0" >
         <columns>
           <column  name="ID" disabled="false" hidden="true" summary="false">
@@ -1438,16 +1424,16 @@ O_WORKFLOW.XYLX != 3</arg>
       </notify>
       <actions>
         <action id="29" name="审核通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2},30)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2},30)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
             </function>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_IB_SetWFZkzy(?,?,{0},'lcIB_XYSP',{1},{2},1)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_IB_SetWFZkzy(?,?,{0},'lcIB_XYSP',{1},{2},1)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -1458,15 +1444,15 @@ O_WORKFLOW.XYLX != 3</arg>
       </actions>
     </step>
     <step id="30" name="投资银行总部总经理审批">
-      <meta name="step.reject.mode">any</meta>
-      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
-      <meta name="approve.mode">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="reject.reason.mandatory">false</meta>
+      <meta name="approve.mode">true</meta>
       <object  name="lcIB_XYSP" editAttribute="0" >
         <columns>
           <column  name="ID" disabled="false" hidden="true" summary="false">
@@ -1603,55 +1589,51 @@ O_WORKFLOW.XYLX != 3</arg>
       </notify>
       <actions>
         <action id="31" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
-            <result id="168" old-status="完成" status="待处理" step="166">
+            <result id="213" old-status="完成" status="待处理" step="87">
               <conditions>
                 <condition id="0" name="abs.FormExpOfStepCondition" type="class">
+                  <arg name="Table">lcIB_XYSP</arg>
+                  <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+O_WORKFLOW.XYLX==4</arg>
+                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
+                </condition>
+              </conditions>
+            </result>
+            <result id="215" old-status="完成" status="待处理" step="166">
+              <conditions>
+                <condition id="0" name="abs.FormExpOfStepCondition" type="class">
+                  <arg name="Table">lcIB_XYSP</arg>
                   <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
 O_WORKFLOW.XYLX==3||O_WORKFLOW.XYLX==7</arg>
                   <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
-                  <arg name="Table">lcIB_XYSP</arg>
                 </condition>
               </conditions>
-              <pre-functions>
-                <function id="0" name="lb.WfFormUpdate" type="class">
-                  <arg name="$F{ZKBZS}">&lt;%@ livebos language='javascript' %&gt;
-if (O_WORKFLOW.XYLX == 7)
-{
-ABS_IF(ABS_NULLSUB(O_WORKFLOW.XMMC.ECNHZKSHY_ZS,0)!=0,O_WORKFLOW.XMMC.ECNHZKSHY_ZS,O_WORKFLOW.XMMC.NHZKSHY_ZS)
-}
-else
-{
-O_WORKFLOW.ZKBZS
-}</arg>
-                  <arg name="class.name">com.apex.livebos.workflow.function.WorkFormUpdateFunction</arg>
-                </function>
-              </pre-functions>
             </result>
-            <unconditional-result id="173" old-status="完成" status="待处理" step="32">
+            <unconditional-result id="212" old-status="完成" status="待处理" step="32">
             </unconditional-result>
           </results>
         </action>
       </actions>
     </step>
     <step id="32" name="质控部专员审核">
-      <meta name="step.reject.mode">any</meta>
-      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
-      <meta name="approve.mode">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="reject.reason.mandatory">false</meta>
+      <meta name="approve.mode">true</meta>
       <object  name="lcIB_XYSP" editAttribute="0" >
         <columns>
           <column  name="ID" disabled="false" hidden="true" summary="false">
@@ -1670,9 +1652,15 @@ O_WORKFLOW.ZKBZS
           </column>
           <column  name="OLDBH" disabled="false" hidden="true" summary="false">
           </column>
+          <column  name="YYZL" disabled="true" hidden="false" summary="false">
+          </column>
           <column  name="LCBT" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="GWZW" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="Cs" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="Csong" disabled="false" hidden="true" summary="false">
           </column>
           <column  name="LDSP" disabled="true" hidden="false" summary="false">
           </column>
@@ -1692,11 +1680,11 @@ O_WORKFLOW.ZKBZS
           </column>
           <column  name="XYLX" disabled="true" hidden="false" summary="false">
           </column>
-          <column  name="SSFDF" disabled="true" hidden="false" summary="false">
-          </column>
           <column  name="QYRQ" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="XYMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SSFDF" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="PWRQ" disabled="true" hidden="false" summary="false">
           </column>
@@ -1714,9 +1702,13 @@ O_WORKFLOW.ZKBZS
           </column>
           <column  name="JGTSXX" disabled="true" hidden="false" summary="false">
           </column>
+          <column  name="CSRY" disabled="true" hidden="false" summary="false">
+          </column>
           <column  name="NHBZS" disabled="false" hidden="true" summary="false">
           </column>
           <column  name="NHBFS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="BZSM" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="XYFJ" disabled="true" hidden="false" summary="false">
             <object  name="lcIB_XYSP_FJ" editAttribute="8" >
@@ -1735,12 +1727,16 @@ O_WORKFLOW.ZKBZS
                 </column>
                 <column  name="SCSJ" disabled="true" hidden="false" summary="false">
                 </column>
+                <column  name="SFYY" disabled="false" hidden="false" summary="false">
+                </column>
                 <column  name="SF360XS" disabled="false" hidden="true" summary="false">
                 </column>
               </columns>
             </object>
           </column>
           <column  name="DBXZ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FYYBCWJ" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="YJSKXX" disabled="true" hidden="false" summary="false">
             <object  name="lcIB_XYSP_YJSKXX" editAttribute="8" >
@@ -1781,24 +1777,20 @@ O_WORKFLOW.ZKBZS
       <dynOwners>
         <dynOwner  type="1" describe="动态用户" >
           <expression><![CDATA[
-{"name":"DW_ZKZY_QY","parameters":{"PLCBDDM":"'lcIB_XYSP'","PSQBM":"O_WORKFLOW.SQBM"}}]]></expression>
+{"name":"DW_ZKZY_QY","parameters":{"PLCBDDM":"lcIB_XYSP","PSQBM":"O_WORKFLOW.SQBM"}}]]></expression>
           </dynOwner>
               </dynOwners>
       <notify >
       </notify>
       <actions>
         <action id="33" name="提交项目组回复">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <meta name="allow.recover">true</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
               <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2},31)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
-              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
-            </function>
-            <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_IB_SetWFZkzy(?,?,{0},'lcIB_XYSP',{1},{2},2)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
-              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
             </function>
           </pre-functions>
           <results>
@@ -1807,17 +1799,17 @@ O_WORKFLOW.ZKBZS
           </results>
         </action>
         <action id="83" name="提交质控部职能审批">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <meta name="allow.recover">true</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2},31)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2},31)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
             </function>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_IB_SetWFZkzy(?,?,{0},'lcIB_XYSP',{1},{2},2)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_IB_SetWFZkzy(?,?,{0},'lcIB_XYSP',{1},{2},2)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -1828,15 +1820,15 @@ O_WORKFLOW.ZKBZS
       </actions>
     </step>
     <step id="36" name="质控部总经理审批">
-      <meta name="step.reject.mode">any</meta>
-      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
-      <meta name="approve.mode">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="reject.reason.mandatory">false</meta>
+      <meta name="approve.mode">true</meta>
       <object  name="lcIB_XYSP" editAttribute="0" >
         <columns>
           <column  name="ID" disabled="false" hidden="true" summary="false">
@@ -1973,13 +1965,13 @@ O_WORKFLOW.ZKBZS
       </notify>
       <actions>
         <action id="37" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <meta name="allow.recover">true</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -1990,15 +1982,15 @@ O_WORKFLOW.ZKBZS
       </actions>
     </step>
     <step id="38" name="质控部职能审批">
-      <meta name="step.reject.mode">any</meta>
-      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
-      <meta name="approve.mode">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="reject.reason.mandatory">false</meta>
+      <meta name="approve.mode">true</meta>
       <object  name="lcIB_XYSP" editAttribute="0" >
         <columns>
           <column  name="ID" disabled="false" hidden="true" summary="false">
@@ -2135,13 +2127,13 @@ O_WORKFLOW.ZKBZS
       </notify>
       <actions>
         <action id="39" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <meta name="allow.recover">true</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -2152,15 +2144,15 @@ O_WORKFLOW.ZKBZS
       </actions>
     </step>
     <step id="40" name="质控部专员审核" owner="$AM{4}">
-      <meta name="step.reject.mode">any</meta>
-      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
-      <meta name="step.allow.reject">true</meta>
-      <meta name="approve.mode">true</meta>
+      <meta name="step.allow.reject">false</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="reject.reason.mandatory">false</meta>
+      <meta name="approve.mode">true</meta>
       <object  name="lcIB_XYSP" editAttribute="0" >
         <columns>
           <column  name="ID" disabled="false" hidden="true" summary="false">
@@ -2290,24 +2282,20 @@ O_WORKFLOW.ZKBZS
       <dynOwners>
         <dynOwner  type="0" describe="动态用户" >
           <expression><![CDATA[
-["instr(',' ||\r\n             (select owner\r\n                from (select owner\r\n                        from jgcrm.os_historystep\r\n                       where step_id in (32,169)\r\n                         and action_id in (33,174)\r\n                         and entry_id = (select instid\r\n                                           from ecif.lcIB_XYSP\r\n                                          where id = {0})\r\n                       order by finish_date asc)\r\n               where rownum = 1) || ',',\r\n             ',' || id || ',') > 0 or instr(',' ||\r\n             (select owner\r\n                from (select owner\r\n                        from jgcrm.os_historystep\r\n                       where step_id = 32\r\n                         and action_id <0\r\n                         and entry_id = (select instid\r\n                                           from ecif.lcIB_XYSP\r\n                                          where id = {0})\r\n                       order by finish_date asc)\r\n               where rownum = 1) || ',',\r\n             ',' || id || ',') > 0 ",[{"expression":"O_WORKFLOW.ID","scale":0,"length":0,"type":0}]]]]></expression>
+["instr(',' ||\r\n             (select owner\r\n                from (select owner\r\n                        from jgcrm.os_historystep\r\n                       where step_id in (32,169)\r\n                         and action_id in (33,174)\r\n                         and entry_id = (select instid\r\n                                           from ecif.lcIB_XYSP\r\n                                          where id = {0})\r\n                       order by finish_date asc)\r\n               where rownum = 1) || ',',\r\n             ',' || id || ',') > 0 or instr(',' ||\r\n             (select owner\r\n                from (select owner\r\n                        from jgcrm.os_historystep\r\n                       where step_id = 32\r\n                         and action_id <0\r\n                         and entry_id = (select instid\r\n                                           from ecif.lcIB_XYSP\r\n                                          where id = {0})\r\n                       order by finish_date asc)\r\n               where rownum = 1) || ',',\r\n             ',' || id || ',') > 0 ",[{"expression":"O_WORKFLOW.ID","length":0,"scale":0,"type":0}]]]]></expression>
           </dynOwner>
               </dynOwners>
       <notify >
       </notify>
       <actions>
         <action id="41" name="提交质控部职能审批">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <meta name="allow.recover">true</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
               <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2},31)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
-              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
-            </function>
-            <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_IB_SetWFZkzy(?,?,{0},'lcIB_XYSP',{1},{2},2)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
-              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
             </function>
           </pre-functions>
           <results>
@@ -2316,17 +2304,13 @@ O_WORKFLOW.ZKBZS
           </results>
         </action>
         <action id="69" name="提交项目组回复">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <meta name="allow.recover">true</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
               <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2},31)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
-              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
-            </function>
-            <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_IB_SetWFZkzy(?,?,{0},'lcIB_XYSP',{1},{2},2)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
-              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
             </function>
           </pre-functions>
           <results>
@@ -2337,15 +2321,15 @@ O_WORKFLOW.ZKBZS
       </actions>
     </step>
     <step id="42" name="项目组部门总经理审核">
-      <meta name="step.reject.mode">any</meta>
-      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
-      <meta name="approve.mode">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="reject.reason.mandatory">false</meta>
+      <meta name="approve.mode">true</meta>
       <object  name="lcIB_XYSP" editAttribute="0" >
         <columns>
           <column  name="ID" disabled="false" hidden="true" summary="false">
@@ -2482,50 +2466,24 @@ O_WORKFLOW.ZKBZS
       </notify>
       <actions>
         <action id="43" name="审核通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
-            <result id="198" old-status="完成" status="待处理" step="196">
-              <conditions type="AND">
+            <result id="224" old-status="完成" status="待处理" step="222">
+              <conditions>
                 <condition id="0" name="abs.FormExpOfStepCondition" type="class">
+                  <arg name="Table">lcIB_XYSP</arg>
                   <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
-var cnt1 = ABS_SQLVALUE(&quot;select count(1) from ecif.tIB_XMLX where SFTZ=1 and id = ?&quot;,[O_WORKFLOW.XMMC.XMLX]);
-var  yjbmid = ABS_SQLVALUE(&quot;select id  from jgcrm.lborganization where fid = 1 start with id= ? connect by prior fid = id&quot;,[O_WORKFLOW.SQR.OrgID]);
+var  yjbmid = ABS_SQLVALUE(&quot;select id  from jgcrm.lborganization where fid = 1 start with id= ? connect by prior fid = id&quot;,[O_WORKFLOW.SQBM]);
 var  cnt2 = ABS_SQLVALUE(&quot;select count(1) from jgcrm.lborganization where id = ? and sfdlbm =1&quot;,[yjbmid]);
-cnt1 == 0 &amp;&amp; cnt2 &gt; 0</arg>
+cnt2 &gt; 0</arg>
                   <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
-                  <arg name="Table">lcIB_XYSP</arg>
-                </condition>
-                <condition id="0" name="abs.FormExpOfStepCondition" type="class">
-                  <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
-O_WORKFLOW.XYLX != 4</arg>
-                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
-                  <arg name="Table">lcIB_XYSP</arg>
-                </condition>
-              </conditions>
-            </result>
-            <result id="200" old-status="完成" status="待处理" step="40">
-              <conditions type="AND">
-                <condition id="0" name="abs.FormExpOfStepCondition" type="class">
-                  <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
-var cnt1 = ABS_SQLVALUE(&quot;select count(1) from ecif.tIB_XMLX where SFTZ=1 and id = ?&quot;,[O_WORKFLOW.XMMC.XMLX]);
-var  yjbmid = ABS_SQLVALUE(&quot;select id  from jgcrm.lborganization where fid = 1 start with id= ? connect by prior fid = id&quot;,[O_WORKFLOW.SQR.OrgID]);
-var  cnt2 = ABS_SQLVALUE(&quot;select count(1) from jgcrm.lborganization where id = ? and sfdlbm =1&quot;,[yjbmid]);
-cnt1 &gt; 0 &amp;&amp; cnt2 &gt; 0</arg>
-                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
-                  <arg name="Table">lcIB_XYSP</arg>
-                </condition>
-                <condition id="0" name="abs.FormExpOfStepCondition" type="class">
-                  <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
-O_WORKFLOW.XYLX != 4 &amp;&amp; O_WORKFLOW.XYLX != 3 &amp;&amp; O_WORKFLOW.XYLX != 7</arg>
-                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
-                  <arg name="Table">lcIB_XYSP</arg>
                 </condition>
               </conditions>
             </result>
@@ -2676,20 +2634,20 @@ O_WORKFLOW.XYLX != 4 &amp;&amp; O_WORKFLOW.XYLX != 3 &amp;&amp; O_WORKFLOW.XYLX 
           <meta name="NodeType">5</meta>
           <pre-functions>
             <function id="0" name="lb.Assert" type="class">
+              <arg name="message.1">&quot;OA审批尚未结束&quot;</arg>
               <arg name="assert.1">&lt;%@ livebos language='javascript' %&gt;
 var status=ABS_SQLVALUE(&quot;select max(status) from ecif.tib_oawfhandle where upper(lcbd)=upper('lcib_xysp') and lcbdid=?&quot;,[O_WORKFLOW.ID]);
 status==1</arg>
               <arg name="class.name">com.apex.livebos.workflow.function.AssertFunction</arg>
-              <arg name="message.1">&quot;OA审批尚未结束&quot;</arg>
             </function>
             <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
               <arg name="SQL">[&quot;CALL ecif.pro_IB_WFFinish(?,?,'lcIB_XYSP',{0},{1})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
-              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
             </function>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;CALL ecif.PRO_IB_LC_GXXMSR(?,?,{0},1)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
-              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
               <arg name="datasource">ECIF</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;CALL ecif.PRO_IB_LC_GXXMSR(?,?,{0},1)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -2700,13 +2658,13 @@ status==1</arg>
       </actions>
     </step>
     <step id="87" name="资本市场部文管">
-      <meta name="step.allow.approve.sign">true</meta>
-      <meta name="step.reject.mode">any</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_XYSP" editAttribute="0" >
         <columns>
@@ -2844,12 +2802,12 @@ status==1</arg>
       </notify>
       <actions>
         <action id="88" name="提交">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -2860,13 +2818,13 @@ status==1</arg>
       </actions>
     </step>
     <step id="89" name="资本市场部职能审批" owner="$D{Designate},$AM{4}">
-      <meta name="step.allow.approve.sign">true</meta>
-      <meta name="step.reject.mode">any</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_XYSP" editAttribute="0" >
         <columns>
@@ -3004,12 +2962,12 @@ status==1</arg>
       </notify>
       <actions>
         <action id="90" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -3020,13 +2978,13 @@ status==1</arg>
       </actions>
     </step>
     <step id="91" name="资本市场部总经理审批">
-      <meta name="step.allow.approve.sign">true</meta>
-      <meta name="step.reject.mode">any</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_XYSP" editAttribute="0" >
         <columns>
@@ -3164,55 +3122,29 @@ status==1</arg>
       </notify>
       <actions>
         <action id="92" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
-            <result id="191" old-status="完成" status="待处理" step="182">
-              <conditions>
-                <condition id="0" name="abs.FormExpOfStepCondition" type="class">
-                  <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
-var cnt1 = ABS_SQLVALUE(&quot;select count(1) from ecif.tIB_XMLX where SFTZ=1 and id = ?&quot;,[O_WORKFLOW.XMMC.XMLX]);
-var  yjbmid = ABS_SQLVALUE(&quot;select id  from jgcrm.lborganization where fid = 1 start with id= ? connect by prior fid = id&quot;,[O_WORKFLOW.SQR.OrgID]);
-var  cnt2 = ABS_SQLVALUE(&quot;select count(1) from jgcrm.lborganization where id = ? and sfdlbm =1&quot;,[yjbmid]);
-cnt1 == 0 &amp;&amp; cnt2 &gt; 0</arg>
-                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
-                  <arg name="Table">lcIB_XYSP</arg>
-                </condition>
-              </conditions>
-            </result>
-            <result id="192" old-status="完成" status="待处理" step="32">
-              <conditions>
-                <condition id="0" name="abs.FormExpOfStepCondition" type="class">
-                  <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
-var cnt1 = ABS_SQLVALUE(&quot;select count(1) from ecif.tIB_XMLX where SFTZ=1 and id = ?&quot;,[O_WORKFLOW.XMMC.XMLX]);
-var  yjbmid = ABS_SQLVALUE(&quot;select id  from jgcrm.lborganization where fid = 1 start with id= ? connect by prior fid = id&quot;,[O_WORKFLOW.SQR.OrgID]);
-var  cnt2 = ABS_SQLVALUE(&quot;select count(1) from jgcrm.lborganization where id = ? and sfdlbm =1&quot;,[yjbmid]);
-cnt1 &gt; 0 &amp;&amp; cnt2 &gt; 0</arg>
-                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
-                  <arg name="Table">lcIB_XYSP</arg>
-                </condition>
-              </conditions>
-            </result>
-            <unconditional-result id="96" old-status="完成" status="待处理" step="22">
+            <unconditional-result id="221" old-status="完成" status="待处理" step="166">
             </unconditional-result>
           </results>
         </action>
       </actions>
     </step>
     <step id="102" name="保荐代表人会签" owner="$AM{4}">
-      <meta name="step.allow.approve.sign">true</meta>
-      <meta name="step.reject.mode">any</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_XYSP" editAttribute="0" >
         <columns>
@@ -3343,36 +3275,44 @@ cnt1 &gt; 0 &amp;&amp; cnt2 &gt; 0</arg>
       <dynOwners>
         <dynOwner  type="0" describe="动态用户" >
           <expression><![CDATA[
-["instr(';'||{0}||';',';'||tUser.ID||';') > 0",[{"expression":"O_WORKFLOW.BJDBR","scale":0,"length":0,"type":0}]]]]></expression>
+["instr(';'||{0}||';',';'||tUser.ID||';') > 0",[{"expression":"O_WORKFLOW.BJDBR","length":0,"scale":0,"type":0}]]]]></expression>
           </dynOwner>
               </dynOwners>
       <notify >
       </notify>
       <actions>
         <action id="103" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
             <unconditional-result id="105" old-status="完成" status="待处理" step="15">
+              <pre-functions>
+                <function id="0" name="abs.FormUpdate" type="class">
+                  <arg name="condition">[&quot;tIB_XMXX.ID={0}&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;length&quot;:&quot;&quot;,&quot;scale&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+                  <arg name="$F{QZBJDBR}">O_WORKFLOW.BJDBR</arg>
+                  <arg name="Table">tIB_XMXX</arg>
+                  <arg name="class.name">com.apex.workflow.FormUpdateFunction</arg>
+                </function>
+              </pre-functions>
             </unconditional-result>
           </results>
         </action>
       </actions>
     </step>
     <step id="106" name="保荐代表人确认" owner="$AM{4}">
-      <meta name="step.allow.approve.sign">true</meta>
-      <meta name="step.reject.mode">any</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_XYSP" editAttribute="0" >
         <columns>
@@ -3503,19 +3443,19 @@ cnt1 &gt; 0 &amp;&amp; cnt2 &gt; 0</arg>
       <dynOwners>
         <dynOwner  type="0" describe="动态用户" >
           <expression><![CDATA[
-["instr(';'||{0}||';',';'||tUser.ID||';') > 0",[{"expression":"O_WORKFLOW.BJDBR","scale":0,"length":0,"type":0}]]]]></expression>
+["instr(';'||{0}||';',';'||tUser.ID||';') > 0",[{"expression":"O_WORKFLOW.BJDBR","length":0,"scale":0,"type":0}]]]]></expression>
           </dynOwner>
               </dynOwners>
       <notify >
       </notify>
       <actions>
         <action id="107" name="审核通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -3526,15 +3466,15 @@ cnt1 &gt; 0 &amp;&amp; cnt2 &gt; 0</arg>
       </actions>
     </step>
     <step id="118" name="项目组回复">
-      <meta name="step.allow.approve.sign">true</meta>
-      <meta name="step.reject.mode">any</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
-      <meta name="approve.mode">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="reject.reason.mandatory">false</meta>
+      <meta name="approve.mode">true</meta>
       <object  name="lcIB_XYSP" editAttribute="0" >
         <columns>
           <column  name="ID" disabled="false" hidden="true" summary="false">
@@ -3632,9 +3572,9 @@ cnt1 &gt; 0 &amp;&amp; cnt2 &gt; 0</arg>
                 </column>
                 <column  name="SFYY" disabled="false" hidden="false" summary="false">
                 </column>
-                <column  name="SF360XS" disabled="false" hidden="true" summary="false">
-                </column>
                 <column  name="SFSY" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SF360XS" disabled="false" hidden="true" summary="false">
                 </column>
               </columns>
             </object>
@@ -3682,19 +3622,19 @@ cnt1 &gt; 0 &amp;&amp; cnt2 &gt; 0</arg>
       <dynOwners>
         <dynOwner  type="0" describe="动态用户" >
           <expression><![CDATA[
-["tUser.ID={0}",[{"expression":"O_WORKFLOW.XMFZR","scale":0,"length":0,"type":0}]]]]></expression>
+["tUser.ID={0}",[{"expression":"O_WORKFLOW.XMFZR","length":0,"scale":0,"type":0}]]]]></expression>
           </dynOwner>
               </dynOwners>
       <notify >
       </notify>
       <actions>
         <action id="119" name="提交">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -3703,8 +3643,8 @@ cnt1 &gt; 0 &amp;&amp; cnt2 &gt; 0</arg>
                 <condition id="0" name="abs.FormExpOfStepCondition" type="class">
                   <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
 O_WORKFLOW.XYLX != 3</arg>
-                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
                   <arg name="Table">lcIB_XYSP</arg>
+                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
                 </condition>
               </conditions>
             </result>
@@ -3715,13 +3655,13 @@ O_WORKFLOW.XYLX != 3</arg>
       </actions>
     </step>
     <step id="120" name="保荐代表人确认" owner="$AM{4}">
-      <meta name="step.reject.mode">any</meta>
-      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_XYSP" editAttribute="0" >
         <columns>
@@ -3852,19 +3792,19 @@ O_WORKFLOW.XYLX != 3</arg>
       <dynOwners>
         <dynOwner  type="0" describe="动态用户" >
           <expression><![CDATA[
-["instr(';'||{0}||';',';'||tUser.ID||';') > 0",[{"expression":"O_WORKFLOW.BJDBR","scale":0,"length":0,"type":0}]]]]></expression>
+["instr(';'||{0}||';',';'||tUser.ID||';') > 0",[{"expression":"O_WORKFLOW.BJDBR","length":0,"scale":0,"type":0}]]]]></expression>
           </dynOwner>
               </dynOwners>
       <notify >
       </notify>
       <actions>
         <action id="121" name="审核通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -3875,15 +3815,15 @@ O_WORKFLOW.XYLX != 3</arg>
       </actions>
     </step>
     <step id="122" name="项目组部门质控专员">
-      <meta name="step.allow.approve.sign">true</meta>
-      <meta name="step.reject.mode">any</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
-      <meta name="approve.mode">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="reject.reason.mandatory">false</meta>
+      <meta name="approve.mode">true</meta>
       <object  name="lcIB_XYSP" editAttribute="0" >
         <columns>
           <column  name="ID" disabled="false" hidden="true" summary="false">
@@ -4020,16 +3960,16 @@ O_WORKFLOW.XYLX != 3</arg>
       </notify>
       <actions>
         <action id="123" name="审核通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2},30)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2},30)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
             </function>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_IB_SetWFZkzy(?,?,{0},'lcIB_XYSP',{1},{2},1)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_IB_SetWFZkzy(?,?,{0},'lcIB_XYSP',{1},{2},1)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -4040,15 +3980,15 @@ O_WORKFLOW.XYLX != 3</arg>
       </actions>
     </step>
     <step id="124" name="项目组部门总经理审核">
-      <meta name="step.allow.approve.sign">true</meta>
-      <meta name="step.reject.mode">any</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
-      <meta name="approve.mode">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="reject.reason.mandatory">false</meta>
+      <meta name="approve.mode">true</meta>
       <object  name="lcIB_XYSP" editAttribute="0" >
         <columns>
           <column  name="ID" disabled="false" hidden="true" summary="false">
@@ -4185,50 +4125,24 @@ O_WORKFLOW.XYLX != 3</arg>
       </notify>
       <actions>
         <action id="125" name="审核通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
-            <result id="204" old-status="完成" status="待处理" step="201">
-              <conditions type="AND">
+            <result id="229" old-status="完成" status="待处理" step="227">
+              <conditions>
                 <condition id="0" name="abs.FormExpOfStepCondition" type="class">
+                  <arg name="Table">lcIB_XYSP</arg>
                   <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
-var cnt1 = ABS_SQLVALUE(&quot;select count(1) from ecif.tIB_XMLX where SFTZ=1 and id = ?&quot;,[O_WORKFLOW.XMMC.XMLX]);
-var  yjbmid = ABS_SQLVALUE(&quot;select id  from jgcrm.lborganization where fid = 1 start with id= ? connect by prior fid = id&quot;,[O_WORKFLOW.SQR.OrgID]);
+var  yjbmid = ABS_SQLVALUE(&quot;select id  from jgcrm.lborganization where fid = 1 start with id= ? connect by prior fid = id&quot;,[O_WORKFLOW.SQBM]);
 var  cnt2 = ABS_SQLVALUE(&quot;select count(1) from jgcrm.lborganization where id = ? and sfdlbm =1&quot;,[yjbmid]);
-cnt1 == 0 &amp;&amp; cnt2 &gt; 0</arg>
+cnt2 &gt; 0</arg>
                   <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
-                  <arg name="Table">lcIB_XYSP</arg>
-                </condition>
-                <condition id="0" name="abs.FormExpOfStepCondition" type="class">
-                  <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
-O_WORKFLOW.XYLX != 4</arg>
-                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
-                  <arg name="Table">lcIB_XYSP</arg>
-                </condition>
-              </conditions>
-            </result>
-            <result id="206" old-status="完成" status="待处理" step="132">
-              <conditions type="AND">
-                <condition id="0" name="abs.FormExpOfStepCondition" type="class">
-                  <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
-var cnt1 = ABS_SQLVALUE(&quot;select count(1) from ecif.tIB_XMLX where SFTZ=1 and id = ?&quot;,[O_WORKFLOW.XMMC.XMLX]);
-var  yjbmid = ABS_SQLVALUE(&quot;select id  from jgcrm.lborganization where fid = 1 start with id= ? connect by prior fid = id&quot;,[O_WORKFLOW.SQR.OrgID]);
-var  cnt2 = ABS_SQLVALUE(&quot;select count(1) from jgcrm.lborganization where id = ? and sfdlbm =1&quot;,[yjbmid]);
-cnt1 &gt; 0 &amp;&amp; cnt2 &gt; 0</arg>
-                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
-                  <arg name="Table">lcIB_XYSP</arg>
-                </condition>
-                <condition id="0" name="abs.FormExpOfStepCondition" type="class">
-                  <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
-O_WORKFLOW.XYLX != 4 &amp;&amp; O_WORKFLOW.XYLX != 3 &amp;&amp; O_WORKFLOW.XYLX != 7</arg>
-                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
-                  <arg name="Table">lcIB_XYSP</arg>
                 </condition>
               </conditions>
             </result>
@@ -4239,13 +4153,13 @@ O_WORKFLOW.XYLX != 4 &amp;&amp; O_WORKFLOW.XYLX != 3 &amp;&amp; O_WORKFLOW.XYLX 
       </actions>
     </step>
     <step id="129" name="内核办文管">
-      <meta name="step.allow.approve.sign">true</meta>
-      <meta name="step.reject.mode">any</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_XYSP" editAttribute="0" >
         <columns>
@@ -4317,7 +4231,7 @@ O_WORKFLOW.XYLX != 4 &amp;&amp; O_WORKFLOW.XYLX != 3 &amp;&amp; O_WORKFLOW.XYLX 
           </column>
           <column  name="CSRY" disabled="true" hidden="false" summary="false">
           </column>
-          <column  name="YWLX" disabled="false" hidden="false" summary="false">
+          <column  name="YWLX" disabled="false" hidden="true" summary="false">
           </column>
           <column  name="NHBZS" disabled="false" hidden="false" summary="false">
           </column>
@@ -4334,6 +4248,8 @@ O_WORKFLOW.XYLX != 4 &amp;&amp; O_WORKFLOW.XYLX != 3 &amp;&amp; O_WORKFLOW.XYLX 
                 </column>
                 <column  name="FJLX" disabled="true" hidden="false" summary="false">
                 </column>
+                <column  name="SFBT" disabled="true" hidden="false" summary="false">
+                </column>
                 <column  name="FJM" disabled="false" hidden="false" summary="false">
                 </column>
                 <column  name="WDMC" disabled="false" hidden="false" summary="false">
@@ -4343,6 +4259,8 @@ O_WORKFLOW.XYLX != 4 &amp;&amp; O_WORKFLOW.XYLX != 3 &amp;&amp; O_WORKFLOW.XYLX 
                 <column  name="SCSJ" disabled="true" hidden="false" summary="false">
                 </column>
                 <column  name="SFYY" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SFSY" disabled="false" hidden="false" summary="false">
                 </column>
                 <column  name="SF360XS" disabled="false" hidden="true" summary="false">
                 </column>
@@ -4402,8 +4320,8 @@ O_WORKFLOW.XYLX != 4 &amp;&amp; O_WORKFLOW.XYLX != 3 &amp;&amp; O_WORKFLOW.XYLX 
       </notify>
       <actions>
         <action id="130" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <meta name="allow.recover">true</meta>
           <results>
             <unconditional-result id="134" old-status="完成" status="待处理" step="132">
@@ -4413,13 +4331,13 @@ O_WORKFLOW.XYLX != 4 &amp;&amp; O_WORKFLOW.XYLX != 3 &amp;&amp; O_WORKFLOW.XYLX 
       </actions>
     </step>
     <step id="132" name="内核专员审批" owner="$AM{4}">
-      <meta name="step.allow.approve.sign">true</meta>
-      <meta name="step.reject.mode">any</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_XYSP" editAttribute="0" >
         <columns>
@@ -4491,7 +4409,7 @@ O_WORKFLOW.XYLX != 4 &amp;&amp; O_WORKFLOW.XYLX != 3 &amp;&amp; O_WORKFLOW.XYLX 
           </column>
           <column  name="CSRY" disabled="true" hidden="false" summary="false">
           </column>
-          <column  name="YWLX" disabled="false" hidden="false" summary="false">
+          <column  name="YWLX" disabled="false" hidden="true" summary="false">
           </column>
           <column  name="NHBZS" disabled="true" hidden="false" summary="false">
           </column>
@@ -4508,6 +4426,8 @@ O_WORKFLOW.XYLX != 4 &amp;&amp; O_WORKFLOW.XYLX != 3 &amp;&amp; O_WORKFLOW.XYLX 
                 </column>
                 <column  name="FJLX" disabled="true" hidden="false" summary="false">
                 </column>
+                <column  name="SFBT" disabled="true" hidden="false" summary="false">
+                </column>
                 <column  name="FJM" disabled="false" hidden="false" summary="false">
                 </column>
                 <column  name="WDMC" disabled="false" hidden="false" summary="false">
@@ -4517,6 +4437,8 @@ O_WORKFLOW.XYLX != 4 &amp;&amp; O_WORKFLOW.XYLX != 3 &amp;&amp; O_WORKFLOW.XYLX 
                 <column  name="SCSJ" disabled="true" hidden="false" summary="false">
                 </column>
                 <column  name="SFYY" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SFSY" disabled="false" hidden="false" summary="false">
                 </column>
                 <column  name="SF360XS" disabled="false" hidden="true" summary="false">
                 </column>
@@ -4569,15 +4491,15 @@ O_WORKFLOW.XYLX != 4 &amp;&amp; O_WORKFLOW.XYLX != 3 &amp;&amp; O_WORKFLOW.XYLX 
       <dynOwners>
         <dynOwner  type="0" describe="动态用户" >
           <expression><![CDATA[
-["tUser.ID ={0} OR INSTR(';'||{1}||';',';'||tUser.ID||';')>0",[{"expression":"O_WORKFLOW.NHBZS","scale":0,"length":0,"type":0},{"expression":"O_WORKFLOW.NHBFS","scale":0,"length":0,"type":0}]]]]></expression>
+["tUser.ID ={0} OR INSTR(';'||{1}||';',';'||tUser.ID||';')>0",[{"expression":"O_WORKFLOW.NHBZS","length":0,"scale":0,"type":0},{"expression":"O_WORKFLOW.NHBFS","length":0,"scale":0,"type":0}]]]]></expression>
           </dynOwner>
               </dynOwners>
       <notify >
       </notify>
       <actions>
         <action id="133" name="提交项目组回复">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <meta name="allow.recover">true</meta>
           <results>
             <unconditional-result id="136" old-status="完成" status="待处理" step="118">
@@ -4585,8 +4507,8 @@ O_WORKFLOW.XYLX != 4 &amp;&amp; O_WORKFLOW.XYLX != 3 &amp;&amp; O_WORKFLOW.XYLX 
           </results>
         </action>
         <action id="140" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <meta name="allow.recover">true</meta>
           <results>
             <unconditional-result id="141" old-status="完成" status="待处理" step="193">
@@ -4596,10 +4518,12 @@ O_WORKFLOW.XYLX != 4 &amp;&amp; O_WORKFLOW.XYLX != 3 &amp;&amp; O_WORKFLOW.XYLX 
       </actions>
     </step>
     <step id="138" name="内核办主任审批">
-      <meta name="step.reject.mode">any</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
+      <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_XYSP" editAttribute="0" >
         <columns>
@@ -4671,7 +4595,7 @@ O_WORKFLOW.XYLX != 4 &amp;&amp; O_WORKFLOW.XYLX != 3 &amp;&amp; O_WORKFLOW.XYLX 
           </column>
           <column  name="CSRY" disabled="true" hidden="false" summary="false">
           </column>
-          <column  name="YWLX" disabled="false" hidden="false" summary="false">
+          <column  name="YWLX" disabled="false" hidden="true" summary="false">
           </column>
           <column  name="NHBZS" disabled="true" hidden="false" summary="false">
           </column>
@@ -4688,6 +4612,8 @@ O_WORKFLOW.XYLX != 4 &amp;&amp; O_WORKFLOW.XYLX != 3 &amp;&amp; O_WORKFLOW.XYLX 
                 </column>
                 <column  name="FJLX" disabled="true" hidden="false" summary="false">
                 </column>
+                <column  name="SFBT" disabled="true" hidden="false" summary="false">
+                </column>
                 <column  name="FJM" disabled="false" hidden="false" summary="false">
                 </column>
                 <column  name="WDMC" disabled="false" hidden="false" summary="false">
@@ -4697,6 +4623,8 @@ O_WORKFLOW.XYLX != 4 &amp;&amp; O_WORKFLOW.XYLX != 3 &amp;&amp; O_WORKFLOW.XYLX 
                 <column  name="SCSJ" disabled="true" hidden="false" summary="false">
                 </column>
                 <column  name="SFYY" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SFSY" disabled="false" hidden="false" summary="false">
                 </column>
                 <column  name="SF360XS" disabled="false" hidden="true" summary="false">
                 </column>
@@ -4756,8 +4684,8 @@ O_WORKFLOW.XYLX != 4 &amp;&amp; O_WORKFLOW.XYLX != 3 &amp;&amp; O_WORKFLOW.XYLX 
       </notify>
       <actions>
         <action id="139" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <meta name="allow.recover">true</meta>
           <results>
             <unconditional-result id="144" old-status="完成" status="待处理" step="142">
@@ -4767,12 +4695,14 @@ O_WORKFLOW.XYLX != 4 &amp;&amp; O_WORKFLOW.XYLX != 3 &amp;&amp; O_WORKFLOW.XYLX 
       </actions>
     </step>
     <step id="142" name="内核小组组长">
-      <meta name="step.reject.mode">any</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
+      <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
-      <meta name="approve.mode">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="reject.reason.mandatory">false</meta>
+      <meta name="approve.mode">true</meta>
       <object  name="lcIB_XYSP" editAttribute="0" >
         <columns>
           <column  name="ID" disabled="false" hidden="true" summary="false">
@@ -4843,7 +4773,7 @@ O_WORKFLOW.XYLX != 4 &amp;&amp; O_WORKFLOW.XYLX != 3 &amp;&amp; O_WORKFLOW.XYLX 
           </column>
           <column  name="CSRY" disabled="true" hidden="false" summary="false">
           </column>
-          <column  name="YWLX" disabled="false" hidden="false" summary="false">
+          <column  name="YWLX" disabled="false" hidden="true" summary="false">
           </column>
           <column  name="NHBZS" disabled="true" hidden="false" summary="false">
           </column>
@@ -4860,6 +4790,8 @@ O_WORKFLOW.XYLX != 4 &amp;&amp; O_WORKFLOW.XYLX != 3 &amp;&amp; O_WORKFLOW.XYLX 
                 </column>
                 <column  name="FJLX" disabled="true" hidden="false" summary="false">
                 </column>
+                <column  name="SFBT" disabled="true" hidden="false" summary="false">
+                </column>
                 <column  name="FJM" disabled="false" hidden="false" summary="false">
                 </column>
                 <column  name="WDMC" disabled="false" hidden="false" summary="false">
@@ -4869,6 +4801,8 @@ O_WORKFLOW.XYLX != 4 &amp;&amp; O_WORKFLOW.XYLX != 3 &amp;&amp; O_WORKFLOW.XYLX 
                 <column  name="SCSJ" disabled="true" hidden="false" summary="false">
                 </column>
                 <column  name="SFYY" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SFSY" disabled="false" hidden="false" summary="false">
                 </column>
                 <column  name="SF360XS" disabled="false" hidden="true" summary="false">
                 </column>
@@ -4934,13 +4868,13 @@ if (s&gt;0){
 LB_workAction(&quot;lcIB_XYSP&quot;,O_WORKFLOW.ID,143,&quot;&quot;);
 ABS_flushObjCache('WORKFLOW.TASK')
 }</arg>
-          <arg name="class.name"> com.apex.livebos.workflow.ExecExpressionFunction</arg>
+          <arg name="class.name">com.apex.livebos.workflow.ExecExpressionFunction</arg>
         </function>
       </pre-functions>
       <actions>
         <action id="143" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <meta name="allow.recover">true</meta>
           <results>
             <unconditional-result id="148" old-status="完成" status="待处理" step="145">
@@ -4950,10 +4884,12 @@ ABS_flushObjCache('WORKFLOW.TASK')
       </actions>
     </step>
     <step id="145" name="内核办文管提交OA审批">
-      <meta name="step.reject.mode">any</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
+      <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">false</meta>
       <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_XYSP" editAttribute="0" >
         <columns>
@@ -5025,7 +4961,7 @@ ABS_flushObjCache('WORKFLOW.TASK')
           </column>
           <column  name="CSRY" disabled="true" hidden="false" summary="false">
           </column>
-          <column  name="YWLX" disabled="false" hidden="false" summary="false">
+          <column  name="YWLX" disabled="false" hidden="true" summary="false">
           </column>
           <column  name="NHBZS" disabled="true" hidden="false" summary="false">
           </column>
@@ -5042,6 +4978,8 @@ ABS_flushObjCache('WORKFLOW.TASK')
                 </column>
                 <column  name="FJLX" disabled="true" hidden="false" summary="false">
                 </column>
+                <column  name="SFBT" disabled="true" hidden="false" summary="false">
+                </column>
                 <column  name="FJM" disabled="false" hidden="false" summary="false">
                 </column>
                 <column  name="WDMC" disabled="false" hidden="false" summary="false">
@@ -5051,6 +4989,8 @@ ABS_flushObjCache('WORKFLOW.TASK')
                 <column  name="SCSJ" disabled="true" hidden="false" summary="false">
                 </column>
                 <column  name="SFYY" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SFSY" disabled="false" hidden="false" summary="false">
                 </column>
                 <column  name="SF360XS" disabled="false" hidden="true" summary="false">
                 </column>
@@ -5110,8 +5050,8 @@ ABS_flushObjCache('WORKFLOW.TASK')
       </notify>
       <actions>
         <action id="146" name="提交OA审批">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <meta name="allow.recover">false</meta>
           <pre-functions>
             <function id="0" name="abs.Expression" type="null">
@@ -5124,13 +5064,12 @@ if(ret.get('ral')&gt;0){
 	true;
 }else{
 	false;
-}
-</arg>
-              <arg name="class.name"> com.apex.livebos.workflow.ExecExpressionFunction</arg>
+}</arg>
+              <arg name="class.name">com.apex.livebos.workflow.ExecExpressionFunction</arg>
             </function>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.PRO_IB_SENDWFNOTIFY(?,?,{0},{1},1)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.InstID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.QTCY&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.PRO_IB_SENDWFNOTIFY(?,?,{0},{1},1)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.InstID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.QTCY&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -5141,9 +5080,9 @@ if(ret.get('ral')&gt;0){
       </actions>
     </step>
     <step id="166" name="质控部文管审批">
+      <meta name="step.allow.reject">true</meta>
       <meta name="step.reject.mode">any</meta>
       <meta name="NodeType">16</meta>
-      <meta name="step.allow.reject">true</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_XYSP" editAttribute="0" >
         <columns>
@@ -5281,8 +5220,8 @@ if(ret.get('ral')&gt;0){
       </notify>
       <actions>
         <action id="167" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <results>
             <unconditional-result id="171" old-status="完成" status="待处理" step="169">
             </unconditional-result>
@@ -5291,8 +5230,9 @@ if(ret.get('ral')&gt;0){
       </actions>
     </step>
     <step id="169" name="质控部专员审核">
-      <meta name="NodeType">16</meta>
       <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_XYSP" editAttribute="0" >
         <columns>
@@ -5423,43 +5363,23 @@ if(ret.get('ral')&gt;0){
       <dynOwners>
         <dynOwner  type="0" describe="动态用户" >
           <expression><![CDATA[
-["tUser.ID ={0} OR INSTR(';'||{1}||';',';'||tUser.ID||';')>0",[{"expression":"O_WORKFLOW.ZKBZS","scale":0,"length":0,"type":0},{"expression":"O_WORKFLOW.ZKBFS","scale":0,"length":0,"type":0}]]]]></expression>
+["tUser.ID ={0} OR INSTR(';'||{1}||';',';'||tUser.ID||';')>0",[{"expression":"O_WORKFLOW.ZKBZS","length":0,"scale":0,"type":0},{"expression":"O_WORKFLOW.ZKBFS","length":0,"scale":0,"type":0}]]]]></expression>
           </dynOwner>
               </dynOwners>
       <notify >
       </notify>
       <actions>
         <action id="170" name="提交质控部职能审批">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
-          <pre-functions>
-            <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2},31)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
-              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
-            </function>
-            <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_IB_SetWFZkzy(?,?,{0},'lcIB_XYSP',{1},{2},2)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
-              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
-            </function>
-          </pre-functions>
+          <meta name="NodeType">17</meta>
           <results>
             <unconditional-result id="172" old-status="完成" status="待处理" step="38">
             </unconditional-result>
           </results>
         </action>
         <action id="174" name="提交项目组回复">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
-          <pre-functions>
-            <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2},31)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
-              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
-            </function>
-            <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_IB_SetWFZkzy(?,?,{0},'lcIB_XYSP',{1},{2},2)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
-              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
-            </function>
-          </pre-functions>
+          <meta name="NodeType">17</meta>
           <results>
             <unconditional-result id="175" old-status="完成" status="待处理" step="26">
             </unconditional-result>
@@ -5468,15 +5388,15 @@ if(ret.get('ral')&gt;0){
       </actions>
     </step>
     <step id="176" name="投资银行总部总经理审批">
-      <meta name="step.allow.approve.sign">true</meta>
-      <meta name="step.reject.mode">any</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
-      <meta name="approve.mode">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="reject.reason.mandatory">false</meta>
+      <meta name="approve.mode">true</meta>
       <object  name="lcIB_XYSP" editAttribute="0" >
         <columns>
           <column  name="ID" disabled="false" hidden="true" summary="false">
@@ -5613,31 +5533,31 @@ if(ret.get('ral')&gt;0){
       </notify>
       <actions>
         <action id="177" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
-            <unconditional-result id="178" old-status="完成" status="待处理" step="40">
+            <unconditional-result id="196" old-status="完成" status="待处理" step="40">
             </unconditional-result>
           </results>
         </action>
       </actions>
     </step>
     <step id="179" name="投资银行总部总经理审批">
-      <meta name="step.allow.approve.sign">true</meta>
-      <meta name="step.reject.mode">any</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
-      <meta name="approve.mode">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="reject.reason.mandatory">false</meta>
+      <meta name="approve.mode">true</meta>
       <object  name="lcIB_XYSP" editAttribute="0" >
         <columns>
           <column  name="ID" disabled="false" hidden="true" summary="false">
@@ -5774,197 +5694,30 @@ if(ret.get('ral')&gt;0){
       </notify>
       <actions>
         <action id="180" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
-            <unconditional-result id="203" old-status="完成" status="待处理" step="132">
+            <unconditional-result id="181" old-status="完成" status="待处理" step="132">
             </unconditional-result>
           </results>
         </action>
       </actions>
     </step>
     <step id="182" name="保荐业务部门负责人审核">
-      <meta name="step.allow.approve.sign">true</meta>
-      <meta name="step.reject.mode">any</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
-      <meta name="approve.mode">true</meta>
-      <meta name="reject.reason.mandatory">false</meta>
-      <object  name="lcIB_XYSP" editAttribute="0" >
-        <columns>
-          <column  name="ID" disabled="false" hidden="true" summary="false">
-          </column>
-          <column  name="InstID" disabled="false" hidden="true" summary="false">
-          </column>
-          <column  name="ZDWCBZ" disabled="false" hidden="true" summary="false">
-          </column>
-          <column  name="SQR" disabled="true" hidden="false" summary="false">
-          </column>
-          <column  name="SQBM" disabled="true" hidden="false" summary="false">
-          </column>
-          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
-          </column>
-          <column  name="LCBH" disabled="true" hidden="false" summary="false">
-          </column>
-          <column  name="OLDBH" disabled="false" hidden="true" summary="false">
-          </column>
-          <column  name="LCBT" disabled="true" hidden="false" summary="false">
-          </column>
-          <column  name="GWZW" disabled="true" hidden="false" summary="false">
-          </column>
-          <column  name="LDSP" disabled="true" hidden="false" summary="false">
-          </column>
-          <column  name="XMMC" disabled="true" hidden="false" summary="false">
-          </column>
-          <column  name="XMLX" disabled="true" hidden="false" summary="false">
-          </column>
-          <column  name="XMFZR" disabled="true" hidden="false" summary="false">
-          </column>
-          <column  name="BJDBR" disabled="true" hidden="false" summary="false">
-          </column>
-          <column  name="XMZCY" disabled="true" hidden="false" summary="false">
-          </column>
-          <column  name="XMJBQK_T" disabled="true" hidden="false" summary="false">
-          </column>
-          <column  name="XMJBQK" disabled="true" hidden="false" summary="false">
-          </column>
-          <column  name="XYLX" disabled="true" hidden="false" summary="false">
-          </column>
-          <column  name="SSFDF" disabled="true" hidden="false" summary="false">
-          </column>
-          <column  name="QYRQ" disabled="true" hidden="false" summary="false">
-          </column>
-          <column  name="XYMC" disabled="true" hidden="false" summary="false">
-          </column>
-          <column  name="PWRQ" disabled="true" hidden="false" summary="false">
-          </column>
-          <column  name="SKTJ" disabled="true" hidden="false" summary="false">
-          </column>
-          <column  name="XYZJE" disabled="true" hidden="false" summary="false">
-          </column>
-          <column  name="CWGWF" disabled="true" hidden="false" summary="false">
-          </column>
-          <column  name="ZKBZS" disabled="false" hidden="true" summary="false">
-          </column>
-          <column  name="ZKBFS" disabled="false" hidden="true" summary="false">
-          </column>
-          <column  name="JGTS" disabled="true" hidden="false" summary="false">
-          </column>
-          <column  name="JGTSXX" disabled="true" hidden="false" summary="false">
-          </column>
-          <column  name="NHBZS" disabled="false" hidden="true" summary="false">
-          </column>
-          <column  name="NHBFS" disabled="false" hidden="true" summary="false">
-          </column>
-          <column  name="XYFJ" disabled="true" hidden="false" summary="false">
-            <object  name="lcIB_XYSP_FJ" editAttribute="8" >
-              <columns>
-                <column  name="ID" disabled="false" hidden="true" summary="false">
-                </column>
-                <column  name="TJSX" disabled="true" hidden="false" summary="false">
-                </column>
-                <column  name="FJLX" disabled="true" hidden="false" summary="false">
-                </column>
-                <column  name="FJM" disabled="false" hidden="false" summary="false">
-                </column>
-                <column  name="WDMC" disabled="false" hidden="false" summary="false">
-                </column>
-                <column  name="SCZ" disabled="true" hidden="false" summary="false">
-                </column>
-                <column  name="SCSJ" disabled="true" hidden="false" summary="false">
-                </column>
-                <column  name="SF360XS" disabled="false" hidden="true" summary="false">
-                </column>
-              </columns>
-            </object>
-          </column>
-          <column  name="DBXZ" disabled="false" hidden="false" summary="false">
-          </column>
-          <column  name="YJSKXX" disabled="true" hidden="false" summary="false">
-            <object  name="lcIB_XYSP_YJSKXX" editAttribute="8" >
-              <columns>
-                <column  name="ID" disabled="false" hidden="true" summary="false">
-                </column>
-                <column  name="TKMC" disabled="false" hidden="false" summary="false">
-                </column>
-                <column  name="TKSM" disabled="false" hidden="false" summary="false">
-                </column>
-                <column  name="YSKJE" disabled="false" hidden="false" summary="false">
-                </column>
-                <column  name="YJSKRQ" disabled="false" hidden="false" summary="false">
-                </column>
-              </columns>
-            </object>
-          </column>
-          <column  name="SJSKXX" disabled="false" hidden="true" summary="false">
-            <object  name="lcIB_XYSP_SJSKXX" editAttribute="8" >
-              <columns>
-                <column  name="ID" disabled="false" hidden="true" summary="false">
-                </column>
-                <column  name="TKMC" disabled="false" hidden="false" summary="false">
-                </column>
-                <column  name="SJSKRQ" disabled="false" hidden="false" summary="false">
-                </column>
-                <column  name="SJSKJE" disabled="false" hidden="false" summary="false">
-                </column>
-                <column  name="TKSM" disabled="false" hidden="false" summary="false">
-                </column>
-              </columns>
-            </object>
-          </column>
-          <column  name="OASPXX" disabled="false" hidden="false" summary="false">
-          </column>
-        </columns>
-      </object>
-      <dynOwners>
-        <dynOwner  type="1" describe="动态用户" >
-          <expression><![CDATA[
-{"name":"DW_BJYWBMFZR","parameters":{}}]]></expression>
-          </dynOwner>
-              </dynOwners>
-      <notify >
-      </notify>
-      <actions>
-        <action id="183" name="审批通过">
-          <meta name="NodeType">17</meta>
-          <meta name="approve.action">true</meta>
-          <pre-functions>
-            <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
-              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
-            </function>
-          </pre-functions>
-          <results>
-            <result id="187" old-status="完成" status="待处理" step="166">
-              <conditions>
-                <condition id="0" name="abs.FormExpOfStepCondition" type="class">
-                  <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
-O_WORKFLOW.XYLX==3||O_WORKFLOW.XYLX==7</arg>
-                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
-                  <arg name="Table">lcIB_XYSP</arg>
-                </condition>
-              </conditions>
-            </result>
-            <unconditional-result id="186" old-status="完成" status="待处理" step="32">
-            </unconditional-result>
-          </results>
-        </action>
-      </actions>
-    </step>
-    <step id="193" name="内核办权益类团队负责人" owner="$R{170}">
       <meta name="step.reject.mode">any</meta>
       <meta name="NodeType">16</meta>
-      <meta name="step.allow.reassign">true</meta>
-      <meta name="step.allow.reject">true</meta>
+      <meta name="reject.reason.mandatory">false</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_XYSP" editAttribute="0" >
         <columns>
@@ -6036,7 +5789,197 @@ O_WORKFLOW.XYLX==3||O_WORKFLOW.XYLX==7</arg>
           </column>
           <column  name="CSRY" disabled="true" hidden="false" summary="false">
           </column>
-          <column  name="YWLX" disabled="false" hidden="false" summary="false">
+          <column  name="YWLX" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="NHBZS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="NHBFS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="BZSM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XYFJ" disabled="true" hidden="false" summary="false">
+            <object  name="lcIB_XYSP_FJ" editAttribute="8" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="TJSX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJLX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SFBT" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJM" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="WDMC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SCZ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SCSJ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SFYY" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SFSY" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SF360XS" disabled="false" hidden="true" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+          <column  name="DBXZ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FYYBCWJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="YJSKXX" disabled="true" hidden="false" summary="false">
+            <object  name="lcIB_XYSP_YJSKXX" editAttribute="8" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="TKMC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="TKSM" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="YSKJE" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="YJSKRQ" disabled="false" hidden="false" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+          <column  name="SJSKXX" disabled="false" hidden="true" summary="false">
+            <object  name="lcIB_XYSP_SJSKXX" editAttribute="8" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="TKMC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SJSKRQ" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SJSKJE" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="TKSM" disabled="false" hidden="false" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+          <column  name="OASPXX" disabled="false" hidden="false" summary="false">
+          </column>
+        </columns>
+      </object>
+      <dynOwners>
+        <dynOwner  type="1" describe="动态用户" >
+          <expression><![CDATA[
+{"name":"DW_BJYWBMFZR","parameters":{}}]]></expression>
+          </dynOwner>
+              </dynOwners>
+      <notify >
+      </notify>
+      <actions>
+        <action id="183" name="审批通过">
+          <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <result id="220" old-status="完成" status="待处理" step="87">
+              <conditions>
+                <condition id="0" name="abs.FormExpOfStepCondition" type="class">
+                  <arg name="Table">lcIB_XYSP</arg>
+                  <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+O_WORKFLOW.XYLX==4</arg>
+                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
+                </condition>
+              </conditions>
+            </result>
+            <unconditional-result id="219" old-status="完成" status="待处理" step="166">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+    <step id="193" name="内核办权益类团队负责人" owner="$R{170}">
+      <meta name="step.approve.sign.action.name"></meta>
+      <meta name="step.allow.approve.sign">true</meta>
+      <meta name="approve.sign.modes">endorsesign</meta>
+      <meta name="step.allow.reassign">true</meta>
+      <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
+      <meta name="approve.mode">true</meta>
+      <object  name="lcIB_XYSP" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="ZDWCBZ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="OLDBH" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="YYZL" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="GWZW" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="Cs" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="Csong" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="LDSP" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMLX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMFZR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="BJDBR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMZCY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMJBQK_T" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMJBQK" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XYLX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="QYRQ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XYMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SSFDF" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="PWRQ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SKTJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XYZJE" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="CWGWF" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZKBZS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="ZKBFS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="JGTS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="JGTSXX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="CSRY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="YWLX" disabled="false" hidden="true" summary="false">
           </column>
           <column  name="NHBZS" disabled="true" hidden="false" summary="false">
           </column>
@@ -6053,6 +5996,8 @@ O_WORKFLOW.XYLX==3||O_WORKFLOW.XYLX==7</arg>
                 </column>
                 <column  name="FJLX" disabled="true" hidden="false" summary="false">
                 </column>
+                <column  name="SFBT" disabled="true" hidden="false" summary="false">
+                </column>
                 <column  name="FJM" disabled="false" hidden="false" summary="false">
                 </column>
                 <column  name="WDMC" disabled="false" hidden="false" summary="false">
@@ -6062,6 +6007,8 @@ O_WORKFLOW.XYLX==3||O_WORKFLOW.XYLX==7</arg>
                 <column  name="SCSJ" disabled="true" hidden="false" summary="false">
                 </column>
                 <column  name="SFYY" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SFSY" disabled="false" hidden="false" summary="false">
                 </column>
                 <column  name="SF360XS" disabled="false" hidden="true" summary="false">
                 </column>
@@ -6115,8 +6062,8 @@ O_WORKFLOW.XYLX==3||O_WORKFLOW.XYLX==7</arg>
       </notify>
       <actions>
         <action id="194" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <meta name="allow.recover">true</meta>
           <results>
             <unconditional-result id="195" old-status="完成" status="待处理" step="138">
@@ -6125,16 +6072,16 @@ O_WORKFLOW.XYLX==3||O_WORKFLOW.XYLX==7</arg>
         </action>
       </actions>
     </step>
-    <step id="196" name="保荐业务部门负责人审核">
-      <meta name="step.reject.mode">any</meta>
-      <meta name="step.allow.approve.sign">true</meta>
+    <step id="197" name="保荐业务部门负责人审核">
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
-      <meta name="approve.mode">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="reject.reason.mandatory">false</meta>
+      <meta name="approve.mode">true</meta>
       <object  name="lcIB_XYSP" editAttribute="0" >
         <columns>
           <column  name="ID" disabled="false" hidden="true" summary="false">
@@ -6270,32 +6217,32 @@ O_WORKFLOW.XYLX==3||O_WORKFLOW.XYLX==7</arg>
       <notify >
       </notify>
       <actions>
-        <action id="197" name="审批通过">
-          <meta name="NodeType">17</meta>
+        <action id="198" name="审批通过">
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
-            <unconditional-result id="199" old-status="完成" status="待处理" step="40">
+            <unconditional-result id="202" old-status="完成" status="待处理" step="40">
             </unconditional-result>
           </results>
         </action>
       </actions>
     </step>
-    <step id="201" name="保荐业务部门负责人审核复件">
-      <meta name="step.allow.approve.sign">true</meta>
-      <meta name="step.reject.mode">any</meta>
+    <step id="199" name="保荐业务部门负责人审核">
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
-      <meta name="approve.mode">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="reject.reason.mandatory">false</meta>
+      <meta name="approve.mode">true</meta>
       <object  name="lcIB_XYSP" editAttribute="0" >
         <columns>
           <column  name="ID" disabled="false" hidden="true" summary="false">
@@ -6431,17 +6378,564 @@ O_WORKFLOW.XYLX==3||O_WORKFLOW.XYLX==7</arg>
       <notify >
       </notify>
       <actions>
-        <action id="202" name="审批通过">
-          <meta name="NodeType">17</meta>
+        <action id="200" name="审批通过">
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
             <unconditional-result id="205" old-status="完成" status="待处理" step="132">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+    <step id="209" name="并购融资部总经理审批">
+      <meta name="step.approve.sign.action.name">会签</meta>
+      <meta name="step.allow.approve.sign">true</meta>
+      <meta name="approve.sign.modes">endorsesign</meta>
+      <meta name="step.allow.reassign">true</meta>
+      <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
+      <meta name="reject.reason.mandatory">false</meta>
+      <meta name="step.allow.auto.approve">false</meta>
+      <meta name="approve.mode">true</meta>
+      <object  name="lcIB_XYSP" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="ZDWCBZ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="OLDBH" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="LCBT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="GWZW" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LDSP" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMLX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMFZR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="BJDBR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMZCY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMJBQK_T" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMJBQK" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XYLX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SSFDF" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="QYRQ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XYMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="PWRQ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SKTJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XYZJE" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="CWGWF" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZKBZS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="ZKBFS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="JGTS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="JGTSXX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="NHBZS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="NHBFS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="XYFJ" disabled="true" hidden="false" summary="false">
+            <object  name="lcIB_XYSP_FJ" editAttribute="127" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="TJSX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJLX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJM" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="WDMC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SCZ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SCSJ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SF360XS" disabled="false" hidden="true" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+          <column  name="DBXZ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="YJSKXX" disabled="true" hidden="false" summary="false">
+            <object  name="lcIB_XYSP_YJSKXX" editAttribute="8" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="TKMC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="TKSM" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="YSKJE" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="YJSKRQ" disabled="false" hidden="false" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+          <column  name="SJSKXX" disabled="false" hidden="true" summary="false">
+            <object  name="lcIB_XYSP_SJSKXX" editAttribute="8" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="TKMC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SJSKRQ" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SJSKJE" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="TKSM" disabled="false" hidden="false" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+          <column  name="OASPXX" disabled="false" hidden="false" summary="false">
+          </column>
+        </columns>
+      </object>
+      <dynOwners>
+        <dynOwner  type="1" describe="动态用户" >
+          <expression><![CDATA[
+{"name":"DW_GSBGRZBZJL","parameters":{}}]]></expression>
+          </dynOwner>
+              </dynOwners>
+      <notify >
+      </notify>
+      <pre-functions>
+        <function id="0" name="abs.Expression" type="null">
+          <arg name="expression">var s=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.OS_CURRENTSTEP T,JGCRM.LBWFCURRENTOWNER A WHERE T.ID = A.STEPID AND T.ENTRY_ID = ? AND T.STEP_ID = 209 AND A.OWNER = ?&quot;,[O_WORKFLOW.InstID,$Login.User]);
+if (s&gt;0){
+LB_workAction(&quot;lcIB_XYSP&quot;,O_WORKFLOW.ID,210,&quot;&quot;);
+ABS_flushObjCache('WORKFLOW.TASK')
+}</arg>
+          <arg name="class.name"> com.apex.livebos.workflow.ExecExpressionFunction</arg>
+        </function>
+      </pre-functions>
+      <actions>
+        <action id="210" name="审批通过">
+          <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <result id="217" old-status="完成" status="待处理" step="182">
+              <conditions>
+                <condition id="0" name="abs.FormExpOfStepCondition" type="class">
+                  <arg name="Table">lcIB_XYSP</arg>
+                  <arg name="expression"> &lt;%@ livebos language='javascript' %&gt;
+var cnt1 = ABS_SQLVALUE(&quot;select count(1) from ecif.tIB_XMLX where SFTZ=1 and id = ?&quot;,[O_WORKFLOW.XMMC.XMLX]);
+cnt1 == 0 </arg>
+                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
+                </condition>
+              </conditions>
+            </result>
+            <unconditional-result id="216" old-status="完成" status="待处理" step="166">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+    <step id="222" name="并购融资部总经理审批">
+      <meta name="step.approve.sign.action.name">会签</meta>
+      <meta name="step.allow.approve.sign">true</meta>
+      <meta name="approve.sign.modes">endorsesign</meta>
+      <meta name="step.allow.reassign">true</meta>
+      <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
+      <meta name="reject.reason.mandatory">false</meta>
+      <meta name="approve.mode">true</meta>
+      <object  name="lcIB_XYSP" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="ZDWCBZ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="OLDBH" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="LCBT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="GWZW" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LDSP" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMLX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMFZR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="BJDBR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMZCY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMJBQK_T" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMJBQK" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XYLX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SSFDF" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="QYRQ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XYMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="PWRQ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SKTJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XYZJE" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="CWGWF" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZKBZS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="ZKBFS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="JGTS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="JGTSXX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="NHBZS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="NHBFS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="XYFJ" disabled="true" hidden="false" summary="false">
+            <object  name="lcIB_XYSP_FJ" editAttribute="127" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="TJSX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJLX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJM" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="WDMC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SCZ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SCSJ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SF360XS" disabled="false" hidden="true" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+          <column  name="DBXZ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="YJSKXX" disabled="true" hidden="false" summary="false">
+            <object  name="lcIB_XYSP_YJSKXX" editAttribute="8" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="TKMC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="TKSM" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="YSKJE" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="YJSKRQ" disabled="false" hidden="false" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+          <column  name="SJSKXX" disabled="false" hidden="true" summary="false">
+            <object  name="lcIB_XYSP_SJSKXX" editAttribute="8" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="TKMC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SJSKRQ" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SJSKJE" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="TKSM" disabled="false" hidden="false" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+          <column  name="OASPXX" disabled="false" hidden="false" summary="false">
+          </column>
+        </columns>
+      </object>
+      <dynOwners>
+        <dynOwner  type="1" describe="动态用户" >
+          <expression><![CDATA[
+{"name":"DW_GSBGRZBZJL","parameters":{}}]]></expression>
+          </dynOwner>
+              </dynOwners>
+      <notify >
+      </notify>
+      <pre-functions>
+        <function id="0" name="abs.Expression" type="null">
+          <arg name="expression">var s=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.OS_CURRENTSTEP T,JGCRM.LBWFCURRENTOWNER A WHERE T.ID = A.STEPID AND T.ENTRY_ID = ? AND T.STEP_ID = 222 AND A.OWNER = ?&quot;,[O_WORKFLOW.InstID,$Login.User]);
+if (s&gt;0){
+LB_workAction(&quot;lcIB_XYSP&quot;,O_WORKFLOW.ID,223,&quot;&quot;);
+ABS_flushObjCache('WORKFLOW.TASK')
+}</arg>
+          <arg name="class.name"> com.apex.livebos.workflow.ExecExpressionFunction</arg>
+        </function>
+      </pre-functions>
+      <actions>
+        <action id="223" name="审批通过">
+          <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <result id="226" old-status="完成" status="待处理" step="197">
+              <conditions>
+                <condition id="0" name="abs.FormExpOfStepCondition" type="class">
+                  <arg name="Table">lcIB_XYSP</arg>
+                  <arg name="expression"> &lt;%@ livebos language='javascript' %&gt;
+var cnt1 = ABS_SQLVALUE(&quot;select count(1) from ecif.tIB_XMLX where SFTZ=1 and id = ?&quot;,[O_WORKFLOW.XMMC.XMLX]);
+cnt1 == 0 </arg>
+                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
+                </condition>
+              </conditions>
+            </result>
+            <unconditional-result id="225" old-status="完成" status="待处理" step="40">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+    <step id="227" name="并购融资部总经理审批">
+      <meta name="step.approve.sign.action.name">会签</meta>
+      <meta name="step.allow.approve.sign">true</meta>
+      <meta name="approve.sign.modes">endorsesign</meta>
+      <meta name="step.allow.reassign">true</meta>
+      <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
+      <meta name="reject.reason.mandatory">false</meta>
+      <meta name="approve.mode">true</meta>
+      <object  name="lcIB_XYSP" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="ZDWCBZ" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="OLDBH" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="LCBT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="GWZW" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LDSP" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMLX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMFZR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="BJDBR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMZCY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMJBQK_T" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMJBQK" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XYLX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SSFDF" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="QYRQ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XYMC" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="PWRQ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SKTJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XYZJE" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="CWGWF" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="ZKBZS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="ZKBFS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="JGTS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="JGTSXX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="NHBZS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="NHBFS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="XYFJ" disabled="true" hidden="false" summary="false">
+            <object  name="lcIB_XYSP_FJ" editAttribute="127" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="TJSX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJLX" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="FJM" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="WDMC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SCZ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SCSJ" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SF360XS" disabled="false" hidden="true" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+          <column  name="DBXZ" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="YJSKXX" disabled="true" hidden="false" summary="false">
+            <object  name="lcIB_XYSP_YJSKXX" editAttribute="8" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="TKMC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="TKSM" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="YSKJE" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="YJSKRQ" disabled="false" hidden="false" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+          <column  name="SJSKXX" disabled="false" hidden="true" summary="false">
+            <object  name="lcIB_XYSP_SJSKXX" editAttribute="8" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="TKMC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SJSKRQ" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SJSKJE" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="TKSM" disabled="false" hidden="false" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+          <column  name="OASPXX" disabled="false" hidden="false" summary="false">
+          </column>
+        </columns>
+      </object>
+      <dynOwners>
+        <dynOwner  type="1" describe="动态用户" >
+          <expression><![CDATA[
+{"name":"DW_GSBGRZBZJL","parameters":{}}]]></expression>
+          </dynOwner>
+              </dynOwners>
+      <notify >
+      </notify>
+      <pre-functions>
+        <function id="0" name="abs.Expression" type="null">
+          <arg name="expression">var s=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.OS_CURRENTSTEP T,JGCRM.LBWFCURRENTOWNER A WHERE T.ID = A.STEPID AND T.ENTRY_ID = ? AND T.STEP_ID = 227 AND A.OWNER = ?&quot;,[O_WORKFLOW.InstID,$Login.User]);
+if (s&gt;0){
+LB_workAction(&quot;lcIB_XYSP&quot;,O_WORKFLOW.ID,228,&quot;&quot;);
+ABS_flushObjCache('WORKFLOW.TASK')
+}</arg>
+          <arg name="class.name"> com.apex.livebos.workflow.ExecExpressionFunction</arg>
+        </function>
+      </pre-functions>
+      <actions>
+        <action id="228" name="审批通过">
+          <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcib_xysp',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <result id="231" old-status="完成" status="待处理" step="199">
+              <conditions>
+                <condition id="0" name="abs.FormExpOfStepCondition" type="class">
+                  <arg name="Table">lcIB_XYSP</arg>
+                  <arg name="expression"> &lt;%@ livebos language='javascript' %&gt;
+var cnt1 = ABS_SQLVALUE(&quot;select count(1) from ecif.tIB_XMLX where SFTZ=1 and id = ?&quot;,[O_WORKFLOW.XMMC.XMLX]);
+cnt1 == 0 </arg>
+                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
+                </condition>
+              </conditions>
+            </result>
+            <unconditional-result id="230" old-status="完成" status="待处理" step="132">
             </unconditional-result>
           </results>
         </action>

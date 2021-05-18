@@ -94,7 +94,14 @@
             <check-type>0</check-type>
             <real-type>0</real-type>
             <comment/>
-            <validation/>
+            <validation>
+                <validator name="expression">
+                    <expression>&lt;%@ livebos language='javascript' %&gt;
+SJ &lt; 100 </expression>
+                    <message>企业债非银行间时间截点需小于100日</message>
+                    <attribute>0</attribute>
+                </validator>
+            </validation>
             <scope-permissions/>
         </column>
         <column>

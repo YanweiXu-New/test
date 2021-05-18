@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="GB2312"?>
+<?xml version="1.0" encoding="gb2312"?>
 <process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_NHLCB_DZBGCZ_Operatelnitialize_UI" object="lcIB_NHLCB_DZBGCZ" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
   <describe>界面初始化界面事件</describe>
   <variables>
@@ -73,7 +73,7 @@ ABS_SQLVALUE("SELECT WY FROM ECIF.TIB_WYHXX_WYJS WHERE TIB_WYHXX_ID = (SELECT ID
         <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
           <describe>数据库组件_SQL查询</describe>
           <arg name="TranType">sql</arg>
-          <arg name="SQL">["SELECT ID,wdlxm,tjsx,XM360ZS FROM tIB_WDLXPZ WHERE lcbd='lcIB_NHLCB_DZBGCZ' AND XMLX=1 AND BZSM ='申报材料' ORDER by tjsx",[]]</arg>
+          <arg name="SQL">["SELECT ID,wdlxm,tjsx,XM360ZS,sfbt FROM tIB_WDLXPZ WHERE lcbd='lcIB_NHLCB_DZBGCZ' AND XMLX=1 AND BZSM ='申报材料' ORDER by tjsx",[]]</arg>
           <arg name="datasource">ECIF</arg>
           <arg name="@retResultSet" type="output">V_FJLX</arg>
         </invoke>
@@ -87,11 +87,12 @@ ABS_SQLVALUE("SELECT WY FROM ECIF.TIB_WYHXX_WYJS WHERE TIB_WYHXX_ID = (SELECT ID
           <arg name="@resultSet" type="variable">V_FJLX</arg>
           <arg flag="field" name="SF360XS">XM360ZS</arg>
           <arg flag="field" name="TJSX">tjsx</arg>
+          <arg flag="field" name="SFBT">sfbt</arg>
         </invoke>
         <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
           <describe>数据库组件_SQL查询</describe>
           <arg name="TranType">sql</arg>
-          <arg name="SQL">["SELECT ID,wdlxm,tjsx,XM360ZS FROM tIB_WDLXPZ WHERE lcbd='lcIB_NHLCB_DZBGCZ' AND XMLX=1 AND BZSM ='尽职调查' ORDER by tjsx",[]]</arg>
+          <arg name="SQL">["SELECT ID,wdlxm,tjsx,XM360ZS,sfbt FROM tIB_WDLXPZ WHERE lcbd='lcIB_NHLCB_DZBGCZ' AND XMLX=1 AND BZSM ='尽职调查' ORDER by tjsx",[]]</arg>
           <arg name="@retResultSet" type="output">V_JZDC</arg>
           <arg name="datasource">ECIF</arg>
         </invoke>
@@ -105,6 +106,7 @@ ABS_SQLVALUE("SELECT WY FROM ECIF.TIB_WYHXX_WYJS WHERE TIB_WYHXX_ID = (SELECT ID
           <arg flag="field" name="SF360XS">XM360ZS</arg>
           <arg name="@clearRowsets">true</arg>
           <arg name="@resultSet" type="variable">V_JZDC</arg>
+          <arg flag="field" name="SFBT">sfbt</arg>
         </invoke>
       </sequence>
     </if>

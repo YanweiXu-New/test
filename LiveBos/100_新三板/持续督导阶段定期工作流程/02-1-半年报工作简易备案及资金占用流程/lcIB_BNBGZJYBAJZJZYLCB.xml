@@ -275,7 +275,7 @@
             <comment/>
             <validation/>
             <constraint type="3">
-                <SQL>["tIB_XMXX_XSB.KPJD = 112 AND (tIB_XMXX_XSB.CXDDZY = {0} OR tIB_XMXX_XSB.BMJCSDDZY = {0})",[{"expression":"$Login.User","length":0,"scale":0,"type":1}]]</SQL>
+                <SQL>["tIB_XMXX_XSB.KPJD IN (112) AND (tIB_XMXX_XSB.CXDDZY = {0} OR tIB_XMXX_XSB.BMJCSDDZY = {0})",[{"expression":"$Login.User","scale":0,"length":0,"type":1}]]</SQL>
                 <refColumns/>
             </constraint>
             <scope-permissions/>
@@ -742,6 +742,9 @@ SFZJZY!=1 </invisible-expression>
             </event>
             <event attribute="0" src="XMMC" type="0">
                 <process-name>lcIB_BNBGZJYBAJZJZYLCB_XMMC_UI</process-name>
+            </event>
+            <event attribute="0" src="MJZJSYGLCZWT" type="0">
+                <process-name>lcIB_BNBGZJYBAJZJZYLCB_MJZJSYGLCZWT_UI</process-name>
             </event>
         </events>
     </ui-logics>

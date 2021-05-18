@@ -1,192 +1,276 @@
-<?xml version="1.0" encoding="GB2312" standalone="no"?>
-<object create-date="2020.08.07 09:40:14" creator="xuyanwei.apex" flag="0" name="lcIB_XSB_DZBG_FKHFLC_YJHZ" object-id="2b030150-f95e-4a23-864a-0d5feaa5e8e9" package="100_新三板.持续督导阶段定期工作流程.07-反馈回复（定增、并购）" type="15" version="1.0">
-    <describe>意见汇总</describe>
-    <parent>lcIB_XSB_DZBG_FKHFLC</parent>
-    <attribute>264</attribute>
-    <columns>
-        <column>
-            <name>ID</name>
-            <describe>ID</describe>
-            <type>1</type>
-            <biz-type>200</biz-type>
-            <length>16</length>
-            <scale>0</scale>
-            <control>0</control>
-            <primary-property>2</primary-property>
-            <nullable>false</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>false</visible>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <category/>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-        </column>
-        <column>
-            <name>LC</name>
-            <describe>轮次</describe>
-            <type>1</type>
-            <biz-type>200</biz-type>
-            <length>10</length>
-            <scale>0</scale>
-            <control>1</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
-            <option/>
-            <ref-object/>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <category/>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-        </column>
-        <column>
-            <name>ZKBSHYJ</name>
-            <describe>质控部审核意见</describe>
-            <type>21</type>
-            <biz-type>802</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>42</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>true</visible>
-            <option/>
-            <ref-object/>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <category/>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <properties/>
-        </column>
-        <column>
-            <name>SHYJWDMC</name>
-            <describe>审核意见文档名称</describe>
-            <type>0</type>
-            <biz-type>100</biz-type>
-            <length>1000</length>
-            <scale>0</scale>
-            <control>16</control>
-            <primary-property>8</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <expression>ABS_SQLVALUE("SELECT ECIF.FUNC_IB_GETALLWDMC(?) FROM DUAL",[ZKBSHYJ])            </expression>
-            <category/>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-        </column>
-        <column>
-            <name>ZKBDGYJ</name>
-            <describe>质控部底稿意见</describe>
-            <type>21</type>
-            <biz-type>802</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>42</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>true</visible>
-            <option/>
-            <ref-object/>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <category/>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <properties/>
-        </column>
-        <column>
-            <name>DGYJWDMC</name>
-            <describe>底稿意见文档名称</describe>
-            <type>0</type>
-            <biz-type>100</biz-type>
-            <length>1000</length>
-            <scale>0</scale>
-            <control>16</control>
-            <primary-property>8</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <expression>ABS_SQLVALUE("SELECT ECIF.FUNC_IB_GETALLWDMC(?) FROM DUAL",[ZKBDGYJ])            </expression>
-            <category/>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-        </column>
-        <column>
-            <name>ZKBQTYJ</name>
-            <describe>质控部其他意见</describe>
-            <type>21</type>
-            <biz-type>802</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>42</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>true</visible>
-            <option/>
-            <ref-object/>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <category/>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <properties/>
-        </column>
-        <column>
-            <name>QTYJWDMC</name>
-            <describe>其他意见文档名称</describe>
-            <type>0</type>
-            <biz-type>100</biz-type>
-            <length>1000</length>
-            <scale>0</scale>
-            <control>16</control>
-            <primary-property>8</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <expression>ABS_SQLVALUE("SELECT ECIF.FUNC_IB_GETALLWDMC(?) FROM DUAL",[ZKBQTYJ])</expression>
-            <category/>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-        </column>
-    </columns>
-    <display-options>
-        <commands/>
-        <relations/>
-    </display-options>
-    <subdivisions/>
-    <methods/>
-    <properties/>
-    <orders/>
-    <panels/>
-    <extend-buttons/>
+<?xml version="1.0" encoding="gb2312"?>
+<object name="lcIB_XSB_DZBG_FKHFLC_YJHZ" type="15" object-id="2b030150-f95e-4a23-864a-0d5feaa5e8e9" version="1.0" modify-date="null" create-date="2020.08.07 09:40:14" modifier="null" creator="xuyanwei.apex" package="100_新三板.持续督导阶段定期工作流程.07-反馈回复（定增、并购）" flag="0">
+  <describe>意见汇总</describe>
+  <comment />
+  <parent>lcIB_XSB_DZBG_FKHFLC</parent>
+  <attribute>264</attribute>
+  <templet>默认</templet>
+  <datasource-name>ECIF</datasource-name>
+  <columns>
+    <column>
+      <name>ID</name>
+      <describe>ID</describe>
+      <comment />
+      <biz-type>200</biz-type>
+      <type>1</type>
+      <length>16</length>
+      <scale>0</scale>
+      <control>0</control>
+      <primary-property>2</primary-property>
+      <option />
+      <ref-object />
+      <default />
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category />
+      <fire-event>0</fire-event>
+      <visible>false</visible>
+      <enabled>false</enabled>
+      <nullable>false</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+    <column>
+      <name>LC</name>
+      <describe>轮次</describe>
+      <comment />
+      <biz-type>200</biz-type>
+      <type>1</type>
+      <length>10</length>
+      <scale>0</scale>
+      <control>1</control>
+      <primary-property>0</primary-property>
+      <option />
+      <ref-object />
+      <default />
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category />
+      <fire-event>0</fire-event>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+    <column>
+      <name>ZKBSHYJ</name>
+      <describe>质控部审核意见</describe>
+      <comment />
+      <biz-type>802</biz-type>
+      <type>21</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>42</control>
+      <primary-property>0</primary-property>
+      <option />
+      <ref-object />
+      <default />
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category />
+      <fire-event>0</fire-event>
+      <visible>true</visible>
+      <enabled>false</enabled>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+    <column>
+      <name>SHYJWDMC</name>
+      <describe>审核意见文档名称</describe>
+      <comment />
+      <biz-type>100</biz-type>
+      <type>0</type>
+      <length>1000</length>
+      <scale>0</scale>
+      <control>16</control>
+      <primary-property>8</primary-property>
+      <option />
+      <ref-object />
+      <default />
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression><![CDATA[ABS_SQLVALUE("SELECT ECIF.FUNC_IB_GETALLWDMC(?) FROM DUAL",[ZKBSHYJ])]]></expression>
+      <category />
+      <fire-event>0</fire-event>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+    <column>
+      <name>ZKBDGYJ</name>
+      <describe>质控部底稿意见</describe>
+      <comment />
+      <biz-type>802</biz-type>
+      <type>21</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>42</control>
+      <primary-property>0</primary-property>
+      <option />
+      <ref-object />
+      <default />
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category />
+      <fire-event>0</fire-event>
+      <visible>true</visible>
+      <enabled>false</enabled>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+    <column>
+      <name>DGYJWDMC</name>
+      <describe>底稿意见文档名称</describe>
+      <comment />
+      <biz-type>100</biz-type>
+      <type>0</type>
+      <length>1000</length>
+      <scale>0</scale>
+      <control>16</control>
+      <primary-property>8</primary-property>
+      <option />
+      <ref-object />
+      <default />
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression><![CDATA[ABS_SQLVALUE("SELECT ECIF.FUNC_IB_GETALLWDMC(?) FROM DUAL",[ZKBDGYJ])]]></expression>
+      <category />
+      <fire-event>0</fire-event>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+    <column>
+      <name>ZKBQTYJ</name>
+      <describe>质控部其他意见</describe>
+      <comment />
+      <biz-type>802</biz-type>
+      <type>21</type>
+      <length>0</length>
+      <scale>0</scale>
+      <control>42</control>
+      <primary-property>0</primary-property>
+      <option />
+      <ref-object />
+      <default />
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression />
+      <category />
+      <fire-event>0</fire-event>
+      <visible>true</visible>
+      <enabled>false</enabled>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+    <column>
+      <name>QTYJWDMC</name>
+      <describe>其他意见文档名称</describe>
+      <comment />
+      <biz-type>100</biz-type>
+      <type>0</type>
+      <length>1000</length>
+      <scale>0</scale>
+      <control>16</control>
+      <primary-property>8</primary-property>
+      <option />
+      <ref-object />
+      <default />
+      <real-type>0</real-type>
+      <attribute>0</attribute>
+      <order-direction>0</order-direction>
+      <expression><![CDATA[ABS_SQLVALUE("SELECT ECIF.FUNC_IB_GETALLWDMC(?) FROM DUAL",[ZKBQTYJ])]]></expression>
+      <category />
+      <fire-event>0</fire-event>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <nullable>true</nullable>
+      <unique>false</unique>
+      <encrypt>false</encrypt>
+      <check-type>0</check-type>
+      <meta-column />
+      <invisible-expression />
+      <disable-expression />
+      <validation />
+      <scope-permissions />
+      <constraint type="0" />
+    </column>
+  </columns>
+  <display-options>
+    <relations />
+    <commands />
+  </display-options>
+  <subdivisions />
+  <methods />
+  <services />
+  <properties />
 </object>
+

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="gb2312"?>
+<?xml version="1.0" encoding="GB2312"?>
 <process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_FKYJHFB_OperateInitialize_UI" object="lcIB_FKYJHFB" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
   <describe>界面初始化界面事件</describe>
   <variables>
@@ -18,7 +18,7 @@ O_MASTER.InstID==null || O_MASTER.InstID&lt;0</arg>
         <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
           <describe>数据库组件_SQL查询</describe>
           <arg name="TranType">sql</arg>
-          <arg name="SQL">["SELECT ID,tjsx,XM360ZS FROM ecif.tIB_WDLXPZ WHERE lcbd='lcIB_FKYJHFB' ORDER BY tjsx",[]]</arg>
+          <arg name="SQL">["SELECT ID,tjsx,XM360ZS,sfbt,SFYY FROM ecif.tIB_WDLXPZ WHERE lcbd='lcIB_FKYJHFB' ORDER BY tjsx",[]]</arg>
           <arg name="datasource">ECIF</arg>
           <arg name="@retResultSet" type="output">V_FJLX</arg>
         </invoke>
@@ -33,6 +33,8 @@ O_MASTER.InstID==null || O_MASTER.InstID&lt;0</arg>
           <arg flag="field" name="FJCZ">ID</arg>
           <arg flag="field" name="FJLX">id</arg>
           <arg flag="field" name="SF360XS">XM360ZS</arg>
+          <arg flag="field" name="SFBT">sfbt</arg>
+          <arg flag="field" name="SFYY">SFYY</arg>
         </invoke>
         <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
           <describe>数据库组件_SQL查询</describe>
@@ -57,30 +59,30 @@ O_MASTER.InstID==null || O_MASTER.InstID&lt;0</arg>
       <describe>判断</describe>
       <conditions>
         <condition name="" type="expression">
-          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
 1 == ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.system'")</arg>
         </condition>
       </conditions>
       <sequence id="0" name="顺序">
         <invoke component="expression" id="0" name="执行脚本">
           <describe>获取审核意见</describe>
-          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
-var bean = ABS_LOADBEAN('com.apex.bss.mod.ibb.systemdocking.apexsoft.livebosbean.GetInstFileListBean');&#xD;
-var result = bean.perform($Login.User.UserID,O_MASTER.XMMC, O_MASTER.InstID, "4");&#xD;
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+var bean = ABS_LOADBEAN('com.apex.bss.mod.ibb.systemdocking.apexsoft.livebosbean.GetInstFileListBean');
+var result = bean.perform($Login.User.UserID,O_MASTER.XMMC, O_MASTER.InstID, "4");
 true;</arg>
         </invoke>
         <invoke component="expression" id="0" name="执行脚本">
           <describe>获取底稿意见</describe>
-          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
-var bean = ABS_LOADBEAN('com.apex.bss.mod.ibb.systemdocking.apexsoft.livebosbean.GetInstFileListBean');&#xD;
-var result = bean.perform($Login.User.UserID,O_MASTER.XMMC, O_MASTER.InstID, "5");&#xD;
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+var bean = ABS_LOADBEAN('com.apex.bss.mod.ibb.systemdocking.apexsoft.livebosbean.GetInstFileListBean');
+var result = bean.perform($Login.User.UserID,O_MASTER.XMMC, O_MASTER.InstID, "5");
 true;</arg>
         </invoke>
         <invoke component="expression" id="0" name="执行脚本">
           <describe>获取其他意见</describe>
-          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
-var bean = ABS_LOADBEAN('com.apex.bss.mod.ibb.systemdocking.apexsoft.livebosbean.GetInstFileListBean');&#xD;
-var result = bean.perform($Login.User.UserID,O_MASTER.XMMC, O_MASTER.InstID, "6");&#xD;
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+var bean = ABS_LOADBEAN('com.apex.bss.mod.ibb.systemdocking.apexsoft.livebosbean.GetInstFileListBean');
+var result = bean.perform($Login.User.UserID,O_MASTER.XMMC, O_MASTER.InstID, "6");
 true;</arg>
         </invoke>
       </sequence>

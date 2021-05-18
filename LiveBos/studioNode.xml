@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="gb2312"?>
 <nodes>
-  <node name="光大投行" describe="应用系统" type="-20" path="" />
+  <node name="光大投行" describe="" type="0" path="光大投行.xml" />
   <node name="TYPE_APPDEFINE_ROOT" describe="应用定义" type="-42" path="TYPE_APPDEFINE_ROOT.xml" />
   <node name="dictionary" describe="数据字典" type="-2" path="dictionary.xml" />
   <node name="sysparam" describe="系统参数" type="-1" path="sysparam.xml" />
   <node name="resource-bundle" describe="多语言配置集" type="-17" path=".RESOURCE\resource-bundle.xml" />
   <node name=".userproject" describe="用户界面方案与菜单" type="-202" path=".userproject" />
   <node name="MRFA" describe="默认方案" type="-3" path=".userproject\MRFA.xml" />
-  <node name="SYSCRM" describe="大投行管理平台" type="-3" path=".userproject\SYSCRM.xml" />
+  <node name="SYSCRM" describe="大投行管理平台" type="-3" path=".userproject\SYSCRM.xml">
+    <parent>userProjects</parent>
+  </node>
   <node name="TGGZPT" describe="大投行工作平台" type="-3" path=".userproject\TGGZPT.xml" />
   <node name=".workflowMenuSchema" describe="流程界面方案与菜单" type="-203" path=".workflowMenuSchema" />
   <node name=".taskMenuSchema" describe="任务界面方案与菜单" type="-204" path=".taskMenuSchema" />
@@ -22,7 +24,8 @@
   <node name="navigatorPages" describe="" type="34" path=".navigator\navigatorPages.xml" />
   <node name=".dynAttDef" describe="动态属性条目" type="-46" path=".dynAttDef" />
   <node name="portlet-defines" describe="Portlet配置" type="-35" path="portlet-defines.xml" />
-  <node name=".portalconfig" describe="虚拟门户配置" type="-50" path=".portalconfig\.portalconfig.xml" />
+  <node name=".portalconfig" describe="虚拟门户配置" type="-50" path=".portalconfig" />
+  <node name="customObjects" describe="外部对象" type="111" path="customObjects.xml" />
   <node name=".dynowner" describe="动态用户方案" type="-201" path=".dynowner" />
   <node name="DW_BJYWBMFZR" describe="保荐业务部门负责人" type="106" path=".dynowner\DW_BJYWBMFZR.xml" />
   <node name="DW_BMFGLD" describe="部门分管领导" type="106" path=".dynowner\DW_BMFGLD.xml" />
@@ -32,9 +35,12 @@
   <node name="DW_BMZKZY" describe="部门级质控专员" type="106" path=".dynowner\DW_BMZKZY.xml" />
   <node name="DW_BMZN" describe="部门职能(经理*)" type="106" path=".dynowner\DW_BMZN.xml" />
   <node name="DW_DGGLR" describe="底稿管理人" type="106" path=".dynowner\DW_DGGLR.xml" />
+  <node name="DW_FXQZY" describe="反洗钱专员" type="106" path=".dynowner\DW_FXQZY.xml" />
+  <node name="DW_GSBGRZBZJL" describe="并购融资部总经理" type="106" path=".dynowner\DW_GSBGRZBZJL.xml" />
   <node name="DW_GSHGTDFZR" describe="固收_合规团队负责人" type="106" path=".dynowner\DW_GSHGTDFZR.xml" />
   <node name="DW_GSLXNHGSSHG" describe="固收_立项内核_固收审核岗" type="106" path=".dynowner\DW_GSLXNHGSSHG.xml" />
   <node name="DW_GSLXNHTDZKZY" describe="固收_立项内核_团队质控专员" type="106" path=".dynowner\DW_GSLXNHTDZKZY.xml" />
+  <node name="DW_GSTXZBZJL" describe="投行总部总经理" type="106" path=".dynowner\DW_GSTXZBZJL.xml" />
   <node name="DW_GSZHBSHG" describe="固收_综合部审核岗" type="106" path=".dynowner\DW_GSZHBSHG.xml" />
   <node name="DW_GSZKBFS" describe="固收_质控部副审_配置表" type="106" path=".dynowner\DW_GSZKBFS.xml" />
   <node name="DW_GSZKBZS" describe="固收_质控部主审_配置表" type="106" path=".dynowner\DW_GSZKBZS.xml" />
@@ -121,6 +127,7 @@
   <node name="00_基础配置" describe="00_基础配置" type="-10" path="01_基础参数\00_基础配置" />
   <node name="tIB_CSXX" describe="城市代码" type="0" path="01_基础参数\00_基础配置\tIB_CSXX.xml" />
   <node name="tIB_DXYZM" describe="短信验证码管理" type="0" path="01_基础参数\00_基础配置\tIB_DXYZM.xml" />
+  <node name="tIB_FQYLNHXZWY" describe="非权益类内核小组委员" type="0" path="01_基础参数\00_基础配置\tIB_FQYLNHXZWY.xml" />
   <node name="tIB_GPGSHYFL" describe="挂牌公司行业分类" type="0" path="01_基础参数\00_基础配置\tIB_GPGSHYFL.xml" />
   <node name="tIB_GPGSHYFL_BGSJJD" describe="挂牌公司行业分类-变更上级节点流程" type="30" path="01_基础参数\00_基础配置\tIB_GPGSHYFL_BGSJJD.lbz">
     <parent>tIB_GPGSHYFL</parent>
@@ -653,6 +660,12 @@
       <file>tIB_YGXX_XG.jpeg</file>
     </files>
   </node>
+  <node name="tIB_YGXX_XG_ZJLX_Param_UI" describe="证件类型界面事件" type="33" path="03_人员管理\00_人员管理\tIB_YGXX_XG_ZJLX_Param_UI.lbz">
+    <parent>tIB_YGXX</parent>
+    <files>
+      <file>tIB_YGXX_XG_ZJLX_Param_UI.jpeg</file>
+    </files>
+  </node>
   <node name="tIB_YGXX_YGXMJY" describe="员工项目经验" type="15" path="03_人员管理\00_人员管理\tIB_YGXX_YGXMJY.xml">
     <parent>tIB_YGXX</parent>
   </node>
@@ -738,11 +751,18 @@
   <node name="tIB_JFXX" describe="用户积分信息" type="0" path="03_人员管理\02_用户积分\tIB_JFXX.xml" />
   <node name="04_项目管理" describe="04_项目管理" type="-10" path="04_项目管理" />
   <node name="00_项目管理" describe="00_项目管理" type="-10" path="04_项目管理\00_项目管理" />
+  <node name="REFRESH" describe="可用代码-刷新流程" type="30" path="04_项目管理\00_项目管理\REFRESH.lbz">
+    <parent>vIBKYDM</parent>
+    <files>
+      <file>REFRESH.jpeg</file>
+    </files>
+  </node>
   <node name="tIB_DMFP" describe="代码分配" type="0" path="04_项目管理\00_项目管理\tIB_DMFP.xml" />
   <node name="tIB_GWZWWDB" describe="公文正文文档表" type="0" path="04_项目管理\00_项目管理\tIB_GWZWWDB.xml" />
   <node name="tIB_JGXXXGJL" describe="监管信息修改记录" type="0" path="04_项目管理\00_项目管理\tIB_JGXXXGJL.xml" />
   <node name="tIB_XMCY" describe="项目成员表" type="0" path="04_项目管理\00_项目管理\tIB_XMCY.xml" />
   <node name="tIB_XMGZD" describe="项目关注点" type="0" path="04_项目管理\00_项目管理\tIB_XMGZD.xml" />
+  <node name="tIB_XMLXCXDDQDYB" describe="项目类型持续督导期对应表" type="0" path="04_项目管理\00_项目管理\tIB_XMLXCXDDQDYB.xml" />
   <node name="tIB_XMTHJL" describe="项目退回记录" type="0" path="04_项目管理\00_项目管理\tIB_XMTHJL.xml" />
   <node name="tIB_XMWD" describe="项目文档表" type="0" path="04_项目管理\00_项目管理\tIB_XMWD.xml" />
   <node name="tIB_XMXX" describe="项目信息表" type="0" path="04_项目管理\00_项目管理\tIB_XMXX.xml" />
@@ -1249,6 +1269,12 @@
       <file>tIB_XMXX_XG_OperateInitialize_Param_UI.jpeg</file>
     </files>
   </node>
+  <node name="tIB_XMXX_XG_XMLX_Param_UI" describe="项目类型界面事件" type="33" path="04_项目管理\00_项目管理\tIB_XMXX_XG_XMLX_Param_UI.lbz">
+    <parent>tIB_XMXX</parent>
+    <files>
+      <file>tIB_XMXX_XG_XMLX_Param_UI.jpeg</file>
+    </files>
+  </node>
   <node name="tIB_XMXX_XMJDWH" describe="项目信息表-项目阶段维护流程" type="30" path="04_项目管理\00_项目管理\tIB_XMXX_XMJDWH.lbz">
     <parent>tIB_XMXX</parent>
     <files>
@@ -1457,12 +1483,6 @@
       <file>tIB_XMXX_XZ.jpeg</file>
     </files>
   </node>
-  <node name="tIB_XMXX_XZ_SFCDMKZXQ_Param_UI" describe="是否从代码库中选取界面事件" type="33" path="04_项目管理\00_项目管理\tIB_XMXX_XZ_SFCDMKZXQ_Param_UI.lbz">
-    <parent>tIB_XMXX</parent>
-    <files>
-      <file>tIB_XMXX_XZ_SFCDMKZXQ_Param_UI.jpeg</file>
-    </files>
-  </node>
   <node name="tIB_XMXX_XZ_SSKH2_Param_UI" describe="所属客户界面事件" type="33" path="04_项目管理\00_项目管理\tIB_XMXX_XZ_SSKH2_Param_UI.lbz">
     <parent>tIB_XMXX</parent>
     <files>
@@ -1490,6 +1510,12 @@
   <node name="tIB_XMXX_ZQXYFXLS" describe="债券信用风险流水" type="0" path="04_项目管理\00_项目管理\tIB_XMXX_ZQXYFXLS.xml" />
   <node name="tIB_XMXX_ZXCXDDRQ" describe="最新持续督导报告披露日期" type="15" path="04_项目管理\00_项目管理\tIB_XMXX_ZXCXDDRQ.xml">
     <parent>tIB_XMXX</parent>
+  </node>
+  <node name="tIB_XMXX_ZXCXDDRQ_OperateInitialize_UI" describe="界面初始化界面事件" type="33" path="04_项目管理\00_项目管理\tIB_XMXX_ZXCXDDRQ_OperateInitialize_UI.lbz">
+    <parent>tIB_XMXX_ZXCXDDRQ</parent>
+    <files>
+      <file>tIB_XMXX_ZXCXDDRQ_OperateInitialize_UI.jpeg</file>
+    </files>
   </node>
   <node name="tIB_XMXX_ZZK" describe="项目信息_终止库" type="0" path="04_项目管理\00_项目管理\tIB_XMXX_ZZK.xml" />
   <node name="tIB_XMXX_ZZK_GS" describe="项目信息_终止库_固收" type="1" path="04_项目管理\00_项目管理\tIB_XMXX_ZZK_GS.xml">
@@ -1780,14 +1806,27 @@
   <node name="tIB_WD_ZQXX" describe="万得_债券信息" type="0" path="04_项目管理\02_万得资讯\tIB_WD_ZQXX.xml" />
   <node name="03_监管信息修改记录" describe="03_监管信息修改记录" type="-10" path="04_项目管理\03_监管信息修改记录" />
   <node name="tIB_GSJGXXXGJLB" describe="固收监管信息修改记录表" type="0" path="04_项目管理\03_监管信息修改记录\tIB_GSJGXXXGJLB.xml" />
+  <node name="tIB_JGXXXGJLBXSB" describe="监管信息修改记录表_新三板" type="0" path="04_项目管理\03_监管信息修改记录\tIB_JGXXXGJLBXSB.xml" />
   <node name="tIB_ZQJGXXXGJL" describe="债券监管信息修改记录" type="0" path="04_项目管理\03_监管信息修改记录\tIB_ZQJGXXXGJL.xml" />
   <node name="05_消息管理" describe="05_消息管理" type="-10" path="05_消息管理" />
   <node name="动态提醒" describe="动态提醒" type="-10" path="05_消息管理\动态提醒" />
   <node name="tIB_DTTX" describe="系统动态提醒" type="0" path="05_消息管理\动态提醒\tIB_DTTX.xml" />
+  <node name="tIB_DTTX_FXQXXTX" describe="系统动态提醒-反洗钱消息提醒流程" type="30" path="05_消息管理\动态提醒\tIB_DTTX_FXQXXTX.lbz">
+    <parent>tIB_DTTX</parent>
+    <files>
+      <file>tIB_DTTX_FXQXXTX.jpeg</file>
+    </files>
+  </node>
   <node name="tIB_DTTX_GB" describe="系统动态提醒-关闭流程" type="30" path="05_消息管理\动态提醒\tIB_DTTX_GB.lbz">
     <parent>tIB_DTTX</parent>
     <files>
       <file>tIB_DTTX_GB.jpeg</file>
+    </files>
+  </node>
+  <node name="tIB_DTTX_GBFXQXXTX" describe="系统动态提醒-关闭反洗钱消息提醒流程" type="30" path="05_消息管理\动态提醒\tIB_DTTX_GBFXQXXTX.lbz">
+    <parent>tIB_DTTX</parent>
+    <files>
+      <file>tIB_DTTX_GBFXQXXTX.jpeg</file>
     </files>
   </node>
   <node name="tIB_DTTX_JGXXGB" describe="系统动态提醒-关闭监管消息流程" type="30" path="05_消息管理\动态提醒\tIB_DTTX_JGXXGB.lbz">
@@ -1811,6 +1850,29 @@
   <node name="tIB_LCTXMB" describe="流程提醒模板" type="0" path="05_消息管理\动态提醒\tIB_LCTXMB.xml" />
   <node name="vIB_XTDTTX" describe="系统动态提醒" type="1" path="05_消息管理\动态提醒\vIB_XTDTTX.xml">
     <parent>tIB_DTTX</parent>
+  </node>
+  <node name="定时任务" describe="定时任务" type="-10" path="05_消息管理\定时任务" />
+  <node name="tIB_GDDSRW" describe="光大定时任务" type="0" path="05_消息管理\定时任务\tIB_GDDSRW.xml" />
+  <node name="tIB_GDDSRW_EJBMSHG" describe="光大定时任务-二级部门固收审核岗更新流程" type="30" path="05_消息管理\定时任务\tIB_GDDSRW_EJBMSHG.lbz">
+    <parent>tIB_GDDSRW</parent>
+    <files>
+      <file>tIB_GDDSRW_EJBMSHG.jpeg</file>
+    </files>
+  </node>
+  <node name="tIB_GDDSRW_QYCXDDXMTZ" describe="光大定时任务-权益持续督导项目台账更新流程" type="30" path="05_消息管理\定时任务\tIB_GDDSRW_QYCXDDXMTZ.lbz">
+    <parent>tIB_GDDSRW</parent>
+    <files>
+      <file>tIB_GDDSRW_QYCXDDXMTZ.jpeg</file>
+    </files>
+  </node>
+  <node name="tIB_GDDSRW_TDBMZFSGX" describe="光大定时任务-部门主副审配置表数据更新流程" type="30" path="05_消息管理\定时任务\tIB_GDDSRW_TDBMZFSGX.lbz">
+    <parent>tIB_GDDSRW</parent>
+    <files>
+      <file>tIB_GDDSRW_TDBMZFSGX.jpeg</file>
+    </files>
+  </node>
+  <node name="vIB_GDDSRW" describe="光大定时任务" type="1" path="05_消息管理\定时任务\vIB_GDDSRW.xml">
+    <parent>tIB_GDDSRW</parent>
   </node>
   <node name="流程待办" describe="流程待办" type="-10" path="05_消息管理\流程待办" />
   <node name="cx_IB_XTCFGSLCCX" describe="系统触发固收流程查询" type="17" path="05_消息管理\流程待办\cx_IB_XTCFGSLCCX.xml" />
@@ -1863,12 +1925,6 @@
     </files>
   </node>
   <node name="tIB_ZDFQLC" describe="自动发起流程" type="0" path="05_消息管理\流程待办\tIB_ZDFQLC.xml" />
-  <node name="tIB_ZDFQLC_BMZFSGX" describe="自动发起流程-部门主副审配置表数据更新流程" type="30" path="05_消息管理\流程待办\tIB_ZDFQLC_BMZFSGX.lbz">
-    <parent>tIB_ZDFQLC</parent>
-    <files>
-      <file>tIB_ZDFQLC_BMZFSGX.jpeg</file>
-    </files>
-  </node>
   <node name="tIB_ZDFQLC_DTQD" describe="自动发起流程-单条启动流程" type="30" path="05_消息管理\流程待办\tIB_ZDFQLC_DTQD.lbz">
     <parent>tIB_ZDFQLC</parent>
     <files>
@@ -1879,12 +1935,6 @@
     <parent>tIB_ZDFQLC</parent>
     <files>
       <file>tIB_ZDFQLC_GSBJ.jpeg</file>
-    </files>
-  </node>
-  <node name="tIB_ZDFQLC_GSSHGGX" describe="自动发起流程-二级部门固收审核岗日终更新流程" type="30" path="05_消息管理\流程待办\tIB_ZDFQLC_GSSHGGX.lbz">
-    <parent>tIB_ZDFQLC</parent>
-    <files>
-      <file>tIB_ZDFQLC_GSSHGGX.jpeg</file>
     </files>
   </node>
   <node name="tIB_ZDFQLC_JSLC" describe="自动发起流程-OA完成自动结束流程流程" type="30" path="05_消息管理\流程待办\tIB_ZDFQLC_JSLC.lbz">
@@ -1921,6 +1971,12 @@
     <parent>tIB_ZDFQLC</parent>
     <files>
       <file>tIB_ZDFQLC_XMTZJC.jpeg</file>
+    </files>
+  </node>
+  <node name="tIB_ZDFQLC_XMTZTB" describe="自动发起流程-项目信息台账同步流程" type="30" path="05_消息管理\流程待办\tIB_ZDFQLC_XMTZTB.lbz">
+    <parent>tIB_ZDFQLC</parent>
+    <files>
+      <file>tIB_ZDFQLC_XMTZTB.jpeg</file>
     </files>
   </node>
   <node name="tIB_ZDFQLC_XSBBJ" describe="自动发起流程-新三板立项立项内核表决流程" type="30" path="05_消息管理\流程待办\tIB_ZDFQLC_XSBBJ.lbz">
@@ -2078,6 +2134,12 @@
   <node name="xn_GS_HXXMTJ" describe="后续项目统计" type="18" path="08_统计报表\01_固收\xn_GS_HXXMTJ.xml">
     <parent>cx_GS_HXXMTJ</parent>
   </node>
+  <node name="xn_GS_HXXMTJ_update" describe="后续项目统计-修改流程" type="30" path="08_统计报表\01_固收\xn_GS_HXXMTJ_update.lbz">
+    <parent>xn_GS_HXXMTJ</parent>
+    <files>
+      <file>xn_GS_HXXMTJ_update.jpeg</file>
+    </files>
+  </node>
   <node name="xn_GS_LXNHLCTJ" describe="立项内核流程统计_固收" type="18" path="08_统计报表\01_固收\xn_GS_LXNHLCTJ.xml">
     <parent>cx_GS_LXNHLCTJ</parent>
   </node>
@@ -2090,6 +2152,12 @@
       <file>xn_GS_LXXMTJ_CK.jpeg</file>
     </files>
   </node>
+  <node name="xn_GS_LXXMTJ_UPDATE" describe="立项项目统计-修改统计表流程" type="30" path="08_统计报表\01_固收\xn_GS_LXXMTJ_UPDATE.lbz">
+    <parent>xn_GS_LXXMTJ</parent>
+    <files>
+      <file>xn_GS_LXXMTJ_UPDATE.jpeg</file>
+    </files>
+  </node>
   <node name="xn_GS_NHXMTJ" describe="内核项目统计" type="18" path="08_统计报表\01_固收\xn_GS_NHXMTJ.xml">
     <parent>cx_GS_NHXMTJ</parent>
   </node>
@@ -2097,6 +2165,12 @@
     <parent>xn_GS_NHXMTJ</parent>
     <files>
       <file>xn_GS_NHXMTJ_CK.jpeg</file>
+    </files>
+  </node>
+  <node name="xn_GS_NHXMTJ_UPDATE" describe="内核项目统计-修改统计表流程" type="30" path="08_统计报表\01_固收\xn_GS_NHXMTJ_UPDATE.lbz">
+    <parent>xn_GS_NHXMTJ</parent>
+    <files>
+      <file>xn_GS_NHXMTJ_UPDATE.jpeg</file>
     </files>
   </node>
   <node name="xn_GS_XYLCTJ" describe="协议流程统计_固收" type="18" path="08_统计报表\01_固收\xn_GS_XYLCTJ.xml">
@@ -2192,6 +2266,7 @@
   </node>
   <node name="cx_QY_XMTJB" describe="项目统计表" type="17" path="08_统计报表\03_权益类\cx_QY_XMTJB.xml" />
   <node name="cx_QY_XYLCTJ" describe="协议流程统计_权益" type="17" path="08_统计报表\03_权益类\cx_QY_XYLCTJ.xml" />
+  <node name="cx_QY_XYTJ" describe="协议统计" type="17" path="08_统计报表\03_权益类\cx_QY_XYTJ.xml" />
   <node name="cx_QY_ZSJDXMTJ" describe="在审阶段项目统计" type="17" path="08_统计报表\03_权益类\cx_QY_ZSJDXMTJ.xml" />
   <node name="xn_IB_QY_FDJDXMTJ" describe="辅导阶段项目统计" type="18" path="08_统计报表\03_权益类\xn_IB_QY_FDJDXMTJ.xml">
     <parent>cx_QY_FDJDXMTJ</parent>
@@ -2213,6 +2288,9 @@
   </node>
   <node name="xn_IB_QY_XYJRTJ" describe="协议金额统计" type="18" path="08_统计报表\03_权益类\xn_IB_QY_XYJRTJ.xml">
     <parent>ck_XYJETJ</parent>
+  </node>
+  <node name="xn_IB_QY_XYTJ" describe="协议统计" type="18" path="08_统计报表\03_权益类\xn_IB_QY_XYTJ.xml">
+    <parent>cx_QY_XYTJ</parent>
   </node>
   <node name="xn_IB_QY_ZKZYGZLTJ" describe="质控专员工作量统计" type="18" path="08_统计报表\03_权益类\xn_IB_QY_ZKZYGZLTJ.xml">
     <parent>ck_ZKZYGZLTJ</parent>
@@ -2628,10 +2706,10 @@
       <file>lcIB_XYSPB_OperateInitialize_UI.jpeg</file>
     </files>
   </node>
-  <node name="lcIB_XYSPB_XMLX_UI" describe="项目类型界面事件" type="33" path="100_新三板\协议阶段\lcIB_XYSPB_XMLX_UI.lbz">
+  <node name="lcIB_XYSPB_XMMC_UI" describe="项目名称界面事件" type="33" path="100_新三板\协议阶段\lcIB_XYSPB_XMMC_UI.lbz">
     <parent>lcIB_XYSPB</parent>
     <files>
-      <file>lcIB_XYSPB_XMLX_UI.jpeg</file>
+      <file>lcIB_XYSPB_XMMC_UI.jpeg</file>
     </files>
   </node>
   <node name="lcIB_XYSPB_XYLX_UI" describe="协议类型界面事件" type="33" path="100_新三板\协议阶段\lcIB_XYSPB_XYLX_UI.lbz">
@@ -2639,6 +2717,9 @@
     <files>
       <file>lcIB_XYSPB_XYLX_UI.jpeg</file>
     </files>
+  </node>
+  <node name="lc_XYSPB_XYFJ" describe="附件" type="15" path="100_新三板\协议阶段\lc_XYSPB_XYFJ.xml">
+    <parent>lcIB_XYSPB</parent>
   </node>
   <node name="tIB_GPQZKDKZY" describe="挂牌前质控对口专员" type="0" path="100_新三板\协议阶段\tIB_GPQZKDKZY.xml" />
   <node name="tIB_ZKZYDKWBJGJG" describe="质控专员对口外部监管机构" type="0" path="100_新三板\协议阶段\tIB_ZKZYDKWBJGJG.xml" />
@@ -2743,6 +2824,140 @@
       <file>wfIB_FXQSCLCXSB_layout.xml</file>
     </files>
   </node>
+  <node name="发行实施阶段" describe="发行实施阶段" type="-10" path="100_新三板\发行实施阶段" />
+  <node name="lcIB_FXSSXGSPLC" describe="发行实施相关审批流程" type="5" path="100_新三板\发行实施阶段\lcIB_FXSSXGSPLC.xml" />
+  <node name="lcIB_FXSSXGSPLC_FJ" describe="上传公文附件" type="15" path="100_新三板\发行实施阶段\lcIB_FXSSXGSPLC_FJ.xml">
+    <parent>lcIB_FXSSXGSPLC</parent>
+  </node>
+  <node name="lcIB_FXSSXGSPLC_FJ_FJLX_UI" describe="附件类型界面事件" type="33" path="100_新三板\发行实施阶段\lcIB_FXSSXGSPLC_FJ_FJLX_UI.lbz">
+    <parent>lcIB_FXSSXGSPLC_FJ</parent>
+    <files>
+      <file>lcIB_FXSSXGSPLC_FJ_FJLX_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="lcIB_FXSSXGSPLC_FJ_OperateInitialize_UI" describe="界面初始化界面事件" type="33" path="100_新三板\发行实施阶段\lcIB_FXSSXGSPLC_FJ_OperateInitialize_UI.lbz">
+    <parent>lcIB_FXSSXGSPLC_FJ</parent>
+    <files>
+      <file>lcIB_FXSSXGSPLC_FJ_OperateInitialize_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="lcIB_FXSSXGSPLC_OperateInitialize_UI" describe="界面初始化界面事件" type="33" path="100_新三板\发行实施阶段\lcIB_FXSSXGSPLC_OperateInitialize_UI.lbz">
+    <parent>lcIB_FXSSXGSPLC</parent>
+    <files>
+      <file>lcIB_FXSSXGSPLC_OperateInitialize_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="lcIB_FXSSXGSPLC_XMMC_UI" describe="项目名称界面事件" type="33" path="100_新三板\发行实施阶段\lcIB_FXSSXGSPLC_XMMC_UI.lbz">
+    <parent>lcIB_FXSSXGSPLC</parent>
+    <files>
+      <file>lcIB_FXSSXGSPLC_XMMC_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="vIB_FXSSXGSPLC" describe="发行实施相关审批流程" type="1" path="100_新三板\发行实施阶段\vIB_FXSSXGSPLC.xml">
+    <parent>lcIB_FXSSXGSPLC</parent>
+  </node>
+  <node name="vIB_FXSSXGSPLC_BM" describe="发行实施相关审批流程(部门)" type="1" path="100_新三板\发行实施阶段\vIB_FXSSXGSPLC_BM.xml">
+    <parent>lcIB_FXSSXGSPLC</parent>
+  </node>
+  <node name="vIB_FXXGSPLC_CY" describe="发行实施相关审批流程(成员)" type="1" path="100_新三板\发行实施阶段\vIB_FXXGSPLC_CY.xml">
+    <parent>lcIB_FXSSXGSPLC</parent>
+  </node>
+  <node name="vIB_WCYDFXSSXGSPLC" describe="我参与的发行实施相关审批流程" type="1" path="100_新三板\发行实施阶段\vIB_WCYDFXSSXGSPLC.xml">
+    <parent>lcIB_FXSSXGSPLC</parent>
+  </node>
+  <node name="vIB_WFQDFXSSXGSPLC" describe="我发起的发行实施相关审批流程" type="1" path="100_新三板\发行实施阶段\vIB_WFQDFXSSXGSPLC.xml">
+    <parent>lcIB_FXSSXGSPLC</parent>
+  </node>
+  <node name="wfIB_FXSSXGSPLC" describe="发行实施相关审批流程" type="6" path="100_新三板\发行实施阶段\wfIB_FXSSXGSPLC.xml">
+    <parent>lcIB_FXSSXGSPLC</parent>
+    <files>
+      <file>wfIB_FXSSXGSPLC.jpeg</file>
+      <file>wfIB_FXSSXGSPLC_layout.xml</file>
+    </files>
+  </node>
+  <node name="在审阶段" describe="在审阶段" type="-10" path="100_新三板\在审阶段" />
+  <node name="lcIB_CWSJGXLC" describe="财务数据更新流程" type="5" path="100_新三板\在审阶段\lcIB_CWSJGXLC.xml" />
+  <node name="lcIB_CWSJGXLC_CSFJK" describe="测试附件框" type="15" path="100_新三板\在审阶段\lcIB_CWSJGXLC_CSFJK.xml">
+    <parent>lcIB_CWSJGXLC</parent>
+  </node>
+  <node name="lcIB_CWSJGXLC_FJ" describe="上传公文附件" type="15" path="100_新三板\在审阶段\lcIB_CWSJGXLC_FJ.xml">
+    <parent>lcIB_CWSJGXLC</parent>
+  </node>
+  <node name="lcIB_CWSJGXLC_FJ_FJLX_UI" describe="附件类型界面事件" type="33" path="100_新三板\在审阶段\lcIB_CWSJGXLC_FJ_FJLX_UI.lbz">
+    <parent>lcIB_CWSJGXLC_FJ</parent>
+    <files>
+      <file>lcIB_CWSJGXLC_FJ_FJLX_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="lcIB_CWSJGXLC_FJ_OperateInitialize_UI" describe="界面初始化界面事件" type="33" path="100_新三板\在审阶段\lcIB_CWSJGXLC_FJ_OperateInitialize_UI.lbz">
+    <parent>lcIB_CWSJGXLC_FJ</parent>
+    <files>
+      <file>lcIB_CWSJGXLC_FJ_OperateInitialize_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="lcIB_CWSJGXLC_OperateInitialize_UI" describe="界面初始化界面事件" type="33" path="100_新三板\在审阶段\lcIB_CWSJGXLC_OperateInitialize_UI.lbz">
+    <parent>lcIB_CWSJGXLC</parent>
+    <files>
+      <file>lcIB_CWSJGXLC_OperateInitialize_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="lcIB_CWSJGXLC_XMMC_UI" describe="项目名称界面事件" type="33" path="100_新三板\在审阶段\lcIB_CWSJGXLC_XMMC_UI.lbz">
+    <parent>lcIB_CWSJGXLC</parent>
+    <files>
+      <file>lcIB_CWSJGXLC_XMMC_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="lcIB_QTZSJDLC" describe="其他在审阶段流程" type="5" path="100_新三板\在审阶段\lcIB_QTZSJDLC.xml" />
+  <node name="lcIB_QTZSJDLC_CK" describe="其他在审阶段流程-查看流程" type="30" path="100_新三板\在审阶段\lcIB_QTZSJDLC_CK.lbz">
+    <parent>lcIB_QTZSJDLC</parent>
+    <files>
+      <file>lcIB_QTZSJDLC_CK.jpeg</file>
+    </files>
+  </node>
+  <node name="lcIB_QTZSJDLC_FJ" describe="上传公文附件" type="15" path="100_新三板\在审阶段\lcIB_QTZSJDLC_FJ.xml">
+    <parent>lcIB_QTZSJDLC</parent>
+  </node>
+  <node name="lcIB_QTZSJDLC_FJ_FJLX_UI" describe="附件类型界面事件" type="33" path="100_新三板\在审阶段\lcIB_QTZSJDLC_FJ_FJLX_UI.lbz">
+    <parent>lcIB_QTZSJDLC_FJ</parent>
+    <files>
+      <file>lcIB_QTZSJDLC_FJ_FJLX_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="lcIB_QTZSJDLC_FJ_OperateInitialize_UI" describe="界面初始化界面事件" type="33" path="100_新三板\在审阶段\lcIB_QTZSJDLC_FJ_OperateInitialize_UI.lbz">
+    <parent>lcIB_QTZSJDLC_FJ</parent>
+    <files>
+      <file>lcIB_QTZSJDLC_FJ_OperateInitialize_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="lcIB_QTZSJDLC_OperateInitialize_UI" describe="界面初始化界面事件" type="33" path="100_新三板\在审阶段\lcIB_QTZSJDLC_OperateInitialize_UI.lbz">
+    <parent>lcIB_QTZSJDLC</parent>
+    <files>
+      <file>lcIB_QTZSJDLC_OperateInitialize_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="lcIB_QTZSJDLC_XMMC_UI" describe="项目名称界面事件" type="33" path="100_新三板\在审阶段\lcIB_QTZSJDLC_XMMC_UI.lbz">
+    <parent>lcIB_QTZSJDLC</parent>
+    <files>
+      <file>lcIB_QTZSJDLC_XMMC_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="vIBQTZXSPJDLCB" describe="其他在线审批阶段流程表" type="1" path="100_新三板\在审阶段\vIBQTZXSPJDLCB.xml">
+    <parent>lcIB_QTZSJDLC</parent>
+  </node>
+  <node name="wfIB_CWSJGXLC" describe="财务数据更新流程" type="6" path="100_新三板\在审阶段\wfIB_CWSJGXLC.xml">
+    <parent>lcIB_CWSJGXLC</parent>
+    <files>
+      <file>wfIB_CWSJGXLC.jpeg</file>
+      <file>wfIB_CWSJGXLC_layout.xml</file>
+    </files>
+  </node>
+  <node name="wfIB_QTZSJDLC" describe="其他在审阶段流程" type="6" path="100_新三板\在审阶段\wfIB_QTZSJDLC.xml">
+    <parent>lcIB_QTZSJDLC</parent>
+    <files>
+      <file>wfIB_QTZSJDLC.jpeg</file>
+      <file>wfIB_QTZSJDLC_layout.xml</file>
+    </files>
+  </node>
   <node name="承接持续督导阶段" describe="承接持续督导阶段" type="-10" path="100_新三板\承接持续督导阶段" />
   <node name="08-申请承接持续督导流程" describe="08-申请承接持续督导流程" type="-10" path="100_新三板\承接持续督导阶段\08-申请承接持续督导流程" />
   <node name="lcIB_SQCJCXDDLCB" describe="申请承接持续督导流程" type="5" path="100_新三板\承接持续督导阶段\08-申请承接持续督导流程\lcIB_SQCJCXDDLCB.xml" />
@@ -2841,83 +3056,6 @@
     </files>
   </node>
   <node name="投行四期" describe="投行四期" type="-10" path="100_新三板\投行四期" />
-  <node name="lcIB_CWSJGXLC" describe="财务数据更新流程" type="5" path="100_新三板\投行四期\lcIB_CWSJGXLC.xml" />
-  <node name="lcIB_CWSJGXLC_FJ" describe="上传公文附件" type="15" path="100_新三板\投行四期\lcIB_CWSJGXLC_FJ.xml">
-    <parent>lcIB_CWSJGXLC</parent>
-  </node>
-  <node name="lcIB_CWSJGXLC_XMMC_UI" describe="项目名称界面事件" type="33" path="100_新三板\投行四期\lcIB_CWSJGXLC_XMMC_UI.lbz">
-    <parent>lcIB_CWSJGXLC</parent>
-    <files>
-      <file>lcIB_CWSJGXLC_XMMC_UI.jpeg</file>
-    </files>
-  </node>
-  <node name="lcIB_FDJDSP" describe="辅导阶段审批" type="5" path="100_新三板\辅导阶段\lcIB_FDJDSP.xml" />
-  <node name="lcIB_FDJDSP_SCGWFJ" describe="上传公文附件" type="15" path="100_新三板\投行四期\lcIB_FDJDSP_SCGWFJ.xml">
-    <parent>lcIB_FDJDSP</parent>
-  </node>
-  <node name="lcIB_FDJDSP_XMMC_UI" describe="项目名称界面事件" type="33" path="100_新三板\辅导阶段\lcIB_FDJDSP_XMMC_UI.lbz">
-    <parent>lcIB_FDJDSP</parent>
-    <files>
-      <file>lcIB_FDJDSP_XMMC_UI.jpeg</file>
-    </files>
-  </node>
-  <node name="lcIB_FXSSXGSPLC" describe="发行实施相关审批流程" type="5" path="100_新三板\投行四期\lcIB_FXSSXGSPLC.xml" />
-  <node name="lcIB_FXSSXGSPLC_FJ" describe="上传公文附件" type="15" path="100_新三板\投行四期\lcIB_FXSSXGSPLC_FJ.xml">
-    <parent>lcIB_FXSSXGSPLC</parent>
-  </node>
-  <node name="lcIB_FXSSXGSPLC_XMMC_UI" describe="项目名称界面事件" type="33" path="100_新三板\投行四期\lcIB_FXSSXGSPLC_XMMC_UI.lbz">
-    <parent>lcIB_FXSSXGSPLC</parent>
-    <files>
-      <file>lcIB_FXSSXGSPLC_XMMC_UI.jpeg</file>
-    </files>
-  </node>
-  <node name="lcIB_QTZSJDLC" describe="其他在审阶段流程" type="5" path="100_新三板\投行四期\lcIB_QTZSJDLC.xml" />
-  <node name="lcIB_QTZSJDLC_CK" describe="其他在审阶段流程-查看流程" type="30" path="100_新三板\投行四期\lcIB_QTZSJDLC_CK.lbz">
-    <parent>lcIB_QTZSJDLC</parent>
-    <files>
-      <file>lcIB_QTZSJDLC_CK.jpeg</file>
-    </files>
-  </node>
-  <node name="lcIB_QTZSJDLC_FJ" describe="上传公文附件" type="15" path="100_新三板\投行四期\lcIB_QTZSJDLC_FJ.xml">
-    <parent>lcIB_QTZSJDLC</parent>
-  </node>
-  <node name="lcIB_QTZSJDLC_XMMC_UI" describe="项目名称界面事件" type="33" path="100_新三板\投行四期\lcIB_QTZSJDLC_XMMC_UI.lbz">
-    <parent>lcIB_QTZSJDLC</parent>
-    <files>
-      <file>lcIB_QTZSJDLC_XMMC_UI.jpeg</file>
-    </files>
-  </node>
-  <node name="vIBQTZXSPJDLCB" describe="其他在线审批阶段流程表" type="1" path="100_新三板\投行四期\vIBQTZXSPJDLCB.xml">
-    <parent>lcIB_QTZSJDLC</parent>
-  </node>
-  <node name="wfIB_CWSJGXLC" describe="财务数据更新流程" type="6" path="100_新三板\投行四期\wfIB_CWSJGXLC.xml">
-    <parent>lcIB_CWSJGXLC</parent>
-    <files>
-      <file>wfIB_CWSJGXLC.jpeg</file>
-      <file>wfIB_CWSJGXLC_layout.xml</file>
-    </files>
-  </node>
-  <node name="wfIB_FDJDSP" describe="辅导阶段审批" type="6" path="100_新三板\辅导阶段\wfIB_FDJDSP.xml">
-    <parent>lcIB_FDJDSP</parent>
-    <files>
-      <file>wfIB_FDJDSP.jpeg</file>
-      <file>wfIB_FDJDSP_layout.xml</file>
-    </files>
-  </node>
-  <node name="wfIB_FXSSXGSPLC" describe="发行实施相关审批流程" type="6" path="100_新三板\投行四期\wfIB_FXSSXGSPLC.xml">
-    <parent>lcIB_FXSSXGSPLC</parent>
-    <files>
-      <file>wfIB_FXSSXGSPLC.jpeg</file>
-      <file>wfIB_FXSSXGSPLC_layout.xml</file>
-    </files>
-  </node>
-  <node name="wfIB_QTZSJDLC" describe="其他在审阶段流程" type="6" path="100_新三板\投行四期\wfIB_QTZSJDLC.xml">
-    <parent>lcIB_QTZSJDLC</parent>
-    <files>
-      <file>wfIB_QTZSJDLC.jpeg</file>
-      <file>wfIB_QTZSJDLC_layout.xml</file>
-    </files>
-  </node>
   <node name="持续督导阶段" describe="持续督导阶段" type="-10" path="100_新三板\持续督导阶段" />
   <node name="01-定增签章流程" describe="01-定增签章流程" type="-10" path="100_新三板\持续督导阶段\01-定增签章流程" />
   <node name="lcIB_DZQZLCB" describe="内核后签章流程(再融资、并购重组、其他适用)" type="5" path="100_新三板\持续督导阶段\01-定增签章流程\lcIB_DZQZLCB.xml" />
@@ -3385,7 +3523,7 @@
     </files>
   </node>
   <node name="12-日常业务办理流程" describe="12-日常业务办理流程" type="-10" path="100_新三板\持续督导阶段\12-日常业务办理流程" />
-  <node name="lcIB_RCYWBLLCB" describe="日常业务办理流程" type="5" path="100_新三板\持续督导阶段\12-日常业务办理流程\lcIB_RCYWBLLCB.xml" />
+  <node name="lcIB_RCYWBLLCB" describe="持续督导通用审批流程" type="5" path="100_新三板\持续督导阶段\12-日常业务办理流程\lcIB_RCYWBLLCB.xml" />
   <node name="lcIB_RCYWBLLCB_CK" describe="日常业务办理流程表-查看流程" type="30" path="100_新三板\持续督导阶段\12-日常业务办理流程\lcIB_RCYWBLLCB_CK.lbz">
     <parent>lcIB_RCYWBLLCB</parent>
     <files>
@@ -3419,19 +3557,22 @@
       <file>lcIB_RCYWBLLCB_XMMC_UI.jpeg</file>
     </files>
   </node>
-  <node name="vIB_RCYWBLLCB" describe="日常业务办理流程" type="1" path="100_新三板\持续督导阶段\12-日常业务办理流程\vIB_RCYWBLLCB.xml">
+  <node name="vIB_RCYWBLLC" describe="日常业务办理流程(持续督导通用审批流程)" type="1" path="100_新三板\持续督导阶段\12-日常业务办理流程\vIB_RCYWBLLC.xml">
     <parent>lcIB_RCYWBLLCB</parent>
   </node>
-  <node name="vIB_RCYWBLLCB_BM" describe="日常业务办理流程(部门)" type="1" path="100_新三板\持续督导阶段\12-日常业务办理流程\vIB_RCYWBLLCB_BM.xml">
+  <node name="vIB_RCYWBLLCB" describe="持续督导通用审批流程" type="1" path="100_新三板\持续督导阶段\12-日常业务办理流程\vIB_RCYWBLLCB.xml">
     <parent>lcIB_RCYWBLLCB</parent>
   </node>
-  <node name="vIB_RCYWBLLCB_C" describe="我参与的日常业务办理流程" type="1" path="100_新三板\持续督导阶段\12-日常业务办理流程\vIB_RCYWBLLCB_C.xml">
+  <node name="vIB_RCYWBLLCB_BM" describe="持续督导通用审批流程(部门)" type="1" path="100_新三板\持续督导阶段\12-日常业务办理流程\vIB_RCYWBLLCB_BM.xml">
     <parent>lcIB_RCYWBLLCB</parent>
   </node>
-  <node name="vIB_RCYWBLLCB_CY" describe="日常业务办理流程(成员)" type="1" path="100_新三板\持续督导阶段\12-日常业务办理流程\vIB_RCYWBLLCB_CY.xml">
+  <node name="vIB_RCYWBLLCB_C" describe="我参与的持续督导通用审批流程" type="1" path="100_新三板\持续督导阶段\12-日常业务办理流程\vIB_RCYWBLLCB_C.xml">
     <parent>lcIB_RCYWBLLCB</parent>
   </node>
-  <node name="vIB_RCYWBLLCB_M" describe="我发起的日常业务办理流程" type="1" path="100_新三板\持续督导阶段\12-日常业务办理流程\vIB_RCYWBLLCB_M.xml">
+  <node name="vIB_RCYWBLLCB_CY" describe="持续督导通用审批流程(成员)" type="1" path="100_新三板\持续督导阶段\12-日常业务办理流程\vIB_RCYWBLLCB_CY.xml">
+    <parent>lcIB_RCYWBLLCB</parent>
+  </node>
+  <node name="vIB_RCYWBLLCB_M" describe="我发起的持续督导通用审批流程" type="1" path="100_新三板\持续督导阶段\12-日常业务办理流程\vIB_RCYWBLLCB_M.xml">
     <parent>lcIB_RCYWBLLCB</parent>
   </node>
   <node name="wfIB_RCYWBLSPLC" describe="持续督导通用审批流程" type="6" path="100_新三板\持续督导阶段\12-日常业务办理流程\wfIB_RCYWBLSPLC.xml">
@@ -3845,6 +3986,12 @@
   </node>
   <node name="lcIB_BNBGZJYBAJZJZYLCB_FJ" describe="附件" type="15" path="100_新三板\持续督导阶段定期工作流程\02-1-半年报工作简易备案及资金占用流程\lcIB_BNBGZJYBAJZJZYLCB_FJ.xml">
     <parent>lcIB_BNBGZJYBAJZJZYLCB</parent>
+  </node>
+  <node name="lcIB_BNBGZJYBAJZJZYLCB_MJZJSYGLCZWT_UI" describe="募集资金使用管理存在问题界面事件" type="33" path="100_新三板\持续督导阶段定期工作流程\02-1-半年报工作简易备案及资金占用流程\lcIB_BNBGZJYBAJZJZYLCB_MJZJSYGLCZWT_UI.lbz">
+    <parent>lcIB_BNBGZJYBAJZJZYLCB</parent>
+    <files>
+      <file>lcIB_BNBGZJYBAJZJZYLCB_MJZJSYGLCZWT_UI.jpeg</file>
+    </files>
   </node>
   <node name="lcIB_BNBGZJYBAJZJZYLCB_OperateInitialize_UI" describe="界面初始化界面事件" type="33" path="100_新三板\持续督导阶段定期工作流程\02-1-半年报工作简易备案及资金占用流程\lcIB_BNBGZJYBAJZJZYLCB_OperateInitialize_UI.lbz">
     <parent>lcIB_BNBGZJYBAJZJZYLCB</parent>
@@ -4483,6 +4630,12 @@
       <file>lcIB_LXLCB_OperateInitialize_UI.jpeg</file>
     </files>
   </node>
+  <node name="lcIB_LXLCB_SFSJGKFX_UI" describe="是否涉及公开发行界面事件" type="33" path="100_新三板\挂牌阶段\03-立项流程表\lcIB_LXLCB_SFSJGKFX_UI.lbz">
+    <parent>lcIB_LXLCB</parent>
+    <files>
+      <file>lcIB_LXLCB_SFSJGKFX_UI.jpeg</file>
+    </files>
+  </node>
   <node name="lcIB_LXLCB_SHLXDG" describe="项目立项流程-上传全套立项流程底稿流程" type="30" path="100_新三板\挂牌阶段\03-立项流程表\lcIB_LXLCB_SHLXDG.lbz">
     <parent>lcIB_LXLCB</parent>
     <files>
@@ -4825,6 +4978,12 @@
   <node name="lcIB_NHLCB_DZBGCZ_XMZRYXX" describe="项目组人员信息" type="15" path="100_新三板\挂牌阶段\04-内核流程表\lcIB_NHLCB_DZBGCZ_XMZRYXX.xml">
     <parent>lcIB_NHLCB_DZBGCZ</parent>
   </node>
+  <node name="lcIB_NHLCB_DZBGCZ_XMZRYXX_ZJLX_UI" describe="证件类型界面事件" type="33" path="100_新三板\挂牌阶段\04-内核流程表\lcIB_NHLCB_DZBGCZ_XMZRYXX_ZJLX_UI.lbz">
+    <parent>lcIB_NHLCB_DZBGCZ_XMZRYXX</parent>
+    <files>
+      <file>lcIB_NHLCB_DZBGCZ_XMZRYXX_ZJLX_UI.jpeg</file>
+    </files>
+  </node>
   <node name="lcIB_NHLCB_DZBGCZ_ZKBDGYJ1_UI" describe="质控部底稿意见1界面事件" type="33" path="100_新三板\挂牌阶段\04-内核流程表\lcIB_NHLCB_DZBGCZ_ZKBDGYJ1_UI.lbz">
     <parent>lcIB_NHLCB_DZBGCZ</parent>
     <files>
@@ -4969,6 +5128,12 @@
   <node name="lcIB_NHLCB_XMZRYXX" describe="项目组人员信息" type="15" path="100_新三板\挂牌阶段\04-内核流程表\lcIB_NHLCB_XMZRYXX.xml">
     <parent>lcIB_NHLCB</parent>
   </node>
+  <node name="lcIB_NHLCB_XMZRYXX_ZJLX_UI" describe="证件类型界面事件" type="33" path="100_新三板\挂牌阶段\04-内核流程表\lcIB_NHLCB_XMZRYXX_ZJLX_UI.lbz">
+    <parent>lcIB_NHLCB_XMZRYXX</parent>
+    <files>
+      <file>lcIB_NHLCB_XMZRYXX_ZJLX_UI.jpeg</file>
+    </files>
+  </node>
   <node name="lcIB_NHLCB_ZKBDGYJ1_UI" describe="质控部底稿意见1界面事件" type="33" path="100_新三板\挂牌阶段\04-内核流程表\lcIB_NHLCB_ZKBDGYJ1_UI.lbz">
     <parent>lcIB_NHLCB</parent>
     <files>
@@ -5100,6 +5265,12 @@
     <parent>lcIB_NHQZLCB_FJ</parent>
     <files>
       <file>lcIB_NHQZLCB_FJ_OperateInitialize_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="lcIB_NHQZLCB_JGTSXX_UI" describe="军工提示选项界面事件" type="33" path="100_新三板\挂牌阶段\05-内核签章流程表\lcIB_NHQZLCB_JGTSXX_UI.lbz">
+    <parent>lcIB_NHQZLCB</parent>
+    <files>
+      <file>lcIB_NHQZLCB_JGTSXX_UI.jpeg</file>
     </files>
   </node>
   <node name="lcIB_NHQZLCB_JZDCXX" describe="尽职调查信息" type="15" path="100_新三板\挂牌阶段\05-内核签章流程表\lcIB_NHQZLCB_JZDCXX.xml">
@@ -5689,12 +5860,6 @@
   <node name="lcIB_XSB_ZKLC_FJ" describe="附件" type="15" path="100_新三板\挂牌阶段\14-质控流程\lcIB_XSB_ZKLC_FJ.xml">
     <parent>lcIB_XSB_ZKLC</parent>
   </node>
-  <node name="lcIB_XSB_ZKLC_FJ_DELETE_UI" describe="删除*界面事件" type="33" path="100_新三板\挂牌阶段\14-质控流程\lcIB_XSB_ZKLC_FJ_DELETE_UI.lbz">
-    <parent>lcIB_XSB_ZKLC</parent>
-    <files>
-      <file>lcIB_XSB_ZKLC_FJ_DELETE_UI.jpeg</file>
-    </files>
-  </node>
   <node name="lcIB_XSB_ZKLC_FJ_FJLX_UI" describe="附件类型界面事件" type="33" path="100_新三板\挂牌阶段\14-质控流程\lcIB_XSB_ZKLC_FJ_FJLX_UI.lbz">
     <parent>lcIB_XSB_ZKLC_FJ</parent>
     <files>
@@ -6037,6 +6202,21 @@
       <file>lcIB_FDJDSP_FJLX_UI.jpeg</file>
     </files>
   </node>
+  <node name="lcIB_FDJDSP_FJ_FJLX_UI" describe="附件类型界面事件" type="33" path="100_新三板\辅导阶段\lcIB_FDJDSP_FJ_FJLX_UI.lbz">
+    <parent>lcIB_FDJDSP_FJ</parent>
+    <files>
+      <file>lcIB_FDJDSP_FJ_FJLX_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="lcIB_FDJDSP_FJ_OperateInitialize_UI" describe="界面初始化界面事件" type="33" path="100_新三板\辅导阶段\lcIB_FDJDSP_FJ_OperateInitialize_UI.lbz">
+    <parent>lcIB_FDJDSP_FJ</parent>
+    <files>
+      <file>lcIB_FDJDSP_FJ_OperateInitialize_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="lcIB_FDJDSP_SCGWFJ" describe="上传公文附件" type="15" path="100_新三板\辅导阶段\lcIB_FDJDSP_SCGWFJ.xml">
+    <parent>lcIB_FDJDSP</parent>
+  </node>
   <node name="lcIB_FDJDSP_XMMC_UI" describe="项目名称界面事件" type="33" path="100_新三板\辅导阶段\lcIB_FDJDSP_XMMC_UI.lbz">
     <parent>lcIB_FDJDSP</parent>
     <files>
@@ -6320,6 +6500,12 @@
       <file>lcIB_GS_NHLC_JGTSXX_UI.jpeg</file>
     </files>
   </node>
+  <node name="lcIB_GS_NHLC_LXFS_UI" describe="内核方式界面事件" type="33" path="101_固收\1_发行前\B-内核流程\lcIB_GS_NHLC_LXFS_UI.lbz">
+    <parent>lcIB_GS_NHLC</parent>
+    <files>
+      <file>lcIB_GS_NHLC_LXFS_UI.jpeg</file>
+    </files>
+  </node>
   <node name="lcIB_GS_NHLC_M" describe="内核流程-查看流程" type="30" path="101_固收\1_发行前\B-内核流程\lcIB_GS_NHLC_M.lbz">
     <parent>lcIB_GS_NHLC</parent>
     <files>
@@ -6415,6 +6601,12 @@
   </node>
   <node name="lcIB_GS_NHLC_XMZRYXX" describe="项目组人员信息" type="15" path="101_固收\1_发行前\B-内核流程\lcIB_GS_NHLC_XMZRYXX.xml">
     <parent>lcIB_GS_NHLC</parent>
+  </node>
+  <node name="lcIB_GS_NHLC_XMZRYXX_ZJLX_UI" describe="证件类型界面事件" type="33" path="101_固收\1_发行前\B-内核流程\lcIB_GS_NHLC_XMZRYXX_ZJLX_UI.lbz">
+    <parent>lcIB_GS_NHLC_XMZRYXX</parent>
+    <files>
+      <file>lcIB_GS_NHLC_XMZRYXX_ZJLX_UI.jpeg</file>
+    </files>
   </node>
   <node name="lcIB_GS_NHLC_ZKBDGYJ_UI" describe="质控部底稿意见界面事件" type="33" path="101_固收\1_发行前\B-内核流程\lcIB_GS_NHLC_ZKBDGYJ_UI.lbz">
     <parent>lcIB_GS_NHLC</parent>
@@ -7375,6 +7567,12 @@
     <parent>lcIB_GS_ZKLC_FJ</parent>
     <files>
       <file>lcIB_GS_ZKLC_FJ_OperateInitialize_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="lcIB_GS_ZKLC_OperateInitialize_UI" describe="界面初始化界面事件" type="33" path="101_固收\1_发行前\R-质控流程\lcIB_GS_ZKLC_OperateInitialize_UI.lbz">
+    <parent>lcIB_GS_ZKLC</parent>
+    <files>
+      <file>lcIB_GS_ZKLC_OperateInitialize_UI.jpeg</file>
     </files>
   </node>
   <node name="vIB_GS_ZKLC" describe="质控三部审批流程" type="1" path="101_固收\1_发行前\R-质控流程\vIB_GS_ZKLC.xml">
@@ -8736,6 +8934,12 @@
       <file>lcIB_GS_FXH_STGLXY_OperateInitialize_UI.jpeg</file>
     </files>
   </node>
+  <node name="lcIB_GS_FXH_STGLXY_XMJD_UI" describe="项目阶段界面事件" type="33" path="101_固收\2_后续管理\B10-协议类审批流程\lcIB_GS_FXH_STGLXY_XMJD_UI.lbz">
+    <parent>lcIB_GS_FXH_STGLXY</parent>
+    <files>
+      <file>lcIB_GS_FXH_STGLXY_XMJD_UI.jpeg</file>
+    </files>
+  </node>
   <node name="lcIB_GS_FXH_STGLXY_XMMC_HXGL_UI" describe="项目名称(后续管理)界面事件" type="33" path="101_固收\2_后续管理\B10-协议类审批流程\lcIB_GS_FXH_STGLXY_XMMC_HXGL_UI.lbz">
     <parent>lcIB_GS_FXH_STGLXY</parent>
     <files>
@@ -9132,13 +9336,28 @@
   <node name="11_项目台账" describe="11_项目台账" type="-10" path="11_项目台账" />
   <node name="01_权益类" describe="01_权益类" type="-10" path="11_项目台账\01_权益类" />
   <node name="tIB_CXDDXMTZ" describe="持续督导项目台账" type="0" path="11_项目台账\01_权益类\tIB_CXDDXMTZ.xml" />
+  <node name="tIB_CXDDXMTZ_DRSJTB" describe="持续督导项目台账-导入数据信息同步流程" type="30" path="11_项目台账\01_权益类\tIB_CXDDXMTZ_DRSJTB.lbz">
+    <parent>tIB_CXDDXMTZ</parent>
+    <files>
+      <file>tIB_CXDDXMTZ_DRSJTB.jpeg</file>
+    </files>
+  </node>
+  <node name="tIB_CXDDXMTZ_DRSJTB_OperateInitialize_Param_UI" describe="界面初始化界面事件" type="33" path="11_项目台账\01_权益类\tIB_CXDDXMTZ_DRSJTB_OperateInitialize_Param_UI.lbz">
+    <parent>tIB_CXDDXMTZ</parent>
+    <files>
+      <file>tIB_CXDDXMTZ_DRSJTB_OperateInitialize_Param_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="tIB_CXDDXMTZ_SC" describe="持续督导项目台账-删除*流程" type="30" path="11_项目台账\01_权益类\tIB_CXDDXMTZ_SC.lbz">
+    <parent>tIB_CXDDXMTZ</parent>
+  </node>
   <node name="tIB_CXDDXMTZ_XG" describe="持续督导项目台账-修改流程" type="30" path="11_项目台账\01_权益类\tIB_CXDDXMTZ_XG.lbz" attribute="2">
     <parent>tIB_CXDDXMTZ</parent>
     <files>
       <file>tIB_CXDDXMTZ_XG.jpeg</file>
     </files>
   </node>
-  <node name="tIB_CXDDXMTZ_XZ" describe="持续督导项目台账-新增流程" type="30" path="11_项目台账\01_权益类\tIB_CXDDXMTZ_XZ.lbz" attribute="2">
+  <node name="tIB_CXDDXMTZ_XZ" describe="持续督导项目台账-新增流程" type="30" path="11_项目台账\01_权益类\tIB_CXDDXMTZ_XZ.lbz">
     <parent>tIB_CXDDXMTZ</parent>
     <files>
       <file>tIB_CXDDXMTZ_XZ.jpeg</file>
@@ -9150,7 +9369,7 @@
       <file>tIB_CXDDXMTZ_XZ_XMMC2_Param_UI.jpeg</file>
     </files>
   </node>
-  <node name="tIB_XMTZ_QY" describe="项目台账（权益）" type="0" path="11_项目台账\01_权益类\tIB_XMTZ_QY.xml" />
+  <node name="tIB_TZXXDRB" describe="台账信息导入表" type="0" path="11_项目台账\01_权益类\tIB_TZXXDRB.xml" />
   <node name="vIBCXDDXMTZ" describe="持续督导项目台账" type="1" path="11_项目台账\01_权益类\vIBCXDDXMTZ.xml">
     <parent>tIB_CXDDXMTZ</parent>
   </node>
@@ -9649,6 +9868,20 @@
     </files>
   </node>
   <node name="03_立项阶段" describe="03_立项阶段" type="-10" path="99_工作流程\03_立项阶段" />
+  <node name="Entity_12" describe="12" type="0" path="99_工作流程\03_立项阶段\Entity_12.xml" />
+  <node name="lcIB_LXLCCS" describe="立项流程测试" type="5" path="99_工作流程\03_立项阶段\lcIB_LXLCCS.xml" />
+  <node name="lcIB_LXLCCS_M" describe="立项流程测试-方法流程" type="30" path="99_工作流程\03_立项阶段\lcIB_LXLCCS_M.lbz">
+    <parent>lcIB_LXLCCS</parent>
+    <files>
+      <file>lcIB_LXLCCS_M.jpeg</file>
+    </files>
+  </node>
+  <node name="lcIB_LXLCCS_M2" describe="立项流程测试-方法2流程" type="30" path="99_工作流程\03_立项阶段\lcIB_LXLCCS_M2.lbz" attribute="2">
+    <parent>lcIB_LXLCCS</parent>
+    <files>
+      <file>lcIB_LXLCCS_M2.jpeg</file>
+    </files>
+  </node>
   <node name="lcIB_LXSP" describe="立项审批表" type="5" path="99_工作流程\03_立项阶段\lcIB_LXSP.xml" />
   <node name="lcIB_LXSP_BDGSCWZB" describe="标的公司财务指标" type="15" path="99_工作流程\03_立项阶段\lcIB_LXSP_BDGSCWZB.xml">
     <parent>lcIB_LXSP</parent>
@@ -9741,6 +9974,15 @@
     <parent>lcIB_LXSP</parent>
     <files>
       <file>lcIB_LXSP_ZKBDGYJ_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="lcIB_LXSP_ZKBSHXX" describe="质控部审核信息" type="15" path="99_工作流程\03_立项阶段\lcIB_LXSP_ZKBSHXX.xml">
+    <parent>lcIB_LXSP</parent>
+  </node>
+  <node name="lcIB_LXSP_ZKBSHXX_ZKBSHYJ_UI" describe="质控部审核意见界面事件" type="33" path="99_工作流程\03_立项阶段\lcIB_LXSP_ZKBSHXX_ZKBSHYJ_UI.lbz">
+    <parent>lcIB_LXSP_ZKBSHXX</parent>
+    <files>
+      <file>lcIB_LXSP_ZKBSHXX_ZKBSHYJ_UI.jpeg</file>
     </files>
   </node>
   <node name="lcIB_LXSP_ZKBSHYJ1_UI" describe="质控部审核意见1界面事件" type="33" path="99_工作流程\03_立项阶段\lcIB_LXSP_ZKBSHYJ1_UI.lbz">
@@ -9850,6 +10092,13 @@
   <node name="vIB_LXSPB" describe="立项审批表" type="1" path="99_工作流程\03_立项阶段\vIB_LXSPB.xml">
     <parent>lcIB_LXSP</parent>
   </node>
+  <node name="wfIB_LXLCCSGZL" describe="立项流程测试工作流" type="6" path="99_工作流程\03_立项阶段\wfIB_LXLCCSGZL.xml">
+    <parent>lcIB_LXLCCS</parent>
+    <files>
+      <file>wfIB_LXLCCSGZL.jpeg</file>
+      <file>wfIB_LXLCCSGZL_layout.xml</file>
+    </files>
+  </node>
   <node name="wfIB_LXSMSHLC" describe="立项书面审核流程" type="6" path="99_工作流程\03_立项阶段\wfIB_LXSMSHLC.xml">
     <parent>lcIB_QY_LXSMSHLC</parent>
     <files>
@@ -9872,6 +10121,7 @@
     </files>
   </node>
   <node name="04_内核阶段" describe="04_内核阶段" type="-10" path="99_工作流程\04_内核阶段" />
+  <node name="lcIB_CSLCZLJ" describe="测试流程中链接" type="5" path="99_工作流程\04_内核阶段\lcIB_CSLCZLJ.xml" />
   <node name="lcIB_CWGWXYSPLCN" describe="财务顾问协议审批流程" type="5" path="99_工作流程\04_内核阶段\lcIB_CWGWXYSPLCN.xml" />
   <node name="lcIB_CWGWXYSPLCN_FJ" describe="附件" type="15" path="99_工作流程\04_内核阶段\lcIB_CWGWXYSPLCN_FJ.xml">
     <parent>lcIB_CWGWXYSPLCN</parent>
@@ -9952,6 +10202,7 @@
   <node name="lcIB_CXBJXYLC_YJSKXX" describe="预计收款信息" type="15" path="99_工作流程\04_内核阶段\lcIB_CXBJXYLC_YJSKXX.xml">
     <parent>lcIB_CXBJXYLC</parent>
   </node>
+  <node name="lcIB_NHCSLC" describe="内核测试流程" type="5" path="99_工作流程\04_内核阶段\lcIB_NHCSLC.xml" />
   <node name="lcIB_NHHSBWJQZSP" describe="内核后申报文件签章审批表" type="5" path="99_工作流程\04_内核阶段\lcIB_NHHSBWJQZSP.xml" />
   <node name="lcIB_NHHSBWJQZSP_CK" describe="内核后申报文件签章审批表-查看流程" type="30" path="99_工作流程\04_内核阶段\lcIB_NHHSBWJQZSP_CK.lbz">
     <parent>lcIB_NHHSBWJQZSP</parent>
@@ -9997,6 +10248,12 @@
     <parent>lcIB_NHSP_BDGSJBXX</parent>
     <files>
       <file>lcIB_NHSP_BDGSJBXX_GSMC_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="lcIB_NHSP_BJDBR_UI" describe="签字人(保荐代表人/主办人)界面事件" type="33" path="99_工作流程\04_内核阶段\lcIB_NHSP_BJDBR_UI.lbz">
+    <parent>lcIB_NHSP</parent>
+    <files>
+      <file>lcIB_NHSP_BJDBR_UI.jpeg</file>
     </files>
   </node>
   <node name="lcIB_NHSP_BJMX" describe="内核表决明细" type="15" path="99_工作流程\04_内核阶段\lcIB_NHSP_BJMX.xml">
@@ -10071,8 +10328,20 @@
       <file>lcIB_NHSP_SCNHDG.jpeg</file>
     </files>
   </node>
+  <node name="lcIB_NHSP_XBR_UI" describe="协办人界面事件" type="33" path="99_工作流程\04_内核阶段\lcIB_NHSP_XBR_UI.lbz">
+    <parent>lcIB_NHSP</parent>
+    <files>
+      <file>lcIB_NHSP_XBR_UI.jpeg</file>
+    </files>
+  </node>
   <node name="lcIB_NHSP_XMFX" describe="项目风险" type="15" path="99_工作流程\04_内核阶段\lcIB_NHSP_XMFX.xml">
     <parent>lcIB_NHSP</parent>
+  </node>
+  <node name="lcIB_NHSP_XMFZR_UI" describe="项目负责人界面事件" type="33" path="99_工作流程\04_内核阶段\lcIB_NHSP_XMFZR_UI.lbz">
+    <parent>lcIB_NHSP</parent>
+    <files>
+      <file>lcIB_NHSP_XMFZR_UI.jpeg</file>
+    </files>
   </node>
   <node name="lcIB_NHSP_XMLX_UI" describe="项目类型界面事件" type="33" path="99_工作流程\04_内核阶段\lcIB_NHSP_XMLX_UI.lbz">
     <parent>lcIB_NHSP</parent>
@@ -10100,6 +10369,12 @@
   </node>
   <node name="lcIB_NHSP_XMZRYXX" describe="项目组人员信息" type="15" path="99_工作流程\04_内核阶段\lcIB_NHSP_XMZRYXX.xml">
     <parent>lcIB_NHSP</parent>
+  </node>
+  <node name="lcIB_NHSP_XMZRYXX_ZJLX_UI" describe="证件类型界面事件" type="33" path="99_工作流程\04_内核阶段\lcIB_NHSP_XMZRYXX_ZJLX_UI.lbz">
+    <parent>lcIB_NHSP_XMZRYXX</parent>
+    <files>
+      <file>lcIB_NHSP_XMZRYXX_ZJLX_UI.jpeg</file>
+    </files>
   </node>
   <node name="lcIB_NHSP_ZKBDGYJ1_UI" describe="质控部底稿意见1界面事件" type="33" path="99_工作流程\04_内核阶段\lcIB_NHSP_ZKBDGYJ1_UI.lbz">
     <parent>lcIB_NHSP</parent>
@@ -10215,6 +10490,13 @@
   <node name="vIB_NHSPB" describe="内核审批表" type="1" path="99_工作流程\04_内核阶段\vIB_NHSPB.xml">
     <parent>lcIB_NHSP</parent>
   </node>
+  <node name="wfIB_CSLCZLJGZL" describe="测试流程中链接工作流" type="6" path="99_工作流程\04_内核阶段\wfIB_CSLCZLJGZL.xml">
+    <parent>lcIB_CSLCZLJ</parent>
+    <files>
+      <file>wfIB_CSLCZLJGZL.jpeg</file>
+      <file>wfIB_CSLCZLJGZL_layout.xml</file>
+    </files>
+  </node>
   <node name="wfIB_CWGWXYSP" describe="财务顾问协议审批流程" type="6" path="99_工作流程\04_内核阶段\wfIB_CWGWXYSP.xml">
     <parent>lcIB_CWGWXYSPLCN</parent>
     <files>
@@ -10227,6 +10509,13 @@
     <files>
       <file>wfIB_CXBJXYGZL.jpeg</file>
       <file>wfIB_CXBJXYGZL_layout.xml</file>
+    </files>
+  </node>
+  <node name="wfIB_NHCSLCGZL" describe="内核测试流程工作流" type="6" path="99_工作流程\04_内核阶段\wfIB_NHCSLCGZL.xml">
+    <parent>lcIB_NHCSLC</parent>
+    <files>
+      <file>wfIB_NHCSLCGZL.jpeg</file>
+      <file>wfIB_NHCSLCGZL_layout.xml</file>
     </files>
   </node>
   <node name="wfIB_NHHSBWJQZSP" describe="首次申报签章流程" type="6" path="99_工作流程\04_内核阶段\wfIB_NHHSBWJQZSP.xml">
@@ -11472,6 +11761,9 @@
       <file>lcIB_CCLCB_SFQTXM_UI.jpeg</file>
     </files>
   </node>
+  <node name="lcIB_CCLCB_SPYJ" describe="审批意见" type="15" path="99_工作流程\10_出差申请\lcIB_CCLCB_SPYJ.xml">
+    <parent>lcIB_CCLCB</parent>
+  </node>
   <node name="lcIB_CCLCB_XGXM_UI" describe="相关项目界面事件" type="33" path="99_工作流程\10_出差申请\lcIB_CCLCB_XGXM_UI.lbz">
     <parent>lcIB_CCLCB</parent>
     <files>
@@ -11492,7 +11784,7 @@
     </files>
   </node>
   <node name="11_质控其他" describe="11_质控其他" type="-10" path="99_工作流程\11_质控其他" />
-  <node name="lcIB_QY_DGYJCBLC" describe="底稿移交流程" type="5" path="99_工作流程\11_质控其他\lcIB_QY_DGYJCBLC.xml" />
+  <node name="lcIB_QY_DGYJCBLC" describe="底稿移交催办流程" type="5" path="99_工作流程\11_质控其他\lcIB_QY_DGYJCBLC.xml" />
   <node name="lcIB_QY_DGYJCBLC_CK" describe="底稿移交催办流程-查看流程" type="30" path="99_工作流程\11_质控其他\lcIB_QY_DGYJCBLC_CK.lbz">
     <parent>lcIB_QY_DGYJCBLC</parent>
     <files>
@@ -13517,6 +13809,15 @@
   <node name="Jsp_TH_XM_XSB_WH" describe="新三板项目" type="43" path="[E]项目周报\[A]客户模块\[20]投行专项\[2008]项目周报\[200801]JSP\部门\Jsp_TH_XM_XSB_WH.xml" />
   <node name="[Y]平台页面" describe="[Y]平台页面" type="-10" path="[Y]平台页面" />
   <node name="Jsp_JG_HCSX" describe="缓存刷新" type="43" path="[Y]平台页面\Jsp_JG_HCSX.xml" />
+  <node name="内核办审核项目统计" describe="内核办审核项目统计" type="-10" path="内核办审核项目统计" />
+  <node name="SQL_NHBRYSHXMSLTJ" describe="内核办人员审核项目数量统计" type="17" path="内核办审核项目统计\SQL_NHBRYSHXMSLTJ.xml" />
+  <node name="SQL_NHBSHXMTJ" describe="内核办审核项目数量统计" type="17" path="内核办审核项目统计\SQL_NHBSHXMTJ.xml" />
+  <node name="VO_NHBRYSHXMTJ" describe="内核办人员审核项目统计" type="18" path="内核办审核项目统计\VO_NHBRYSHXMTJ.xml">
+    <parent>SQL_NHBRYSHXMSLTJ</parent>
+  </node>
+  <node name="VO_NHBSHXMTJ" describe="内核办审核项目统计" type="18" path="内核办审核项目统计\VO_NHBSHXMTJ.xml">
+    <parent>SQL_NHBSHXMTJ</parent>
+  </node>
   <node name="内核特别提示" describe="内核特别提示" type="-10" path="内核特别提示" />
   <node name="SQL_NHTBTS" describe="内核特别提示(查询集)" type="17" path="内核特别提示\SQL_NHTBTS.xml" />
   <node name="tIB_NHTBTS" describe="内核特别提示(主表)" type="0" path="内核特别提示\tIB_NHTBTS.xml" />
@@ -13564,12 +13865,197 @@
   <node name="tBlog" describe="新闻动态信息" type="0" path="内部信息\tBlog.xml" />
   <node name="tBlogComment" describe="我要评论" type="0" path="内部信息\tBlogComment.xml" />
   <node name="反洗钱" describe="反洗钱" type="-10" path="反洗钱" />
+  <node name="01-风险识别审批流程" describe="01-风险识别审批流程" type="-10" path="反洗钱\01-风险识别审批流程" />
+  <node name="lcIB_CS" describe="测试" type="5" path="反洗钱\01-风险识别审批流程\lcIB_CS.xml" />
+  <node name="lcIB_FXSBSPLCB" describe="风险识别审批流程" type="5" path="反洗钱\01-风险识别审批流程\lcIB_FXSBSPLCB.xml" />
+  <node name="wfIB_CSGZL" describe="测试工作流" type="6" path="反洗钱\01-风险识别审批流程\wfIB_CSGZL.xml">
+    <parent>lcIB_CS</parent>
+    <files>
+      <file>wfIB_CSGZL.jpeg</file>
+      <file>wfIB_CSGZL_layout.xml</file>
+    </files>
+  </node>
+  <node name="wfIB_FXSBSPLCGZL" describe="风险识别审批流程工作流" type="6" path="反洗钱\01-风险识别审批流程\wfIB_FXSBSPLCGZL.xml">
+    <parent>lcIB_FXSBSPLCB</parent>
+    <files>
+      <file>wfIB_FXSBSPLCGZL.jpeg</file>
+      <file>wfIB_FXSBSPLCGZL_layout.xml</file>
+    </files>
+  </node>
+  <node name="02-报表" describe="02-报表" type="-10" path="反洗钱\02-报表" />
+  <node name="cx_FXQKHTJ" describe="反洗钱客户统计" type="17" path="反洗钱\02-报表\cx_FXQKHTJ.xml" />
+  <node name="VO_FXQKHTJ" describe="反洗钱客户统计" type="18" path="反洗钱\02-报表\VO_FXQKHTJ.xml">
+    <parent>cx_FXQKHTJ</parent>
+  </node>
+  <node name="03-客户重新识别提醒" describe="03-客户重新识别提醒" type="-10" path="反洗钱\03-客户重新识别提醒" />
+  <node name="lcIB_KHCXSBTXLC" describe="客户重新识别提醒流程" type="5" path="反洗钱\03-客户重新识别提醒\lcIB_KHCXSBTXLC.xml" />
+  <node name="wfIB_KHCXSBTXLCGZL" describe="客户重新识别提醒流程工作流" type="6" path="反洗钱\03-客户重新识别提醒\wfIB_KHCXSBTXLCGZL.xml">
+    <parent>lcIB_KHCXSBTXLC</parent>
+    <files>
+      <file>wfIB_KHCXSBTXLCGZL.jpeg</file>
+      <file>wfIB_KHCXSBTXLCGZL_layout.xml</file>
+    </files>
+  </node>
   <node name="tIB_CJGJBZ" describe="常见国家币种" type="0" path="反洗钱\tIB_CJGJBZ.xml" />
   <node name="tIB_FXQKHJZDCXXB" describe="反洗钱客户尽职调查信息表" type="0" path="反洗钱\tIB_FXQKHJZDCXXB.xml" />
+  <node name="tIB_FXQKHJZDCXXB_CCSB" describe="反洗钱客户尽职调查信息表-新增/反洗钱客户初次识别流程" type="30" path="反洗钱\tIB_FXQKHJZDCXXB_CCSB.lbz">
+    <parent>tIB_FXQKHJZDCXXB</parent>
+    <files>
+      <file>tIB_FXQKHJZDCXXB_CCSB.jpeg</file>
+    </files>
+  </node>
+  <node name="tIB_FXQKHJZDCXXB_CCSB_GDGZWSX_Param_UI" describe="股东国资委属性界面事件" type="33" path="反洗钱\tIB_FXQKHJZDCXXB_CCSB_GDGZWSX_Param_UI.lbz">
+    <parent>tIB_FXQKHJZDCXXB</parent>
+    <files>
+      <file>tIB_FXQKHJZDCXXB_CCSB_GDGZWSX_Param_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="tIB_FXQKHJZDCXXB_CCSB_KHMC_Param_UI" describe="客户名称界面事件" type="33" path="反洗钱\tIB_FXQKHJZDCXXB_CCSB_KHMC_Param_UI.lbz">
+    <parent>tIB_FXQKHJZDCXXB</parent>
+    <files>
+      <file>tIB_FXQKHJZDCXXB_CCSB_KHMC_Param_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="tIB_FXQKHJZDCXXB_CCSB_SFCZJYDS_Param_UI" describe="是否存在交易对手界面事件" type="33" path="反洗钱\tIB_FXQKHJZDCXXB_CCSB_SFCZJYDS_Param_UI.lbz">
+    <parent>tIB_FXQKHJZDCXXB</parent>
+    <files>
+      <file>tIB_FXQKHJZDCXXB_CCSB_SFCZJYDS_Param_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="tIB_FXQKHJZDCXXB_CCSB_WFHYQDGDXX_Param_UI" describe="无符合要求的股东信息界面事件" type="33" path="反洗钱\tIB_FXQKHJZDCXXB_CCSB_WFHYQDGDXX_Param_UI.lbz">
+    <parent>tIB_FXQKHJZDCXXB</parent>
+    <files>
+      <file>tIB_FXQKHJZDCXXB_CCSB_WFHYQDGDXX_Param_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="tIB_FXQKHJZDCXXB_CXSB" describe="反洗钱客户尽职调查信息表-修改/重新识别流程" type="30" path="反洗钱\tIB_FXQKHJZDCXXB_CXSB.lbz">
+    <parent>tIB_FXQKHJZDCXXB</parent>
+    <files>
+      <file>tIB_FXQKHJZDCXXB_CXSB.jpeg</file>
+    </files>
+  </node>
+  <node name="tIB_FXQKHJZDCXXB_CXSB_GDGZWSX_Param_UI" describe="股东国资委属性界面事件" type="33" path="反洗钱\tIB_FXQKHJZDCXXB_CXSB_GDGZWSX_Param_UI.lbz">
+    <parent>tIB_FXQKHJZDCXXB</parent>
+    <files>
+      <file>tIB_FXQKHJZDCXXB_CXSB_GDGZWSX_Param_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="tIB_FXQKHJZDCXXB_CXSB_OperateInitialize_Param_UI" describe="界面初始化界面事件" type="33" path="反洗钱\tIB_FXQKHJZDCXXB_CXSB_OperateInitialize_Param_UI.lbz">
+    <parent>tIB_FXQKHJZDCXXB</parent>
+    <files>
+      <file>tIB_FXQKHJZDCXXB_CXSB_OperateInitialize_Param_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="tIB_FXQKHJZDCXXB_CXSB_SFCZJYDS_Param_UI" describe="是否存在交易对手界面事件" type="33" path="反洗钱\tIB_FXQKHJZDCXXB_CXSB_SFCZJYDS_Param_UI.lbz">
+    <parent>tIB_FXQKHJZDCXXB</parent>
+    <files>
+      <file>tIB_FXQKHJZDCXXB_CXSB_SFCZJYDS_Param_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="tIB_FXQKHJZDCXXB_CXSB_WFHYQDGDXX_Param_UI" describe="无符合要求的股东信息界面事件" type="33" path="反洗钱\tIB_FXQKHJZDCXXB_CXSB_WFHYQDGDXX_Param_UI.lbz">
+    <parent>tIB_FXQKHJZDCXXB</parent>
+    <files>
+      <file>tIB_FXQKHJZDCXXB_CXSB_WFHYQDGDXX_Param_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="tIB_FXQKHJZDCXXB_CXSB_XZLX_Param_UI0" describe="性质类型界面事件" type="33" path="反洗钱\tIB_FXQKHJZDCXXB_CXSB_XZLX_Param_UI0.lbz">
+    <parent>tIB_FXQKHJZDCXXB</parent>
+    <files>
+      <file>tIB_FXQKHJZDCXXB_CXSB_XZLX_Param_UI0.jpeg</file>
+    </files>
+  </node>
+  <node name="tIB_FXQKHJZDCXXB_FQYXZZYZZ" describe="非企业性质专业组织" type="15" path="反洗钱\tIB_FXQKHJZDCXXB_FQYXZZYZZ.xml">
+    <parent>tIB_FXQKHJZDCXXB</parent>
+  </node>
+  <node name="tIB_FXQKHJZDCXXB_FQYXZZYZZ_SFCQ_UI" describe="证件是否长期界面事件" type="33" path="反洗钱\tIB_FXQKHJZDCXXB_FQYXZZYZZ_SFCQ_UI.lbz">
+    <parent>tIB_FXQKHJZDCXXB_FQYXZZYZZ</parent>
+    <files>
+      <file>tIB_FXQKHJZDCXXB_FQYXZZYZZ_SFCQ_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="tIB_FXQKHJZDCXXB_FZFKZQY" describe="非政府控制企业" type="15" path="反洗钱\tIB_FXQKHJZDCXXB_FZFKZQY.xml">
+    <parent>tIB_FXQKHJZDCXXB</parent>
+  </node>
+  <node name="tIB_FXQKHJZDCXXB_FZFKZQY_SFCQ_UI" describe="证件是否长期界面事件" type="33" path="反洗钱\tIB_FXQKHJZDCXXB_FZFKZQY_SFCQ_UI.lbz">
+    <parent>tIB_FXQKHJZDCXXB_FZFKZQY</parent>
+    <files>
+      <file>tIB_FXQKHJZDCXXB_FZFKZQY_SFCQ_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="tIB_FXQKHJZDCXXB_GDXX" describe="股东信息" type="15" path="反洗钱\tIB_FXQKHJZDCXXB_GDXX.xml">
+    <parent>tIB_FXQKHJZDCXXB</parent>
+  </node>
+  <node name="tIB_FXQKHJZDCXXB_GDXX_SFCQ_UI" describe="证件是否长期界面事件" type="33" path="反洗钱\tIB_FXQKHJZDCXXB_GDXX_SFCQ_UI.lbz">
+    <parent>tIB_FXQKHJZDCXXB_GDXX</parent>
+    <files>
+      <file>tIB_FXQKHJZDCXXB_GDXX_SFCQ_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="tIB_FXQKHJZDCXXB_GDXX_SFZFJG_UI" describe="是否政府机构界面事件" type="33" path="反洗钱\tIB_FXQKHJZDCXXB_GDXX_SFZFJG_UI.lbz">
+    <parent>tIB_FXQKHJZDCXXB_GDXX</parent>
+    <files>
+      <file>tIB_FXQKHJZDCXXB_GDXX_SFZFJG_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="tIB_FXQKHJZDCXXB_HHQY" describe="合伙企业" type="15" path="反洗钱\tIB_FXQKHJZDCXXB_HHQY.xml">
+    <parent>tIB_FXQKHJZDCXXB</parent>
+  </node>
+  <node name="tIB_FXQKHJZDCXXB_HHQY_SFCQ_UI" describe="证件是否长期界面事件" type="33" path="反洗钱\tIB_FXQKHJZDCXXB_HHQY_SFCQ_UI.lbz">
+    <parent>tIB_FXQKHJZDCXXB_HHQY</parent>
+    <files>
+      <file>tIB_FXQKHJZDCXXB_HHQY_SFCQ_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="tIB_FXQKHJZDCXXB_JJ" describe="基金" type="15" path="反洗钱\tIB_FXQKHJZDCXXB_JJ.xml">
+    <parent>tIB_FXQKHJZDCXXB</parent>
+  </node>
+  <node name="tIB_FXQKHJZDCXXB_JJ_SFCQ_UI" describe="证件是否长期界面事件" type="33" path="反洗钱\tIB_FXQKHJZDCXXB_JJ_SFCQ_UI.lbz">
+    <parent>tIB_FXQKHJZDCXXB_JJ</parent>
+    <files>
+      <file>tIB_FXQKHJZDCXXB_JJ_SFCQ_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="tIB_FXQKHJZDCXXB_JYDSXX" describe="交易对手信息" type="15" path="反洗钱\tIB_FXQKHJZDCXXB_JYDSXX.xml">
+    <parent>tIB_FXQKHJZDCXXB</parent>
+  </node>
+  <node name="tIB_FXQKHJZDCXXB_SBXXCK" describe="反洗钱客户尽职调查信息表-识别信息查看流程" type="30" path="反洗钱\tIB_FXQKHJZDCXXB_SBXXCK.lbz">
+    <parent>tIB_FXQKHJZDCXXB</parent>
+    <files>
+      <file>tIB_FXQKHJZDCXXB_SBXXCK.jpeg</file>
+    </files>
+  </node>
+  <node name="tIB_FXQKHJZDCXXB_SJTB" describe="反洗钱客户尽职调查信息表-反洗钱数据同步流程" type="30" path="反洗钱\tIB_FXQKHJZDCXXB_SJTB.lbz">
+    <parent>tIB_FXQKHJZDCXXB</parent>
+    <files>
+      <file>tIB_FXQKHJZDCXXB_SJTB.jpeg</file>
+    </files>
+  </node>
+  <node name="tIB_FXQKHJZDCXXB_SZFKZDW" describe="受政府控制单位" type="15" path="反洗钱\tIB_FXQKHJZDCXXB_SZFKZDW.xml">
+    <parent>tIB_FXQKHJZDCXXB</parent>
+  </node>
+  <node name="tIB_FXQKHJZDCXXB_SZFKZDW_SFCQ_UI" describe="证件是否长期界面事件" type="33" path="反洗钱\tIB_FXQKHJZDCXXB_SZFKZDW_SFCQ_UI.lbz">
+    <parent>tIB_FXQKHJZDCXXB_SZFKZDW</parent>
+    <files>
+      <file>tIB_FXQKHJZDCXXB_SZFKZDW_SFCQ_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="tIB_FXQKHJZDCXXB_XT" describe="信托" type="15" path="反洗钱\tIB_FXQKHJZDCXXB_XT.xml">
+    <parent>tIB_FXQKHJZDCXXB</parent>
+  </node>
+  <node name="tIB_FXQKHJZDCXXB_XT_SFCQ_UI" describe="证件是否长期界面事件" type="33" path="反洗钱\tIB_FXQKHJZDCXXB_XT_SFCQ_UI.lbz">
+    <parent>tIB_FXQKHJZDCXXB_XT</parent>
+    <files>
+      <file>tIB_FXQKHJZDCXXB_XT_SFCQ_UI.jpeg</file>
+    </files>
+  </node>
   <node name="tIB_FXQKHXXB" describe="反洗钱客户信息表" type="0" path="反洗钱\tIB_FXQKHXXB.xml" />
+  <node name="tIB_FXQKHXXB_GDXX" describe="股东信息" type="15" path="反洗钱\tIB_FXQKHXXB_GDXX.xml">
+    <parent>tIB_FXQKHXXB</parent>
+  </node>
   <node name="tIB_FXQKHXXB_JYDSXX" describe="交易对手信息" type="15" path="反洗钱\tIB_FXQKHXXB_JYDSXX.xml">
     <parent>tIB_FXQKHXXB</parent>
   </node>
+  <node name="tIB_FXQKHXXLSB" describe="反洗钱客户信息历史表" type="0" path="反洗钱\tIB_FXQKHXXLSB.xml" />
   <node name="tIB_FXQSYRXXB" describe="反洗钱受益人信息表" type="0" path="反洗钱\tIB_FXQSYRXXB.xml" />
   <node name="tIB_FXQSYRXXB_FQYXZZYZZ" describe="非企业性质专业组织" type="15" path="反洗钱\tIB_FXQSYRXXB_FQYXZZYZZ.xml">
     <parent>tIB_FXQSYRXXB</parent>
@@ -13589,7 +14075,17 @@
   <node name="tIB_FXQSYRXXB_XT" describe="信托" type="15" path="反洗钱\tIB_FXQSYRXXB_XT.xml">
     <parent>tIB_FXQSYRXXB</parent>
   </node>
+  <node name="tIB_FXQSYRXXLSB" describe="反洗钱受益人信息历史表" type="0" path="反洗钱\tIB_FXQSYRXXLSB.xml" />
+  <node name="tIB_FXQSYRXXLSB_GDXX" describe="股东信息" type="15" path="反洗钱\tIB_FXQSYRXXLSB_GDXX.xml">
+    <parent>tIB_FXQSYRXXLSB</parent>
+  </node>
+  <node name="tIB_FXYZXX" describe="风险因子信息" type="0" path="反洗钱\tIB_FXYZXX.xml" />
+  <node name="tIB_FXYZXX_FXYZ" describe="风险因子" type="15" path="反洗钱\tIB_FXYZXX_FXYZ.xml">
+    <parent>tIB_FXYZXX</parent>
+  </node>
+  <node name="tIB_GFXQHJDNR" describe="高风险强化尽调内容" type="0" path="反洗钱\tIB_GFXQHJDNR.xml" />
   <node name="tIB_KHFXDJXXB" describe="客户风险等级信息表" type="0" path="反洗钱\tIB_KHFXDJXXB.xml" />
+  <node name="tIB_SBJLB" describe="识别记录表" type="0" path="反洗钱\tIB_SBJLB.xml" />
   <node name="审核系统流程对接文件" describe="审核系统流程对接文件" type="-10" path="审核系统流程对接文件" />
   <node name="tIB_SHXTWJLDB" describe="审核系统文件落地表" type="0" path="审核系统流程对接文件\tIB_SHXTWJLDB.xml" />
   <node name="tIB_SHXTWJZJB" describe="审核系统文件中间表" type="0" path="审核系统流程对接文件\tIB_SHXTWJZJB.xml" />
@@ -13759,12 +14255,6 @@
     </files>
   </node>
   <node name="tIB_DGTZTSRZ" describe="底稿台账推送日志" type="0" path="底稿日期台账\tIB_DGTZTSRZ.xml" />
-  <node name="tIB_DGTZTSRZ_M" describe="底稿台账推送日志-方法流程" type="30" path="底稿日期台账\tIB_DGTZTSRZ_M.lbz" attribute="2">
-    <parent>tIB_DGTZTSRZ</parent>
-    <files>
-      <file>tIB_DGTZTSRZ_M.jpeg</file>
-    </files>
-  </node>
   <node name="vIB_DGRQTZ_GS" describe="底稿日期台账(固收)" type="1" path="底稿日期台账\vIB_DGRQTZ_GS.xml">
     <parent>tIB_DGRQTZ</parent>
   </node>
@@ -13824,8 +14314,12 @@
       <file>SQL_XMXXTZ_XSB_CXLX_Param_UI.jpeg</file>
     </files>
   </node>
+  <node name="tIB_JZRQJS" describe="截止日期计算" type="0" path="底稿日期台账\项目信息台账\tIB_JZRQJS.xml" />
   <node name="tIB_XMXXTZ" describe="项目信息台账" type="0" path="底稿日期台账\项目信息台账\tIB_XMXXTZ.xml" />
-  <node name="VO_XMXXTZ" describe="项目信息台账(权益)" type="18" path="底稿日期台账\项目信息台账\VO_XMXXTZ.xml">
+  <node name="tIB_XMXXTZ_SJGDR" describe="持续督导年报披露日期实际归档日" type="15" path="底稿日期台账\项目信息台账\tIB_XMXXTZ_SJGDR.xml">
+    <parent>tIB_XMXXTZ</parent>
+  </node>
+  <node name="VO_XMXXTZ" describe="项目信息台账(权益底稿验收)" type="18" path="底稿日期台账\项目信息台账\VO_XMXXTZ.xml">
     <parent>SQL_XMXXTZ</parent>
   </node>
   <node name="VO_XMXXTZ_GS" describe="项目信息台账(终止底稿验收)" type="18" path="底稿日期台账\项目信息台账\VO_XMXXTZ_GS.xml">
@@ -13879,7 +14373,7 @@
       <file>VO_XMXXTZ_XG.jpeg</file>
     </files>
   </node>
-  <node name="VO_XMXXTZ_XSB" describe="项目信息台账(新三板)" type="18" path="底稿日期台账\项目信息台账\VO_XMXXTZ_XSB.xml">
+  <node name="VO_XMXXTZ_XSB" describe="项目信息台账(新三板--挂牌、再融资、重大资产重组、收购业务、其他)" type="18" path="底稿日期台账\项目信息台账\VO_XMXXTZ_XSB.xml">
     <parent>SQL_XMXXTZ_XSB</parent>
   </node>
   <node name="VO_XMXXTZ_XSB_CJCXDD" describe="项目信息台账(新三板-承接持续督导)" type="18" path="底稿日期台账\项目信息台账\VO_XMXXTZ_XSB_CJCXDD.xml">
@@ -13928,6 +14422,97 @@
     <parent>VO_XMXXTZ</parent>
     <files>
       <file>VO_XMXXTZ_XZ.jpeg</file>
+    </files>
+  </node>
+  <node name="测试" describe="测试" type="-10" path="测试" />
+  <node name="lcIB_CSFJZDSXLCBD" describe="测试附件字段刷新流程表单" type="5" path="测试\lcIB_CSFJZDSXLCBD.xml" />
+  <node name="lcIB_CSFJZDSXLCBD_FJ2_UI" describe="附件字段2界面事件" type="33" path="测试\lcIB_CSFJZDSXLCBD_FJ2_UI.lbz">
+    <parent>lcIB_CSFJZDSXLCBD</parent>
+    <files>
+      <file>lcIB_CSFJZDSXLCBD_FJ2_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="lcIB_CSFJZDSXLCBD_FJK" describe="附件框" type="15" path="测试\lcIB_CSFJZDSXLCBD_FJK.xml">
+    <parent>lcIB_CSFJZDSXLCBD</parent>
+  </node>
+  <node name="lcIB_CSFJZDSXLCBD_FJK_FJ_UI" describe="附件界面事件" type="33" path="测试\lcIB_CSFJZDSXLCBD_FJK_FJ_UI.lbz">
+    <parent>lcIB_CSFJZDSXLCBD_FJK</parent>
+    <files>
+      <file>lcIB_CSFJZDSXLCBD_FJK_FJ_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="lcIB_CSFJZDSXLCBD_FJ_UI" describe="附件字段1界面事件" type="33" path="测试\lcIB_CSFJZDSXLCBD_FJ_UI.lbz">
+    <parent>lcIB_CSFJZDSXLCBD</parent>
+    <files>
+      <file>lcIB_CSFJZDSXLCBD_FJ_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="lcIB_CSFJZDSXLCBD_M" describe="测试附件字段刷新流程表单-自定义启动流程" type="30" path="测试\lcIB_CSFJZDSXLCBD_M.lbz">
+    <parent>lcIB_CSFJZDSXLCBD</parent>
+    <files>
+      <file>lcIB_CSFJZDSXLCBD_M.jpeg</file>
+    </files>
+  </node>
+  <node name="lcIB_CSFJZDSXLCBD_M_FJ2_Param_UI" describe="附件字段2界面事件" type="33" path="测试\lcIB_CSFJZDSXLCBD_M_FJ2_Param_UI.lbz">
+    <parent>lcIB_CSFJZDSXLCBD</parent>
+    <files>
+      <file>lcIB_CSFJZDSXLCBD_M_FJ2_Param_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="lcIB_CSFJZDSXLCBD_M_FJ_Param_UI" describe="附件字段1界面事件" type="33" path="测试\lcIB_CSFJZDSXLCBD_M_FJ_Param_UI.lbz">
+    <parent>lcIB_CSFJZDSXLCBD</parent>
+    <files>
+      <file>lcIB_CSFJZDSXLCBD_M_FJ_Param_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="lcIB_CSFJZDSXLCBD_XMLX_UI" describe="项目类型界面事件" type="33" path="测试\lcIB_CSFJZDSXLCBD_XMLX_UI.lbz">
+    <parent>lcIB_CSFJZDSXLCBD</parent>
+    <files>
+      <file>lcIB_CSFJZDSXLCBD_XMLX_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="tIB_CSFJZDSXYM" describe="测试附件字段刷新页面" type="0" path="测试\tIB_CSFJZDSXYM.xml" />
+  <node name="tIB_CSMB" describe="测试模版" type="0" path="测试\tIB_CSMB.xml" />
+  <node name="tIB_CSMB_F" describe="字段" type="15" path="测试\tIB_CSMB_F.xml">
+    <parent>tIB_CSMB</parent>
+  </node>
+  <node name="tIB_CSMB_M" describe="测试模版-方法流程" type="30" path="测试\tIB_CSMB_M.lbz">
+    <parent>tIB_CSMB</parent>
+    <files>
+      <file>tIB_CSMB_M.jpeg</file>
+    </files>
+  </node>
+  <node name="tIB_CSMB_M_F2_Param_UI" describe="字段2界面事件" type="33" path="测试\tIB_CSMB_M_F2_Param_UI.lbz">
+    <parent>tIB_CSMB</parent>
+    <files>
+      <file>tIB_CSMB_M_F2_Param_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="tIB_CSWJJZDXG" describe="测试文件夹字段修改" type="0" path="测试\tIB_CSWJJZDXG.xml" />
+  <node name="tIB_CSWJJZDXG_XG" describe="测试文件夹字段修改-修改流程" type="30" path="测试\tIB_CSWJJZDXG_XG.lbz">
+    <parent>tIB_CSWJJZDXG</parent>
+    <files>
+      <file>tIB_CSWJJZDXG_XG.jpeg</file>
+    </files>
+  </node>
+  <node name="tIB_CSWJJZDXG_XG_OperateInitialize_Param_UI" describe="界面初始化界面事件" type="33" path="测试\tIB_CSWJJZDXG_XG_OperateInitialize_Param_UI.lbz">
+    <parent>tIB_CSWJJZDXG</parent>
+    <files>
+      <file>tIB_CSWJJZDXG_XG_OperateInitialize_Param_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="tIB_CSWJJZDXG_XZ" describe="测试文件夹字段修改-新增流程" type="30" path="测试\tIB_CSWJJZDXG_XZ.lbz">
+    <parent>tIB_CSWJJZDXG</parent>
+    <files>
+      <file>tIB_CSWJJZDXG_XZ.jpeg</file>
+    </files>
+  </node>
+  <node name="tIB_CSZDZT" describe="测试字段状态" type="0" path="测试\tIB_CSZDZT.xml" />
+  <node name="wfIB_CSFJZDSXLCBDGZL" describe="测试附件字段刷新流程表单工作流" type="6" path="测试\wfIB_CSFJZDSXLCBDGZL.xml">
+    <parent>lcIB_CSFJZDSXLCBD</parent>
+    <files>
+      <file>wfIB_CSFJZDSXLCBDGZL.jpeg</file>
+      <file>wfIB_CSFJZDSXLCBDGZL_layout.xml</file>
     </files>
   </node>
   <node name="用友对接" describe="用友对接" type="-10" path="用友对接" />
@@ -14008,6 +14593,28 @@
   </node>
   <node name="tIB_TUSERKZB" describe="用户信息快照表" type="0" path="系统管理\tIB_TUSERKZB.xml" />
   <node name="tIB_XMFXBSXX" describe="项目风险标识信息" type="0" path="系统管理\tIB_XMFXBSXX.xml" />
+  <node name="tIB_XTDXRB" describe="系统调休日表" type="0" path="系统管理\tIB_XTDXRB.xml" />
+  <node name="tIB_XTDXRB_TXRQ" describe="调休日期" type="15" path="系统管理\tIB_XTDXRB_TXRQ.xml">
+    <parent>tIB_XTDXRB</parent>
+  </node>
+  <node name="tIB_XTDXRB_TXRQ_OperateInitialize_UI" describe="界面初始化界面事件" type="33" path="系统管理\tIB_XTDXRB_TXRQ_OperateInitialize_UI.lbz">
+    <parent>tIB_XTDXRB_TXRQ</parent>
+    <files>
+      <file>tIB_XTDXRB_TXRQ_OperateInitialize_UI.jpeg</file>
+    </files>
+  </node>
+  <node name="tIB_XTDXRB_XG" describe="系统调休日表-修改流程" type="30" path="系统管理\tIB_XTDXRB_XG.lbz">
+    <parent>tIB_XTDXRB</parent>
+    <files>
+      <file>tIB_XTDXRB_XG.jpeg</file>
+    </files>
+  </node>
+  <node name="tIB_XTDXRB_XZ" describe="系统调休日表-新增流程" type="30" path="系统管理\tIB_XTDXRB_XZ.lbz">
+    <parent>tIB_XTDXRB</parent>
+    <files>
+      <file>tIB_XTDXRB_XZ.jpeg</file>
+    </files>
+  </node>
   <node name="TJG_DLRZ" describe="登录日志" type="0" path="系统管理\TJG_DLRZ.xml" />
   <node name="tMyScheduleDef" describe="我的日程定义" type="1" path="系统管理\tMyScheduleDef.xml">
     <parent>tScheduleDef</parent>

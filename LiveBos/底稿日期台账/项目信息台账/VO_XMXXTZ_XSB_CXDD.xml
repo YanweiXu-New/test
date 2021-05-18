@@ -9,7 +9,7 @@
             <describe>ID</describe>
             <type>1</type>
             <biz-type>200</biz-type>
-            <length>16</length>
+            <length>32</length>
             <scale>0</scale>
             <control>0</control>
             <primary-property>2</primary-property>
@@ -173,13 +173,13 @@
             </source>
         </column>
         <column>
-            <name>ZKLXZFS</name>
+            <name>ZLKZBZY</name>
             <describe>对口质控专员</describe>
-            <type>16</type>
-            <biz-type>600</biz-type>
+            <type>6</type>
+            <biz-type>500</biz-type>
             <length>0</length>
             <scale>0</scale>
-            <control>45</control>
+            <control>10</control>
             <primary-property>0</primary-property>
             <nullable>true</nullable>
             <unique>false</unique>
@@ -197,7 +197,85 @@
                 <locked>false</locked>
             </properties>
             <source type="0">
-                <column>ZKLXZFS</column>
+                <column>ZLKZBZY</column>
+            </source>
+        </column>
+        <column>
+            <name>ZZRQ</name>
+            <describe>终止日期</describe>
+            <type>13</type>
+            <biz-type>300</biz-type>
+            <length>8</length>
+            <scale>0</scale>
+            <control>3</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+            <source type="0">
+                <column>ZZRQ</column>
+            </source>
+        </column>
+        <column>
+            <name>ZZGDJZR</name>
+            <describe>终止归档截止日</describe>
+            <type>13</type>
+            <biz-type>300</biz-type>
+            <length>8</length>
+            <scale>0</scale>
+            <control>3</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+            <source type="0">
+                <column>ZZGDJZR</column>
+            </source>
+        </column>
+        <column>
+            <name>ZZRQSJGDR</name>
+            <describe>终止日期实际归档日</describe>
+            <type>13</type>
+            <biz-type>300</biz-type>
+            <length>8</length>
+            <scale>0</scale>
+            <control>3</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+            <source type="0">
+                <column>ZZRSJGDR</column>
             </source>
         </column>
         <column>
@@ -424,6 +502,58 @@
                 <column>ZZDGBH</column>
             </source>
         </column>
+        <column>
+            <name>ND</name>
+            <describe>年度</describe>
+            <type>1</type>
+            <biz-type>303</biz-type>
+            <length>4</length>
+            <scale>0</scale>
+            <control>0</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>false</visible>
+            <option/>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+            <source type="0">
+                <column>ND</column>
+            </source>
+        </column>
+        <column>
+            <name>XMXXTZID</name>
+            <describe>项目信息台账id</describe>
+            <type>1</type>
+            <biz-type>200</biz-type>
+            <length>16</length>
+            <scale>0</scale>
+            <control>1</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>false</visible>
+            <option/>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+            <source type="0">
+                <column>XMXXTZID</column>
+            </source>
+        </column>
     </columns>
     <display-options>
         <commands>
@@ -448,6 +578,15 @@
                 <describe>修改</describe>
                 <define>
                     <item>VO_XMXXTZ_XSB_CXDD_XG</item>
+                </define>
+                <is-default>0</is-default>
+                <attribute>0</attribute>
+            </command>
+            <command type="2">
+                <describe>查看</describe>
+                <define>
+                    <item>VO_XMXXTZ_XSB_CXDD</item>
+                    <item>View</item>
                 </define>
                 <is-default>0</is-default>
                 <attribute>0</attribute>
@@ -483,7 +622,7 @@
                     <real-type>0</real-type>
                     <validation/>
                     <constraint type="3">
-                        <SQL>["tIB_XMXX_XSB.XMLX = 110200 AND tIB_XMXX_XSB.ID NOT IN (SELECT XMID FROM ECIF.TIB_XMXXTZ WHERE XMFL = 2)",[]]</SQL>
+                        <SQL>["tIB_XMXX_XSB.XMLX = 110200 \r\nAND tIB_XMXX_XSB.ID NOT IN (SELECT distinct XMID FROM ECIF.TIB_XMXXTZ WHERE XMFL = 2 and xmid is not null and xmlx = 110200)",[]]</SQL>
                         <refColumns/>
                     </constraint>
                     <properties/>
@@ -833,53 +972,26 @@
                     </properties>
                 </column>
                 <column>
-                    <name>ZKLXZFS</name>
-                    <describe>对口质控专员</describe>
-                    <type>8</type>
-                    <biz-type>600</biz-type>
-                    <length>0</length>
-                    <scale>0</scale>
-                    <control>45</control>
-                    <primary-property>0</primary-property>
-                    <nullable>true</nullable>
-                    <unique>false</unique>
-                    <enabled>false</enabled>
-                    <visible>true</visible>
-                    <option/>
-                    <ref-object>tUser</ref-object>
-                    <attribute>0</attribute>
-                    <order-direction>0</order-direction>
-                    <category/>
-                    <fire-event>0</fire-event>
-                    <check-type>0</check-type>
-                    <real-type>16</real-type>
-                    <properties>
-                        <locked>false</locked>
-                    </properties>
-                </column>
-                <column>
                     <name>ND</name>
                     <describe>年度</describe>
-                    <type>1</type>
+                    <type>8</type>
                     <biz-type>303</biz-type>
                     <length>4</length>
                     <scale>0</scale>
                     <control>51</control>
                     <primary-property>0</primary-property>
                     <nullable>true</nullable>
-                    <unique>true</unique>
-                    <enabled>true</enabled>
+                    <unique>false</unique>
+                    <enabled>false</enabled>
                     <visible>true</visible>
                     <option/>
                     <ref-object/>
-                    <attribute>4</attribute>
-                    <order-direction>2</order-direction>
+                    <attribute>0</attribute>
+                    <order-direction>0</order-direction>
                     <category>项目台账信息</category>
-                    <fire-event>1</fire-event>
+                    <fire-event>0</fire-event>
                     <check-type>0</check-type>
-                    <real-type>0</real-type>
-                    <scope-permissions/>
-                    <properties/>
+                    <real-type>1</real-type>
                 </column>
                 <column>
                     <name>RQ</name>
@@ -1031,6 +1143,122 @@
                         <locked>false</locked>
                     </properties>
                 </column>
+                <column>
+                    <name>ZLKZBZY</name>
+                    <describe>对口质控专员</describe>
+                    <type>8</type>
+                    <biz-type>500</biz-type>
+                    <length>0</length>
+                    <scale>0</scale>
+                    <control>10</control>
+                    <primary-property>0</primary-property>
+                    <nullable>true</nullable>
+                    <unique>false</unique>
+                    <enabled>true</enabled>
+                    <visible>true</visible>
+                    <option/>
+                    <ref-object>tUser</ref-object>
+                    <attribute>0</attribute>
+                    <order-direction>0</order-direction>
+                    <category/>
+                    <fire-event>0</fire-event>
+                    <check-type>0</check-type>
+                    <real-type>6</real-type>
+                    <properties>
+                        <locked>false</locked>
+                    </properties>
+                </column>
+                <column>
+                    <name>XMXXTZID</name>
+                    <describe>项目信息台账id</describe>
+                    <type>8</type>
+                    <biz-type>200</biz-type>
+                    <length>16</length>
+                    <scale>0</scale>
+                    <control>1</control>
+                    <primary-property>0</primary-property>
+                    <nullable>true</nullable>
+                    <unique>false</unique>
+                    <enabled>false</enabled>
+                    <visible>false</visible>
+                    <option/>
+                    <ref-object/>
+                    <attribute>0</attribute>
+                    <order-direction>0</order-direction>
+                    <category/>
+                    <fire-event>0</fire-event>
+                    <check-type>0</check-type>
+                    <real-type>1</real-type>
+                </column>
+                <column>
+                    <name>ZZRQ</name>
+                    <describe>终止日期</describe>
+                    <type>8</type>
+                    <biz-type>300</biz-type>
+                    <length>8</length>
+                    <scale>0</scale>
+                    <control>3</control>
+                    <primary-property>0</primary-property>
+                    <nullable>true</nullable>
+                    <unique>false</unique>
+                    <enabled>false</enabled>
+                    <visible>true</visible>
+                    <option/>
+                    <ref-object/>
+                    <attribute>0</attribute>
+                    <order-direction>0</order-direction>
+                    <category>项目台账信息</category>
+                    <fire-event>0</fire-event>
+                    <check-type>0</check-type>
+                    <real-type>13</real-type>
+                    <properties/>
+                </column>
+                <column>
+                    <name>ZZGDJZR</name>
+                    <describe>终止归档截止日</describe>
+                    <type>8</type>
+                    <biz-type>300</biz-type>
+                    <length>8</length>
+                    <scale>0</scale>
+                    <control>3</control>
+                    <primary-property>0</primary-property>
+                    <nullable>true</nullable>
+                    <unique>false</unique>
+                    <enabled>false</enabled>
+                    <visible>true</visible>
+                    <option/>
+                    <ref-object/>
+                    <attribute>0</attribute>
+                    <order-direction>0</order-direction>
+                    <category>项目台账信息</category>
+                    <fire-event>0</fire-event>
+                    <check-type>0</check-type>
+                    <real-type>13</real-type>
+                    <properties/>
+                </column>
+                <column>
+                    <name>ZZRQSJGDR</name>
+                    <describe>终止日期实际归档日</describe>
+                    <type>8</type>
+                    <biz-type>300</biz-type>
+                    <length>8</length>
+                    <scale>0</scale>
+                    <control>3</control>
+                    <primary-property>0</primary-property>
+                    <nullable>true</nullable>
+                    <unique>false</unique>
+                    <enabled>true</enabled>
+                    <visible>true</visible>
+                    <option/>
+                    <ref-object/>
+                    <attribute>0</attribute>
+                    <order-direction>0</order-direction>
+                    <category>项目台账信息</category>
+                    <fire-event>0</fire-event>
+                    <check-type>0</check-type>
+                    <real-type>13</real-type>
+                    <properties/>
+                </column>
             </parameters>
             <extend-buttons/>
             <properties>
@@ -1063,6 +1291,14 @@
         <property>
             <name>5</name>
             <value>30</value>
+        </property>
+        <property>
+            <name>63</name>
+            <value>true</value>
+        </property>
+        <property>
+            <name>68</name>
+            <value>true</value>
         </property>
     </properties>
     <orders/>

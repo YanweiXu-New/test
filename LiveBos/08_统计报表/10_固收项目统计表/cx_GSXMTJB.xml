@@ -2,10 +2,87 @@
 <dataset create-date="2020.11.25 09:33:12" creator="xuyanwei.apexsoft" flag="0" name="cx_GSXMTJB" object-id="e6269d69-4eba-4cae-9dae-bf65ea1d34fe" package="08_统计报表.10_固收项目统计表" type="17" version="1.0">
     <describe>固收项目统计表</describe>
     <attribute>264</attribute>
-    <parameters/>
+    <parameters>
+        <column>
+            <name>XMMC</name>
+            <describe>项目名称</describe>
+            <type>0</type>
+            <biz-type>100</biz-type>
+            <length>100</length>
+            <scale>0</scale>
+            <control>1</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>CJSJ1</name>
+            <describe>创建时间</describe>
+            <type>13</type>
+            <biz-type>300</biz-type>
+            <length>8</length>
+            <scale>0</scale>
+            <control>3</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object/>
+            <default>null</default>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties>
+                <ctrl-width>200</ctrl-width>
+            </properties>
+        </column>
+        <column>
+            <name>CJSJ2</name>
+            <describe>至</describe>
+            <type>13</type>
+            <biz-type>300</biz-type>
+            <length>8</length>
+            <scale>0</scale>
+            <control>3</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object/>
+            <default>null</default>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties>
+                <ctrl-width>200</ctrl-width>
+            </properties>
+        </column>
+    </parameters>
     <columns/>
     <query>
-        <sql>{"statement":"CALL ECIF.PCX_IB_GSXMTJ(?,{0})","args":[{"expression":"$Login.User","scale":0,"length":0,"type":1}],"type":0}</sql>
+        <sql>{"statement":"CALL ECIF.PCX_IB_GSXMTJ(?,{0},{1},{2},{3})","args":[{"expression":"$Login.User","scale":0,"length":0,"type":1},{"expression":"parameter.XMMC","scale":0,"length":0,"type":0},{"expression":"parameter.CJSJ1","scale":0,"length":0,"type":13},{"expression":"parameter.CJSJ2","scale":0,"length":0,"type":13}],"type":0}</sql>
         <sql-type>1</sql-type>
         <datasource-name>ECIF</datasource-name>
         <result-option>

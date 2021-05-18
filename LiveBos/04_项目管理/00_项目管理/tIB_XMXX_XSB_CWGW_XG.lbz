@@ -77,78 +77,102 @@ V_2 == 1</arg>
         <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
           <describe>数据库组件_执行SQL语句</describe>
           <arg name="TranType">procedure</arg>
-          <arg name="SQL">["call ecif.PRO_IB_JGXX_XGMX_XSB(:code,:note,{0},{1},1,1,{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17})",[{"expression":"$Login.User","length":"","scale":"","type":"1"},{"expression":"$Login.IP","length":"","scale":"","type":"0"},{"expression":"O_MASTER.ID","length":"","scale":"","type":"1"},{"expression":"O_PARAMETER.XMLX","length":"","scale":"","type":"1"},{"expression":"O_PARAMETER.XMLXMC","length":"","scale":"","type":"0"},{"expression":"O_PARAMETER.XMQY","length":"","scale":"","type":"1"},{"expression":"O_PARAMETER.QYMC2","length":"","scale":"","type":"0"},{"expression":"O_PARAMETER.JYCS","length":"","scale":"","type":"1"},{"expression":"O_PARAMETER.JYCSMC","length":"","scale":"","type":"0"},{"expression":"O_PARAMETER.XMFZR","length":"","scale":"","type":"1"},{"expression":"O_PARAMETER.XMCY","length":"","scale":"","type":"0"},{"expression":"O_PARAMETER.SBRQ","length":"","scale":"","type":"13"},{"expression":"O_PARAMETER.BK","length":"","scale":"","type":"0"},{"expression":"O_PARAMETER.XMMC_RY","length":"","scale":"","type":"0"},{"expression":"O_PARAMETER.FXSJ","length":"","scale":"","type":"13"},{"expression":"O_PARAMETER.BJYWDBR","length":"","scale":"","type":"0"},{"expression":"O_PARAMETER.ZQJC","length":"","scale":"","type":"0"},{"expression":"O_PARAMETER.ZQDM","length":"","scale":"","type":"0"}]]</arg>
+          <arg name="SQL">["call ecif.PRO_IB_JGXX_XGMX_XSB(:code,:note,{0},{1},1,1,{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17})",[{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"$Login.IP","scale":"","length":"","type":"0"},{"expression":"O_MASTER.ID","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.XMLX","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.XMLXMC","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.XMQY","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.QYMC2","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.JYCS","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.JYCSMC","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.XMFZR","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.XMCY","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.SBRQ","scale":"","length":"","type":"13"},{"expression":"O_PARAMETER.BK","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.XMMC_RY","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.XMWCRQ","scale":"","length":"","type":"13"},{"expression":"O_PARAMETER.BJYWDBR","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.ZQJC","scale":"","length":"","type":"0"},{"expression":"O_PARAMETER.ZQDM","scale":"","length":"","type":"0"}]]</arg>
           <arg name="datasource">ECIF</arg>
+          <arg name="code" type="output">V_RET</arg>
+          <arg name="note" type="output">V_MSG</arg>
         </invoke>
-        <invoke component="FormSetOperate" id="0" name="批量对象组件_修改" operation="update">
-          <describe>批量修改对象[项目信息表]</describe>
-          <arg name="@objectName">tIB_XMXX</arg>
-          <arg name="@ID" type="expression">O_MASTER.XMMC</arg>
-          <arg flag="field" name="XMMC" type="expression">O_PARAMETER.XMMC_RY</arg>
-          <arg flag="field" name="XMFZR" type="expression">O_PARAMETER.XMFZR</arg>
-          <arg flag="field" name="QTCY" type="expression">O_PARAMETER.XMCY</arg>
-          <arg flag="field" name="SSBM" type="expression">O_PARAMETER.XMSSBM</arg>
-          <arg flag="field" name="SSKH" type="expression">O_PARAMETER.SSKH</arg>
-          <arg flag="field" name="XGSJ" type="expression">$DateTime.Now</arg>
-          <arg flag="field" name="XMJD" type="expression">O_PARAMETER.XMJD</arg>
-          <arg flag="field" name="XMZZRQ" type="expression">O_PARAMETER.XMZZRQ</arg>
-          <arg flag="field" name="BMZKZY" type="expression">O_PARAMETER.BMZKZY</arg>
-          <arg flag="field" name="XMWCRQ" type="expression">O_PARAMETER.XMWCRQ</arg>
-        </invoke>
-        <invoke component="FormOperate" id="0" name="对象组件_修改" operation="update">
-          <describe>修改对象[项目信息_新三板]</describe>
-          <arg name="@objectName">tIB_XMXX_XSB</arg>
-          <arg name="@object" type="variable">O_MASTER</arg>
-          <arg flag="field" name="XMMC_RY" type="expression">O_PARAMETER.XMMC_RY</arg>
-          <arg flag="field" name="XMSSBM" type="expression">O_PARAMETER.XMSSBM</arg>
-          <arg flag="field" name="ZQJC" type="expression">O_PARAMETER.ZQJC</arg>
-          <arg flag="field" name="ZQDM" type="expression">O_PARAMETER.ZQDM</arg>
-          <arg flag="field" name="XMFZR" type="expression">O_PARAMETER.XMFZR</arg>
-          <arg flag="field" name="ZLKZBZY" type="expression">O_PARAMETER.ZLKZBZY</arg>
-          <arg flag="field" name="CWGWF" type="expression">O_PARAMETER.CWGWF</arg>
-          <arg flag="field" name="XGSJ" type="expression">$DateTime.Now</arg>
-          <arg name="@retObject" type="output">V_OBJ_XSB</arg>
-          <arg flag="field" name="KHDZ" type="expression">O_PARAMETER.KHDZ</arg>
-          <arg flag="field" name="SXQZJJ" type="expression">O_PARAMETER.SXQZJJ</arg>
-          <arg flag="field" name="SFWCXC" type="expression">O_PARAMETER.SFWCXC</arg>
-          <arg flag="field" name="SFWLJRQY" type="expression">O_PARAMETER.SFWLJRQY</arg>
-          <arg flag="field" name="XMWCRQ" type="expression">O_PARAMETER.XMWCRQ</arg>
-          <arg flag="field" name="BJYWDBR" type="expression">O_PARAMETER.BJYWDBR</arg>
-          <arg flag="field" name="XMLX" type="expression">O_PARAMETER.XMLX</arg>
-          <arg flag="field" name="XMLXMC" type="expression">O_PARAMETER.XMLXMC</arg>
-          <arg flag="field" name="XMQY" type="expression">O_PARAMETER.XMQY</arg>
-          <arg flag="field" name="QYMC2" type="expression">O_PARAMETER.QYMC2</arg>
-          <arg flag="field" name="SSGPBK" type="expression">O_PARAMETER.SSGPBK</arg>
-          <arg flag="field" name="JYCS" type="expression">O_PARAMETER.JYCS</arg>
-          <arg flag="field" name="JYCSMC" type="expression">O_PARAMETER.JYCSMC</arg>
-          <arg flag="field" name="SBSJ" type="expression">O_PARAMETER.SBSJ</arg>
-          <arg flag="field" name="FXSJ" type="expression">O_PARAMETER.FXSJ</arg>
-          <arg flag="field" name="QTCY" type="expression">O_PARAMETER.XMCY</arg>
-          <arg flag="field" name="BK" type="expression">O_PARAMETER.BK</arg>
-        </invoke>
-        <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
-          <describe>后处理</describe>
-          <arg name="TranType">procedure</arg>
-          <arg name="datasource">ECIF</arg>
-          <arg name="ret" type="output">V_RET</arg>
-          <arg name="msg" type="output">V_MSG</arg>
-          <arg name="SQL">["CALL PRO_IB_XMXX_XSB(:ret,:msg,{0},{1},9,{2},{3})",[{"expression":"$Login.User","length":"","scale":"","type":"1"},{"expression":"$Login.IP","length":"","scale":"","type":"0"},{"expression":"O_MASTER.ID","length":"","scale":"","type":"1"},{"expression":"O_PARAMETER.XMMC","length":"","scale":"","type":"1"}]]</arg>
-        </invoke>
-        <invoke component="CallBizProcess" id="0" name="对象流程组件">
-          <describe>对象流程-【底稿日期台账-项目日期推送_调用流程】</describe>
-          <arg name="processName">tIB_DGRQTZ_XMRQTS_DY</arg>
-          <arg flag="parameter" name="BM" type="expression">1008</arg>
-          <arg flag="parameter" name="XMID" type="expression">O_MASTER.ID</arg>
-          <arg flag="parameter" name="XMFL2" type="expression">2</arg>
-        </invoke>
-        <response exit="false" id="0">
-          <describe>输出</describe>
-          <retvalue type="variable">V_RET</retvalue>
-          <message type="variable">V_MSG</message>
-          <uiforward redirect="false">
-            <url />
-          </uiforward>
-        </response>
+        <if id="0">
+          <describe>判断</describe>
+          <conditions>
+            <condition name="" type="expression">
+              <arg name="expression">V_RET &gt; 0</arg>
+            </condition>
+          </conditions>
+          <sequence id="0" name="顺序">
+            <invoke component="FormSetOperate" id="0" name="批量对象组件_修改" operation="update">
+              <describe>批量修改对象[项目信息表]</describe>
+              <arg name="@objectName">tIB_XMXX</arg>
+              <arg name="@ID" type="expression">O_MASTER.XMMC</arg>
+              <arg flag="field" name="XMMC" type="expression">O_PARAMETER.XMMC_RY</arg>
+              <arg flag="field" name="XMFZR" type="expression">O_PARAMETER.XMFZR</arg>
+              <arg flag="field" name="QTCY" type="expression">O_PARAMETER.XMCY</arg>
+              <arg flag="field" name="SSBM" type="expression">O_PARAMETER.XMSSBM</arg>
+              <arg flag="field" name="SSKH" type="expression">O_PARAMETER.SSKH</arg>
+              <arg flag="field" name="XGSJ" type="expression">$DateTime.Now</arg>
+              <arg flag="field" name="XMJD" type="expression">O_PARAMETER.XMJD</arg>
+              <arg flag="field" name="XMZZRQ" type="expression">O_PARAMETER.XMZZRQ</arg>
+              <arg flag="field" name="BMZKZY" type="expression">O_PARAMETER.BMZKZY</arg>
+              <arg flag="field" name="XMWCRQ" type="expression">O_PARAMETER.XMWCRQ</arg>
+            </invoke>
+            <invoke component="FormOperate" id="0" name="对象组件_修改" operation="update">
+              <describe>修改对象[项目信息_新三板]</describe>
+              <arg name="@objectName">tIB_XMXX_XSB</arg>
+              <arg name="@object" type="variable">O_MASTER</arg>
+              <arg flag="field" name="XMMC_RY" type="expression">O_PARAMETER.XMMC_RY</arg>
+              <arg flag="field" name="XMSSBM" type="expression">O_PARAMETER.XMSSBM</arg>
+              <arg flag="field" name="ZQJC" type="expression">O_PARAMETER.ZQJC</arg>
+              <arg flag="field" name="ZQDM" type="expression">O_PARAMETER.ZQDM</arg>
+              <arg flag="field" name="XMFZR" type="expression">O_PARAMETER.XMFZR</arg>
+              <arg flag="field" name="ZLKZBZY" type="expression">O_PARAMETER.ZLKZBZY</arg>
+              <arg flag="field" name="CWGWF" type="expression">O_PARAMETER.CWGWF</arg>
+              <arg flag="field" name="XGSJ" type="expression">$DateTime.Now</arg>
+              <arg name="@retObject" type="output">V_OBJ_XSB</arg>
+              <arg flag="field" name="KHDZ" type="expression">O_PARAMETER.KHDZ</arg>
+              <arg flag="field" name="SXQZJJ" type="expression">O_PARAMETER.SXQZJJ</arg>
+              <arg flag="field" name="SFWCXC" type="expression">O_PARAMETER.SFWCXC</arg>
+              <arg flag="field" name="SFWLJRQY" type="expression">O_PARAMETER.SFWLJRQY</arg>
+              <arg flag="field" name="XMWCRQ" type="expression">O_PARAMETER.XMWCRQ</arg>
+              <arg flag="field" name="BJYWDBR" type="expression">O_PARAMETER.BJYWDBR</arg>
+              <arg flag="field" name="XMLX" type="expression">O_PARAMETER.XMLX</arg>
+              <arg flag="field" name="XMLXMC" type="expression">O_PARAMETER.XMLXMC</arg>
+              <arg flag="field" name="XMQY" type="expression">O_PARAMETER.XMQY</arg>
+              <arg flag="field" name="QYMC2" type="expression">O_PARAMETER.QYMC2</arg>
+              <arg flag="field" name="SSGPBK" type="expression">O_PARAMETER.SSGPBK</arg>
+              <arg flag="field" name="JYCS" type="expression">O_PARAMETER.JYCS</arg>
+              <arg flag="field" name="JYCSMC" type="expression">O_PARAMETER.JYCSMC</arg>
+              <arg flag="field" name="SBSJ" type="expression">O_PARAMETER.SBSJ</arg>
+              <arg flag="field" name="FXSJ" type="expression">O_PARAMETER.FXSJ</arg>
+              <arg flag="field" name="QTCY" type="expression">O_PARAMETER.XMCY</arg>
+              <arg flag="field" name="BK" type="expression">O_PARAMETER.BK</arg>
+              <arg flag="field" name="SBRQ" type="expression">O_PARAMETER.SBRQ</arg>
+            </invoke>
+            <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
+              <describe>后处理</describe>
+              <arg name="TranType">procedure</arg>
+              <arg name="datasource">ECIF</arg>
+              <arg name="ret" type="output">V_RET</arg>
+              <arg name="msg" type="output">V_MSG</arg>
+              <arg name="SQL">["CALL PRO_IB_XMXX_XSB(:ret,:msg,{0},{1},9,{2},{3})",[{"expression":"$Login.User","length":"","scale":"","type":"1"},{"expression":"$Login.IP","length":"","scale":"","type":"0"},{"expression":"O_MASTER.ID","length":"","scale":"","type":"1"},{"expression":"O_PARAMETER.XMMC","length":"","scale":"","type":"1"}]]</arg>
+            </invoke>
+            <invoke component="CallBizProcess" id="0" name="对象流程组件">
+              <describe>对象流程-【底稿日期台账-项目日期推送_调用流程】</describe>
+              <arg name="processName">tIB_DGRQTZ_XMRQTS_DY</arg>
+              <arg flag="parameter" name="BM" type="expression">1008</arg>
+              <arg flag="parameter" name="XMID" type="expression">O_MASTER.ID</arg>
+              <arg flag="parameter" name="XMFL2" type="expression">2</arg>
+            </invoke>
+            <response exit="false" id="0">
+              <describe>输出</describe>
+              <retvalue type="variable">V_RET</retvalue>
+              <message type="variable">V_MSG</message>
+              <uiforward redirect="false">
+                <url />
+              </uiforward>
+            </response>
+          </sequence>
+          <else>
+            <describe>Else</describe>
+            <response exit="false" id="0">
+              <describe>输出</describe>
+              <retvalue type="expression">V_RET</retvalue>
+              <message type="expression">V_MSG</message>
+              <uiforward redirect="false">
+                <url />
+              </uiforward>
+            </response>
+          </else>
+        </if>
       </sequence>
       <else>
         <describe>Else</describe>

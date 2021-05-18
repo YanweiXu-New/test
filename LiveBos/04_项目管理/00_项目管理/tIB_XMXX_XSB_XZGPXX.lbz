@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="GB2312"?>
+<?xml version="1.0" encoding="gb2312"?>
 <process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_XMXX_XSB_XZGPXX" name="tIB_XMXX_XSB_XZGPXX" object="tIB_XMXX_XSB" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
   <describe>项目信息_新三板-新增挂牌信息流程</describe>
   <variables>
@@ -166,6 +166,8 @@ V_2 == 1</arg>
           <arg flag="field" name="FXSJ" type="expression">null</arg>
           <arg flag="field" name="QTCY" type="expression">O_PARAMETER.XMZCY</arg>
           <arg flag="field" name="BK" type="expression">O_PARAMETER.BK</arg>
+          <arg flag="field" name="ZQJC" type="expression">O_PARAMETER.ZQJC</arg>
+          <arg flag="field" name="ZQDM" type="expression">O_PARAMETER.ZQDM</arg>
         </invoke>
         <invoke component="SQL" id="0" name="数据库组件_执行SQL语句" operation="execute">
           <describe>数据处理</describe>

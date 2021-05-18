@@ -399,7 +399,7 @@
             <describe>项目名称</describe>
             <type>0</type>
             <biz-type>100</biz-type>
-            <length>100</length>
+            <length>150</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -772,7 +772,7 @@ XMLX!=120600            </invisible-expression>
             <describe>发行时间</describe>
             <type>13</type>
             <biz-type>300</biz-type>
-            <length>8</length>
+            <length>10</length>
             <scale>0</scale>
             <control>3</control>
             <primary-property>0</primary-property>
@@ -803,7 +803,7 @@ XMLX!=120600            </invisible-expression>
             <describe>申报时间</describe>
             <type>13</type>
             <biz-type>300</biz-type>
-            <length>8</length>
+            <length>10</length>
             <scale>0</scale>
             <control>3</control>
             <primary-property>0</primary-property>
@@ -923,6 +923,49 @@ XMLX!=120600            </invisible-expression>
             <properties/>
         </column>
         <column>
+            <name>XBR</name>
+            <describe>协办人</describe>
+            <type>16</type>
+            <biz-type>600</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>45</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object>tUser</ref-object>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category>项目信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>XBR_DG</name>
+            <describe>协办人（底稿）</describe>
+            <type>0</type>
+            <biz-type>100</biz-type>
+            <length>300</length>
+            <scale>0</scale>
+            <control>1</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category>项目信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+        </column>
+        <column>
             <name>SFBS</name>
             <describe>是否报送</describe>
             <type>7</type>
@@ -958,7 +1001,7 @@ XMLX!=120600            </invisible-expression>
             <describe>报送时间</describe>
             <type>13</type>
             <biz-type>300</biz-type>
-            <length>8</length>
+            <length>10</length>
             <scale>0</scale>
             <control>3</control>
             <primary-property>0</primary-property>
@@ -1257,7 +1300,7 @@ XMLX!=120600            </invisible-expression>
                     <scale>0</scale>
                     <control>1</control>
                     <primary-property>0</primary-property>
-                    <nullable>false</nullable>
+                    <nullable>true</nullable>
                     <unique>false</unique>
                     <enabled>true</enabled>
                     <visible>true</visible>
@@ -1547,7 +1590,7 @@ XMLX!=120600            </invisible-expression>
                     <describe>项目名称</describe>
                     <type>0</type>
                     <biz-type>100</biz-type>
-                    <length>100</length>
+                    <length>150</length>
                     <scale>0</scale>
                     <control>1</control>
                     <primary-property>0</primary-property>
@@ -2041,7 +2084,7 @@ XMLX!=120600            </invisible-expression>
                     <describe>项目组成员</describe>
                     <type>0</type>
                     <biz-type>100</biz-type>
-                    <length>300</length>
+                    <length>1024</length>
                     <scale>0</scale>
                     <control>1</control>
                     <primary-property>0</primary-property>
@@ -2066,6 +2109,26 @@ XMLX!=120600            </invisible-expression>
                     <validation/>
                     <scope-permissions/>
                     <properties/>
+                </column>
+                <column>
+                    <name>I_XBR</name>
+                    <describe>协办人</describe>
+                    <type>0</type>
+                    <biz-type>100</biz-type>
+                    <length>1024</length>
+                    <scale>0</scale>
+                    <control>1</control>
+                    <primary-property>0</primary-property>
+                    <nullable>true</nullable>
+                    <unique>false</unique>
+                    <enabled>true</enabled>
+                    <visible>true</visible>
+                    <attribute>0</attribute>
+                    <order-direction>0</order-direction>
+                    <category>项目信息</category>
+                    <fire-event>0</fire-event>
+                    <check-type>0</check-type>
+                    <real-type>0</real-type>
                 </column>
             </parameters>
             <extend-buttons/>

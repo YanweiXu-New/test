@@ -38,6 +38,30 @@
             <properties/>
         </column>
         <column>
+            <name>YWLX</name>
+            <describe>业务类型</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>0</control>
+            <primary-property>6</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>false</visible>
+            <option>1|权益;2|固收(发行前);3|债券;4|新三板</option>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression>4</expression>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+        </column>
+        <column>
             <name>SQR</name>
             <describe>申请人</describe>
             <type>6</type>
@@ -506,7 +530,7 @@ LB.getClient().isStandard==false     </invisible-expression>
             <comment/>
             <validation/>
             <constraint type="3">
-                <SQL>["({0} =111 and tIB_XMXX_XSB.KPJD =111 )\r\nor ({0} =199 and tIB_XMXX_XSB.KPJD in (112,113,114))",[{"expression":"XMJD","scale":0,"length":0,"type":1}]]</SQL>
+                <SQL>[" tIB_XMXX_XSB.KPJD = 112",[]]</SQL>
                 <refColumns/>
             </constraint>
             <scope-permissions/>
@@ -1086,7 +1110,15 @@ oaid&lt;=0      </invisible-expression>
                 <tip/>
             </command>
         </commands>
-        <relations/>
+        <relations>
+            <relation type="9">
+                <define>
+                    <item>VO_NHTBTS</item>
+                    <item>(XMID=XMMC|YWLX=YWLX)</item>
+                </define>
+                <describe>内核特别提示</describe>
+            </relation>
+        </relations>
     </display-options>
     <subdivisions/>
     <methods>

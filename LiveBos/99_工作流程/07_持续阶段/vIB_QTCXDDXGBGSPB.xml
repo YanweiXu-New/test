@@ -389,7 +389,7 @@
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-LB.getClient().isStandard==false   </invisible-expression>
+LB.getClient().isStandard==false    </invisible-expression>
             <disable-expression/>
             <category>申请审批信息</category>
             <fire-event>0</fire-event>
@@ -644,7 +644,7 @@ O_THIS.getColumn("GHRQ").setLabel("过会日期");
 O_THIS.getColumn("FXRQ").setLabel("发行日期");
 O_THIS.getColumn("SSRQ").setLabel("上市日期");
 }
-1==2   </invisible-expression>
+1==2    </invisible-expression>
             <disable-expression/>
             <category>申请审批信息</category>
             <fire-event>0</fire-event>
@@ -1028,7 +1028,7 @@ ABS_SQLVALUE("select NHBZS from ecif.tIB_LCNHZYZSPZB where LCDM='lcIB_QTCXDDXGBG
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 var oaid=ABS_SQLVALUE("select nvl(max(oaworkflowid),0) from ecif.tib_oawfhandle where lcbd='lcIB_QTCXDDXGBGSPB' and lcbdid=?",[ID])
-oaid&lt;=0    </invisible-expression>
+oaid&lt;=0     </invisible-expression>
             <disable-expression/>
             <category>OA审批信息</category>
             <fire-event>0</fire-event>
@@ -1059,7 +1059,7 @@ oaid&lt;=0    </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-LB.getClient().isStandard==false    </invisible-expression>
+LB.getClient().isStandard==false     </invisible-expression>
             <disable-expression/>
             <category>附件信息</category>
             <fire-event>0</fire-event>

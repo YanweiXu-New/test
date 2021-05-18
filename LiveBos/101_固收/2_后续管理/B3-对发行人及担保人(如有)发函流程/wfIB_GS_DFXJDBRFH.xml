@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="gb2312"?>
 <!DOCTYPE workflow PUBLIC "-//Apexsoft LiveBos//DTD Workflow 2.8//EN" "http://www.livebos.com/workflow/workflow_2_8_abs.dtd"><workflow>
-  <meta name="Designer">Studio</meta>
   <meta name="workflow.category">固收类-后续管理</meta>
+  <meta name="Designer">Studio</meta>
   <meta name="created">2017-07-28 14:34:57</meta>
-  <meta name="modify">2020-08-14 16:12:25</meta>
+  <meta name="modify">2021-04-29 14:27:04</meta>
+  <meta name="work.monitor.steponly">false</meta>
   <meta name="Describe">对发行人及担保人(如有)发函流程</meta>
   <meta name="WorkflowName">wfIB_GS_DFXJDBRFH</meta>
   <meta name="WorkflowType">2</meta>
@@ -160,8 +161,8 @@ ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM ecif.tIB_XMXX_GS WHERE TDFZR = ? AND ID 
       </actions>
     </step>
     <step id="9" name="部门文管审核">
-      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.reject.mode">prev</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
       <meta name="NodeType">16</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
@@ -300,8 +301,8 @@ ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM ecif.tIB_XMXX_GS WHERE TDFZR = ? AND ID 
       </actions>
     </step>
     <step id="11" name="部门职能审批" owner="$D{Designate}">
-      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.reject.mode">any</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
       <meta name="NodeType">16</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
@@ -405,8 +406,8 @@ ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM ecif.tIB_XMXX_GS WHERE TDFZR = ? AND ID 
       </actions>
     </step>
     <step id="13" name="部门总经理审批">
-      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.reject.mode">any</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
       <meta name="NodeType">16</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
@@ -503,27 +504,38 @@ ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM ecif.tIB_XMXX_GS WHERE TDFZR = ? AND ID 
             </function>
           </pre-functions>
           <results>
-            <result id="1016" old-status="完成" status="待处理" step="19">
+            <result id="1016" old-status="完成" status="待处理" step="17">
               <conditions>
                 <condition id="0" name="abs.FormExpOfStepCondition" type="class">
                   <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
-var  yjbmid = ABS_SQLVALUE(&quot;select id  from jgcrm.lborganization where fid = 1 start with id= ? connect by prior fid = id&quot;,[O_WORKFLOW.SQR.OrgID]);
-var  cnt = ABS_SQLVALUE(&quot;select count(1) from jgcrm.lborganization where id = ? and sfdlbm =1&quot;,[yjbmid]);
-cnt==1 </arg>
+var cnt1 = ABS_SQLVALUE(&quot;select count(1) from jgcrm.lborganization where fid = 1 and id = 13929 start with id = ?  connect by prior fid = id&quot;,[O_WORKFLOW.SQR.OrgID]);
+cnt1 == 1 </arg>
                   <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
                   <arg name="Table">lcIB_GS_DFXJDBRFH</arg>
                 </condition>
               </conditions>
             </result>
-            <unconditional-result id="26" old-status="完成" status="待处理" step="15">
+            <result id="1017" old-status="完成" status="待处理" step="15">
+              <conditions>
+                <condition id="0" name="abs.FormExpOfStepCondition" type="class">
+                  <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+var cnt1 = ABS_SQLVALUE(&quot;select count(1) from jgcrm.lborganization where fid = 1 and id = 10015 start with id = ?  connect by prior fid = id&quot;,[O_WORKFLOW.SQR.OrgID]);
+cnt1 == 1 </arg>
+                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
+                  <arg name="Table">lcIB_GS_DFXJDBRFH</arg>
+                </condition>
+              </conditions>
+            </result>
+            <unconditional-result id="26" old-status="完成" status="待处理" step="19">
             </unconditional-result>
           </results>
         </action>
       </actions>
     </step>
-    <step id="15" name="固收文管审核">
-      <meta name="step.allow.approve.sign">true</meta>
+    <step id="15" name="投资银行总部总经理审批">
+      <meta name="step.allow.auto.approve">false</meta>
       <meta name="step.reject.mode">any</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
       <meta name="NodeType">16</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
@@ -601,9 +613,9 @@ cnt==1 </arg>
         </columns>
       </object>
       <dynOwners>
-        <dynOwner  type="1" describe="固收_部门文管" >
+        <dynOwner  type="1" describe="动态用户" >
           <expression><![CDATA[
-{"name":"DW_GS_BMWG","parameters":{}}]]></expression>
+{"name":"DW_GSTXZBZJL","parameters":{}}]]></expression>
           </dynOwner>
               </dynOwners>
       <notify >
@@ -620,15 +632,16 @@ cnt==1 </arg>
             </function>
           </pre-functions>
           <results>
-            <unconditional-result id="27" old-status="完成" status="待处理" step="17">
+            <unconditional-result id="1018" old-status="完成" status="待处理" step="19">
             </unconditional-result>
           </results>
         </action>
       </actions>
     </step>
-    <step id="17" name="固收审核岗审核" owner="$D{Designate}">
-      <meta name="step.allow.approve.sign">true</meta>
+    <step id="17" name="并购融资部总经理审批">
+      <meta name="step.allow.auto.approve">false</meta>
       <meta name="step.reject.mode">any</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
       <meta name="NodeType">16</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
@@ -706,13 +719,24 @@ cnt==1 </arg>
         </columns>
       </object>
       <dynOwners>
-        <dynOwner  type="1" describe="固收_综合部审核岗" >
+        <dynOwner  type="1" describe="动态用户" >
           <expression><![CDATA[
-{"name":"DW_GSZHBSHG","parameters":{}}]]></expression>
+{"name":"DW_GSBGRZBZJL","parameters":{}}]]></expression>
           </dynOwner>
               </dynOwners>
       <notify >
       </notify>
+      <pre-functions>
+        <function id="0" name="abs.Expression" type="null">
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+var s=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.OS_CURRENTSTEP T,JGCRM.LBWFCURRENTOWNER A WHERE T.ID = A.STEPID AND T.ENTRY_ID = ? AND T.STEP_ID = 17 AND A.OWNER = ?&quot;,[O_WORKFLOW.InstID,$Login.User]);
+if (s&gt;0){
+LB_workAction(&quot;lcIB_GS_DFXJDBRFH&quot;,O_WORKFLOW.ID,18,&quot;&quot;);
+ABS_flushObjCache('WORKFLOW.TASK')
+}</arg>
+          <arg name="class.name"> com.apex.livebos.workflow.ExecExpressionFunction</arg>
+        </function>
+      </pre-functions>
       <actions>
         <action id="18" name="审批通过">
           <meta name="NodeType">17</meta>
@@ -733,8 +757,9 @@ cnt==1 </arg>
       </actions>
     </step>
     <step id="19" name="债券业务负责人审核">
-      <meta name="step.reject.mode">any</meta>
+      <meta name="step.allow.auto.approve">false</meta>
       <meta name="step.allow.approve.sign">true</meta>
+      <meta name="step.reject.mode">any</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
       <meta name="NodeType">16</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
@@ -819,6 +844,18 @@ cnt==1 </arg>
               </dynOwners>
       <notify >
       </notify>
+      <pre-functions>
+        <function id="0" name="abs.Expression" type="null">
+          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+var s=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.OS_CURRENTSTEP T,JGCRM.LBWFCURRENTOWNER A WHERE T.ID = A.STEPID AND T.ENTRY_ID = ? AND T.STEP_ID = 19 AND A.OWNER = ?&quot;,[O_WORKFLOW.InstID,$Login.User]);
+if (s&gt;0){
+LB_workAction(&quot;lcIB_GS_DFXJDBRFH&quot;,O_WORKFLOW.ID,20,&quot;&quot;);
+ABS_flushObjCache('WORKFLOW.TASK')
+}
+</arg>
+          <arg name="class.name"> com.apex.livebos.workflow.ExecExpressionFunction</arg>
+        </function>
+      </pre-functions>
       <actions>
         <action id="20" name="审批通过">
           <meta name="NodeType">17</meta>
@@ -854,8 +891,8 @@ O_WORKFLOW.FKBZ==1 &amp;&amp; O_WORKFLOW.ZKSBZS !=null</arg>
       </actions>
     </step>
     <step id="21" name="团队负责人审批">
-      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.reject.mode">any</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
       <meta name="NodeType">16</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
@@ -1355,6 +1392,94 @@ O_WORKFLOW.LCBT]]></message>
               </condition>
               <condition name="verify.caller" type="class">
                 <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;,[]]</arg>
               </condition>
               <condition name="verify.caller" type="class">
@@ -1372,8 +1497,8 @@ O_WORKFLOW.LCBT]]></message>
     </step>
     <step id="33" name="质控三部文管形式审核">
       <meta name="step.allow.communicate">false</meta>
-      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.reject.mode">any</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.communicate.to.steps">-10001</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
       <meta name="NodeType">16</meta>
@@ -1486,11 +1611,11 @@ O_WORKFLOW.LCBT]]></message>
     </step>
     <step id="35" name="质控三部主副审审核" owner="$AM{4}">
       <meta name="step.allow.communicate">false</meta>
-      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.reject.mode">any</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.communicate.to.steps">-10001</meta>
-      <meta name="step.approve.sign.action.name">会签</meta>
       <meta name="wfnotify.panel">false</meta>
+      <meta name="step.approve.sign.action.name">会签</meta>
       <meta name="NodeType">16</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
@@ -1652,8 +1777,8 @@ ABS_IF(O_WORKFLOW.ZKSBZS==$Login.User,0,O_WORKFLOW.YJJG)</arg>
       </reject-functions>
     </step>
     <step id="37" name="质控三部总经理审批">
-      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.reject.mode">any</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
       <meta name="NodeType">16</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
@@ -1746,8 +1871,8 @@ ABS_IF(O_WORKFLOW.ZKSBZS==$Login.User,0,O_WORKFLOW.YJJG)</arg>
       </reject-functions>
     </step>
     <step id="39" name="投行质控总部总经理审批">
-      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.reject.mode">any</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
       <meta name="NodeType">16</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
@@ -1840,8 +1965,8 @@ ABS_IF(O_WORKFLOW.ZKSBZS==$Login.User,0,O_WORKFLOW.YJJG)</arg>
       </reject-functions>
     </step>
     <step id="53" name="综合部负责人审批">
-      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.reject.mode">any</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
       <meta name="NodeType">16</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
@@ -2344,6 +2469,94 @@ ABS_flushObjCache('WORKFLOW.TASK')
               </condition>
               <condition name="verify.caller" type="class">
                 <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;,[]]</arg>
               </condition>
               <condition name="verify.caller" type="class">
@@ -2360,8 +2573,8 @@ ABS_flushObjCache('WORKFLOW.TASK')
       </actions>
     </step>
     <step id="55" name="固收审核岗审核">
-      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.reject.mode">any</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
       <meta name="NodeType">16</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
@@ -2473,6 +2686,94 @@ ABS_flushObjCache('WORKFLOW.TASK')
           <meta name="NodeType">10</meta>
           <restrict-to>
             <conditions type="OR">
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+                <arg name="owner">[]]</arg>
+              </condition>
               <condition name="verify.caller" type="class">
                 <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
@@ -3029,8 +3330,8 @@ ABS_flushObjCache('WORKFLOW.TASK')
       </actions>
     </step>
     <step id="1007" name="团队质控专员">
-      <meta name="step.reject.mode">any</meta>
       <meta name="step.allow.approve.sign">true</meta>
+      <meta name="step.reject.mode">any</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
       <meta name="NodeType">16</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
@@ -3142,8 +3443,8 @@ O_WORKFLOW.LCBT]]></message>
       </actions>
     </step>
     <step id="1012" name="投行质控总部副总经理审批">
-      <meta name="step.reject.mode">any</meta>
       <meta name="step.allow.approve.sign">true</meta>
+      <meta name="step.reject.mode">any</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
       <meta name="NodeType">16</meta>
       <meta name="approve.sign.modes">endorsesign</meta>

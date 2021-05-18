@@ -39,14 +39,15 @@
             <primary-property>0</primary-property>
             <nullable>true</nullable>
             <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
+            <enabled>false</enabled>
+            <visible>false</visible>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <properties/>
             <source type="0">
                 <column>PX</column>
             </source>
@@ -234,6 +235,7 @@
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <properties/>
             <source type="0">
                 <column>XMZYWT</column>
             </source>
@@ -778,6 +780,15 @@
                 <is-default>0</is-default>
                 <attribute>0</attribute>
             </command>
+            <command type="2">
+                <describe>查看</describe>
+                <define>
+                    <item>VO_XMXXTZ_GS</item>
+                    <item>View</item>
+                </define>
+                <is-default>0</is-default>
+                <attribute>0</attribute>
+            </command>
         </commands>
         <relations/>
     </display-options>
@@ -911,6 +922,31 @@
                 <column>
                     <name>CZQSRQ</name>
                     <describe>承做时间</describe>
+                    <type>8</type>
+                    <biz-type>300</biz-type>
+                    <length>8</length>
+                    <scale>0</scale>
+                    <control>3</control>
+                    <primary-property>0</primary-property>
+                    <nullable>true</nullable>
+                    <unique>false</unique>
+                    <enabled>false</enabled>
+                    <visible>true</visible>
+                    <option/>
+                    <ref-object/>
+                    <attribute>0</attribute>
+                    <order-direction>0</order-direction>
+                    <category/>
+                    <fire-event>0</fire-event>
+                    <check-type>0</check-type>
+                    <real-type>13</real-type>
+                    <properties>
+                        <locked>false</locked>
+                    </properties>
+                </column>
+                <column>
+                    <name>ZZRQ</name>
+                    <describe>项目终止日期</describe>
                     <type>8</type>
                     <biz-type>300</biz-type>
                     <length>8</length>
@@ -1385,7 +1421,7 @@
         </method>
         <method create-date="2020.11.05 15:23:24" creator="开发者" name="VO_XMXXTZ_GS_XZ" object-id="-7e6b836:1759610f9de:-7ffe" type="0">
             <describe>新增</describe>
-            <attribute>270532624</attribute>
+            <attribute>270532616</attribute>
             <parameters>
                 <column>
                     <name>XMID2</name>
@@ -1396,12 +1432,12 @@
                     <scale>0</scale>
                     <control>10</control>
                     <primary-property>0</primary-property>
-                    <nullable>true</nullable>
+                    <nullable>false</nullable>
                     <unique>false</unique>
                     <enabled>true</enabled>
                     <visible>true</visible>
                     <option/>
-                    <ref-object>VIB_XMXXGS_FXQ</ref-object>
+                    <ref-object>tIB_XMXX_GS</ref-object>
                     <attribute>0</attribute>
                     <order-direction>0</order-direction>
                     <category/>
@@ -1409,7 +1445,7 @@
                     <check-type>0</check-type>
                     <real-type>0</real-type>
                     <constraint type="3">
-                        <SQL>["tIB_XMXX_GS.ID not in (SELECT XMID FROM TIB_XMXXTZ WHERE XMFL = 3)",[]]</SQL>
+                        <SQL>["tIB_XMXX_GS.KPJD = 121 \r\nand tIB_XMXX_GS.ID not in (SELECT NVL(XMID,0) FROM TIB_XMXXTZ WHERE XMFL = 3)\r\nAND (EXISTS (SELECT 1 FROM ECIF.lcIB_GS_LXLC T3,JGCRM.OS_WFENTRY T4 WHERE T3.INSTID = T4.ID AND T4.STATE = 4 AND T3.XMMC = tIB_XMXX_GS.ID)\r\n     OR EXISTS (SELECT 1 FROM ECIF.lcIB_GS_LXSMSHLC T3,JGCRM.OS_WFENTRY T4 WHERE T3.INSTID = T4.ID AND T4.STATE = 4 AND T3.XMMC = tIB_XMXX_GS.ID))",[]]</SQL>
                         <refColumns/>
                     </constraint>
                     <properties/>
@@ -1622,6 +1658,10 @@
                     <name>28</name>
                     <value>VO_XMXXTZ_GS_XZ</value>
                 </property>
+                <property>
+                    <name>105</name>
+                    <value>false</value>
+                </property>
             </properties>
             <pre-functions/>
             <post-functions/>
@@ -1639,6 +1679,14 @@
         <property>
             <name>5</name>
             <value>30</value>
+        </property>
+        <property>
+            <name>63</name>
+            <value>true</value>
+        </property>
+        <property>
+            <name>68</name>
+            <value>true</value>
         </property>
     </properties>
     <orders/>

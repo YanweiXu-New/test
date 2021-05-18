@@ -100,6 +100,30 @@
             <properties/>
         </column>
         <column>
+            <name>YWLX</name>
+            <describe>业务类型</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>0</control>
+            <primary-property>6</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>false</visible>
+            <option>1|权益;2|固收(发行前);3|债券;4|新三板</option>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression>2</expression>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+        </column>
+        <column>
             <name>SQR</name>
             <describe>申请人</describe>
             <type>6</type>
@@ -436,7 +460,7 @@ LB.getClient().isStandard==false     </invisible-expression>
             <comment/>
             <validation/>
             <constraint type="3">
-                <SQL>["exists(\r\nselect 1 from ECIF.lcIB_GS_SBCLSH A, jgcrm.os_wfentry B \r\nwhere A.instid = B.id \r\nand B.state = 4 and A.xmmc = tIB_XMXX_GS.ID\r\n)\r\nOR EXISTS (\r\nselect 1 from ecif.lcIB_GS_NHLC A,jgcrm.os_wfentry B\r\nwhere A.SFYQTSBCLFQYY = 1 and A.BJJG IN (1, 2) and A.INSTID = B.ID and B.STATE = 4 and A.XMMC = tIB_XMXX_GS.ID\r\n) \r\nand not exists(\r\nselect 1 from ECIF.lcIB_GS_FKYJHF A, jgcrm.os_wfentry B \r\nwhere A.instid = B.id \r\nand B.state = 1 and A.xmmc = tIB_XMXX_GS.ID and A.id != {0}\r\n)",[{"expression":"ID","scale":0,"length":0,"type":1}]]</SQL>
+                <SQL>["(exists(\r\nselect 1 from ECIF.lcIB_GS_SBCLSH A, jgcrm.os_wfentry B \r\nwhere A.instid = B.id \r\nand B.state = 4 and A.xmmc = tIB_XMXX_GS.ID\r\n)\r\nOR EXISTS (\r\nselect 1 from ecif.lcIB_GS_NHLC A,jgcrm.os_wfentry B\r\nwhere A.SFYQTSBCLFQYY = 1 and A.BJJG IN (1, 2) and A.INSTID = B.ID and B.STATE = 4 and A.XMMC = tIB_XMXX_GS.ID\r\n))\r\nand not exists(\r\nselect 1 from ECIF.lcIB_GS_FKYJHF A, jgcrm.os_wfentry B \r\nwhere A.instid = B.id \r\nand B.state = 1 and A.xmmc = tIB_XMXX_GS.ID \r\n)\r\nor ID = {1}",[{"expression":"ID","scale":0,"length":0,"type":1},{"expression":"XMMC.ID","scale":0,"length":0,"type":1}]]</SQL>
                 <refColumns/>
             </constraint>
             <scope-permissions/>
@@ -2308,7 +2332,15 @@ NHBZ!=1   </invisible-expression>
                 <attribute>0</attribute>
             </command>
         </commands>
-        <relations/>
+        <relations>
+            <relation type="9">
+                <define>
+                    <item>VO_NHTBTS</item>
+                    <item>(XMID=XMMC|YWLX=YWLX)</item>
+                </define>
+                <describe>内核特别提示</describe>
+            </relation>
+        </relations>
     </display-options>
     <subdivisions/>
     <methods>

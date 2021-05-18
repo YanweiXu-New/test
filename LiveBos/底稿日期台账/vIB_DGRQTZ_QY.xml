@@ -351,7 +351,7 @@
         </column>
     </columns>
     <restrictions>
-        <condition>{"args":[],"statement":"tIB_DGRQTZ.XMFL=1","type":0}</condition>
+        <condition>{"statement":"TIB_DGRQTZ.XMFL=1\r\nAND TIB_DGRQTZ.XMMC IN \r\n(SELECT T1.ID FROM ECIF.TIB_XMXX T1 WHERE  ECIF.FUNC_IB_XMCX({0},1,0,T1.ID,T1.ID)=1)","args":[{"expression":"$Login.User","scale":0,"length":0,"type":1}],"type":0}</condition>
     </restrictions>
     <display-options>
         <commands>
@@ -359,6 +359,15 @@
                 <describe>ÍÆËÍµ×¸å</describe>
                 <define>
                     <item>tIB_DGRQTZ_TSDG</item>
+                </define>
+                <is-default>0</is-default>
+                <attribute>0</attribute>
+            </command>
+            <command type="2">
+                <describe>²é¿´</describe>
+                <define>
+                    <item>vIB_DGRQTZ_QY</item>
+                    <item>View</item>
                 </define>
                 <is-default>0</is-default>
                 <attribute>0</attribute>

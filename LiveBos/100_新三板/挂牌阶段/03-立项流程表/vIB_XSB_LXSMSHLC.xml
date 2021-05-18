@@ -6,17 +6,70 @@
     <parent>lcIB_XSB_LXSMSHLC</parent>
     <attribute>268437520</attribute>
     <templet>默认</templet>
-    <parameters/>
+    <parameters>
+        <column>
+            <name>SQSJ1</name>
+            <describe>申请时间</describe>
+            <type>13</type>
+            <biz-type>300</biz-type>
+            <length>8</length>
+            <scale>0</scale>
+            <control>3</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object/>
+            <default>null</default>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties>
+                <ctrl-width>200</ctrl-width>
+            </properties>
+        </column>
+        <column>
+            <name>SQSJ2</name>
+            <describe>至</describe>
+            <type>13</type>
+            <biz-type>300</biz-type>
+            <length>8</length>
+            <scale>0</scale>
+            <control>3</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object/>
+            <default>null</default>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties>
+                <ctrl-width>200</ctrl-width>
+            </properties>
+        </column>
+    </parameters>
     <columns>
         <column>
             <name>ID</name>
             <describe>ID</describe>
-            <type>1</type>
+            <type>8</type>
             <biz-type>200</biz-type>
-            <length>0</length>
+            <length>16</length>
             <scale>0</scale>
             <control>0</control>
-            <primary-property>0</primary-property>
+            <primary-property>2</primary-property>
             <nullable>false</nullable>
             <unique>false</unique>
             <enabled>false</enabled>
@@ -33,17 +86,49 @@
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>1</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
+        </column>
+        <column>
+            <name>InstID</name>
+            <describe>InstID</describe>
+            <type>8</type>
+            <biz-type>200</biz-type>
+            <length>16</length>
+            <scale>0</scale>
+            <control>0</control>
+            <primary-property>0</primary-property>
+            <nullable>false</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>1</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>SQR</name>
             <describe>申请人</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
+            <biz-type>500</biz-type>
+            <length>12</length>
             <scale>0</scale>
             <control>10</control>
             <primary-property>0</primary-property>
@@ -61,19 +146,20 @@
             <invisible-expression/>
             <disable-expression/>
             <category>申请人信息</category>
-            <fire-event>0</fire-event>
+            <fire-event>1</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>6</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>SQBM</name>
             <describe>申请部门</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
+            <biz-type>500</biz-type>
+            <length>12</length>
             <scale>0</scale>
             <control>10</control>
             <primary-property>0</primary-property>
@@ -93,17 +179,18 @@
             <category>申请人信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>6</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>SQSJ</name>
             <describe>申请时间</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
+            <biz-type>301</biz-type>
+            <length>19</length>
             <scale>0</scale>
             <control>37</control>
             <primary-property>0</primary-property>
@@ -115,7 +202,7 @@
             <meta-column/>
             <ref-object/>
             <default>$DateTime.Now</default>
-            <attribute>0</attribute>
+            <attribute>4</attribute>
             <order-direction>2</order-direction>
             <expression/>
             <invisible-expression/>
@@ -123,17 +210,18 @@
             <category>申请人信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>3</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>LCBH</name>
             <describe>流程编号</describe>
             <type>8</type>
             <biz-type>100</biz-type>
-            <length>0</length>
+            <length>100</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -157,15 +245,80 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
-            <name>InstID</name>
-            <describe>InstID</describe>
+            <name>BZSM</name>
+            <describe>备注说明</describe>
             <type>8</type>
             <biz-type>100</biz-type>
+            <length>100</length>
+            <scale>0</scale>
+            <control>16</control>
+            <primary-property>8</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>266240</attribute>
+            <order-direction>0</order-direction>
+            <expression>&lt;%@ livebos language='javascript' %&gt;
+'&lt;br&gt;&lt;font color=red&gt;在底稿系统中完成“项目承揽及立项阶段”底稿上传工作，才能发起立项流程&lt;font&gt;'   </expression>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>申请人信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+            <properties/>
+        </column>
+        <column>
+            <name>SFDYSJZQ</name>
+            <describe>是否第一时间知情</describe>
+            <type>8</type>
+            <biz-type>400</biz-type>
             <length>0</length>
             <scale>0</scale>
-            <control>0</control>
+            <control>5</control>
+            <primary-property>0</primary-property>
+            <nullable>false</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option>0|是;1|否</option>
+            <meta-column/>
+            <ref-object/>
+            <default>0</default>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
+ ABS_SQLVALUE('select count(1) rs from ecif.lcIB_XSB_LXSMSHLC where instid=? and zqr=?',[InstID,$Login.User])&gt;=1           </invisible-expression>
+            <disable-expression/>
+            <category>知情信息</category>
+            <fire-event>1</fire-event>
+            <check-type>0</check-type>
+            <real-type>7</real-type>
+            <comment>&lt;font color=red&gt;请确认您首次点击本流程的时间是知晓该项目信息的第一时间！&lt;font&gt;</comment>
+            <validation/>
+            <scope-permissions/>
+            <properties/>
+        </column>
+        <column>
+            <name>ZQSJ</name>
+            <describe>知情时间</describe>
+            <type>8</type>
+            <biz-type>300</biz-type>
+            <length>8</length>
+            <scale>0</scale>
+            <control>3</control>
             <primary-property>0</primary-property>
             <nullable>false</nullable>
             <unique>false</unique>
@@ -174,26 +327,61 @@
             <option/>
             <meta-column/>
             <ref-object/>
+            <default>$DateTime.Today</default>
+            <attribute>4096</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt; 
+SFDYSJZQ==0||ABS_SQLVALUE('select count(1) rs from ecif.lcIB_XSB_LXSMSHLC where instid=? and zqr=?',[InstID,$Login.User])&gt;=1           </invisible-expression>
+            <disable-expression/>
+            <category>知情信息</category>
+            <fire-event>1</fire-event>
+            <check-type>0</check-type>
+            <real-type>13</real-type>
+            <comment>&lt;font color=red&gt;知情时间不得晚于当天，否则视为无效时间&lt;/font&gt;</comment>
+            <validation/>
+            <scope-permissions/>
+            <properties>
+                <grid-col-width>20</grid-col-width>
+            </properties>
+        </column>
+        <column>
+            <name>ZQMX</name>
+            <describe>知情明细</describe>
+            <type>8</type>
+            <biz-type>700</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>12</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>false</visible>
+            <option/>
+            <meta-column/>
+            <ref-object>lcIB_XSB_LXSMSHLC_ZQMX</ref-object>
             <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression/>
             <disable-expression/>
-            <category/>
-            <fire-event>0</fire-event>
+            <category>知情信息</category>
+            <fire-event>1</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>10</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>LCBT</name>
             <describe>公文标题</describe>
             <type>8</type>
             <biz-type>100</biz-type>
-            <length>0</length>
+            <length>1000</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -217,13 +405,14 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>GWZW</name>
             <describe>公文正文</describe>
             <type>8</type>
             <biz-type>100</biz-type>
-            <length>0</length>
+            <length>2000</length>
             <scale>0</scale>
             <control>19</control>
             <primary-property>0</primary-property>
@@ -247,13 +436,14 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>XMMC</name>
             <describe>项目名称</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
+            <biz-type>500</biz-type>
+            <length>16</length>
             <scale>0</scale>
             <control>10</control>
             <primary-property>0</primary-property>
@@ -271,22 +461,91 @@
             <invisible-expression/>
             <disable-expression/>
             <category>立项申请信息</category>
+            <fire-event>1</fire-event>
+            <check-type>0</check-type>
+            <real-type>6</real-type>
+            <comment/>
+            <validation/>
+            <constraint type="3">
+                <SQL>["NOT EXISTS (SELECT 1 FROM ECIF.lcIB_LXLCB T,JGCRM.OS_WFENTRY WF\r\n                WHERE XMMC = tIB_XMXX_XSB.ID \r\n\t\t\t\t\t\t\t\t  AND WF.ID = T.INSTID\r\n\t\t\t\t\t\t\t\t\tAND WF.STATE IN (1)\r\n\t\t\t\t\t\t\t\t\tAND (LXJG = 1 OR LXJG IS NULL) )\r\nAND (tIB_XMXX_XSB.KPJD = 111 OR tIB_XMXX_XSB.KPJD = 112 OR tIB_XMXX_XSB.KPJD = 113 OR tIB_XMXX_XSB.KPJD = 114)\r\nAND EXISTS (\r\n\tSELECT 1 FROM DUAL WHERE \r\n\tECIF.FUNC_IB_LCFQCSJY('lcIB_XSB_LXSMSHLC',tIB_XMXX_XSB.ID,tIB_XMXX_XSB.XMLX,{0})=1)\r\nOR ID = {1}",[{"expression":"ID","scale":0,"length":0,"type":1},{"expression":"XMMC","scale":0,"length":0,"type":1}]]</SQL>
+                <refColumns/>
+            </constraint>
+            <scope-permissions/>
+            <properties/>
+        </column>
+        <column>
+            <name>DGSCBL</name>
+            <describe>项目承揽及立项阶段上传比例</describe>
+            <type>8</type>
+            <biz-type>200</biz-type>
+            <length>10</length>
+            <scale>0</scale>
+            <control>1</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>立项申请信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>1</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties>
+                <format>0.00%</format>
+            </properties>
+        </column>
+        <column>
+            <name>BLSCDDRQ</name>
+            <describe>比例首次到达100%日期</describe>
+            <type>8</type>
+            <biz-type>300</biz-type>
+            <length>8</length>
+            <scale>0</scale>
+            <control>3</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default>null</default>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>立项申请信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>13</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>FXBSSM</name>
             <describe>风险标识说明</describe>
             <type>8</type>
             <biz-type>100</biz-type>
-            <length>0</length>
+            <length>30</length>
             <scale>0</scale>
             <control>16</control>
-            <primary-property>0</primary-property>
+            <primary-property>8</primary-property>
             <nullable>true</nullable>
             <unique>false</unique>
             <enabled>true</enabled>
@@ -297,23 +556,26 @@
             <default/>
             <attribute>262144</attribute>
             <order-direction>0</order-direction>
-            <expression/>
+            <expression>&lt;%@ livebos language='javascript' %&gt;
+var i=ABS_SQLVALUE("SELECT TSNR FROM ECIF.TIB_XMFXBSXX WHERE YXZT = 1");
+'&lt;font color="red"&gt;&lt;b&gt;'+i+'&lt;/b&gt;&lt;/font&gt;'   </expression>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMMC.SFFXXM!=1 </invisible-expression>
+XMMC.SFFXXM!=1   </invisible-expression>
             <disable-expression/>
             <category>立项申请信息</category>
-            <fire-event>0</fire-event>
+            <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>XMLX</name>
             <describe>项目类型</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
+            <biz-type>400</biz-type>
             <length>0</length>
             <scale>0</scale>
             <control>2</control>
@@ -334,17 +596,18 @@ XMMC.SFFXXM!=1 </invisible-expression>
             <category>立项申请信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>7</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>XMFZR</name>
             <describe>项目负责人</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
+            <biz-type>500</biz-type>
+            <length>12</length>
             <scale>0</scale>
             <control>10</control>
             <primary-property>0</primary-property>
@@ -364,16 +627,17 @@ XMMC.SFFXXM!=1 </invisible-expression>
             <category>立项申请信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>6</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>XMZCY</name>
             <describe>项目组成员</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
+            <biz-type>600</biz-type>
             <length>0</length>
             <scale>0</scale>
             <control>45</control>
@@ -394,16 +658,17 @@ XMMC.SFFXXM!=1 </invisible-expression>
             <category>立项申请信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>16</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>LXSPYJ</name>
             <describe>立项审核意见</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
+            <biz-type>802</biz-type>
             <length>0</length>
             <scale>0</scale>
             <control>42</control>
@@ -424,17 +689,18 @@ XMMC.SFFXXM!=1 </invisible-expression>
             <category>立项申请信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>21</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>GSMC</name>
             <describe>公司名称</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
+            <biz-type>500</biz-type>
+            <length>16</length>
             <scale>0</scale>
             <control>10</control>
             <primary-property>0</primary-property>
@@ -452,19 +718,20 @@ XMMC.SFFXXM!=1 </invisible-expression>
             <invisible-expression/>
             <disable-expression/>
             <category>客户信息</category>
-            <fire-event>0</fire-event>
+            <fire-event>1</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>6</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>HY</name>
             <describe>行业</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
+            <biz-type>500</biz-type>
+            <length>16</length>
             <scale>0</scale>
             <control>10</control>
             <primary-property>0</primary-property>
@@ -484,17 +751,18 @@ XMMC.SFFXXM!=1 </invisible-expression>
             <category>客户信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>6</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>HYDWMS</name>
             <describe>客户行业地位描述</describe>
             <type>8</type>
             <biz-type>100</biz-type>
-            <length>0</length>
+            <length>2000</length>
             <scale>0</scale>
             <control>7</control>
             <primary-property>0</primary-property>
@@ -518,12 +786,13 @@ XMMC.SFFXXM!=1 </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>SFWCLYCTSC</name>
             <describe>是否完成利益冲突审查</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
+            <biz-type>400</biz-type>
             <length>0</length>
             <scale>0</scale>
             <control>5</control>
@@ -544,20 +813,21 @@ XMMC.SFFXXM!=1 </invisible-expression>
             <category>客户信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>7</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>JGTS</name>
             <describe>军工提示</describe>
             <type>8</type>
             <biz-type>100</biz-type>
-            <length>0</length>
+            <length>30</length>
             <scale>0</scale>
             <control>16</control>
-            <primary-property>0</primary-property>
+            <primary-property>8</primary-property>
             <nullable>false</nullable>
             <unique>false</unique>
             <enabled>true</enabled>
@@ -568,22 +838,24 @@ XMMC.SFFXXM!=1 </invisible-expression>
             <default/>
             <attribute>67371008</attribute>
             <order-direction>0</order-direction>
-            <expression/>
+            <expression>&lt;%@ livebos language='javascript' %&gt;
+'&lt;br&gt;&lt;font color=red&gt;客户单位是否持有“武器装备科研生产保密资格证书”、“武器装备科研生产许可证书”、“武器装备质量管理体系证书”、“装备承制单位资格证书”四证之一&lt;font&gt;&lt;br&gt;'    </expression>
             <invisible-expression/>
             <disable-expression/>
             <category>客户信息</category>
-            <fire-event>0</fire-event>
+            <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>JGTSXX</name>
             <describe>军工提示选项</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
+            <biz-type>400</biz-type>
             <length>0</length>
             <scale>0</scale>
             <control>5</control>
@@ -602,22 +874,23 @@ XMMC.SFFXXM!=1 </invisible-expression>
             <invisible-expression/>
             <disable-expression/>
             <category>客户信息</category>
-            <fire-event>0</fire-event>
+            <fire-event>1</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>7</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>TSXX</name>
             <describe>提示信息</describe>
             <type>8</type>
             <biz-type>100</biz-type>
-            <length>0</length>
+            <length>30</length>
             <scale>0</scale>
             <control>16</control>
-            <primary-property>0</primary-property>
+            <primary-property>8</primary-property>
             <nullable>false</nullable>
             <unique>false</unique>
             <enabled>false</enabled>
@@ -628,7 +901,8 @@ XMMC.SFFXXM!=1 </invisible-expression>
             <default/>
             <attribute>262144</attribute>
             <order-direction>0</order-direction>
-            <expression/>
+            <expression>&lt;%@ livebos language='javascript' %&gt;
+'&lt;br&gt;&lt;font color=Black&gt;(此处必上传附件)&lt;font&gt;&lt;br&gt;'    </expression>
             <invisible-expression/>
             <disable-expression/>
             <category>附件信息</category>
@@ -638,12 +912,13 @@ XMMC.SFFXXM!=1 </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>FJ</name>
             <describe>附件</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
+            <biz-type>700</biz-type>
             <length>0</length>
             <scale>0</scale>
             <control>12</control>
@@ -664,7 +939,7 @@ XMMC.SFFXXM!=1 </invisible-expression>
             <category>附件信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>10</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
@@ -677,10 +952,10 @@ XMMC.SFFXXM!=1 </invisible-expression>
             <describe>打包下载</describe>
             <type>8</type>
             <biz-type>100</biz-type>
-            <length>0</length>
+            <length>30</length>
             <scale>0</scale>
             <control>16</control>
-            <primary-property>0</primary-property>
+            <primary-property>8</primary-property>
             <nullable>true</nullable>
             <unique>false</unique>
             <enabled>true</enabled>
@@ -691,7 +966,10 @@ XMMC.SFFXXM!=1 </invisible-expression>
             <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
-            <expression/>
+            <expression>&lt;%@ livebos language='javascript' %&gt;
+var url='/gdlcDown?lcbdid='+ID+'&amp;insid='+InstID+'&amp;fjlx=1'+'&amp;yhid='+$Login.User.ID;
+ '&lt;input type="button" onclick=\'window.open("'+url+'")\' value="  打包下载  " /&gt;'
+ //'&lt;a target=_blank href='+url+'&gt;&lt;font color=red&gt;下载&lt;/font&gt;&lt;/a&gt;'    </expression>
             <invisible-expression/>
             <disable-expression/>
             <category>附件信息</category>
@@ -701,13 +979,14 @@ XMMC.SFFXXM!=1 </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>ZKZS</name>
             <describe>质控主审</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
+            <biz-type>500</biz-type>
+            <length>12</length>
             <scale>0</scale>
             <control>10</control>
             <primary-property>0</primary-property>
@@ -723,21 +1002,26 @@ XMMC.SFFXXM!=1 </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XZBZ!=1  </invisible-expression>
+XZBZ!=1    </invisible-expression>
             <disable-expression/>
             <category>审核信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>6</real-type>
             <comment/>
             <validation/>
+            <constraint type="3">
+                <SQL>["tUser.ID in (select userid from lbmember where orgid=13833 and roleid=7) and tUser.Status = 1",[]]</SQL>
+                <refColumns/>
+            </constraint>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>ZKFS</name>
             <describe>质控副审</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
+            <biz-type>600</biz-type>
             <length>0</length>
             <scale>0</scale>
             <control>45</control>
@@ -754,21 +1038,22 @@ XZBZ!=1  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XZBZ!=1  </invisible-expression>
+XZBZ!=1    </invisible-expression>
             <disable-expression/>
             <category>审核信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>16</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>ZKSHYJ</name>
             <describe>质控审核意见</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
+            <biz-type>400</biz-type>
             <length>0</length>
             <scale>0</scale>
             <control>5</control>
@@ -785,22 +1070,23 @@ XZBZ!=1  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-SHBZ!=2  </invisible-expression>
+SHBZ!=2    </invisible-expression>
             <disable-expression/>
             <category>审核信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>7</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>SHBZ</name>
             <describe>审核标志</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
+            <biz-type>200</biz-type>
+            <length>10</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -820,17 +1106,18 @@ SHBZ!=2  </invisible-expression>
             <category>审核信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>1</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>XZBZ</name>
             <describe>显示标志</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
-            <length>0</length>
+            <biz-type>200</biz-type>
+            <length>10</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -850,16 +1137,17 @@ SHBZ!=2  </invisible-expression>
             <category>审核信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>1</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>LXSHYJHF</name>
             <describe>立项审核意见回复</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
+            <biz-type>802</biz-type>
             <length>0</length>
             <scale>0</scale>
             <control>42</control>
@@ -880,14 +1168,15 @@ SHBZ!=2  </invisible-expression>
             <category>审核信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>21</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
     </columns>
     <restrictions>
-        <condition/>
+        <condition>{"statement":"1 = 1 \r\nand (\r\n({0} is null and {1} is null) \r\nor \r\n({0} is not null and {1} is null and to_number(to_char(SQSJ,'yyyymmdd')) &gt;= {0})\r\nor \r\n({0} is null and {1} is not null and to_number(to_char(SQSJ,'yyyymmdd'))&lt;= {1})\r\nor \r\n({0} is not null and {1} is not null and to_number(to_char(SQSJ,'yyyymmdd')) &gt;= {0} and to_number(to_char(SQSJ,'yyyymmdd'))&lt;= {1})\r\n)","args":[{"expression":"parameter.SQSJ1","scale":0,"length":0,"type":13},{"expression":"parameter.SQSJ2","scale":0,"length":0,"type":13}],"type":0}</condition>
     </restrictions>
     <display-options>
         <commands>
@@ -927,6 +1216,10 @@ SHBZ!=2  </invisible-expression>
             <value>ZKSHYJ</value>
             <value>LXSHYJHF</value>
             <value>WF_CURRENTSTEPS</value>
+        </property>
+        <property>
+            <name>63</name>
+            <value>true</value>
         </property>
     </properties>
     <orders/>

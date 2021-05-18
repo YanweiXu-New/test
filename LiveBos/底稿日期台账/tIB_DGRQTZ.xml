@@ -428,6 +428,48 @@
                     <properties/>
                 </column>
                 <column>
+                    <name>YWLX</name>
+                    <describe>业务类型</describe>
+                    <type>0</type>
+                    <biz-type>100</biz-type>
+                    <length>30</length>
+                    <scale>0</scale>
+                    <control>1</control>
+                    <primary-property>10</primary-property>
+                    <nullable>true</nullable>
+                    <unique>false</unique>
+                    <enabled>false</enabled>
+                    <visible>true</visible>
+                    <attribute>0</attribute>
+                    <order-direction>0</order-direction>
+                    <expression>&lt;%@ livebos language='javascript' %&gt;&#13;
+var ywfl;&#13;
+if(O_MASTER.XMFL==1){&#13;
+   if(O_MASTER.RQLX.JKBM==1009){&#13;
+        ywfl = 102;&#13;
+    }else{&#13;
+         ywfl = 101;&#13;
+    }&#13;
+}else if(O_MASTER.XMFL==2){&#13;
+    if(O_MASTER.RQLX.JKBM==1009){&#13;
+          ywfl = 202;&#13;
+   }else{&#13;
+         ywfl = 201;&#13;
+    }&#13;
+}else if(O_MASTER.XMFL==3&amp;&amp;(O_MASTER.RQLX.JKBM==1007||O_MASTER.RQLX.JKBM==1012)){&#13;
+    ywfl = 301;&#13;
+}else if(O_MASTER.XMFL==3&amp;&amp;O_MASTER.RQLX.JKBM==1010){&#13;
+   ywfl = 401;&#13;
+}else if(O_MASTER.XMFL==3&amp;&amp;O_MASTER.RQLX.JKBM==1011){&#13;
+    ywfl = 402;&#13;
+ }&#13;
+ ywfl;</expression>
+                    <category/>
+                    <fire-event>0</fire-event>
+                    <check-type>0</check-type>
+                    <real-type>0</real-type>
+                </column>
+                <column>
                     <name>XMID</name>
                     <describe>项目ID</describe>
                     <type>0</type>
@@ -535,6 +577,53 @@ O_MASTER.ZQXX.ZQMC;</expression>
                     <validation/>
                     <properties/>
                 </column>
+                <column>
+                    <name>ID</name>
+                    <describe>ID</describe>
+                    <type>8</type>
+                    <biz-type>200</biz-type>
+                    <length>16</length>
+                    <scale>0</scale>
+                    <control>0</control>
+                    <primary-property>2</primary-property>
+                    <nullable>false</nullable>
+                    <unique>false</unique>
+                    <enabled>false</enabled>
+                    <visible>false</visible>
+                    <attribute>0</attribute>
+                    <order-direction>0</order-direction>
+                    <category/>
+                    <fire-event>0</fire-event>
+                    <check-type>0</check-type>
+                    <real-type>1</real-type>
+                    <properties/>
+                </column>
+                <column>
+                    <name>ND</name>
+                    <describe>年度</describe>
+                    <type>0</type>
+                    <biz-type>100</biz-type>
+                    <length>30</length>
+                    <scale>0</scale>
+                    <control>1</control>
+                    <primary-property>10</primary-property>
+                    <nullable>true</nullable>
+                    <unique>false</unique>
+                    <enabled>false</enabled>
+                    <visible>true</visible>
+                    <attribute>0</attribute>
+                    <order-direction>0</order-direction>
+                    <expression>&lt;%@ livebos language='javascript' %&gt;
+if(O_MASTER.RQLX.JKBM==1011||O_MASTER.RQLX.JKBM==1009){&#13;
+   O_MASTER.ND&#13;
+}else{&#13;
+  null;&#13;
+}</expression>
+                    <category/>
+                    <fire-event>0</fire-event>
+                    <check-type>0</check-type>
+                    <real-type>0</real-type>
+                </column>
             </parameters>
             <ui-logics>
                 <events/>
@@ -616,6 +705,26 @@ O_MASTER.ZQXX.ZQMC;</expression>
                     <check-type>0</check-type>
                     <real-type>7</real-type>
                     <properties/>
+                </column>
+                <column>
+                    <name>ND</name>
+                    <describe>年度</describe>
+                    <type>0</type>
+                    <biz-type>100</biz-type>
+                    <length>30</length>
+                    <scale>0</scale>
+                    <control>1</control>
+                    <primary-property>0</primary-property>
+                    <nullable>true</nullable>
+                    <unique>false</unique>
+                    <enabled>true</enabled>
+                    <visible>true</visible>
+                    <attribute>0</attribute>
+                    <order-direction>0</order-direction>
+                    <category/>
+                    <fire-event>0</fire-event>
+                    <check-type>0</check-type>
+                    <real-type>0</real-type>
                 </column>
             </parameters>
             <extend-buttons/>

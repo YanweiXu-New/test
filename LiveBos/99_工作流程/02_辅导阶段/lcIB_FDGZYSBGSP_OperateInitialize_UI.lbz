@@ -17,7 +17,7 @@ O_MASTER.InstID==null || O_MASTER.InstID&lt;0</arg>
         <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
           <describe>数据库组件_SQL查询</describe>
           <arg name="TranType">sql</arg>
-          <arg name="SQL">["SELECT ID,tjsx,XM360ZS,SFBT,SFYY FROM ecif.tIB_WDLXPZ WHERE lcbd='lcIB_FDGZYSBGSP' ORDER BY tjsx",[]]</arg>
+          <arg name="SQL">["SELECT ID,tjsx,XM360ZS,sfbt,sfyy FROM ecif.tIB_WDLXPZ WHERE lcbd='lcIB_FDGZYSBGSP' ORDER BY tjsx",[]]</arg>
           <arg name="datasource">ECIF</arg>
           <arg name="@retResultSet" type="output">V_FJLX</arg>
         </invoke>
@@ -31,8 +31,8 @@ O_MASTER.InstID==null || O_MASTER.InstID&lt;0</arg>
           <arg name="@resultSet" type="variable">V_FJLX</arg>
           <arg name="@clearRowsets">true</arg>
           <arg flag="field" name="SF360XS">XM360ZS</arg>
-          <arg flag="field" name="SFBT">SFBT</arg>
-          <arg flag="field" name="SFYY">SFYY</arg>
+          <arg flag="field" name="SFBT">sfbt</arg>
+          <arg flag="field" name="SFYY">sfyy</arg>
         </invoke>
       </sequence>
     </if>

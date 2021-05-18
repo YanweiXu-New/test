@@ -303,7 +303,7 @@
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-ABS_NULLSUB(SJLY,'0')!=2||LB.getClient().isStandard==false    </invisible-expression>
+ABS_NULLSUB(SJLY,'0')!=2||LB.getClient().isStandard==false     </invisible-expression>
             <disable-expression/>
             <category>申请信息</category>
             <fire-event>0</fire-event>
@@ -386,7 +386,7 @@ ABS_NULLSUB(SJLY,'0')!=2||LB.getClient().isStandard==false    </invisible-expres
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
-            <option>1|一般再融资;2|超200人再融资;3|重大资产重组;4|收购业务;5|承接持续督导;6|其他</option>
+            <option>1|再融资(定向发行);2|再融资(公开发行);3|重大资产重组;4|收购业务;5|承接持续督导;6|其他</option>
             <meta-column/>
             <ref-object/>
             <default>1</default>
@@ -1252,7 +1252,7 @@ ABS_NULLSUB(SJLY,'0')!=2||LB.getClient().isStandard==false    </invisible-expres
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-LB.getClient().isStandard==false    </invisible-expression>
+LB.getClient().isStandard==false     </invisible-expression>
             <disable-expression/>
             <category>基本信息</category>
             <fire-event>0</fire-event>
@@ -1283,7 +1283,7 @@ LB.getClient().isStandard==false    </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-ABS_NULLSUB(SJLY,'0')!=1   </invisible-expression>
+ABS_NULLSUB(SJLY,'0')!=1    </invisible-expression>
             <disable-expression/>
             <category>基本信息</category>
             <fire-event>0</fire-event>
@@ -1404,7 +1404,7 @@ ABS_NULLSUB(SJLY,'0')!=1   </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-LB.getClient().isStandard==false    </invisible-expression>
+LB.getClient().isStandard==false     </invisible-expression>
             <disable-expression/>
             <category>需上传附件</category>
             <fire-event>0</fire-event>
@@ -2623,7 +2623,7 @@ LB.getClient().isStandard==false    </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-   </invisible-expression>
+    </invisible-expression>
             <disable-expression/>
             <category>内核表决信息</category>
             <fire-event>0</fire-event>
@@ -2654,7 +2654,7 @@ LB.getClient().isStandard==false    </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-LXFS!=2   </invisible-expression>
+LXFS!=2    </invisible-expression>
             <disable-expression/>
             <category>内核表决信息</category>
             <fire-event>0</fire-event>
@@ -2718,7 +2718,7 @@ LXFS!=2   </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-LXFS!=2   </invisible-expression>
+LXFS!=2    </invisible-expression>
             <disable-expression/>
             <category>内核表决信息</category>
             <fire-event>0</fire-event>
@@ -2749,7 +2749,7 @@ LXFS!=2   </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-LXFS!=1   </invisible-expression>
+LXFS!=1    </invisible-expression>
             <disable-expression/>
             <category>内核表决信息</category>
             <fire-event>0</fire-event>
@@ -2840,7 +2840,7 @@ LXFS!=1   </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-CJNHJY!=1   </invisible-expression>
+CJNHJY!=1    </invisible-expression>
             <disable-expression/>
             <category>内核表决信息</category>
             <fire-event>0</fire-event>
@@ -2871,7 +2871,7 @@ CJNHJY!=1   </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-LXFS!=2   </invisible-expression>
+LXFS!=2    </invisible-expression>
             <disable-expression/>
             <category>内核表决明细</category>
             <fire-event>0</fire-event>
@@ -2888,7 +2888,7 @@ LXFS!=2   </invisible-expression>
             <biz-type>100</biz-type>
             <length>0</length>
             <scale>0</scale>
-            <control>0</control>
+            <control>42</control>
             <primary-property>0</primary-property>
             <nullable>false</nullable>
             <unique>false</unique>
@@ -2943,7 +2943,7 @@ LXFS!=2   </invisible-expression>
         </column>
     </columns>
     <restrictions>
-        <condition>{"statement":"\t{0} IS NULL \r\n\tOR ({0} = 0 AND NOT EXISTS (SELECT 1 FROM ECIF.lcIB_NHLCB_DZBGCZ_NHCL WHERE lcIB_NHLCB_DZBGCZ_ID = lcIB_NHLCB_DZBGCZ.ID))\r\n\tOR ({0} = 1 AND EXISTS (SELECT 1 FROM ECIF.lcIB_NHLCB_DZBGCZ_NHCL WHERE lcIB_NHLCB_DZBGCZ_ID = lcIB_NHLCB_DZBGCZ.ID))","args":[{"expression":"parameter.DGYJ","scale":0,"length":0,"type":1}],"type":0}</condition>
+        <condition>{"args":[{"expression":"parameter.DGYJ","length":0,"scale":0,"type":1}],"statement":"\t{0} IS NULL \r\n\tOR ({0} = 0 AND NOT EXISTS (SELECT 1 FROM ECIF.lcIB_NHLCB_DZBGCZ_NHCL WHERE lcIB_NHLCB_DZBGCZ_ID = lcIB_NHLCB_DZBGCZ.ID))\r\n\tOR ({0} = 1 AND EXISTS (SELECT 1 FROM ECIF.lcIB_NHLCB_DZBGCZ_NHCL WHERE lcIB_NHLCB_DZBGCZ_ID = lcIB_NHLCB_DZBGCZ.ID))","type":0}</condition>
     </restrictions>
     <display-options>
         <commands>

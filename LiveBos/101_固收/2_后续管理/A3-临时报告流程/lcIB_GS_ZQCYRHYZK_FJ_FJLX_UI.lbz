@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="GB2312"?>
+<?xml version="1.0" encoding="gb2312"?>
 <process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_GS_ZQCYRHYZK_FJ_FJLX_UI" object="lcIB_GS_ZQCYRHYZK_FJ" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
   <describe>附件类型界面事件</describe>
   <variables />
@@ -11,6 +11,8 @@
       <describe>界面处理_更新值</describe>
       <arg flag="field" name="SFYY" type="expression">&lt;%@ livebos language='javascript' %&gt;
 ABS_SQLVALUE("SELECT SFYY FROM ECIF.TIB_WDLXPZ WHERE ID = ?",[O_MASTER.FJLX])</arg>
+      <arg flag="field" name="SFBT" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE("SELECT SFBT FROM ECIF.TIB_WDLXPZ WHERE ID = ?",[O_MASTER.FJLX])</arg>
     </invoke>
   </sequence>
 </process>

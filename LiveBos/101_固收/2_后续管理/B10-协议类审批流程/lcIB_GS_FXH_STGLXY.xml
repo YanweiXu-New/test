@@ -69,6 +69,51 @@
             <properties/>
         </column>
         <column>
+            <name>YWLX</name>
+            <describe>业务类型</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>0</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>false</visible>
+            <option>1|权益;2|固收(发行前);3|债券;4|新三板</option>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>GLXMID</name>
+            <describe>内核特别提示关联项目</describe>
+            <type>1</type>
+            <biz-type>200</biz-type>
+            <length>16</length>
+            <scale>0</scale>
+            <control>0</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>false</visible>
+            <option/>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+        </column>
+        <column>
             <name>SQR</name>
             <describe>申请人</describe>
             <type>6</type>
@@ -357,7 +402,7 @@
             <biz-type>400</biz-type>
             <length>0</length>
             <scale>0</scale>
-            <control>2</control>
+            <control>10</control>
             <primary-property>0</primary-property>
             <nullable>false</nullable>
             <unique>false</unique>
@@ -1224,7 +1269,16 @@ NHBZ!=1    </invisible-expression>
                 <tip/>
             </command>
         </commands>
-        <relations/>
+        <relations>
+            <relation type="9">
+                <define>
+                    <item>VO_NHTBTS</item>
+                    <item>(XMID=GLXMID|YWLX=YWLX)</item>
+                </define>
+                <describe>内核特别提示</describe>
+                <restriction/>
+            </relation>
+        </relations>
     </display-options>
     <subdivisions/>
     <methods>
@@ -1262,6 +1316,9 @@ NHBZ!=1    </invisible-expression>
         <events>
             <event attribute="0" src="OperateInitialize" type="0">
                 <process-name>lcIB_GS_FXH_STGLXY_OperateInitialize_UI</process-name>
+            </event>
+            <event attribute="0" src="XMJD" type="0">
+                <process-name>lcIB_GS_FXH_STGLXY_XMJD_UI</process-name>
             </event>
             <event attribute="0" src="XMMC_HXGL" type="0">
                 <process-name>lcIB_GS_FXH_STGLXY_XMMC_HXGL_UI</process-name>

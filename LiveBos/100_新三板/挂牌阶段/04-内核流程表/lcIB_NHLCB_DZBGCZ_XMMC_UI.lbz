@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="GB2312"?>
+<?xml version="1.0" encoding="gb2312"?>
 <process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_NHLCB_DZBGCZ_XMMC_UI" object="lcIB_NHLCB_DZBGCZ" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
   <describe>项目名称界面事件_副本</describe>
   <variables>
@@ -55,12 +55,13 @@ dyxmlx;</arg>
       <arg flag="field" name="QTXMCY" type="expression">O_MASTER.XMMC.QTCY</arg>
       <arg flag="field" name="XMQY" type="expression">O_MASTER.XMMC.XMQY</arg>
       <arg flag="field" name="QYMC" type="expression">O_MASTER.XMMC.QYMC2</arg>
+      <arg flag="field" name="BJYWDBR" type="expression">O_MASTER.XMMC.BJYWDBR</arg>
     </invoke>
     <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
       <describe>数据库组件_SQL查询</describe>
       <arg name="TranType">sql</arg>
       <arg name="datasource">ECIF</arg>
-      <arg name="SQL">["SELECT ID,wdlxm,tjsx,XM360ZS FROM ECIF.tIB_WDLXPZ WHERE lcbd='lcIB_NHLCB_DZBGCZ' AND XMLX={0} AND BZSM ='申报材料' ORDER by tjsx",[{"expression":"O_MASTER.XMLX","scale":"","length":"","type":"1"}]]</arg>
+      <arg name="SQL">["SELECT ID,wdlxm,tjsx,XM360ZS,sfbt FROM ECIF.tIB_WDLXPZ WHERE lcbd='lcIB_NHLCB_DZBGCZ' AND XMLX={0} AND BZSM ='申报材料' ORDER by tjsx",[{"expression":"O_MASTER.XMLX","scale":"","length":"","type":"1"}]]</arg>
       <arg name="@retResultSet" type="output">V_FJLX</arg>
     </invoke>
     <invoke component="FormUIHypotOperate" id="0" name="表格操作_添加结果集数据" operation="insertByResult">
@@ -73,12 +74,13 @@ dyxmlx;</arg>
       <arg flag="field" name="TJSX">tjsx</arg>
       <arg flag="field" name="FJLX">id</arg>
       <arg flag="field" name="SF360XS">XM360ZS</arg>
+      <arg flag="field" name="SFBT">sfbt</arg>
     </invoke>
     <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
       <describe>数据库组件_SQL查询</describe>
       <arg name="TranType">sql</arg>
       <arg name="datasource">ECIF</arg>
-      <arg name="SQL">["SELECT ID,wdlxm,tjsx,XM360ZS FROM ECIF.tIB_WDLXPZ WHERE lcbd='lcIB_NHLCB_DZBGCZ' AND XMLX={0} AND BZSM ='尽职调查' ORDER by tjsx",[{"expression":"O_MASTER.XMLX","scale":"","length":"","type":"1"}]]</arg>
+      <arg name="SQL">["SELECT ID,wdlxm,tjsx,XM360ZS,sfbt FROM ECIF.tIB_WDLXPZ WHERE lcbd='lcIB_NHLCB_DZBGCZ' AND XMLX={0} AND BZSM ='尽职调查' ORDER by tjsx",[{"expression":"O_MASTER.XMLX","scale":"","length":"","type":"1"}]]</arg>
       <arg name="@retResultSet" type="output">V_JZDC</arg>
     </invoke>
     <invoke component="FormUIHypotOperate" id="0" name="表格操作_添加结果集数据" operation="insertByResult">
@@ -91,12 +93,13 @@ dyxmlx;</arg>
       <arg flag="field" name="FJLX">id</arg>
       <arg flag="field" name="SF360XS">XM360ZS</arg>
       <arg name="@clearRowsets">true</arg>
+      <arg flag="field" name="SFBT">sfbt</arg>
     </invoke>
     <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
       <describe>数据库组件_SQL查询</describe>
       <arg name="TranType">sql</arg>
       <arg name="datasource">ECIF</arg>
-      <arg name="SQL">["select t1.id    as XM,\r\n       t2.ZJLX  as ZJLX,\r\n       t2.ZJMC  as ZJMC,\r\n       t2.ZJHM  as ZJHM,\r\n       t2.SJH   as SJH,\r\n       t1.orgid as BM,\r\n       t2.ZWXX  as ZWXX,\r\n       14       as RYJS\r\n  from jgcrm.tuser t1\r\n  left join ecif.tIB_YGXX t2\r\n    on t1.userid = t2.oaid\r\n where instr(';' || {0} || ';', ';' || t1.id || ';') &gt; 0\r\nunion\r\nselect t1.id    as XM,\r\n       t2.ZJLX  as ZJLX,\r\n       t2.ZJMC  as ZJMC,\r\n       t2.ZJHM  as ZJHM,\r\n       t2.SJH   as SJH,\r\n       t1.orgid as BM,\r\n       t2.ZWXX  as ZWXX,\r\n       11       as RYJS\r\n  from jgcrm.tuser t1\r\n  left join ecif.tIB_YGXX t2\r\n    on t1.userid = t2.oaid\r\n where instr(';' || {1} || ';', ';' || t1.id || ';') &gt; 0",[{"expression":"O_MASTER.XMMC.QTCY","length":"","scale":"","type":"0"},{"expression":"O_MASTER.XMMC.XMFZR","length":"","scale":"","type":"1"}]]</arg>
+      <arg name="SQL">["select t1.id    as XM,\r\n       t2.ZJLX  as ZJLX,\r\n       t2.ZJMC  as ZJMC,\r\n       t2.ZJHM  as ZJHM,\r\n       t2.SJH   as SJH,\r\n       t1.orgid as BM,\r\n       t2.ZWXX  as ZWXX,\r\n       14       as RYJS\r\n  from jgcrm.tuser t1\r\n  left join ecif.tIB_YGXX t2\r\n    on t1.userid = t2.oaid and t1.orgid = t2.orgid\r\n where instr(';' || {0} || ';', ';' || t1.id || ';') &gt; 0\r\nunion\r\nselect t1.id    as XM,\r\n       t2.ZJLX  as ZJLX,\r\n       t2.ZJMC  as ZJMC,\r\n       t2.ZJHM  as ZJHM,\r\n       t2.SJH   as SJH,\r\n       t1.orgid as BM,\r\n       t2.ZWXX  as ZWXX,\r\n       11       as RYJS\r\n  from jgcrm.tuser t1\r\n  left join ecif.tIB_YGXX t2\r\n    on t1.userid = t2.oaid and t1.orgid = t2.orgid\r\n where instr(';' || {1} || ';', ';' || t1.id || ';') &gt; 0\r\nunion\r\nselect t1.id    as XM,\r\n       t2.ZJLX  as ZJLX,\r\n       t2.ZJMC  as ZJMC,\r\n       t2.ZJHM  as ZJHM,\r\n       t2.SJH   as SJH,\r\n       t1.orgid as BM,\r\n       t2.ZWXX  as ZWXX,\r\n       20       as RYJS\r\n  from jgcrm.tuser t1\r\n  left join ecif.tIB_YGXX t2\r\n    on t1.userid = t2.oaid and t1.orgid = t2.orgid\r\n where instr(';' || {2} || ';', ';' || t1.id || ';') &gt; 0",[{"expression":"O_MASTER.XMMC.QTCY","length":"","scale":"","type":"0"},{"expression":"O_MASTER.XMMC.XMFZR","length":"","scale":"","type":"1"},{"expression":"O_MASTER.XMMC.BJYWDBR","length":"","scale":"","type":"0"}]]</arg>
       <arg name="@retResultSet" type="output">V_XMZRYXX</arg>
     </invoke>
     <invoke component="FormUIHypotOperate" id="0" name="表格操作_添加结果集数据" operation="insertByResult">

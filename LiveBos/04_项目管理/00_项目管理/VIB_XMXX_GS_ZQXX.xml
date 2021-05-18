@@ -205,7 +205,7 @@
             <describe>项目类型名称</describe>
             <type>8</type>
             <biz-type>100</biz-type>
-            <length>500</length>
+            <length>100</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -250,7 +250,7 @@
             <describe>区域名称</describe>
             <type>8</type>
             <biz-type>100</biz-type>
-            <length>500</length>
+            <length>50</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -302,8 +302,8 @@
             <name>ZQQS</name>
             <describe>项目期次</describe>
             <type>8</type>
-            <biz-type>100</biz-type>
-            <length>300</length>
+            <biz-type>200</biz-type>
+            <length>2</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -311,12 +311,14 @@
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
+            <option/>
+            <ref-object/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
             <category>监管信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
-            <real-type>0</real-type>
+            <real-type>1</real-type>
             <properties/>
         </column>
         <column>
@@ -391,7 +393,7 @@ JYCS.indexOf('99')&lt;0  </invisible-expression>
             <describe>债券简称(上交所)</describe>
             <type>8</type>
             <biz-type>100</biz-type>
-            <length>100</length>
+            <length>20</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -422,7 +424,7 @@ JYCS.indexOf('99')&lt;0  </invisible-expression>
             <describe>债券代码(上交所)</describe>
             <type>8</type>
             <biz-type>100</biz-type>
-            <length>100</length>
+            <length>15</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -453,7 +455,7 @@ JYCS.indexOf('99')&lt;0  </invisible-expression>
             <describe>债券简称(深交所)</describe>
             <type>8</type>
             <biz-type>100</biz-type>
-            <length>100</length>
+            <length>20</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -484,7 +486,7 @@ JYCS.indexOf('99')&lt;0  </invisible-expression>
             <describe>债券代码(深交所)</describe>
             <type>8</type>
             <biz-type>100</biz-type>
-            <length>100</length>
+            <length>15</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -515,7 +517,7 @@ JYCS.indexOf('99')&lt;0  </invisible-expression>
             <describe>债券简称(银行间)</describe>
             <type>8</type>
             <biz-type>100</biz-type>
-            <length>100</length>
+            <length>20</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -546,7 +548,7 @@ JYCS.indexOf('99')&lt;0  </invisible-expression>
             <describe>债券代码(银行间)</describe>
             <type>8</type>
             <biz-type>100</biz-type>
-            <length>100</length>
+            <length>15</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -577,7 +579,7 @@ JYCS.indexOf('99')&lt;0  </invisible-expression>
             <describe>债券简称(其他)</describe>
             <type>8</type>
             <biz-type>100</biz-type>
-            <length>100</length>
+            <length>20</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -608,7 +610,7 @@ JYCS.indexOf('99')&lt;0  </invisible-expression>
             <describe>债券代码(其他)</describe>
             <type>8</type>
             <biz-type>100</biz-type>
-            <length>100</length>
+            <length>15</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -1367,11 +1369,11 @@ ZXZXPJ!=9  </invisible-expression>
             <properties/>
         </column>
         <column>
-            <name>WSJHYEBXBL</name>
-            <describe>我司计划余额包销比例（%）</describe>
+            <name>BQJHFXGM</name>
+            <describe>本期计划发行规模(万元)</describe>
             <type>8</type>
             <biz-type>200</biz-type>
-            <length>5</length>
+            <length>16</length>
             <scale>2</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -1383,7 +1385,29 @@ ZXZXPJ!=9  </invisible-expression>
             <ref-object/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
-            <category/>
+            <category>储备阶段信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>1</real-type>
+        </column>
+        <column>
+            <name>WSJHYEBXBL</name>
+            <describe>我司计划余额包销比例(%)</describe>
+            <type>8</type>
+            <biz-type>200</biz-type>
+            <length>10</length>
+            <scale>0</scale>
+            <control>1</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category>储备阶段信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>1</real-type>
@@ -1393,7 +1417,7 @@ ZXZXPJ!=9  </invisible-expression>
             <describe>备注</describe>
             <type>8</type>
             <biz-type>100</biz-type>
-            <length>300</length>
+            <length>30</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -1403,7 +1427,7 @@ ZXZXPJ!=9  </invisible-expression>
             <visible>true</visible>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
-            <category/>
+            <category>储备阶段信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>

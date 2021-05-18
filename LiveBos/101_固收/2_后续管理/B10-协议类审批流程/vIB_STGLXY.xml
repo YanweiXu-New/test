@@ -37,6 +37,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>InstID</name>
@@ -67,6 +68,54 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
+        </column>
+        <column>
+            <name>YWLX</name>
+            <describe>业务类型</describe>
+            <type>8</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>0</control>
+            <primary-property>10</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>false</visible>
+            <option>1|权益;2|固收(发行前);3|债券;4|新三板</option>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression>&lt;%@ livebos language='javascript' %&gt;
+ABS_IF(XMJD==1,2,3)</expression>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>7</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>GLXMID</name>
+            <describe>内核特别提示关联项目</describe>
+            <type>8</type>
+            <biz-type>200</biz-type>
+            <length>12</length>
+            <scale>0</scale>
+            <control>0</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>false</visible>
+            <option/>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>1</real-type>
         </column>
         <column>
             <name>SQR</name>
@@ -97,6 +146,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>SQBM</name>
@@ -127,6 +177,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>SQSJ</name>
@@ -157,6 +208,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>LCBH</name>
@@ -187,6 +239,30 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
+        </column>
+        <column>
+            <name>YYZL</name>
+            <describe>用印种类</describe>
+            <type>8</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>2</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option>$D{IB_YYZL}</option>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category>申请审批信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>7</real-type>
+            <properties/>
         </column>
         <column>
             <name>LCBT</name>
@@ -217,6 +293,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>GWZW</name>
@@ -247,6 +324,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>Cs</name>
@@ -255,18 +333,19 @@
             <biz-type>100</biz-type>
             <length>300</length>
             <scale>0</scale>
-            <control>1</control>
+            <control>0</control>
             <primary-property>0</primary-property>
             <nullable>true</nullable>
             <unique>false</unique>
             <enabled>false</enabled>
-            <visible>true</visible>
+            <visible>false</visible>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
             <category>申请审批信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <properties/>
         </column>
         <column>
             <name>Csong</name>
@@ -275,18 +354,19 @@
             <biz-type>100</biz-type>
             <length>300</length>
             <scale>0</scale>
-            <control>1</control>
+            <control>0</control>
             <primary-property>0</primary-property>
             <nullable>true</nullable>
             <unique>false</unique>
             <enabled>false</enabled>
-            <visible>true</visible>
+            <visible>false</visible>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
             <category>申请审批信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <properties/>
         </column>
         <column>
             <name>SSKH</name>
@@ -317,6 +397,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>XMJD</name>
@@ -325,7 +406,7 @@
             <biz-type>400</biz-type>
             <length>0</length>
             <scale>0</scale>
-            <control>2</control>
+            <control>10</control>
             <primary-property>0</primary-property>
             <nullable>false</nullable>
             <unique>false</unique>
@@ -347,6 +428,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>XMMC</name>
@@ -378,6 +460,7 @@ XMJD == 2    </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>XMMC_HXGL</name>
@@ -409,6 +492,7 @@ XMJD == 1    </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>XMLX</name>
@@ -439,6 +523,7 @@ XMJD == 1    </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>QTYS</name>
@@ -469,6 +554,7 @@ XMJD == 1    </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>LXSJ</name>
@@ -499,6 +585,7 @@ XMJD == 1    </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>ZKSBZS</name>
@@ -529,6 +616,7 @@ XMJD == 1    </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>ZKSBFS</name>
@@ -559,6 +647,30 @@ XMJD == 1    </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
+        </column>
+        <column>
+            <name>CSRY</name>
+            <describe>抄送人员</describe>
+            <type>8</type>
+            <biz-type>600</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>45</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object>vUser_ZC</ref-object>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category>申请审批信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>16</real-type>
+            <properties/>
         </column>
         <column>
             <name>SFSH</name>
@@ -589,6 +701,7 @@ XMJD == 1    </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>ZKBSH</name>
@@ -620,6 +733,7 @@ SFSH==false     </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>ZKYJHF</name>
@@ -652,6 +766,7 @@ NHBZ==1    </disable-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>ZKBHF</name>
@@ -684,10 +799,34 @@ NHBZ==1    </disable-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
+        </column>
+        <column>
+            <name>GWFJBZSM</name>
+            <describe>公文附件备注说明</describe>
+            <type>8</type>
+            <biz-type>100</biz-type>
+            <length>1000</length>
+            <scale>0</scale>
+            <control>16</control>
+            <primary-property>8</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <attribute>262144</attribute>
+            <order-direction>0</order-direction>
+            <expression>&lt;%@ livebos language='javascript' %&gt;
+'&lt;br&gt;&lt;font color=red&gt;请确保上传的附件与公文正文中列示的文件保持一致，该附件框中每一附件类型中仅上传一份最新版本附件至协同平台，用户可新增附件类型行&lt;font&gt;' </expression>
+            <category>上传公文附件</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
         </column>
         <column>
             <name>FJ</name>
-            <describe>附件</describe>
+            <describe>上传公文附件</describe>
             <type>8</type>
             <biz-type>700</biz-type>
             <length>0</length>
@@ -707,13 +846,14 @@ NHBZ==1    </disable-expression>
             <expression/>
             <invisible-expression/>
             <disable-expression/>
-            <category>附件</category>
+            <category>上传公文附件</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>10</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>DBXZ</name>
@@ -742,13 +882,41 @@ var url='/gdlcDown?lcbdid='+ID+'&amp;insid='+InstID+'&amp;fjlx=1'+'&amp;yhid='+$
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 LB.getClient().isStandard==false       </invisible-expression>
             <disable-expression/>
-            <category>附件</category>
+            <category>上传公文附件</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
+        </column>
+        <column>
+            <name>FYYBCWJ</name>
+            <describe>非用印备查文件</describe>
+            <type>8</type>
+            <biz-type>802</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>42</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <invisible-expression>&lt;%@ livebos language='javascript' %&gt;&#13;
+O_THIS.getColumn("FYYBCWJ").setLabel("非用印备查文件&lt;font color=red&gt;&lt;br&gt;(不上传至OA)&lt;/font&gt;");&#13;
+</invisible-expression>
+            <category>上传公文附件</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>21</real-type>
+            <comment/>
+            <properties/>
         </column>
         <column>
             <name>OASPXX</name>
@@ -785,6 +953,7 @@ oaid&lt;=0       </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>FKBZ</name>
@@ -815,6 +984,7 @@ oaid&lt;=0       </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>NHBZ</name>
@@ -845,6 +1015,7 @@ oaid&lt;=0       </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>XMLX_EJ</name>
@@ -875,6 +1046,7 @@ oaid&lt;=0       </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>OLDBH</name>
@@ -905,6 +1077,7 @@ oaid&lt;=0       </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>YJJG</name>
@@ -935,6 +1108,7 @@ oaid&lt;=0       </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>NHBZS</name>
@@ -966,6 +1140,7 @@ ABS_SQLVALUE("select NHBZS from ecif.tIB_LCNHZYZSPZB where LCDM='lcIB_GS_FXH_STG
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>NHBFS</name>
@@ -996,6 +1171,7 @@ ABS_SQLVALUE("select NHBZS from ecif.tIB_LCNHZYZSPZB where LCDM='lcIB_GS_FXH_STG
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>NHYJHF</name>
@@ -1027,6 +1203,7 @@ NHBZ!=1    </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>NHBHF</name>
@@ -1058,6 +1235,7 @@ NHBZ!=1    </invisible-expression>
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
     </columns>
     <restrictions>

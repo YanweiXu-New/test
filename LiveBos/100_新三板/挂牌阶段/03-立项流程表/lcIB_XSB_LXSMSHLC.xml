@@ -199,15 +199,23 @@
             <unique>false</unique>
             <enabled>false</enabled>
             <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
             <attribute>266240</attribute>
             <order-direction>0</order-direction>
-            <expression>&lt;%@ livebos language='javascript' %&gt;&#13;
-'&lt;br&gt;&lt;font color=red&gt;在底稿系统中完成“项目承揽及立项阶段”底稿上传工作，才能发起立项流程&lt;font&gt;' </expression>
+            <expression>&lt;%@ livebos language='javascript' %&gt;
+'&lt;br&gt;&lt;font color=red&gt;在底稿系统中完成“项目承揽及立项阶段”底稿上传工作，才能发起立项流程&lt;font&gt;'   </expression>
+            <invisible-expression/>
+            <disable-expression/>
             <category>申请人信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>SFDYSJZQ</name>
@@ -230,7 +238,7 @@
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
- ABS_SQLVALUE('select count(1) rs from ecif.lcIB_XSB_LXSMSHLC where instid=? and zqr=?',[InstID,$Login.User])&gt;=1         </invisible-expression>
+ ABS_SQLVALUE('select count(1) rs from ecif.lcIB_XSB_LXSMSHLC where instid=? and zqr=?',[InstID,$Login.User])&gt;=1           </invisible-expression>
             <disable-expression/>
             <category>知情信息</category>
             <fire-event>1</fire-event>
@@ -239,7 +247,6 @@
             <comment>&lt;font color=red&gt;请确认您首次点击本流程的时间是知晓该项目信息的第一时间！&lt;font&gt;</comment>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>ZQSJ</name>
@@ -262,7 +269,7 @@
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt; 
-SFDYSJZQ==0||ABS_SQLVALUE('select count(1) rs from ecif.lcIB_XSB_LXSMSHLC where instid=? and zqr=?',[InstID,$Login.User])&gt;=1         </invisible-expression>
+SFDYSJZQ==0||ABS_SQLVALUE('select count(1) rs from ecif.lcIB_XSB_LXSMSHLC where instid=? and zqr=?',[InstID,$Login.User])&gt;=1           </invisible-expression>
             <disable-expression/>
             <category>知情信息</category>
             <fire-event>1</fire-event>
@@ -289,14 +296,21 @@ SFDYSJZQ==0||ABS_SQLVALUE('select count(1) rs from ecif.lcIB_XSB_LXSMSHLC where 
             <enabled>false</enabled>
             <visible>false</visible>
             <option/>
+            <meta-column/>
             <ref-object>lcIB_XSB_LXSMSHLC_ZQMX</ref-object>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>知情信息</category>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>LCBT</name>
@@ -387,7 +401,7 @@ SFDYSJZQ==0||ABS_SQLVALUE('select count(1) rs from ecif.lcIB_XSB_LXSMSHLC where 
             <comment/>
             <validation/>
             <constraint type="3">
-                <SQL>["NOT EXISTS (SELECT 1 FROM ECIF.lcIB_LXLCB T,JGCRM.OS_WFENTRY WF\r\n                WHERE XMMC = tIB_XMXX_XSB.ID \r\n\t\t\t\t\t\t\t\t  AND WF.ID = T.INSTID\r\n\t\t\t\t\t\t\t\t\tAND WF.STATE IN (1)\r\n\t\t\t\t\t\t\t\t\tAND (LXJG = 1 OR LXJG IS NULL) )\r\nAND (tIB_XMXX_XSB.KPJD = 111 OR tIB_XMXX_XSB.KPJD = 112 OR tIB_XMXX_XSB.KPJD = 113 OR tIB_XMXX_XSB.KPJD = 114)\r\nOR ID = {0}",[{"expression":"ID","length":0,"scale":0,"type":1}]]</SQL>
+                <SQL>["NOT EXISTS (SELECT 1 FROM ECIF.lcIB_LXLCB T,JGCRM.OS_WFENTRY WF\r\n                WHERE XMMC = tIB_XMXX_XSB.ID \r\n\t\t\t\t\t\t\t\t  AND WF.ID = T.INSTID\r\n\t\t\t\t\t\t\t\t\tAND WF.STATE IN (1)\r\n\t\t\t\t\t\t\t\t\tAND (LXJG = 1 OR LXJG IS NULL) )\r\nAND (tIB_XMXX_XSB.KPJD = 111 OR tIB_XMXX_XSB.KPJD = 113 OR tIB_XMXX_XSB.KPJD = 114)\r\nAND EXISTS (\r\n\tSELECT 1 FROM DUAL WHERE \r\n\tECIF.FUNC_IB_LCFQCSJY('lcIB_XSB_LXSMSHLC',tIB_XMXX_XSB.ID,tIB_XMXX_XSB.XMLX,{0})=1)\r\nOR ID = {1}",[{"expression":"ID","scale":0,"length":0,"type":1},{"expression":"XMMC","scale":0,"length":0,"type":1}]]</SQL>
                 <refColumns/>
             </constraint>
             <scope-permissions/>
@@ -406,14 +420,21 @@ SFDYSJZQ==0||ABS_SQLVALUE('select count(1) rs from ecif.lcIB_XSB_LXSMSHLC where 
             <enabled>false</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>立项申请信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment/>
             <validation/>
+            <scope-permissions/>
             <properties>
                 <format>0.00%</format>
             </properties>
@@ -432,15 +453,21 @@ SFDYSJZQ==0||ABS_SQLVALUE('select count(1) rs from ecif.lcIB_XSB_LXSMSHLC where 
             <enabled>false</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object/>
             <default>null</default>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>立项申请信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>FXBSSM</name>
@@ -463,9 +490,9 @@ SFDYSJZQ==0||ABS_SQLVALUE('select count(1) rs from ecif.lcIB_XSB_LXSMSHLC where 
             <order-direction>0</order-direction>
             <expression>&lt;%@ livebos language='javascript' %&gt;
 var i=ABS_SQLVALUE("SELECT TSNR FROM ECIF.TIB_XMFXBSXX WHERE YXZT = 1");
-'&lt;font color="red"&gt;&lt;b&gt;'+i+'&lt;/b&gt;&lt;/font&gt;' </expression>
+'&lt;font color="red"&gt;&lt;b&gt;'+i+'&lt;/b&gt;&lt;/font&gt;'   </expression>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XMMC.SFFXXM!=1 </invisible-expression>
+XMMC.SFFXXM!=1   </invisible-expression>
             <disable-expression/>
             <category>立项申请信息</category>
             <fire-event>1</fire-event>
@@ -735,7 +762,7 @@ XMMC.SFFXXM!=1 </invisible-expression>
             <attribute>67371008</attribute>
             <order-direction>0</order-direction>
             <expression>&lt;%@ livebos language='javascript' %&gt;
-'&lt;br&gt;&lt;font color=red&gt;客户单位是否持有“武器装备科研生产保密资格证书”、“武器装备科研生产许可证书”、“武器装备质量管理体系证书”、“装备承制单位资格证书”四证之一&lt;font&gt;&lt;br&gt;'  </expression>
+'&lt;br&gt;&lt;font color=red&gt;客户单位是否持有“武器装备科研生产保密资格证书”、“武器装备科研生产许可证书”、“武器装备质量管理体系证书”、“装备承制单位资格证书”四证之一&lt;font&gt;&lt;br&gt;'    </expression>
             <invisible-expression/>
             <disable-expression/>
             <category>客户信息</category>
@@ -796,7 +823,7 @@ XMMC.SFFXXM!=1 </invisible-expression>
             <attribute>262144</attribute>
             <order-direction>0</order-direction>
             <expression>&lt;%@ livebos language='javascript' %&gt;
-'&lt;br&gt;&lt;font color=Black&gt;(此处必上传附件)&lt;font&gt;&lt;br&gt;'  </expression>
+'&lt;br&gt;&lt;font color=Black&gt;(此处必上传附件)&lt;font&gt;&lt;br&gt;'    </expression>
             <invisible-expression/>
             <disable-expression/>
             <category>附件信息</category>
@@ -862,7 +889,7 @@ XMMC.SFFXXM!=1 </invisible-expression>
             <expression>&lt;%@ livebos language='javascript' %&gt;
 var url='/gdlcDown?lcbdid='+ID+'&amp;insid='+InstID+'&amp;fjlx=1'+'&amp;yhid='+$Login.User.ID;
  '&lt;input type="button" onclick=\'window.open("'+url+'")\' value="  打包下载  " /&gt;'
- //'&lt;a target=_blank href='+url+'&gt;&lt;font color=red&gt;下载&lt;/font&gt;&lt;/a&gt;'  </expression>
+ //'&lt;a target=_blank href='+url+'&gt;&lt;font color=red&gt;下载&lt;/font&gt;&lt;/a&gt;'    </expression>
             <invisible-expression/>
             <disable-expression/>
             <category>附件信息</category>
@@ -894,7 +921,7 @@ var url='/gdlcDown?lcbdid='+ID+'&amp;insid='+InstID+'&amp;fjlx=1'+'&amp;yhid='+$
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XZBZ!=1  </invisible-expression>
+XZBZ!=1    </invisible-expression>
             <disable-expression/>
             <category>审核信息</category>
             <fire-event>0</fire-event>
@@ -929,7 +956,7 @@ XZBZ!=1  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XZBZ!=1  </invisible-expression>
+XZBZ!=1    </invisible-expression>
             <disable-expression/>
             <category>审核信息</category>
             <fire-event>0</fire-event>
@@ -960,7 +987,7 @@ XZBZ!=1  </invisible-expression>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-SHBZ!=2  </invisible-expression>
+SHBZ!=2    </invisible-expression>
             <disable-expression/>
             <category>审核信息</category>
             <fire-event>0</fire-event>

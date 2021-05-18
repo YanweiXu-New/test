@@ -76,7 +76,7 @@
             <scale>0</scale>
             <control>3</control>
             <primary-property>0</primary-property>
-            <nullable>false</nullable>
+            <nullable>true</nullable>
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
@@ -132,10 +132,10 @@
             <describe>ÐÞ¸ÄÊ±¼ä</describe>
             <type>3</type>
             <biz-type>301</biz-type>
-            <length>12</length>
+            <length>20</length>
             <scale>0</scale>
             <control>37</control>
-            <primary-property>10</primary-property>
+            <primary-property>0</primary-property>
             <nullable>true</nullable>
             <unique>false</unique>
             <enabled>false</enabled>
@@ -146,7 +146,6 @@
             <default>$DateTime.Now</default>
             <attribute>0</attribute>
             <order-direction>2</order-direction>
-            <expression>$DateTime.Now </expression>
             <invisible-expression/>
             <disable-expression/>
             <category/>
@@ -156,6 +155,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>XGR</name>
@@ -199,8 +199,19 @@
             <name>17</name>
             <value>48</value>
         </property>
+        <property>
+            <name>112</name>
+            <value>true</value>
+        </property>
     </properties>
     <orders/>
+    <ui-logics>
+        <events>
+            <event attribute="0" src="OperateInitialize" type="0">
+                <process-name>tIB_XMXX_ZXCXDDRQ_OperateInitialize_UI</process-name>
+            </event>
+        </events>
+    </ui-logics>
     <panels/>
     <extend-buttons/>
 </object>

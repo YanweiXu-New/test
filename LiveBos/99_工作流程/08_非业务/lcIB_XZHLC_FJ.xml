@@ -44,7 +44,7 @@
             <biz-type>200</biz-type>
             <length>10</length>
             <scale>0</scale>
-            <control>0</control>
+            <control>1</control>
             <primary-property>0</primary-property>
             <nullable>true</nullable>
             <unique>false</unique>
@@ -120,6 +120,7 @@
             <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
             <invisible-expression/>
             <disable-expression/>
             <category/>
@@ -129,7 +130,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>FJM</name>
@@ -183,7 +183,7 @@
             <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
-            <expression>ABS_SQLVALUE("SELECT ECIF.FUNC_IB_GETALLWDMC(?) FROM DUAL",[FJM])       </expression>
+            <expression>ABS_SQLVALUE("SELECT ECIF.FUNC_IB_GETALLWDMC(?) FROM DUAL",[FJM])        </expression>
             <invisible-expression/>
             <disable-expression/>
             <category/>

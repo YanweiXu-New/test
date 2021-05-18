@@ -27,7 +27,7 @@
         </column>
         <column>
             <name>XMMC</name>
-            <describe>项目名称</describe>
+            <describe>项目名称(ID)</describe>
             <type>6</type>
             <biz-type>500</biz-type>
             <length>0</length>
@@ -35,7 +35,7 @@
             <control>10</control>
             <primary-property>0</primary-property>
             <nullable>true</nullable>
-            <unique>false</unique>
+            <unique>true</unique>
             <enabled>true</enabled>
             <visible>true</visible>
             <option/>
@@ -49,8 +49,28 @@
             <properties/>
         </column>
         <column>
+            <name>XMMC_XS</name>
+            <describe>项目名称</describe>
+            <type>0</type>
+            <biz-type>100</biz-type>
+            <length>300</length>
+            <scale>0</scale>
+            <control>1</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+        </column>
+        <column>
             <name>SSBM</name>
-            <describe>所属部门</describe>
+            <describe>所属部门(ID)</describe>
             <type>6</type>
             <biz-type>500</biz-type>
             <length>0</length>
@@ -72,8 +92,28 @@
             <properties/>
         </column>
         <column>
+            <name>SSBM_XS</name>
+            <describe>所属部门</describe>
+            <type>0</type>
+            <biz-type>100</biz-type>
+            <length>30</length>
+            <scale>0</scale>
+            <control>1</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+        </column>
+        <column>
             <name>GSMC</name>
-            <describe>公司名称</describe>
+            <describe>公司名称(ID)</describe>
             <type>6</type>
             <biz-type>500</biz-type>
             <length>0</length>
@@ -93,6 +133,26 @@
             <check-type>0</check-type>
             <real-type>0</real-type>
             <properties/>
+        </column>
+        <column>
+            <name>GSMC_XS</name>
+            <describe>公司名称</describe>
+            <type>0</type>
+            <biz-type>100</biz-type>
+            <length>300</length>
+            <scale>0</scale>
+            <control>1</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
         </column>
         <column>
             <name>GPDM</name>
@@ -117,7 +177,7 @@
         </column>
         <column>
             <name>XMLX</name>
-            <describe>项目类型</describe>
+            <describe>项目类型(ID)</describe>
             <type>6</type>
             <biz-type>500</biz-type>
             <length>0</length>
@@ -137,6 +197,26 @@
             <check-type>0</check-type>
             <real-type>0</real-type>
             <properties/>
+        </column>
+        <column>
+            <name>XMLX_XS</name>
+            <describe>项目类型</describe>
+            <type>0</type>
+            <biz-type>100</biz-type>
+            <length>300</length>
+            <scale>0</scale>
+            <control>1</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
         </column>
         <column>
             <name>CXDDQSRQ</name>
@@ -215,7 +295,50 @@
         </column>
         <column>
             <name>CXDDBDZBR</name>
+            <describe>持续督导保代/主办人(ID)</describe>
+            <type>16</type>
+            <biz-type>600</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>45</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object>tUser</ref-object>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>CXDDBDZBR_XS</name>
             <describe>持续督导保代/主办人</describe>
+            <type>0</type>
+            <biz-type>100</biz-type>
+            <length>300</length>
+            <scale>0</scale>
+            <control>1</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+        </column>
+        <column>
+            <name>CXDDZY</name>
+            <describe>持续督导专员(ID)</describe>
             <type>6</type>
             <biz-type>500</biz-type>
             <length>0</length>
@@ -237,27 +360,24 @@
             <properties/>
         </column>
         <column>
-            <name>CXDDZY</name>
+            <name>CXDDZY_XS</name>
             <describe>持续督导专员</describe>
-            <type>6</type>
-            <biz-type>500</biz-type>
-            <length>0</length>
+            <type>0</type>
+            <biz-type>100</biz-type>
+            <length>300</length>
             <scale>0</scale>
-            <control>10</control>
+            <control>1</control>
             <primary-property>0</primary-property>
             <nullable>true</nullable>
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
-            <option/>
-            <ref-object>tUser</ref-object>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
         </column>
         <column>
             <name>BZ</name>
@@ -279,6 +399,146 @@
             <check-type>0</check-type>
             <real-type>0</real-type>
             <properties/>
+        </column>
+        <column>
+            <name>SFSGXZ</name>
+            <describe>是否手工新增</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>5</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>false</visible>
+            <option>$D{JG_SF}</option>
+            <ref-object/>
+            <default>null</default>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>TBBZ</name>
+            <describe>同步标志</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>2</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option>0|未同步;1|已同步</option>
+            <ref-object/>
+            <default>null</default>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>CJSJ</name>
+            <describe>创建时间</describe>
+            <type>3</type>
+            <biz-type>301</biz-type>
+            <length>12</length>
+            <scale>0</scale>
+            <control>37</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>CJR</name>
+            <describe>创建人</describe>
+            <type>6</type>
+            <biz-type>500</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>10</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object>tUser</ref-object>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>XGSJ</name>
+            <describe>修改时间</describe>
+            <type>3</type>
+            <biz-type>301</biz-type>
+            <length>12</length>
+            <scale>0</scale>
+            <control>37</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>false</visible>
+            <option/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>XGR</name>
+            <describe>修改人</describe>
+            <type>0</type>
+            <biz-type>100</biz-type>
+            <length>30</length>
+            <scale>0</scale>
+            <control>1</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <default>$Login.User</default>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
         </column>
     </columns>
     <display-options>
@@ -309,15 +569,6 @@
                 <attribute>0</attribute>
             </command>
             <command type="2">
-                <describe>删除</describe>
-                <define>
-                    <item>tIB_CXDDXMTZ</item>
-                    <item>Delete</item>
-                </define>
-                <is-default>0</is-default>
-                <attribute>0</attribute>
-            </command>
-            <command type="2">
                 <describe>导入</describe>
                 <define>
                     <item>tIB_CXDDXMTZ</item>
@@ -331,6 +582,22 @@
                 <define>
                     <item>tIB_CXDDXMTZ</item>
                     <item>ToExcel</item>
+                </define>
+                <is-default>0</is-default>
+                <attribute>0</attribute>
+            </command>
+            <command type="5">
+                <describe>导入数据信息同步</describe>
+                <define>
+                    <item>tIB_CXDDXMTZ_DRSJTB</item>
+                </define>
+                <is-default>0</is-default>
+                <attribute>0</attribute>
+            </command>
+            <command type="5">
+                <describe>删除*</describe>
+                <define>
+                    <item>tIB_CXDDXMTZ_SC</item>
                 </define>
                 <is-default>0</is-default>
                 <attribute>0</attribute>
@@ -353,8 +620,8 @@
                     <scale>0</scale>
                     <control>10</control>
                     <primary-property>0</primary-property>
-                    <nullable>true</nullable>
-                    <unique>false</unique>
+                    <nullable>false</nullable>
+                    <unique>true</unique>
                     <enabled>true</enabled>
                     <visible>true</visible>
                     <option/>
@@ -365,8 +632,9 @@
                     <fire-event>1</fire-event>
                     <check-type>0</check-type>
                     <real-type>6</real-type>
+                    <validation/>
                     <constraint type="3">
-                        <SQL>["tIB_XMXX.XMFL = 1",[]]</SQL>
+                        <SQL>["tIB_XMXX.XMFL = 1 \r\nand tIB_XMXX.ID NOT IN (SELECT DISTINCT XMMC FROM ECIF.tIB_CXDDXMTZ WHERE XMMC IS NOT NULL)",[]]</SQL>
                         <refColumns/>
                     </constraint>
                     <properties/>
@@ -476,6 +744,7 @@
                     <visible>true</visible>
                     <option/>
                     <ref-object/>
+                    <default>null</default>
                     <attribute>0</attribute>
                     <order-direction>0</order-direction>
                     <category/>
@@ -526,6 +795,7 @@
                     <visible>true</visible>
                     <option/>
                     <ref-object/>
+                    <default>null</default>
                     <attribute>0</attribute>
                     <order-direction>0</order-direction>
                     <category/>
@@ -539,11 +809,11 @@
                 <column>
                     <name>CXDDBDZBR2</name>
                     <describe>持续督导保代/主办人</describe>
-                    <type>6</type>
-                    <biz-type>500</biz-type>
+                    <type>16</type>
+                    <biz-type>600</biz-type>
                     <length>0</length>
                     <scale>0</scale>
-                    <control>10</control>
+                    <control>45</control>
                     <primary-property>0</primary-property>
                     <nullable>true</nullable>
                     <unique>false</unique>
@@ -574,6 +844,7 @@
                     <visible>true</visible>
                     <option/>
                     <ref-object>tUser</ref-object>
+                    <default>null</default>
                     <attribute>0</attribute>
                     <order-direction>0</order-direction>
                     <category/>
@@ -643,7 +914,7 @@
                     <control>10</control>
                     <primary-property>0</primary-property>
                     <nullable>true</nullable>
-                    <unique>false</unique>
+                    <unique>true</unique>
                     <enabled>false</enabled>
                     <visible>true</visible>
                     <option/>
@@ -690,7 +961,7 @@
                     <primary-property>0</primary-property>
                     <nullable>true</nullable>
                     <unique>false</unique>
-                    <enabled>true</enabled>
+                    <enabled>false</enabled>
                     <visible>true</visible>
                     <option/>
                     <ref-object>tIB_KHXX</ref-object>
@@ -736,7 +1007,7 @@
                     <primary-property>0</primary-property>
                     <nullable>true</nullable>
                     <unique>false</unique>
-                    <enabled>false</enabled>
+                    <enabled>true</enabled>
                     <visible>true</visible>
                     <attribute>0</attribute>
                     <order-direction>0</order-direction>
@@ -825,14 +1096,14 @@
                     <name>CXDDBDZBR</name>
                     <describe>持续督导保代/主办人</describe>
                     <type>8</type>
-                    <biz-type>500</biz-type>
+                    <biz-type>600</biz-type>
                     <length>0</length>
                     <scale>0</scale>
-                    <control>10</control>
+                    <control>45</control>
                     <primary-property>0</primary-property>
                     <nullable>true</nullable>
                     <unique>false</unique>
-                    <enabled>false</enabled>
+                    <enabled>true</enabled>
                     <visible>true</visible>
                     <option/>
                     <ref-object>tUser</ref-object>
@@ -841,7 +1112,7 @@
                     <category/>
                     <fire-event>0</fire-event>
                     <check-type>0</check-type>
-                    <real-type>6</real-type>
+                    <real-type>16</real-type>
                     <properties/>
                 </column>
                 <column>
@@ -855,7 +1126,7 @@
                     <primary-property>0</primary-property>
                     <nullable>true</nullable>
                     <unique>false</unique>
-                    <enabled>false</enabled>
+                    <enabled>true</enabled>
                     <visible>true</visible>
                     <option/>
                     <ref-object>tUser</ref-object>
@@ -889,10 +1160,81 @@
                     <properties/>
                 </column>
             </parameters>
+            <extend-buttons/>
             <properties>
                 <property>
                     <name>28</name>
                     <value>tIB_CXDDXMTZ_XG</value>
+                </property>
+            </properties>
+            <pre-functions/>
+            <post-functions/>
+        </method>
+        <method create-date="2021.04.02 17:42:16" creator="xuyanwei" name="tIB_CXDDXMTZ_DRSJTB" object-id="-233d170e:178874668f2:-7ffc" type="0">
+            <describe>导入数据信息同步</describe>
+            <attribute>270532616</attribute>
+            <parameters>
+                <column>
+                    <name>XMMC</name>
+                    <describe>项目名称</describe>
+                    <type>16</type>
+                    <biz-type>600</biz-type>
+                    <length>0</length>
+                    <scale>0</scale>
+                    <control>45</control>
+                    <primary-property>0</primary-property>
+                    <nullable>true</nullable>
+                    <unique>false</unique>
+                    <enabled>true</enabled>
+                    <visible>true</visible>
+                    <option/>
+                    <ref-object>tIB_TZXXDRB</ref-object>
+                    <attribute>0</attribute>
+                    <order-direction>0</order-direction>
+                    <category/>
+                    <fire-event>0</fire-event>
+                    <check-type>0</check-type>
+                    <real-type>0</real-type>
+                    <constraint type="3">
+                        <SQL>["tIB_TZXXDRB.TBBZ  != 1 OR tIB_TZXXDRB.TBBZ IS NULL",[]]</SQL>
+                        <refColumns/>
+                    </constraint>
+                    <properties/>
+                </column>
+            </parameters>
+            <ui-logics>
+                <events>
+                    <event attribute="0" src="OperateInitialize" type="0">
+                        <process-name>tIB_CXDDXMTZ_DRSJTB_OperateInitialize_Param_UI</process-name>
+                    </event>
+                </events>
+            </ui-logics>
+            <extend-buttons/>
+            <properties>
+                <property>
+                    <name>105</name>
+                    <value>false</value>
+                </property>
+                <property>
+                    <name>28</name>
+                    <value>tIB_CXDDXMTZ_DRSJTB</value>
+                </property>
+                <property>
+                    <name>112</name>
+                    <value>true</value>
+                </property>
+            </properties>
+            <pre-functions/>
+            <post-functions/>
+        </method>
+        <method create-date="2021.04.30 12:28:04" creator="xuyanwei" name="tIB_CXDDXMTZ_SC" object-id="-2f9cad8f:1792108a1c9:-8000" type="0">
+            <describe>删除*</describe>
+            <attribute>270532624</attribute>
+            <parameters/>
+            <properties>
+                <property>
+                    <name>28</name>
+                    <value>tIB_CXDDXMTZ_SC</value>
                 </property>
             </properties>
             <pre-functions/>
@@ -913,6 +1255,10 @@
             <value>CXDDBDZBR</value>
             <value>CXDDZY</value>
             <value>BZ</value>
+        </property>
+        <property>
+            <name>196</name>
+            <value>2</value>
         </property>
     </properties>
     <orders/>

@@ -36,6 +36,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>TJSX</name>
@@ -66,6 +67,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>FJLX</name>
@@ -100,6 +102,7 @@
                 <refColumns/>
             </constraint>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>SFBT</name>
@@ -115,20 +118,13 @@
             <enabled>false</enabled>
             <visible>true</visible>
             <option>$D{JG_SF}</option>
-            <meta-column/>
             <ref-object/>
-            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
-            <invisible-expression/>
-            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
             <properties/>
         </column>
         <column>
@@ -183,7 +179,7 @@
             <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
-            <expression>ABS_SQLVALUE("SELECT ECIF.FUNC_IB_GETALLWDMC(?) FROM DUAL",[FJM])      </expression>
+            <expression>ABS_SQLVALUE("SELECT ECIF.FUNC_IB_GETALLWDMC(?) FROM DUAL",[FJM])       </expression>
             <invisible-expression/>
             <disable-expression/>
             <category/>
@@ -226,6 +222,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>SCSJ</name>
@@ -256,6 +253,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>SFYY</name>
@@ -271,7 +269,39 @@
             <enabled>true</enabled>
             <visible>true</visible>
             <option>$D{JG_SF}</option>
+            <meta-column/>
             <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+            <properties/>
+        </column>
+        <column>
+            <name>SFSY</name>
+            <describe>是否适用</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>5</control>
+            <primary-property>0</primary-property>
+            <nullable>false</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option>$D{JG_SF}</option>
+            <ref-object/>
+            <default>1</default>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
             <category/>
@@ -309,29 +339,6 @@
             <comment/>
             <validation/>
             <scope-permissions/>
-        </column>
-        <column>
-            <name>SFSY</name>
-            <describe>是否适用</describe>
-            <type>7</type>
-            <biz-type>400</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>5</control>
-            <primary-property>0</primary-property>
-            <nullable>false</nullable>
-            <unique>false</unique>
-            <enabled>true</enabled>
-            <visible>true</visible>
-            <option>$D{JG_SF}</option>
-            <ref-object/>
-            <default>1</default>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <category/>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
             <properties/>
         </column>
     </columns>

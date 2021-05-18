@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="GB2312"?>
+<?xml version="1.0" encoding="gb2312"?>
 <process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_XMJYXX_XMMC_UI" object="lcIB_XMJYXX" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
   <describe>项目名称界面事件</describe>
   <variables>
@@ -40,11 +40,11 @@
       <arg flag="field" name="SSBM" type="expression">O_MASTER.XMMC.SSBM</arg>
       <arg flag="field" name="IPO" type="expression">&lt;%@ livebos language='javascript' %&gt;
 ABS_SQLVALUE("select ID from ecif.tib_ipojyxx where xmmc =?",[O_MASTER.XMMC])</arg>
-      <arg flag="field" name="ZRZ" type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+      <arg flag="field" name="ZRZ" type="expression">&lt;%@ livebos language='javascript' %&gt;
 ABS_SQLVALUE("select ID from ecif.tib_zrzjyxx where xmmc =?",[O_MASTER.XMMC])</arg>
-      <arg flag="field" name="CZ" type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+      <arg flag="field" name="CZ" type="expression">&lt;%@ livebos language='javascript' %&gt;
 ABS_SQLVALUE("select ID from ecif.tib_czjyxx where xmmc =?",[O_MASTER.XMMC])</arg>
-      <arg flag="field" name="NHLC" type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+      <arg flag="field" name="NHLC" type="expression">&lt;%@ livebos language='javascript' %&gt;
 ABS_SQLVALUE("select ID from ecif.lcib_nhsp where lcIB_NHSP.XMMC  = ?  and rownum = 1 order by lcIB_NHSP.SQSJ",[O_MASTER.XMMC])</arg>
     </invoke>
     <if id="0">

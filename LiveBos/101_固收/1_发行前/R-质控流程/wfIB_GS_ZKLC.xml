@@ -3,7 +3,8 @@
   <meta name="Designer">Studio</meta>
   <meta name="workflow.category">质控类-其他流程</meta>
   <meta name="created">2017-05-10 15:11:47</meta>
-  <meta name="modify">2020-07-23 18:01:43</meta>
+  <meta name="modify">2021-01-19 13:35:17</meta>
+  <meta name="work.monitor.steponly">false</meta>
   <meta name="workflow.allow.intervene">false</meta>
   <meta name="Describe">质控三部审批流程</meta>
   <meta name="WorkflowName">wfIB_GS_ZKLC</meta>
@@ -32,6 +33,8 @@
           </column>
           <column  name="InstID" disabled="false" hidden="true" summary="false">
           </column>
+          <column  name="YWLX" disabled="false" hidden="true" summary="false">
+          </column>
           <column  name="SQR" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="SQBM" disabled="true" hidden="false" summary="false">
@@ -41,6 +44,8 @@
           <column  name="LCBH" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="OLDBH" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="YYZL" disabled="false" hidden="false" summary="false">
           </column>
           <column  name="LCBT" disabled="false" hidden="false" summary="false">
           </column>
@@ -58,12 +63,10 @@
           </column>
           <column  name="CSRY" disabled="false" hidden="false" summary="false">
           </column>
-          <column  name="YYZL" disabled="false" hidden="false" summary="false">
-          </column>
           <column  name="GWFJBZSM" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="FJ" disabled="false" hidden="false" summary="false">
-            <object  name="lcIB_GS_ZKLC_FJ" editAttribute="56" >
+            <object  name="lcIB_GS_ZKLC_FJ" editAttribute="60" >
               <columns>
                 <column  name="ID" disabled="false" hidden="true" summary="false">
                 </column>
@@ -81,14 +84,18 @@
                 </column>
                 <column  name="SFYY" disabled="false" hidden="false" summary="false">
                 </column>
+                <column  name="SFBT" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SFSY" disabled="false" hidden="false" summary="false">
+                </column>
                 <column  name="SF360XS" disabled="false" hidden="true" summary="false">
                 </column>
               </columns>
             </object>
           </column>
-          <column  name="FYYBCWJ" disabled="false" hidden="false" summary="false">
-          </column>
           <column  name="OASPXX" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FYYBCWJ" disabled="false" hidden="false" summary="false">
           </column>
           <column  name="DBXZ" disabled="false" hidden="false" summary="false">
           </column>
@@ -312,6 +319,8 @@ ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.OS_HISTORYSTEP WHERE ENTRY_ID = ? 
           </column>
           <column  name="InstID" disabled="false" hidden="true" summary="false">
           </column>
+          <column  name="YWLX" disabled="false" hidden="true" summary="false">
+          </column>
           <column  name="SQR" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="SQBM" disabled="true" hidden="false" summary="false">
@@ -322,15 +331,25 @@ ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.OS_HISTORYSTEP WHERE ENTRY_ID = ? 
           </column>
           <column  name="OLDBH" disabled="false" hidden="true" summary="false">
           </column>
+          <column  name="YYZL" disabled="true" hidden="false" summary="false">
+          </column>
           <column  name="LCBT" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="GWZW" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="Cs" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="Csong" disabled="false" hidden="true" summary="false">
           </column>
           <column  name="XMMC" disabled="false" hidden="true" summary="false">
           </column>
           <column  name="NHBZS" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="NHBFS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="CSRY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="GWFJBZSM" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="FJ" disabled="true" hidden="false" summary="false">
             <object  name="lcIB_GS_ZKLC_FJ" editAttribute="0" >
@@ -349,6 +368,12 @@ ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.OS_HISTORYSTEP WHERE ENTRY_ID = ? 
                 </column>
                 <column  name="SCSJ" disabled="false" hidden="false" summary="false">
                 </column>
+                <column  name="SFYY" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SFBT" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SFSY" disabled="true" hidden="false" summary="false">
+                </column>
                 <column  name="SF360XS" disabled="false" hidden="true" summary="false">
                 </column>
               </columns>
@@ -356,7 +381,14 @@ ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.OS_HISTORYSTEP WHERE ENTRY_ID = ? 
           </column>
           <column  name="OASPXX" disabled="false" hidden="false" summary="false">
           </column>
+          <column  name="FYYBCWJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="DBXZ" disabled="false" hidden="false" summary="false">
+          </column>
         </columns>
+        <relations>
+<relation name='VO_NHTBTS.(XMID=XMMC|YWLX=YWLX)' />
+        </relations>
       </object>
       <dynOwners>
         <dynOwner  type="1" describe="内核办文管" >
@@ -404,6 +436,8 @@ if(ret.get('ral')&gt;0){
           </column>
           <column  name="InstID" disabled="false" hidden="true" summary="false">
           </column>
+          <column  name="YWLX" disabled="false" hidden="true" summary="false">
+          </column>
           <column  name="SQR" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="SQBM" disabled="true" hidden="false" summary="false">
@@ -414,7 +448,25 @@ if(ret.get('ral')&gt;0){
           </column>
           <column  name="OLDBH" disabled="false" hidden="true" summary="false">
           </column>
+          <column  name="YYZL" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBT" disabled="true" hidden="false" summary="false">
+          </column>
           <column  name="GWZW" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="Cs" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="Csong" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="XMMC" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="NHBZS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="NHBFS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="CSRY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="GWFJBZSM" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="FJ" disabled="true" hidden="false" summary="false">
             <object  name="lcIB_GS_ZKLC_FJ" editAttribute="0" >
@@ -427,14 +479,24 @@ if(ret.get('ral')&gt;0){
                 </column>
                 <column  name="FJM" disabled="false" hidden="false" summary="false">
                 </column>
+                <column  name="WDMC" disabled="false" hidden="false" summary="false">
+                </column>
                 <column  name="SCZ" disabled="false" hidden="false" summary="false">
                 </column>
                 <column  name="SCSJ" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SFYY" disabled="false" hidden="false" summary="false">
                 </column>
                 <column  name="SF360XS" disabled="false" hidden="true" summary="false">
                 </column>
               </columns>
             </object>
+          </column>
+          <column  name="OASPXX" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FYYBCWJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="DBXZ" disabled="false" hidden="false" summary="false">
           </column>
         </columns>
       </object>
@@ -485,6 +547,8 @@ status==1</arg>
           </column>
           <column  name="InstID" disabled="false" hidden="true" summary="false">
           </column>
+          <column  name="YWLX" disabled="false" hidden="true" summary="false">
+          </column>
           <column  name="SQR" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="SQBM" disabled="true" hidden="false" summary="false">
@@ -495,15 +559,25 @@ status==1</arg>
           </column>
           <column  name="OLDBH" disabled="false" hidden="true" summary="false">
           </column>
+          <column  name="YYZL" disabled="true" hidden="false" summary="false">
+          </column>
           <column  name="LCBT" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="GWZW" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="Cs" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="Csong" disabled="false" hidden="true" summary="false">
           </column>
           <column  name="XMMC" disabled="false" hidden="true" summary="false">
           </column>
           <column  name="NHBZS" disabled="false" hidden="false" summary="false">
           </column>
           <column  name="NHBFS" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="CSRY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="GWFJBZSM" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="FJ" disabled="true" hidden="false" summary="false">
             <object  name="lcIB_GS_ZKLC_FJ" editAttribute="0" >
@@ -522,6 +596,12 @@ status==1</arg>
                 </column>
                 <column  name="SCSJ" disabled="false" hidden="false" summary="false">
                 </column>
+                <column  name="SFYY" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SFBT" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SFSY" disabled="true" hidden="false" summary="false">
+                </column>
                 <column  name="SF360XS" disabled="false" hidden="true" summary="false">
                 </column>
               </columns>
@@ -529,7 +609,14 @@ status==1</arg>
           </column>
           <column  name="OASPXX" disabled="false" hidden="false" summary="false">
           </column>
+          <column  name="FYYBCWJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="DBXZ" disabled="false" hidden="false" summary="false">
+          </column>
         </columns>
+        <relations>
+<relation name='VO_NHTBTS.(XMID=XMMC|YWLX=YWLX)' />
+        </relations>
       </object>
       <dynOwners>
         <dynOwner  type="1" describe="内核办文管" >
@@ -573,6 +660,8 @@ status==1</arg>
           </column>
           <column  name="InstID" disabled="false" hidden="true" summary="false">
           </column>
+          <column  name="YWLX" disabled="false" hidden="true" summary="false">
+          </column>
           <column  name="SQR" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="SQBM" disabled="true" hidden="false" summary="false">
@@ -583,15 +672,25 @@ status==1</arg>
           </column>
           <column  name="OLDBH" disabled="false" hidden="true" summary="false">
           </column>
+          <column  name="YYZL" disabled="true" hidden="false" summary="false">
+          </column>
           <column  name="LCBT" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="GWZW" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="Cs" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="Csong" disabled="false" hidden="true" summary="false">
           </column>
           <column  name="XMMC" disabled="false" hidden="true" summary="false">
           </column>
           <column  name="NHBZS" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="NHBFS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="CSRY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="GWFJBZSM" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="FJ" disabled="true" hidden="false" summary="false">
             <object  name="lcIB_GS_ZKLC_FJ" editAttribute="0" >
@@ -610,6 +709,12 @@ status==1</arg>
                 </column>
                 <column  name="SCSJ" disabled="false" hidden="false" summary="false">
                 </column>
+                <column  name="SFYY" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SFBT" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SFSY" disabled="true" hidden="false" summary="false">
+                </column>
                 <column  name="SF360XS" disabled="false" hidden="true" summary="false">
                 </column>
               </columns>
@@ -617,7 +722,14 @@ status==1</arg>
           </column>
           <column  name="OASPXX" disabled="false" hidden="false" summary="false">
           </column>
+          <column  name="FYYBCWJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="DBXZ" disabled="false" hidden="false" summary="false">
+          </column>
         </columns>
+        <relations>
+<relation name='VO_NHTBTS.(XMID=XMMC|YWLX=YWLX)' />
+        </relations>
       </object>
       <dynOwners>
         <dynOwner  type="0" describe="内核办主副审" >
@@ -639,7 +751,7 @@ status==1</arg>
             </function>
           </pre-functions>
           <results>
-            <unconditional-result id="95" old-status="完成" status="待处理" step="89">
+            <unconditional-result id="95" old-status="完成" status="待处理" step="101">
             </unconditional-result>
           </results>
         </action>
@@ -670,6 +782,8 @@ status==1</arg>
           </column>
           <column  name="InstID" disabled="false" hidden="true" summary="false">
           </column>
+          <column  name="YWLX" disabled="false" hidden="true" summary="false">
+          </column>
           <column  name="SQR" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="SQBM" disabled="true" hidden="false" summary="false">
@@ -680,15 +794,25 @@ status==1</arg>
           </column>
           <column  name="OLDBH" disabled="false" hidden="true" summary="false">
           </column>
+          <column  name="YYZL" disabled="true" hidden="false" summary="false">
+          </column>
           <column  name="LCBT" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="GWZW" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="Cs" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="Csong" disabled="false" hidden="true" summary="false">
           </column>
           <column  name="XMMC" disabled="false" hidden="true" summary="false">
           </column>
           <column  name="NHBZS" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="NHBFS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="CSRY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="GWFJBZSM" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="FJ" disabled="true" hidden="false" summary="false">
             <object  name="lcIB_GS_ZKLC_FJ" editAttribute="0" >
@@ -707,6 +831,12 @@ status==1</arg>
                 </column>
                 <column  name="SCSJ" disabled="false" hidden="false" summary="false">
                 </column>
+                <column  name="SFYY" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SFBT" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SFSY" disabled="true" hidden="false" summary="false">
+                </column>
                 <column  name="SF360XS" disabled="false" hidden="true" summary="false">
                 </column>
               </columns>
@@ -714,7 +844,14 @@ status==1</arg>
           </column>
           <column  name="OASPXX" disabled="false" hidden="false" summary="false">
           </column>
+          <column  name="FYYBCWJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="DBXZ" disabled="false" hidden="false" summary="false">
+          </column>
         </columns>
+        <relations>
+<relation name='VO_NHTBTS.(XMID=XMMC|YWLX=YWLX)' />
+        </relations>
       </object>
       <dynOwners>
         <dynOwner  type="1" describe="内核办主任" >
@@ -758,6 +895,8 @@ status==1</arg>
           </column>
           <column  name="InstID" disabled="false" hidden="true" summary="false">
           </column>
+          <column  name="YWLX" disabled="false" hidden="true" summary="false">
+          </column>
           <column  name="SQR" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="SQBM" disabled="true" hidden="false" summary="false">
@@ -768,15 +907,25 @@ status==1</arg>
           </column>
           <column  name="OLDBH" disabled="false" hidden="true" summary="false">
           </column>
+          <column  name="YYZL" disabled="true" hidden="false" summary="false">
+          </column>
           <column  name="LCBT" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="GWZW" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="Cs" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="Csong" disabled="false" hidden="true" summary="false">
           </column>
           <column  name="XMMC" disabled="false" hidden="true" summary="false">
           </column>
           <column  name="NHBZS" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="NHBFS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="CSRY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="GWFJBZSM" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="FJ" disabled="true" hidden="false" summary="false">
             <object  name="lcIB_GS_ZKLC_FJ" editAttribute="0" >
@@ -795,6 +944,12 @@ status==1</arg>
                 </column>
                 <column  name="SCSJ" disabled="false" hidden="false" summary="false">
                 </column>
+                <column  name="SFYY" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SFBT" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SFSY" disabled="true" hidden="false" summary="false">
+                </column>
                 <column  name="SF360XS" disabled="false" hidden="true" summary="false">
                 </column>
               </columns>
@@ -802,7 +957,14 @@ status==1</arg>
           </column>
           <column  name="OASPXX" disabled="false" hidden="false" summary="false">
           </column>
+          <column  name="FYYBCWJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="DBXZ" disabled="false" hidden="false" summary="false">
+          </column>
         </columns>
+        <relations>
+<relation name='VO_NHTBTS.(XMID=XMMC|YWLX=YWLX)' />
+        </relations>
       </object>
       <dynOwners>
         <dynOwner  type="1" describe="内核办小组组长" >
@@ -857,6 +1019,8 @@ ABS_flushObjCache('WORKFLOW.TASK')
           </column>
           <column  name="InstID" disabled="false" hidden="true" summary="false">
           </column>
+          <column  name="YWLX" disabled="false" hidden="true" summary="false">
+          </column>
           <column  name="SQR" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="SQBM" disabled="true" hidden="false" summary="false">
@@ -867,15 +1031,25 @@ ABS_flushObjCache('WORKFLOW.TASK')
           </column>
           <column  name="OLDBH" disabled="false" hidden="true" summary="false">
           </column>
+          <column  name="YYZL" disabled="true" hidden="false" summary="false">
+          </column>
           <column  name="LCBT" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="GWZW" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="Cs" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="Csong" disabled="false" hidden="true" summary="false">
           </column>
           <column  name="XMMC" disabled="false" hidden="true" summary="false">
           </column>
           <column  name="NHBZS" disabled="false" hidden="true" summary="false">
           </column>
           <column  name="NHBFS" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="CSRY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="GWFJBZSM" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="FJ" disabled="true" hidden="false" summary="false">
             <object  name="lcIB_GS_ZKLC_FJ" editAttribute="0" >
@@ -894,12 +1068,22 @@ ABS_flushObjCache('WORKFLOW.TASK')
                 </column>
                 <column  name="SCSJ" disabled="false" hidden="false" summary="false">
                 </column>
+                <column  name="SFYY" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SFBT" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SFSY" disabled="true" hidden="false" summary="false">
+                </column>
                 <column  name="SF360XS" disabled="false" hidden="true" summary="false">
                 </column>
               </columns>
             </object>
           </column>
           <column  name="OASPXX" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FYYBCWJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="DBXZ" disabled="false" hidden="false" summary="false">
           </column>
         </columns>
       </object>
@@ -924,6 +1108,113 @@ ABS_flushObjCache('WORKFLOW.TASK')
           </pre-functions>
           <results>
             <unconditional-result id="100" old-status="完成" status="待处理" step="36">
+            </unconditional-result>
+          </results>
+        </action>
+      </actions>
+    </step>
+    <step id="101" name="内核办非权益类团队负责人审核" owner="$R{171}">
+      <meta name="step.allow.approve.sign">false</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="step.approve.sign.action.name">会签</meta>
+      <meta name="NodeType">16</meta>
+      <meta name="approve.sign.modes">endorsesign</meta>
+      <meta name="step.allow.reassign">true</meta>
+      <meta name="step.allow.reject">true</meta>
+      <meta name="approve.mode">true</meta>
+      <meta name="reject.reason.mandatory">false</meta>
+      <object  name="lcIB_GS_ZKLC" editAttribute="0" >
+        <columns>
+          <column  name="ID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="InstID" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="YWLX" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="SQR" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="OLDBH" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="YYZL" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBT" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="GWZW" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="Cs" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="Csong" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="XMMC" disabled="false" hidden="true" summary="false">
+          </column>
+          <column  name="NHBZS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="NHBFS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="CSRY" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="GWFJBZSM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="FJ" disabled="true" hidden="false" summary="false">
+            <object  name="lcIB_GS_ZKLC_FJ" editAttribute="0" >
+              <columns>
+                <column  name="ID" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="TJSX" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="FJLX" disabled="false" hidden="true" summary="false">
+                </column>
+                <column  name="FJM" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="WDMC" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SCZ" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SCSJ" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SFYY" disabled="false" hidden="false" summary="false">
+                </column>
+                <column  name="SFBT" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SFSY" disabled="true" hidden="false" summary="false">
+                </column>
+                <column  name="SF360XS" disabled="false" hidden="true" summary="false">
+                </column>
+              </columns>
+            </object>
+          </column>
+          <column  name="OASPXX" disabled="false" hidden="false" summary="false">
+          </column>
+          <column  name="FYYBCWJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="DBXZ" disabled="false" hidden="false" summary="false">
+          </column>
+        </columns>
+        <relations>
+<relation name='VO_NHTBTS.(XMID=XMMC|YWLX=YWLX)' />
+        </relations>
+      </object>
+      <notify >
+      </notify>
+      <actions>
+        <action id="102" name="审批通过">
+          <meta name="NodeType">17</meta>
+          <meta name="approve.action">true</meta>
+          <meta name="allow.recover">true</meta>
+          <pre-functions>
+            <function id="0" name="abs.ExecSQL" type="class">
+              <arg name="SQL">[&quot;call ecif.pro_ib_sylchcl(?,?,{0},'lcIB_GS_ZKLC',-1,{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;}]]</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+            </function>
+          </pre-functions>
+          <results>
+            <unconditional-result id="103" old-status="完成" status="待处理" step="89">
             </unconditional-result>
           </results>
         </action>

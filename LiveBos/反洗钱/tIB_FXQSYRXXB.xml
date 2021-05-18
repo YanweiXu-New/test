@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="GB2312" standalone="no"?>
-<object create-date="2020.11.13 15:53:38" creator="HUANGWEI3" flag="0" name="tIB_FXQSYRXXB" object-id="47d73a01-eca6-47af-9f01-e27f4bc60fbe" package="反洗钱" type="0" version="1.0">
+<object create-date="2020.11.13 15:53:38" creator="HUANGWEI3" flag="0" modifier="null" modify-date="null" name="tIB_FXQSYRXXB" object-id="47d73a01-eca6-47af-9f01-e27f4bc60fbe" package="反洗钱" type="0" version="1.0">
     <describe>反洗钱受益人信息表</describe>
+    <comment/>
     <datasource-name>ECIF</datasource-name>
+    <parent/>
     <attribute>264</attribute>
+    <templet>默认</templet>
     <columns>
         <column>
             <name>ID</name>
@@ -17,12 +20,22 @@
             <unique>false</unique>
             <enabled>false</enabled>
             <visible>false</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>XZLX</name>
@@ -31,44 +44,61 @@
             <biz-type>400</biz-type>
             <length>0</length>
             <scale>0</scale>
-            <control>2</control>
+            <control>5</control>
             <primary-property>0</primary-property>
             <nullable>false</nullable>
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
             <option>$D{SYSYRXZLX}</option>
+            <meta-column/>
             <ref-object/>
+            <default>1</default>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
-            <fire-event>0</fire-event>
+            <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+            <properties>
+                <grid-align>center</grid-align>
+            </properties>
         </column>
         <column>
             <name>XGSJ</name>
             <describe>修改时间</describe>
-            <type>13</type>
-            <biz-type>300</biz-type>
-            <length>8</length>
+            <type>3</type>
+            <biz-type>301</biz-type>
+            <length>12</length>
             <scale>0</scale>
-            <control>3</control>
+            <control>37</control>
             <primary-property>0</primary-property>
             <nullable>true</nullable>
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object/>
+            <default>null</default>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>FZFKZQY</name>
@@ -84,16 +114,22 @@
             <enabled>true</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object>tIB_FXQSYRXXB_FZFKZQY</ref-object>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XZLX != 1</invisible-expression>
+XZLX != 1 </invisible-expression>
+            <disable-expression/>
             <category>非政府控制企业</category>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>SYSYRPBYJ</name>
@@ -108,19 +144,23 @@ XZLX != 1</invisible-expression>
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
-            <option>$D{SYSYRPBYJ}</option>
+            <option>1|注册证书;2|公司章程;3|存续证明文件;4|备忘录;5|公开信息查询;6|其他</option>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XZLX != 1</invisible-expression>
+XZLX != 1 </invisible-expression>
+            <disable-expression/>
             <category>非政府控制企业</category>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment/>
             <validation/>
             <scope-permissions/>
-            <properties/>
         </column>
         <column>
             <name>PDSYSYRFS</name>
@@ -135,17 +175,53 @@ XZLX != 1</invisible-expression>
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
-            <option>$D{PDSYSYRFS}</option>
+            <option>1|股权或表决权;2|人事、财务控制;3|高级管理人;4|其他</option>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XZLX != 1</invisible-expression>
+XZLX != 1 </invisible-expression>
+            <disable-expression/>
             <category>非政府控制企业</category>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>BQ</name>
+            <describe>标签</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>2</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option>$D{JG_SF}</option>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>非政府控制企业</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>HHQY</name>
@@ -161,16 +237,22 @@ XZLX != 1</invisible-expression>
             <enabled>true</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object>tIB_FXQSYRXXB_HHQY</ref-object>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XZLX != 2</invisible-expression>
+XZLX != 2 </invisible-expression>
+            <disable-expression/>
             <category>合伙企业</category>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>SYSYRPBYJ2</name>
@@ -185,17 +267,23 @@ XZLX != 2</invisible-expression>
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
-            <option>$D{SYSYRPBYJ2}</option>
+            <option>1|注册证书;2|合伙协议;3|存续证明文件;4|备忘录;5|公开信息查询;6|其他</option>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XZLX != 2</invisible-expression>
+XZLX != 2 </invisible-expression>
+            <disable-expression/>
             <category>合伙企业</category>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>PDSYSYRFS2</name>
@@ -210,17 +298,53 @@ XZLX != 2</invisible-expression>
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
-            <option>$D{PDSYSYRFS2}</option>
+            <option>1|股权或表决权（合伙权益占比）;2|其他（普通合伙人或合伙事务执行人）</option>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XZLX != 2</invisible-expression>
+XZLX != 2 </invisible-expression>
+            <disable-expression/>
             <category>合伙企业</category>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>BQ2</name>
+            <describe>标签2</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>2</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option>$D{JG_SF}</option>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>合伙企业</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>XT</name>
@@ -236,16 +360,22 @@ XZLX != 2</invisible-expression>
             <enabled>true</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object>tIB_FXQSYRXXB_XT</ref-object>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XZLX != 3</invisible-expression>
+XZLX != 3 </invisible-expression>
+            <disable-expression/>
             <category>信托</category>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>SYSYRPBYJ3</name>
@@ -260,17 +390,23 @@ XZLX != 3</invisible-expression>
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
-            <option>$D{SYSYRPBYJ3}</option>
+            <option>1|注册证书;2|信托协议;3|存续证明文件;4|备忘录;5|公开信息查询;6|其他</option>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XZLX != 3</invisible-expression>
+XZLX != 3 </invisible-expression>
+            <disable-expression/>
             <category>信托</category>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>PDSYSYRFS3</name>
@@ -285,17 +421,53 @@ XZLX != 3</invisible-expression>
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
-            <option>$D{PDSYSYRFS3}</option>
+            <option>1|其他（委托人、受托人、受益人以及其他对信托实施最终有效控制的自然人）</option>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XZLX != 3</invisible-expression>
+XZLX != 3 </invisible-expression>
+            <disable-expression/>
             <category>信托</category>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>BQ3</name>
+            <describe>标签3</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>2</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option>$D{JG_SF}</option>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>信托</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>JJ</name>
@@ -311,16 +483,22 @@ XZLX != 3</invisible-expression>
             <enabled>true</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object>tIB_FXQSYRXXB_JJ</ref-object>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XZLX != 4</invisible-expression>
+XZLX != 4 </invisible-expression>
+            <disable-expression/>
             <category>基金</category>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>SYSYRPBYJ4</name>
@@ -335,17 +513,23 @@ XZLX != 4</invisible-expression>
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
-            <option>$D{SYSYRPBYJ4}</option>
+            <option>1|协议或登记信息名录;2|公开信息查询;3|其他</option>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XZLX != 4</invisible-expression>
+XZLX != 4 </invisible-expression>
+            <disable-expression/>
             <category>基金</category>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>PDSYSYRFS4</name>
@@ -360,17 +544,53 @@ XZLX != 4</invisible-expression>
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
-            <option>$D{PDSYSYRFS4}</option>
+            <option>1|股权或表决权（权益份额）;2|其他（基金经理或者直接操作管理基金的自然人）</option>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XZLX != 4</invisible-expression>
+XZLX != 4 </invisible-expression>
+            <disable-expression/>
             <category>基金</category>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>BQ4</name>
+            <describe>标签4</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>2</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option>$D{JG_SF}</option>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>基金</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>SZFKZDW</name>
@@ -386,16 +606,22 @@ XZLX != 4</invisible-expression>
             <enabled>true</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object>tIB_FXQSYRXXB_SZFKZDW</ref-object>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XZLX != 5</invisible-expression>
+XZLX != 5 </invisible-expression>
+            <disable-expression/>
             <category>受控单位</category>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>SYSYRPBYJ5</name>
@@ -410,17 +636,23 @@ XZLX != 5</invisible-expression>
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
-            <option>$D{SYSYRPBYJ}</option>
+            <option>1|注册证书;2|公司章程;3|存续证明文件;4|备忘录;5|公开信息查询;6|其他</option>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XZLX != 5</invisible-expression>
+XZLX != 5 </invisible-expression>
+            <disable-expression/>
             <category>受控单位</category>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>PDSYSYRFS5</name>
@@ -435,17 +667,53 @@ XZLX != 5</invisible-expression>
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
-            <option>$D{PDSYSYRFS5}</option>
+            <option>1|人事、财务控制（法定代表人或者实际控制人）</option>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XZLX != 5</invisible-expression>
+XZLX != 5 </invisible-expression>
+            <disable-expression/>
             <category>受控单位</category>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>BQ5</name>
+            <describe>标签5</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>2</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option>$D{JG_SF}</option>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>受控单位</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>FQYXZZYZZ</name>
@@ -461,16 +729,22 @@ XZLX != 5</invisible-expression>
             <enabled>true</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object>tIB_FXQSYRXXB_FQYXZZYZZ</ref-object>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XZLX != 6</invisible-expression>
+XZLX != 6 </invisible-expression>
+            <disable-expression/>
             <category>农民专业合作组织</category>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>SYSYRPBYJ6</name>
@@ -485,17 +759,23 @@ XZLX != 6</invisible-expression>
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
-            <option>$D{SYSYRPBYJ}</option>
+            <option>1|注册证书;2|公司章程;3|存续证明文件;4|备忘录;5|公开信息查询;6|其他</option>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XZLX != 6</invisible-expression>
+XZLX != 6 </invisible-expression>
+            <disable-expression/>
             <category>农民专业合作组织</category>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>PDSYSYRFS6</name>
@@ -510,17 +790,53 @@ XZLX != 6</invisible-expression>
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
-            <option>$D{PDSYSYRFS5}</option>
+            <option>1|人事、财务控制（法定代表人或者实际控制人）</option>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XZLX != 6</invisible-expression>
+XZLX != 6 </invisible-expression>
+            <disable-expression/>
             <category>农民专业合作组织</category>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>BQ6</name>
+            <describe>标签6</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>2</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option>$D{JG_SF}</option>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>农民专业合作组织</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>WXSBSYSYRDDW</name>
@@ -536,20 +852,68 @@ XZLX != 6</invisible-expression>
             <enabled>true</enabled>
             <visible>true</visible>
             <option>$D{WXSBSYSYRDDW}</option>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-XZLX != 7</invisible-expression>
+XZLX != 7 </invisible-expression>
+            <disable-expression/>
             <category>无需识别单位</category>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>BQ7</name>
+            <describe>标签7</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>2</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option>$D{JG_SF}</option>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>无需识别单位</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
     </columns>
     <display-options>
-        <commands/>
+        <commands>
+            <command type="2">
+                <describe>新增</describe>
+                <define>
+                    <item>tIB_FXQSYRXXB</item>
+                    <item>Add</item>
+                </define>
+                <is-default>2</is-default>
+                <attribute>0</attribute>
+                <icon-cls/>
+                <tip/>
+            </command>
+        </commands>
         <relations/>
     </display-options>
     <subdivisions/>

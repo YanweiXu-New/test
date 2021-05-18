@@ -36,6 +36,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>TJSX</name>
@@ -66,6 +67,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>FJLX</name>
@@ -100,6 +102,30 @@
                 <refColumns/>
             </constraint>
             <scope-permissions/>
+            <properties/>
+        </column>
+        <column>
+            <name>SFBT</name>
+            <describe>是否必填</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>5</control>
+            <primary-property>0</primary-property>
+            <nullable>false</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option>$D{JG_SF}</option>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
         </column>
         <column>
             <name>FJM</name>
@@ -196,6 +222,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>SCSJ</name>
@@ -226,6 +253,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
         <column>
             <name>SFYY</name>
@@ -242,6 +270,30 @@
             <visible>true</visible>
             <option>$D{JG_SF}</option>
             <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>SFSY</name>
+            <describe>是否适用</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>5</control>
+            <primary-property>0</primary-property>
+            <nullable>false</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option>$D{JG_SF}</option>
+            <ref-object/>
+            <default>1</default>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
             <category/>
@@ -279,6 +331,7 @@
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
         </column>
     </columns>
     <display-options>
@@ -291,6 +344,18 @@
         <property>
             <name>112</name>
             <value>true</value>
+        </property>
+        <property>
+            <name>73</name>
+            <value>TJSX</value>
+            <value>FJLX</value>
+            <value>SFBT</value>
+            <value>FJM</value>
+            <value>WDMC</value>
+            <value>SCZ</value>
+            <value>SCSJ</value>
+            <value>SFYY</value>
+            <value>SFSY</value>
         </property>
     </properties>
     <orders/>

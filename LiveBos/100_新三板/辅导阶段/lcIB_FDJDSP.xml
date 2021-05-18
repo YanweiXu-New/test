@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="GB2312" standalone="no"?>
-<object create-date="2020.08.17 11:06:58" creator="开发者" flag="0" name="lcIB_FDJDSP" object-id="b5ed295e-cfcd-469e-b6dd-4504e3fb11bd" package="100_新三板.辅导阶段" type="5" version="1.0">
+<object create-date="2020.08.17 11:06:58" creator="开发者" flag="0" modifier="null" modify-date="null" name="lcIB_FDJDSP" object-id="b5ed295e-cfcd-469e-b6dd-4504e3fb11bd" package="100_新三板.辅导阶段" type="5" version="1.0">
     <describe>辅导阶段审批</describe>
+    <comment/>
     <datasource-name>ECIF</datasource-name>
     <attribute>392</attribute>
+    <templet>默认</templet>
     <columns>
         <column>
             <name>ID</name>
@@ -17,12 +19,22 @@
             <unique>false</unique>
             <enabled>false</enabled>
             <visible>false</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>InstID</name>
@@ -37,33 +49,52 @@
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
-            <name>YWLX_copy</name>
-            <describe>YWLX</describe>
-            <type>0</type>
-            <biz-type>100</biz-type>
-            <length>30</length>
+            <name>YWLX</name>
+            <describe>业务类型</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
             <scale>0</scale>
-            <control>1</control>
+            <control>0</control>
             <primary-property>6</primary-property>
             <nullable>true</nullable>
             <unique>false</unique>
             <enabled>false</enabled>
             <visible>false</visible>
+            <option>1|权益;2|固收(发行前);3|债券;4|新三板</option>
+            <meta-column/>
+            <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
-            <expression>4</expression>
+            <expression>4  </expression>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>ZDWCBZ</name>
@@ -292,7 +323,7 @@
             <meta-column/>
             <ref-object>VIB_XMXX_XSB_WD</ref-object>
             <default/>
-            <attribute>4096</attribute>
+            <attribute>0</attribute>
             <order-direction>0</order-direction>
             <expression/>
             <invisible-expression/>
@@ -408,7 +439,7 @@
             <scale>0</scale>
             <control>45</control>
             <primary-property>0</primary-property>
-            <nullable>true</nullable>
+            <nullable>false</nullable>
             <unique>false</unique>
             <enabled>false</enabled>
             <visible>true</visible>
@@ -430,6 +461,39 @@
             <scope-permissions/>
         </column>
         <column>
+            <name>LXRQ</name>
+            <describe>立项日期</describe>
+            <type>13</type>
+            <biz-type>300</biz-type>
+            <length>8</length>
+            <scale>0</scale>
+            <control>3</control>
+            <primary-property>0</primary-property>
+            <nullable>false</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default>null</default>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression>XYLX&lt;&gt;5      </invisible-expression>
+            <disable-expression/>
+            <category>辅导阶段信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+            <properties>
+                <ctrl-width>136</ctrl-width>
+            </properties>
+        </column>
+        <column>
             <name>LXZKSHY_ZS</name>
             <describe>立项质控审核员(主审)</describe>
             <type>6</type>
@@ -438,7 +502,7 @@
             <scale>0</scale>
             <control>10</control>
             <primary-property>0</primary-property>
-            <nullable>true</nullable>
+            <nullable>false</nullable>
             <unique>false</unique>
             <enabled>false</enabled>
             <visible>true</visible>
@@ -490,39 +554,6 @@
             <scope-permissions/>
         </column>
         <column>
-            <name>LXRQ</name>
-            <describe>立项日期</describe>
-            <type>13</type>
-            <biz-type>300</biz-type>
-            <length>8</length>
-            <scale>0</scale>
-            <control>3</control>
-            <primary-property>0</primary-property>
-            <nullable>false</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>true</visible>
-            <option/>
-            <meta-column/>
-            <ref-object/>
-            <default>null</default>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression>XYLX&lt;&gt;5    </invisible-expression>
-            <disable-expression/>
-            <category>辅导阶段信息</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-            <properties>
-                <ctrl-width>136</ctrl-width>
-            </properties>
-        </column>
-        <column>
             <name>ZKZS</name>
             <describe>质控专员</describe>
             <type>6</type>
@@ -535,36 +566,6 @@
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
-            <option/>
-            <meta-column/>
-            <ref-object>vUser_ZC</ref-object>
-            <default/>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category>辅导阶段信息</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-        </column>
-        <column>
-            <name>ZKFS</name>
-            <describe>质控副审</describe>
-            <type>16</type>
-            <biz-type>600</biz-type>
-            <length>0</length>
-            <scale>0</scale>
-            <control>0</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>false</visible>
             <option/>
             <meta-column/>
             <ref-object>vUser_ZC</ref-object>
@@ -657,14 +658,21 @@ ABS_SQLVALUE("select NHBZS from ecif.tIB_LCNHZYZSPZB where LCDM='lcIB_FDJDSP' an
             <enabled>false</enabled>
             <visible>true</visible>
             <option>$D{IB_FJLX}</option>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>辅导阶段信息</category>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>FJ</name>
@@ -677,17 +685,24 @@ ABS_SQLVALUE("select NHBZS from ecif.tIB_LCNHZYZSPZB where LCDM='lcIB_FDJDSP' an
             <primary-property>0</primary-property>
             <nullable>true</nullable>
             <unique>false</unique>
-            <enabled>true</enabled>
+            <enabled>false</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object>lcIB_FDJDSP_FJ</ref-object>
-            <attribute>0</attribute>
+            <default/>
+            <attribute>4096</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>上传公文附件</category>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>DBXZ</name>
@@ -706,15 +721,15 @@ ABS_SQLVALUE("select NHBZS from ecif.tIB_LCNHZYZSPZB where LCDM='lcIB_FDJDSP' an
             <meta-column/>
             <ref-object/>
             <default/>
-            <attribute>262144</attribute>
+            <attribute>266240</attribute>
             <order-direction>0</order-direction>
             <expression>&lt;%@ livebos language='javascript' %&gt;
 var url='/gdlcDown?lcbdid='+ID+'&amp;insid='+InstID+'&amp;fjlx=1'+'&amp;yhid='+$Login.User;
  '&lt;input type="button" onclick=\'window.open("'+url+'")\' value="  打包下载  " /&gt;'
  //'&lt;a target=_blank href='+url+'&gt;&lt;font color=red&gt;下载&lt;/font&gt;&lt;/a&gt;'
-   </expression>
+     </expression>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
-LB.getClient().isStandard==false    </invisible-expression>
+LB.getClient().isStandard==false      </invisible-expression>
             <disable-expression/>
             <category>上传公文附件</category>
             <fire-event>0</fire-event>
@@ -776,12 +791,102 @@ LB.getClient().isStandard==false    </invisible-expression>
             <expression>&lt;%@ livebos language='javascript' %&gt;
 var oaid=ABS_SQLVALUE("select nvl(max(oaworkflowid),0) from ecif.tib_oawfhandle where lcbd='lcIB_FDBBWJSP' and lcbdid=?",[ID])
 var varSrc="/bss/ibb/nworkflow/page/oAsuggestion.sdo?oaWorkId="+oaid+"&amp;lcbd=lcIB_FDBBWJSP&amp;lcbdId="+ID;
-"&lt;iframe id='lc_oayj' frameborder='0' width='100%' height='100%' scrolling='no' src='"+varSrc+"'&gt;&lt;/iframe&gt;"    </expression>
+"&lt;iframe id='lc_oayj' frameborder='0' width='100%' height='100%' scrolling='no' src='"+varSrc+"'&gt;&lt;/iframe&gt;"      </expression>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 var oaid=ABS_SQLVALUE("select nvl(max(oaworkflowid),0) from ecif.tib_oawfhandle where lcbd='lcIB_FDBBWJSP' and lcbdid=?",[ID])
-oaid&lt;=0    </invisible-expression>
+oaid&lt;=0      </invisible-expression>
             <disable-expression/>
             <category>OA审批信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>CSRY</name>
+            <describe>抄送人员</describe>
+            <type>16</type>
+            <biz-type>600</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>45</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object>vUser_ZC</ref-object>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>辅导阶段信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>YYZL</name>
+            <describe>用印种类</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>2</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option>$D{IB_YYZL}</option>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>辅导阶段信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>FYYBCWJ</name>
+            <describe>非用印备查文件</describe>
+            <type>21</type>
+            <biz-type>802</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>42</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category>上传公文附件</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
@@ -798,23 +903,35 @@ oaid&lt;=0    </invisible-expression>
                     <item>lcIB_FDJDSP</item>
                     <item>StartWork</item>
                 </define>
-                <is-default>0</is-default>
+                <is-default>2</is-default>
                 <attribute>0</attribute>
+                <icon-cls/>
+                <tip/>
             </command>
         </commands>
         <relations>
             <relation type="9">
                 <define>
                     <item>VO_NHTBTS</item>
-                    <item>(XMID=XMMC|YWLX=YWLX_copy)</item>
+                    <item>(XMID=XMMC|YWLX=YWLX)</item>
                 </define>
                 <describe>内核特别提示</describe>
+                <uimode/>
+                <restriction/>
             </relation>
         </relations>
     </display-options>
     <subdivisions/>
     <methods/>
     <properties>
+        <property>
+            <name>56</name>
+            <value>true</value>
+        </property>
+        <property>
+            <name>2</name>
+            <value>2</value>
+        </property>
         <property>
             <name>112</name>
             <value>true</value>

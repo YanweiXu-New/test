@@ -69,6 +69,30 @@
             <properties/>
         </column>
         <column>
+            <name>YWLX</name>
+            <describe>业务类型</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>0</control>
+            <primary-property>6</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>false</visible>
+            <option>1|权益;2|固收(发行前);3|债券;4|新三板</option>
+            <ref-object/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression>2</expression>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <properties/>
+        </column>
+        <column>
             <name>SM</name>
             <describe>声明</describe>
             <type>0</type>
@@ -516,27 +540,6 @@ SFDYSJZQ==0||ABS_SQLVALUE('select count(1) rs from ecif.lcIB_GS_NHLC_ZQMX where 
             <properties/>
         </column>
         <column>
-            <name>XMJC</name>
-            <describe>项目简称</describe>
-            <type>0</type>
-            <biz-type>100</biz-type>
-            <length>300</length>
-            <scale>0</scale>
-            <control>1</control>
-            <primary-property>0</primary-property>
-            <nullable>false</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>true</visible>
-            <attribute>4096</attribute>
-            <order-direction>0</order-direction>
-            <category>监管信息</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <properties/>
-        </column>
-        <column>
             <name>LCBT</name>
             <describe>公文标题</describe>
             <type>0</type>
@@ -558,7 +561,7 @@ SFDYSJZQ==0||ABS_SQLVALUE('select count(1) rs from ecif.lcIB_GS_NHLC_ZQMX where 
             <expression/>
             <invisible-expression/>
             <disable-expression/>
-            <category>监管信息</category>
+            <category>公文</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
@@ -589,7 +592,7 @@ SFDYSJZQ==0||ABS_SQLVALUE('select count(1) rs from ecif.lcIB_GS_NHLC_ZQMX where 
             <expression/>
             <invisible-expression/>
             <disable-expression/>
-            <category>监管信息</category>
+            <category>公文</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
@@ -620,14 +623,14 @@ SFDYSJZQ==0||ABS_SQLVALUE('select count(1) rs from ecif.lcIB_GS_NHLC_ZQMX where 
             <expression/>
             <invisible-expression/>
             <disable-expression/>
-            <category>监管信息</category>
+            <category>报送监管信息</category>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
             <comment/>
             <validation/>
             <constraint type="3">
-                <SQL>["(EXISTS (SELECT 1 FROM ECIF.LCIB_GS_LXLC T, JGCRM.OS_WFENTRY M\r\n                 WHERE T.XMMC = tIB_XMXX_GS.ID AND T.INSTID = M.ID AND M.STATE = 4 AND T.BJJG IN (1,2))\r\nOR \r\nEXISTS (SELECT 1 FROM ECIF.lcIB_GS_LXSMSHLC T,JGCRM.OS_WFENTRY M\r\n                 WHERE T.XMMC = tIB_XMXX_GS.ID AND T.INSTID = M.ID AND  M.STATE = 4))\r\n\r\nand EXISTS (\r\n\tSELECT 1 FROM DUAL WHERE \r\n\tECIF.FUNC_IB_LCFQCSJY('lcIB_GS_NHLC',tIB_XMXX_GS.ID,tIB_XMXX_GS.XMLX,{0})=1)              ",[{"expression":"ID","scale":0,"length":0,"type":1}]]</SQL>
+                <SQL>["(EXISTS (SELECT 1 FROM ECIF.LCIB_GS_LXLC T, JGCRM.OS_WFENTRY M\r\n                 WHERE T.XMMC = tIB_XMXX_GS.ID AND T.INSTID = M.ID AND M.STATE = 4 AND T.BJJG IN (1,2))\r\nOR \r\nEXISTS (SELECT 1 FROM ECIF.lcIB_GS_LXSMSHLC T,JGCRM.OS_WFENTRY M\r\n                 WHERE T.XMMC = tIB_XMXX_GS.ID AND T.INSTID = M.ID AND  M.STATE = 4)\r\n)\r\nAND EXISTS(\r\n\tSELECT 1 FROM DUAL WHERE \r\n\tECIF.FUNC_IB_LCFQCSJY('lcIB_GS_NHLC',tIB_XMXX_GS.ID,tIB_XMXX_GS.XMLX,{0})=1)",[{"expression":"ID","scale":0,"length":0,"type":1}]]</SQL>
                 <refColumns/>
             </constraint>
             <scope-permissions/>
@@ -651,7 +654,7 @@ SFDYSJZQ==0||ABS_SQLVALUE('select count(1) rs from ecif.lcIB_GS_NHLC_ZQMX where 
             <default>null</default>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
-            <category>监管信息</category>
+            <category>报送监管信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
@@ -678,7 +681,7 @@ SFDYSJZQ==0||ABS_SQLVALUE('select count(1) rs from ecif.lcIB_GS_NHLC_ZQMX where 
             <order-direction>0</order-direction>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;&#13;
 O_THIS.getColumn("JZDCJDSCBL").setLabel("底稿系统尽职调查阶段上传比例");</invisible-expression>
-            <category>监管信息</category>
+            <category>报送监管信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
@@ -703,7 +706,7 @@ O_THIS.getColumn("JZDCJDSCBL").setLabel("底稿系统尽职调查阶段上传比例");</invisi
             <ref-object>tIB_XMLX_GS</ref-object>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
-            <category>监管信息</category>
+            <category>报送监管信息</category>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
@@ -726,7 +729,7 @@ O_THIS.getColumn("JZDCJDSCBL").setLabel("底稿系统尽职调查阶段上传比例");</invisi
             <order-direction>0</order-direction>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;&#13;
 XMLX!=120900&amp;&amp;XMLX!=120106&amp;&amp;XMLX!=120208&amp;&amp;XMLX!=120305&amp;&amp;XMLX!=120403</invisible-expression>
-            <category>监管信息</category>
+            <category>报送监管信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
@@ -749,7 +752,7 @@ XMLX!=120900&amp;&amp;XMLX!=120106&amp;&amp;XMLX!=120208&amp;&amp;XMLX!=120305&a
             <ref-object/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
-            <category>监管信息</category>
+            <category>报送监管信息</category>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
@@ -760,7 +763,7 @@ XMLX!=120900&amp;&amp;XMLX!=120106&amp;&amp;XMLX!=120208&amp;&amp;XMLX!=120305&a
             <describe>区域名称</describe>
             <type>0</type>
             <biz-type>100</biz-type>
-            <length>500</length>
+            <length>50</length>
             <scale>0</scale>
             <control>1</control>
             <primary-property>0</primary-property>
@@ -772,7 +775,7 @@ XMLX!=120900&amp;&amp;XMLX!=120106&amp;&amp;XMLX!=120208&amp;&amp;XMLX!=120305&a
             <order-direction>0</order-direction>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 XMQY != 37</invisible-expression>
-            <category>监管信息</category>
+            <category>报送监管信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
@@ -796,7 +799,7 @@ XMQY != 37</invisible-expression>
             <default>null</default>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
-            <category>监管信息</category>
+            <category>报送监管信息</category>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
@@ -824,7 +827,7 @@ XMQY != 37</invisible-expression>
             <expression/>
             <invisible-expression/>
             <disable-expression/>
-            <category>监管信息</category>
+            <category>报送监管信息</category>
             <fire-event>1</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
@@ -834,50 +837,23 @@ XMQY != 37</invisible-expression>
             <properties/>
         </column>
         <column>
-            <name>SBRQ</name>
-            <describe>申报日期</describe>
-            <type>13</type>
-            <biz-type>300</biz-type>
-            <length>8</length>
-            <scale>0</scale>
-            <control>3</control>
-            <primary-property>0</primary-property>
-            <nullable>false</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>true</visible>
-            <option/>
-            <ref-object/>
-            <default>null</default>
-            <attribute>4096</attribute>
-            <order-direction>0</order-direction>
-            <category>监管信息</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <properties>
-                <ctrl-width>200</ctrl-width>
-            </properties>
-        </column>
-        <column>
-            <name>SBRQTS</name>
-            <describe>申报日期提示</describe>
+            <name>XMRYXXTS</name>
+            <describe>项目人员信息提示</describe>
             <type>0</type>
             <biz-type>100</biz-type>
-            <length>200</length>
+            <length>300</length>
             <scale>0</scale>
             <control>16</control>
             <primary-property>8</primary-property>
             <nullable>true</nullable>
             <unique>false</unique>
-            <enabled>false</enabled>
+            <enabled>true</enabled>
             <visible>true</visible>
             <attribute>266240</attribute>
             <order-direction>0</order-direction>
-            <expression>&lt;%@ livebos language='javascript' %&gt;
-'&lt;font color="red"&gt;根据监管要求，请填写申报受理日期&lt;/font&gt;'</expression>
-            <category>监管信息</category>
+            <expression>&lt;%@ livebos language='javascript' %&gt;&#13;
+'&lt;font color=red&gt;请先检查项目组负责人、项目组成员是否正确，再修改项目组人员信息。&lt;/font&gt;'</expression>
+            <category>报送监管信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
@@ -900,7 +876,81 @@ XMQY != 37</invisible-expression>
             <ref-object>lcIB_GS_NHLC_XMZRYXX</ref-object>
             <attribute>4096</attribute>
             <order-direction>0</order-direction>
-            <category>项目组人员信息</category>
+            <category>报送监管信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <validation/>
+            <properties/>
+        </column>
+        <column>
+            <name>SBRQ</name>
+            <describe>申报日期</describe>
+            <type>13</type>
+            <biz-type>300</biz-type>
+            <length>8</length>
+            <scale>0</scale>
+            <control>3</control>
+            <primary-property>0</primary-property>
+            <nullable>false</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object/>
+            <default>null</default>
+            <attribute>4096</attribute>
+            <order-direction>0</order-direction>
+            <category>报送监管信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <properties>
+                <ctrl-width>200</ctrl-width>
+            </properties>
+        </column>
+        <column>
+            <name>SBRQTS</name>
+            <describe>申报日期提示</describe>
+            <type>0</type>
+            <biz-type>100</biz-type>
+            <length>200</length>
+            <scale>0</scale>
+            <control>16</control>
+            <primary-property>8</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <attribute>266240</attribute>
+            <order-direction>0</order-direction>
+            <expression>&lt;%@ livebos language='javascript' %&gt;
+'&lt;font color=red&gt;即项目申报受理日期&lt;/font&gt;'</expression>
+            <category>报送监管信息</category>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <validation/>
+            <properties/>
+        </column>
+        <column>
+            <name>XMJC</name>
+            <describe>项目简称</describe>
+            <type>0</type>
+            <biz-type>100</biz-type>
+            <length>300</length>
+            <scale>0</scale>
+            <control>1</control>
+            <primary-property>0</primary-property>
+            <nullable>false</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <attribute>4096</attribute>
+            <order-direction>0</order-direction>
+            <category>申请审批信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
@@ -1195,13 +1245,13 @@ DBFS!=99         </invisible-expression>
             <biz-type>400</biz-type>
             <length>0</length>
             <scale>0</scale>
-            <control>2</control>
+            <control>10</control>
             <primary-property>0</primary-property>
             <nullable>false</nullable>
             <unique>false</unique>
             <enabled>false</enabled>
             <visible>true</visible>
-            <option>$D{IB_ZTPJ}</option>
+            <option>$D{IB_XBZTPJ}</option>
             <meta-column/>
             <ref-object/>
             <default/>
@@ -1672,7 +1722,7 @@ SLTGR!=999999&amp;&amp;ZQDLR!=999999&amp;&amp;HXGLR!=999999         </invisible-
             <visible>true</visible>
             <option/>
             <meta-column/>
-            <ref-object>vUser_ZKSB</ref-object>
+            <ref-object>tUser</ref-object>
             <default>null</default>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
@@ -1685,6 +1735,10 @@ SLTGR!=999999&amp;&amp;ZQDLR!=999999&amp;&amp;HXGLR!=999999         </invisible-
             <real-type>0</real-type>
             <comment/>
             <validation/>
+            <constraint type="3">
+                <SQL>["tUser.OrgID in (SELECT ID  FROM JGCRM.LBORGANIZATION START WITH ID = 13831 CONNECT BY PRIOR ID = FID) \r\nand tUser.Status = 1",[]]</SQL>
+                <refColumns/>
+            </constraint>
             <scope-permissions/>
             <properties/>
         </column>
@@ -1703,7 +1757,7 @@ SLTGR!=999999&amp;&amp;ZQDLR!=999999&amp;&amp;HXGLR!=999999         </invisible-
             <visible>true</visible>
             <option/>
             <meta-column/>
-            <ref-object>vUser_ZKSB</ref-object>
+            <ref-object>tUser</ref-object>
             <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
@@ -1716,6 +1770,10 @@ SLTGR!=999999&amp;&amp;ZQDLR!=999999&amp;&amp;HXGLR!=999999         </invisible-
             <real-type>0</real-type>
             <comment/>
             <validation/>
+            <constraint type="3">
+                <SQL>["tUser.OrgID in (SELECT ID  FROM JGCRM.LBORGANIZATION START WITH ID = 13831 CONNECT BY PRIOR ID = FID) \r\nand tUser.Status = 1",[]]</SQL>
+                <refColumns/>
+            </constraint>
             <scope-permissions/>
             <properties/>
         </column>
@@ -2739,11 +2797,11 @@ ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.syste
             <biz-type>400</biz-type>
             <length>0</length>
             <scale>0</scale>
-            <control>2</control>
-            <primary-property>10</primary-property>
+            <control>10</control>
+            <primary-property>0</primary-property>
             <nullable>false</nullable>
             <unique>false</unique>
-            <enabled>true</enabled>
+            <enabled>false</enabled>
             <visible>true</visible>
             <option>1|线上内核表决;2|线下内核表决</option>
             <meta-column/>
@@ -2751,14 +2809,6 @@ ABS_SQLVALUE("select paramvalue from jgcrm.tsysparam  where paramname='ams.syste
             <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
-            <expression>&lt;%@ livebos language='javascript' %&gt;
-var sfgsz=ABS_SQLVALUE("select count(1) from ECIF.TIB_XMXX_GS where xmmc in (select id from ECIF.TIB_XMXX where XMLX in （SELECT id  FROM ECIF.TIB_XMLX CONNECT BY PRIOR ID = FID START WITH NAME = '公司债'）and XMFL=3) and id = ?",[XMMC]);
-var nhfs = null;
-if ( sfgsz &gt;0 ) {
-  nhfs=2;
-}
-nhfs;
- </expression>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
          </invisible-expression>
             <disable-expression/>
@@ -2817,7 +2867,7 @@ LXFS!=1
             <primary-property>0</primary-property>
             <nullable>false</nullable>
             <unique>false</unique>
-            <enabled>true</enabled>
+            <enabled>false</enabled>
             <visible>true</visible>
             <option/>
             <meta-column/>
@@ -2828,8 +2878,8 @@ LXFS!=1
             <expression/>
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 LXFS !=2 </invisible-expression>
-            <disable-expression>&lt;%@ livebos language='javascript' %&gt;
-LXFS !=2  </disable-expression>
+            <disable-expression>&lt;%@ livebos language='javascript' %&gt;&#13;
+LXFS !=2 </disable-expression>
             <category>审核信息</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
@@ -4073,7 +4123,7 @@ var url='/gdlcDown?lcbdid='+ID+'&amp;insid='+InstID+'&amp;fjlx=6'+'&amp;yhid='+$
             <invisible-expression>&lt;%@ livebos language='javascript' %&gt;
 var  sqsj = ABS_SQLVALUE("select to_number(to_char(SQSJ,'yyyymmdd')) from ecif.lcIB_GS_NHLC where id = ?",[ID]);&#13;
 if (sqsj &gt;= 20200912) {&#13;
-O_THIS.getColumn("YYBCWJ").setLabel("非用印备查文件(不上传至OA)");&#13;
+O_THIS.getColumn("YYBCWJ").setLabel("非用印备查文件&lt;br&gt;(不上传至OA)");&#13;
 }else{
 O_THIS.getColumn("YYBCWJ").setLabel("用印备查文件");
 }</invisible-expression>
@@ -4606,7 +4656,15 @@ oaid&lt;=0          </invisible-expression>
                 <attribute>0</attribute>
             </command>
         </commands>
-        <relations/>
+        <relations>
+            <relation type="9">
+                <define>
+                    <item>VO_NHTBTS</item>
+                    <item>(XMID=XMMC|YWLX=YWLX)</item>
+                </define>
+                <describe>内核特别提示</describe>
+            </relation>
+        </relations>
     </display-options>
     <subdivisions/>
     <methods>
@@ -5098,6 +5156,9 @@ oaid&lt;=0          </invisible-expression>
             </event>
             <event attribute="0" src="XMZFZR" type="0">
                 <process-name>lcIB_GS_NHLC_XMZFZR_UI</process-name>
+            </event>
+            <event attribute="0" src="LXFS" type="0">
+                <process-name>lcIB_GS_NHLC_LXFS_UI</process-name>
             </event>
         </events>
     </ui-logics>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="GB2312"?>
+<?xml version="1.0" encoding="gb2312"?>
 <process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_DGRQTZ_TSDG" name="tIB_DGRQTZ_TSDG" object="tIB_DGRQTZ" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
   <describe>底稿日期台账-推送底稿流程</describe>
   <variables>
@@ -17,46 +17,264 @@
         <response exit="true" id="0">
           <describe>输出</describe>
           <retvalue>-1</retvalue>
-          <message>日期已成功推送底稿！</message>
+          <message>该日期已成功推送过底稿，不再重复推送！</message>
           <uiforward redirect="false">
             <url />
           </uiforward>
         </response>
       </sequence>
-      <elseif>
-        <describe>ElseIf</describe>
-        <conditions>
-          <condition name="" type="expression">
-            <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
-O_MASTER.TSZT==3</arg>
-          </condition>
-        </conditions>
-        <response exit="true" id="0">
-          <describe>输出</describe>
-          <retvalue>-1</retvalue>
-          <message>根据推送规则，该记录无需推送！</message>
-          <uiforward redirect="false">
-            <url />
-          </uiforward>
-        </response>
-      </elseif>
+      <else>
+        <describe>Else</describe>
+        <if id="0">
+          <describe>判断</describe>
+          <conditions>
+            <condition name="" type="expression">
+              <arg name="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+O_MASTER.XMFL ==1</arg>
+            </condition>
+          </conditions>
+          <sequence id="0" name="顺序">
+            <if id="0">
+              <describe>判断</describe>
+              <conditions>
+                <condition name="" type="expression">
+                  <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+O_MASTER.RQLX.JKBM == 1009</arg>
+                </condition>
+              </conditions>
+              <if id="0">
+                <describe>判断</describe>
+                <conditions>
+                  <condition name="" type="expression">
+                    <arg name="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+ABS_SQLVALUE("SELECT COUNT(1) FROM (SELECT T.ID,DENSE_RANK() OVER(ORDER BY SJLY, BGRQ DESC) PX FROM ECIF.TIB_DGRQTZ T WHERE XMFL =? AND XMMC = ? AND T.RQLX = ? and T.ND = ?) T2 WHERE T2.PX = 1 AND T2.ID = ?",[O_MASTER.XMFL,O_MASTER.XMMC,O_MASTER.RQLX,O_MASTER.ND,O_MASTER.ID]) == 0</arg>
+                  </condition>
+                </conditions>
+                <response exit="false" id="0">
+                  <describe>输出</describe>
+                  <retvalue>-1</retvalue>
+                  <message type="expression">'根据推送规则，该记录不应该推送底稿！'</message>
+                  <uiforward redirect="false">
+                    <url />
+                  </uiforward>
+                </response>
+              </if>
+              <else>
+                <describe>Else</describe>
+                <if id="0">
+                  <describe>判断</describe>
+                  <conditions>
+                    <condition name="" type="expression">
+                      <arg name="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+ABS_SQLVALUE("SELECT COUNT(1) FROM (SELECT T.ID,DENSE_RANK() OVER(ORDER BY SJLY, BGRQ DESC) PX FROM ECIF.TIB_DGRQTZ T WHERE XMFL =? AND XMMC = ? AND T.RQLX = ?) T2 WHERE T2.PX = 1 AND T2.ID = ?",[O_MASTER.XMFL,O_MASTER.XMMC,O_MASTER.RQLX,O_MASTER.ID]) == 0</arg>
+                    </condition>
+                  </conditions>
+                  <response exit="false" id="0">
+                    <describe>输出</describe>
+                    <retvalue>-1</retvalue>
+                    <message type="expression">'根据推送规则，该记录不应该推送底稿！'</message>
+                    <uiforward redirect="false">
+                      <url />
+                    </uiforward>
+                  </response>
+                </if>
+              </else>
+            </if>
+          </sequence>
+          <elseif>
+            <describe>ElseIf</describe>
+            <conditions>
+              <condition name="" type="expression">
+                <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+O_MASTER.XMFL == 2</arg>
+              </condition>
+            </conditions>
+            <sequence id="0" name="顺序">
+              <if id="0">
+                <describe>判断</describe>
+                <conditions>
+                  <condition name="" type="expression">
+                    <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+O_MASTER.RQLX.JKBM == 1009</arg>
+                  </condition>
+                </conditions>
+                <if id="0">
+                  <describe>判断</describe>
+                  <conditions>
+                    <condition name="" type="expression">
+                      <arg name="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+ABS_SQLVALUE("SELECT COUNT(1) FROM (SELECT T.ID,DENSE_RANK() OVER(ORDER BY SJLY, BGRQ DESC) PX FROM ECIF.TIB_DGRQTZ T WHERE XMFL =? AND XMMC_XSB = ? AND T.RQLX = ? and T.ND = ?) T2 WHERE T2.PX = 1 AND T2.ID = ?",[O_MASTER.XMFL,O_MASTER.XMMC_XSB,O_MASTER.RQLX,O_MASTER.ND,O_MASTER.ID]) == 0</arg>
+                    </condition>
+                  </conditions>
+                  <response exit="false" id="0">
+                    <describe>输出</describe>
+                    <retvalue>-1</retvalue>
+                    <message type="expression">'根据推送规则，该记录不应该推送底稿！'</message>
+                    <uiforward redirect="false">
+                      <url />
+                    </uiforward>
+                  </response>
+                </if>
+                <else>
+                  <describe>Else</describe>
+                  <if id="0">
+                    <describe>判断</describe>
+                    <conditions>
+                      <condition name="" type="expression">
+                        <arg name="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+ABS_SQLVALUE("SELECT COUNT(1) FROM (SELECT T.ID,DENSE_RANK() OVER(ORDER BY SJLY, BGRQ DESC) PX FROM ECIF.TIB_DGRQTZ T WHERE XMFL =? AND XMMC_XSB = ? AND T.RQLX = ?) T2 WHERE T2.PX = 1 AND T2.ID = ?",[O_MASTER.XMFL,O_MASTER.XMMC_XSB,O_MASTER.RQLX,O_MASTER.ID]) == 0</arg>
+                      </condition>
+                    </conditions>
+                    <response exit="false" id="0">
+                      <describe>输出</describe>
+                      <retvalue>-1</retvalue>
+                      <message type="expression">'根据推送规则，该记录不应该推送底稿！'</message>
+                      <uiforward redirect="false">
+                        <url />
+                      </uiforward>
+                    </response>
+                  </if>
+                </else>
+              </if>
+            </sequence>
+          </elseif>
+          <elseif>
+            <describe>ElseIf</describe>
+            <conditions>
+              <condition name="" type="expression">
+                <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+O_MASTER.XMFL == 3</arg>
+              </condition>
+            </conditions>
+            <if id="0">
+              <describe>判断</describe>
+              <conditions>
+                <condition name="" type="expression">
+                  <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+O_MASTER.RQLX.JKBM == 1007 || O_MASTER.RQLX.JKBM== 1012</arg>
+                </condition>
+              </conditions>
+              <if id="0">
+                <describe>判断</describe>
+                <conditions>
+                  <condition name="" type="expression">
+                    <arg name="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+ABS_SQLVALUE("SELECT COUNT(1) FROM (SELECT T.ID,DENSE_RANK() OVER(ORDER BY SJLY, BGRQ DESC) PX FROM ECIF.TIB_DGRQTZ T WHERE XMFL =? AND XMMC_GS = ? AND T.RQLX = ?) T2 WHERE T2.PX = 1 AND T2.ID = ?",[O_MASTER.XMFL,O_MASTER.XMMC_GS,O_MASTER.RQLX,O_MASTER.ID]) == 0</arg>
+                  </condition>
+                </conditions>
+                <response exit="false" id="0">
+                  <describe>输出</describe>
+                  <retvalue>-1</retvalue>
+                  <message type="expression">'根据推送规则，该记录不是最高优先级，不应该推送底稿！'</message>
+                  <uiforward redirect="false">
+                    <url />
+                  </uiforward>
+                </response>
+              </if>
+              <else>
+                <describe>Else</describe>
+                <if id="0">
+                  <describe>判断</describe>
+                  <conditions>
+                    <condition name="" type="expression">
+                      <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+O_MASTER.RQLX.JKBM == 1011</arg>
+                    </condition>
+                  </conditions>
+                  <if id="0">
+                    <describe>判断</describe>
+                    <conditions>
+                      <condition name="" type="expression">
+                        <arg name="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+ABS_SQLVALUE("SELECT COUNT(1) FROM (SELECT ID,DENSE_RANK() OVER(ORDER BY SJLY, BGRQ DESC) PX FROM ECIF.TIB_DGRQTZ  WHERE XMFL =? AND ZQXX = ? AND RQLX = ? AND ND = ?) T2 WHERE T2.PX = 1 AND T2.ID = ?",[O_MASTER.XMFL,O_MASTER.ZQXX,O_MASTER.RQLX,O_MASTER.ND,O_MASTER.ID]) == 0</arg>
+                      </condition>
+                    </conditions>
+                    <response exit="false" id="0">
+                      <describe>输出</describe>
+                      <retvalue>-1</retvalue>
+                      <message type="expression">'根据推送规则，该记录不是最高优先级，不应该推送底稿！'</message>
+                      <uiforward redirect="false">
+                        <url />
+                      </uiforward>
+                    </response>
+                    <elseif>
+                      <describe>ElseIf</describe>
+                      <conditions>
+                        <condition name="" type="expression">
+                          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_SQLVALUE("SELECT COUNT(1) FROM ECIF.TIB_XMXX_GS_ZQXX WHERE ZQQS IS NULL AND ID = ? ",[O_MASTER.ZQXX]) &gt;=1</arg>
+                        </condition>
+                      </conditions>
+                      <response exit="false" id="0">
+                        <describe>输出</describe>
+                        <retvalue>-1</retvalue>
+                        <message type="expression">'期次为空的债券不推送！'</message>
+                        <uiforward redirect="false">
+                          <url />
+                        </uiforward>
+                      </response>
+                    </elseif>
+                  </if>
+                  <else>
+                    <describe>Else</describe>
+                    <if id="0">
+                      <describe>判断</describe>
+                      <conditions>
+                        <condition name="" type="expression">
+                          <arg name="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+ABS_SQLVALUE("SELECT COUNT(1) FROM (SELECT ID,DENSE_RANK() OVER(ORDER BY SJLY, BGRQ DESC) PX FROM ECIF.TIB_DGRQTZ  WHERE XMFL =? AND ZQXX = ? AND RQLX = ? ) T2 WHERE T2.PX = 1 AND T2.ID = ?",[O_MASTER.XMFL,O_MASTER.ZQXX,O_MASTER.RQLX,O_MASTER.ID]) == 0</arg>
+                        </condition>
+                      </conditions>
+                      <response exit="false" id="0">
+                        <describe>输出</describe>
+                        <retvalue>-1</retvalue>
+                        <message type="expression">'根据推送规则，该记录不是最高优先级，不应该推送底稿！'</message>
+                        <uiforward redirect="false">
+                          <url />
+                        </uiforward>
+                      </response>
+                      <elseif>
+                        <describe>ElseIf</describe>
+                        <conditions>
+                          <condition name="" type="expression">
+                            <arg name="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+ABS_SQLVALUE("SELECT COUNT(1) FROM ECIF.TIB_XMXX_GS_ZQXX WHERE ZQQS IS NULL AND ID =? ",[O_MASTER.ZQXX]) &gt;=1</arg>
+                          </condition>
+                        </conditions>
+                        <response exit="false" id="0">
+                          <describe>输出</describe>
+                          <retvalue>-1</retvalue>
+                          <message type="expression">'期次为空的债券不推送！'</message>
+                          <uiforward redirect="false">
+                            <url />
+                          </uiforward>
+                        </response>
+                      </elseif>
+                    </if>
+                  </else>
+                </if>
+              </else>
+            </if>
+          </elseif>
+        </if>
+      </else>
     </if>
   </restriction>
   <sequence id="0" name="顺序">
-    <invoke component="FormOperate" id="0" name="对象组件_修改" operation="update">
-      <describe>修改对象[底稿日期台账]</describe>
-      <arg name="@objectName">tIB_DGRQTZ</arg>
-      <arg name="@object" type="variable">O_MASTER</arg>
-      <arg flag="field" name="TSZT" type="expression">3</arg>
-    </invoke>
     <invoke component="CallBizProcess" id="0" name="对象流程组件">
       <describe>对象流程-【底稿日期台账-项目日期推送_调用流程】</describe>
       <arg name="processName">tIB_DGRQTZ_XMRQTS_DY</arg>
       <arg flag="parameter" name="BM" type="expression">O_PARAMETER.BM</arg>
       <arg flag="parameter" name="XMID" type="expression">O_PARAMETER.XMID</arg>
-      <arg flag="parameter" name="XMFL2" type="expression">O_PARAMETER.XMFL</arg>
+      <arg flag="parameter" name="XMFL2" type="expression">O_PARAMETER.YWLX</arg>
       <arg name="@retValue" type="output">code</arg>
       <arg name="@retNote" type="output">note</arg>
+      <arg flag="parameter" name="ND" type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+if(O_PARAMETER.BM==1011||O_PARAMETER.BM==1009){&#xD;
+    O_PARAMETER.ND;&#xD;
+}else{&#xD;
+  null;&#xD;
+}</arg>
     </invoke>
     <response exit="true" id="0">
       <describe>输出</describe>

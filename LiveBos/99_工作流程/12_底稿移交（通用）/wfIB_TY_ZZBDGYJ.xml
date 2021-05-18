@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="gb2312"?>
 <!DOCTYPE workflow PUBLIC "-//Apexsoft LiveBos//DTD Workflow 2.8//EN" "http://www.livebos.com/workflow/workflow_2_8_abs.dtd"><workflow>
-  <meta name="workflow.category">通用_12_底稿移交</meta>
-  <meta name="Designer">Studio</meta>
-  <meta name="created">2018-06-13 09:06:43</meta>
-  <meta name="modify">2019-03-13 09:46:46</meta>
   <meta name="Describe">纸质版底稿移交</meta>
+  <meta name="Designer">Studio</meta>
+  <meta name="modify">2021-01-25 10:38:51</meta>
+  <meta name="created">2018-06-13 09:06:43</meta>
   <meta name="WorkflowName">wfIB_TY_ZZBDGYJ</meta>
+  <meta name="workflow.category">通用_12_底稿移交</meta>
   <meta name="version"></meta>
   <object  name="lcIB_TY_ZZBDGYJ" editAttribute="0" >
     <columns>
@@ -120,8 +120,14 @@
   </initial-actions>
   <steps>
     <step id="1" name="结束">
-      <meta name="finish">true</meta>
       <meta name="NodeType">1</meta>
+      <meta name="finish">true</meta>
+      <pre-functions>
+        <function id="0" name="abs.ExecSQL" type="class">
+          <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+          <arg name="SQL">[&quot;call ecif.PRO_IB_YRDGKFX(?,?,{0},{1})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.InstID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMBK&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
+        </function>
+      </pre-functions>
     </step>
     <step id="12" name="项目组提交">
       <meta name="NodeType">2</meta>
@@ -284,8 +290,8 @@
           <meta name="NodeType">5</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -296,8 +302,8 @@
 var key;
 key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CONNECT BY PRIOR ID = FID START WITH ID = 10016&quot;,[O_WORKFLOW.SQBM]);
 (key!=0 &amp;&amp;O_WORKFLOW.XMBK==3)</arg>
-                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
                   <arg name="Table">lcIB_TY_ZZBDGYJ</arg>
+                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
                 </condition>
               </conditions>
             </result>
@@ -308,8 +314,8 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
 var key;
 key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CONNECT BY PRIOR ID = FID START WITH ID = 10016&quot;,[O_WORKFLOW.SQBM]);
 (key==0 &amp;&amp;O_WORKFLOW.XMBK==3)</arg>
-                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
                   <arg name="Table">lcIB_TY_ZZBDGYJ</arg>
+                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
                 </condition>
               </conditions>
             </result>
@@ -320,13 +326,13 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
       </actions>
     </step>
     <step id="14" name="承做团队质控专员确认">
-      <meta name="step.allow.approve.sign">true</meta>
-      <meta name="step.reject.mode">any</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_TY_ZZBDGYJ" editAttribute="0" >
         <columns>
@@ -486,12 +492,12 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
       </notify>
       <actions>
         <action id="15" name="已复核">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -502,12 +508,12 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
       </actions>
     </step>
     <step id="17" name="承做团队负责人确认">
-      <meta name="step.reject.mode">any</meta>
       <meta name="step.allow.approve.sign">true</meta>
-      <meta name="NodeType">16</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_TY_ZZBDGYJ" editAttribute="0" >
         <columns>
@@ -667,12 +673,12 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
       </notify>
       <actions>
         <action id="18" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -684,11 +690,11 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
     </step>
     <step id="26" name="质控部审核人员验收" owner="$AM{4}">
       <meta name="step.allow.approve.sign">true</meta>
-      <meta name="step.reject.mode">any</meta>
-      <meta name="NodeType">16</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_TY_ZZBDGYJ" editAttribute="0" >
         <columns>
@@ -733,6 +739,8 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
           <column  name="DGSFWB" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="GDYJXS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="DGYJCXS" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="XBR" disabled="true" hidden="false" summary="false">
           </column>
@@ -843,26 +851,26 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
       <dynOwners>
         <dynOwner  type="0" describe="动态用户" >
           <expression><![CDATA[
-["(tUser.ID={0} OR INSTR(';'||{1}||';',';'||tUser.ID||';')>0)",[{"expression":"O_WORKFLOW.DGZKSHY_ZS","scale":0,"length":0,"type":1},{"expression":"O_WORKFLOW.DGZKSHY_FS","scale":0,"length":0,"type":0}]]]]></expression>
+["(tUser.ID={0} OR INSTR(';'||{1}||';',';'||tUser.ID||';')>0)",[{"expression":"O_WORKFLOW.DGZKSHY_ZS","length":0,"scale":0,"type":1},{"expression":"O_WORKFLOW.DGZKSHY_FS","length":0,"scale":0,"type":0}]]]]></expression>
           </dynOwner>
               </dynOwners>
       <notify >
       </notify>
       <actions>
         <action id="27" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <meta name="allow.recover">true</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
             </function>
             <function id="0" name="lb.Assert" type="class">
+              <arg name="message.1">出具审核意见，请选择提交项目组回复</arg>
               <arg name="assert.1">&lt;%@ livebos language='javascript' %&gt;
 O_WORKFLOW.SFSH==0</arg>
               <arg name="class.name">com.apex.livebos.workflow.function.AssertFunction</arg>
-              <arg name="message.1">出具审核意见，请选择提交项目组回复</arg>
             </function>
           </pre-functions>
           <results>
@@ -871,15 +879,15 @@ O_WORKFLOW.SFSH==0</arg>
                 <condition id="0" name="abs.FormExpOfStepCondition" type="class">
                   <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
 O_WORKFLOW.XMBK==2&amp;&amp;O_WORKFLOW.SFSH==0</arg>
-                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
                   <arg name="Table">lcIB_TY_ZZBDGYJ</arg>
+                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
                 </condition>
               </conditions>
               <pre-functions>
                 <function id="0" name="lb.WfFormUpdate" type="class">
-                  <arg name="class.name">com.apex.livebos.workflow.function.WorkFormUpdateFunction</arg>
                   <arg name="$F{SFSH}">&lt;%@ livebos language='javascript' %&gt;
 ABS_IF(O_WORKFLOW.SFSH==0,1,0)</arg>
+                  <arg name="class.name">com.apex.livebos.workflow.function.WorkFormUpdateFunction</arg>
                 </function>
               </pre-functions>
             </result>
@@ -889,15 +897,15 @@ ABS_IF(O_WORKFLOW.SFSH==0,1,0)</arg>
                   <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
 O_WORKFLOW.XMBK==1&amp;&amp;O_WORKFLOW.SFSH==0
 </arg>
-                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
                   <arg name="Table">lcIB_TY_ZZBDGYJ</arg>
+                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
                 </condition>
               </conditions>
               <pre-functions>
                 <function id="0" name="lb.WfFormUpdate" type="class">
-                  <arg name="class.name">com.apex.livebos.workflow.function.WorkFormUpdateFunction</arg>
                   <arg name="$F{SFSH}">&lt;%@ livebos language='javascript' %&gt;
 ABS_IF(O_WORKFLOW.SFSH==0,1,0)</arg>
+                  <arg name="class.name">com.apex.livebos.workflow.function.WorkFormUpdateFunction</arg>
                 </function>
               </pre-functions>
             </result>
@@ -906,15 +914,15 @@ ABS_IF(O_WORKFLOW.SFSH==0,1,0)</arg>
           </results>
         </action>
         <action id="46" name="提交项目组回复（不通过）">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <meta name="allow.recover">true</meta>
           <pre-functions>
             <function id="0" name="lb.Assert" type="class">
+              <arg name="message.1">'请出具审核意见！'</arg>
               <arg name="assert.1">&lt;%@ livebos language='javascript' %&gt;
 O_WORKFLOW.SFSH==true</arg>
               <arg name="class.name">com.apex.livebos.workflow.function.AssertFunction</arg>
-              <arg name="message.1">'请出具审核意见！'</arg>
             </function>
             <function id="0" name="lb.WfFormUpdate" type="class">
               <arg name="class.name">com.apex.livebos.workflow.function.WorkFormUpdateFunction</arg>
@@ -930,11 +938,11 @@ O_WORKFLOW.SFSH==true</arg>
     </step>
     <step id="29" name="质控三部职能审批">
       <meta name="step.allow.approve.sign">true</meta>
-      <meta name="step.reject.mode">any</meta>
-      <meta name="NodeType">16</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_TY_ZZBDGYJ" editAttribute="0" >
         <columns>
@@ -962,9 +970,11 @@ O_WORKFLOW.SFSH==true</arg>
           </column>
           <column  name="XMMC" disabled="true" hidden="false" summary="false">
           </column>
-          <column  name="XMBK" disabled="true" hidden="false" summary="false">
+          <column  name="XMMC_ID" disabled="false" hidden="true" summary="false">
           </column>
           <column  name="XMLX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMBK" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="GZGLX" disabled="true" hidden="false" summary="false">
           </column>
@@ -977,6 +987,8 @@ O_WORKFLOW.SFSH==true</arg>
           <column  name="DGSFWB" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="GDYJXS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="DGYJCXS" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="XBR" disabled="true" hidden="false" summary="false">
           </column>
@@ -1094,12 +1106,12 @@ O_WORKFLOW.SFSH==true</arg>
       </notify>
       <actions>
         <action id="30" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -1111,11 +1123,11 @@ O_WORKFLOW.SFSH==true</arg>
     </step>
     <step id="31" name="综合部负责人审批">
       <meta name="step.allow.approve.sign">true</meta>
-      <meta name="step.reject.mode">any</meta>
-      <meta name="NodeType">16</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_TY_ZZBDGYJ" editAttribute="0" >
         <columns>
@@ -1160,6 +1172,8 @@ O_WORKFLOW.SFSH==true</arg>
           <column  name="DGSFWB" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="GDYJXS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="DGYJCXS" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="XBR" disabled="true" hidden="false" summary="false">
           </column>
@@ -1277,12 +1291,12 @@ O_WORKFLOW.SFSH==true</arg>
       </notify>
       <actions>
         <action id="32" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -1293,9 +1307,9 @@ O_WORKFLOW.SFSH==true</arg>
       </actions>
     </step>
     <step id="36" name="承做部门质控专员确认">
+      <meta name="step.allow.reject">true</meta>
       <meta name="step.reject.mode">any</meta>
       <meta name="NodeType">16</meta>
-      <meta name="step.allow.reject">true</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_TY_ZZBDGYJ" editAttribute="0" >
         <columns>
@@ -1457,12 +1471,12 @@ O_WORKFLOW.SFSH==true</arg>
       </notify>
       <actions>
         <action id="37" name="已复核">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -1473,9 +1487,9 @@ O_WORKFLOW.SFSH==true</arg>
       </actions>
     </step>
     <step id="38" name="业务总部总经理审批">
+      <meta name="step.allow.reject">true</meta>
       <meta name="step.reject.mode">any</meta>
       <meta name="NodeType">16</meta>
-      <meta name="step.allow.reject">true</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_TY_ZZBDGYJ" editAttribute="0" >
         <columns>
@@ -1637,12 +1651,12 @@ O_WORKFLOW.SFSH==true</arg>
       </notify>
       <actions>
         <action id="39" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -1651,8 +1665,8 @@ O_WORKFLOW.SFSH==true</arg>
                 <condition id="0" name="abs.FormExpOfStepCondition" type="class">
                   <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
 O_WORKFLOW.XMBK==1</arg>
-                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
                   <arg name="Table">lcIB_TY_ZZBDGYJ</arg>
+                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
                 </condition>
               </conditions>
             </result>
@@ -1661,8 +1675,8 @@ O_WORKFLOW.XMBK==1</arg>
                 <condition id="0" name="abs.FormExpOfStepCondition" type="class">
                   <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
 O_WORKFLOW.XMBK==2</arg>
-                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
                   <arg name="Table">lcIB_TY_ZZBDGYJ</arg>
+                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
                 </condition>
               </conditions>
             </result>
@@ -1673,12 +1687,12 @@ O_WORKFLOW.XMBK==2</arg>
       </actions>
     </step>
     <step id="47" name="底稿复核人" owner="$AM{2}">
-      <meta name="step.reject.mode">any</meta>
       <meta name="step.allow.approve.sign">true</meta>
-      <meta name="NodeType">16</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_TY_ZZBDGYJ" editAttribute="0" >
         <columns>
@@ -1833,21 +1847,21 @@ O_WORKFLOW.XMBK==2</arg>
       <dynOwners>
         <dynOwner  type="0" describe="动态用户" >
           <expression><![CDATA[
-["INSTR(';'||{0}||';',';'||tUser.ID||';')>0",[{"expression":"O_WORKFLOW.BJDBR","scale":0,"length":0,"type":0}]]]]></expression>
+["INSTR(';'||{0}||';',';'||tUser.ID||';')>0",[{"expression":"O_WORKFLOW.BJDBR","length":0,"scale":0,"type":0}]]]]></expression>
           </dynOwner>
               </dynOwners>
       <notify >
       </notify>
       <pre-functions>
         <function id="0" name="abs.ExecSQL" type="class">
-          <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
           <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+          <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
         </function>
       </pre-functions>
       <actions>
         <action id="48" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <results>
             <result id="59" old-status="完成" status="待处理" step="53" display-name="业务部门发起">
               <conditions>
@@ -1856,8 +1870,8 @@ O_WORKFLOW.XMBK==2</arg>
 var key;
 key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CONNECT BY PRIOR ID = FID START WITH ID = 10016&quot;,[O_WORKFLOW.SQBM]);
 (key==0&amp;&amp;O_WORKFLOW.XMBK==3)||O_WORKFLOW.XMBK==2||O_WORKFLOW.XMBK==1</arg>
-                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
                   <arg name="Table">lcIB_TY_ZZBDGYJ</arg>
+                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
                 </condition>
               </conditions>
             </result>
@@ -1868,12 +1882,12 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
       </actions>
     </step>
     <step id="49" name="承做团队质控专员审批">
-      <meta name="step.reject.mode">any</meta>
       <meta name="step.allow.approve.sign">true</meta>
-      <meta name="NodeType">16</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_TY_ZZBDGYJ" editAttribute="0" >
         <columns>
@@ -2035,14 +2049,14 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
       </notify>
       <pre-functions>
         <function id="0" name="abs.ExecSQL" type="class">
-          <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
           <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+          <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
         </function>
       </pre-functions>
       <actions>
         <action id="50" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <results>
             <unconditional-result id="60" old-status="完成" status="待处理" step="51">
             </unconditional-result>
@@ -2051,12 +2065,12 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
       </actions>
     </step>
     <step id="51" name="承做团队负责人审批">
-      <meta name="step.reject.mode">any</meta>
       <meta name="step.allow.approve.sign">true</meta>
-      <meta name="NodeType">16</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_TY_ZZBDGYJ" editAttribute="0" >
         <columns>
@@ -2218,18 +2232,18 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
       </notify>
       <pre-functions>
         <function id="0" name="abs.ExecSQL" type="class">
-          <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
           <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+          <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
         </function>
       </pre-functions>
       <actions>
         <action id="52" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="lb.WfFormUpdate" type="class">
-              <arg name="class.name">com.apex.livebos.workflow.function.WorkFormUpdateFunction</arg>
               <arg name="$F{SFSH}">null</arg>
+              <arg name="class.name">com.apex.livebos.workflow.function.WorkFormUpdateFunction</arg>
             </function>
           </pre-functions>
           <results>
@@ -2240,12 +2254,12 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
       </actions>
     </step>
     <step id="53" name="承做部门质控专员审批">
-      <meta name="step.reject.mode">any</meta>
       <meta name="step.allow.approve.sign">true</meta>
-      <meta name="NodeType">16</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_TY_ZZBDGYJ" editAttribute="0" >
         <columns>
@@ -2407,14 +2421,14 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
       </notify>
       <pre-functions>
         <function id="0" name="abs.ExecSQL" type="class">
-          <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
           <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+          <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
         </function>
       </pre-functions>
       <actions>
         <action id="54" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <results>
             <unconditional-result id="61" old-status="完成" status="待处理" step="55">
             </unconditional-result>
@@ -2424,11 +2438,11 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
     </step>
     <step id="55" name="业务部门负责人审批">
       <meta name="step.allow.approve.sign">true</meta>
-      <meta name="step.reject.mode">any</meta>
-      <meta name="NodeType">16</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_TY_ZZBDGYJ" editAttribute="0" >
         <columns>
@@ -2590,18 +2604,18 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
       </notify>
       <pre-functions>
         <function id="0" name="abs.ExecSQL" type="class">
-          <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
           <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+          <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
         </function>
       </pre-functions>
       <actions>
         <action id="56" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="lb.WfFormUpdate" type="class">
-              <arg name="class.name">com.apex.livebos.workflow.function.WorkFormUpdateFunction</arg>
               <arg name="$F{SFSH}">null</arg>
+              <arg name="class.name">com.apex.livebos.workflow.function.WorkFormUpdateFunction</arg>
             </function>
           </pre-functions>
           <results>
@@ -2612,12 +2626,12 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
       </actions>
     </step>
     <step id="69" name="质控部负责人审批">
-      <meta name="step.reject.mode">any</meta>
       <meta name="step.allow.approve.sign">true</meta>
-      <meta name="NodeType">16</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_TY_ZZBDGYJ" editAttribute="0" >
         <columns>
@@ -2645,9 +2659,11 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
           </column>
           <column  name="XMMC" disabled="true" hidden="false" summary="false">
           </column>
-          <column  name="XMBK" disabled="true" hidden="false" summary="false">
+          <column  name="XMMC_ID" disabled="false" hidden="true" summary="false">
           </column>
           <column  name="XMLX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMBK" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="GZGLX" disabled="true" hidden="false" summary="false">
           </column>
@@ -2660,6 +2676,8 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
           <column  name="DGSFWB" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="GDYJXS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="DGYJCXS" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="XBR" disabled="true" hidden="false" summary="false">
           </column>
@@ -2789,12 +2807,12 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
       </notify>
       <actions>
         <action id="70" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -2805,13 +2823,13 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
       </actions>
     </step>
     <step id="75" name="质控三部文管审批">
-      <meta name="step.reject.mode">any</meta>
-      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_TY_ZZBDGYJ" editAttribute="0" >
         <columns>
@@ -2973,12 +2991,12 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
       </notify>
       <actions>
         <action id="76" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -2989,9 +3007,9 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
       </actions>
     </step>
     <step id="79" name="底稿复核人（保荐代表人/主办人）" owner="$AM{4}">
+      <meta name="step.allow.reject">true</meta>
       <meta name="step.reject.mode">any</meta>
       <meta name="NodeType">16</meta>
-      <meta name="step.allow.reject">true</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_TY_ZZBDGYJ" editAttribute="0" >
         <columns>
@@ -3146,19 +3164,19 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
       <dynOwners>
         <dynOwner  type="0" describe="动态用户" >
           <expression><![CDATA[
-["INSTR(';'||{0}||';',';'||tUser.ID||';')>0",[{"expression":"O_WORKFLOW.BJDBR","scale":0,"length":0,"type":0}]]]]></expression>
+["INSTR(';'||{0}||';',';'||tUser.ID||';')>0",[{"expression":"O_WORKFLOW.BJDBR","length":0,"scale":0,"type":0}]]]]></expression>
           </dynOwner>
               </dynOwners>
       <notify >
       </notify>
       <actions>
         <action id="80" name="已复核">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -3169,8 +3187,8 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
 var key;
 key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CONNECT BY PRIOR ID = FID START WITH ID = 10016&quot;,[O_WORKFLOW.SQBM]);
 (key==0 &amp;&amp;O_WORKFLOW.XMBK==3)||O_WORKFLOW.XMBK==1||O_WORKFLOW.XMBK==2</arg>
-                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
                   <arg name="Table">lcIB_TY_ZZBDGYJ</arg>
+                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
                 </condition>
               </conditions>
             </result>
@@ -3181,13 +3199,13 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
       </actions>
     </step>
     <step id="86" name="质控一部文管审批">
-      <meta name="step.allow.approve.sign">true</meta>
-      <meta name="step.reject.mode">any</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_TY_ZZBDGYJ" editAttribute="0" >
         <columns>
@@ -3349,12 +3367,12 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
       </notify>
       <actions>
         <action id="87" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -3365,13 +3383,13 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
       </actions>
     </step>
     <step id="88" name="质控二部文管审批">
-      <meta name="step.allow.approve.sign">true</meta>
-      <meta name="step.reject.mode">any</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_TY_ZZBDGYJ" editAttribute="0" >
         <columns>
@@ -3533,12 +3551,12 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
       </notify>
       <actions>
         <action id="89" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -3549,9 +3567,9 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
       </actions>
     </step>
     <step id="97" name="项目组答复质控审批意见" owner="$DG{4}">
+      <meta name="step.allow.reject">true</meta>
       <meta name="step.reject.mode">prev</meta>
       <meta name="NodeType">16</meta>
-      <meta name="step.allow.reject">true</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_TY_ZZBDGYJ" editAttribute="0" >
         <columns>
@@ -3707,13 +3725,13 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
       </notify>
       <actions>
         <action id="98" name="提交回复、最终版底稿目录">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <meta name="allow.recover">false</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -3724,8 +3742,8 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
 var key;
 key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CONNECT BY PRIOR ID = FID START WITH ID = 10016&quot;,[O_WORKFLOW.SQBM]);
 (key!=0 &amp;&amp;O_WORKFLOW.XMBK==3)</arg>
-                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
                   <arg name="Table">lcIB_TY_ZZBDGYJ</arg>
+                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
                 </condition>
               </conditions>
             </result>
@@ -3736,8 +3754,8 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
 var key;
 key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CONNECT BY PRIOR ID = FID START WITH ID = 10016&quot;,[O_WORKFLOW.SQBM]);
 (key==0 &amp;&amp;O_WORKFLOW.XMBK==3)</arg>
-                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
                   <arg name="Table">lcIB_TY_ZZBDGYJ</arg>
+                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
                 </condition>
               </conditions>
             </result>
@@ -3748,12 +3766,12 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
       </actions>
     </step>
     <step id="103" name="质控二部职能审批">
-      <meta name="step.reject.mode">any</meta>
       <meta name="step.allow.approve.sign">true</meta>
-      <meta name="NodeType">16</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_TY_ZZBDGYJ" editAttribute="0" >
         <columns>
@@ -3913,12 +3931,12 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
       </notify>
       <actions>
         <action id="104" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -3930,11 +3948,11 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
     </step>
     <step id="105" name="质控一部职能审批">
       <meta name="step.allow.approve.sign">true</meta>
-      <meta name="step.reject.mode">any</meta>
-      <meta name="NodeType">16</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_TY_ZZBDGYJ" editAttribute="0" >
         <columns>
@@ -3979,6 +3997,8 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
           <column  name="DGSFWB" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="GDYJXS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="DGYJCXS" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="XBR" disabled="true" hidden="false" summary="false">
           </column>
@@ -4096,12 +4116,12 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
       </notify>
       <actions>
         <action id="106" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -4112,12 +4132,12 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
       </actions>
     </step>
     <step id="111" name="档案管理员">
-      <meta name="step.allow.approve.sign">true</meta>
-      <meta name="step.reject.mode">any</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_TY_ZZBDGYJ" editAttribute="0" >
         <columns>
@@ -4162,6 +4182,8 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
           <column  name="DGSFWB" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="GDYJXS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="DGYJCXS" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="XBR" disabled="true" hidden="false" summary="false">
           </column>
@@ -4279,8 +4301,8 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
       </notify>
       <actions>
         <action id="112" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <results>
             <unconditional-result id="113" old-status="完成" status="待处理" step="31">
             </unconditional-result>
@@ -4289,12 +4311,12 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
       </actions>
     </step>
     <step id="114" name="固收总部总经理">
-      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
+      <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_TY_ZZBDGYJ" editAttribute="0" >
         <columns>
@@ -4454,8 +4476,8 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
       </notify>
       <actions>
         <action id="115" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <results>
             <unconditional-result id="116" old-status="完成" status="待处理" step="75">
             </unconditional-result>
@@ -4465,11 +4487,11 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
     </step>
     <step id="120" name="固收审核岗">
       <meta name="step.allow.approve.sign">true</meta>
-      <meta name="step.reject.mode">any</meta>
-      <meta name="NodeType">16</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_TY_ZZBDGYJ" editAttribute="0" >
         <columns>
@@ -4629,13 +4651,13 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
       </notify>
       <actions>
         <action id="121" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <meta name="allow.recover">true</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -4646,12 +4668,12 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
       </actions>
     </step>
     <step id="124" name="质控部副总经理审批">
-      <meta name="step.reject.mode">any</meta>
-      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_TY_ZZBDGYJ" editAttribute="0" >
         <columns>
@@ -4679,9 +4701,11 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
           </column>
           <column  name="XMMC" disabled="false" hidden="true" summary="false">
           </column>
-          <column  name="XMBK" disabled="true" hidden="false" summary="false">
+          <column  name="XMMC_ID" disabled="false" hidden="true" summary="false">
           </column>
           <column  name="XMLX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMBK" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="GZGLX" disabled="true" hidden="false" summary="false">
           </column>
@@ -4694,6 +4718,8 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
           <column  name="DGSFWB" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="GDYJXS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="DGYJCXS" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="XBR" disabled="true" hidden="false" summary="false">
           </column>
@@ -4811,8 +4837,8 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
       </notify>
       <actions>
         <action id="125" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <results>
             <result id="136" old-status="完成" status="待处理" step="69" display-name="业务部门发起">
               <conditions>
@@ -4821,8 +4847,8 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
 var key;
 key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CONNECT BY PRIOR ID = FID START WITH ID = 10016&quot;,[O_WORKFLOW.SQBM]);
 (key==0&amp;&amp;O_WORKFLOW.XMBK==3)||O_WORKFLOW.XMBK==2||O_WORKFLOW.XMBK==1</arg>
-                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
                   <arg name="Table">lcIB_TY_ZZBDGYJ</arg>
+                  <arg name="class.name">com.apex.workflow.FormExpOfStepCondition</arg>
                 </condition>
               </conditions>
             </result>
@@ -4833,9 +4859,9 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
       </actions>
     </step>
     <step id="130" name="业务部门负责人审批">
+      <meta name="step.allow.reject">true</meta>
       <meta name="step.reject.mode">any</meta>
       <meta name="NodeType">16</meta>
-      <meta name="step.allow.reject">true</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_TY_ZZBDGYJ" editAttribute="0" >
         <columns>
@@ -4997,12 +5023,12 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
       </notify>
       <actions>
         <action id="131" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -5014,11 +5040,11 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
     </step>
     <step id="133" name="质控部负责人审批">
       <meta name="step.allow.approve.sign">true</meta>
-      <meta name="step.reject.mode">any</meta>
-      <meta name="NodeType">16</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_TY_ZZBDGYJ" editAttribute="0" >
         <columns>
@@ -5046,9 +5072,11 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
           </column>
           <column  name="XMMC" disabled="true" hidden="false" summary="false">
           </column>
-          <column  name="XMBK" disabled="true" hidden="false" summary="false">
+          <column  name="XMMC_ID" disabled="false" hidden="true" summary="false">
           </column>
           <column  name="XMLX" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="XMBK" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="GZGLX" disabled="true" hidden="false" summary="false">
           </column>
@@ -5061,6 +5089,8 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
           <column  name="DGSFWB" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="GDYJXS" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="DGYJCXS" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="XBR" disabled="true" hidden="false" summary="false">
           </column>
@@ -5190,12 +5220,12 @@ key=ABS_SQLVALUE(&quot;SELECT COUNT(1) FROM JGCRM.LBORGANIZATION WHERE ID =? CON
       </notify>
       <actions>
         <action id="134" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
               <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_TY_ZZBDGYJ',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>

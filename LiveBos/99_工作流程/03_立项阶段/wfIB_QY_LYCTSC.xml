@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="gb2312"?>
 <!DOCTYPE workflow PUBLIC "-//Apexsoft LiveBos//DTD Workflow 2.8//EN" "http://www.livebos.com/workflow/workflow_2_8_abs.dtd"><workflow>
-  <meta name="Designer">Studio</meta>
-  <meta name="workflow.category">权益类_03_立项阶段</meta>
-  <meta name="created">2017-07-28 14:34:57</meta>
-  <meta name="modify">2020-04-27 09:42:33</meta>
   <meta name="Describe">利益冲突审查流程(权益类)</meta>
+  <meta name="Designer">Studio</meta>
+  <meta name="modify">2021-04-16 14:35:35</meta>
+  <meta name="created">2017-07-28 14:34:57</meta>
   <meta name="WorkflowName">wfIB_QY_LYCTSC</meta>
   <meta name="WorkflowType">2</meta>
+  <meta name="workflow.category">权益类_03_立项阶段</meta>
   <meta name="version"></meta>
   <object  name="lcIB_LYCTSC_QY" editAttribute="0" >
     <columns>
@@ -73,20 +73,20 @@
   </initial-actions>
   <steps>
     <step id="1" name="结束">
-      <meta name="finish">true</meta>
       <meta name="NodeType">1</meta>
+      <meta name="finish">true</meta>
     </step>
     <step id="5" name="提交审批">
       <meta name="NodeType">2</meta>
       <object  name="lcIB_LYCTSC_QY" editAttribute="0" >
         <columns>
-          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
-          </column>
-          <column  name="LCBH" disabled="true" hidden="false" summary="false">
-          </column>
           <column  name="SQR" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="SQBM" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="SQSJ" disabled="true" hidden="false" summary="false">
+          </column>
+          <column  name="LCBH" disabled="true" hidden="false" summary="false">
           </column>
           <column  name="ID" disabled="false" hidden="true" summary="false">
           </column>
@@ -130,6 +130,8 @@
           </column>
           <column  name="DBXZ" disabled="false" hidden="false" summary="false">
           </column>
+          <column  name="OASPXXF" disabled="true" hidden="false" summary="false">
+          </column>
         </columns>
       </object>
       <notify >
@@ -141,9 +143,9 @@
           <meta name="allow.recover">true</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_LYCTSC_QY',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
-              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
               <arg name="datasource">ECIF</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_LYCTSC_QY',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -154,13 +156,13 @@
       </actions>
     </step>
     <step id="19" name="总部文管">
-      <meta name="step.reject.mode">any</meta>
-      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_LYCTSC_QY" editAttribute="0" >
         <columns>
@@ -226,8 +228,8 @@
       </notify>
       <actions>
         <action id="20" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.Expression" type="null">
               <arg name="expression">&lt;%@ livebos language='javascript' %&gt;
@@ -243,9 +245,9 @@ if(ret.get('ral')&gt;0){
               <arg name="class.name"> com.apex.livebos.workflow.ExecExpressionFunction</arg>
             </function>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_LYCTSC_QY',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
-              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
               <arg name="datasource">ECIF</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_LYCTSC_QY',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -256,13 +258,13 @@ if(ret.get('ral')&gt;0){
       </actions>
     </step>
     <step id="21" name="业务部门负责人">
-      <meta name="step.allow.approve.sign">true</meta>
-      <meta name="step.reject.mode">any</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_LYCTSC_QY" editAttribute="0" >
         <columns>
@@ -336,13 +338,13 @@ O_WORKFLOW.LCBT]]></message>
       </notify>
       <actions>
         <action id="22" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_LYCTSC_QY',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
-              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
               <arg name="datasource">ECIF</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_LYCTSC_QY',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -356,464 +358,472 @@ O_WORKFLOW.LCBT]]></message>
           <restrict-to>
             <conditions type="OR">
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
                 <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;,[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
                 <arg name="dynOwner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;,[]]</arg>
@@ -897,16 +907,16 @@ O_WORKFLOW.LCBT]]></message>
           <meta name="NodeType">5</meta>
           <pre-functions>
             <function id="0" name="lb.Assert" type="class">
+              <arg name="message.1">&quot;OA审批尚未结束&quot;</arg>
               <arg name="assert.1">&lt;%@ livebos language='javascript' %&gt;
 var status=ABS_SQLVALUE(&quot;select status from ECIF.tib_oawfhandle where upper(lcbd)=upper('lcIB_LYCTSC_QY') and lcbdid=?&quot;,[O_WORKFLOW.ID]);
 status==1</arg>
               <arg name="class.name">com.apex.livebos.workflow.function.AssertFunction</arg>
-              <arg name="message.1">&quot;OA审批尚未结束&quot;</arg>
             </function>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;CALL ecif.pro_IB_WFFinish_GS(?,?,'lcIB_LYCTSC_QY',{0},{1})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
-              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
               <arg name="datasource">ECIF</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;CALL ecif.pro_IB_WFFinish_GS(?,?,'lcIB_LYCTSC_QY',{0},{1})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -917,13 +927,13 @@ status==1</arg>
       </actions>
     </step>
     <step id="55" name="总部合规负责人">
-      <meta name="step.allow.approve.sign">true</meta>
-      <meta name="step.reject.mode">any</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_LYCTSC_QY" editAttribute="0" >
         <columns>
@@ -989,13 +999,13 @@ status==1</arg>
       </notify>
       <actions>
         <action id="56" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_LYCTSC_QY',{1},{2},30)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
-              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
               <arg name="datasource">ECIF</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_LYCTSC_QY',{1},{2},30)&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -1009,464 +1019,472 @@ status==1</arg>
           <restrict-to>
             <conditions type="OR">
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
                 <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;,[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
                 <arg name="dynOwner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;,[]]</arg>
@@ -1482,13 +1500,13 @@ status==1</arg>
       </actions>
     </step>
     <step id="69" name="总部负责人">
-      <meta name="step.allow.approve.sign">true</meta>
-      <meta name="step.reject.mode">any</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
       <meta name="step.allow.reassign">true</meta>
       <meta name="step.allow.reject">true</meta>
+      <meta name="step.reject.mode">any</meta>
+      <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_LYCTSC_QY" editAttribute="0" >
         <columns>
@@ -1565,13 +1583,13 @@ ABS_flushObjCache('WORKFLOW.TASK')
       </pre-functions>
       <actions>
         <action id="70" name="审批通过">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_LYCTSC_QY',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
-              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
               <arg name="datasource">ECIF</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_LYCTSC_QY',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -1585,464 +1603,472 @@ ABS_flushObjCache('WORKFLOW.TASK')
           <restrict-to>
             <conditions type="OR">
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
-                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
                 <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
+                <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;</arg>
                 <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
+                <arg name="owner">[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
+              </condition>
+              <condition name="verify.caller" type="class">
                 <arg name="owner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;,[]]</arg>
+                <arg name="class.name">com.apex.livebos.workflow.VerifyCallerCondition</arg>
               </condition>
               <condition name="verify.caller" type="class">
                 <arg name="dynOwner">[&quot;tUser.ID in (select userid from lbmember where orgid=10016 and roleid=6) and tUser.Status = 1&quot;,[]]</arg>
@@ -2058,10 +2084,10 @@ ABS_flushObjCache('WORKFLOW.TASK')
       </actions>
     </step>
     <step id="76" name="文管干预">
-      <meta name="step.allow.approve.sign">true</meta>
       <meta name="step.approve.sign.action.name">会签</meta>
-      <meta name="NodeType">16</meta>
+      <meta name="step.allow.approve.sign">true</meta>
       <meta name="approve.sign.modes">endorsesign</meta>
+      <meta name="NodeType">16</meta>
       <meta name="approve.mode">true</meta>
       <object  name="lcIB_LYCTSC_QY" editAttribute="0" >
         <columns>
@@ -2127,13 +2153,13 @@ ABS_flushObjCache('WORKFLOW.TASK')
       </notify>
       <actions>
         <action id="77" name="提交业务部门负责人">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_LYCTSC_QY',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
-              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
               <arg name="datasource">ECIF</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_LYCTSC_QY',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -2142,13 +2168,13 @@ ABS_flushObjCache('WORKFLOW.TASK')
           </results>
         </action>
         <action id="88" name="提交总部合规负责人">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_LYCTSC_QY',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
-              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
               <arg name="datasource">ECIF</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_LYCTSC_QY',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -2157,13 +2183,13 @@ ABS_flushObjCache('WORKFLOW.TASK')
           </results>
         </action>
         <action id="91" name="提交到总部负责人">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_LYCTSC_QY',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
-              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
               <arg name="datasource">ECIF</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_LYCTSC_QY',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>
@@ -2172,13 +2198,13 @@ ABS_flushObjCache('WORKFLOW.TASK')
           </results>
         </action>
         <action id="94" name="提交总部文管">
-          <meta name="NodeType">17</meta>
           <meta name="approve.action">true</meta>
+          <meta name="NodeType">17</meta>
           <pre-functions>
             <function id="0" name="abs.ExecSQL" type="class">
-              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_LYCTSC_QY',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
-              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
               <arg name="datasource">ECIF</arg>
+              <arg name="class.name">com.apex.workflow.ExecSqlFunction</arg>
+              <arg name="SQL">[&quot;call ecif.pro_IB_Sylchcl(?,?,{0},'lcIB_LYCTSC_QY',{1},{2})&quot;,[{&quot;expression&quot;:&quot;O_WORKFLOW.ID&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;O_WORKFLOW.XMMC&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;},{&quot;expression&quot;:&quot;$Login.User&quot;,&quot;scale&quot;:&quot;&quot;,&quot;length&quot;:&quot;&quot;,&quot;type&quot;:&quot;1&quot;}]]</arg>
             </function>
           </pre-functions>
           <results>

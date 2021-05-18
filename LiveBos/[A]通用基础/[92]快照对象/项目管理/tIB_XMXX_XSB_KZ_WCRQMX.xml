@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="GB2312" standalone="no"?>
-<object create-date="2020.08.18 15:59:56" creator="开发者" flag="0" name="tIB_XMXX_XSB_KZ_WCRQMX" object-id="4c9d6393-eeb1-4773-823a-ed0ccaacf779" package="[A]通用基础.[92]快照对象.项目管理" type="15" version="1.0">
+<object create-date="2020.08.18 15:59:56" creator="开发者" flag="0" modifier="null" modify-date="null" name="tIB_XMXX_XSB_KZ_WCRQMX" object-id="4c9d6393-eeb1-4773-823a-ed0ccaacf779" package="[A]通用基础.[92]快照对象.项目管理" type="15" version="1.0">
     <describe>完成日期明细</describe>
+    <comment/>
+    <datasource-name>ECIF</datasource-name>
     <parent>tIB_XMXX_XSB_KZ</parent>
     <attribute>264</attribute>
+    <templet>默认</templet>
     <columns>
         <column>
             <name>ID</name>
@@ -17,12 +20,22 @@
             <unique>false</unique>
             <enabled>false</enabled>
             <visible>false</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>WCRQ</name>
@@ -38,14 +51,21 @@
             <enabled>true</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>BGLY</name>
@@ -61,14 +81,21 @@
             <enabled>true</enabled>
             <visible>true</visible>
             <option>$D{IB_BGLY}</option>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>RQBGSJ</name>
@@ -84,22 +111,28 @@
             <enabled>false</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object/>
             <default>$DateTime.Today</default>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>XGR</name>
             <describe>修改人</describe>
             <type>6</type>
             <biz-type>500</biz-type>
-            <length>0</length>
+            <length>12</length>
             <scale>0</scale>
             <control>10</control>
             <primary-property>0</primary-property>
@@ -108,15 +141,21 @@
             <enabled>false</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object>tUser</ref-object>
             <default>$Login.User</default>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
     </columns>
     <display-options>

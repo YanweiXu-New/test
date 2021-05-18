@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="gb2312"?>
+<?xml version="1.0" encoding="GB2312"?>
 <process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="VO_XMXXTZ_XSB_CXDD_XZ" name="VO_XMXXTZ_XSB_CXDD_XZ" object="VO_XMXXTZ_XSB_CXDD" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
   <describe>项目信息台账(新三板-持续督导)-新增流程</describe>
   <variables>
@@ -32,7 +32,7 @@
       <describe>数据库组件_执行SQL语句</describe>
       <arg name="TranType">sql</arg>
       <arg name="datasource">ECIF</arg>
-      <arg name="SQL">["insert into  ECIF.TIB_XMXX_XSB_NBPLRQ2 （ID, ND, CXDDNBPLRQ, BGLY, RQBGSJ, XGR, TIB_XMXX_XSB_ID）values\n（JGCRM.FUNC_NEXTID('tIB_XMXX_XSB_NBPLRQ2')，{0},{1},1,sysdate,{2},{3}）",[{"expression":"O_PARAMETER.ND","length":"","scale":"","type":"1"},{"expression":"O_PARAMETER.NBPLRQ","length":"","scale":"","type":"3"},{"expression":"$Login.User","length":"","scale":"","type":"1"},{"expression":"O_PARAMETER.XMID2","length":"","scale":"","type":"1"}]]</arg>
+      <arg name="SQL">["insert into  ECIF.TIB_XMXX_XSB_NBPLRQ2 (ID, ND, CXDDNBPLRQ, BGLY, RQBGSJ, XGR, TIB_XMXX_XSB_ID) values\n(JGCRM.FUNC_NEXTID('tIB_XMXX_XSB_NBPLRQ2'),{0},{1},1,sysdate,{2},{3})",[{"expression":"O_PARAMETER.ND","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.NBPLRQ","scale":"","length":"","type":"3"},{"expression":"$Login.User","scale":"","length":"","type":"1"},{"expression":"O_PARAMETER.XMID2","scale":"","length":"","type":"1"}]]</arg>
     </invoke>
     <invoke component="SQL" id="0" name="完成日期" operation="execute">
       <describe>年报披露日期</describe>

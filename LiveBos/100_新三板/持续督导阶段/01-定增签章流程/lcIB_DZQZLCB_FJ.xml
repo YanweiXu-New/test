@@ -187,7 +187,7 @@
             <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
-            <expression>ABS_SQLVALUE("SELECT ECIF.FUNC_IB_GETALLWDMC(?) FROM DUAL",[FJM])    </expression>
+            <expression>ABS_SQLVALUE("SELECT ECIF.FUNC_IB_GETALLWDMC(?) FROM DUAL",[FJM])</expression>
             <invisible-expression/>
             <disable-expression/>
             <category/>
@@ -308,7 +308,39 @@
             <enabled>true</enabled>
             <visible>true</visible>
             <option>$D{JG_SF}</option>
+            <meta-column/>
             <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+            <properties/>
+        </column>
+        <column>
+            <name>SFSY</name>
+            <describe> «∑Ò  ”√</describe>
+            <type>7</type>
+            <biz-type>400</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>5</control>
+            <primary-property>0</primary-property>
+            <nullable>false</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option>$D{JG_SF}</option>
+            <ref-object/>
+            <default>1</default>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
             <category/>
@@ -334,6 +366,14 @@
             <value>2</value>
         </property>
         <property>
+            <name>112</name>
+            <value>true</value>
+        </property>
+        <property>
+            <name>8</name>
+            <value>5</value>
+        </property>
+        <property>
             <name>73</name>
             <value>TJSX</value>
             <value>FJLX</value>
@@ -343,14 +383,7 @@
             <value>SCZ</value>
             <value>SCSJ</value>
             <value>SFYY</value>
-        </property>
-        <property>
-            <name>8</name>
-            <value>5</value>
-        </property>
-        <property>
-            <name>112</name>
-            <value>true</value>
+            <value>SFSY</value>
         </property>
     </properties>
     <orders/>

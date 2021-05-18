@@ -816,27 +816,32 @@
             <item>
                 <value>1</value>
                 <describe>主板</describe>
-                <code>1</code>
+                <code>1001</code>
             </item>
             <item>
                 <value>2</value>
                 <describe>中小板</describe>
-                <code>2</code>
+                <code>1002</code>
             </item>
             <item>
                 <value>3</value>
                 <describe>创业板</describe>
-                <code>3</code>
+                <code>1003</code>
             </item>
             <item>
                 <value>4</value>
                 <describe>其他</describe>
-                <code>4</code>
+                <code>9999</code>
             </item>
             <item>
                 <value>5</value>
                 <describe>科创板</describe>
-                <code>5</code>
+                <code>1004</code>
+            </item>
+            <item>
+                <value>6</value>
+                <describe>新三板</describe>
+                <code>1005</code>
             </item>
         </items>
     </dictionary>
@@ -1181,7 +1186,7 @@
             </item>
             <item>
                 <value>10</value>
-                <describe>项目登记人</describe>
+                <describe>项目发起人</describe>
                 <code>10</code>
             </item>
             <item>
@@ -2918,6 +2923,11 @@
                 <describe>底稿监管报送消息提醒</describe>
                 <code>36</code>
             </item>
+            <item>
+                <value>37</value>
+                <describe>反洗钱推送消息提醒</describe>
+                <code>37</code>
+            </item>
         </items>
     </dictionary>
     <dictionary category="光大投行" flag="0">
@@ -4485,37 +4495,37 @@
             <item>
                 <value>1</value>
                 <describe>AAA</describe>
-                <code>AAA</code>
+                <code>1</code>
             </item>
             <item>
                 <value>2</value>
                 <describe>AA+</describe>
-                <code>AA+</code>
+                <code>2</code>
             </item>
             <item>
                 <value>3</value>
                 <describe>AA</describe>
-                <code>AA</code>
+                <code>3</code>
             </item>
             <item>
                 <value>4</value>
                 <describe>AA-</describe>
-                <code>AA-</code>
+                <code>4</code>
             </item>
             <item>
                 <value>5</value>
                 <describe>AA-以下</describe>
-                <code>AA-以下</code>
+                <code>5</code>
             </item>
             <item>
                 <value>6</value>
                 <describe>BBB</describe>
-                <code>BBB</code>
+                <code>6</code>
             </item>
             <item>
                 <value>99</value>
                 <describe>无</describe>
-                <code>无</code>
+                <code>99</code>
             </item>
         </items>
     </dictionary>
@@ -5007,12 +5017,12 @@
                 <code>1003</code>
             </item>
             <item>
-                <value>4</value>
+                <value>5</value>
                 <describe>科创板</describe>
                 <code>1004</code>
             </item>
             <item>
-                <value>5</value>
+                <value>6</value>
                 <describe>新三板</describe>
                 <code>1005</code>
             </item>
@@ -5262,6 +5272,11 @@
                 <value>99</value>
                 <describe>其他</describe>
                 <code>99</code>
+            </item>
+            <item>
+                <value>100</value>
+                <describe>无合作</describe>
+                <code>100</code>
             </item>
         </items>
     </dictionary>
@@ -5691,7 +5706,7 @@
             </item>
             <item>
                 <value>7</value>
-                <describe>无需识别收益所有人单位</describe>
+                <describe>无需识别受益所有人单位</describe>
                 <code>1007</code>
             </item>
         </items>
@@ -5770,7 +5785,7 @@
             </item>
             <item>
                 <value>2</value>
-                <describe>涉及上述名单，具体情况为</describe>
+                <describe>涉及上述名单，具体情况：</describe>
                 <code>1002</code>
             </item>
         </items>
@@ -5828,18 +5843,23 @@
             </item>
             <item>
                 <value>2</value>
-                <describe>中风险</describe>
+                <describe>较低风险</describe>
                 <code>1002</code>
             </item>
             <item>
                 <value>3</value>
-                <describe>高风险</describe>
+                <describe>中风险</describe>
                 <code>1003</code>
             </item>
             <item>
                 <value>4</value>
-                <describe>黑名单</describe>
+                <describe>较高风险</describe>
                 <code>1004</code>
+            </item>
+            <item>
+                <value>5</value>
+                <describe>高风险</describe>
+                <code>1005</code>
             </item>
         </items>
     </dictionary>
@@ -5893,6 +5913,11 @@
         <describe>识别类型[反洗钱]</describe>
         <items>
             <item>
+                <value>0</value>
+                <describe>初次识别有误，信息修改</describe>
+                <code>1000</code>
+            </item>
+            <item>
                 <value>1</value>
                 <describe>与客户新签订合同持续识别</describe>
                 <code>1001</code>
@@ -5901,6 +5926,576 @@
                 <value>2</value>
                 <describe>持续督导或后续管理期定期识别</describe>
                 <code>1002</code>
+            </item>
+            <item>
+                <value>3</value>
+                <describe>立项前重新识别</describe>
+                <code>1003</code>
+            </item>
+            <item>
+                <value>4</value>
+                <describe>内核前重新识别</describe>
+                <code>1004</code>
+            </item>
+            <item>
+                <value>5</value>
+                <describe>其他阶段重新识别</describe>
+                <code>1005</code>
+            </item>
+        </items>
+    </dictionary>
+    <dictionary category="反洗钱" flag="0">
+        <name>QYLX_FXQ</name>
+        <type>0</type>
+        <describe>企业类型[反洗钱]</describe>
+        <items>
+            <item>
+                <value>1</value>
+                <describe>国营企业</describe>
+                <code>1001</code>
+            </item>
+            <item>
+                <value>2</value>
+                <describe>合资企业</describe>
+                <code>1002</code>
+            </item>
+            <item>
+                <value>3</value>
+                <describe>外资企业</describe>
+                <code>1003</code>
+            </item>
+            <item>
+                <value>4</value>
+                <describe>私人企业</describe>
+                <code>1004</code>
+            </item>
+            <item>
+                <value>5</value>
+                <describe>民营企业</describe>
+                <code>1005</code>
+            </item>
+            <item>
+                <value>6</value>
+                <describe>其它</describe>
+                <code>1006</code>
+            </item>
+            <item>
+                <value>7</value>
+                <describe>普通合伙企业</describe>
+                <code>1007</code>
+            </item>
+            <item>
+                <value>8</value>
+                <describe>特殊普通合伙企业</describe>
+                <code>1008</code>
+            </item>
+            <item>
+                <value>9</value>
+                <describe>有限合伙企业</describe>
+                <code>1009</code>
+            </item>
+            <item>
+                <value>10</value>
+                <describe>非法人非合伙制创业投资企业</describe>
+                <code>1010</code>
+            </item>
+            <item>
+                <value>11</value>
+                <describe>境外一般机构</describe>
+                <code>1011</code>
+            </item>
+            <item>
+                <value>12</value>
+                <describe>国有企业</describe>
+                <code>1012</code>
+            </item>
+            <item>
+                <value>13</value>
+                <describe>事业单位</describe>
+                <code>1013</code>
+            </item>
+            <item>
+                <value>14</value>
+                <describe>有限责任公司</describe>
+                <code>1014</code>
+            </item>
+            <item>
+                <value>15</value>
+                <describe>股份有限公司</describe>
+                <code>1015</code>
+            </item>
+            <item>
+                <value>16</value>
+                <describe>社团法人</describe>
+                <code>1016</code>
+            </item>
+            <item>
+                <value>17</value>
+                <describe>个体工商户</describe>
+                <code>1017</code>
+            </item>
+            <item>
+                <value>18</value>
+                <describe>个人独资企业</describe>
+                <code>1018</code>
+            </item>
+            <item>
+                <value>19</value>
+                <describe>普通合伙</describe>
+                <code>1019</code>
+            </item>
+            <item>
+                <value>20</value>
+                <describe>境外基金</describe>
+                <code>1020</code>
+            </item>
+            <item>
+                <value>21</value>
+                <describe>境外证券公司</describe>
+                <code>1021</code>
+            </item>
+            <item>
+                <value>22</value>
+                <describe>境外代理人</describe>
+                <code>1022</code>
+            </item>
+            <item>
+                <value>23</value>
+                <describe>非国有企业</describe>
+                <code>1023</code>
+            </item>
+        </items>
+    </dictionary>
+    <dictionary category="反洗钱" flag="0">
+        <name>GYSX</name>
+        <type>0</type>
+        <describe>国有属性</describe>
+        <items>
+            <item>
+                <value>1</value>
+                <describe>国有</describe>
+                <code>1001</code>
+            </item>
+            <item>
+                <value>2</value>
+                <describe>非国有</describe>
+                <code>1002</code>
+            </item>
+        </items>
+    </dictionary>
+    <dictionary category="反洗钱" flag="0">
+        <name>SSSX</name>
+        <type>0</type>
+        <describe>上市属性</describe>
+        <items>
+            <item>
+                <value>1</value>
+                <describe>上市</describe>
+                <code>1001</code>
+            </item>
+            <item>
+                <value>2</value>
+                <describe>非上市</describe>
+                <code>1002</code>
+            </item>
+        </items>
+    </dictionary>
+    <dictionary category="反洗钱" flag="0">
+        <name>SYSYRPBYJ1</name>
+        <type>0</type>
+        <describe>受益所有人判别依据1</describe>
+        <items>
+            <item>
+                <value>1</value>
+                <describe>注册证书</describe>
+                <code>1001</code>
+            </item>
+            <item>
+                <value>2</value>
+                <describe>公司章程</describe>
+                <code>1002</code>
+            </item>
+            <item>
+                <value>3</value>
+                <describe>存续证明文件</describe>
+                <code>1003</code>
+            </item>
+            <item>
+                <value>4</value>
+                <describe>备忘录</describe>
+                <code>1004</code>
+            </item>
+            <item>
+                <value>5</value>
+                <describe>公开信息查询</describe>
+                <code>1005</code>
+            </item>
+            <item>
+                <value>6</value>
+                <describe>其他</describe>
+                <code>1006</code>
+            </item>
+        </items>
+    </dictionary>
+    <dictionary category="反洗钱" flag="0">
+        <name>PDSYSYRFS1</name>
+        <type>0</type>
+        <describe>判定受益所有人方式1</describe>
+        <items>
+            <item>
+                <value>1</value>
+                <describe>股权或表决权</describe>
+                <code>1001</code>
+            </item>
+            <item>
+                <value>2</value>
+                <describe>人事、财务控制</describe>
+                <code>1002</code>
+            </item>
+            <item>
+                <value>3</value>
+                <describe>高级管理人</describe>
+                <code>1003</code>
+            </item>
+            <item>
+                <value>4</value>
+                <describe>其他</describe>
+                <code>1004</code>
+            </item>
+        </items>
+    </dictionary>
+    <dictionary category="反洗钱" flag="0">
+        <name>SYSYRPBYJ2</name>
+        <type>0</type>
+        <describe>受益所有人判别依据2</describe>
+        <items>
+            <item>
+                <value>1</value>
+                <describe>注册证书</describe>
+                <code>1001</code>
+            </item>
+            <item>
+                <value>2</value>
+                <describe>合伙协议</describe>
+                <code>1002</code>
+            </item>
+            <item>
+                <value>3</value>
+                <describe>存续证明文件</describe>
+                <code>1003</code>
+            </item>
+            <item>
+                <value>4</value>
+                <describe>备忘录</describe>
+                <code>1004</code>
+            </item>
+            <item>
+                <value>5</value>
+                <describe>公开信息查询</describe>
+                <code>1005</code>
+            </item>
+            <item>
+                <value>6</value>
+                <describe>其他</describe>
+                <code>1006</code>
+            </item>
+        </items>
+    </dictionary>
+    <dictionary category="反洗钱" flag="0">
+        <name>PDSYSYRFS2</name>
+        <type>0</type>
+        <describe>判定受益所有人方式2</describe>
+        <items>
+            <item>
+                <value>1</value>
+                <describe>股权或表决权（合伙权益占比）</describe>
+                <code>1001</code>
+            </item>
+            <item>
+                <value>2</value>
+                <describe>其他（普通合伙人或合伙事务执行人）</describe>
+                <code>1002</code>
+            </item>
+        </items>
+    </dictionary>
+    <dictionary category="反洗钱" flag="0">
+        <name>SYSYRPBYJ3</name>
+        <type>0</type>
+        <describe>受益所有人判别依据3</describe>
+        <items>
+            <item>
+                <value>1</value>
+                <describe>注册证书</describe>
+                <code>1001</code>
+            </item>
+            <item>
+                <value>2</value>
+                <describe>信托协议</describe>
+                <code>1002</code>
+            </item>
+            <item>
+                <value>3</value>
+                <describe>存续证明文件</describe>
+                <code>1003</code>
+            </item>
+            <item>
+                <value>4</value>
+                <describe>备忘录</describe>
+                <code>1004</code>
+            </item>
+            <item>
+                <value>5</value>
+                <describe>公开信息查询</describe>
+                <code>1005</code>
+            </item>
+            <item>
+                <value>6</value>
+                <describe>其他</describe>
+                <code>1006</code>
+            </item>
+        </items>
+    </dictionary>
+    <dictionary category="反洗钱" flag="0">
+        <name>PDSYSYRFS3</name>
+        <type>0</type>
+        <describe>判定受益所有人方式3</describe>
+        <items>
+            <item>
+                <value>1</value>
+                <describe>其他（委托人、受托人、受益人以及其他对信托实施最终有效控制的自然人）</describe>
+                <code>1001</code>
+            </item>
+        </items>
+    </dictionary>
+    <dictionary category="反洗钱" flag="0">
+        <name>SYSYRPBYJ4</name>
+        <type>0</type>
+        <describe>受益所有人判别依据4</describe>
+        <items>
+            <item>
+                <value>1</value>
+                <describe>协议或登记信息名录</describe>
+                <code>1001</code>
+            </item>
+            <item>
+                <value>2</value>
+                <describe>公开信息查询</describe>
+                <code>1002</code>
+            </item>
+            <item>
+                <value>3</value>
+                <describe>其他</describe>
+                <code>1003</code>
+            </item>
+        </items>
+    </dictionary>
+    <dictionary category="反洗钱" flag="0">
+        <name>PDSYSYRFS4</name>
+        <type>0</type>
+        <describe>判定受益所有人方式4</describe>
+        <items>
+            <item>
+                <value>1</value>
+                <describe>股权或表决权（权益份额）</describe>
+                <code>1001</code>
+            </item>
+            <item>
+                <value>2</value>
+                <describe>其他（基金经理或者直接操作管理基金的自然人）</describe>
+                <code>1002</code>
+            </item>
+        </items>
+    </dictionary>
+    <dictionary category="反洗钱" flag="0">
+        <name>SYSYRPBYJ5</name>
+        <type>0</type>
+        <describe>受益所有人判别依据5</describe>
+        <items>
+            <item>
+                <value>1</value>
+                <describe>注册证书</describe>
+                <code>1001</code>
+            </item>
+            <item>
+                <value>2</value>
+                <describe>公司章程</describe>
+                <code>1002</code>
+            </item>
+            <item>
+                <value>3</value>
+                <describe>存续证明文件</describe>
+                <code>1003</code>
+            </item>
+            <item>
+                <value>4</value>
+                <describe>备忘录</describe>
+                <code>1004</code>
+            </item>
+            <item>
+                <value>5</value>
+                <describe>公开信息查询</describe>
+                <code>1005</code>
+            </item>
+            <item>
+                <value>6</value>
+                <describe>其他</describe>
+                <code>1006</code>
+            </item>
+        </items>
+    </dictionary>
+    <dictionary category="反洗钱" flag="0">
+        <name>PDSYSYRFS5</name>
+        <type>0</type>
+        <describe>判定受益所有人方式5</describe>
+        <items>
+            <item>
+                <value>1</value>
+                <describe>人事、财务控制（法定代表人或者实际控制人）</describe>
+                <code>1001</code>
+            </item>
+        </items>
+    </dictionary>
+    <dictionary category="反洗钱" flag="0">
+        <name>SYSYRPBYJ6</name>
+        <type>0</type>
+        <describe>受益所有人判别依据6</describe>
+        <items>
+            <item>
+                <value>1</value>
+                <describe>注册证书</describe>
+                <code>1001</code>
+            </item>
+            <item>
+                <value>2</value>
+                <describe>公司章程</describe>
+                <code>1002</code>
+            </item>
+            <item>
+                <value>3</value>
+                <describe>存续证明文件</describe>
+                <code>1003</code>
+            </item>
+            <item>
+                <value>4</value>
+                <describe>备忘录</describe>
+                <code>1004</code>
+            </item>
+            <item>
+                <value>5</value>
+                <describe>公开信息查询</describe>
+                <code>1005</code>
+            </item>
+            <item>
+                <value>6</value>
+                <describe>其他</describe>
+                <code>1006</code>
+            </item>
+        </items>
+    </dictionary>
+    <dictionary category="反洗钱" flag="0">
+        <name>PDSYSYRFS6</name>
+        <type>0</type>
+        <describe>判定受益所有人方式6</describe>
+        <items>
+            <item>
+                <value>1</value>
+                <describe>人事、财务控制（法定代表人或者实际控制人）</describe>
+                <code>1001</code>
+            </item>
+        </items>
+    </dictionary>
+    <dictionary category="反洗钱" flag="0">
+        <name>ZCGJ</name>
+        <type>0</type>
+        <describe>注册国家</describe>
+        <items>
+            <item>
+                <value>1</value>
+                <describe>中国</describe>
+                <code>1001</code>
+            </item>
+            <item>
+                <value>2</value>
+                <describe>国外</describe>
+                <code>1002</code>
+            </item>
+        </items>
+    </dictionary>
+    <dictionary category="反洗钱" flag="0">
+        <name>SPZT</name>
+        <type>0</type>
+        <describe>审批状态</describe>
+        <items>
+            <item>
+                <value>1</value>
+                <describe>待审核</describe>
+                <code>1001</code>
+            </item>
+            <item>
+                <value>2</value>
+                <describe>审核通过</describe>
+                <code>1002</code>
+            </item>
+            <item>
+                <value>3</value>
+                <describe>审核不通过</describe>
+                <code>1003</code>
+            </item>
+        </items>
+    </dictionary>
+    <dictionary category="反洗钱" flag="0">
+        <name>SBZT</name>
+        <type>0</type>
+        <describe>识别状态</describe>
+        <items>
+            <item>
+                <value>1</value>
+                <describe>初次识别</describe>
+                <code>1001</code>
+            </item>
+            <item>
+                <value>2</value>
+                <describe>定期审核</describe>
+                <code>1002</code>
+            </item>
+            <item>
+                <value>3</value>
+                <describe>重新识别</describe>
+                <code>1003</code>
+            </item>
+        </items>
+    </dictionary>
+    <dictionary category="反洗钱" flag="0">
+        <name>HMD_FXQ</name>
+        <type>0</type>
+        <describe>黑名单[反洗钱]</describe>
+        <items>
+            <item>
+                <value>0</value>
+                <describe>精准命中</describe>
+                <code>1000</code>
+            </item>
+            <item>
+                <value>1</value>
+                <describe>带甄别</describe>
+                <code>1001</code>
+            </item>
+            <item>
+                <value>2</value>
+                <describe>未命中</describe>
+                <code>1002</code>
+            </item>
+        </items>
+    </dictionary>
+    <dictionary category="反洗钱" flag="0">
+        <name>WFHTJ</name>
+        <type>0</type>
+        <describe>无符合条件</describe>
+        <items>
+            <item>
+                <value>1</value>
+                <describe>无符合</describe>
+                <code>1001</code>
             </item>
         </items>
     </dictionary>

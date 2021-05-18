@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="GB2312"?>
+<?xml version="1.0" encoding="gb2312"?>
 <process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_GS_KJZBCZYW_OperateInitialize_UI" object="lcIB_GS_KJZBCZYW" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
   <describe>界面初始化界面事件</describe>
   <variables>
@@ -16,7 +16,7 @@ O_MASTER.InstID==null ||O_MASTER.InstID&lt;0</arg>
       <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
         <describe>数据库组件_SQL查询</describe>
         <arg name="TranType">sql</arg>
-        <arg name="SQL">["SELECT ID,wdlxm,tjsx,XM360ZS,SFYY FROM tIB_WDLXPZ WHERE lcbd='lcIB_GS_KJZBCZYW' ORDER by tjsx",[]]</arg>
+        <arg name="SQL">["SELECT ID,wdlxm,tjsx,XM360ZS,SFYY,SFBT,1 AS SFSY FROM tIB_WDLXPZ WHERE lcbd='lcIB_GS_KJZBCZYW' ORDER by tjsx",[]]</arg>
         <arg name="datasource">ECIF</arg>
         <arg name="@retResultSet" type="output">V_FJXX</arg>
       </invoke>
@@ -31,6 +31,8 @@ O_MASTER.InstID==null ||O_MASTER.InstID&lt;0</arg>
         <arg flag="field" name="FJLX">ID</arg>
         <arg flag="field" name="SF360XS">XM360ZS</arg>
         <arg flag="field" name="SFYY">SFYY</arg>
+        <arg flag="field" name="SFBT">SFBT</arg>
+        <arg flag="field" name="SFSY">SFSY</arg>
       </invoke>
       <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
         <describe>界面处理_更新值</describe>

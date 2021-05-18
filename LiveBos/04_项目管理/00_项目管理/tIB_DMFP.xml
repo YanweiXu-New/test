@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="GB2312" standalone="no"?>
-<object create-date="2020.08.27 09:56:47" creator="开发者" flag="0" name="tIB_DMFP" object-id="91793f37-053e-450e-828c-b85167044057" package="04_项目管理.00_项目管理" type="0" version="1.0">
+<object create-date="2020.08.27 09:56:47" creator="开发者" flag="0" modifier="null" modify-date="null" name="tIB_DMFP" object-id="91793f37-053e-450e-828c-b85167044057" package="04_项目管理.00_项目管理" type="0" version="1.0">
     <describe>代码分配</describe>
+    <comment/>
     <datasource-name>ECIF</datasource-name>
+    <parent/>
     <attribute>264</attribute>
+    <templet>默认</templet>
     <columns>
         <column>
             <name>ID</name>
@@ -17,12 +20,22 @@
             <unique>false</unique>
             <enabled>false</enabled>
             <visible>false</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>ZT</name>
@@ -38,14 +51,21 @@
             <enabled>false</enabled>
             <visible>false</visible>
             <option/>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
             <comment>区分可用代码与不可用代码</comment>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>DMMC</name>
@@ -57,16 +77,25 @@
             <control>1</control>
             <primary-property>0</primary-property>
             <nullable>true</nullable>
-            <unique>false</unique>
+            <unique>true</unique>
             <enabled>true</enabled>
             <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
             <attribute>2</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
             <comment>项目名称</comment>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>DMLX</name>
@@ -82,14 +111,21 @@
             <enabled>true</enabled>
             <visible>true</visible>
             <option>0|再融资;1|财务顾问</option>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>ZS</name>
@@ -105,14 +141,51 @@
             <enabled>true</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category/>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
             <comment>可选代码控制</comment>
+            <validation/>
+            <scope-permissions/>
+        </column>
+        <column>
+            <name>XMMC</name>
+            <describe>项目名称</describe>
+            <type>6</type>
+            <biz-type>500</biz-type>
+            <length>16</length>
+            <scale>0</scale>
+            <control>10</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object>tIB_XMXX</ref-object>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>SYSJ</name>
@@ -128,22 +201,28 @@
             <enabled>true</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>不可用代码</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
             <comment>项目创建时间</comment>
-            <properties/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>GSMC</name>
             <describe>公司名称</describe>
             <type>6</type>
             <biz-type>500</biz-type>
-            <length>0</length>
+            <length>16</length>
             <scale>0</scale>
             <control>10</control>
             <primary-property>0</primary-property>
@@ -152,14 +231,21 @@
             <enabled>true</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object>tIB_KHXX</ref-object>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>不可用代码</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>YWLX</name>
@@ -174,19 +260,29 @@
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>不可用代码</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>XGR</name>
             <describe>修改人</describe>
             <type>6</type>
             <biz-type>500</biz-type>
-            <length>0</length>
+            <length>12</length>
             <scale>0</scale>
             <control>10</control>
             <primary-property>0</primary-property>
@@ -195,39 +291,51 @@
             <enabled>true</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object>vUser_ZC</ref-object>
             <default>$Login.User</default>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>可用代码</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
         <column>
             <name>XGSJ</name>
             <describe>修改时间</describe>
             <type>3</type>
-            <biz-type>300</biz-type>
-            <length>8</length>
+            <biz-type>301</biz-type>
+            <length>12</length>
             <scale>0</scale>
-            <control>3</control>
+            <control>37</control>
             <primary-property>0</primary-property>
             <nullable>true</nullable>
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
             <option/>
+            <meta-column/>
             <ref-object/>
             <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression/>
+            <disable-expression/>
             <category>可用代码</category>
             <fire-event>0</fire-event>
             <check-type>0</check-type>
             <real-type>0</real-type>
-            <properties/>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
         </column>
     </columns>
     <display-options>
@@ -237,6 +345,26 @@
                 <define>
                     <item>tIB_DMFP</item>
                     <item>Add</item>
+                </define>
+                <is-default>2</is-default>
+                <attribute>0</attribute>
+                <icon-cls/>
+                <tip/>
+            </command>
+            <command type="2">
+                <describe>导入</describe>
+                <define>
+                    <item>tIB_DMFP</item>
+                    <item>LoadExcel</item>
+                </define>
+                <is-default>0</is-default>
+                <attribute>0</attribute>
+            </command>
+            <command type="2">
+                <describe>导出</describe>
+                <define>
+                    <item>tIB_DMFP</item>
+                    <item>ToExcel</item>
                 </define>
                 <is-default>0</is-default>
                 <attribute>0</attribute>

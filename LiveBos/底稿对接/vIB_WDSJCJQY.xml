@@ -331,9 +331,84 @@ YWLX!=4</invisible-expression>
             <real-type>3</real-type>
             <properties/>
         </column>
+        <column>
+            <name>ZQXX</name>
+            <describe>债券信息</describe>
+            <type>8</type>
+            <biz-type>500</biz-type>
+            <length>0</length>
+            <scale>0</scale>
+            <control>10</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>false</enabled>
+            <visible>true</visible>
+            <option/>
+            <ref-object>tIB_XMXX_GS_ZQXX</ref-object>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>6</real-type>
+            <properties/>
+        </column>
+        <column>
+            <name>ZQDM</name>
+            <describe>债券代码</describe>
+            <type>8</type>
+            <biz-type>100</biz-type>
+            <length>100</length>
+            <scale>0</scale>
+            <control>1</control>
+            <primary-property>0</primary-property>
+            <nullable>false</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <option/>
+            <meta-column/>
+            <ref-object/>
+            <default/>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <expression/>
+            <invisible-expression>JYCS.indexOf('1')&lt;0  </invisible-expression>
+            <disable-expression/>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment/>
+            <validation/>
+            <scope-permissions/>
+            <properties/>
+        </column>
+        <column>
+            <name>TSZT</name>
+            <describe>推送状态</describe>
+            <type>8</type>
+            <biz-type>100</biz-type>
+            <length>30</length>
+            <scale>0</scale>
+            <control>1</control>
+            <primary-property>0</primary-property>
+            <nullable>true</nullable>
+            <unique>false</unique>
+            <enabled>true</enabled>
+            <visible>true</visible>
+            <attribute>0</attribute>
+            <order-direction>0</order-direction>
+            <category/>
+            <fire-event>0</fire-event>
+            <check-type>0</check-type>
+            <real-type>0</real-type>
+            <comment>1为已推送</comment>
+        </column>
     </columns>
     <restrictions>
-        <condition>{"args":[],"statement":"tIB_WDSJCJ.YWLX=1","type":0}</condition>
+        <condition>{"statement":"tIB_WDSJCJ.YWLX=1","args":[],"type":0}</condition>
     </restrictions>
     <display-options>
         <commands>
@@ -341,6 +416,15 @@ YWLX!=4</invisible-expression>
                 <describe>修改</describe>
                 <define>
                     <item>tIB_WDSJCJ_XG</item>
+                </define>
+                <is-default>0</is-default>
+                <attribute>0</attribute>
+            </command>
+            <command type="2">
+                <describe>查看</describe>
+                <define>
+                    <item>vIB_WDSJCJQY</item>
+                    <item>View</item>
                 </define>
                 <is-default>0</is-default>
                 <attribute>0</attribute>

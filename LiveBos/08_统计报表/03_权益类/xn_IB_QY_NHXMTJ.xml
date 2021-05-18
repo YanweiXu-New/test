@@ -598,6 +598,7 @@ var url='/UIProcessor?Creator=workflow&amp;Table='+NHLC+'&amp;WorkID='+ID+'&amp;
             <comment/>
             <validation/>
             <scope-permissions/>
+            <source type="0"/>
         </column>
         <column>
             <name>LCBH</name>
@@ -1432,7 +1433,7 @@ var url='/UIProcessor?Creator=workflow&amp;Table='+NHLC+'&amp;WorkID='+ID+'&amp;
             <length>300</length>
             <scale>0</scale>
             <control>16</control>
-            <primary-property>8</primary-property>
+            <primary-property>0</primary-property>
             <nullable>true</nullable>
             <unique>false</unique>
             <enabled>true</enabled>
@@ -1443,9 +1444,6 @@ var url='/UIProcessor?Creator=workflow&amp;Table='+NHLC+'&amp;WorkID='+ID+'&amp;
             <default/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
-            <expression>&lt;%@ livebos language='javascript' %&gt;
-var url='/UIProcessor?Creator=workflow&amp;Table='+SCSBQZLC+'&amp;WorkID='+SCSBQZLCID+'&amp;HideCancelBtn=true'
-'&lt;a target=_blank href='+url+'&gt;'+SCSBQZLCLJ+'&lt;/a&gt;'  </expression>
             <invisible-expression/>
             <disable-expression/>
             <category>流程发起情况</category>
@@ -1455,6 +1453,9 @@ var url='/UIProcessor?Creator=workflow&amp;Table='+SCSBQZLC+'&amp;WorkID='+SCSBQ
             <comment/>
             <validation/>
             <scope-permissions/>
+            <source type="0">
+                <column>SCSBQZLCQK</column>
+            </source>
         </column>
         <column>
             <name>CWGW_CXBJXYQK</name>
@@ -1556,13 +1557,13 @@ var url='/UIProcessor?Creator=workflow&amp;Table='+SCSBQZLC+'&amp;WorkID='+SCSBQ
             </source>
         </column>
         <column>
-            <name>SCSBQZLC</name>
-            <describe>首次申报签章流程</describe>
+            <name>NHLCBT</name>
+            <describe>内核流程标题</describe>
             <type>0</type>
             <biz-type>100</biz-type>
-            <length>30</length>
+            <length>100</length>
             <scale>0</scale>
-            <control>0</control>
+            <control>1</control>
             <primary-property>0</primary-property>
             <nullable>true</nullable>
             <unique>false</unique>
@@ -1584,173 +1585,9 @@ var url='/UIProcessor?Creator=workflow&amp;Table='+SCSBQZLC+'&amp;WorkID='+SCSBQ
             <comment/>
             <validation/>
             <scope-permissions/>
+            <properties/>
             <source type="0">
-                <column>SC_WFNAME</column>
-            </source>
-        </column>
-        <column>
-            <name>SCSBQZLCID</name>
-            <describe>首次申报签章流程ID</describe>
-            <type>0</type>
-            <biz-type>100</biz-type>
-            <length>30</length>
-            <scale>0</scale>
-            <control>0</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>false</visible>
-            <option/>
-            <meta-column/>
-            <ref-object/>
-            <default/>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category>系统参数</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-            <source type="0">
-                <column>SCLCLJ</column>
-            </source>
-        </column>
-        <column>
-            <name>SCSBQZLCLJ</name>
-            <describe>首次申报签章流程链接</describe>
-            <type>0</type>
-            <biz-type>100</biz-type>
-            <length>30</length>
-            <scale>0</scale>
-            <control>0</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>false</visible>
-            <option/>
-            <meta-column/>
-            <ref-object/>
-            <default/>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category>系统参数</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-            <source type="0">
-                <column>SCSBQZLCQK</column>
-            </source>
-        </column>
-        <column>
-            <name>CWGWCXBJLC</name>
-            <describe>财务顾问/承销保荐流程</describe>
-            <type>0</type>
-            <biz-type>100</biz-type>
-            <length>30</length>
-            <scale>0</scale>
-            <control>0</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>false</visible>
-            <option/>
-            <meta-column/>
-            <ref-object/>
-            <default/>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category>系统参数</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-            <source type="0">
-                <column>CWGWCXBJ_WFNAME</column>
-            </source>
-        </column>
-        <column>
-            <name>CWGWCXBJLCID</name>
-            <describe>财务顾问/承销保荐流程ID</describe>
-            <type>0</type>
-            <biz-type>100</biz-type>
-            <length>30</length>
-            <scale>0</scale>
-            <control>0</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>false</visible>
-            <option/>
-            <meta-column/>
-            <ref-object/>
-            <default/>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category>系统参数</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-            <source type="0">
-                <column>CWGWCXBJLCLJ</column>
-            </source>
-        </column>
-        <column>
-            <name>CWGWCXBJLCIDLJ</name>
-            <describe>财务顾问/承销保荐流程链接</describe>
-            <type>0</type>
-            <biz-type>100</biz-type>
-            <length>30</length>
-            <scale>0</scale>
-            <control>0</control>
-            <primary-property>0</primary-property>
-            <nullable>true</nullable>
-            <unique>false</unique>
-            <enabled>false</enabled>
-            <visible>false</visible>
-            <option/>
-            <meta-column/>
-            <ref-object/>
-            <default/>
-            <attribute>0</attribute>
-            <order-direction>0</order-direction>
-            <expression/>
-            <invisible-expression/>
-            <disable-expression/>
-            <category>系统参数</category>
-            <fire-event>0</fire-event>
-            <check-type>0</check-type>
-            <real-type>0</real-type>
-            <comment/>
-            <validation/>
-            <scope-permissions/>
-            <source type="0">
-                <column>CWGW_CXBJXYQK</column>
+                <column>NHLCBT</column>
             </source>
         </column>
     </columns>

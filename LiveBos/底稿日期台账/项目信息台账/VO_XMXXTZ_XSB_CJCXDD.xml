@@ -158,7 +158,7 @@
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
-            <option>1|普通立项;2|书面立项(走书面立项流程)</option>
+            <option>1|普通立项;2|书面立项</option>
             <ref-object/>
             <attribute>0</attribute>
             <order-direction>0</order-direction>
@@ -569,6 +569,15 @@
                 <is-default>0</is-default>
                 <attribute>0</attribute>
             </command>
+            <command type="2">
+                <describe>查看</describe>
+                <define>
+                    <item>VO_XMXXTZ_XSB_CJCXDD</item>
+                    <item>View</item>
+                </define>
+                <is-default>0</is-default>
+                <attribute>0</attribute>
+            </command>
         </commands>
         <relations/>
     </display-options>
@@ -600,7 +609,7 @@
                     <real-type>0</real-type>
                     <validation/>
                     <constraint type="3">
-                        <SQL>["tIB_XMXX_XSB.XMLX = 110700 AND tIB_XMXX_XSB.ID NOT IN (SELECT XMID FROM ECIF.TIB_XMXXTZ WHERE XMFL = 2)",[]]</SQL>
+                        <SQL>["tIB_XMXX_XSB.XMLX = 110700 \r\nAND tIB_XMXX_XSB.ID NOT IN (SELECT distinct XMID FROM ECIF.TIB_XMXXTZ WHERE XMFL = 2 and xmid is not null and XMLX = 110700)\r\nAND (EXISTS(SELECT 1 FROM ECIF.lcIB_LXLCB T2, JGCRM.OS_WFENTRY T3 WHERE T2.INSTID = T3.ID AND T3.STATE = 4 AND T2.XMMC = tIB_XMXX_XSB.ID)\r\n  OR EXISTS (SELECT 1 FROM ECIF.lcIB_XSB_LXSMSHLC T2,JGCRM.OS_WFENTRY T3 WHERE T2.INSTID = T3.ID AND T3.STATE = 4 AND T2.XMMC = tIB_XMXX_XSB.ID))",[]]</SQL>
                         <refColumns/>
                     </constraint>
                     <properties/>
@@ -1240,6 +1249,14 @@
         <property>
             <name>5</name>
             <value>30</value>
+        </property>
+        <property>
+            <name>63</name>
+            <value>true</value>
+        </property>
+        <property>
+            <name>68</name>
+            <value>true</value>
         </property>
     </properties>
     <orders/>

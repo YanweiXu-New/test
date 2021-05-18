@@ -10,7 +10,7 @@
     <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
       <describe>数据库组件_SQL查询</describe>
       <arg name="TranType">sql</arg>
-      <arg name="SQL">["SELECT ID,wdlxm,tjsx,XM360ZS FROM tIB_WDLXPZ WHERE lcbd='lcIB_NHLCB_DZBGCZ' AND XMLX={0} AND BZSM ='申报材料' ORDER by tjsx",[{"expression":"O_MASTER.XMLX","scale":"","length":"","type":"1"}]]</arg>
+      <arg name="SQL">["SELECT ID,wdlxm,tjsx,XM360ZS,sfbt FROM tIB_WDLXPZ WHERE lcbd='lcIB_NHLCB_DZBGCZ' AND XMLX={0} AND BZSM ='申报材料' ORDER by tjsx",[{"expression":"O_MASTER.XMLX","scale":"","length":"","type":"1"}]]</arg>
       <arg name="datasource">ECIF</arg>
       <arg name="@retResultSet" type="output">V_FJLX</arg>
     </invoke>
@@ -24,11 +24,12 @@
       <arg flag="field" name="SF360XS">XM360ZS</arg>
       <arg name="@clearRowsets">true</arg>
       <arg flag="field" name="FJLX">id</arg>
+      <arg flag="field" name="SFBT">sfbt</arg>
     </invoke>
     <invoke component="SQL" id="0" name="数据库组件_SQL查询" operation="query">
       <describe>数据库组件_SQL查询</describe>
       <arg name="TranType">sql</arg>
-      <arg name="SQL">["SELECT ID,wdlxm,tjsx,XM360ZS FROM tIB_WDLXPZ WHERE lcbd='lcIB_NHLCB_DZBGCZ' AND XMLX={0} AND BZSM ='尽职调查' ORDER by tjsx",[{"expression":"O_MASTER.XMLX","scale":"","length":"","type":"1"}]]</arg>
+      <arg name="SQL">["SELECT ID,wdlxm,tjsx,XM360ZS,sfbt FROM tIB_WDLXPZ WHERE lcbd='lcIB_NHLCB_DZBGCZ' AND XMLX={0} AND BZSM ='尽职调查' ORDER by tjsx",[{"expression":"O_MASTER.XMLX","scale":"","length":"","type":"1"}]]</arg>
       <arg name="datasource">ECIF</arg>
       <arg name="@retResultSet" type="output">V_JZDC</arg>
     </invoke>
@@ -42,6 +43,7 @@
       <arg flag="field" name="TJSX">tjsx</arg>
       <arg name="@resultSet" type="variable">V_JZDC</arg>
       <arg name="@clearRowsets">true</arg>
+      <arg flag="field" name="SFBT">sfbt</arg>
     </invoke>
   </sequence>
 </process>

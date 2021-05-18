@@ -1,36 +1,12 @@
 <?xml version="1.0" encoding="gb2312"?>
 <process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="tIB_XMXX_XZ" name="tIB_XMXX_XZ_XMLX_Param_UI" object="tIB_XMXX" type="2" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
   <describe>项目类型界面事件</describe>
-  <variables>
-    <variable describe="V_OBJ" instanceType="vIBKYDM" messageType="" name="V_OBJ" type="object" />
-  </variables>
+  <variables />
   <sequence id="0" name="顺序">
-    <if id="0">
-      <describe>判断</describe>
-      <conditions>
-        <condition name="" type="expression">
-          <arg name="expression">ABS_SQLVALUE('SELECT ECIF.FUNC_XMLXJY(?) FROM DUAL',[O_PARAMETER.XMLX])&gt;0</arg>
-        </condition>
-      </conditions>
-      <sequence id="0" name="顺序">
-        <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
-          <describe>界面处理_更新值</describe>
-          <arg flag="field" name="SFCDMKZXQ" type="expression">-1</arg>
-        </invoke>
-        <invoke component="FormUI" id="0" name="界面处理_更改控件" operation="changeControl">
-          <describe>界面处理_更改控件</describe>
-          <arg flag="field" name="SFCDMKZXQ">5</arg>
-        </invoke>
-      </sequence>
-      <else>
-        <describe>Else</describe>
-        <invoke component="FormUI" id="0" name="界面处理_更改控件" operation="changeControl">
-          <describe>界面处理_更改控件</describe>
-          <arg flag="field" name="SFCDMKZXQ">0</arg>
-          <arg flag="field" name="KXDM">0</arg>
-        </invoke>
-      </else>
-    </if>
+    <invoke component="FormUI" id="0" name="界面处理_刷新字段可选项" operation="resetOption">
+      <describe>界面处理_刷新字段可选项</describe>
+      <arg flag="field" name="KXDM" type="">true</arg>
+    </invoke>
   </sequence>
 </process>
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="GB2312"?>
+<?xml version="1.0" encoding="gb2312"?>
 <process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_QTCXDDXGBGSPB_XMMC_UI" object="lcIB_QTCXDDXGBGSPB" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
   <describe>项目名称界面事件</describe>
   <variables />
@@ -26,8 +26,7 @@ O_MASTER.XMMC.BHRQ</arg>
       <arg flag="field" name="FXRQ" type="expression">O_MASTER.XMMC.FXRQ</arg>
       <arg flag="field" name="SSRQ" type="expression">O_MASTER.XMMC.SSRQ</arg>
       <arg flag="field" name="LSBL" type="expression">O_MASTER.LSBL+1</arg>
-      <arg flag="field" name="GPDM" type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
-ABS_SQLVALUE('SELECT GPDM FROM ECIF.tIB_KHXX WHERE ID = ?',[O_MASTER.XMMC.SSKH])</arg>
+      <arg flag="field" name="GPDM" type="expression">ABS_SQLVALUE('SELECT GPDM FROM ECIF.TIB_KHXX WHERE ID = ?',[O_MASTER.XMMC.SSKH])</arg>
     </invoke>
     <if id="0">
       <describe>判断</describe>

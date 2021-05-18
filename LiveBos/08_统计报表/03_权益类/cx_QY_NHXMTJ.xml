@@ -232,7 +232,7 @@
             <unique>false</unique>
             <enabled>true</enabled>
             <visible>true</visible>
-            <option>1|流转中;3|已终止;4|已完成</option>
+            <option>1|流转中;4|已完成</option>
             <meta-column/>
             <ref-object/>
             <default>null</default>
@@ -252,7 +252,7 @@
     </parameters>
     <columns/>
     <query>
-        <sql>{"statement":"CALL PCX_IB_QY_NHXMTJ(?,{0},{1},{2},{3},{4},{5},{6},{7},{8})","args":[{"expression":"$Login.User","scale":0,"length":0,"type":1},{"expression":"parameter.I_NHHYRQQJ","scale":0,"length":10,"type":13},{"expression":"parameter.I_NHHYRQQJ_JS","scale":0,"length":10,"type":13},{"expression":"parameter.I_XMMC","scale":0,"length":0,"type":1},{"expression":"parameter.I_XMLX","scale":0,"length":0,"type":1},{"expression":"parameter.I_SSBM","scale":0,"length":0,"type":1},{"expression":"parameter.I_SSHY","scale":0,"length":0,"type":1},{"expression":"parameter.I_NHHYJG","scale":0,"length":0,"type":1},{"expression":"parameter.I_LCZT","scale":0,"length":0,"type":1}],"type":0}</sql>
+        <sql>{"statement":"CALL PCX_IB_QY_LXNHXMTJ(?,2,{0},{1},{2},{3},{4},{5},{6},{7},{8})","args":[{"expression":"$Login.User","scale":0,"length":0,"type":1},{"expression":"parameter.I_NHHYRQQJ","scale":0,"length":10,"type":13},{"expression":"parameter.I_NHHYRQQJ_JS","scale":0,"length":10,"type":13},{"expression":"parameter.I_XMMC","scale":0,"length":0,"type":1},{"expression":"parameter.I_XMLX","scale":0,"length":0,"type":1},{"expression":"parameter.I_SSBM","scale":0,"length":0,"type":1},{"expression":"parameter.I_SSHY","scale":0,"length":0,"type":1},{"expression":"parameter.I_NHHYJG","scale":0,"length":0,"type":1},{"expression":"parameter.I_LCZT","scale":0,"length":0,"type":1}],"type":0}</sql>
         <sql-type>1</sql-type>
         <datasource-name>ECIF</datasource-name>
         <result-option>

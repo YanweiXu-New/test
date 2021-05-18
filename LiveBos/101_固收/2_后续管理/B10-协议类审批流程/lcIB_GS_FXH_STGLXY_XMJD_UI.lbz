@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="gb2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" name="lcIB_GS_FXH_STGLXY_XMJD_UI" object="lcIB_GS_FXH_STGLXY" type="1" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>项目阶段界面事件</describe>
+  <variables />
+  <sequence id="0" name="顺序">
+    <invoke component="FormUI" id="0" name="界面处理_更新值" operation="setValue">
+      <describe>界面处理_更新值</describe>
+      <arg flag="field" name="YWLX" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_IF(O_MASTER.XMJD == 1,2,3)</arg>
+      <arg flag="field" name="GLXMID" type="expression">&lt;%@ livebos language='javascript' %&gt;
+ABS_IF(O_MASTER.XMJD==1,O_MASTER.XMMC,ABS_SQLVALUE("SELECT id FROM ecif.tIB_XMXX_GS_ZQXX where xmmc_gs = ?",[O_MASTER.XMMC_HXGL]))</arg>
+    </invoke>
+  </sequence>
+</process>
+

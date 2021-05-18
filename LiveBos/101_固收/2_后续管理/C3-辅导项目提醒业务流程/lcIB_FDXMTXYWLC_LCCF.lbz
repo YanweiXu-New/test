@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="GB2312"?>
+<process xmlns="http://www.livebos.com/bizlogic/process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attribute="0" exitOnStandardFault="false" isHorizontalLayout="false" method="lcIB_FDXMTXYWLC_LCCF" name="lcIB_FDXMTXYWLC_LCCF" object="lcIB_FDXMTXYWLC" type="0" xsi:schemaLocation="http://www.livebos.com/bizlogic/process http://www.livebos.com/bizlogic_process.xsd">
+  <describe>辅导项目提醒业务流程-流程触发流程</describe>
+  <variables>
+    <variable describe="V_ID" messageType="" name="V_ID" type="int" />
+  </variables>
+  <sequence id="0" name="顺序">
+    <assign id="0">
+      <describe>赋值</describe>
+      <copy>
+        <from type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+ABS_SQLVALUE("SELECT MAX(ID) FROM ECIF.lcIB_FDXMTXYWLC where CFLCID = ?",[O_PARAMETER.CFLCID])</from>
+        <to variable="V_ID" />
+      </copy>
+    </assign>
+    <if id="0">
+      <describe>判断</describe>
+      <conditions>
+        <condition name="" type="expression">
+          <arg name="expression">ABS_NULLSUB(V_ID,0)&gt;0</arg>
+        </condition>
+      </conditions>
+      <invoke component="Workflow" id="0" name="工作流组件_执行动作" operation="doAction">
+        <describe>工作流组件_执行动作</describe>
+        <arg name="@objectName">lcIB_FDXMTXYWLC</arg>
+        <arg name="@ID" type="variable">V_ID</arg>
+        <arg name="actionID">0</arg>
+        <arg name="user" type="expression">&lt;%@ livebos language='javascript' %&gt;&#xD;
+ABS_SQLVALUE("SELECT SQR FROM ECIF.lcIB_FDXMTXYWLC WHERE ID = ?",[V_ID])</arg>
+      </invoke>
+    </if>
+  </sequence>
+</process>
+
